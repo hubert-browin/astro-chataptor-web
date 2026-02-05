@@ -1,0 +1,1225 @@
+---
+import { locales, type Locale } from '../../i18n/config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const currentYear = new Date().getFullYear();
+
+// Page translations
+const t = {
+  pl: {
+    title: 'Regulamin Serwisu',
+    description: 'Regulamin korzystania z platformy Chataptor',
+    backLink: 'Strona główna',
+    tocTitle: 'Spis treści',
+    lastUpdate: 'Ostatnia aktualizacja: 29 stycznia 2026',
+    introTitle: 'Zasady korzystania z platformy Chataptor',
+    introText: 'Niniejszy Regulamin określa zasady korzystania z platformy Chataptor. Korzystając z naszych usług, akceptujesz poniższe warunki.',
+    needHelp: 'Potrzebujesz pomocy?',
+    privacyLink: 'Polityka Prywatności',
+    footerDesc: 'Brama na świat dla Twojego e-commerce. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
+    contact: 'Kontakt',
+    legal: 'Legal',
+    privacy: 'Polityka prywatności',
+    terms: 'Regulamin',
+    copyright: 'Wszystkie prawa zastrzeżone.',
+  },
+  en: {
+    title: 'Terms of Service',
+    description: 'Terms of use for the Chataptor platform',
+    backLink: 'Home',
+    tocTitle: 'Table of Contents',
+    lastUpdate: 'Last updated: January 29, 2026',
+    introTitle: 'Rules for using the Chataptor platform',
+    introText: 'These Terms of Service govern your use of the Chataptor platform. By using our services, you accept these terms.',
+    needHelp: 'Need help?',
+    privacyLink: 'Privacy Policy',
+    footerDesc: 'Your gateway to the world for e-commerce. Breaking language barriers by combining AI with human empathy.',
+    contact: 'Contact',
+    legal: 'Legal',
+    privacy: 'Privacy Policy',
+    terms: 'Terms of Service',
+    copyright: 'All rights reserved.',
+  },
+}[lang] || {
+  title: 'Terms of Service',
+  description: 'Terms of use for the Chataptor platform',
+  backLink: 'Home',
+  tocTitle: 'Table of Contents',
+  lastUpdate: 'Last updated: January 29, 2026',
+  introTitle: 'Rules for using the Chataptor platform',
+  introText: 'These Terms of Service govern your use of the Chataptor platform. By using our services, you accept these terms.',
+  needHelp: 'Need help?',
+  privacyLink: 'Privacy Policy',
+  footerDesc: 'Your gateway to the world for e-commerce. Breaking language barriers by combining AI with human empathy.',
+  contact: 'Contact',
+  legal: 'Legal',
+  privacy: 'Privacy Policy',
+  terms: 'Terms of Service',
+  copyright: 'All rights reserved.',
+};
+
+// Only Polish has full content
+const isPolish = lang === 'pl';
+
+// TOC sections
+const tocSections = [
+  { number: '1', title: 'Definicje' },
+  { number: '2', title: 'Postanowienia ogólne' },
+  { number: '3', title: 'Rejestracja i Konto' },
+  { number: '4', title: 'Zakres Usług' },
+  { number: '5', title: 'Opłaty i płatności' },
+  { number: '6', title: 'Obowiązki Użytkownika' },
+  { number: '7', title: 'Odpowiedzialność' },
+  { number: '8', title: 'Własność intelektualna' },
+  { number: '9', title: 'Ochrona danych' },
+  { number: '10', title: 'Rozwiązanie umowy' },
+  { number: '11', title: 'Reklamacje' },
+  { number: '12', title: 'Rozwiązywanie sporów' },
+  { number: '13', title: 'Postanowienia końcowe' },
+  { number: '14', title: 'Kontakt' },
+];
+---
+
+<BaseLayout
+  title={`${t.title} - Chataptor`}
+  description={t.description}
+  lang={lang}
+  slug="terms"
+  hideHeader={true}
+  hideFooter={true}
+>
+  {isPolish ? (
+    <main class="min-h-screen bg-white">
+      <!-- HEADER -->
+      <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-zinc-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a href={`/${lang}/`} class="flex items-center gap-2">
+            <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-6 md:h-7 object-contain opacity-90" />
+          </a>
+          <a
+            href={`/${lang}/`}
+            class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors flex items-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            {t.backLink}
+          </a>
+        </div>
+      </header>
+
+      <!-- MOBILE TOC TOGGLE -->
+      <div class="lg:hidden sticky top-[57px] z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-100">
+        <button
+          id="mobile-toc-toggle"
+          class="w-full px-6 py-3 flex items-center justify-between text-sm font-medium text-zinc-700 hover:bg-zinc-50 transition-colors"
+        >
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+            {t.tocTitle}
+          </span>
+          <svg id="toc-chevron" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Mobile TOC Dropdown -->
+        <div id="mobile-toc" class="hidden">
+          <nav class="px-6 py-4 bg-zinc-50 border-b border-zinc-100 max-h-[60vh] overflow-y-auto">
+            <ul class="space-y-2">
+              {tocSections.map((section) => (
+                <li>
+                  <a
+                    href={`#section-${section.number}`}
+                    class="mobile-toc-link flex items-center gap-3 py-2 text-sm text-zinc-700 hover:text-emerald-700 transition-colors"
+                  >
+                    <span class="w-6 h-6 bg-emerald-100 rounded-md flex items-center justify-center text-xs font-bold text-emerald-700">
+                      {section.number}
+                    </span>
+                    {section.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- CONTENT WITH SIDEBAR -->
+      <div class="max-w-7xl mx-auto px-6 py-8 md:py-16 lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
+        <!-- DESKTOP SIDEBAR TOC -->
+        <aside class="hidden lg:block">
+          <div class="sticky top-24">
+            <div class="bg-white rounded-2xl ring-1 ring-zinc-900/5 shadow-sm p-6">
+              <h3 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4">{t.tocTitle}</h3>
+              <nav>
+                <ul class="space-y-1">
+                  {tocSections.map((section) => (
+                    <li>
+                      <a
+                        href={`#section-${section.number}`}
+                        class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 transition-colors"
+                      >
+                        <span class="w-5 h-5 bg-zinc-100 group-hover:bg-emerald-100 rounded flex items-center justify-center text-[10px] font-bold text-zinc-500 group-hover:text-emerald-700 transition-colors">
+                          {section.number}
+                        </span>
+                        <span class="truncate">{section.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="mt-6 p-4 bg-emerald-50 rounded-xl ring-1 ring-emerald-200/50">
+              <p class="text-xs font-semibold text-emerald-800 mb-2">{t.needHelp}</p>
+              <a href="mailto:support@browin.pl" class="text-sm text-emerald-700 hover:text-emerald-900 font-medium flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                support@browin.pl
+              </a>
+            </div>
+
+            <!-- Related Link -->
+            <div class="mt-4 p-4 bg-zinc-50 rounded-xl ring-1 ring-zinc-200">
+              <a href={`/${lang}/privacy`} class="text-sm text-zinc-700 hover:text-zinc-900 font-medium flex items-center gap-2">
+                <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                {t.privacyLink}
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="max-w-3xl">
+          <!-- Header -->
+          <div class="mb-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+              <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Warunki korzystania
+            </div>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight mb-4">{t.title}</h1>
+            <p class="text-zinc-500 text-base md:text-lg">{t.lastUpdate}</p>
+          </div>
+
+          <!-- Intro Card -->
+          <div class="bg-gradient-to-br from-emerald-50 to-emerald-50 ring-1 ring-emerald-200/50 rounded-2xl p-6 mb-12">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <p class="text-emerald-900 font-medium mb-1">{t.introTitle}</p>
+                <p class="text-emerald-800/80 text-sm leading-relaxed">{t.introText}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sections -->
+          <div class="space-y-12">
+            <!-- Section 1: Definicje -->
+            <section id="section-1" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">1</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Definicje</h2>
+              </div>
+              <div class="pl-0 md:pl-14">
+                <p class="text-zinc-600 leading-relaxed mb-6">W niniejszym Regulaminie stosuje się następujące definicje:</p>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 overflow-hidden">
+                  <dl class="divide-y divide-zinc-100">
+                    <div class="px-5 py-4">
+                      <dt class="font-semibold text-zinc-900 mb-1">Usługodawca</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">BROWIN Spółka z ograniczoną odpowiedzialnością Spółka komandytowa z siedzibą w Łodzi (93-373), ul. Pryncypalna 129/141, NIP: 729-268-73-25, REGON: 101003641, KRS: 0000459418</dd>
+                    </div>
+                    <div class="px-5 py-4">
+                      <dt class="font-semibold text-zinc-900 mb-1">Serwis / Platforma</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">Platforma Chataptor dostępna pod adresem chataptor.com</dd>
+                    </div>
+                    <div class="px-5 py-4">
+                      <dt class="font-semibold text-zinc-900 mb-1">Użytkownik</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">Osoba fizyczna, osoba prawna lub jednostka organizacyjna korzystająca z Serwisu</dd>
+                    </div>
+                    <div class="px-5 py-4">
+                      <dt class="font-semibold text-zinc-900 mb-1">Konto</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">Indywidualne konto Użytkownika w Serwisie</dd>
+                    </div>
+                    <div class="px-5 py-4">
+                      <dt class="font-semibold text-zinc-900 mb-1">Usługi</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">Funkcjonalności udostępniane przez Serwis, w tym obsługa czatu, tłumaczenie wiadomości, integracje</dd>
+                    </div>
+                    <div class="px-5 py-4">
+                      <dt class="font-semibold text-zinc-900 mb-1">Widget</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">Komponent czatu do osadzenia na stronie internetowej Użytkownika</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 2: Postanowienia ogólne -->
+            <section id="section-2" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">2</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Postanowienia ogólne</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Regulamin określa zasady świadczenia usług drogą elektroniczną przez Usługodawcę.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Korzystanie z Serwisu oznacza akceptację niniejszego Regulaminu oraz <a href={`/${lang}/privacy`} class="text-emerald-600 font-medium hover:underline">Polityki Prywatności</a>.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Usługodawca świadczy usługi zgodnie z obowiązującymi przepisami prawa polskiego i unijnego.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">4</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Serwis jest przeznaczony dla przedsiębiorców (B2B) oraz konsumentów.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 3: Rejestracja i Konto -->
+            <section id="section-3" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">3</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Rejestracja i Konto</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Korzystanie z pełnej funkcjonalności Serwisu wymaga założenia Konta.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      <span>Rejestracja jest bezpłatna i wymaga podania:</span>
+                      <ul class="mt-3 space-y-2 ml-4">
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Adresu e-mail
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Hasła
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Nazwy organizacji (opcjonalnie)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Użytkownik może również zarejestrować się za pomocą konta Google (OAuth).
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">4</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      <span>Użytkownik zobowiązuje się do:</span>
+                      <ul class="mt-3 space-y-2 ml-4">
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Podania prawdziwych danych
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Zachowania poufności danych logowania
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Niezwłocznego informowania o nieautoryzowanym dostępie do Konta
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">5</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Usługodawca może odmówić rejestracji lub zablokować Konto w przypadku naruszenia Regulaminu.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 4: Zakres Usług -->
+            <section id="section-4" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">4</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Zakres Usług</h2>
+              </div>
+              <div class="pl-0 md:pl-14">
+                <p class="text-zinc-600 leading-relaxed mb-6">Platforma Chataptor oferuje następujące funkcjonalności:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+                      <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Live Chat</h4>
+                    <p class="text-sm text-zinc-600">Komunikacja w czasie rzeczywistym z klientami poprzez widget na stronie</p>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+                      <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Tłumaczenie AI</h4>
+                    <p class="text-sm text-zinc-600">Automatyczne tłumaczenie wiadomości między wieloma językami</p>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+                      <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Panel Agenta</h4>
+                    <p class="text-sm text-zinc-600">Centralny interfejs do zarządzania wszystkimi konwersacjami</p>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+                      <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Integracje</h4>
+                    <p class="text-sm text-zinc-600">Połączenie z e-mailem, Messengerem, WhatsApp i innymi kanałami</p>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">1</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        Dostępność poszczególnych funkcjonalności może zależeć od wybranego planu taryfowego.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">2</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        Usługodawca zastrzega sobie prawo do modyfikacji zakresu Usług z zachowaniem 30-dniowego okresu wypowiedzenia.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">3</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        Usługodawca dokłada starań, aby Serwis działał nieprzerwanie, jednak nie gwarantuje 100% dostępności.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 5: Opłaty i płatności -->
+            <section id="section-5" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">5</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Opłaty i płatności</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Serwis oferuje darmowy plan z ograniczoną funkcjonalnością oraz płatne plany subskrypcyjne.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Szczegółowy cennik dostępny jest na stronie <a href="https://chataptor.com/pricing" class="text-emerald-600 font-medium hover:underline">chataptor.com/pricing</a>.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Płatności realizowane są z góry za okres rozliczeniowy (miesiąc lub rok).
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">4</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Faktury VAT wystawiane są automatycznie i przesyłane na adres e-mail Użytkownika.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">5</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      W przypadku opóźnienia w płatności Usługodawca może zawiesić dostęp do płatnych funkcjonalności.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">6</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Zwroty realizowane są zgodnie z obowiązującymi przepisami prawa konsumenckiego.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 6: Obowiązki Użytkownika -->
+            <section id="section-6" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">6</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Obowiązki Użytkownika</h2>
+              </div>
+              <div class="pl-0 md:pl-14">
+                <p class="text-zinc-600 leading-relaxed mb-6">Użytkownik zobowiązuje się do:</p>
+                <div class="space-y-4">
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">1</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        Korzystania z Serwisu zgodnie z jego przeznaczeniem i przepisami prawa.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">2</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        Niepodejmowania działań mogących zakłócić działanie Serwisu.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">3</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        Nieudostępniania danych logowania osobom trzecim.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">4</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        Przestrzegania praw własności intelektualnej.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex gap-4">
+                      <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <span class="text-xs font-bold text-emerald-700">5</span>
+                      </div>
+                      <div class="flex-1 text-zinc-700 leading-relaxed">
+                        <span>Nierozsyłania za pomocą Serwisu treści:</span>
+                        <div class="mt-3 bg-red-50 rounded-xl ring-1 ring-red-200/50 p-4">
+                          <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-sm text-red-700">
+                              <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                              Niezgodnych z prawem
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-red-700">
+                              <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                              Naruszających prawa osób trzecich
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-red-700">
+                              <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                              Zawierających spam lub złośliwe oprogramowanie
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-red-700">
+                              <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                              O charakterze obraźliwym lub dyskryminującym
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 7-14 continue with similar structure... -->
+            <!-- For brevity, I'll include the remaining sections in a more compact format -->
+
+            <!-- Section 7: Odpowiedzialność -->
+            <section id="section-7" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">7</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Odpowiedzialność</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      <span>Usługodawca nie ponosi odpowiedzialności za:</span>
+                      <ul class="mt-3 space-y-2 ml-4">
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Treści publikowane przez Użytkowników
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Przerwy w działaniu Serwisu wynikające z przyczyn niezależnych od Usługodawcy
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Utratę danych wynikającą z działań Użytkownika
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Szkody wynikające z nieprawidłowego korzystania z Serwisu
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Odpowiedzialność Usługodawcy wobec Użytkowników biznesowych jest ograniczona do wartości opłat uiszczonych w okresie ostatnich 12 miesięcy.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Ograniczenia odpowiedzialności nie dotyczą szkód wyrządzonych umyślnie lub wskutek rażącego niedbalstwa.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 8: Własność intelektualna -->
+            <section id="section-8" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">8</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Własność intelektualna</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Serwis, jego elementy graficzne, kod źródłowy, bazy danych i dokumentacja stanowią własność Usługodawcy i są chronione prawem autorskim.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Użytkownik otrzymuje niewyłączną, nieprzenoszalną licencję na korzystanie z Serwisu zgodnie z Regulaminem.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      <span>Zabrania się:</span>
+                      <div class="mt-3 bg-amber-50 rounded-xl ring-1 ring-amber-200/50 p-4">
+                        <ul class="space-y-2">
+                          <li class="flex items-center gap-2 text-sm text-amber-700">
+                            <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                            Kopiowania lub modyfikowania kodu Serwisu
+                          </li>
+                          <li class="flex items-center gap-2 text-sm text-amber-700">
+                            <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                            Reverse engineeringu
+                          </li>
+                          <li class="flex items-center gap-2 text-sm text-amber-700">
+                            <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                            Używania znaków towarowych Usługodawcy bez zgody
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">4</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Użytkownik zachowuje prawa do treści wprowadzanych do Serwisu, udzielając Usługodawcy licencji na ich przetwarzanie w celu świadczenia Usług.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 9: Ochrona danych -->
+            <section id="section-9" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">9</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Ochrona danych osobowych</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Zasady przetwarzania danych osobowych określa <a href={`/${lang}/privacy`} class="text-emerald-600 font-medium hover:underline">Polityka Prywatności</a>.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      <span>Użytkownik będący administratorem danych osobowych swoich klientów zobowiązuje się do:</span>
+                      <ul class="mt-3 space-y-2 ml-4">
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Posiadania podstawy prawnej do przetwarzania danych
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Informowania klientów o korzystaniu z Chataptor
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Przestrzegania przepisów RODO
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Na życzenie Użytkownika Usługodawca zawrze umowę powierzenia przetwarzania danych osobowych (DPA).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 10: Rozwiązanie umowy -->
+            <section id="section-10" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">10</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Rozwiązanie umowy</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Użytkownik może w każdej chwili usunąć Konto poprzez ustawienia w panelu lub kontakt z obsługą.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Usługodawca może wypowiedzieć umowę z zachowaniem 30-dniowego okresu wypowiedzenia.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      <span>Usługodawca może rozwiązać umowę ze skutkiem natychmiastowym w przypadku:</span>
+                      <div class="mt-3 bg-red-50 rounded-xl ring-1 ring-red-200/50 p-4">
+                        <ul class="space-y-2">
+                          <li class="flex items-center gap-2 text-sm text-red-700">
+                            <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                            Rażącego naruszenia Regulaminu
+                          </li>
+                          <li class="flex items-center gap-2 text-sm text-red-700">
+                            <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                            Działań na szkodę Usługodawcy lub innych Użytkowników
+                          </li>
+                          <li class="flex items-center gap-2 text-sm text-red-700">
+                            <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                            Podania fałszywych danych rejestracyjnych
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">4</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Po rozwiązaniu umowy dane Użytkownika są usuwane zgodnie z Polityką Prywatności.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 11: Reklamacje -->
+            <section id="section-11" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">11</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Reklamacje</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Reklamacje należy zgłaszać na adres: <a href="mailto:support@browin.pl" class="text-emerald-600 font-medium hover:underline">support@browin.pl</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      <span>Reklamacja powinna zawierać:</span>
+                      <ul class="mt-3 space-y-2 ml-4">
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Dane kontaktowe Użytkownika
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Opis problemu
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-zinc-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+                          Oczekiwany sposób rozwiązania
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Usługodawca rozpatruje reklamacje w terminie <strong class="text-zinc-900">14 dni</strong> od ich otrzymania.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">4</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      O wyniku rozpatrzenia reklamacji Użytkownik zostanie poinformowany drogą elektroniczną.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 12: Rozwiązywanie sporów -->
+            <section id="section-12" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">12</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Pozasądowe rozwiązywanie sporów</h2>
+              </div>
+              <div class="pl-0 md:pl-14">
+                <p class="text-zinc-600 leading-relaxed mb-6">
+                  Użytkownik będący konsumentem ma możliwość skorzystania z pozasądowych sposobów rozpatrywania reklamacji i dochodzenia roszczeń:
+                </p>
+                <div class="space-y-3">
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex items-start gap-3">
+                      <div class="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-zinc-900 text-sm">Platforma ODR</h4>
+                        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" class="text-sm text-emerald-600 hover:underline">https://ec.europa.eu/consumers/odr</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex items-start gap-3">
+                      <div class="w-8 h-8 bg-zinc-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-zinc-900 text-sm">Wojewódzkie Inspektoraty Inspekcji Handlowej</h4>
+                        <p class="text-sm text-zinc-600">Pomoc w rozwiązywaniu sporów konsumenckich</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                    <div class="flex items-start gap-3">
+                      <div class="w-8 h-8 bg-zinc-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-zinc-900 text-sm">Stałe Polubowne Sądy Konsumenckie</h4>
+                        <p class="text-sm text-zinc-600">Działające przy Wojewódzkich Inspektoratach</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 13: Postanowienia końcowe -->
+            <section id="section-13" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">13</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Postanowienia końcowe</h2>
+              </div>
+              <div class="pl-0 md:pl-14 space-y-4">
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">1</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Regulamin obowiązuje od dnia <strong class="text-zinc-900">29 stycznia 2026 roku</strong>.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">2</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Usługodawca zastrzega sobie prawo do zmiany Regulaminu. O zmianach Użytkownicy zostaną poinformowani z <strong class="text-zinc-900">14-dniowym wyprzedzeniem</strong>.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">3</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają przepisy prawa polskiego.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">4</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Spory wynikające z niniejszego Regulaminu będą rozstrzygane przez sąd właściwy dla siedziby Usługodawcy (dla sporów z przedsiębiorcami) lub sąd właściwy dla miejsca zamieszkania konsumenta.
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span class="text-xs font-bold text-emerald-700">5</span>
+                    </div>
+                    <div class="flex-1 text-zinc-700 leading-relaxed">
+                      Jeśli którekolwiek postanowienie Regulaminu zostanie uznane za nieważne, pozostałe postanowienia pozostają w mocy.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 14: Kontakt -->
+            <section id="section-14" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                  <span class="text-white font-bold text-sm">14</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Kontakt</h2>
+              </div>
+              <div class="pl-0 md:pl-14">
+                <p class="text-zinc-600 leading-relaxed mb-6">W razie pytań dotyczących Regulaminu, prosimy o kontakt:</p>
+                <div class="bg-white rounded-xl p-6 ring-1 ring-zinc-200 shadow-sm">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+                      <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-bold text-zinc-900 text-lg">BROWIN Sp. z o.o. Sp.k.</p>
+                      <p class="text-zinc-600 mt-1">ul. Pryncypalna 129/141, 93-373 Łódź</p>
+                    </div>
+                  </div>
+                  <div class="mt-6 pt-6 border-t border-zinc-100 space-y-3 text-sm">
+                    <div class="flex items-center gap-3">
+                      <span class="text-zinc-500 w-40">E-mail:</span>
+                      <a href="mailto:support@browin.pl" class="text-emerald-600 font-medium hover:underline">support@browin.pl</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <span class="text-zinc-500 w-40">Telefon:</span>
+                      <span class="text-zinc-900 font-medium">+48 42 23 23 200</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <span class="text-zinc-500 w-40">Biuro Obsługi Klienta:</span>
+                      <span class="text-zinc-900 font-medium">+48 42 23 23 230 (Pn-Pt 8:00-16:00)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="py-20 md:py-32 bg-white border-t border-zinc-200">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <div class="grid md:grid-cols-4 gap-12 md:gap-16 mb-20 md:mb-24">
+            <div class="md:col-span-2 space-y-8">
+              <div class="flex items-center gap-3">
+                <img src="/images/landing/logotype.png" alt="Chataptor" class="h-6 w-auto object-contain opacity-80" />
+              </div>
+              <p class="text-zinc-500 font-light leading-relaxed max-w-md text-lg">{t.footerDesc}</p>
+            </div>
+            <div class="space-y-8">
+              <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">{t.contact}</h4>
+              <div class="space-y-4">
+                <a href="mailto:contact@chataptor.com" class="flex items-center gap-3 text-zinc-500 hover:text-zinc-900 transition-colors">
+                  <span class="font-medium">contact@chataptor.com</span>
+                </a>
+                <div class="flex items-center gap-3 text-zinc-500">
+                  <span class="font-medium">Łódź, Polska</span>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-8">
+              <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">{t.legal}</h4>
+              <ul class="space-y-4 text-zinc-500 font-medium">
+                <li><a href={`/${lang}/privacy`} class="hover:text-zinc-900 transition-colors">{t.privacy}</a></li>
+                <li><a href={`/${lang}/terms`} class="text-zinc-900 font-semibold">{t.terms}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t border-zinc-100 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-zinc-400 text-sm font-medium text-center">&copy; {currentYear} Chataptor. {t.copyright}</p>
+            <div class="flex items-center gap-2 text-[10px] font-bold text-zinc-400 bg-zinc-50 px-3 py-1.5 rounded-full border border-zinc-100">
+              <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+              Uptime: 99.89%
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        // Mobile TOC toggle
+        const tocToggle = document.getElementById('mobile-toc-toggle');
+        const mobileToc = document.getElementById('mobile-toc');
+        const tocChevron = document.getElementById('toc-chevron');
+        const mobileTocLinks = document.querySelectorAll('.mobile-toc-link');
+
+        tocToggle?.addEventListener('click', () => {
+          mobileToc?.classList.toggle('hidden');
+          tocChevron?.classList.toggle('rotate-180');
+        });
+
+        mobileTocLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileToc?.classList.add('hidden');
+            tocChevron?.classList.remove('rotate-180');
+          });
+        });
+      </script>
+    </main>
+  ) : (
+    <!-- Simple placeholder for other languages -->
+    <section class="relative pt-32 md:pt-48 pb-16 md:pb-32 text-center overflow-hidden">
+      <div class="px-4 md:px-6 max-w-5xl mx-auto relative z-10">
+        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-8 text-zinc-900">
+          {t.title}
+        </h1>
+        <p class="text-base md:text-lg text-zinc-500 max-w-2xl mx-auto mb-10">
+          {t.description}
+        </p>
+        <a
+          href={`/${lang}/`}
+          class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          {t.backLink}
+        </a>
+      </div>
+    </section>
+  )}
+</BaseLayout>

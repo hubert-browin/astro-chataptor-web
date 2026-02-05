@@ -1,0 +1,47 @@
+---
+import { locales, localeNames, type Locale } from '../../i18n/config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+
+const t = {
+  pl: { title: 'Strona nie znaleziona', message: 'Przepraszamy, ta strona nie istnieje.', home: 'Wróć na stronę główną' },
+  en: { title: 'Page not found', message: 'Sorry, this page does not exist.', home: 'Go to homepage' },
+  de: { title: 'Seite nicht gefunden', message: 'Diese Seite existiert leider nicht.', home: 'Zur Startseite' },
+  fr: { title: 'Page non trouvée', message: 'Désolé, cette page n\'existe pas.', home: 'Retour à l\'accueil' },
+  es: { title: 'Página no encontrada', message: 'Lo sentimos, esta página no existe.', home: 'Ir al inicio' },
+  it: { title: 'Pagina non trovata', message: 'Spiacenti, questa pagina non esiste.', home: 'Vai alla home' },
+  cs: { title: 'Stránka nenalezena', message: 'Omlouváme se, tato stránka neexistuje.', home: 'Zpět na úvod' },
+  sk: { title: 'Stránka nenájdená', message: 'Ospravedlňujeme sa, táto stránka neexistuje.', home: 'Späť na úvod' },
+}[lang];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.message}
+  lang={lang}
+  slug="404"
+>
+  <div class="min-h-[60vh] flex items-center justify-center px-6">
+    <div class="text-center">
+      <h1 class="text-8xl font-bold text-zinc-200 mb-4">404</h1>
+      <h2 class="text-2xl font-bold text-zinc-900 mb-4">{t.title}</h2>
+      <p class="text-zinc-500 mb-8">{t.message}</p>
+      <a
+        href={`/${lang}/`}
+        class="inline-flex items-center gap-2 bg-zinc-900 text-white px-6 py-3 rounded-full font-medium hover:bg-black transition-all"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        {t.home}
+      </a>
+    </div>
+  </div>
+</BaseLayout>

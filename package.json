@@ -1,15 +1,30 @@
 {
-  "private": true,
+  "name": "chataptorwebsite",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "translate": "node scripts/translate.js",
+    "translate:dry": "node scripts/translate.js --dry-run",
+    "build:full": "npm run translate && npm run build",
+    "lint": "prettier --check src/",
+    "format": "prettier --write src/"
   },
   "dependencies": {
-    "@astrojs/vercel": "8.0.1",
-    "astro": "^5.1.1",
-    "react": "18.3.1"
+    "@astrojs/sitemap": "^3.7.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "dotenv": "^17.2.3",
+    "gray-matter": "^4.0.3",
+    "openai": "^6.17.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
