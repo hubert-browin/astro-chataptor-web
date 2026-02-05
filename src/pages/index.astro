@@ -1,17 +1,13 @@
 ---
+// Redirect from / to detected language
+// This runs on the server during build, but actual redirect happens via Nginx
+// This is a fallback for development
 
+const acceptLanguage = Astro.request.headers.get('accept-language') || 'en';
+const preferredLang = acceptLanguage.split(',')[0].split('-')[0];
+
+const supportedLocales = ['pl', 'en', 'de', 'fr', 'es', 'it', 'cs', 'sk'];
+const redirectLang = supportedLocales.includes(preferredLang) ? preferredLang : 'en';
+
+return Astro.redirect(`/${redirectLang}/`, 302);
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>

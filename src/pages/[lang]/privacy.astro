@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import { locales, type Locale } from '../../i18n/config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages', (entry) =>
+    entry.slug.startsWith('privacy')
+  );
+
+  return locales.map((lang) => {
+    const page = pages.find((p) => p.data.lang === lang);
+    return {
+      params: { lang },
+      props: { page },
+    };
+  });
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const { page } = Astro.props;
+
+// Fallback to Polish if translation not available
+const allPages = await getCollection('pages');
+const content = page || allPages.find((p) => p.slug === 'privacy.pl');
+
+if (!content) {
+  return Astro.redirect(`/${lang}/`);
+}
+
+const { Content } = await content.render();
+---
+
+<BaseLayout
+  title={content.data.title}
+  description={content.data.description}
+  lang={lang}
+  slug="privacy"
+>
+  <article class="max-w-4xl mx-auto px-6 py-16">
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-zinc-900 mb-4">
+        {content.data.title}
+      </h1>
+      {content.data.updatedAt && (
+        <p class="text-zinc-500">
+          Ostatnia aktualizacja: {content.data.updatedAt.toLocaleDateString(lang)}
+        </p>
+      )}
+    </header>
+
+    <div class="prose prose-zinc max-w-none">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

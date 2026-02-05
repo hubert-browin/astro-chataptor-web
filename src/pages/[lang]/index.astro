@@ -1,0 +1,96 @@
+---
+import { locales, type Locale } from '../../i18n/config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+
+// Translations
+const t = {
+  pl: {
+    title: 'Sprzedawaj globalnie. Obsługuj lokalnie.',
+    description: 'Przełam barierę językową. Jeden agent obsługuje 20 rynków.',
+    cta: 'Dołącz do bety',
+    demo: 'Zobacz demo',
+  },
+  en: {
+    title: 'Sell globally. Support locally.',
+    description: 'Break the language barrier. One agent serves 20 markets.',
+    cta: 'Join the beta',
+    demo: 'Watch demo',
+  },
+  de: {
+    title: 'Global verkaufen. Lokal unterstützen.',
+    description: 'Sprachbarrieren überwinden. Ein Agent bedient 20 Märkte.',
+    cta: 'Beta beitreten',
+    demo: 'Demo ansehen',
+  },
+  fr: {
+    title: 'Vendez globalement. Servez localement.',
+    description: 'Brisez la barrière de la langue. Un agent sert 20 marchés.',
+    cta: 'Rejoindre la bêta',
+    demo: 'Voir la démo',
+  },
+  es: {
+    title: 'Vende globalmente. Atiende localmente.',
+    description: 'Rompe la barrera del idioma. Un agente atiende 20 mercados.',
+    cta: 'Unirse a la beta',
+    demo: 'Ver demo',
+  },
+  it: {
+    title: 'Vendi globalmente. Servi localmente.',
+    description: 'Supera la barriera linguistica. Un agente serve 20 mercati.',
+    cta: 'Unisciti alla beta',
+    demo: 'Guarda la demo',
+  },
+  cs: {
+    title: 'Prodávejte globálně. Obsluhujte lokálně.',
+    description: 'Prolomte jazykovou bariéru. Jeden agent obsluhuje 20 trhů.',
+    cta: 'Připojit se k betě',
+    demo: 'Sledovat demo',
+  },
+  sk: {
+    title: 'Predávajte globálne. Obsluhujte lokálne.',
+    description: 'Prelomte jazykovú bariéru. Jeden agent obsluhuje 20 trhov.',
+    cta: 'Pripojiť sa k bete',
+    demo: 'Pozrieť demo',
+  },
+}[lang];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  lang={lang}
+  slug=""
+  hideHeader={true}
+>
+  <section class="relative pt-32 md:pt-48 pb-16 md:pb-32 text-center overflow-hidden">
+    <div class="px-4 md:px-6 max-w-5xl mx-auto relative z-10">
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8 text-zinc-900">
+        {t.title}
+      </h1>
+      <p class="text-base md:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-10 leading-relaxed">
+        {t.description}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="https://app.chataptor.com/register"
+          class="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all shadow-xl"
+        >
+          {t.cta}
+        </a>
+        <button
+          class="w-full sm:w-auto px-6 py-3 bg-white rounded-full ring-1 ring-zinc-200 text-sm font-bold text-zinc-600 hover:text-zinc-900 transition-all"
+        >
+          {t.demo}
+        </button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

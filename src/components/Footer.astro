@@ -1,0 +1,81 @@
+---
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="py-20 bg-white border-t border-zinc-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+      <div class="md:col-span-2 space-y-6">
+        <img
+          src="/images/logotype.png"
+          alt="Chataptor"
+          class="h-6 w-auto object-contain opacity-80"
+        />
+        <p class="text-zinc-500 leading-relaxed max-w-md">
+          Brama na świat dla Twojego e-commerce. Przełamujemy bariery językowe,
+          łącząc AI z ludzką empatią.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">
+          Kontakt
+        </h4>
+        <div class="space-y-3">
+          <a
+            href="mailto:contact@chataptor.com"
+            class="block text-zinc-500 hover:text-zinc-900 transition-colors"
+          >
+            contact@chataptor.com
+          </a>
+          <p class="text-zinc-500">Łódź, Polska</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">
+          Legal
+        </h4>
+        <ul class="space-y-3 text-zinc-500">
+          <li>
+            <a
+              href={`/${lang}/privacy`}
+              class="hover:text-zinc-900 transition-colors"
+            >
+              Polityka prywatności
+            </a>
+          </li>
+          <li>
+            <a
+              href={`/${lang}/terms`}
+              class="hover:text-zinc-900 transition-colors"
+            >
+              Regulamin
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="border-t border-zinc-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+    >
+      <p class="text-zinc-400 text-sm">
+        &copy; {year} Chataptor. Wszystkie prawa zastrzeżone.
+      </p>
+      <div
+        class="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-zinc-50 px-3 py-1.5 rounded-full"
+      >
+        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+        Uptime: 99.89%
+      </div>
+    </div>
+  </div>
+</footer>

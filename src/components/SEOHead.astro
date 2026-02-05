@@ -1,0 +1,80 @@
+---
+import type { Locale } from '../i18n/config';
+import { getAlternateUrls, getCanonicalUrl } from '../utils/i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Locale;
+  slug: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedAt?: Date;
+}
+
+const {
+  title,
+  description,
+  lang,
+  slug,
+  image = '/images/og-default.png',
+  type = 'website',
+  publishedAt,
+} = Astro.props;
+
+const alternates = getAlternateUrls(slug);
+const canonical = getCanonicalUrl(lang, slug);
+const fullTitle = `${title} | Chataptor`;
+const ogImage = image.startsWith('http') ? image : `https://chataptor.com${image}`;
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<!-- Hreflang -->
+{alternates.map((alt) => (
+  <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+))}
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href={alternates.find((a) => a.lang === 'en')?.url}
+/>
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={lang} />
+{alternates
+  .filter((a) => a.lang !== lang)
+  .map((alt) => (
+    <meta property="og:locale:alternate" content={alt.lang} />
+  ))}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Article specific -->
+{type === 'article' && publishedAt && (
+  <meta property="article:published_time" content={publishedAt.toISOString()} />
+)}
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": type === 'article' ? 'Article' : 'WebPage',
+  "name": title,
+  "description": description,
+  "url": canonical,
+  "inLanguage": lang,
+  ...(type === 'article' && publishedAt && {
+    "datePublished": publishedAt.toISOString(),
+  }),
+})} />
