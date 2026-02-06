@@ -1,5 +1,6 @@
 ---
 import { locales, type Locale } from '../../i18n/config';
+import { getTerms } from '../../i18n/terms';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
@@ -10,80 +11,24 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 const currentYear = new Date().getFullYear();
+const t = getTerms(lang);
 
-// Page translations
-const t = {
-  pl: {
-    title: 'Regulamin Serwisu',
-    description: 'Regulamin korzystania z platformy Chataptor',
-    backLink: 'Strona główna',
-    tocTitle: 'Spis treści',
-    lastUpdate: 'Ostatnia aktualizacja: 29 stycznia 2026',
-    introTitle: 'Zasady korzystania z platformy Chataptor',
-    introText: 'Niniejszy Regulamin określa zasady korzystania z platformy Chataptor. Korzystając z naszych usług, akceptujesz poniższe warunki.',
-    needHelp: 'Potrzebujesz pomocy?',
-    privacyLink: 'Polityka Prywatności',
-    footerDesc: 'Brama na świat dla Twojego e-commerce. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
-    contact: 'Kontakt',
-    legal: 'Legal',
-    privacy: 'Polityka prywatności',
-    terms: 'Regulamin',
-    copyright: 'Wszystkie prawa zastrzeżone.',
-  },
-  en: {
-    title: 'Terms of Service',
-    description: 'Terms of use for the Chataptor platform',
-    backLink: 'Home',
-    tocTitle: 'Table of Contents',
-    lastUpdate: 'Last updated: January 29, 2026',
-    introTitle: 'Rules for using the Chataptor platform',
-    introText: 'These Terms of Service govern your use of the Chataptor platform. By using our services, you accept these terms.',
-    needHelp: 'Need help?',
-    privacyLink: 'Privacy Policy',
-    footerDesc: 'Your gateway to the world for e-commerce. Breaking language barriers by combining AI with human empathy.',
-    contact: 'Contact',
-    legal: 'Legal',
-    privacy: 'Privacy Policy',
-    terms: 'Terms of Service',
-    copyright: 'All rights reserved.',
-  },
-}[lang] || {
-  title: 'Terms of Service',
-  description: 'Terms of use for the Chataptor platform',
-  backLink: 'Home',
-  tocTitle: 'Table of Contents',
-  lastUpdate: 'Last updated: January 29, 2026',
-  introTitle: 'Rules for using the Chataptor platform',
-  introText: 'These Terms of Service govern your use of the Chataptor platform. By using our services, you accept these terms.',
-  needHelp: 'Need help?',
-  privacyLink: 'Privacy Policy',
-  footerDesc: 'Your gateway to the world for e-commerce. Breaking language barriers by combining AI with human empathy.',
-  contact: 'Contact',
-  legal: 'Legal',
-  privacy: 'Privacy Policy',
-  terms: 'Terms of Service',
-  copyright: 'All rights reserved.',
-};
-
-// Only Polish has full content
-const isPolish = lang === 'pl';
-
-// TOC sections
+// TOC sections from translations
 const tocSections = [
-  { number: '1', title: 'Definicje' },
-  { number: '2', title: 'Postanowienia ogólne' },
-  { number: '3', title: 'Rejestracja i Konto' },
-  { number: '4', title: 'Zakres Usług' },
-  { number: '5', title: 'Opłaty i płatności' },
-  { number: '6', title: 'Obowiązki Użytkownika' },
-  { number: '7', title: 'Odpowiedzialność' },
-  { number: '8', title: 'Własność intelektualna' },
-  { number: '9', title: 'Ochrona danych' },
-  { number: '10', title: 'Rozwiązanie umowy' },
-  { number: '11', title: 'Reklamacje' },
-  { number: '12', title: 'Rozwiązywanie sporów' },
-  { number: '13', title: 'Postanowienia końcowe' },
-  { number: '14', title: 'Kontakt' },
+  { number: '1', title: t.toc.definitions },
+  { number: '2', title: t.toc.generalProvisions },
+  { number: '3', title: t.toc.registrationAccount },
+  { number: '4', title: t.toc.scopeOfServices },
+  { number: '5', title: t.toc.feesPayments },
+  { number: '6', title: t.toc.userObligations },
+  { number: '7', title: t.toc.liability },
+  { number: '8', title: t.toc.intellectualProperty },
+  { number: '9', title: t.toc.dataProtection },
+  { number: '10', title: t.toc.termination },
+  { number: '11', title: t.toc.complaints },
+  { number: '12', title: t.toc.disputeResolution },
+  { number: '13', title: t.toc.finalProvisions },
+  { number: '14', title: t.toc.contact },
 ];
 ---
 
@@ -95,7 +40,6 @@ const tocSections = [
   hideHeader={true}
   hideFooter={true}
 >
-  {isPolish ? (
     <main class="min-h-screen bg-white">
       <!-- HEADER -->
       <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-zinc-100">
@@ -211,7 +155,7 @@ const tocSections = [
               <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Warunki korzystania
+              {t.termsOfUse}
             </div>
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-zinc-900 tracking-tight mb-4">{t.title}</h1>
             <p class="text-zinc-500 text-base md:text-lg">{t.lastUpdate}</p>
@@ -236,54 +180,54 @@ const tocSections = [
 
           <!-- Sections -->
           <div class="space-y-12">
-            <!-- Section 1: Definicje -->
+            <!-- Section 1: Definitions -->
             <section id="section-1" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">1</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Definicje</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section1.title}</h2>
               </div>
               <div class="pl-0 md:pl-14">
-                <p class="text-zinc-600 leading-relaxed mb-6">W niniejszym Regulaminie stosuje się następujące definicje:</p>
+                <p class="text-zinc-600 leading-relaxed mb-6">{t.section1.intro}</p>
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 overflow-hidden">
                   <dl class="divide-y divide-zinc-100">
                     <div class="px-5 py-4">
-                      <dt class="font-semibold text-zinc-900 mb-1">Usługodawca</dt>
-                      <dd class="text-sm text-zinc-600 leading-relaxed">BROWIN Spółka z ograniczoną odpowiedzialnością Spółka komandytowa z siedzibą w Łodzi (93-373), ul. Pryncypalna 129/141, NIP: 729-268-73-25, REGON: 101003641, KRS: 0000459418</dd>
+                      <dt class="font-semibold text-zinc-900 mb-1">{t.section1.serviceProvider.term}</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">{t.section1.serviceProvider.definition}</dd>
                     </div>
                     <div class="px-5 py-4">
-                      <dt class="font-semibold text-zinc-900 mb-1">Serwis / Platforma</dt>
-                      <dd class="text-sm text-zinc-600 leading-relaxed">Platforma Chataptor dostępna pod adresem chataptor.com</dd>
+                      <dt class="font-semibold text-zinc-900 mb-1">{t.section1.platform.term}</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">{t.section1.platform.definition}</dd>
                     </div>
                     <div class="px-5 py-4">
-                      <dt class="font-semibold text-zinc-900 mb-1">Użytkownik</dt>
-                      <dd class="text-sm text-zinc-600 leading-relaxed">Osoba fizyczna, osoba prawna lub jednostka organizacyjna korzystająca z Serwisu</dd>
+                      <dt class="font-semibold text-zinc-900 mb-1">{t.section1.user.term}</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">{t.section1.user.definition}</dd>
                     </div>
                     <div class="px-5 py-4">
-                      <dt class="font-semibold text-zinc-900 mb-1">Konto</dt>
-                      <dd class="text-sm text-zinc-600 leading-relaxed">Indywidualne konto Użytkownika w Serwisie</dd>
+                      <dt class="font-semibold text-zinc-900 mb-1">{t.section1.account.term}</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">{t.section1.account.definition}</dd>
                     </div>
                     <div class="px-5 py-4">
-                      <dt class="font-semibold text-zinc-900 mb-1">Usługi</dt>
-                      <dd class="text-sm text-zinc-600 leading-relaxed">Funkcjonalności udostępniane przez Serwis, w tym obsługa czatu, tłumaczenie wiadomości, integracje</dd>
+                      <dt class="font-semibold text-zinc-900 mb-1">{t.section1.services.term}</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">{t.section1.services.definition}</dd>
                     </div>
                     <div class="px-5 py-4">
-                      <dt class="font-semibold text-zinc-900 mb-1">Widget</dt>
-                      <dd class="text-sm text-zinc-600 leading-relaxed">Komponent czatu do osadzenia na stronie internetowej Użytkownika</dd>
+                      <dt class="font-semibold text-zinc-900 mb-1">{t.section1.widget.term}</dt>
+                      <dd class="text-sm text-zinc-600 leading-relaxed">{t.section1.widget.definition}</dd>
                     </div>
                   </dl>
                 </div>
               </div>
             </section>
 
-            <!-- Section 2: Postanowienia ogólne -->
+            <!-- Section 2: General Provisions -->
             <section id="section-2" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">2</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Postanowienia ogólne</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section2.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -292,7 +236,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Regulamin określa zasady świadczenia usług drogą elektroniczną przez Usługodawcę.
+                      {t.section2.item1}
                     </div>
                   </div>
                 </div>
@@ -302,7 +246,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Korzystanie z Serwisu oznacza akceptację niniejszego Regulaminu oraz <a href={`/${lang}/privacy`} class="text-emerald-600 font-medium hover:underline">Polityki Prywatności</a>.
+                      <span set:html={t.section2.item2.replace('{privacyLink}', `<a href="/${lang}/privacy" class="text-emerald-600 font-medium hover:underline">${t.privacyLink}</a>`)} />
                     </div>
                   </div>
                 </div>
@@ -312,7 +256,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Usługodawca świadczy usługi zgodnie z obowiązującymi przepisami prawa polskiego i unijnego.
+                      {t.section2.item3}
                     </div>
                   </div>
                 </div>
@@ -322,20 +266,20 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">4</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Serwis jest przeznaczony dla przedsiębiorców (B2B) oraz konsumentów.
+                      {t.section2.item4}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 3: Rejestracja i Konto -->
+            <!-- Section 3: Registration and Account -->
             <section id="section-3" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">3</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Rejestracja i Konto</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section3.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -344,7 +288,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Korzystanie z pełnej funkcjonalności Serwisu wymaga założenia Konta.
+                      {t.section3.item1}
                     </div>
                   </div>
                 </div>
@@ -354,19 +298,19 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span>Rejestracja jest bezpłatna i wymaga podania:</span>
+                      <span>{t.section3.item2intro}</span>
                       <ul class="mt-3 space-y-2 ml-4">
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Adresu e-mail
+                          {t.section3.item2email}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Hasła
+                          {t.section3.item2password}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Nazwy organizacji (opcjonalnie)
+                          {t.section3.item2org}
                         </li>
                       </ul>
                     </div>
@@ -378,7 +322,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Użytkownik może również zarejestrować się za pomocą konta Google (OAuth).
+                      {t.section3.item3}
                     </div>
                   </div>
                 </div>
@@ -388,19 +332,19 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">4</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span>Użytkownik zobowiązuje się do:</span>
+                      <span>{t.section3.item4intro}</span>
                       <ul class="mt-3 space-y-2 ml-4">
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Podania prawdziwych danych
+                          {t.section3.item4truthful}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Zachowania poufności danych logowania
+                          {t.section3.item4confidential}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Niezwłocznego informowania o nieautoryzowanym dostępie do Konta
+                          {t.section3.item4unauthorized}
                         </li>
                       </ul>
                     </div>
@@ -412,23 +356,23 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">5</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Usługodawca może odmówić rejestracji lub zablokować Konto w przypadku naruszenia Regulaminu.
+                      {t.section3.item5}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 4: Zakres Usług -->
+            <!-- Section 4: Scope of Services -->
             <section id="section-4" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">4</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Zakres Usług</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section4.title}</h2>
               </div>
               <div class="pl-0 md:pl-14">
-                <p class="text-zinc-600 leading-relaxed mb-6">Platforma Chataptor oferuje następujące funkcjonalności:</p>
+                <p class="text-zinc-600 leading-relaxed mb-6">{t.section4.intro}</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                   <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
                     <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
@@ -436,8 +380,8 @@ const tocSections = [
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                       </svg>
                     </div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Live Chat</h4>
-                    <p class="text-sm text-zinc-600">Komunikacja w czasie rzeczywistym z klientami poprzez widget na stronie</p>
+                    <h4 class="font-semibold text-zinc-900 mb-1">{t.section4.liveChat.title}</h4>
+                    <p class="text-sm text-zinc-600">{t.section4.liveChat.description}</p>
                   </div>
                   <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
                     <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
@@ -445,8 +389,8 @@ const tocSections = [
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                       </svg>
                     </div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Tłumaczenie AI</h4>
-                    <p class="text-sm text-zinc-600">Automatyczne tłumaczenie wiadomości między wieloma językami</p>
+                    <h4 class="font-semibold text-zinc-900 mb-1">{t.section4.aiTranslation.title}</h4>
+                    <p class="text-sm text-zinc-600">{t.section4.aiTranslation.description}</p>
                   </div>
                   <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
                     <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
@@ -454,8 +398,8 @@ const tocSections = [
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                       </svg>
                     </div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Panel Agenta</h4>
-                    <p class="text-sm text-zinc-600">Centralny interfejs do zarządzania wszystkimi konwersacjami</p>
+                    <h4 class="font-semibold text-zinc-900 mb-1">{t.section4.agentPanel.title}</h4>
+                    <p class="text-sm text-zinc-600">{t.section4.agentPanel.description}</p>
                   </div>
                   <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-5 hover:shadow-sm transition-shadow">
                     <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
@@ -463,8 +407,8 @@ const tocSections = [
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                       </svg>
                     </div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Integracje</h4>
-                    <p class="text-sm text-zinc-600">Połączenie z e-mailem, Messengerem, WhatsApp i innymi kanałami</p>
+                    <h4 class="font-semibold text-zinc-900 mb-1">{t.section4.integrations.title}</h4>
+                    <p class="text-sm text-zinc-600">{t.section4.integrations.description}</p>
                   </div>
                 </div>
                 <div class="space-y-4">
@@ -474,7 +418,7 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">1</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        Dostępność poszczególnych funkcjonalności może zależeć od wybranego planu taryfowego.
+                        {t.section4.item1}
                       </div>
                     </div>
                   </div>
@@ -484,7 +428,7 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">2</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        Usługodawca zastrzega sobie prawo do modyfikacji zakresu Usług z zachowaniem 30-dniowego okresu wypowiedzenia.
+                        {t.section4.item2}
                       </div>
                     </div>
                   </div>
@@ -494,7 +438,7 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">3</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        Usługodawca dokłada starań, aby Serwis działał nieprzerwanie, jednak nie gwarantuje 100% dostępności.
+                        {t.section4.item3}
                       </div>
                     </div>
                   </div>
@@ -502,13 +446,13 @@ const tocSections = [
               </div>
             </section>
 
-            <!-- Section 5: Opłaty i płatności -->
+            <!-- Section 5: Fees and Payments -->
             <section id="section-5" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">5</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Opłaty i płatności</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section5.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -517,7 +461,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Serwis oferuje darmowy plan z ograniczoną funkcjonalnością oraz płatne plany subskrypcyjne.
+                      {t.section5.item1}
                     </div>
                   </div>
                 </div>
@@ -527,7 +471,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Szczegółowy cennik dostępny jest na stronie <a href="https://chataptor.com/pricing" class="text-emerald-600 font-medium hover:underline">chataptor.com/pricing</a>.
+                      <span set:html={t.section5.item2.replace('chataptor.com/pricing', '<a href="https://chataptor.com/pricing" class="text-emerald-600 font-medium hover:underline">chataptor.com/pricing</a>')} />
                     </div>
                   </div>
                 </div>
@@ -537,7 +481,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Płatności realizowane są z góry za okres rozliczeniowy (miesiąc lub rok).
+                      {t.section5.item3}
                     </div>
                   </div>
                 </div>
@@ -547,7 +491,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">4</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Faktury VAT wystawiane są automatycznie i przesyłane na adres e-mail Użytkownika.
+                      {t.section5.item4}
                     </div>
                   </div>
                 </div>
@@ -557,7 +501,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">5</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      W przypadku opóźnienia w płatności Usługodawca może zawiesić dostęp do płatnych funkcjonalności.
+                      {t.section5.item5}
                     </div>
                   </div>
                 </div>
@@ -567,23 +511,23 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">6</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Zwroty realizowane są zgodnie z obowiązującymi przepisami prawa konsumenckiego.
+                      {t.section5.item6}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 6: Obowiązki Użytkownika -->
+            <!-- Section 6: User Obligations -->
             <section id="section-6" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">6</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Obowiązki Użytkownika</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section6.title}</h2>
               </div>
               <div class="pl-0 md:pl-14">
-                <p class="text-zinc-600 leading-relaxed mb-6">Użytkownik zobowiązuje się do:</p>
+                <p class="text-zinc-600 leading-relaxed mb-6">{t.section6.intro}</p>
                 <div class="space-y-4">
                   <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
                     <div class="flex gap-4">
@@ -591,7 +535,7 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">1</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        Korzystania z Serwisu zgodnie z jego przeznaczeniem i przepisami prawa.
+                        {t.section6.item1}
                       </div>
                     </div>
                   </div>
@@ -601,7 +545,7 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">2</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        Niepodejmowania działań mogących zakłócić działanie Serwisu.
+                        {t.section6.item2}
                       </div>
                     </div>
                   </div>
@@ -611,7 +555,7 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">3</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        Nieudostępniania danych logowania osobom trzecim.
+                        {t.section6.item3}
                       </div>
                     </div>
                   </div>
@@ -621,7 +565,7 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">4</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        Przestrzegania praw własności intelektualnej.
+                        {t.section6.item4}
                       </div>
                     </div>
                   </div>
@@ -631,24 +575,24 @@ const tocSections = [
                         <span class="text-xs font-bold text-emerald-700">5</span>
                       </div>
                       <div class="flex-1 text-zinc-700 leading-relaxed">
-                        <span>Nierozsyłania za pomocą Serwisu treści:</span>
+                        <span>{t.section6.item5intro}</span>
                         <div class="mt-3 bg-red-50 rounded-xl ring-1 ring-red-200/50 p-4">
                           <ul class="space-y-2">
                             <li class="flex items-center gap-2 text-sm text-red-700">
                               <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                              Niezgodnych z prawem
+                              {t.section6.item5illegal}
                             </li>
                             <li class="flex items-center gap-2 text-sm text-red-700">
                               <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                              Naruszających prawa osób trzecich
+                              {t.section6.item5rights}
                             </li>
                             <li class="flex items-center gap-2 text-sm text-red-700">
                               <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                              Zawierających spam lub złośliwe oprogramowanie
+                              {t.section6.item5spam}
                             </li>
                             <li class="flex items-center gap-2 text-sm text-red-700">
                               <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                              O charakterze obraźliwym lub dyskryminującym
+                              {t.section6.item5offensive}
                             </li>
                           </ul>
                         </div>
@@ -659,16 +603,13 @@ const tocSections = [
               </div>
             </section>
 
-            <!-- Section 7-14 continue with similar structure... -->
-            <!-- For brevity, I'll include the remaining sections in a more compact format -->
-
-            <!-- Section 7: Odpowiedzialność -->
+            <!-- Section 7: Liability -->
             <section id="section-7" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">7</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Odpowiedzialność</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section7.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -677,23 +618,23 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span>Usługodawca nie ponosi odpowiedzialności za:</span>
+                      <span>{t.section7.item1intro}</span>
                       <ul class="mt-3 space-y-2 ml-4">
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Treści publikowane przez Użytkowników
+                          {t.section7.item1content}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Przerwy w działaniu Serwisu wynikające z przyczyn niezależnych od Usługodawcy
+                          {t.section7.item1interruptions}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Utratę danych wynikającą z działań Użytkownika
+                          {t.section7.item1dataLoss}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Szkody wynikające z nieprawidłowego korzystania z Serwisu
+                          {t.section7.item1damages}
                         </li>
                       </ul>
                     </div>
@@ -705,7 +646,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Odpowiedzialność Usługodawcy wobec Użytkowników biznesowych jest ograniczona do wartości opłat uiszczonych w okresie ostatnich 12 miesięcy.
+                      {t.section7.item2}
                     </div>
                   </div>
                 </div>
@@ -715,20 +656,20 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Ograniczenia odpowiedzialności nie dotyczą szkód wyrządzonych umyślnie lub wskutek rażącego niedbalstwa.
+                      {t.section7.item3}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 8: Własność intelektualna -->
+            <!-- Section 8: Intellectual Property -->
             <section id="section-8" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">8</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Własność intelektualna</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section8.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -737,7 +678,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Serwis, jego elementy graficzne, kod źródłowy, bazy danych i dokumentacja stanowią własność Usługodawcy i są chronione prawem autorskim.
+                      {t.section8.item1}
                     </div>
                   </div>
                 </div>
@@ -747,7 +688,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Użytkownik otrzymuje niewyłączną, nieprzenoszalną licencję na korzystanie z Serwisu zgodnie z Regulaminem.
+                      {t.section8.item2}
                     </div>
                   </div>
                 </div>
@@ -757,20 +698,20 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span>Zabrania się:</span>
+                      <span>{t.section8.item3intro}</span>
                       <div class="mt-3 bg-amber-50 rounded-xl ring-1 ring-amber-200/50 p-4">
                         <ul class="space-y-2">
                           <li class="flex items-center gap-2 text-sm text-amber-700">
                             <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                            Kopiowania lub modyfikowania kodu Serwisu
+                            {t.section8.item3copying}
                           </li>
                           <li class="flex items-center gap-2 text-sm text-amber-700">
                             <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                            Reverse engineeringu
+                            {t.section8.item3reverse}
                           </li>
                           <li class="flex items-center gap-2 text-sm text-amber-700">
                             <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                            Używania znaków towarowych Usługodawcy bez zgody
+                            {t.section8.item3trademarks}
                           </li>
                         </ul>
                       </div>
@@ -783,20 +724,20 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">4</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Użytkownik zachowuje prawa do treści wprowadzanych do Serwisu, udzielając Usługodawcy licencji na ich przetwarzanie w celu świadczenia Usług.
+                      {t.section8.item4}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 9: Ochrona danych -->
+            <!-- Section 9: Data Protection -->
             <section id="section-9" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">9</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Ochrona danych osobowych</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section9.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -805,7 +746,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Zasady przetwarzania danych osobowych określa <a href={`/${lang}/privacy`} class="text-emerald-600 font-medium hover:underline">Polityka Prywatności</a>.
+                      <span set:html={t.section9.item1.replace('{privacyLink}', `<a href="/${lang}/privacy" class="text-emerald-600 font-medium hover:underline">${t.privacyLink}</a>`)} />
                     </div>
                   </div>
                 </div>
@@ -815,19 +756,19 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span>Użytkownik będący administratorem danych osobowych swoich klientów zobowiązuje się do:</span>
+                      <span>{t.section9.item2intro}</span>
                       <ul class="mt-3 space-y-2 ml-4">
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Posiadania podstawy prawnej do przetwarzania danych
+                          {t.section9.item2legal}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Informowania klientów o korzystaniu z Chataptor
+                          {t.section9.item2inform}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Przestrzegania przepisów RODO
+                          {t.section9.item2gdpr}
                         </li>
                       </ul>
                     </div>
@@ -839,20 +780,20 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Na życzenie Użytkownika Usługodawca zawrze umowę powierzenia przetwarzania danych osobowych (DPA).
+                      {t.section9.item3}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 10: Rozwiązanie umowy -->
+            <!-- Section 10: Termination -->
             <section id="section-10" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">10</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Rozwiązanie umowy</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section10.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -861,7 +802,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Użytkownik może w każdej chwili usunąć Konto poprzez ustawienia w panelu lub kontakt z obsługą.
+                      {t.section10.item1}
                     </div>
                   </div>
                 </div>
@@ -871,7 +812,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Usługodawca może wypowiedzieć umowę z zachowaniem 30-dniowego okresu wypowiedzenia.
+                      {t.section10.item2}
                     </div>
                   </div>
                 </div>
@@ -881,20 +822,20 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span>Usługodawca może rozwiązać umowę ze skutkiem natychmiastowym w przypadku:</span>
+                      <span>{t.section10.item3intro}</span>
                       <div class="mt-3 bg-red-50 rounded-xl ring-1 ring-red-200/50 p-4">
                         <ul class="space-y-2">
                           <li class="flex items-center gap-2 text-sm text-red-700">
                             <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            Rażącego naruszenia Regulaminu
+                            {t.section10.item3violation}
                           </li>
                           <li class="flex items-center gap-2 text-sm text-red-700">
                             <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            Działań na szkodę Usługodawcy lub innych Użytkowników
+                            {t.section10.item3harm}
                           </li>
                           <li class="flex items-center gap-2 text-sm text-red-700">
                             <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            Podania fałszywych danych rejestracyjnych
+                            {t.section10.item3falseData}
                           </li>
                         </ul>
                       </div>
@@ -907,20 +848,20 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">4</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Po rozwiązaniu umowy dane Użytkownika są usuwane zgodnie z Polityką Prywatności.
+                      {t.section10.item4}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 11: Reklamacje -->
+            <!-- Section 11: Complaints -->
             <section id="section-11" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">11</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Reklamacje</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section11.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -929,7 +870,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Reklamacje należy zgłaszać na adres: <a href="mailto:support@browin.pl" class="text-emerald-600 font-medium hover:underline">support@browin.pl</a>
+                      <span set:html={t.section11.item1.replace('support@browin.pl', '<a href="mailto:support@browin.pl" class="text-emerald-600 font-medium hover:underline">support@browin.pl</a>')} />
                     </div>
                   </div>
                 </div>
@@ -939,19 +880,19 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span>Reklamacja powinna zawierać:</span>
+                      <span>{t.section11.item2intro}</span>
                       <ul class="mt-3 space-y-2 ml-4">
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Dane kontaktowe Użytkownika
+                          {t.section11.item2contact}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Opis problemu
+                          {t.section11.item2problem}
                         </li>
                         <li class="flex items-center gap-2 text-sm text-zinc-600">
                           <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
-                          Oczekiwany sposób rozwiązania
+                          {t.section11.item2resolution}
                         </li>
                       </ul>
                     </div>
@@ -963,7 +904,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Usługodawca rozpatruje reklamacje w terminie <strong class="text-zinc-900">14 dni</strong> od ich otrzymania.
+                      {t.section11.item3}
                     </div>
                   </div>
                 </div>
@@ -973,24 +914,24 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">4</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      O wyniku rozpatrzenia reklamacji Użytkownik zostanie poinformowany drogą elektroniczną.
+                      {t.section11.item4}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 12: Rozwiązywanie sporów -->
+            <!-- Section 12: Dispute Resolution -->
             <section id="section-12" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">12</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Pozasądowe rozwiązywanie sporów</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section12.title}</h2>
               </div>
               <div class="pl-0 md:pl-14">
                 <p class="text-zinc-600 leading-relaxed mb-6">
-                  Użytkownik będący konsumentem ma możliwość skorzystania z pozasądowych sposobów rozpatrywania reklamacji i dochodzenia roszczeń:
+                  {t.section12.intro}
                 </p>
                 <div class="space-y-3">
                   <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -1001,7 +942,7 @@ const tocSections = [
                         </svg>
                       </div>
                       <div>
-                        <h4 class="font-semibold text-zinc-900 text-sm">Platforma ODR</h4>
+                        <h4 class="font-semibold text-zinc-900 text-sm">{t.section12.odrPlatform.title}</h4>
                         <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" class="text-sm text-emerald-600 hover:underline">https://ec.europa.eu/consumers/odr</a>
                       </div>
                     </div>
@@ -1014,8 +955,8 @@ const tocSections = [
                         </svg>
                       </div>
                       <div>
-                        <h4 class="font-semibold text-zinc-900 text-sm">Wojewódzkie Inspektoraty Inspekcji Handlowej</h4>
-                        <p class="text-sm text-zinc-600">Pomoc w rozwiązywaniu sporów konsumenckich</p>
+                        <h4 class="font-semibold text-zinc-900 text-sm">{t.section12.tradeInspection.title}</h4>
+                        <p class="text-sm text-zinc-600">{t.section12.tradeInspection.description}</p>
                       </div>
                     </div>
                   </div>
@@ -1027,8 +968,8 @@ const tocSections = [
                         </svg>
                       </div>
                       <div>
-                        <h4 class="font-semibold text-zinc-900 text-sm">Stałe Polubowne Sądy Konsumenckie</h4>
-                        <p class="text-sm text-zinc-600">Działające przy Wojewódzkich Inspektoratach</p>
+                        <h4 class="font-semibold text-zinc-900 text-sm">{t.section12.consumerCourts.title}</h4>
+                        <p class="text-sm text-zinc-600">{t.section12.consumerCourts.description}</p>
                       </div>
                     </div>
                   </div>
@@ -1036,13 +977,13 @@ const tocSections = [
               </div>
             </section>
 
-            <!-- Section 13: Postanowienia końcowe -->
+            <!-- Section 13: Final Provisions -->
             <section id="section-13" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">13</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Postanowienia końcowe</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section13.title}</h2>
               </div>
               <div class="pl-0 md:pl-14 space-y-4">
                 <div class="bg-white rounded-xl ring-1 ring-zinc-200 p-4">
@@ -1051,7 +992,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Regulamin obowiązuje od dnia <strong class="text-zinc-900">29 stycznia 2026 roku</strong>.
+                      {t.section13.item1}
                     </div>
                   </div>
                 </div>
@@ -1061,7 +1002,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Usługodawca zastrzega sobie prawo do zmiany Regulaminu. O zmianach Użytkownicy zostaną poinformowani z <strong class="text-zinc-900">14-dniowym wyprzedzeniem</strong>.
+                      {t.section13.item2}
                     </div>
                   </div>
                 </div>
@@ -1071,7 +1012,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">3</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają przepisy prawa polskiego.
+                      {t.section13.item3}
                     </div>
                   </div>
                 </div>
@@ -1081,7 +1022,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">4</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Spory wynikające z niniejszego Regulaminu będą rozstrzygane przez sąd właściwy dla siedziby Usługodawcy (dla sporów z przedsiębiorcami) lub sąd właściwy dla miejsca zamieszkania konsumenta.
+                      {t.section13.item4}
                     </div>
                   </div>
                 </div>
@@ -1091,23 +1032,23 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">5</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      Jeśli którekolwiek postanowienie Regulaminu zostanie uznane za nieważne, pozostałe postanowienia pozostają w mocy.
+                      {t.section13.item5}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- Section 14: Kontakt -->
+            <!-- Section 14: Contact -->
             <section id="section-14" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
                 <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
                   <span class="text-white font-bold text-sm">14</span>
                 </div>
-                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">Kontakt</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-zinc-900 pt-1.5">{t.section14.title}</h2>
               </div>
               <div class="pl-0 md:pl-14">
-                <p class="text-zinc-600 leading-relaxed mb-6">W razie pytań dotyczących Regulaminu, prosimy o kontakt:</p>
+                <p class="text-zinc-600 leading-relaxed mb-6">{t.section14.intro}</p>
                 <div class="bg-white rounded-xl p-6 ring-1 ring-zinc-200 shadow-sm">
                   <div class="flex items-start gap-4">
                     <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
@@ -1122,16 +1063,16 @@ const tocSections = [
                   </div>
                   <div class="mt-6 pt-6 border-t border-zinc-100 space-y-3 text-sm">
                     <div class="flex items-center gap-3">
-                      <span class="text-zinc-500 w-40">E-mail:</span>
+                      <span class="text-zinc-500 w-40">{t.section14.email}</span>
                       <a href="mailto:support@browin.pl" class="text-emerald-600 font-medium hover:underline">support@browin.pl</a>
                     </div>
                     <div class="flex items-center gap-3">
-                      <span class="text-zinc-500 w-40">Telefon:</span>
+                      <span class="text-zinc-500 w-40">{t.section14.phone}</span>
                       <span class="text-zinc-900 font-medium">+48 42 23 23 200</span>
                     </div>
                     <div class="flex items-center gap-3">
-                      <span class="text-zinc-500 w-40">Biuro Obsługi Klienta:</span>
-                      <span class="text-zinc-900 font-medium">+48 42 23 23 230 (Pn-Pt 8:00-16:00)</span>
+                      <span class="text-zinc-500 w-40">{t.section14.customerService}</span>
+                      <span class="text-zinc-900 font-medium">+48 42 23 23 230</span>
                     </div>
                   </div>
                 </div>
@@ -1174,7 +1115,7 @@ const tocSections = [
             <p class="text-zinc-400 text-sm font-medium text-center">&copy; {currentYear} Chataptor. {t.copyright}</p>
             <div class="flex items-center gap-2 text-[10px] font-bold text-zinc-400 bg-zinc-50 px-3 py-1.5 rounded-full border border-zinc-100">
               <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-              Uptime: 99.89%
+              {t.footer.uptime}
             </div>
           </div>
         </div>
@@ -1200,26 +1141,4 @@ const tocSections = [
         });
       </script>
     </main>
-  ) : (
-    <!-- Simple placeholder for other languages -->
-    <section class="relative pt-32 md:pt-48 pb-16 md:pb-32 text-center overflow-hidden">
-      <div class="px-4 md:px-6 max-w-5xl mx-auto relative z-10">
-        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-8 text-zinc-900">
-          {t.title}
-        </h1>
-        <p class="text-base md:text-lg text-zinc-500 max-w-2xl mx-auto mb-10">
-          {t.description}
-        </p>
-        <a
-          href={`/${lang}/`}
-          class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          {t.backLink}
-        </a>
-      </div>
-    </section>
-  )}
 </BaseLayout>

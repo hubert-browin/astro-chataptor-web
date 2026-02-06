@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: {
-        defaultLocale: 'pl',
+        defaultLocale: 'en',
         locales: {
           en: 'en',
           pl: 'pl',
