@@ -190,8 +190,8 @@ export const landing: Record<Locale, LandingTranslations> = {
     hero: {
       badge: 'Nowość: Model "Pay-per-satisfaction"',
       badgeMobile: 'Nowość: Pay-per-satisfaction',
-      title1: 'Sprzedawaj globalnie.',
-      title2: 'Obsługuj lokalnie.',
+      title1: 'Rozmawiaj z klientami',
+      title2: 'w każdym języku świata.',
       description: 'Przełam barierę językową. Jeden agent obsługuje 20 rynków.',
       descriptionMobile: 'Jeden agent. 20 rynków. Bariera językowa znika.',
       descriptionHighlight: 'Zero tłumaczy. Zero opóźnień. 100% AI.',
