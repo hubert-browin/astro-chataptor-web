@@ -88,20 +88,14 @@ const logos = [
 >
   <style is:global>
     /* Responsive Scaling Logic (The "Zoom" Effect) */
-    
-    /* Default (Mobile): Standard size */
     html {
       font-size: 16px;
     }
-
-    /* Laptop (1024px - 1535px): Scale down to ~75-80% to fit more content */
     @media (min-width: 1024px) and (max-width: 1535px) {
       html {
-        font-size: 12px; /* This creates the "75% zoom" look */
+        font-size: 12px;
       }
     }
-
-    /* Large Screens (1536px+): Back to standard or slightly larger */
     @media (min-width: 1536px) {
       html {
         font-size: 16px; 
@@ -110,17 +104,11 @@ const logos = [
   </style>
 
   <style>
-    /* Custom Pulse Animation for the Demo Button */
+    /* Custom Pulse Animation */
     @keyframes pulse-ring {
-      0% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
     .animate-pulse-ring {
       animation: pulse-ring 2s infinite;
@@ -131,42 +119,24 @@ const logos = [
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Hidden State (Default) */
-    #demo-popover:not(.is-open) {
-      pointer-events: none;
-    }
-    #demo-popover:not(.is-open) #demo-popover-backdrop {
-      opacity: 0;
-    }
+    /* Hidden State */
+    #demo-popover:not(.is-open) { pointer-events: none; }
+    #demo-popover:not(.is-open) #demo-popover-backdrop { opacity: 0; }
 
     /* Open State */
-    #demo-popover.is-open {
-      pointer-events: auto;
-    }
-    #demo-popover.is-open #demo-popover-backdrop {
-      opacity: 1;
-    }
+    #demo-popover.is-open { pointer-events: auto; }
+    #demo-popover.is-open #demo-popover-backdrop { opacity: 1; }
 
-    /* Mobile Specific Transforms (Bottom Sheet Style) */
+    /* Mobile: Bottom Sheet */
     @media (max-width: 639px) {
-      #demo-popover .popover-content {
-        transform: translateY(100%);
-      }
-      #demo-popover.is-open .popover-content {
-        transform: translateY(0);
-      }
+      #demo-popover .popover-content { transform: translateY(100%); }
+      #demo-popover.is-open .popover-content { transform: translateY(0); }
     }
 
-    /* Desktop Specific Transforms (Dropdown style) */
+    /* Desktop: Dropdown Fade/Scale */
     @media (min-width: 640px) {
-      #demo-popover:not(.is-open) {
-        opacity: 0;
-        visibility: hidden;
-      }
-      #demo-popover.is-open {
-        opacity: 1;
-        visibility: visible;
-      }
+      #demo-popover:not(.is-open) { opacity: 0; visibility: hidden; }
+      #demo-popover.is-open { opacity: 1; visibility: visible; }
       
       #demo-popover:not(.is-open) .popover-content {
         transform: translateY(10px) scale(0.95);
@@ -245,7 +215,6 @@ const logos = [
       <section class="relative pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-24 lg:pb-32 text-center overflow-visible">
         <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
-        <!-- World Map Background -->
         <img
           src="/images/dotted_worldmap.svg"
           alt=""
@@ -282,8 +251,7 @@ const logos = [
               {t.hero.cta}
             </a>
             
-            <!-- MODIFIED DEMO BUTTON CONTAINER -->
-            <!-- Removed fixed widths, used min-w for stability -->
+            <!-- BUTTON CONTAINER -->
             <div class="relative w-full sm:w-auto group">
               <button 
                 id="demo-trigger"
@@ -296,17 +264,16 @@ const logos = [
                 <svg class="w-4 h-4 text-zinc-400 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
 
-              <!-- MODERN CONTACT POPOVER / BOTTOM SHEET -->
-              <!-- Mobile: Fixed Bottom Sheet | Desktop: Absolute dropdown -->
+              <!-- MODERN CONTACT POPOVER -->
               <div 
                 id="demo-popover" 
-                class="fixed inset-0 sm:absolute sm:inset-auto sm:top-full sm:mt-4 sm:left-1/2 sm:-translate-x-1/2 z-[100] sm:z-50 flex items-end sm:items-start justify-center sm:block w-full sm:w-[480px]"
+                class="fixed inset-0 sm:absolute sm:inset-auto sm:top-full sm:mt-4 sm:left-1/2 sm:-translate-x-1/2 z-[100] sm:z-50 flex items-end sm:items-start justify-center sm:block w-full sm:w-[400px]"
               >
                  <!-- Backdrop (Mobile only) -->
                  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm sm:hidden transition-opacity duration-300" id="demo-popover-backdrop"></div>
 
                  <!-- Content Container -->
-                 <div class="popover-content w-full bg-white sm:bg-white/95 sm:backdrop-blur-xl rounded-t-[32px] sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] sm:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.2),0_10px_30px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 p-4 sm:p-2 flex flex-col gap-1 text-left relative z-10">
+                 <div class="popover-content w-full bg-white sm:bg-white/95 sm:backdrop-blur-xl rounded-t-[32px] sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] sm:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.2),0_10px_30px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 p-4 sm:p-3 flex flex-col gap-1 text-left relative z-10">
                     
                     <!-- Drag Handle (Mobile Visual) -->
                     <div class="w-12 h-1.5 bg-zinc-200 rounded-full mx-auto mb-6 sm:hidden"></div>
@@ -319,79 +286,84 @@ const logos = [
                     <!-- Little triangle pointer (Desktop only) -->
                     <div class="hidden sm:block absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-l border-t border-zinc-100/50"></div>
 
-                    <div class="px-2 pb-2 sm:px-4 sm:py-3 border-b border-zinc-100/50 mb-1 relative z-10">
+                    <!-- DESKTOP: DYNAMIC HEADER (Action Center) -->
+                    <div class="hidden sm:flex flex-col items-center justify-center py-4 border-b border-zinc-100/50 min-h-[5rem] transition-all">
+                       <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-1" id="desktop-action-label">Wybierz formę kontaktu</span>
+                       <div class="flex items-center gap-2 h-7">
+                         <span class="text-lg font-bold text-zinc-900 transition-all duration-300" id="desktop-action-value">
+                           Skontaktuj się z nami
+                         </span>
+                         <!-- Copy icon placeholder -->
+                         <div id="desktop-copy-icon" class="opacity-0 transition-opacity duration-200">
+                            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                         </div>
+                       </div>
+                    </div>
+
+                    <!-- MOBILE: Simple Header -->
+                    <div class="px-2 pb-2 sm:hidden border-b border-zinc-100/50 mb-1 relative z-10">
                         <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Wybierz formę kontaktu</span>
                     </div>
 
-                    <!-- DESKTOP GRID LAYOUT -->
-                    <div class="sm:grid sm:grid-cols-2 sm:gap-2">
+                    <!-- ICONS ROW (Desktop) & LIST (Mobile) -->
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center sm:gap-2 sm:pt-2">
+                        
                         <!-- 1. Telefon -->
-                        <div class="relative group/item flex items-center gap-3 p-4 sm:p-3 rounded-2xl sm:rounded-xl hover:bg-zinc-50 transition-all">
-                            <a href="tel:+48695151096" class="flex items-center gap-3 flex-1 min-w-0">
-                                <div class="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 group-hover/item:bg-zinc-900 group-hover/item:text-white transition-colors shrink-0">
-                                  <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                </div>
-                                <div class="min-w-0">
-                                  <div class="text-base sm:text-sm font-bold text-zinc-900">Zadzwoń</div>
-                                  <div class="text-sm sm:text-xs text-zinc-500 font-medium truncate">+48 695 151 096</div>
-                                </div>
-                            </a>
-                            <!-- Copy Button -->
-                            <button class="p-2 text-zinc-300 hover:text-zinc-600 hover:bg-zinc-200 rounded-lg transition-all copy-btn shrink-0" data-text="+48 695 151 096" title="Kopiuj numer">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            </button>
-                        </div>
+                        <!-- Mobile View -->
+                        <a href="tel:+48695151096" class="flex sm:hidden items-center gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
+                            <div><div class="text-base font-bold text-zinc-900">Zadzwoń</div><div class="text-sm text-zinc-500 font-medium">+48 695 151 096</div></div>
+                        </a>
+                        <!-- Desktop View (Icon Button) -->
+                        <button class="hidden sm:flex w-12 h-12 rounded-full bg-zinc-50 hover:bg-zinc-900 hover:text-white hover:scale-110 text-zinc-600 items-center justify-center transition-all duration-300 group/icon contact-action" data-type="copy" data-value="+48 695 151 096" data-label="Zadzwoń do nas" aria-label="Telefon">
+                           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </button>
 
                         <!-- 2. Email -->
-                        <div class="relative group/item flex items-center gap-3 p-4 sm:p-3 rounded-2xl sm:rounded-xl hover:bg-zinc-50 transition-all">
-                            <a href="mailto:contact@chataptor.com" class="flex items-center gap-3 flex-1 min-w-0">
-                                <div class="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 group-hover/item:bg-zinc-900 group-hover/item:text-white transition-colors shrink-0">
-                                  <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                </div>
-                                <div class="min-w-0">
-                                  <div class="text-base sm:text-sm font-bold text-zinc-900">E-mail</div>
-                                  <div class="text-sm sm:text-xs text-zinc-500 font-medium truncate">contact@chataptor.com</div>
-                                </div>
-                            </a>
-                            <!-- Copy Button -->
-                            <button class="p-2 text-zinc-300 hover:text-zinc-600 hover:bg-zinc-200 rounded-lg transition-all copy-btn shrink-0" data-text="contact@chataptor.com" title="Kopiuj email">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            </button>
-                        </div>
+                        <!-- Mobile View -->
+                        <a href="mailto:contact@chataptor.com" class="flex sm:hidden items-center gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                            <div><div class="text-base font-bold text-zinc-900">E-mail</div><div class="text-sm text-zinc-500 font-medium">contact@chataptor.com</div></div>
+                        </a>
+                        <!-- Desktop View (Icon Button) -->
+                        <button class="hidden sm:flex w-12 h-12 rounded-full bg-zinc-50 hover:bg-orange-500 hover:text-white hover:scale-110 text-zinc-600 items-center justify-center transition-all duration-300 group/icon contact-action" data-type="copy" data-value="contact@chataptor.com" data-label="Napisz e-mail" aria-label="Email">
+                           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </button>
 
                         <!-- 3. WhatsApp -->
-                        <a href="https://wa.me/48695151096" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-4 sm:p-3 rounded-2xl sm:rounded-xl hover:bg-zinc-50 transition-all group/item">
-                            <div class="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600 group-hover/item:bg-green-500 group-hover/item:text-white transition-colors shrink-0">
-                              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            </div>
-                            <div>
-                              <div class="text-base sm:text-sm font-bold text-zinc-900">WhatsApp</div>
-                              <div class="text-sm sm:text-xs text-zinc-500 font-medium">Czatuj teraz</div>
-                            </div>
+                        <!-- Mobile View -->
+                        <a href="https://wa.me/48695151096" target="_blank" class="flex sm:hidden items-center gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></div>
+                            <div><div class="text-base font-bold text-zinc-900">WhatsApp</div><div class="text-sm text-zinc-500 font-medium">Czatuj teraz</div></div>
+                        </a>
+                        <!-- Desktop View (Icon Button) -->
+                        <a href="https://wa.me/48695151096" target="_blank" class="hidden sm:flex w-12 h-12 rounded-full bg-zinc-50 hover:bg-green-500 hover:text-white hover:scale-110 text-zinc-600 items-center justify-center transition-all duration-300 group/icon contact-action" data-type="link" data-value="WhatsApp" data-label="Otwórz WhatsApp" aria-label="WhatsApp">
+                           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                         </a>
 
                         <!-- 4. Messenger -->
-                        <a href="https://m.me/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-4 sm:p-3 rounded-2xl sm:rounded-xl hover:bg-zinc-50 transition-all group/item">
-                            <div class="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors shrink-0">
-                              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
-                            </div>
-                            <div>
-                              <div class="text-base sm:text-sm font-bold text-zinc-900">Messenger</div>
-                              <div class="text-sm sm:text-xs text-zinc-500 font-medium">Wyślij wiadomość</div>
-                            </div>
+                        <!-- Mobile View -->
+                        <a href="https://m.me/" target="_blank" class="flex sm:hidden items-center gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg></div>
+                            <div><div class="text-base font-bold text-zinc-900">Messenger</div><div class="text-sm text-zinc-500 font-medium">Wyślij wiadomość</div></div>
                         </a>
+                        <!-- Desktop View (Icon Button) -->
+                        <a href="https://m.me/" target="_blank" class="hidden sm:flex w-12 h-12 rounded-full bg-zinc-50 hover:bg-blue-600 hover:text-white hover:scale-110 text-zinc-600 items-center justify-center transition-all duration-300 group/icon contact-action" data-type="link" data-value="Messenger" data-label="Otwórz Messenger" aria-label="Messenger">
+                           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
+                        </a>
+
+                        <!-- 5. Live Chat (Extra) -->
+                        <!-- Mobile View -->
+                        <button class="flex sm:hidden items-center gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-all text-left" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
+                            <div class="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center"><img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-6 h-6 object-contain opacity-80" /></div>
+                            <div><div class="text-base font-bold text-zinc-900">Live Chat</div><div class="text-sm text-zinc-500 font-medium">Zobacz na stronie</div></div>
+                        </button>
+                        <!-- Desktop View (Icon Button) -->
+                        <button class="hidden sm:flex w-12 h-12 rounded-full bg-zinc-50 hover:bg-emerald-500 hover:text-white hover:scale-110 items-center justify-center transition-all duration-300 group/icon contact-action" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})" data-type="scroll" data-value="Live Chat" data-label="Przejdź do czatu" aria-label="Live Chat">
+                            <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-5 h-5 object-contain opacity-60 group-hover/icon:opacity-100 group-hover/icon:invert group-hover/icon:brightness-0 transition-all" />
+                        </button>
+
                     </div>
-                    
-                    <!-- 5. Live Chat (Extra) - Centered and highlighted -->
-                    <button class="flex items-center justify-center gap-3 p-3 sm:p-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-100 transition-all w-full text-center group/item relative z-10 mt-2 shadow-sm hover:shadow-md active:scale-95" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
-                        <div class="w-6 h-6 flex items-center justify-center shrink-0">
-                            <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-full h-full object-contain opacity-80 group-hover/item:scale-110 transition-all duration-300" />
-                        </div>
-                        <div class="flex flex-col items-start text-left sm:items-center sm:text-center">
-                          <span class="text-sm font-bold text-zinc-900">Live Chat</span>
-                          <span class="text-[10px] text-zinc-500 font-medium sm:hidden">Zobacz na stronie</span>
-                        </div>
-                    </button>
                     
                     <!-- Safe area for bottom on mobile -->
                     <div class="h-6 sm:hidden"></div>
@@ -412,8 +384,6 @@ const logos = [
       </section>
 
       <!-- UI MOCKUP -->
-      <!-- Added horizontal margins for mobile (mx-2 md:mx-0) -->
-      <!-- Converted height to rems to support zoom scaling -->
       <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 -mt-10 mb-16 lg:mb-28 xl:mb-40 relative z-20">
         <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[30rem] sm:h-[40rem] lg:h-[45rem] xl:h-[50rem] border md:border-none border-zinc-100">
           <!-- Mockup Header -->
@@ -518,10 +488,9 @@ const logos = [
       </div>
 
       <!-- SEKCJA: ŚCIEŻKA EKSPANSJI (How it works) -->
-      <!-- Adjusted padding and gaps for responsiveness -->
       <section id="how-it-works" class="py-16 md:py-24 lg:py-32 xl:py-40 px-4 md:px-6 max-w-7xl mx-auto w-full">
-         <!-- ... existing How It Works Section ... -->
-        <div class="text-center mb-16 lg:mb-24 xl:mb-40">
+         <!-- ... (existing How It Works Content) ... -->
+         <div class="text-center mb-16 lg:mb-24 xl:mb-40">
           <h2 class="text-3xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.howItWorks.title}></h2>
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto font-light leading-relaxed">{t.howItWorks.subtitle}</p>
         </div>
@@ -646,9 +615,7 @@ const logos = [
       </section>
 
       <!-- SEKCJA: WDROŻENIE (Implementation) -->
-      <!-- Fixed horizontal cut-off issue by removing padding from section -->
       <section id="implementation" class="py-16 md:py-24 lg:py-32 xl:py-32 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
-        <!-- Inner container with padding for content -->
         <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mb-12 md:mb-16">
           <div>
             <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
@@ -693,8 +660,6 @@ const logos = [
           </div>
         </div>
 
-        <!-- LOGOTYPY INTEGRACJI -->
-        <!-- Full width container without padding constraint -->
         <div class="w-full relative mask-gradient mt-8 md:mt-12 overflow-hidden">
           <div class="flex animate-marquee-mobile md:animate-marquee whitespace-nowrap items-center">
             {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo) => (
@@ -707,9 +672,7 @@ const logos = [
       </section>
 
       <!-- FEATURE BENTO GRID (Features) -->
-      <!-- Adjusted padding for responsiveness -->
       <section id="product" class="py-16 md:py-24 lg:py-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
-         <!-- ... existing features content ... -->
         <div class="text-center mb-12 lg:mb-16 xl:mb-24">
           <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.features.title}</h2>
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{t.features.subtitle}</p>
@@ -975,7 +938,11 @@ const logos = [
       const demoPopover = document.getElementById('demo-popover');
       const demoPopoverClose = document.getElementById('demo-popover-close');
       const demoPopoverBackdrop = document.getElementById('demo-popover-backdrop');
-      const copyButtons = document.querySelectorAll('.copy-btn');
+      const contactActions = document.querySelectorAll('.contact-action');
+      
+      const desktopLabel = document.getElementById('desktop-action-label');
+      const desktopValue = document.getElementById('desktop-action-value');
+      const desktopCopyIcon = document.getElementById('desktop-copy-icon');
       
       if (demoTrigger && demoPopover) {
         
@@ -1012,23 +979,59 @@ const logos = [
         });
       }
 
-      // Copy to clipboard logic
-      copyButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent navigating to link
-            e.preventDefault();
-            const text = btn.dataset.text;
-            if (text) {
-                navigator.clipboard.writeText(text).then(() => {
-                    const originalIcon = btn.innerHTML;
-                    // Success icon (check)
-                    btn.innerHTML = '<svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                    setTimeout(() => {
-                        btn.innerHTML = originalIcon;
-                    }, 2000);
-                });
-            }
-        });
+      // Handle Interactions (Hover & Click) for Desktop Dock
+      contactActions.forEach(action => {
+          // Hover Effect for Dynamic Header
+          action.addEventListener('mouseenter', () => {
+              const label = action.dataset.label;
+              const value = action.dataset.value;
+              const type = action.dataset.type;
+
+              if (desktopLabel && desktopValue) {
+                  desktopLabel.textContent = label;
+                  desktopValue.textContent = value;
+                  desktopValue.classList.add('text-emerald-600');
+                  
+                  if (type === 'copy' && desktopCopyIcon) {
+                      desktopCopyIcon.classList.remove('opacity-0');
+                  } else if (desktopCopyIcon) {
+                      desktopCopyIcon.classList.add('opacity-0');
+                  }
+              }
+          });
+
+          // Reset on mouse leave
+          action.addEventListener('mouseleave', () => {
+               if (desktopLabel && desktopValue) {
+                  desktopLabel.textContent = "Wybierz formę kontaktu";
+                  desktopValue.textContent = "Skontaktuj się z nami";
+                  desktopValue.classList.remove('text-emerald-600');
+                  if (desktopCopyIcon) desktopCopyIcon.classList.add('opacity-0');
+              }
+          });
+
+          // Click Action
+          action.addEventListener('click', (e) => {
+              const type = action.dataset.type;
+              const value = action.dataset.value;
+
+              if (type === 'copy') {
+                  e.preventDefault();
+                  navigator.clipboard.writeText(value).then(() => {
+                      if (desktopLabel) desktopLabel.textContent = "Skopiowano do schowka!";
+                      if (desktopValue) desktopValue.classList.add('text-emerald-600');
+                      
+                      // Flash icon
+                      const originalIcon = action.innerHTML;
+                      action.innerHTML = '<svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                      setTimeout(() => {
+                          action.innerHTML = originalIcon;
+                      }, 1500);
+                  });
+              } else if (type === 'scroll') {
+                  // Handled by inline onclick usually, but good to have here
+              }
+          });
       });
 
 
