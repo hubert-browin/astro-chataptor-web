@@ -223,10 +223,11 @@ const logos = [
             </a>
             
             <!-- MODIFIED DEMO BUTTON CONTAINER -->
-            <div class="relative w-full sm:w-auto group">
+            <!-- Added specific width sm:w-[300px] to match the popover content width -->
+            <div class="relative w-full sm:w-[300px] group">
               <button 
                 id="demo-trigger"
-                class="relative w-full sm:w-auto pl-2 pr-6 py-2 bg-white rounded-full ring-1 ring-zinc-200 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 animate-pulse-ring z-20"
+                class="relative w-full pl-2 pr-6 py-2 bg-white rounded-full ring-1 ring-zinc-200 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 animate-pulse-ring z-20"
               >
                 <div class="relative w-10 h-10 rounded-full bg-zinc-50 flex items-center justify-center text-zinc-900 shadow-sm shrink-0 group-hover:bg-zinc-100 transition-colors duration-300">
                   <svg class="w-4 h-4 ml-0.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"> <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
@@ -235,10 +236,11 @@ const logos = [
                 <svg class="w-4 h-4 text-zinc-400 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
 
-              <!-- MODERN CONTACT POPOVER - Fixed positioning and Z-Index -->
+              <!-- MODERN CONTACT POPOVER -->
+              <!-- Changed width to w-full to match the button container above -->
               <div 
                 id="demo-popover" 
-                class="absolute top-full mt-3 left-1/2 w-[300px] sm:w-[320px] max-w-[90vw] bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_25px_80px_-15px_rgba(0,0,0,0.2),0_10px_30px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 popover-enter z-50 p-2 flex flex-col gap-1 text-left origin-top"
+                class="absolute top-full mt-3 left-1/2 w-full max-w-[90vw] bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_25px_80px_-15px_rgba(0,0,0,0.2),0_10px_30px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 popover-enter z-50 p-2 flex flex-col gap-1 text-left origin-top"
                 style="transform: translateX(-50%)"
               >
                  <!-- Little triangle pointer -->
@@ -260,8 +262,9 @@ const logos = [
                  </a>
 
                  <!-- 2. Email -->
+                 <!-- Changed colors from orange to zinc -->
                  <a href="mailto:contact@chataptor.com" class="flex items-center gap-4 p-3 rounded-xl hover:bg-zinc-50 transition-all group/item relative z-10">
-                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 group-hover/item:bg-orange-500 group-hover/item:text-white transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 group-hover/item:bg-zinc-900 group-hover/item:text-white transition-colors">
                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
                     <div>
@@ -296,11 +299,12 @@ const logos = [
                  
                  <!-- 5. Live Chat (Extra) -->
                  <button class="flex items-center gap-4 p-3 rounded-xl hover:bg-zinc-50 transition-all w-full text-left group/item relative z-10" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
-                    <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover/item:bg-emerald-500 group-hover/item:text-white transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors">
+                        <!-- Replaced icon with image logo -->
+                        <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-5 h-5 object-contain opacity-80 group-hover/item:opacity-100 group-hover/item:invert group-hover/item:brightness-0 transition-all" />
                     </div>
                     <div>
-                       <div class="text-sm font-bold text-zinc-900">Live Demo</div>
+                       <div class="text-sm font-bold text-zinc-900">Live Chat</div>
                        <div class="text-xs text-zinc-500 font-medium">Zobacz na stronie</div>
                     </div>
                  </button>
