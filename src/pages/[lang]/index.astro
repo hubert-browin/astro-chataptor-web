@@ -102,8 +102,8 @@ const logos = [
           </div>
           <div class="hidden md:flex items-center gap-2 pr-1">
             <LanguageSwitcher currentLang={lang} slug="" />
-            <a href="https://app.chataptor.com/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors text-[13px] px-3">{t.nav.login}</a>
-            <a href="https://app.chataptor.com/register" class="bg-zinc-900 text-white rounded-full font-medium hover:bg-black transition-all hover:scale-105 active:scale-95 px-5 py-2 text-[13px] shadow-lg shadow-zinc-900/10">{t.nav.start}</a>
+            <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors text-[13px] px-3">{t.nav.login}</a>
+            <a href="/register" class="bg-zinc-900 text-white rounded-full font-medium hover:bg-black transition-all hover:scale-105 active:scale-95 px-5 py-2 text-[13px] shadow-lg shadow-zinc-900/10">{t.nav.start}</a>
           </div>
           <button class="md:hidden p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform" id="sticky-mobile-menu-btn">
             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,8 +120,8 @@ const logos = [
         </div>
         <div class="hidden md:flex items-center gap-6">
           <LanguageSwitcher currentLang={lang} slug="" />
-          <a href="https://app.chataptor.com/login" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
-          <a href="https://app.chataptor.com/register" class="bg-zinc-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-black transition-all hover:shadow-xl hover:shadow-zinc-900/10 active:scale-95">{t.nav.startFree}</a>
+          <a href="/login" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
+          <a href="/register" class="bg-zinc-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-black transition-all hover:shadow-xl hover:shadow-zinc-900/10 active:scale-95">{t.nav.startFree}</a>
         </div>
         <button class="md:hidden p-2 text-zinc-600 active:scale-90 transition-transform" id="mobile-menu-btn">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -142,8 +142,8 @@ const logos = [
           <a href="#product" class="text-3xl font-bold text-zinc-900 tracking-tight mobile-menu-link">{t.nav.features}</a>
           <div class="h-px bg-zinc-100 my-4 w-full"></div>
           <div class="flex flex-col gap-4">
-            <a href="https://app.chataptor.com/login" class="text-xl font-medium text-zinc-500 text-center py-2">{t.nav.loginFull}</a>
-            <a href="https://app.chataptor.com/register" class="bg-zinc-900 text-white px-4 py-4 rounded-2xl text-lg font-bold w-full shadow-xl shadow-zinc-900/10 active:scale-[0.98] transition-transform text-center">{t.nav.startFree}</a>
+            <a href="/login" class="text-xl font-medium text-zinc-500 text-center py-2">{t.nav.loginFull}</a>
+            <a href="/register" class="bg-zinc-900 text-white px-4 py-4 rounded-2xl text-lg font-bold w-full shadow-xl shadow-zinc-900/10 active:scale-[0.98] transition-transform text-center">{t.nav.startFree}</a>
           </div>
         </div>
       </div>
@@ -185,7 +185,7 @@ const logos = [
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 px-4">
-            <a href="https://app.chataptor.com/register" class="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all hover:scale-[1.02] shadow-xl shadow-zinc-900/10 active:scale-95 text-center">
+            <a href="/register" class="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all hover:scale-[1.02] shadow-xl shadow-zinc-900/10 active:scale-95 text-center">
               {t.hero.cta}
             </a>
             <button class="group relative w-full sm:w-auto pl-2 pr-6 py-2 bg-white rounded-full ring-1 ring-zinc-900/5 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3 active:scale-95">
