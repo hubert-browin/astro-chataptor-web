@@ -195,8 +195,8 @@ export const landing: Record<Locale, LandingTranslations> = {
       description: 'Przełam barierę językową. Jeden agent obsługuje 20 rynków.',
       descriptionMobile: 'Jeden agent. 20 rynków. Bariera językowa znika.',
       descriptionHighlight: 'Zero tłumaczy. Zero opóźnień. 100% AI.',
-      cta: 'Dołącz do bety',
-      demo: 'Zobacz demo',
+      cta: 'Rozpocznij teraz',
+      demo: 'Skontaktuj się z Nami',
       techTrust: 'Technologia, której ufasz',
     },
     chat: {
