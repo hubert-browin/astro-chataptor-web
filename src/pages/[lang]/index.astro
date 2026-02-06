@@ -120,16 +120,16 @@ const logos = [
     <main class="flex min-h-screen flex-col bg-white overflow-x-hidden font-sans text-zinc-900 selection:bg-emerald-100 selection:text-emerald-900">
       <!-- NAVIGATION (Sticky on scroll) -->
       <div class="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-6 px-4 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-4 opacity-0" id="sticky-nav">
-        <nav class="pointer-events-auto w-[95%] md:w-[850px] bg-white/70 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between">
+        <nav class="pointer-events-auto w-[95%] md:w-[800px] lg:w-[850px] bg-white/70 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between">
           <div class="flex items-center gap-3 pl-3">
             <a href={`/${lang}/`} class="flex items-center gap-2 group opacity-90 hover:opacity-100 transition-opacity">
               <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-5 md:h-6 object-contain" />
             </a>
           </div>
           <div class="hidden md:flex items-center gap-1 text-[13px] font-medium text-zinc-500">
-            <a href="#how-it-works" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
-            <a href="#implementation" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
-            <a href="#product" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
+            <a href="#how-it-works" class="px-3 lg:px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
+            <a href="#implementation" class="px-3 lg:px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
+            <a href="#product" class="px-3 lg:px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
           </div>
           <div class="hidden md:flex items-center gap-2 pr-1">
             <LanguageSwitcher currentLang={lang} slug="" />
@@ -181,7 +181,8 @@ const logos = [
 
       <!-- HERO SECTION -->
       <!-- Z-index removed from section to allow children z-index to work properly against siblings -->
-      <section class="relative pt-32 md:pt-48 pb-16 md:pb-32 text-center overflow-visible">
+      <!-- Scaled margins and text sizes for better laptop responsiveness -->
+      <section class="relative pt-28 md:pt-36 lg:pt-40 xl:pt-48 pb-12 md:pb-20 lg:pb-24 xl:pb-32 text-center overflow-visible">
         <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
         <!-- World Map Background -->
@@ -204,13 +205,14 @@ const logos = [
             <span class="sm:hidden">{t.hero.badgeMobile}</span>
           </div>
 
-          <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8 text-zinc-900 px-2">
+          <!-- Refined Typography Scaling: sm -> lg -> xl -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8 text-zinc-900 px-2">
             {t.hero.title1}<br class="block sm:hidden" />
             <span class="hidden sm:inline"><br /></span>
             <span class="text-zinc-400 mt-2 sm:mt-0 block sm:inline font-semibold">{t.hero.title2}</span>
           </h1>
 
-          <p class="text-base md:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-10 leading-relaxed px-4">
+          <p class="text-base lg:text-lg xl:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-10 leading-relaxed px-4">
             <span class="md:hidden">{t.hero.descriptionMobile}</span>
             <span class="hidden md:inline">{t.hero.description}</span>
             <br class="hidden md:block"/>
@@ -325,8 +327,9 @@ const logos = [
 
       <!-- UI MOCKUP -->
       <!-- Z-index is 20, but now Hero Content is 30, so Hero Content (popover) will be on top -->
-      <div class="w-full max-w-7xl mx-auto px-0 md:px-6 -mt-10 mb-20 md:mb-40 relative z-20">
-        <div class="bg-white md:rounded-[32px] ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[85vh] md:h-[800px] border-y md:border-none border-zinc-200">
+      <!-- Scaled max-width and height for laptops (lg) vs desktops (xl) -->
+      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 -mt-10 mb-16 lg:mb-28 xl:mb-40 relative z-20">
+        <div class="bg-white md:rounded-[32px] ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] border-y md:border-none border-zinc-200">
           <!-- Mockup Header -->
           <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
             <div class="flex gap-2 opacity-50"><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div></div>
@@ -340,7 +343,7 @@ const logos = [
           <!-- Body Mockupu -->
           <div class="flex flex-1 overflow-hidden relative bg-zinc-50/50" id="chat-mockup">
             <!-- Sidebar - LIST VIEW -->
-            <div class="w-full md:w-[320px] border-r border-zinc-100 bg-white/80 backdrop-blur-xl flex flex-col overflow-y-auto custom-scrollbar absolute md:relative z-10 h-full" id="chat-list">
+            <div class="w-full md:w-[280px] lg:w-[320px] border-r border-zinc-100 bg-white/80 backdrop-blur-xl flex flex-col overflow-y-auto custom-scrollbar absolute md:relative z-10 h-full" id="chat-list">
               <div class="p-4 md:p-5 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur z-10 border-b border-zinc-50">
                 <div class="text-sm font-bold text-zinc-900 tracking-tight">{t.chat.messages}</div>
                 <div class="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded-md font-medium">{t.chat.newCount}</div>
@@ -428,19 +431,19 @@ const logos = [
         </div>
       </div>
 
-      <!-- SEKCJA: ŚCIEŻKA EKSPANSJI (Same content as before) -->
-      <section id="how-it-works" class="py-24 md:py-40 px-4 md:px-6 max-w-7xl mx-auto w-full">
-         <!-- Content shortened for brevity as requested only Hero changes, but full file provided -->
+      <!-- SEKCJA: ŚCIEŻKA EKSPANSJI (How it works) -->
+      <!-- Adjusted padding and gaps for responsiveness -->
+      <section id="how-it-works" class="py-16 md:py-24 lg:py-32 xl:py-40 px-4 md:px-6 max-w-7xl mx-auto w-full">
          <!-- ... existing How It Works Section ... -->
-        <div class="text-center mb-24 md:mb-40">
+        <div class="text-center mb-16 lg:mb-24 xl:mb-40">
           <h2 class="text-3xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.howItWorks.title}></h2>
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto font-light leading-relaxed">{t.howItWorks.subtitle}</p>
         </div>
         <div class="relative">
           <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-zinc-300 -translate-x-1/2"></div>
-          <div class="space-y-16 md:space-y-40 relative">
+          <div class="space-y-16 lg:space-y-24 xl:space-y-40 relative">
             <!-- Step 1 -->
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-32">
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
               <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
               <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 left-1/2"></div>
               <div class="md:hidden absolute left-[19px] top-0 bottom-[-4rem] w-px border-l-2 border-dashed border-zinc-200 z-0"></div>
@@ -466,7 +469,7 @@ const logos = [
             </div>
 
             <!-- Step 2 -->
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-32">
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
               <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
               <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 right-1/2"></div>
               <div class="md:hidden absolute left-[19px] top-0 bottom-[-4rem] w-px border-l-2 border-dashed border-zinc-200 z-0"></div>
@@ -493,7 +496,7 @@ const logos = [
             </div>
 
             <!-- Step 3 -->
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-32">
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
               <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
               <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 left-1/2"></div>
               <div class="md:hidden absolute left-[19px] top-0 bottom-[-4rem] w-px border-l-2 border-dashed border-zinc-200 z-0"></div>
@@ -527,7 +530,7 @@ const logos = [
             </div>
 
             <!-- Step 4 -->
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-32">
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
               <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
               <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 right-1/2"></div>
               <div class="w-full md:w-1/2 flex flex-col justify-center relative z-10 order-1 pl-12 md:pl-0 md:items-start md:text-left md:pl-24 md:order-2">
@@ -555,10 +558,11 @@ const logos = [
         </div>
       </section>
 
-      <!-- SEKCJA: WDROŻENIE (Same content as before) -->
-      <section id="implementation" class="py-20 md:py-32 px-4 md:px-6 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
+      <!-- SEKCJA: WDROŻENIE (Implementation) -->
+      <!-- Adjusted padding for responsiveness -->
+      <section id="implementation" class="py-16 md:py-24 lg:py-32 xl:py-32 px-4 md:px-6 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
         <!-- ... existing implementation content ... -->
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16 items-center relative z-10 mb-12 md:mb-16">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mb-12 md:mb-16">
           <div>
             <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
             <p class="text-zinc-500 text-base md:text-lg mb-10 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded ring-1 ring-zinc-200 shadow-sm">{t.implementation.timeHighlight}</span>.</p>
@@ -614,17 +618,18 @@ const logos = [
         </div>
       </section>
 
-      <!-- FEATURE BENTO GRID (Same content as before) -->
-      <section id="product" class="py-16 md:py-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
+      <!-- FEATURE BENTO GRID (Features) -->
+      <!-- Adjusted padding for responsiveness -->
+      <section id="product" class="py-16 md:py-24 lg:py-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
          <!-- ... existing features content ... -->
-        <div class="text-center mb-16 md:mb-24">
+        <div class="text-center mb-12 lg:mb-16 xl:mb-24">
           <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.features.title}</h2>
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{t.features.subtitle}</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 auto-rows-min">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 xl:gap-8 auto-rows-min">
           <!-- Card 1 - Translation -->
-          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 md:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-8 md:gap-10 items-center relative overflow-hidden">
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-8 md:gap-10 items-center relative overflow-hidden">
             <div class="flex-1 relative z-10 text-left">
               <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 text-zinc-900 flex items-center justify-center mb-6 shadow-sm">
                 <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
@@ -669,7 +674,7 @@ const logos = [
           </div>
 
           <!-- Card 2 - Market Unlock -->
-          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 md:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:row-span-2 flex flex-col relative overflow-hidden">
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:row-span-2 flex flex-col relative overflow-hidden">
             <div class="relative z-10 mb-4 flex-none">
               <h3 class="text-xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketUnlock.title}</h3>
               <p class="text-zinc-500 text-sm leading-relaxed">
@@ -837,7 +842,7 @@ const logos = [
       </section>
 
       <!-- FOOTER (Same content as before) -->
-      <footer id="contact" class="py-20 md:py-32 bg-white border-t border-zinc-200">
+      <footer id="contact" class="py-12 lg:py-20 xl:py-32 bg-white border-t border-zinc-200">
         <div class="container mx-auto px-6 max-w-7xl">
           <div class="grid md:grid-cols-4 gap-12 md:gap-16 mb-20 md:mb-24">
             <div class="md:col-span-2 space-y-8">
