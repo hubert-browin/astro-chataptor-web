@@ -86,6 +86,32 @@ const logos = [
   hideHeader={true}
   hideFooter={true}
 >
+  <style is:global>
+    /* Responsive Scaling Logic (The "Zoom" Effect)
+      Tailwind uses `rem` units which are relative to the root html font-size.
+      By adjusting this, we scale the entire UI proportionally.
+    */
+    
+    /* Default (Mobile): Standard size */
+    html {
+      font-size: 16px;
+    }
+
+    /* Laptop (1024px - 1535px): Scale down to ~75-80% to fit more content */
+    @media (min-width: 1024px) and (max-width: 1535px) {
+      html {
+        font-size: 12px; /* This creates the "75% zoom" look */
+      }
+    }
+
+    /* Large Screens (1536px+): Back to standard or slightly larger */
+    @media (min-width: 1536px) {
+      html {
+        font-size: 16px; 
+      }
+    }
+  </style>
+
   <style>
     /* Custom Pulse Animation for the Demo Button */
     @keyframes pulse-ring {
@@ -120,16 +146,16 @@ const logos = [
     <main class="flex min-h-screen flex-col bg-white overflow-x-hidden font-sans text-zinc-900 selection:bg-emerald-100 selection:text-emerald-900">
       <!-- NAVIGATION (Sticky on scroll) -->
       <div class="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-6 px-4 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-4 opacity-0" id="sticky-nav">
-        <nav class="pointer-events-auto w-[95%] md:w-[800px] lg:w-[850px] bg-white/70 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between">
+        <nav class="pointer-events-auto w-[95%] md:w-[50rem] bg-white/70 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between">
           <div class="flex items-center gap-3 pl-3">
             <a href={`/${lang}/`} class="flex items-center gap-2 group opacity-90 hover:opacity-100 transition-opacity">
               <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-5 md:h-6 object-contain" />
             </a>
           </div>
           <div class="hidden md:flex items-center gap-1 text-[13px] font-medium text-zinc-500">
-            <a href="#how-it-works" class="px-3 lg:px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
-            <a href="#implementation" class="px-3 lg:px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
-            <a href="#product" class="px-3 lg:px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
+            <a href="#how-it-works" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
+            <a href="#implementation" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
+            <a href="#product" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
           </div>
           <div class="hidden md:flex items-center gap-2 pr-1">
             <LanguageSwitcher currentLang={lang} slug="" />
@@ -180,9 +206,7 @@ const logos = [
       </div>
 
       <!-- HERO SECTION -->
-      <!-- Z-index removed from section to allow children z-index to work properly against siblings -->
-      <!-- Scaled margins and text sizes for better laptop responsiveness -->
-      <section class="relative pt-28 md:pt-36 lg:pt-40 xl:pt-48 pb-12 md:pb-20 lg:pb-24 xl:pb-32 text-center overflow-visible">
+      <section class="relative pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-24 lg:pb-32 text-center overflow-visible">
         <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
         <!-- World Map Background -->
@@ -190,11 +214,10 @@ const logos = [
           src="/images/dotted_worldmap.svg"
           alt=""
           aria-hidden="true"
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] md:w-[95%] max-w-[1600px] h-auto z-0 opacity-[0.05] md:opacity-[0.06] pointer-events-none"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] md:w-[95%] max-w-[100rem] h-auto z-0 opacity-[0.05] md:opacity-[0.06] pointer-events-none"
           style="filter: grayscale(100%) brightness(0);"
         />
 
-        <!-- Increased Z-index to 30 to stay above the mockup section (z-20) -->
         <div class="px-4 md:px-6 max-w-5xl mx-auto relative z-30">
           <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-8 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default mx-auto">
             <span class="relative flex h-2 w-2">
@@ -205,14 +228,13 @@ const logos = [
             <span class="sm:hidden">{t.hero.badgeMobile}</span>
           </div>
 
-          <!-- Refined Typography Scaling: sm -> lg -> xl -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8 text-zinc-900 px-2">
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8 text-zinc-900 px-2">
             {t.hero.title1}<br class="block sm:hidden" />
             <span class="hidden sm:inline"><br /></span>
             <span class="text-zinc-400 mt-2 sm:mt-0 block sm:inline font-semibold">{t.hero.title2}</span>
           </h1>
 
-          <p class="text-base lg:text-lg xl:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-10 leading-relaxed px-4">
+          <p class="text-base md:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-10 leading-relaxed px-4">
             <span class="md:hidden">{t.hero.descriptionMobile}</span>
             <span class="hidden md:inline">{t.hero.description}</span>
             <br class="hidden md:block"/>
@@ -225,8 +247,8 @@ const logos = [
             </a>
             
             <!-- MODIFIED DEMO BUTTON CONTAINER -->
-            <!-- Added specific width sm:w-[300px] to match the popover content width -->
-            <div class="relative w-full sm:w-[300px] group">
+            <!-- Converted 300px to rem (approx 19rem) so it scales with font-size changes -->
+            <div class="relative w-full sm:w-[19rem] group">
               <button 
                 id="demo-trigger"
                 class="relative w-full pl-2 pr-6 py-2 bg-white rounded-full ring-1 ring-zinc-200 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 animate-pulse-ring z-20"
@@ -239,7 +261,6 @@ const logos = [
               </button>
 
               <!-- MODERN CONTACT POPOVER -->
-              <!-- Changed width to w-full to match the button container above -->
               <div 
                 id="demo-popover" 
                 class="absolute top-full mt-3 left-1/2 w-full max-w-[90vw] bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_25px_80px_-15px_rgba(0,0,0,0.2),0_10px_30px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 popover-enter z-50 p-2 flex flex-col gap-1 text-left origin-top"
@@ -328,8 +349,9 @@ const logos = [
       <!-- UI MOCKUP -->
       <!-- Z-index is 20, but now Hero Content is 30, so Hero Content (popover) will be on top -->
       <!-- Scaled max-width and height for laptops (lg) vs desktops (xl) -->
+      <!-- Converted height to rems to support zoom scaling -->
       <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 -mt-10 mb-16 lg:mb-28 xl:mb-40 relative z-20">
-        <div class="bg-white md:rounded-[32px] ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] border-y md:border-none border-zinc-200">
+        <div class="bg-white md:rounded-[32px] ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[30rem] sm:h-[40rem] lg:h-[45rem] xl:h-[50rem] border-y md:border-none border-zinc-200">
           <!-- Mockup Header -->
           <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
             <div class="flex gap-2 opacity-50"><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div></div>
