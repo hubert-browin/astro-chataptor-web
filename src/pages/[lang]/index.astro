@@ -133,7 +133,7 @@ const logos = [
     }
     
     /* Popover Transitions */
-    #demo-popover, #demo-popover-backdrop, .popover-content {
+    #demo-popover, #demo-popover-backdrop, .popover-content, .popover-triangle {
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -180,6 +180,16 @@ const logos = [
       }
       #demo-popover.is-open .popover-content {
         transform: translateX(0) scale(1);
+        opacity: 1;
+      }
+      
+      /* Triangle Animation */
+      #demo-popover:not(.is-open) .popover-triangle {
+        transform: translateX(-15px) scale(0.95) rotate(45deg);
+        opacity: 0;
+      }
+      #demo-popover.is-open .popover-triangle {
+        transform: translateX(0) scale(1) rotate(45deg);
         opacity: 1;
       }
     }
@@ -322,8 +332,12 @@ const logos = [
                     <!-- Backdrop (Mobile only) -->
                     <div class="absolute inset-0 bg-black/40 backdrop-blur-sm sm:hidden transition-opacity duration-300" id="demo-popover-backdrop"></div>
 
+                    <!-- Little triangle pointer (Desktop only) - NOW VISIBLE (Moved outside overflow-hidden) -->
+                    <div class="popover-triangle hidden sm:block absolute top-1/2 -translate-y-1/2 -left-[6px] w-3 h-3 bg-white/90 backdrop-blur-xl rotate-45 border-l border-b border-zinc-900/5 z-20"></div>
+
                     <!-- Content Container -->
-                    <div class="popover-content w-full bg-white sm:bg-white/95 sm:backdrop-blur-xl rounded-t-[32px] sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.15),0_10px_20px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 p-4 sm:p-2 flex flex-col text-left relative z-10 overflow-hidden">
+                    <!-- CHANGED: bg-white/95 -> bg-white/90 for more transparency -->
+                    <div class="popover-content w-full bg-white sm:bg-white/90 sm:backdrop-blur-xl rounded-t-[32px] sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.15),0_10px_20px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 p-4 sm:p-2 flex flex-col text-left relative z-10 overflow-hidden">
                       
                       <!-- Drag Handle (Mobile Visual) -->
                       <div class="w-12 h-1.5 bg-zinc-200 rounded-full mx-auto mb-6 sm:hidden"></div>
@@ -332,9 +346,6 @@ const logos = [
                       <button class="absolute top-4 right-4 p-2 text-zinc-400 hover:text-zinc-600 sm:hidden z-20 bg-zinc-50 rounded-full" id="demo-popover-close">
                           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                       </button>
-
-                      <!-- Little triangle pointer (Desktop only) -->
-                      <div class="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-1.5 w-3 h-3 bg-white rotate-45 border-l border-b border-zinc-100/50"></div>
 
                       <!-- Header -->
                       <div class="px-3 pb-2 pt-1 sm:px-3 sm:py-2 border-b border-zinc-100/80 mb-1 relative z-10 flex justify-between items-center">
@@ -371,7 +382,7 @@ const logos = [
                                   </div>
                                   <div class="min-w-0 flex-1">
                                       <div class="text-xs font-bold text-zinc-900">E-mail</div>
-                                      <div class="text-[11px] text-zinc-500 font-medium truncate transition-colors">contact@...</div>
+                                      <div class="text-[11px] text-zinc-500 font-medium truncate transition-colors">contact@chataptor.com</div>
                                   </div>
                               </a>
                               <button class="absolute top-2 right-2 p-1.5 text-zinc-300 hover:text-zinc-600 rounded-md hover:bg-zinc-200/50 transition-all copy-btn opacity-0 group-hover/item:opacity-100 z-10" data-text="contact@chataptor.com" title="Kopiuj email">
@@ -725,7 +736,6 @@ const logos = [
                   <div><span class="text-purple-600">&lt;head&gt;</span></div>
                   <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
                   <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
-                  <div class="pl-4 h-4"></div>
                   <div class="pl-4 text-zinc-400 italic">&lt;!-- {t.implementation.codeComment} --&gt;</div>
                   <div class="pl-4 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r w-full"><span class="text-purple-600">&lt;script</span> <span class="text-zinc-600">src</span>=<span class="text-emerald-600">"https://cdn.chataptor.com/widget.js"</span></div>
                   <div class="pl-8 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r -mt-1.5 w-full"><span class="text-zinc-600">data-id</span>=<span class="text-emerald-600">"YOUR_STORE_ID"</span> <span class="text-purple-600">&gt;&lt;/script&gt;</span></div>
