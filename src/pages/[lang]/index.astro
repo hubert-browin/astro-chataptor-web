@@ -267,8 +267,9 @@ const logos = [
         <div class="w-full h-full px-4 md:px-6 max-w-5xl mx-auto relative z-30 flex-1 flex flex-col">
           
           <!-- Middle Content: Title, Desc, Buttons -->
-          <!-- CHANGED: my-auto to perfectly center vertically in available space -->
-          <div class="my-auto flex flex-col justify-center items-center w-full">
+          <!-- CHANGED: my-auto + padding logic for laptop centering adjustment -->
+          <!-- Added pt-8 lg:pt-12 2xl:pt-0 to nudge it down slightly on laptops as requested -->
+          <div class="my-auto flex flex-col justify-center items-center w-full pt-8 lg:pt-12 2xl:pt-0">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
               <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -447,8 +448,9 @@ const logos = [
       </section>
 
       <!-- UI MOCKUP -->
-      <!-- Removed negative top margin to avoid overlap with bottom logos since hero is full height now -->
-      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mb-16 lg:mb-28 xl:mb-40 relative z-20">
+      <!-- Adjusted margins for spacing before and after -->
+      <!-- Added mt-24 for spacing before demo, reduced mb to mb-12 lg:mb-20 -->
+      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-24 mb-12 lg:mb-20 relative z-20">
         <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[40rem] sm:h-[45rem] lg:h-[50rem] border md:border-none border-zinc-100">
           <!-- Mockup Header -->
           <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
@@ -818,6 +820,7 @@ const logos = [
 
               <div class="space-y-2 md:space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1">
                 <!-- Poland (locked) -->
+                <!-- UPDATED: iOS Style Switch (Fixed) -->
                 <div class="flex items-center justify-between py-2 px-1 transition-all cursor-default group select-none opacity-70">
                   <div class="flex items-center gap-4">
                     <span class="text-2xl filter drop-shadow-sm">🇵🇱</span>
@@ -826,8 +829,9 @@ const logos = [
                       <div class="text-[10px] font-medium text-emerald-600 font-bold">{t.countries.homeMarket}</div>
                     </div>
                   </div>
-                  <div class="w-11 h-6 rounded-full relative bg-zinc-900">
-                    <div class="absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-md left-[22px]"></div>
+                  <!-- Fixed Switch Structure -->
+                  <div class="w-11 h-6 rounded-full relative bg-zinc-900 shrink-0 transition-colors duration-200">
+                    <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md translate-x-[1.25rem]"></div>
                   </div>
                 </div>
                 <!-- Other countries -->
@@ -844,8 +848,9 @@ const logos = [
                         <div class="country-sub text-[10px] font-medium text-zinc-300">{country.sub}</div>
                       </div>
                     </div>
-                    <div class="toggle-switch w-11 h-6 rounded-full relative bg-zinc-200">
-                      <div class="toggle-knob absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-md left-0.5 transition-transform duration-300"></div>
+                    <!-- Fixed Switch Structure -->
+                    <div class="toggle-switch w-11 h-6 rounded-full relative bg-zinc-200 shrink-0 transition-colors duration-300 ease-in-out">
+                      <div class="toggle-knob absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-transform duration-300 ease-in-out"></div>
                     </div>
                   </div>
                 ))}
@@ -1243,7 +1248,7 @@ const logos = [
           if (activeCountries.has(code)) {
             toggleSwitch.classList.remove('bg-zinc-200');
             toggleSwitch.classList.add('bg-zinc-900');
-            toggleKnob.classList.add('translate-x-[1.35rem]');
+            toggleKnob.classList.add('translate-x-[1.25rem]');
             countryName.classList.remove('text-zinc-400');
             countryName.classList.add('text-zinc-900');
             countrySub.classList.remove('text-zinc-300');
@@ -1251,7 +1256,7 @@ const logos = [
           } else {
             toggleSwitch.classList.add('bg-zinc-200');
             toggleSwitch.classList.remove('bg-zinc-900');
-            toggleKnob.classList.remove('translate-x-[1.35rem]');
+            toggleKnob.classList.remove('translate-x-[1.25rem]');
             // Clear inline style if present from previous version
             toggleKnob.style.transform = '';
             countryName.classList.add('text-zinc-400');
