@@ -264,7 +264,7 @@ const logos = [
 
           <!-- Contact Widget (New) -->
           <div class="mt-4 mb-2 p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
-            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">Potrzebujesz pomocy?</p>
+            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">{t.hero.demo}</p>
             <div class="space-y-4">
               <!-- Phone -->
               <a href="tel:+48695151096" class="flex items-center gap-3 group">
@@ -731,11 +731,12 @@ const logos = [
               </div>
               <div class="w-full md:w-1/2 flex items-center justify-center relative z-10 order-2 pl-4 md:pl-0 md:order-1 md:pr-16">
                 <!-- Removed shadow, added modern border -->
-                <div class="bg-white p-8 rounded-[32px] ring-1 ring-emerald-100 border border-emerald-50/50 w-full max-w-sm mr-auto relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-500 group shadow-sm hover:shadow-md">
+                <!-- CHANGED: Reduced padding from p-8 to p-5 md:p-8 -->
+                <div class="bg-white p-5 md:p-8 rounded-[32px] ring-1 ring-emerald-100 border border-emerald-50/50 w-full max-w-sm mr-auto relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-500 group shadow-sm hover:shadow-md">
                   <div class="absolute top-0 right-0 w-40 h-40 bg-emerald-50/50 rounded-full blur-3xl -mr-10 -mt-10 opacity-60"></div>
                   <div class="relative z-10">
-                    <!-- CHANGED: Reduced text size on mobile from 5xl to 4xl/5xl -->
-                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-emerald-500 mb-2 tracking-tighter">+40%</div>
+                    <!-- CHANGED: Reduced text size on mobile from 4xl to 3xl/5xl -->
+                    <div class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-emerald-500 mb-2 tracking-tighter">+40%</div>
                     <div class="text-base font-semibold text-zinc-600">{t.howItWorks.step4.conversionGrowth}</div>
                     <div class="mt-6 flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full w-fit"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>{t.howItWorks.step4.trendUp}</div>
                   </div>
@@ -816,16 +817,18 @@ const logos = [
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{t.features.subtitle}</p>
         </div>
 
-        <!-- CHANGED: gap-4 -> gap-6 on mobile to increase spacing between cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-6 xl:gap-8 auto-rows-min">
+        <!-- CHANGED: gap-6 -> gap-8 on mobile to increase spacing even more -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-6 xl:gap-8 auto-rows-min">
           <!-- Card 1 - Translation -->
-          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-8 md:gap-10 items-center relative overflow-hidden">
+          <!-- CHANGED: gap-8 -> gap-2 to reduce spacing between text and bubbles on mobile -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-2 md:gap-10 items-center relative overflow-hidden">
             <div class="flex-1 relative z-10 text-left">
               <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 text-zinc-900 flex items-center justify-center mb-6 shadow-sm">
                 <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
               </div>
               <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-3 tracking-tight">{t.features.translation.title}</h3>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed mb-6">
+              <!-- CHANGED: mb-6 -> mb-2 to reduce spacing below description on mobile -->
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed mb-2 md:mb-6">
                 {t.features.translation.description}
               </p>
             </div>
