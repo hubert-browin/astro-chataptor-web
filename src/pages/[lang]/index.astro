@@ -87,22 +87,21 @@ const logos = [
   hideFooter={true}
 >
   <style is:global>
-    /* Responsive Scaling Logic (Refined Zoom Effect) */
+    /* Responsive Scaling Logic (The "Zoom" Effect) */
     
     /* Default (Mobile): Standard size */
     html {
       font-size: 16px;
     }
 
-    /* Laptop (1024px - 1535px): Scale down slightly to fit more content, but not too small */
-    /* Changed from 12px to 14px for better readability */
+    /* Laptop (1024px - 1535px): Scale down to ~75-80% to fit more content */
     @media (min-width: 1024px) and (max-width: 1535px) {
       html {
-        font-size: 14px; 
+        font-size: 12px; /* This creates the "75% zoom" look */
       }
     }
 
-    /* Large Screens (1536px+): Back to standard */
+    /* Large Screens (1536px+): Back to standard or slightly larger */
     @media (min-width: 1536px) {
       html {
         font-size: 16px; 
@@ -170,6 +169,7 @@ const logos = [
       }
       
       #demo-popover:not(.is-open) .popover-content {
+        /* Adjusted for side appearance: slightly shifted left */
         transform: translateX(-15px) scale(0.95);
         opacity: 0;
       }
@@ -231,9 +231,9 @@ const logos = [
           </button>
         </div>
         <div class="flex flex-col p-8 gap-6 mt-4">
-          <a href="#how-it-works" class="text-2xl md:text-3xl font-bold text-zinc-900 tracking-tight mobile-menu-link">{t.nav.howItWorks}</a>
-          <a href="#implementation" class="text-2xl md:text-3xl font-bold text-zinc-900 tracking-tight mobile-menu-link">{t.nav.implementation}</a>
-          <a href="#product" class="text-2xl md:text-3xl font-bold text-zinc-900 tracking-tight mobile-menu-link">{t.nav.features}</a>
+          <a href="#how-it-works" class="text-3xl font-bold text-zinc-900 tracking-tight mobile-menu-link">{t.nav.howItWorks}</a>
+          <a href="#implementation" class="text-3xl font-bold text-zinc-900 tracking-tight mobile-menu-link">{t.nav.implementation}</a>
+          <a href="#product" class="text-3xl font-bold text-zinc-900 tracking-tight mobile-menu-link">{t.nav.features}</a>
           <div class="h-px bg-zinc-100 my-4 w-full"></div>
           <div class="flex flex-col gap-4">
             <a href="/login" class="text-xl font-medium text-zinc-500 text-center py-2">{t.nav.loginFull}</a>
@@ -265,13 +265,13 @@ const logos = [
             <span class="sm:hidden">{t.hero.badgeMobile}</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 md:mb-8 text-zinc-900 px-2">
+          <h1 class="text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 md:mb-8 text-zinc-900 px-2">
             {t.hero.title1}<br class="block sm:hidden" />
             <span class="hidden sm:inline"><br /></span>
             <span class="text-zinc-400 mt-2 sm:mt-0 block sm:inline font-semibold">{t.hero.title2}</span>
           </h1>
 
-          <p class="text-base sm:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-8 md:mb-10 leading-relaxed px-4">
+          <p class="text-[15px] sm:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-8 md:mb-10 leading-relaxed px-4">
             <span class="md:hidden">{t.hero.descriptionMobile}</span>
             <span class="hidden md:inline">{t.hero.description}</span>
             <br class="hidden md:block"/>
@@ -429,13 +429,247 @@ const logos = [
         </div>
       </section>
 
+      <!-- UI MOCKUP -->
+      <!-- Added horizontal margins for mobile (mx-2 md:mx-0) -->
+      <!-- Converted height to rems to support zoom scaling -->
+      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 -mt-10 mb-16 lg:mb-28 xl:mb-40 relative z-20">
+        <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[30rem] sm:h-[40rem] lg:h-[45rem] xl:h-[50rem] border md:border-none border-zinc-100">
+          <!-- Mockup Header -->
+          <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
+            <div class="flex gap-2 opacity-50"><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div></div>
+            <div class="flex items-center gap-2 px-3 py-1 bg-zinc-50 rounded-md border border-zinc-100/50">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span class="text-[10px] md:text-[11px] text-zinc-500 font-medium tracking-wide">app.chataptor.com</span>
+            </div>
+            <div class="w-8 md:w-10"></div>
+          </div>
+
+          <!-- Body Mockupu -->
+          <div class="flex flex-1 overflow-hidden relative bg-zinc-50/50" id="chat-mockup">
+            <!-- Sidebar - LIST VIEW -->
+            <div class="w-full md:w-[280px] lg:w-[320px] border-r border-zinc-100 bg-white/80 backdrop-blur-xl flex flex-col overflow-y-auto custom-scrollbar absolute md:relative z-10 h-full" id="chat-list">
+              <div class="p-4 md:p-5 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur z-10 border-b border-zinc-50">
+                <div class="text-sm font-bold text-zinc-900 tracking-tight">{t.chat.messages}</div>
+                <div class="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded-md font-medium">{t.chat.newCount}</div>
+              </div>
+              <div class="p-2 space-y-1">
+                {conversations.map((chat, index) => (
+                  <button
+                    data-chat-id={chat.id}
+                    class={`chat-item w-full text-left p-3 rounded-xl border transition-all duration-200 group flex items-start gap-3 relative ${index === 0 ? 'bg-zinc-100 border-zinc-200 shadow-sm z-10 active' : 'bg-transparent border-transparent hover:bg-zinc-50'}`}
+                  >
+                    <div class={`active-indicator absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-zinc-900 rounded-r-full hidden md:block ${index === 0 ? '' : 'opacity-0'}`}></div>
+                    <div class={`w-10 h-10 rounded-full shrink-0 flex items-center justify-center text-sm font-bold ${chat.avatarColor} ring-1 ring-black/5 shadow-sm transition-colors`}>{chat.name.charAt(0)}</div>
+                    <div class="flex-1 min-w-0 py-0.5">
+                      <div class="flex justify-between items-center mb-0.5">
+                        <span class={`text-sm font-semibold truncate ${index === 0 ? 'text-zinc-900' : 'text-zinc-600'}`}>{chat.name}</span>
+                        <span class="text-[10px] text-zinc-400 ml-2 whitespace-nowrap">{chat.time}</span>
+                      </div>
+                      <div class={`text-xs truncate ${index === 0 ? 'text-zinc-600' : 'text-zinc-400'}`}>{chat.lastMessage}</div>
+                      <div class="mt-2 flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-1 bg-white border border-zinc-100 rounded text-[10px] font-medium text-zinc-500 shadow-sm">
+                          <span class="font-bold">{chat.lang}</span>
+                          <span class="text-zinc-300">|</span>
+                          <span class="capitalize">{chat.source}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Main Chat Area - CONVERSATION VIEW -->
+            <div class="flex-1 flex-col bg-zinc-50/30 relative w-full h-full flex" id="chat-view">
+              <!-- Chat Header -->
+              <div class="h-16 border-b border-zinc-100 bg-white/80 backdrop-blur-md flex items-center justify-between px-4 md:px-6 shrink-0 sticky top-0 z-10">
+                <div class="flex items-center gap-3 md:gap-4">
+                  <!-- MOBILE BACK BUTTON -->
+                  <div class="md:hidden -ml-2 mr-1 cursor-pointer p-2 hover:bg-zinc-100 rounded-full text-zinc-600" id="back-to-list">
+                    <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                  </div>
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold bg-indigo-100 text-indigo-600 ring-1 ring-black/5" id="chat-avatar">H</div>
+                  <div>
+                    <div class="text-sm font-bold text-zinc-900" id="chat-name">Hans Müller</div>
+                    <div class="text-[11px] text-zinc-500 flex items-center gap-2">
+                      <span class="flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> {t.chat.online}
+                      </span>
+                      <span class="text-zinc-300">•</span>
+                      <span>{t.chat.language}: <strong class="uppercase" id="chat-lang">DE</strong></span>
+                      <span class="text-zinc-300">•</span>
+                      <span class="capitalize" id="chat-source">Messenger</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <button class="p-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-lg transition-colors">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Chat Messages -->
+              <div class="flex-1 overflow-y-auto p-4 md:p-8 space-y-6 md:space-y-8 custom-scrollbar" id="chat-messages">
+                <!-- Messages will be populated by JS -->
+              </div>
+
+              <!-- Input Area -->
+              <div class="p-3 md:p-4 bg-white border-t border-zinc-100 sticky bottom-0">
+                <div class="flex gap-2 p-1.5 md:p-2 bg-zinc-50 ring-1 ring-zinc-200 rounded-xl focus-within:ring-2 focus-within:ring-zinc-900/10 transition-all shadow-inner">
+                  <input type="text" placeholder={t.chat.placeholder} class="flex-1 bg-transparent border-none outline-none text-sm text-zinc-700 placeholder:text-zinc-400 px-2 min-w-0" />
+                  <div class="flex items-center gap-1 border-r border-zinc-200 pr-2 mr-1">
+                    <button class="hover:bg-zinc-200 p-1.5 rounded-lg text-zinc-400 transition-colors hidden sm:block" title="Attach file">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                    </button>
+                  </div>
+                  <button class="bg-zinc-900 hover:bg-black text-white text-sm font-semibold px-3 py-1.5 md:px-4 rounded-lg transition-all shadow-md active:scale-95">{t.chat.send}</button>
+                </div>
+                <div class="mt-2 md:mt-3 flex items-center justify-center gap-2 text-[10px] text-zinc-400 font-medium">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span>{t.chat.aiTranslateHint} <strong class="uppercase" id="target-lang">DE</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEKCJA: ŚCIEŻKA EKSPANSJI (How it works) -->
+      <!-- Adjusted padding and gaps for responsiveness -->
+      <section id="how-it-works" class="py-16 md:py-24 lg:py-32 xl:py-40 px-4 md:px-6 max-w-7xl mx-auto w-full">
+         <!-- ... existing How It Works Section ... -->
+        <div class="text-center mb-16 lg:mb-24 xl:mb-40">
+          <h2 class="text-3xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.howItWorks.title}></h2>
+          <p class="text-lg text-zinc-500 max-w-2xl mx-auto font-light leading-relaxed">{t.howItWorks.subtitle}</p>
+        </div>
+        <div class="relative">
+          <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-zinc-300 -translate-x-1/2"></div>
+          <div class="space-y-16 lg:space-y-24 xl:space-y-40 relative">
+            <!-- Step 1 -->
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
+              <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
+              <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 left-1/2"></div>
+              <div class="md:hidden absolute left-[19px] top-0 bottom-[-4rem] w-px border-l-2 border-dashed border-zinc-200 z-0"></div>
+              <div class="w-full md:w-1/2 flex flex-col justify-center relative z-10 order-1 pl-12 md:pl-0 md:items-end md:text-right md:pr-24 md:order-1">
+                <div class="absolute left-0 top-1 md:hidden w-10 h-10 rounded-full bg-white ring-4 ring-white z-10 flex items-center justify-center">
+                  <div class="w-3 h-3 bg-zinc-900 rounded-full"></div>
+                </div>
+                <div>
+                  <div class="inline-block px-3 py-1 bg-zinc-50 text-zinc-500 rounded-full text-[10px] font-bold mb-3 md:mb-4 tracking-widest ring-1 ring-zinc-900/5 uppercase">{t.howItWorks.step1.label}</div>
+                  <h3 class="text-2xl md:text-3xl font-bold text-zinc-900 mb-3 md:mb-4 tracking-tight leading-tight">{t.howItWorks.step1.title}</h3>
+                  <p class="text-zinc-500 text-sm md:text-base leading-relaxed max-w-sm">{t.howItWorks.step1.description}</p>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 flex items-center justify-center relative z-10 order-2 pl-4 md:pl-0 md:order-2 md:pl-16">
+                <div class="glass-panel p-8 rounded-[32px] w-full max-w-sm ml-auto transform hover:-translate-y-2 transition-transform duration-500 relative group">
+                  <div class="flex items-center gap-5 mb-8">
+                    <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 flex items-center justify-center text-zinc-900 shadow-sm"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <div><div class="text-base font-bold text-zinc-900">{t.howItWorks.step1.statusReady}</div><div class="text-xs text-zinc-400 font-medium mt-1">Status: <span class="text-emerald-600 font-bold">{t.howItWorks.step1.statusActive}</span></div></div>
+                  </div>
+                  <div class="h-2 w-full bg-zinc-100 rounded-full overflow-hidden"><div class="h-full bg-zinc-900 w-[85%] rounded-full"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
+              <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
+              <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 right-1/2"></div>
+              <div class="md:hidden absolute left-[19px] top-0 bottom-[-4rem] w-px border-l-2 border-dashed border-zinc-200 z-0"></div>
+              <div class="w-full md:w-1/2 flex flex-col justify-center relative z-10 order-1 pl-12 md:pl-0 md:items-start md:text-left md:pl-24 md:order-2">
+                <div class="absolute left-0 top-1 md:hidden w-10 h-10 rounded-full bg-white ring-4 ring-white z-10 flex items-center justify-center">
+                  <div class="w-3 h-3 bg-zinc-900 rounded-full"></div>
+                </div>
+                <div>
+                  <div class="inline-block px-3 py-1 bg-zinc-50 text-zinc-500 rounded-full text-[10px] font-bold mb-3 md:mb-4 tracking-widest ring-1 ring-zinc-900/5 uppercase">{t.howItWorks.step2.label}</div>
+                  <h3 class="text-2xl md:text-3xl font-bold text-zinc-900 mb-3 md:mb-4 tracking-tight leading-tight">{t.howItWorks.step2.title}</h3>
+                  <p class="text-zinc-500 text-sm md:text-base leading-relaxed max-w-sm">{t.howItWorks.step2.description}</p>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 flex items-center justify-center relative z-10 order-2 pl-4 md:pl-0 md:order-1 md:pr-16">
+                <div class="glass-panel p-8 rounded-[32px] w-full max-w-sm mr-auto transform hover:-translate-y-2 transition-transform duration-500">
+                  <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-4 py-2 bg-zinc-50 rounded-lg text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100">{t.countries.poland.name} 🇵🇱</span>
+                    <span class="px-4 py-2 bg-zinc-50 rounded-lg text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100">{t.countries.germany.name} 🇩🇪</span>
+                    <span class="px-4 py-2 bg-zinc-50 rounded-lg text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100">{t.countries.france.name} 🇫🇷</span>
+                  </div>
+                  <div class="flex justify-between items-center"><span class="text-sm font-bold text-zinc-600">{t.howItWorks.step2.availability}</span><span class="text-xs text-emerald-600 bg-emerald-50 ring-1 ring-emerald-100 px-2.5 py-1 rounded-md font-bold">{t.howItWorks.step2.global}</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
+              <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
+              <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 left-1/2"></div>
+              <div class="md:hidden absolute left-[19px] top-0 bottom-[-4rem] w-px border-l-2 border-dashed border-zinc-200 z-0"></div>
+              <div class="w-full md:w-1/2 flex flex-col justify-center relative z-10 order-1 pl-12 md:pl-0 md:items-end md:text-right md:pr-24 md:order-1">
+                <div class="absolute left-0 top-1 md:hidden w-10 h-10 rounded-full bg-white ring-4 ring-white z-10 flex items-center justify-center">
+                  <div class="w-3 h-3 bg-zinc-900 rounded-full"></div>
+                </div>
+                <div>
+                  <div class="inline-block px-3 py-1 bg-zinc-50 text-zinc-500 rounded-full text-[10px] font-bold mb-3 md:mb-4 tracking-widest ring-1 ring-zinc-900/5 uppercase">{t.howItWorks.step3.label}</div>
+                  <h3 class="text-2xl md:text-3xl font-bold text-zinc-900 mb-3 md:mb-4 tracking-tight leading-tight">{t.howItWorks.step3.title}</h3>
+                  <p class="text-zinc-500 text-sm md:text-base leading-relaxed max-w-sm">{t.howItWorks.step3.description}</p>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 flex items-center justify-center relative z-10 order-2 pl-4 md:pl-0 md:order-2 md:pl-16">
+                <div class="glass-panel p-6 rounded-[32px] w-full max-w-sm ml-auto transform hover:-translate-y-2 transition-transform duration-500">
+                  <div class="flex gap-4">
+                    <div class="w-10 h-10 rounded-full bg-zinc-100 shrink-0 flex items-center justify-center text-base shadow-inner">🇩🇪</div>
+                    <div class="flex flex-col items-start max-w-[85%]">
+                      <div class="p-5 rounded-2xl text-[15px] shadow-sm bg-white text-zinc-700 ring-1 ring-zinc-100 rounded-tl-none">
+                        <div class="font-medium leading-relaxed">{t.howItWorks.step3.exampleMessage}</div>
+                        <div class="mt-3 pt-3 text-xs border-t border-zinc-100 text-zinc-400 flex items-start gap-2">
+                          <svg class="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                          <span class="italic">{t.howItWorks.step3.exampleTranslation}</span>
+                        </div>
+                      </div>
+                      <span class="text-[10px] text-zinc-300 mt-2 px-1 font-medium">10:42</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-32">
+              <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-zinc-300 z-10 items-center justify-center ring-4 ring-white"></div>
+              <div class="hidden md:block absolute top-1/2 -z-0 h-px border-t border-dashed border-zinc-300 w-1/2 right-1/2"></div>
+              <div class="w-full md:w-1/2 flex flex-col justify-center relative z-10 order-1 pl-12 md:pl-0 md:items-start md:text-left md:pl-24 md:order-2">
+                <div class="absolute left-0 top-1 md:hidden w-10 h-10 rounded-full bg-white ring-4 ring-white z-10 flex items-center justify-center">
+                  <div class="w-3 h-3 bg-zinc-900 rounded-full"></div>
+                </div>
+                <div>
+                  <div class="inline-block px-3 py-1 bg-zinc-50 text-zinc-500 rounded-full text-[10px] font-bold mb-3 md:mb-4 tracking-widest ring-1 ring-zinc-900/5 uppercase">{t.howItWorks.step4.label}</div>
+                  <h3 class="text-2xl md:text-3xl font-bold text-zinc-900 mb-3 md:mb-4 tracking-tight leading-tight">{t.howItWorks.step4.title}</h3>
+                  <p class="text-zinc-500 text-sm md:text-base leading-relaxed max-w-sm">{t.howItWorks.step4.description}</p>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 flex items-center justify-center relative z-10 order-2 pl-4 md:pl-0 md:order-1 md:pr-16">
+                <!-- Removed shadow, added modern border -->
+                <div class="bg-white p-8 rounded-[32px] ring-1 ring-emerald-100 border border-emerald-50/50 w-full max-w-sm mr-auto relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-500 group shadow-sm hover:shadow-md">
+                  <div class="absolute top-0 right-0 w-40 h-40 bg-emerald-50/50 rounded-full blur-3xl -mr-10 -mt-10 opacity-60"></div>
+                  <div class="relative z-10">
+                    <div class="text-5xl md:text-6xl font-extrabold text-emerald-500 mb-2 tracking-tighter">+40%</div>
+                    <div class="text-base font-semibold text-zinc-600">{t.howItWorks.step4.conversionGrowth}</div>
+                    <div class="mt-6 flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full w-fit"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>{t.howItWorks.step4.trendUp}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- SEKCJA: WDROŻENIE (Implementation) -->
       <!-- Fixed horizontal cut-off issue by removing padding from section -->
       <section id="implementation" class="py-16 md:py-24 lg:py-32 xl:py-32 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
         <!-- Inner container with padding for content -->
         <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mb-12 md:mb-16">
           <div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
             <p class="text-zinc-500 text-base md:text-lg mb-10 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded ring-1 ring-zinc-200 shadow-sm">{t.implementation.timeHighlight}</span>.</p>
             <div class="space-y-6 md:space-y-8">
               <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">1</div><div><h4 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step1.title}</h4><p class="text-zinc-500 text-sm">{t.implementation.step1.description}</p></div></div>
@@ -495,7 +729,7 @@ const logos = [
       <section id="product" class="py-16 md:py-24 lg:py-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
          <!-- ... existing features content ... -->
         <div class="text-center mb-12 lg:mb-16 xl:mb-24">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.features.title}</h2>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.features.title}</h2>
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{t.features.subtitle}</p>
         </div>
 
@@ -506,8 +740,8 @@ const logos = [
               <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 text-zinc-900 flex items-center justify-center mb-6 shadow-sm">
                 <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
               </div>
-              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-3 tracking-tight">{t.features.translation.title}</h3>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed mb-6">
+              <h3 class="text-2xl font-bold text-zinc-900 mb-3 tracking-tight">{t.features.translation.title}</h3>
+              <p class="text-zinc-500 text-base leading-relaxed mb-6">
                 {t.features.translation.description}
               </p>
             </div>
@@ -548,8 +782,8 @@ const logos = [
           <!-- Card 2 - Market Unlock -->
           <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:row-span-2 flex flex-col relative overflow-hidden">
             <div class="relative z-10 mb-4 flex-none">
-              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketUnlock.title}</h3>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+              <h3 class="text-xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketUnlock.title}</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
                 {t.features.marketUnlock.description}
               </p>
             </div>
@@ -606,8 +840,8 @@ const logos = [
           <!-- Card 3 - Omnichannel -->
           <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 md:p-5 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 relative overflow-hidden flex flex-col">
             <div class="relative z-10 mb-4">
-              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.omnichannel.title}</h3>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+              <h3 class="text-xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.omnichannel.title}</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
                 {t.features.omnichannel.description}
               </p>
             </div>
@@ -632,11 +866,11 @@ const logos = [
           <!-- Card 4 - Marketing -->
           <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 relative overflow-hidden flex flex-col">
             <div class="relative z-10 mb-4">
-              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketing.title}</h3>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+              <h3 class="text-xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketing.title}</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
                 {t.features.marketing.description1}
               </p>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+              <p class="text-zinc-500 text-sm leading-relaxed">
                 {t.features.marketing.description2}
               </p>
             </div>
