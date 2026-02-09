@@ -87,7 +87,7 @@ const logos = [
   hideFooter={true}
 >
   <style is:global>
-    /* Responsive Scaling Logic (Fluid Typography) */
+    /* Responsive Scaling Logic (Fluid Typography - 75% Zoom Effect) */
     
     /* Default (Mobile): Standard size */
     html {
@@ -95,14 +95,14 @@ const logos = [
     }
 
     /* Desktop Fluid Scaling */
-    /* This logic ensures the site scales dynamically with screen width.
-       At 1024px width, font-size is ~12.5px.
-       At 1920px width, font-size is 16px.
-       This creates a smooth "zoom out" effect on laptops, fixing the "too big" issue.
+    /* Aggressive scaling for laptops to mimic 75-80% zoom.
+       At 1024px: ~11px (approx 68% scale)
+       At 1366px (Standard Laptop): ~12.2px (approx 76% scale)
+       At 1920px (Full HD): ~14.5px (approx 90% scale)
     */
     @media (min-width: 1024px) {
       html {
-        font-size: clamp(12.5px, 0.85vw + 2px, 16px);
+        font-size: clamp(11px, 0.4vw + 7px, 15px);
       }
     }
   </style>
@@ -240,7 +240,8 @@ const logos = [
       </div>
 
       <!-- HERO SECTION -->
-      <section class="relative pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-24 lg:pb-32 text-center overflow-visible">
+      <!-- Reduced vertical padding to fit on laptop screens -->
+      <section class="relative pt-24 md:pt-32 lg:pt-36 pb-12 md:pb-16 lg:pb-24 text-center overflow-visible">
         <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
         <!-- World Map Background -->
@@ -275,7 +276,7 @@ const logos = [
             <span class="block mt-2 md:inline md:mt-0 text-zinc-900 font-medium">{t.hero.descriptionHighlight}</span>
           </p>
 
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 px-4 relative">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 px-4 relative">
             <a href="/register" class="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all hover:scale-[1.02] shadow-xl shadow-zinc-900/10 active:scale-95 text-center">
               {t.hero.cta}
             </a>
@@ -430,7 +431,7 @@ const logos = [
       <!-- Added horizontal margins for mobile (mx-2 md:mx-0) -->
       <!-- Converted height to rems to support zoom scaling -->
       <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 -mt-10 mb-16 lg:mb-28 xl:mb-40 relative z-20">
-        <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[30rem] sm:h-[40rem] lg:h-[45rem] xl:h-[50rem] border md:border-none border-zinc-100">
+        <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[26rem] sm:h-[34rem] lg:h-[38rem] border md:border-none border-zinc-100">
           <!-- Mockup Header -->
           <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
             <div class="flex gap-2 opacity-50"><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div></div>
