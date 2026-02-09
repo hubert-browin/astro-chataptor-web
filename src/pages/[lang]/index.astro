@@ -265,11 +265,12 @@ const logos = [
         <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
         <!-- World Map Background -->
+        <!-- CHANGED: Increased width on mobile (w-[180%]) and large screens (2xl:w-[115%]) -->
         <img
           src="/images/dotted_worldmap.svg"
           alt=""
           aria-hidden="true"
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] md:w-[95%] max-w-[100rem] h-auto z-0 opacity-[0.05] md:opacity-[0.06] pointer-events-none"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] sm:w-[140%] md:w-[95%] 2xl:w-[115%] max-w-[120rem] h-auto z-0 opacity-[0.05] md:opacity-[0.06] pointer-events-none"
           style="filter: grayscale(100%) brightness(0);"
         />
 
@@ -656,7 +657,8 @@ const logos = [
                   <div class="flex gap-4">
                     <div class="w-10 h-10 rounded-full bg-zinc-100 shrink-0 flex items-center justify-center text-base shadow-inner">🇩🇪</div>
                     <div class="flex flex-col items-start max-w-[85%]">
-                      <div class="p-5 rounded-2xl text-[15px] shadow-sm bg-white text-zinc-700 ring-1 ring-zinc-100 rounded-tl-none">
+                      <!-- CHANGED: text-[15px] to responsive text-sm md:text-[15px] -->
+                      <div class="p-5 rounded-2xl text-sm md:text-[15px] shadow-sm bg-white text-zinc-700 ring-1 ring-zinc-100 rounded-tl-none">
                         <div class="font-medium leading-relaxed">{t.howItWorks.step3.exampleMessage}</div>
                         <div class="mt-3 pt-3 text-xs border-t border-zinc-100 text-zinc-400 flex items-start gap-2">
                           <svg class="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
@@ -689,7 +691,8 @@ const logos = [
                 <div class="bg-white p-8 rounded-[32px] ring-1 ring-emerald-100 border border-emerald-50/50 w-full max-w-sm mr-auto relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-500 group shadow-sm hover:shadow-md">
                   <div class="absolute top-0 right-0 w-40 h-40 bg-emerald-50/50 rounded-full blur-3xl -mr-10 -mt-10 opacity-60"></div>
                   <div class="relative z-10">
-                    <div class="text-5xl md:text-6xl font-extrabold text-emerald-500 mb-2 tracking-tighter">+40%</div>
+                    <!-- CHANGED: Reduced text size on mobile from 5xl to 4xl/5xl -->
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-emerald-500 mb-2 tracking-tighter">+40%</div>
                     <div class="text-base font-semibold text-zinc-600">{t.howItWorks.step4.conversionGrowth}</div>
                     <div class="mt-6 flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full w-fit"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>{t.howItWorks.step4.trendUp}</div>
                   </div>
@@ -733,8 +736,8 @@ const logos = [
                 </div>
               </div>
               <div class="p-3 sm:p-5 md:p-8 overflow-x-auto bg-white">
-                <!-- CHANGED: space-y-1, leading-snug to improve vertical spacing of code -->
-                <div class="text-zinc-600 space-y-1 md:space-y-1.5 leading-snug whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
+                <!-- CHANGED: space-y-0.5, leading-tight to tighten vertical spacing further on mobile -->
+                <div class="text-zinc-600 space-y-0.5 md:space-y-1.5 leading-tight whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
                   <div><span class="text-purple-600">&lt;head&gt;</span></div>
                   <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
                   <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
