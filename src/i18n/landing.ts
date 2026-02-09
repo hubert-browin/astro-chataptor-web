@@ -25,6 +25,19 @@ export interface LandingTranslations {
     demo: string;
     techTrust: string;
   };
+  // Contact Popup
+  contactPopup: {
+    title: string;
+    available: string;
+    call: string;
+    email: string;
+    chat: string;
+    write: string;
+    copyNumber: string;
+    copyEmail: string;
+    liveChat: string;
+    liveChatDesc: string;
+  };
   // Chat mockup
   chat: {
     messages: string;
@@ -234,6 +247,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       demo: 'Skontaktuj się z nami',
       techTrust: 'Technologia, której ufasz',
     },
+    contactPopup: {
+      title: 'Forma kontaktu',
+      available: 'Dostępni 24/7',
+      call: 'Zadzwoń',
+      email: 'E-mail',
+      chat: 'Czatuj',
+      write: 'Napisz',
+      copyNumber: 'Kopiuj numer',
+      copyEmail: 'Kopiuj email',
+      liveChat: 'Live Chat',
+      liveChatDesc: 'Zobacz demo na stronie',
+    },
     chat: {
       messages: 'Wiadomości',
       newCount: '3 nowe',
@@ -431,6 +456,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       cta: 'Join the beta',
       demo: 'Contact us',
       techTrust: 'Technology you trust',
+    },
+    contactPopup: {
+      title: 'Contact Method',
+      available: 'Available 24/7',
+      call: 'Call',
+      email: 'Email',
+      chat: 'Chat',
+      write: 'Write',
+      copyNumber: 'Copy number',
+      copyEmail: 'Copy email',
+      liveChat: 'Live Chat',
+      liveChatDesc: 'Watch demo on site',
     },
     chat: {
       messages: 'Messages',
@@ -630,6 +667,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       demo: 'Kontaktieren Sie uns',
       techTrust: 'Technologie, der Sie vertrauen',
     },
+    contactPopup: {
+      title: 'Kontaktmethode',
+      available: '24/7 verfügbar',
+      call: 'Anrufen',
+      email: 'E-Mail',
+      chat: 'Chatten',
+      write: 'Schreiben',
+      copyNumber: 'Nummer kopieren',
+      copyEmail: 'E-Mail kopieren',
+      liveChat: 'Live-Chat',
+      liveChatDesc: 'Demo ansehen',
+    },
     chat: {
       messages: 'Nachrichten',
       newCount: '3 neue',
@@ -827,6 +876,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       cta: 'Rejoindre la bêta',
       demo: 'Contactez-nous',
       techTrust: 'Technologie de confiance',
+    },
+    contactPopup: {
+      title: 'Méthode de contact',
+      available: 'Disponible 24/7',
+      call: 'Appeler',
+      email: 'E-mail',
+      chat: 'Discuter',
+      write: 'Écrire',
+      copyNumber: 'Copier le numéro',
+      copyEmail: 'Copier l\'e-mail',
+      liveChat: 'Chat en direct',
+      liveChatDesc: 'Voir la démo',
     },
     chat: {
       messages: 'Messages',
@@ -1026,6 +1087,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       demo: 'Contáctanos',
       techTrust: 'Tecnología de confianza',
     },
+    contactPopup: {
+      title: 'Método de contacto',
+      available: 'Disponible 24/7',
+      call: 'Llamar',
+      email: 'Email',
+      chat: 'Chatear',
+      write: 'Escribir',
+      copyNumber: 'Copiar número',
+      copyEmail: 'Copiar email',
+      liveChat: 'Chat en vivo',
+      liveChatDesc: 'Ver demo en el sitio',
+    },
     chat: {
       messages: 'Mensajes',
       newCount: '3 nuevos',
@@ -1051,7 +1124,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         msg1: 'Bonjour, mon produit est arrivé endommagé.',
         msg1Translation: 'Hola, mi producto llegó dañado.',
         msg2: 'Lo siento mucho. ¿Puedes enviar una foto?',
-        msg2Translation: 'Je suis désolé. Pouvez-vous envoyer une photo ?',
+        msg2Translation: 'Je suis désolé. Pouvez-vous envoyer una photo ?',
         msg3: 'Bien sûr, voici la photo.',
         msg3Translation: 'Por supuesto, aquí está la foto. [Imagen]',
       },
@@ -1110,7 +1183,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       step1: { title: 'Copia el snippet', description: 'Disponible en tu panel de administración.' },
       step2: { title: 'Pega en <head>', description: 'Funciona con cualquier CMS y tienda personalizada.' },
       step3: { title: 'Selecciona idiomas', description: 'Activa alemán, francés o italiano con un clic.' },
-      step4: { title: 'Integración (Opcjonal)', description: 'Conecta Messenger, WhatsApp o email.' },
+      step4: { title: 'Integración (Opcional)', description: 'Conecta Messenger, WhatsApp o email.' },
       codeComment: 'Integración Chataptor',
       codeMetaComment: 'Tus meta tags',
     },
@@ -1224,6 +1297,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       demo: 'Contattaci',
       techTrust: 'Tecnologia di cui ti fidi',
     },
+    contactPopup: {
+      title: 'Metodo di contatto',
+      available: 'Disponibile 24/7',
+      call: 'Chiama',
+      email: 'Email',
+      chat: 'Chatta',
+      write: 'Scrivi',
+      copyNumber: 'Copia numero',
+      copyEmail: 'Copia email',
+      liveChat: 'Live Chat',
+      liveChatDesc: 'Guarda la demo',
+    },
     chat: {
       messages: 'Messaggi',
       newCount: '3 nuovi',
@@ -1249,7 +1334,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         msg1: 'Bonjour, mon produit est arrivé endommagé.',
         msg1Translation: 'Buongiorno, il mio prodotto è arrivato danneggiato.',
         msg2: 'Mi dispiace molto. Puoi inviare una foto?',
-        msg2Translation: 'Je suis désolé. Pouvez-vous envoyer une photo ?',
+        msg2Translation: 'Je suis désolé. Pouvez-vous envoyer una photo ?',
         msg3: 'Bien sûr, voici la photo.',
         msg3Translation: 'Certo, ecco la foto. [Immagine]',
       },
@@ -1421,6 +1506,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       cta: 'Připojit se k betě',
       demo: 'Kontaktujte nás',
       techTrust: 'Technologie, které důvěřujete',
+    },
+    contactPopup: {
+      title: 'Způsob kontaktu',
+      available: 'K dispozici 24/7',
+      call: 'Zavolat',
+      email: 'E-mail',
+      chat: 'Chatovat',
+      write: 'Napsat',
+      copyNumber: 'Kopírovat číslo',
+      copyEmail: 'Kopírovat e-mail',
+      liveChat: 'Live Chat',
+      liveChatDesc: 'Sledovat demo',
     },
     chat: {
       messages: 'Zprávy',
@@ -1619,6 +1716,18 @@ export const landing: Record<Locale, LandingTranslations> = {
       cta: 'Pripojiť sa k bete',
       demo: 'Kontaktujte nás',
       techTrust: 'Technológia, ktorej dôverujete',
+    },
+    contactPopup: {
+      title: 'Spôsob kontaktu',
+      available: 'K dispozícii 24/7',
+      call: 'Zavolať',
+      email: 'E-mail',
+      chat: 'Chatovať',
+      write: 'Napísať',
+      copyNumber: 'Kopírovať číslo',
+      copyEmail: 'Kopírovať e-mail',
+      liveChat: 'Live Chat',
+      liveChatDesc: 'Pozrieť demo',
     },
     chat: {
       messages: 'Správy',
