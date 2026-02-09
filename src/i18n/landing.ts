@@ -6,6 +6,7 @@ export interface LandingTranslations {
     howItWorks: string;
     implementation: string;
     features: string;
+    pricing: string; // Dodane
     login: string;
     loginFull: string;
     start: string;
@@ -146,21 +147,54 @@ export interface LandingTranslations {
       description1: string;
       description2: string;
     };
-    payPerSatisfaction: {
+    // Removed payPerSatisfaction
+  };
+  // Pricing section
+  pricing: {
+    title: string;
+    subtitle: string;
+    starter: {
+      title: string;
+      price: string;
+      period: string;
+      desc: string;
+      features: {
+        realtime: string;
+        ai: string;
+        languages: string;
+        omnichannel: string;
+        marketing: string;
+        limit: string;
+      };
+      cta: string;
+    };
+    plus: {
       badge: string;
       title: string;
-      description: string;
-      threshold: string;
-      rating05: string;
-      rating610: string;
-      zeroCost: string;
-      successFee: string;
-      qualityAnalysis: string;
-      unhappy: string;
-      paymentThreshold: string;
-      delighted: string;
-      success: string;
-      chargeInfo: string;
+      price: string;
+      period: string;
+      desc: string;
+      features: {
+        allStarter: string;
+        priority: string;
+        analytics: string;
+        onboarding: string;
+        limit: string;
+      };
+      cta: string;
+    };
+    unlimited: {
+      title: string;
+      price: string;
+      desc: string;
+      features: {
+        allFeatures: string;
+        unlimitedMsgs: string;
+        guardian: string;
+        customImpl: string;
+        sla: string;
+      };
+      cta: string;
     };
   };
   // Footer
@@ -182,14 +216,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'Jak to działa',
       implementation: 'Wdrożenie',
       features: 'Funkcje',
+      pricing: 'Cennik',
       login: 'Zaloguj',
       loginFull: 'Zaloguj się',
       start: 'Rozpocznij',
       startFree: 'Rozpocznij za darmo',
     },
     hero: {
-      badge: 'Nowość: Model "Pay-per-satisfaction"',
-      badgeMobile: 'Nowość: Pay-per-satisfaction',
+      badge: 'Nowość: Model subskrypcyjny',
+      badgeMobile: 'Nowość: Model subskrypcyjny',
       title1: 'Rozmawiaj z klientami',
       title2: 'w każdym języku świata.',
       description: 'Przełam barierę językową. Jeden agent obsługuje 20 rynków.',
@@ -315,21 +350,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Zamień odwiedzających w lojalnych klientów.',
         description2: 'Zbieraj leady inteligentnymi pop-upami i prowadź skuteczne kampanie e-mailowe z jednego panelu.',
       },
-      payPerSatisfaction: {
-        badge: 'Rewolucyjny Model',
-        title: 'Pay-per-Satisfaction',
-        description: 'Koniec z płaceniem za puste słowa. Nasz model opiera się na jakości. Płacisz tylko wtedy, gdy AI rozwiąże problem klienta, a ocena jakości wyniesie',
-        threshold: '6/10',
-        rating05: 'Ocena 0-5:',
-        rating610: 'Ocena 6-10:',
-        zeroCost: '0 PLN',
-        successFee: 'Success Fee',
-        qualityAnalysis: 'Analiza jakości (Live)',
-        unhappy: 'Niezadowolony',
-        paymentThreshold: 'Próg Płatności (6.0)',
-        delighted: 'Zachwycony',
-        success: 'Sukces!',
-        chargeInfo: 'Naliczono opłatę za rozmowę.',
+    },
+    pricing: {
+      title: 'Wybierz plan dla siebie',
+      subtitle: 'Elastyczne plany dopasowane do Twojego biznesu. Zmień w dowolnym momencie.',
+      starter: {
+        title: 'Starter',
+        price: '129 zł',
+        period: '/miesiąc',
+        desc: 'Idealny na start dla małych sklepów.',
+        features: {
+          realtime: 'Tłumaczenia real-time',
+          ai: 'Funkcje AI',
+          languages: 'Nielimitowana liczba języków',
+          omnichannel: 'Omnichannel',
+          marketing: 'Narzędzia marketingowe',
+          limit: 'Do 100 wiadomości / mc',
+        },
+        cta: 'Wybierz Starter',
+      },
+      plus: {
+        badge: 'Najczęściej wybierany',
+        title: 'Plus',
+        price: '399 zł',
+        period: '/miesiąc',
+        desc: 'Dla rozwijających się biznesów.',
+        features: {
+          allStarter: 'Wszystko co w Starter',
+          priority: 'Priorytetowe wsparcie',
+          analytics: 'Zaawansowana analityka',
+          onboarding: 'Dedykowany onboarding',
+          limit: 'Do 500 wiadomości / mc',
+        },
+        cta: 'Wybierz Plus',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'Indywidualnie',
+        desc: 'Dla dużej skali i specjalnych potrzeb.',
+        features: {
+          allFeatures: 'Wszystkie funkcje',
+          unlimitedMsgs: 'Nielimitowane wiadomości',
+          guardian: 'Dedykowany opiekun',
+          customImpl: 'Indywidualne wdrożenie',
+          sla: 'Umowa SLA',
+        },
+        cta: 'Skontaktuj się',
       },
     },
     footer: {
@@ -348,14 +414,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'How it works',
       implementation: 'Implementation',
       features: 'Features',
+      pricing: 'Pricing',
       login: 'Login',
       loginFull: 'Log in',
       start: 'Get Started',
       startFree: 'Start for free',
     },
     hero: {
-      badge: 'New: "Pay-per-satisfaction" model',
-      badgeMobile: 'New: Pay-per-satisfaction',
+      badge: 'New: Subscription Model',
+      badgeMobile: 'New: Subscription Model',
       title1: 'Sell globally.',
       title2: 'Support locally.',
       description: 'Break the language barrier. One agent serves 20 markets.',
@@ -481,21 +548,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Turn visitors into loyal customers.',
         description2: 'Collect leads with smart pop-ups and run effective email campaigns from one panel.',
       },
-      payPerSatisfaction: {
-        badge: 'Revolutionary Model',
-        title: 'Pay-per-Satisfaction',
-        description: 'Stop paying for empty words. Our model is based on quality. You only pay when AI solves the customer\'s problem and the quality score is',
-        threshold: '6/10',
-        rating05: 'Rating 0-5:',
-        rating610: 'Rating 6-10:',
-        zeroCost: '€0',
-        successFee: 'Success Fee',
-        qualityAnalysis: 'Quality Analysis (Live)',
-        unhappy: 'Unhappy',
-        paymentThreshold: 'Payment Threshold (6.0)',
-        delighted: 'Delighted',
-        success: 'Success!',
-        chargeInfo: 'Conversation fee charged.',
+    },
+    pricing: {
+      title: 'Choose the plan for you',
+      subtitle: 'Flexible plans tailored to your business. Change at any time.',
+      starter: {
+        title: 'Starter',
+        price: '€29',
+        period: '/month',
+        desc: 'Perfect for small shops starting out.',
+        features: {
+          realtime: 'Real-time translation',
+          ai: 'AI features',
+          languages: 'Unlimited languages',
+          omnichannel: 'Omnichannel',
+          marketing: 'Marketing tools',
+          limit: 'Up to 100 messages / mo',
+        },
+        cta: 'Choose Starter',
+      },
+      plus: {
+        badge: 'Most Popular',
+        title: 'Plus',
+        price: '€95',
+        period: '/month',
+        desc: 'For growing businesses.',
+        features: {
+          allStarter: 'Everything in Starter',
+          priority: 'Priority support',
+          analytics: 'Advanced analytics',
+          onboarding: 'Dedicated onboarding',
+          limit: 'Up to 500 messages / mo',
+        },
+        cta: 'Choose Plus',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'Custom',
+        desc: 'For large scale and special needs.',
+        features: {
+          allFeatures: 'All features',
+          unlimitedMsgs: 'Unlimited messages',
+          guardian: 'Dedicated account manager',
+          customImpl: 'Custom implementation',
+          sla: 'SLA Agreement',
+        },
+        cta: 'Contact Sales',
       },
     },
     footer: {
@@ -514,14 +612,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'So funktioniert\'s',
       implementation: 'Implementierung',
       features: 'Funktionen',
+      pricing: 'Preise',
       login: 'Anmelden',
       loginFull: 'Anmelden',
       start: 'Loslegen',
       startFree: 'Kostenlos starten',
     },
     hero: {
-      badge: 'Neu: "Pay-per-satisfaction" Modell',
-      badgeMobile: 'Neu: Pay-per-satisfaction',
+      badge: 'Neu: Abo-Modell',
+      badgeMobile: 'Neu: Abo-Modell',
       title1: 'Global verkaufen.',
       title2: 'Lokal unterstützen.',
       description: 'Überwinden Sie die Sprachbarriere. Ein Agent bedient 20 Märkte.',
@@ -647,21 +746,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Verwandeln Sie Besucher in treue Kunden.',
         description2: 'Sammeln Sie Leads mit intelligenten Pop-ups und führen Sie effektive E-Mail-Kampagnen von einem Panel aus.',
       },
-      payPerSatisfaction: {
-        badge: 'Revolutionäres Modell',
-        title: 'Pay-per-Satisfaction',
-        description: 'Schluss mit dem Bezahlen für leere Worte. Unser Modell basiert auf Qualität. Sie zahlen nur, wenn KI das Problem des Kunden löst und die Qualitätsbewertung',
-        threshold: '6/10',
-        rating05: 'Bewertung 0-5:',
-        rating610: 'Bewertung 6-10:',
-        zeroCost: '0 €',
-        successFee: 'Erfolgsgebühr',
-        qualityAnalysis: 'Qualitätsanalyse (Live)',
-        unhappy: 'Unzufrieden',
-        paymentThreshold: 'Zahlungsschwelle (6.0)',
-        delighted: 'Begeistert',
-        success: 'Erfolg!',
-        chargeInfo: 'Gesprächsgebühr berechnet.',
+    },
+    pricing: {
+      title: 'Wählen Sie Ihren Plan',
+      subtitle: 'Flexible Pläne, zugeschnitten auf Ihr Unternehmen. Jederzeit änderbar.',
+      starter: {
+        title: 'Starter',
+        price: '29 €',
+        period: '/Monat',
+        desc: 'Ideal für den Start kleiner Shops.',
+        features: {
+          realtime: 'Echtzeit-Übersetzung',
+          ai: 'KI-Funktionen',
+          languages: 'Unbegrenzte Sprachen',
+          omnichannel: 'Omnichannel',
+          marketing: 'Marketing-Tools',
+          limit: 'Bis zu 100 Nachrichten / Mt',
+        },
+        cta: 'Starter wählen',
+      },
+      plus: {
+        badge: 'Am beliebtesten',
+        title: 'Plus',
+        price: '95 €',
+        period: '/Monat',
+        desc: 'Für wachsende Unternehmen.',
+        features: {
+          allStarter: 'Alles aus Starter',
+          priority: 'Priorisierter Support',
+          analytics: 'Erweiterte Analytik',
+          onboarding: 'Dediziertes Onboarding',
+          limit: 'Bis zu 500 Nachrichten / Mt',
+        },
+        cta: 'Plus wählen',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'Individuell',
+        desc: 'Für große Skalierung und spezielle Anforderungen.',
+        features: {
+          allFeatures: 'Alle Funktionen',
+          unlimitedMsgs: 'Unbegrenzte Nachrichten',
+          guardian: 'Dedizierter Betreuer',
+          customImpl: 'Individuelle Implementierung',
+          sla: 'SLA-Vertrag',
+        },
+        cta: 'Kontakt aufnehmen',
       },
     },
     footer: {
@@ -680,14 +810,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'Comment ça marche',
       implementation: 'Implémentation',
       features: 'Fonctionnalités',
+      pricing: 'Tarifs',
       login: 'Connexion',
       loginFull: 'Se connecter',
       start: 'Commencer',
       startFree: 'Commencer gratuitement',
     },
     hero: {
-      badge: 'Nouveau : Modèle "Pay-per-satisfaction"',
-      badgeMobile: 'Nouveau : Pay-per-satisfaction',
+      badge: 'Nouveau : Modèle d\'abonnement',
+      badgeMobile: 'Nouveau : Modèle d\'abonnement',
       title1: 'Vendez globalement.',
       title2: 'Servez localement.',
       description: 'Brisez la barrière de la langue. Un agent sert 20 marchés.',
@@ -813,21 +944,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Transformez les visiteurs en clients fidèles.',
         description2: 'Collectez des leads avec des pop-ups intelligents et menez des campagnes e-mail efficaces depuis un seul panneau.',
       },
-      payPerSatisfaction: {
-        badge: 'Modèle Révolutionnaire',
-        title: 'Pay-per-Satisfaction',
-        description: 'Fini de payer pour du vide. Notre modèle est basé sur la qualité. Vous ne payez que lorsque l\'IA résout le problème du client et que la note de qualité est de',
-        threshold: '6/10',
-        rating05: 'Note 0-5 :',
-        rating610: 'Note 6-10 :',
-        zeroCost: '0 €',
-        successFee: 'Frais de succès',
-        qualityAnalysis: 'Analyse qualité (Live)',
-        unhappy: 'Mécontent',
-        paymentThreshold: 'Seuil de paiement (6.0)',
-        delighted: 'Ravi',
-        success: 'Succès !',
-        chargeInfo: 'Frais de conversation facturés.',
+    },
+    pricing: {
+      title: 'Choisissez votre forfait',
+      subtitle: 'Des forfaits flexibles adaptés à votre entreprise. Changez à tout moment.',
+      starter: {
+        title: 'Starter',
+        price: '29 €',
+        period: '/mois',
+        desc: 'Idéal pour démarrer une petite boutique.',
+        features: {
+          realtime: 'Traduction en temps réel',
+          ai: 'Fonctionnalités IA',
+          languages: 'Langues illimitées',
+          omnichannel: 'Omnicanal',
+          marketing: 'Outils marketing',
+          limit: 'Jusqu\'à 100 messages / mois',
+        },
+        cta: 'Choisir Starter',
+      },
+      plus: {
+        badge: 'Le plus populaire',
+        title: 'Plus',
+        price: '95 €',
+        period: '/mois',
+        desc: 'Pour les entreprises en croissance.',
+        features: {
+          allStarter: 'Tout ce qui est dans Starter',
+          priority: 'Support prioritaire',
+          analytics: 'Analyses avancées',
+          onboarding: 'Onboarding dédié',
+          limit: 'Jusqu\'à 500 messages / mois',
+        },
+        cta: 'Choisir Plus',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'Sur devis',
+        desc: 'Pour grande échelle et besoins spéciaux.',
+        features: {
+          allFeatures: 'Toutes les fonctionnalités',
+          unlimitedMsgs: 'Messages illimités',
+          guardian: 'Gestionnaire de compte dédié',
+          customImpl: 'Implémentation personnalisée',
+          sla: 'Contrat SLA',
+        },
+        cta: 'Contacter les ventes',
       },
     },
     footer: {
@@ -846,14 +1008,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'Cómo funciona',
       implementation: 'Implementación',
       features: 'Funciones',
+      pricing: 'Precios',
       login: 'Iniciar sesión',
       loginFull: 'Iniciar sesión',
       start: 'Empezar',
       startFree: 'Empezar gratis',
     },
     hero: {
-      badge: 'Nuevo: Modelo "Pay-per-satisfaction"',
-      badgeMobile: 'Nuevo: Pay-per-satisfaction',
+      badge: 'Nuevo: Modelo de suscripción',
+      badgeMobile: 'Nuevo: Modelo de suscripción',
       title1: 'Vende globalmente.',
       title2: 'Atiende localmente.',
       description: 'Rompe la barrera del idioma. Un agente atiende 20 mercados.',
@@ -979,21 +1142,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Convierte visitantes en clientes fieles.',
         description2: 'Captura leads con pop-ups inteligentes y ejecuta campañas de email efectivas desde un solo panel.',
       },
-      payPerSatisfaction: {
-        badge: 'Modelo Revolucionario',
-        title: 'Pay-per-Satisfaction',
-        description: 'Deja de pagar por palabras vacías. Nuestro modelo se basa en calidad. Solo pagas cuando la IA resuelve el problema del cliente y la puntuación es de',
-        threshold: '6/10',
-        rating05: 'Puntuación 0-5:',
-        rating610: 'Puntuación 6-10:',
-        zeroCost: '0 €',
-        successFee: 'Tarifa de éxito',
-        qualityAnalysis: 'Análisis de calidad (Live)',
-        unhappy: 'Insatisfecho',
-        paymentThreshold: 'Umbral de pago (6.0)',
-        delighted: 'Encantado',
-        success: '¡Éxito!',
-        chargeInfo: 'Tarifa de conversación cobrada.',
+    },
+    pricing: {
+      title: 'Elige tu plan',
+      subtitle: 'Planes flexibles adaptados a tu negocio. Cambia en cualquier momento.',
+      starter: {
+        title: 'Starter',
+        price: '29 €',
+        period: '/mes',
+        desc: 'Ideal para empezar con tiendas pequeñas.',
+        features: {
+          realtime: 'Traducción en tiempo real',
+          ai: 'Funciones de IA',
+          languages: 'Idiomas ilimitados',
+          omnichannel: 'Omnicanal',
+          marketing: 'Herramientas de marketing',
+          limit: 'Hasta 100 mensajes / mes',
+        },
+        cta: 'Elegir Starter',
+      },
+      plus: {
+        badge: 'Más popular',
+        title: 'Plus',
+        price: '95 €',
+        period: '/mes',
+        desc: 'Para negocios en crecimiento.',
+        features: {
+          allStarter: 'Todo lo de Starter',
+          priority: 'Soporte prioritario',
+          analytics: 'Analítica avanzada',
+          onboarding: 'Onboarding dedicado',
+          limit: 'Hasta 500 mensajes / mes',
+        },
+        cta: 'Elegir Plus',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'A medida',
+        desc: 'Para gran escala y necesidades especiales.',
+        features: {
+          allFeatures: 'Todas las funciones',
+          unlimitedMsgs: 'Mensajes ilimitados',
+          guardian: 'Gestor de cuenta dedicado',
+          customImpl: 'Implementación personalizada',
+          sla: 'Acuerdo SLA',
+        },
+        cta: 'Contactar ventas',
       },
     },
     footer: {
@@ -1012,14 +1206,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'Come funziona',
       implementation: 'Implementazione',
       features: 'Funzionalità',
+      pricing: 'Prezzi',
       login: 'Accedi',
       loginFull: 'Accedi',
       start: 'Inizia',
       startFree: 'Inizia gratis',
     },
     hero: {
-      badge: 'Novità: Modello "Pay-per-satisfaction"',
-      badgeMobile: 'Novità: Pay-per-satisfaction',
+      badge: 'Novità: Modello di abbonamento',
+      badgeMobile: 'Novità: Modello di abbonamento',
       title1: 'Vendi globalmente.',
       title2: 'Servi localmente.',
       description: 'Supera la barriera linguistica. Un agente serve 20 mercati.',
@@ -1145,21 +1340,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Trasforma i visitatori in clienti fedeli.',
         description2: 'Raccogli lead con pop-up intelligenti e conduci campagne email efficaci da un unico pannello.',
       },
-      payPerSatisfaction: {
-        badge: 'Modello Rivoluzionario',
-        title: 'Pay-per-Satisfaction',
-        description: 'Basta pagare per parole vuote. Il nostro modello si basa sulla qualità. Paghi solo quando l\'IA risolve il problema del cliente e il punteggio qualità è di',
-        threshold: '6/10',
-        rating05: 'Valutazione 0-5:',
-        rating610: 'Valutazione 6-10:',
-        zeroCost: '0 €',
-        successFee: 'Tariffa di successo',
-        qualityAnalysis: 'Analisi qualità (Live)',
-        unhappy: 'Insoddisfatto',
-        paymentThreshold: 'Soglia di pagamento (6.0)',
-        delighted: 'Entusiasta',
-        success: 'Successo!',
-        chargeInfo: 'Tariffa conversazione addebitata.',
+    },
+    pricing: {
+      title: 'Scegli il tuo piano',
+      subtitle: 'Piani flessibili su misura per il tuo business. Cambia in qualsiasi momento.',
+      starter: {
+        title: 'Starter',
+        price: '29 €',
+        period: '/mese',
+        desc: 'Ideale per iniziare con piccoli negozi.' ,
+        features: {
+          realtime: 'Traduzione in tempo reale',
+          ai: 'Funzionalità IA',
+          languages: 'Lingue illimitate',
+          omnichannel: 'Omnicanale',
+          marketing: 'Strumenti di marketing',
+          limit: 'Fino a 100 messaggi / mese',
+        },
+        cta: 'Scegli Starter',
+      },
+      plus: {
+        badge: 'Più popolare',
+        title: 'Plus',
+        price: '95 €',
+        period: '/mese',
+        desc: 'Per business in crescita.',
+        features: {
+          allStarter: 'Tutto incluso in Starter',
+          priority: 'Supporto prioritario',
+          analytics: 'Analisi avanzate',
+          onboarding: 'Onboarding dedicato',
+          limit: 'Fino a 500 messaggi / mese',
+        },
+        cta: 'Scegli Plus',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'Su misura',
+        desc: 'Per grandi volumi e necessità speciali.',
+        features: {
+          allFeatures: 'Tutte le funzioni',
+          unlimitedMsgs: 'Messaggi illimitati',
+          guardian: 'Account manager dedicato',
+          customImpl: 'Implementazione personalizzata',
+          sla: 'Contratto SLA',
+        },
+        cta: 'Contatta le vendite',
       },
     },
     footer: {
@@ -1178,14 +1404,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'Jak to funguje',
       implementation: 'Implementace',
       features: 'Funkce',
+      pricing: 'Ceník',
       login: 'Přihlásit',
       loginFull: 'Přihlásit se',
       start: 'Začít',
       startFree: 'Začít zdarma',
     },
     hero: {
-      badge: 'Novinka: Model "Pay-per-satisfaction"',
-      badgeMobile: 'Novinka: Pay-per-satisfaction',
+      badge: 'Novinka: Model předplatného',
+      badgeMobile: 'Novinka: Model předplatného',
       title1: 'Prodávejte globálně.',
       title2: 'Obsluhujte lokálně.',
       description: 'Prolomte jazykovou bariéru. Jeden agent obsluhuje 20 trhů.',
@@ -1311,21 +1538,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Proměňte návštěvníky ve věrné zákazníky.',
         description2: 'Sbírejte leady pomocí chytrých pop-upů a provádějte efektivní e-mailové kampaně z jednoho panelu.',
       },
-      payPerSatisfaction: {
-        badge: 'Revoluční Model',
-        title: 'Pay-per-Satisfaction',
-        description: 'Přestaňte platit za prázdná slova. Náš model je založen na kvalitě. Platíte pouze tehdy, když AI vyřeší problém zákazníka a hodnocení kvality je',
-        threshold: '6/10',
-        rating05: 'Hodnocení 0-5:',
-        rating610: 'Hodnocení 6-10:',
-        zeroCost: '0 Kč',
-        successFee: 'Poplatek za úspěch',
-        qualityAnalysis: 'Analýza kvality (Live)',
-        unhappy: 'Nespokojený',
-        paymentThreshold: 'Práh platby (6.0)',
-        delighted: 'Nadšený',
-        success: 'Úspěch!',
-        chargeInfo: 'Poplatek za konverzaci účtován.',
+    },
+    pricing: {
+      title: 'Vyberte si plán',
+      subtitle: 'Flexibilní plány přizpůsobené vašemu podnikání. Změňte kdykoliv.',
+      starter: {
+        title: 'Starter',
+        price: '750 Kč',
+        period: '/měsíc',
+        desc: 'Ideální pro začátek malých obchodů.',
+        features: {
+          realtime: 'Překlad v reálném čase',
+          ai: 'AI funkce',
+          languages: 'Neomezený počet jazyků',
+          omnichannel: 'Omnikanál',
+          marketing: 'Marketingové nástroje',
+          limit: 'Až 100 zpráv / měs',
+        },
+        cta: 'Vybrat Starter',
+      },
+      plus: {
+        badge: 'Nejoblíbenější',
+        title: 'Plus',
+        price: '2 300 Kč',
+        period: '/měsíc',
+        desc: 'Pro rostoucí firmy.',
+        features: {
+          allStarter: 'Vše co ve Starteru',
+          priority: 'Prioritní podpora',
+          analytics: 'Pokročilá analytika',
+          onboarding: 'Dedikovaný onboarding',
+          limit: 'Až 500 zpráv / měs',
+        },
+        cta: 'Vybrat Plus',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'Individuálně',
+        desc: 'Pro velkou škálu a speciální potřeby.',
+        features: {
+          allFeatures: 'Všechny funkce',
+          unlimitedMsgs: 'Neomezené zprávy',
+          guardian: 'Dedikovaný správce',
+          customImpl: 'Individuální implementace',
+          sla: 'SLA smlouva',
+        },
+        cta: 'Kontaktovat',
       },
     },
     footer: {
@@ -1344,14 +1602,15 @@ export const landing: Record<Locale, LandingTranslations> = {
       howItWorks: 'Ako to funguje',
       implementation: 'Implementácia',
       features: 'Funkcie',
+      pricing: 'Cenník',
       login: 'Prihlásiť',
       loginFull: 'Prihlásiť sa',
       start: 'Začať',
       startFree: 'Začať zadarmo',
     },
     hero: {
-      badge: 'Novinka: Model "Pay-per-satisfaction"',
-      badgeMobile: 'Novinka: Pay-per-satisfaction',
+      badge: 'Novinka: Model predplatného',
+      badgeMobile: 'Novinka: Model predplatného',
       title1: 'Predávajte globálne.',
       title2: 'Obsluhujte lokálne.',
       description: 'Prelomte jazykovú bariéru. Jeden agent obsluhuje 20 trhov.',
@@ -1477,21 +1736,52 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Premeňte návštevníkov na verných zákazníkov.',
         description2: 'Zbierajte leady pomocou inteligentných pop-upov a vykonávajte efektívne e-mailové kampane z jedného panela.',
       },
-      payPerSatisfaction: {
-        badge: 'Revolučný Model',
-        title: 'Pay-per-Satisfaction',
-        description: 'Prestaňte platiť za prázdne slová. Náš model je založený na kvalite. Platíte iba vtedy, keď AI vyrieši problém zákazníka a hodnotenie kvality je',
-        threshold: '6/10',
-        rating05: 'Hodnotenie 0-5:',
-        rating610: 'Hodnotenie 6-10:',
-        zeroCost: '0 €',
-        successFee: 'Poplatok za úspech',
-        qualityAnalysis: 'Analýza kvality (Live)',
-        unhappy: 'Nespokojný',
-        paymentThreshold: 'Prah platby (6.0)',
-        delighted: 'Nadšený',
-        success: 'Úspech!',
-        chargeInfo: 'Poplatok za konverzáciu účtovaný.',
+    },
+    pricing: {
+      title: 'Vyberte si plán',
+      subtitle: 'Flexibilné plány prispôsobené vášmu podnikaniu. Zmeňte kedykoľvek.',
+      starter: {
+        title: 'Starter',
+        price: '29 €',
+        period: '/mesiac',
+        desc: 'Ideálny na štart pre malé obchody.',
+        features: {
+          realtime: 'Preklad v reálnom čase',
+          ai: 'AI funkcie',
+          languages: 'Neobmedzený počet jazykov',
+          omnichannel: 'Omnikanál',
+          marketing: 'Marketingové nástroje',
+          limit: 'Až 100 správ / mes',
+        },
+        cta: 'Vybrať Starter',
+      },
+      plus: {
+        badge: 'Najobľúbenejší',
+        title: 'Plus',
+        price: '95 €',
+        period: '/mesiac',
+        desc: 'Pre rastúce firmy.',
+        features: {
+          allStarter: 'Všetko čo v Starteri',
+          priority: 'Prioritná podpora',
+          analytics: 'Pokročilá analytika',
+          onboarding: 'Dedikovaný onboarding',
+          limit: 'Až 500 správ / mes',
+        },
+        cta: 'Vybrať Plus',
+      },
+      unlimited: {
+        title: 'Unlimited',
+        price: 'Individuálne',
+        desc: 'Pre veľkú škálu a špeciálne potreby.',
+        features: {
+          allFeatures: 'Všetky funkcie',
+          unlimitedMsgs: 'Neobmedzené správy',
+          guardian: 'Dedikovaný správca',
+          customImpl: 'Individuálna implementácia',
+          sla: 'SLA zmluva',
+        },
+        cta: 'Kontaktovať',
       },
     },
     footer: {
