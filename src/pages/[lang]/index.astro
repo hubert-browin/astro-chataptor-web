@@ -88,10 +88,10 @@ const logos = [
 >
   <style is:global>
     /* Responsive Scaling Logic (The "80-90% Zoom" Effect) */
-    
-    /* Default (Mobile): Standard size */
+     
+    /* Default (Mobile): Adjusted from 16px to 15px to make text slightly smaller globally on mobile */
     html {
-      font-size: 16px;
+      font-size: 15px;
     }
 
     /* Desktop Fluid Scaling */
@@ -110,7 +110,7 @@ const logos = [
         font-size: 13px; 
       }
     }
-    
+     
     /* Smooth transition for resizing */
     html { transition: font-size 0.2s ease-out; }
   </style>
@@ -131,7 +131,7 @@ const logos = [
     .animate-pulse-ring {
       animation: pulse-ring 2s infinite;
     }
-    
+     
     /* Popover Transitions */
     #demo-popover, #demo-popover-backdrop, .popover-content, .popover-triangle {
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -289,13 +289,13 @@ const logos = [
               <span class="sm:hidden">{t.hero.badgeMobile}</span>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-zinc-900 px-2">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-zinc-900 px-2">
               {t.hero.title1}<br class="block sm:hidden" />
               <span class="hidden sm:inline"><br /></span>
               <span class="text-zinc-400 mt-2 sm:mt-0 block sm:inline font-semibold">{t.hero.title2}</span>
             </h1>
 
-            <p class="text-base sm:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-8 leading-relaxed px-4">
+            <p class="text-sm sm:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-8 leading-relaxed px-4">
               <span class="md:hidden">{t.hero.descriptionMobile}</span>
               <span class="hidden md:inline">{t.hero.description}</span>
               <br class="hidden md:block"/>
@@ -625,10 +625,11 @@ const logos = [
               </div>
               <div class="w-full md:w-1/2 flex items-center justify-center relative z-10 order-2 pl-4 md:pl-0 md:order-1 md:pr-16">
                 <div class="glass-panel p-8 rounded-[32px] w-full max-w-sm mr-auto transform hover:-translate-y-2 transition-transform duration-500">
-                  <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-4 py-2 bg-zinc-50 rounded-lg text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100">{t.countries.poland.name} 🇵🇱</span>
-                    <span class="px-4 py-2 bg-zinc-50 rounded-lg text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100">{t.countries.germany.name} 🇩🇪</span>
-                    <span class="px-4 py-2 bg-zinc-50 rounded-lg text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100">{t.countries.france.name} 🇫🇷</span>
+                  <!-- CHANGED: flex-nowrap to prevent line breaking on mobile, reduced padding and font size for mobile -->
+                  <div class="flex flex-nowrap gap-1.5 sm:gap-2 mb-8 overflow-x-hidden md:overflow-visible">
+                    <span class="px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-50 rounded-lg text-[11px] sm:text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100 whitespace-nowrap">{t.countries.poland.name} 🇵🇱</span>
+                    <span class="px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-50 rounded-lg text-[11px] sm:text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100 whitespace-nowrap">{t.countries.germany.name} 🇩🇪</span>
+                    <span class="px-2.5 py-1.5 sm:px-4 sm:py-2 bg-zinc-50 rounded-lg text-[11px] sm:text-sm font-semibold text-zinc-600 ring-1 ring-zinc-100 whitespace-nowrap">{t.countries.france.name} 🇫🇷</span>
                   </div>
                   <div class="flex justify-between items-center"><span class="text-sm font-bold text-zinc-600">{t.howItWorks.step2.availability}</span><span class="text-xs text-emerald-600 bg-emerald-50 ring-1 ring-emerald-100 px-2.5 py-1 rounded-md font-bold">{t.howItWorks.step2.global}</span></div>
                 </div>
@@ -732,13 +733,14 @@ const logos = [
                 </div>
               </div>
               <div class="p-3 sm:p-5 md:p-8 overflow-x-auto bg-white">
-                <div class="text-zinc-600 space-y-0.5 md:space-y-1.5 leading-relaxed whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
+                <!-- CHANGED: space-y-1, leading-snug to improve vertical spacing of code -->
+                <div class="text-zinc-600 space-y-1 md:space-y-1.5 leading-snug whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
                   <div><span class="text-purple-600">&lt;head&gt;</span></div>
                   <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
                   <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
                   <div class="pl-4 text-zinc-400 italic">&lt;!-- {t.implementation.codeComment} --&gt;</div>
                   <div class="pl-4 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r w-full"><span class="text-purple-600">&lt;script</span> <span class="text-zinc-600">src</span>=<span class="text-emerald-600">"https://cdn.chataptor.com/widget.js"</span></div>
-                  <div class="pl-8 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r -mt-1.5 w-full"><span class="text-zinc-600">data-id</span>=<span class="text-emerald-600">"YOUR_STORE_ID"</span> <span class="text-purple-600">&gt;&lt;/script&gt;</span></div>
+                  <div class="pl-8 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r -mt-1 w-full"><span class="text-zinc-600">data-id</span>=<span class="text-emerald-600">"YOUR_STORE_ID"</span> <span class="text-purple-600">&gt;&lt;/script&gt;</span></div>
                   <div><span class="text-purple-600">&lt;/head&gt;</span></div>
                 </div>
               </div>
@@ -940,8 +942,10 @@ const logos = [
                   {t.features.payPerSatisfaction.badge}
                 </span>
               </div>
-              <h3 class="text-3xl font-bold mb-4 tracking-tight">{t.features.payPerSatisfaction.title}</h3>
-              <p class="text-zinc-400 text-lg leading-relaxed mb-6">
+              <!-- CHANGED: Reduced text size from 3xl to 2xl, added lg breakpoint -->
+              <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">{t.features.payPerSatisfaction.title}</h3>
+              <!-- CHANGED: Reduced description text size -->
+              <p class="text-zinc-400 text-sm sm:text-base md:text-lg leading-relaxed mb-6">
                 {t.features.payPerSatisfaction.description} <span class="text-white font-bold">{t.features.payPerSatisfaction.threshold}</span>.
               </p>
               <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm font-medium text-zinc-300">
