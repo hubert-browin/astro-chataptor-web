@@ -87,7 +87,7 @@ const logos = [
   hideFooter={true}
 >
   <style is:global>
-    /* Responsive Scaling Logic (The "80% Zoom" Effect) */
+    /* Responsive Scaling Logic (The "80-90% Zoom" Effect) */
     
     /* Default (Mobile): Standard size */
     html {
@@ -95,21 +95,19 @@ const logos = [
     }
 
     /* Desktop Fluid Scaling */
-    /* Setting base font-size to 12.5px on laptops creates the effect of ~78% zoom.
-       All `rem` units will scale down relative to this base.
-       This ensures the layout looks "packed" with nice whitespace on sides.
+    /* Reduced base font size to 11.5px on laptops to create a "zoomed out" feel.
+       This scales down all rem-based sizes by ~28% compared to standard 16px.
     */
     @media (min-width: 1024px) {
       html {
-        font-size: 12.5px; 
+        font-size: 11.5px; 
       }
     }
 
-    /* On very large screens (Full HD+), we can scale up slightly to maintain readability,
-       but keep it compact relative to the huge screen. */
+    /* On very large screens (Full HD+), slight increase to maintain readability */
     @media (min-width: 1536px) {
       html {
-        font-size: 14px; 
+        font-size: 13px; 
       }
     }
     
@@ -252,7 +250,7 @@ const logos = [
 
       <!-- HERO SECTION -->
       <!-- FULL HEIGHT (min-h-[100dvh]) to ensure it fills the screen on laptop/desktop -->
-      <section class="relative min-h-[100dvh] flex flex-col items-center justify-center pt-24 pb-8 text-center overflow-hidden">
+      <section class="relative min-h-[100dvh] flex flex-col items-center justify-center pt-24 pb-4 md:pt-0 md:pb-8 text-center overflow-hidden">
         <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
         <!-- World Map Background -->
@@ -267,177 +265,179 @@ const logos = [
         <!-- Main Hero Content - Centered vertically in available space -->
         <!-- Added w-full to ensure mx-auto centers correctly -->
         <div class="w-full px-4 md:px-6 max-w-5xl mx-auto relative z-30 flex-1 flex flex-col justify-center items-center">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span class="hidden sm:inline">{t.hero.badge}</span>
-            <span class="sm:hidden">{t.hero.badgeMobile}</span>
-          </div>
-
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-zinc-900 px-2">
-            {t.hero.title1}<br class="block sm:hidden" />
-            <span class="hidden sm:inline"><br /></span>
-            <span class="text-zinc-400 mt-2 sm:mt-0 block sm:inline font-semibold">{t.hero.title2}</span>
-          </h1>
-
-          <p class="text-base sm:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-8 leading-relaxed px-4">
-            <span class="md:hidden">{t.hero.descriptionMobile}</span>
-            <span class="hidden md:inline">{t.hero.description}</span>
-            <br class="hidden md:block"/>
-            <span class="block mt-2 md:inline md:mt-0 text-zinc-900 font-medium">{t.hero.descriptionHighlight}</span>
-          </p>
-
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4 relative">
-            <a href="/register" class="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all hover:scale-[1.02] shadow-xl shadow-zinc-900/10 active:scale-95 text-center">
-              {t.hero.cta}
-            </a>
-            
-            <!-- MODIFIED DEMO BUTTON CONTAINER -->
-            <div class="relative w-full sm:w-auto group">
-              <button 
-                id="demo-trigger"
-                class="relative w-full sm:w-auto pl-2 pr-6 py-2 bg-white rounded-full ring-1 ring-zinc-200 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 animate-pulse-ring z-20 min-w-[200px]"
-              >
-                <div class="relative w-10 h-10 rounded-full bg-zinc-50 flex items-center justify-center text-zinc-900 shadow-sm shrink-0 group-hover:bg-zinc-100 transition-colors duration-300">
-                  <svg class="w-4 h-4 ml-0.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"> <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
-                </div>
-                <span class="text-sm font-bold text-zinc-700 group-hover:text-zinc-900 transition-colors">{t.hero.demo}</span>
-                <svg class="w-4 h-4 text-zinc-400 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-
-              <!-- MODERN CONTACT POPOVER / BOTTOM SHEET -->
-              <!-- REDESIGNED: Po prawej stronie przycisku na desktopie -->
-              <div 
-                id="demo-popover" 
-                class="fixed inset-0 sm:absolute sm:inset-auto sm:top-1/2 sm:-translate-y-1/2 sm:left-full sm:ml-4 z-[100] sm:z-50 flex items-end sm:items-start justify-center sm:block w-full sm:w-[380px]"
-              >
-                  <!-- Backdrop (Mobile only) -->
-                  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm sm:hidden transition-opacity duration-300" id="demo-popover-backdrop"></div>
-
-                  <!-- Content Container -->
-                  <div class="popover-content w-full bg-white sm:bg-white/95 sm:backdrop-blur-xl rounded-t-[32px] sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.15),0_10px_20px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 p-4 sm:p-2 flex flex-col text-left relative z-10 overflow-hidden">
-                    
-                    <!-- Drag Handle (Mobile Visual) -->
-                    <div class="w-12 h-1.5 bg-zinc-200 rounded-full mx-auto mb-6 sm:hidden"></div>
-
-                    <!-- Close Button (Mobile) -->
-                    <button class="absolute top-4 right-4 p-2 text-zinc-400 hover:text-zinc-600 sm:hidden z-20 bg-zinc-50 rounded-full" id="demo-popover-close">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                    </button>
-
-                    <!-- Little triangle pointer (Desktop only) - Moved to Left Side -->
-                    <div class="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-1.5 w-3 h-3 bg-white rotate-45 border-l border-b border-zinc-100/50"></div>
-
-                    <!-- Header -->
-                    <div class="px-3 pb-2 pt-1 sm:px-3 sm:py-2 border-b border-zinc-100/80 mb-1 relative z-10 flex justify-between items-center">
-                        <span class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">Forma kontaktu</span>
-                        <span class="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-semibold hidden sm:inline-block">Dostępni 24/7</span>
-                    </div>
-
-                    <!-- DESKTOP GRID LAYOUT (Super Compact) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 p-1 sm:max-h-[60vh] overflow-y-auto custom-scrollbar">
-                        
-                        <!-- 1. Telefon (Full Clickable Card) -->
-                        <div class="relative group/item sm:col-span-1">
-                            <a href="tel:+48695151096" class="flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all">
-                                <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-600 group-hover/item:bg-zinc-900 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
-                                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                </div>
-                                <div class="min-w-0 flex-1">
-                                   <div class="text-xs font-bold text-zinc-900">Zadzwoń</div>
-                                   <div class="text-[11px] text-zinc-500 font-medium truncate group-hover/item:text-emerald-600 transition-colors">+48 695 151 096</div>
-                                </div>
-                            </a>
-                            <!-- Absolute Copy Button (On Top) -->
-                            <button class="absolute top-2 right-2 p-1.5 text-zinc-300 hover:text-zinc-600 rounded-md hover:bg-zinc-200/50 transition-all copy-btn opacity-0 group-hover/item:opacity-100 z-10" data-text="+48 695 151 096" title="Kopiuj numer">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            </button>
-                        </div>
-
-                        <!-- 2. Email (Full Clickable Card) -->
-                        <div class="relative group/item sm:col-span-1">
-                             <a href="mailto:contact@chataptor.com" class="flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all" title="contact@chataptor.com">
-                                 <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-600 group-hover/item:bg-zinc-900 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                 </div>
-                                 <div class="min-w-0 flex-1">
-                                    <div class="text-xs font-bold text-zinc-900">E-mail</div>
-                                    <div class="text-[11px] text-zinc-500 font-medium truncate group-hover/item:text-emerald-600 transition-colors">contact@...</div>
-                                 </div>
-                             </a>
-                             <!-- Absolute Copy Button (On Top) -->
-                             <button class="absolute top-2 right-2 p-1.5 text-zinc-300 hover:text-zinc-600 rounded-md hover:bg-zinc-200/50 transition-all copy-btn opacity-0 group-hover/item:opacity-100 z-10" data-text="contact@chataptor.com" title="Kopiuj email">
-                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                             </button>
-                        </div>
-
-                        <!-- 3. WhatsApp (Compact Tile) -->
-                        <a href="https://wa.me/48695151096" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1">
-                            <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-green-600 group-hover/item:bg-green-500 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
-                               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                               <div class="text-xs font-bold text-zinc-900">WhatsApp</div>
-                               <div class="text-[11px] text-zinc-500 font-medium truncate">Czatuj</div>
-                            </div>
-                            <div class="text-zinc-300 group-hover/item:text-green-500 transition-colors">
-                               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </div>
-                         </a>
-
-                        <!-- 4. Messenger (Compact Tile) -->
-                        <a href="https://m.me/" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1">
-                           <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
-                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
-                           </div>
-                           <div class="min-w-0 flex-1">
-                             <div class="text-xs font-bold text-zinc-900">Messenger</div>
-                             <div class="text-[11px] text-zinc-500 font-medium truncate">Napisz</div>
-                           </div>
-                           <div class="text-zinc-300 group-hover/item:text-blue-500 transition-colors">
-                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                           </div>
-                        </a>
-
-                        <!-- 5. Live Chat (Span 2) -->
-                        <div class="sm:col-span-2 pt-1">
-                          <button class="flex items-center justify-between w-full p-2 pl-3 pr-2 rounded-xl bg-zinc-900 text-white hover:bg-black transition-all group/item shadow-md shadow-zinc-900/10 active:scale-[0.98]" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
-                              <div class="flex items-center gap-3">
-                                  <div class="w-6 h-6 flex items-center justify-center shrink-0">
-                                      <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-full h-full object-contain brightness-0 invert" />
-                                  </div>
-                                  <div class="flex flex-col items-start">
-                                    <span class="text-xs font-bold">Live Chat</span>
-                                    <span class="text-[9px] text-zinc-400">Zobacz demo na stronie</span>
-                                  </div>
-                              </div>
-                              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white/70 group-hover/item:text-white group-hover/item:bg-white/20 transition-all">
-                                 <!-- Updated icon to 'Pencil/Write' symbol -->
-                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                              </div>
-                          </button>
-                        </div>
-
-                    </div>
-                    
-                    <!-- Safe area for bottom on mobile -->
-                    <div class="h-6 sm:hidden"></div>
-
-                 </div>
-              </div>
+          <div class="flex-1 flex flex-col justify-center items-center w-full">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span class="hidden sm:inline">{t.hero.badge}</span>
+              <span class="sm:hidden">{t.hero.badgeMobile}</span>
             </div>
 
-          </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-zinc-900 px-2">
+              {t.hero.title1}<br class="block sm:hidden" />
+              <span class="hidden sm:inline"><br /></span>
+              <span class="text-zinc-400 mt-2 sm:mt-0 block sm:inline font-semibold">{t.hero.title2}</span>
+            </h1>
 
-          <!-- Bottom Logos - Sticky at bottom of hero -->
-          <div class="mt-auto pb-4 shrink-0 w-full">
-            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-6">{t.hero.techTrust}</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700 px-4">
-              <div class="h-6 md:h-7 flex items-center"><img src="/images/landing/openai-logo.png" alt="OpenAI" class="h-full w-auto object-contain" /></div>
-              <div class="h-5 md:h-6 flex items-center"><img src="/images/landing/deepl-logo.png" alt="DeepL" class="h-full w-auto object-contain" /></div>
-              <div class="h-6 md:h-8 flex items-center"><img src="/images/landing/elixir-logo.png" alt="Elixir" class="h-full w-auto object-contain" /></div>
+            <p class="text-base sm:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-normal mb-8 leading-relaxed px-4">
+              <span class="md:hidden">{t.hero.descriptionMobile}</span>
+              <span class="hidden md:inline">{t.hero.description}</span>
+              <br class="hidden md:block"/>
+              <span class="block mt-2 md:inline md:mt-0 text-zinc-900 font-medium">{t.hero.descriptionHighlight}</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4 relative">
+              <a href="/register" class="w-full sm:w-auto px-8 py-3.5 bg-zinc-900 text-white rounded-full text-[15px] font-semibold hover:bg-black transition-all hover:scale-[1.02] shadow-xl shadow-zinc-900/10 active:scale-95 text-center">
+                {t.hero.cta}
+              </a>
+              
+              <!-- MODIFIED DEMO BUTTON CONTAINER -->
+              <div class="relative w-full sm:w-auto group">
+                <button 
+                  id="demo-trigger"
+                  class="relative w-full sm:w-auto pl-2 pr-6 py-2 bg-white rounded-full ring-1 ring-zinc-200 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 animate-pulse-ring z-20 min-w-[200px]"
+                >
+                  <div class="relative w-10 h-10 rounded-full bg-zinc-50 flex items-center justify-center text-zinc-900 shadow-sm shrink-0 group-hover:bg-zinc-100 transition-colors duration-300">
+                    <svg class="w-4 h-4 ml-0.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"> <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+                  </div>
+                  <span class="text-sm font-bold text-zinc-700 group-hover:text-zinc-900 transition-colors">{t.hero.demo}</span>
+                  <svg class="w-4 h-4 text-zinc-400 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+
+                <!-- MODERN CONTACT POPOVER / BOTTOM SHEET -->
+                <!-- REDESIGNED: Po prawej stronie przycisku na desktopie -->
+                <div 
+                  id="demo-popover" 
+                  class="fixed inset-0 sm:absolute sm:inset-auto sm:top-1/2 sm:-translate-y-1/2 sm:left-full sm:ml-4 z-[100] sm:z-50 flex items-end sm:items-start justify-center sm:block w-full sm:w-[380px]"
+                >
+                    <!-- Backdrop (Mobile only) -->
+                    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm sm:hidden transition-opacity duration-300" id="demo-popover-backdrop"></div>
+
+                    <!-- Content Container -->
+                    <div class="popover-content w-full bg-white sm:bg-white/95 sm:backdrop-blur-xl rounded-t-[32px] sm:rounded-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.15),0_10px_20px_-5px_rgba(0,0,0,0.1)] ring-1 ring-zinc-900/5 p-4 sm:p-2 flex flex-col text-left relative z-10 overflow-hidden">
+                      
+                      <!-- Drag Handle (Mobile Visual) -->
+                      <div class="w-12 h-1.5 bg-zinc-200 rounded-full mx-auto mb-6 sm:hidden"></div>
+
+                      <!-- Close Button (Mobile) -->
+                      <button class="absolute top-4 right-4 p-2 text-zinc-400 hover:text-zinc-600 sm:hidden z-20 bg-zinc-50 rounded-full" id="demo-popover-close">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                      </button>
+
+                      <!-- Little triangle pointer (Desktop only) - Moved to Left Side -->
+                      <div class="hidden sm:block absolute top-1/2 -translate-y-1/2 -left-1.5 w-3 h-3 bg-white rotate-45 border-l border-b border-zinc-100/50"></div>
+
+                      <!-- Header -->
+                      <div class="px-3 pb-2 pt-1 sm:px-3 sm:py-2 border-b border-zinc-100/80 mb-1 relative z-10 flex justify-between items-center">
+                          <span class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">Forma kontaktu</span>
+                          <span class="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-semibold hidden sm:inline-block">Dostępni 24/7</span>
+                      </div>
+
+                      <!-- DESKTOP GRID LAYOUT (Super Compact) -->
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 p-1 sm:max-h-[60vh] overflow-y-auto custom-scrollbar">
+                          
+                          <!-- 1. Telefon (Full Clickable Card) -->
+                          <div class="relative group/item sm:col-span-1">
+                              <a href="tel:+48695151096" class="flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all">
+                                  <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-600 group-hover/item:bg-zinc-900 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                  </div>
+                                  <div class="min-w-0 flex-1">
+                                    <div class="text-xs font-bold text-zinc-900">Zadzwoń</div>
+                                    <div class="text-[11px] text-zinc-500 font-medium truncate group-hover/item:text-emerald-600 transition-colors">+48 695 151 096</div>
+                                  </div>
+                              </a>
+                              <!-- Absolute Copy Button (On Top) -->
+                              <button class="absolute top-2 right-2 p-1.5 text-zinc-300 hover:text-zinc-600 rounded-md hover:bg-zinc-200/50 transition-all copy-btn opacity-0 group-hover/item:opacity-100 z-10" data-text="+48 695 151 096" title="Kopiuj numer">
+                                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                              </button>
+                          </div>
+
+                          <!-- 2. Email (Full Clickable Card) -->
+                          <div class="relative group/item sm:col-span-1">
+                              <a href="mailto:contact@chataptor.com" class="flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all" title="contact@chataptor.com">
+                                  <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-600 group-hover/item:bg-zinc-900 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
+                                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                  </div>
+                                  <div class="min-w-0 flex-1">
+                                      <div class="text-xs font-bold text-zinc-900">E-mail</div>
+                                      <div class="text-[11px] text-zinc-500 font-medium truncate group-hover/item:text-emerald-600 transition-colors">contact@...</div>
+                                  </div>
+                              </a>
+                              <!-- Absolute Copy Button (On Top) -->
+                              <button class="absolute top-2 right-2 p-1.5 text-zinc-300 hover:text-zinc-600 rounded-md hover:bg-zinc-200/50 transition-all copy-btn opacity-0 group-hover/item:opacity-100 z-10" data-text="contact@chataptor.com" title="Kopiuj email">
+                                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                              </button>
+                          </div>
+
+                          <!-- 3. WhatsApp (Compact Tile) -->
+                          <a href="https://wa.me/48695151096" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1">
+                              <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-green-600 group-hover/item:bg-green-500 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                              </div>
+                              <div class="min-w-0 flex-1">
+                                <div class="text-xs font-bold text-zinc-900">WhatsApp</div>
+                                <div class="text-[11px] text-zinc-500 font-medium truncate">Czatuj</div>
+                              </div>
+                              <div class="text-zinc-300 group-hover/item:text-green-500 transition-colors">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                              </div>
+                          </a>
+
+                          <!-- 4. Messenger (Compact Tile) -->
+                          <a href="https://m.me/" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1">
+                            <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
+                              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                              <div class="text-xs font-bold text-zinc-900">Messenger</div>
+                              <div class="text-[11px] text-zinc-500 font-medium truncate">Napisz</div>
+                            </div>
+                            <div class="text-zinc-300 group-hover/item:text-blue-500 transition-colors">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </div>
+                          </a>
+
+                          <!-- 5. Live Chat (Span 2) -->
+                          <div class="sm:col-span-2 pt-1">
+                            <button class="flex items-center justify-between w-full p-2 pl-3 pr-2 rounded-xl bg-zinc-900 text-white hover:bg-black transition-all group/item shadow-md shadow-zinc-900/10 active:scale-[0.98]" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 flex items-center justify-center shrink-0">
+                                        <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-full h-full object-contain brightness-0 invert" />
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                      <span class="text-xs font-bold">Live Chat</span>
+                                      <span class="text-[9px] text-zinc-400">Zobacz demo na stronie</span>
+                                    </div>
+                                </div>
+                                <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white/70 group-hover/item:text-white group-hover/item:bg-white/20 transition-all">
+                                  <!-- Updated icon to 'Pencil/Write' symbol -->
+                                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                </div>
+                            </button>
+                          </div>
+
+                      </div>
+                      
+                      <!-- Safe area for bottom on mobile -->
+                      <div class="h-6 sm:hidden"></div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom Logos - Sticky at bottom of hero -->
+            <div class="mt-auto pb-4 shrink-0 w-full">
+              <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-6">{t.hero.techTrust}</p>
+              <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700 px-4">
+                <div class="h-6 md:h-7 flex items-center"><img src="/images/landing/openai-logo.png" alt="OpenAI" class="h-full w-auto object-contain" /></div>
+                <div class="h-5 md:h-6 flex items-center"><img src="/images/landing/deepl-logo.png" alt="DeepL" class="h-full w-auto object-contain" /></div>
+                <div class="h-6 md:h-8 flex items-center"><img src="/images/landing/elixir-logo.png" alt="Elixir" class="h-full w-auto object-contain" /></div>
+              </div>
             </div>
           </div>
         </div>
@@ -446,7 +446,7 @@ const logos = [
       <!-- UI MOCKUP -->
       <!-- Removed negative top margin to avoid overlap with bottom logos since hero is full height now -->
       <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mb-16 lg:mb-28 xl:mb-40 relative z-20">
-        <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[40rem] sm:h-[34rem] lg:h-[38rem] border md:border-none border-zinc-100">
+        <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[40rem] sm:h-[45rem] lg:h-[50rem] border md:border-none border-zinc-100">
           <!-- Mockup Header -->
           <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
             <div class="flex gap-2 opacity-50"><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div></div>
@@ -709,7 +709,7 @@ const logos = [
                 </div>
               </div>
               <div class="p-3 sm:p-5 md:p-8 overflow-x-auto bg-white">
-                <div class="text-zinc-600 space-y-1.5 leading-relaxed whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
+                <div class="text-zinc-600 space-y-0.5 md:space-y-1.5 leading-relaxed whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
                   <div><span class="text-purple-600">&lt;head&gt;</span></div>
                   <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
                   <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
@@ -1240,7 +1240,7 @@ const logos = [
           if (activeCountries.has(code)) {
             toggleSwitch.classList.remove('bg-zinc-200');
             toggleSwitch.classList.add('bg-zinc-900');
-            toggleKnob.style.transform = 'translateX(20px)';
+            toggleKnob.classList.add('translate-x-[1.35rem]');
             countryName.classList.remove('text-zinc-400');
             countryName.classList.add('text-zinc-900');
             countrySub.classList.remove('text-zinc-300');
@@ -1248,7 +1248,9 @@ const logos = [
           } else {
             toggleSwitch.classList.add('bg-zinc-200');
             toggleSwitch.classList.remove('bg-zinc-900');
-            toggleKnob.style.transform = 'translateX(0)';
+            toggleKnob.classList.remove('translate-x-[1.35rem]');
+            // Clear inline style if present from previous version
+            toggleKnob.style.transform = '';
             countryName.classList.add('text-zinc-400');
             countryName.classList.remove('text-zinc-900');
             countrySub.classList.add('text-zinc-300');
