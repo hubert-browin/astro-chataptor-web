@@ -210,6 +210,7 @@ const logos = [
             <a href="#how-it-works" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
             <a href="#implementation" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
             <a href="#product" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
+            <a href="#pricing" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">Cennik</a>
           </div>
           <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
             <LanguageSwitcher currentLang={lang} slug="" />
@@ -261,10 +262,14 @@ const logos = [
             <span>{t.nav.features}</span>
             <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </a>
+          <a href="#pricing" class="flex items-center justify-between text-xl font-bold text-zinc-900 tracking-tight mobile-menu-link group py-3 border-b border-zinc-50">
+            <span>Cennik</span>
+            <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
 
           <!-- Contact Widget (New) -->
           <div class="mt-4 mb-2 p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
-            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">{t.hero.demo}</p>
+            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">Potrzebujesz pomocy?</p>
             <div class="space-y-4">
               <!-- Phone -->
               <a href="tel:+48695151096" class="flex items-center gap-3 group">
@@ -979,62 +984,104 @@ const logos = [
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Card 5 - Pay-per-Satisfaction -->
-          <div class="md:col-span-3 glass-card-dark text-white rounded-[2.5rem] p-6 md:p-12 hover:shadow-2xl hover:shadow-black/40 transition-all duration-500 relative overflow-hidden flex flex-col md:flex-row gap-8 md:gap-12 items-center mt-4">
-            <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-transparent to-black/40"></div>
-            <div class="relative z-10 flex-1 max-w-lg">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10">
-                  <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <span class="px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 uppercase tracking-widest">
-                  {t.features.payPerSatisfaction.badge}
-                </span>
+      <!-- PRICING SECTION -->
+      <section id="pricing" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 max-w-7xl mx-auto w-full border-t border-zinc-100">
+        <div class="text-center mb-12 lg:mb-16 xl:mb-24">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">Wybierz plan dla siebie</h2>
+          <p class="text-lg text-zinc-500 max-w-2xl mx-auto">Elastyczne plany dopasowane do Twojego biznesu. Zmień w dowolnym momencie.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Starter -->
+          <div class="bg-zinc-50 rounded-[2.5rem] p-8 ring-1 ring-black/5 hover:shadow-xl transition-all relative flex flex-col">
+            <div class="mb-4">
+              <h3 class="text-xl font-bold text-zinc-900">Starter</h3>
+              <div class="mt-4 flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-zinc-900">0 zł</span>
+                <span class="text-zinc-500">/miesiąc</span>
               </div>
-              <!-- CHANGED: Reduced text size from 3xl to 2xl, added lg breakpoint -->
-              <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">{t.features.payPerSatisfaction.title}</h3>
-              <!-- CHANGED: Reduced description text size -->
-              <p class="text-zinc-400 text-sm sm:text-base md:text-lg leading-relaxed mb-6">
-                {t.features.payPerSatisfaction.description} <span class="text-white font-bold">{t.features.payPerSatisfaction.threshold}</span>.
-              </p>
-              <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm font-medium text-zinc-300">
-                <div class="flex items-center gap-2">
-                  <div class="w-2 h-2 rounded-full bg-zinc-600"></div>
-                  {t.features.payPerSatisfaction.rating05} <span class="text-white font-bold">{t.features.payPerSatisfaction.zeroCost}</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-                  {t.features.payPerSatisfaction.rating610} <span class="text-white font-bold">{t.features.payPerSatisfaction.successFee}</span>
-                </div>
-              </div>
+              <p class="text-sm text-zinc-500 mt-2">Idealny na start dla małych sklepów.</p>
             </div>
-            <div class="relative z-10 w-full md:w-1/2 bg-white/5 rounded-3xl p-6 md:p-8 border border-white/10 backdrop-blur-sm">
-              <div class="flex justify-between items-end mb-4">
-                <div class="text-sm font-medium text-zinc-400">{t.features.payPerSatisfaction.qualityAnalysis}</div>
-                <div class="text-4xl font-bold text-emerald-400">9.2<span class="text-lg text-zinc-500">/10</span></div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-start gap-3 text-sm text-zinc-600">
+                <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Podstawowe funkcje AI</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-600">
+                <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Do <strong class="text-zinc-900">100 wiadomości</strong> / mc</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-600">
+                <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Wsparcie mailowe</span>
+              </li>
+            </ul>
+            <a href="/register" class="w-full block text-center py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 font-bold hover:bg-zinc-50 transition-colors shadow-sm">Rozpocznij za darmo</a>
+          </div>
+
+          <!-- Plus -->
+          <div class="bg-zinc-900 text-white rounded-[2.5rem] p-8 ring-1 ring-black/5 hover:shadow-2xl transition-all relative flex flex-col transform md:-translate-y-4">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">Najczęściej wybierany</div>
+            <div class="mb-4">
+              <h3 class="text-xl font-bold text-white">Plus</h3>
+              <div class="mt-4 flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white">199 zł</span>
+                <span class="text-zinc-400">/miesiąc</span>
               </div>
-              <div class="relative h-4 bg-zinc-800/50 rounded-full overflow-hidden w-full mb-2">
-                <div class="absolute left-0 top-0 bottom-0 w-[60%] bg-gradient-to-r from-zinc-700 to-zinc-600 border-r-2 border-white/10"></div>
-                <div class="absolute left-[60%] top-0 bottom-0 w-[40%] bg-gradient-to-r from-emerald-600 to-emerald-400"></div>
-                <div class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_white] left-[92%] z-20"></div>
-              </div>
-              <div class="flex justify-between text-[9px] md:text-[10px] font-bold uppercase tracking-tight md:tracking-widest text-zinc-500 mt-3">
-                <span>{t.features.payPerSatisfaction.unhappy} <span class="text-zinc-600">(0)</span></span>
-                <span class="text-white text-center">{t.features.payPerSatisfaction.paymentThreshold}</span>
-                <span class="text-emerald-400 text-right">{t.features.payPerSatisfaction.delighted} (10)</span>
-              </div>
-              <div class="mt-6 bg-emerald-500/10 rounded-xl p-4 border border-emerald-500/20 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-xs">✓</div>
-                  <div>
-                    <div class="text-sm font-bold text-white">{t.features.payPerSatisfaction.success}</div>
-                    <div class="text-xs text-zinc-400">{t.features.payPerSatisfaction.chargeInfo}</div>
-                  </div>
-                </div>
-                <div class="text-emerald-400 font-mono font-bold">2.00 PLN</div>
-              </div>
+              <p class="text-sm text-zinc-400 mt-2">Dla rozwijających się biznesów.</p>
             </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Wszystkie funkcje AI & tłumaczenia</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Do <strong class="text-white">500 wiadomości</strong> / mc</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Priorytetowe wsparcie</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Zaawansowana analityka</span>
+              </li>
+            </ul>
+            <a href="/register?plan=plus" class="w-full block text-center py-3 rounded-xl bg-emerald-500 text-white font-bold hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-900/20">Wybierz Plus</a>
+          </div>
+
+          <!-- Unlimited -->
+          <div class="bg-white rounded-[2.5rem] p-8 ring-1 ring-zinc-200 hover:shadow-xl transition-all relative flex flex-col">
+            <div class="mb-4">
+              <h3 class="text-xl font-bold text-zinc-900">Unlimited</h3>
+              <div class="mt-4 flex items-baseline gap-1">
+                <span class="text-3xl font-bold text-zinc-900">Wycena</span>
+              </div>
+              <p class="text-sm text-zinc-500 mt-2">Dla dużej skali i specjalnych potrzeb.</p>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-start gap-3 text-sm text-zinc-600">
+                <svg class="w-5 h-5 text-zinc-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Nielimitowane wiadomości</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-600">
+                <svg class="w-5 h-5 text-zinc-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Dedykowany opiekun</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-600">
+                <svg class="w-5 h-5 text-zinc-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Indywidualne wdrożenie</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-zinc-600">
+                <svg class="w-5 h-5 text-zinc-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>Umowa SLA</span>
+              </li>
+            </ul>
+            <a href="mailto:sales@chataptor.com" class="w-full block text-center py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 font-bold hover:bg-zinc-50 transition-colors shadow-sm">Skontaktuj się</a>
           </div>
         </div>
       </section>
