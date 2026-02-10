@@ -244,7 +244,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       title2: 'w każdym języku świata.',
       description: 'Przełam barierę językową i docieraj do każdego, wszędzie.',
       descriptionMobile: 'Przełam barierę językową i docieraj do każdego, wszędzie.',
-      descriptionHighlight: 'Automatycznie tłumacz rozmowy z klientami na 100+ języków..',
+      descriptionHighlight: 'Automatycznie tłumacz rozmowy z klientami na 100+ języków.',
       cta: 'Rozpocznij teraz',
       demo: 'Skontaktuj się z nami',
       techTrust: 'Technologia, której ufasz',
