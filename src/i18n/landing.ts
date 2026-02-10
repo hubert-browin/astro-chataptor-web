@@ -457,7 +457,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       title2: 'in any language.',
       description: 'Break the language barrier and reach anyone, anywhere.',
       descriptionMobile: 'Break the language barrier and reach anyone, anywhere.',
-      descriptionHighlight: 'Automatically translate customer conversations into 100+ languages.',
+      descriptionHighlight: 'Auto translate customer conversations into 100+ languages.',
       cta: 'Start Now',
       demo: 'Contact Sales',
       techTrust: 'Technology you trust',
