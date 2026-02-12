@@ -251,7 +251,6 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     contactPopup: {
       title: 'Forma kontaktu',
-      available: 'Dostępni 24/7',
       call: 'Zadzwoń',
       email: 'E-mail',
       chat: 'Czatuj',
