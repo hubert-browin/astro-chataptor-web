@@ -234,7 +234,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       login: 'Zaloguj',
       loginFull: 'Zaloguj się',
       start: 'Rozpocznij',
-      startFree: 'Rozpocznij za darmo',
+      startFree: 'Rozpocznij teraz',
     },
     hero: {
       badge: 'Nowość: Tłumaczenia bez limitu!',
@@ -445,8 +445,8 @@ export const landing: Record<Locale, LandingTranslations> = {
       pricing: 'Pricing',
       login: 'Login',
       loginFull: 'Log in',
-      start: 'Get Started',
-      startFree: 'Start for Free',
+      start: 'Get started',
+      startFree: 'Get started',
     },
     hero: {
       badge: 'New: Unlimited translations!',
