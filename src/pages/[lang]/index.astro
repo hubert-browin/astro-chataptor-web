@@ -87,140 +87,6 @@ const logos = [
   hideFooter={true}
 >
 
-
-    /* Default (Mobile): Adjusted from 16px to 15px to make text slightly smaller globally on mobile */
-    html {
-      font-size: 15px;
-    }
-
-    /* Desktop Fluid Scaling */
-    /* Reduced base font size to 11.5px on laptops to create a "zoomed out" feel.
-       This scales down all rem-based sizes by ~28% compared to standard 16px.
-    */
-    @media (min-width: 1024px) {
-      html {
-        font-size: 11.5px; 
-      }
-    }
-
-    /* On very large screens (Full HD+), slight increase to maintain readability */
-    @media (min-width: 1536px) {
-      html {
-        font-size: 13px; 
-      }
-    }
-      
-    /* Smooth transition for resizing */
-    html { transition: font-size 0.2s ease-out; }
-  </style>
-
-  <style>
-    /* Custom Pulse Animation for the Demo Button */
-    @keyframes pulse-ring {
-      0% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-      }
-    }
-    .animate-pulse-ring {
-      animation: pulse-ring 2s infinite;
-    }
-      
-    /* --- POPOVER STYLES (Hero) --- */
-    #demo-popover, #demo-popover-backdrop, .popover-content, .popover-triangle {
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    #demo-popover:not(.is-open) {
-      pointer-events: none;
-    }
-    #demo-popover:not(.is-open) #demo-popover-backdrop {
-      opacity: 0;
-    }
-
-    #demo-popover.is-open {
-      pointer-events: auto;
-    }
-    #demo-popover.is-open #demo-popover-backdrop {
-      opacity: 1;
-    }
-
-    @media (max-width: 639px) {
-      #demo-popover .popover-content {
-        transform: translateY(100%);
-      }
-      #demo-popover.is-open .popover-content {
-        transform: translateY(0);
-      }
-    }
-
-    @media (min-width: 640px) {
-      #demo-popover:not(.is-open) {
-        opacity: 0;
-        visibility: hidden;
-      }
-      #demo-popover.is-open {
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      #demo-popover:not(.is-open) .popover-content {
-        transform: translateX(-15px) scale(0.95);
-        opacity: 0;
-      }
-      #demo-popover.is-open .popover-content {
-        transform: translateX(0) scale(1);
-        opacity: 1;
-      }
-      
-      #demo-popover:not(.is-open) .popover-triangle {
-        transform: translateX(-15px) scale(0.95) rotate(45deg);
-        opacity: 0;
-      }
-      #demo-popover.is-open .popover-triangle {
-        transform: translateX(0) scale(1) rotate(45deg);
-        opacity: 1;
-      }
-    }
-
-    /* --- CENTERED MODAL STYLES (Pricing) --- */
-    .contact-modal {
-      transition: visibility 0s linear 0.4s;
-      visibility: hidden;
-    }
-    .contact-modal.is-open {
-      visibility: visible;
-      transition: visibility 0s linear 0s;
-    }
-
-    .modal-backdrop {
-      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      opacity: 0;
-      pointer-events: none;
-    }
-    .contact-modal.is-open .modal-backdrop {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      transform: scale(0.95) translateY(15px);
-      opacity: 0;
-      pointer-events: none;
-    }
-    .contact-modal.is-open .modal-content {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-  </style>
-
     <main class="flex min-h-screen flex-col bg-white overflow-x-hidden font-sans text-zinc-900 selection:bg-emerald-100 selection:text-emerald-900">
       <!-- NAVIGATION (Sticky on scroll) -->
       <div class="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-6 px-4 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-4 opacity-0" id="sticky-nav">
@@ -306,7 +172,7 @@ bile-menu-link group py-3 border-b border-zinc-50">
             <span>{t.nav.blog}</span>
             <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </a>
-
+          
           <!-- Contact Widget (New) -->
           <div class="mt-4 mb-2 p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
             <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">{t.hero.demo}</p>
