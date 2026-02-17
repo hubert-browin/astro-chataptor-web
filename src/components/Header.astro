@@ -8,17 +8,12 @@ interface Props {
 }
 
 const { lang, isLandingPage = false } = Astro.props;
-const t = getLanding(lang); // Używamy tłumaczeń z landingu dla menu
+const t = getLanding(lang);
 
-// Jeśli nie jesteśmy na Landing Page, musimy dodawać prefix językowy do kotwic (np. /pl/#pricing)
 const linkPrefix = isLandingPage ? "" : `/${lang}`;
 ---
 
 <header>
-  {/* 1. STICKY NAV (Pigułka) 
-      - Na Landing Page: startuje niewidoczna (-translate-y-4 opacity-0) i wjeżdża przy scrollu.
-      - Na Innych stronach: jest widoczna na stałe (translate-y-0 opacity-100).
-  */}
   <div 
     id="sticky-nav"
     class={`fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-6 px-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] 
@@ -26,32 +21,26 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
   >
     <nav class="w-[95%] md:w-[63rem] bg-white/80 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between pointer-events-auto">
       
-      {/* LOGO (Sticky) */}
       <div class="flex items-center gap-3 pl-3">
         <a href={`/${lang}/`} class="flex items-center gap-2 group opacity-90 hover:opacity-100 transition-opacity">
           <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-5 md:h-6 object-contain" />
         </a>
       </div>
 
-      {/* MENU DESKTOPOWE (Sticky) */}
-      {/* Używamy rem [0.8125rem] zamiast px, żeby skalowało się ze stylami globalnymi */}
       <div class="hidden md:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
         <a href={`${linkPrefix}/#how-it-works`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
         <a href={`${linkPrefix}/#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         <a href={`${linkPrefix}/#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
         <a href={`${linkPrefix}/#pricing`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
-        {/* Link do bloga - wyróżniony jeśli jesteśmy na landingu, aktywny/zwykły jeśli na blogu */}
         <a href={`/${lang}/blog`} class={`px-4 py-2 rounded-full transition-all ${isLandingPage ? 'hover:bg-zinc-100 hover:text-zinc-900' : 'bg-zinc-100 text-zinc-900 font-bold'}`}>{t.nav.blog}</a>
       </div>
 
-      {/* AKCJE (Login/Lang - Sticky) */}
       <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
         <LanguageSwitcher currentLang={lang as any} slug="" />
         <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors px-3">{t.nav.login}</a>
         <a href="/register" class="bg-zinc-900 text-white rounded-full font-medium hover:bg-black transition-all hover:scale-105 active:scale-95 px-5 py-2 shadow-lg shadow-zinc-900/10">{t.nav.start}</a>
       </div>
 
-      {/* HAMBURGER (Sticky) */}
       <div class="md:hidden flex items-center gap-2 pr-1">
         <LanguageSwitcher currentLang={lang as any} slug="" />
         <button class="p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform mobile-menu-trigger">
@@ -63,9 +52,6 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
     </nav>
   </div>
 
-  {/* 2. STATIC HEADER (Tylko na Landing Page)
-      Widoczny tylko na samej górze strony głównej. Znika przy scrollu.
-  */}
   {isLandingPage && (
     <div class="absolute top-0 left-0 w-full z-40 py-6 px-6 flex justify-between items-center max-w-7xl mx-auto left-0 right-0 transition-opacity duration-300" id="static-header">
       <div class="flex items-center gap-2">
@@ -76,7 +62,6 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
         <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
         <a href="/register" class="bg-zinc-900 text-white px-5 py-2.5 rounded-full font-medium hover:bg-black transition-all hover:shadow-xl hover:shadow-zinc-900/10 active:scale-95">{t.nav.startFree}</a>
       </div>
-      {/* Mobile Actions (Static) */}
       <div class="md:hidden flex items-center gap-2">
         <LanguageSwitcher currentLang={lang as any} slug="" />
         <button class="p-2 text-zinc-600 active:scale-90 transition-transform mobile-menu-trigger">
@@ -86,9 +71,6 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
     </div>
   )}
 
-  {/* 3. MOBILE MENU OVERLAY 
-      Wspólne dla obu stanów
-  */}
   <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl hidden transition-opacity duration-300" id="mobile-menu">
     <div class="flex items-center justify-between p-6 border-b border-zinc-100">
       <img src="/images/landing/logotype.png" alt="Logo" class="h-6 opacity-90" />
@@ -140,50 +122,49 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
   </div>
 </header>
 
-<script is:inline>
-  // Logika Sticky Menu i Mobile Menu
-  // Używamy is:inline, aby kod wykonał się od razu w przeglądarce
-  
-  const nav = document.getElementById('sticky-nav');
-  const staticHeader = document.getElementById('static-header');
-  const triggers = document.querySelectorAll('.mobile-menu-trigger');
-  const closeBtn = document.getElementById('close-mobile-menu');
-  const menu = document.getElementById('mobile-menu');
-  const links = document.querySelectorAll('.mobile-menu-link');
+<script>
+  // Zmienione na zwykły <script> z obsługą astro:page-load
+  document.addEventListener('astro:page-load', () => {
+    const nav = document.getElementById('sticky-nav');
+    const staticHeader = document.getElementById('static-header');
+    const triggers = document.querySelectorAll('.mobile-menu-trigger');
+    const closeBtn = document.getElementById('close-mobile-menu');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('.mobile-menu-link');
 
-  // Sticky Logic
-  // Sprawdzamy czy element ma klasę opacity-0, co oznacza, że jest to Landing Page w stanie początkowym
-  if (nav && nav.classList.contains('opacity-0')) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        // Pokaż Sticky Nav
-        nav.classList.remove('-translate-y-4', 'opacity-0', 'pointer-events-none');
-        nav.classList.add('translate-y-0', 'opacity-100');
-        nav.querySelector('nav').classList.remove('pointer-events-none');
-        
-        // Ukryj Static Header (jeśli istnieje)
-        if (staticHeader) {
-            staticHeader.classList.add('opacity-0', 'pointer-events-none');
+    // Sticky Logic
+    if (nav && nav.classList.contains('opacity-0')) {
+      const handleScroll = () => {
+        if (window.scrollY > 100) {
+          nav.classList.remove('-translate-y-4', 'opacity-0', 'pointer-events-none');
+          nav.classList.add('translate-y-0', 'opacity-100');
+          nav.querySelector('nav')?.classList.remove('pointer-events-none');
+          
+          if (staticHeader) {
+              staticHeader.classList.add('opacity-0', 'pointer-events-none');
+          }
+        } else {
+          nav.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
+          nav.classList.remove('translate-y-0', 'opacity-100');
+          nav.querySelector('nav')?.classList.add('pointer-events-none');
+
+          if (staticHeader) {
+              staticHeader.classList.remove('opacity-0', 'pointer-events-none');
+          }
         }
-      } else {
-        // Ukryj Sticky Nav
-        nav.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
-        nav.classList.remove('translate-y-0', 'opacity-100');
-        nav.querySelector('nav').classList.add('pointer-events-none');
+      };
 
-        // Pokaż Static Header
-        if (staticHeader) {
-            staticHeader.classList.remove('opacity-0', 'pointer-events-none');
-        }
-      }
-    });
-    
-    // Inicjalnie zablokuj pointer events na sticky nav (żeby nie klikać w niewidoczne)
-    nav.querySelector('nav').classList.add('pointer-events-none');
-  }
+      window.addEventListener('scroll', handleScroll);
+      // Cleanup on unmount not strictly necessary for simple scroll listener in Astro SPA mode 
+      // but good practice if needed.
+      
+      // Inicjalnie zablokuj pointer events na sticky nav
+      nav.querySelector('nav')?.classList.add('pointer-events-none');
+    }
 
-  // Mobile Menu Logic
-  triggers.forEach(btn => btn.addEventListener('click', () => menu.classList.remove('hidden')));
-  closeBtn?.addEventListener('click', () => menu.classList.add('hidden'));
-  links.forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
+    // Mobile Menu Logic
+    triggers.forEach(btn => btn.addEventListener('click', () => menu?.classList.remove('hidden')));
+    closeBtn?.addEventListener('click', () => menu?.classList.add('hidden'));
+    links.forEach(l => l.addEventListener('click', () => menu?.classList.add('hidden')));
+  });
 </script>

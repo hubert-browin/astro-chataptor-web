@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css'; // <--- KLUCZOWA POPRAWKA: Import stylów globalnych (Tailwind)
 
 interface Props {
   title: string;
@@ -34,15 +35,14 @@ const {
     <meta name="description" content={description} />
     <ViewTransitions />
 
-    {/* GLOBALNE STYLE PRZENIESIONE Z INDEX.ASTRO */}
-    {/* Dzięki temu każda podstrona (Blog, Privacy) wygląda identycznie (skala, scrollbar) */}
+    {/* GLOBALNE STYLE SKALOWANIA */}
     <style is:global>
       /* Default (Mobile): 15px base */
       html {
         font-size: 15px;
       }
 
-      /* Desktop Fluid Scaling - "Zoomed out feel" */
+      /* Desktop Fluid Scaling */
       @media (min-width: 1024px) {
         html {
           font-size: 11.5px; 
@@ -56,7 +56,6 @@ const {
         }
       }
        
-      /* Smooth transition for resizing */
       html { transition: font-size 0.2s ease-out; }
       
       /* Custom Scrollbar */
@@ -74,24 +73,20 @@ const {
         background-color: rgba(0, 0, 0, 0.2);
       }
 
-      /* Globalne ustawienia selekcji */
       ::selection {
-        background-color: #d1fae5; /* emerald-100 */
-        color: #064e3b; /* emerald-900 */
+        background-color: #d1fae5;
+        color: #064e3b;
       }
     </style>
   </head>
   <body class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
     
-    {/* Header automatycznie decyduje czy być sticky czy statyczny na bazie propsa isLandingPage */}
     {!hideHeader && <Header lang={lang} isLandingPage={isLandingPage} />}
 
-    {/* Główna zawartość */}
     <div class="flex-1 w-full">
       <slot />
     </div>
 
-    {/* Footer */}
     {!hideFooter && <Footer lang={lang} />}
     
   </body>
