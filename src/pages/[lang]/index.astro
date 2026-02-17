@@ -238,7 +238,7 @@ const logos = [
             <a href="#implementation" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
             <a href="#product" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
             <a href="#pricing" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
-            <a href="/blog" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.blog}</a>
+            <a href={`/${lang}/blog`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.blog}</a>
           </div>
           <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
             <LanguageSwitcher currentLang={lang} slug="" />
