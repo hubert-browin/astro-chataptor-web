@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { locales } from '../../../../i18n/config'; // Upewnij się, że ścieżka do configu jest dobra
+import { locales } from '../../../i18n/config'; // Upewnij się, że ścieżka do configu jest dobra
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
