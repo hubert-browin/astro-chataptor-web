@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { locales } from '../../../../i18n/config'; // Upewnij się, że ścieżka do configu jest dobra
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+
+// Pobieramy posty pasujące do aktualnego języka
+const posts = await getCollection('blog', ({ data }) => {
+  return data.lang === lang;
+});
+
+// Sortujemy od najnowszego
+const sortedPosts = posts.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const heroPost = sortedPosts[0]; // Pierwszy post jako duży
+const otherPosts = sortedPosts.slice(1); // Reszta jako małe
+
+// Funkcja do ładnej daty
+const formatDate = (date) => {
+    return new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+};
+---
+
+<BaseLayout 
+  title="Blog - Chataptor" 
+  description="Najnowsze informacje i poradniki." 
+  lang={lang}
+>
+  <main class="bg-white min-h-screen pt-32 pb-20 px-4 md:px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-zinc-900 mb-6 tracking-tight">Blog & News</h1>
+      </div>
+
+      {sortedPosts.length === 0 ? (
+        <p class="text-center text-zinc-500">Wkrótce pojawią się tu pierwsze artykuły.</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* HERO POST (Duży) */}
+          {heroPost && (
+            <a href={`/${lang}/blog/${heroPost.slug}`} class="group md:col-span-2 relative bg-zinc-50 rounded-[2rem] overflow-hidden ring-1 ring-black/5 hover:shadow-2xl transition-all duration-500 flex flex-col md:flex-row min-h-[400px]">
+              <div class="p-8 md:p-12 flex flex-col justify-center w-full md:w-3/5 order-2 md:order-1">
+                <div class="flex items-center gap-2 mb-4">
+                   <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+                      {heroPost.data.tags[0] || 'News'}
+                   </span>
+                   <time class="text-xs text-zinc-400 font-medium">
+                      {formatDate(heroPost.data.publishedAt)}
+                   </time>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-zinc-900 mb-4 leading-tight group-hover:text-emerald-700 transition-colors">
+                  {heroPost.data.title}
+                </h2>
+                <p class="text-zinc-500 mb-6 line-clamp-3">
+                  {heroPost.data.description}
+                </p>
+                <span class="text-sm font-bold text-zinc-900 underline decoration-zinc-300 underline-offset-4 group-hover:decoration-emerald-500 transition-all">
+                  Czytaj dalej
+                </span>
+              </div>
+              <div class="w-full md:w-2/5 bg-zinc-200 h-64 md:h-full order-1 md:order-2 relative overflow-hidden">
+                  {/* Używamy zwykłego img bo w configu image to string */}
+                  {heroPost.data.image && (
+                      <img 
+                          src={heroPost.data.image} 
+                          alt={heroPost.data.title} 
+                          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      />
+                  )}
+              </div>
+            </a>
+          )}
+
+          {/* Tutaj będą kolejne posty (otherPosts) - na razie masz jeden, więc wyświetli się tylko Hero */}
+        </div>
+      )}
+    </div>
+  </main>
+</BaseLayout>

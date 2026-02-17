@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { 
+        lang: post.data.lang, 
+        slug: post.slug 
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formattedDate = new Intl.DateTimeFormat(post.data.lang, { 
+    day: 'numeric', month: 'long', year: 'numeric' 
+}).format(post.data.publishedAt);
+---
+
+<BaseLayout 
+    title={post.data.title} 
+    description={post.data.description}
+    lang={post.data.lang}
+>
+    <article class="bg-white min-h-screen pt-32 pb-20">
+        <div class="max-w-3xl mx-auto px-6">
+            
+            <header class="mb-12 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-zinc-50 border border-zinc-100 rounded-full text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-6">
+                    {post.data.tags.join(' • ')}
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight mb-6 leading-tight">
+                    {post.data.title}
+                </h1>
+                <div class="flex items-center justify-center gap-2 text-sm text-zinc-500">
+                    <span class="font-medium text-zinc-900">{post.data.author}</span>
+                    <span>•</span>
+                    <time>{formattedDate}</time>
+                </div>
+            </header>
+
+            {post.data.image && (
+                <div class="mb-12 rounded-[2rem] overflow-hidden shadow-lg ring-1 ring-black/5">
+                    <img 
+                        src={post.data.image} 
+                        alt={post.data.title} 
+                        class="w-full h-auto object-cover max-h-[500px]"
+                    />
+                </div>
+            )}
+
+            {/* WAŻNE: Upewnij się, że masz zainstalowane @tailwindcss/typography */}
+            <div class="prose prose-zinc prose-lg max-w-none 
+                prose-headings:font-bold prose-headings:text-zinc-900
+                prose-p:text-zinc-600 prose-a:text-emerald-600 hover:prose-a:text-emerald-500
+                prose-img:rounded-2xl prose-img:shadow-lg">
+                <Content />
+            </div>
+
+            <div class="mt-16 pt-10 border-t border-zinc-100">
+                <a href={`/${post.data.lang}/blog`} class="text-sm font-bold text-zinc-500 hover:text-zinc-900 transition-colors">
+                    ← Powrót do bloga
+                </a>
+            </div>
+
+        </div>
+    </article>
+</BaseLayout>
