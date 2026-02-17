@@ -1,20 +1,23 @@
 ---
-// src/components/Header.astro
 import { getLanding } from '../i18n/landing';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
-const { lang, isLandingPage = false } = Astro.props;
-const t = getLanding(lang);
+interface Props {
+  lang: string;
+  isLandingPage?: boolean;
+}
 
-// LOGIKA LINKÓW:
-// Jeśli jesteśmy na Landing Page -> link to "#pricing"
-// Jeśli jesteśmy na Blogu -> link to "/pl/#pricing"
+const { lang, isLandingPage = false } = Astro.props;
+const t = getLanding(lang); // Używamy tłumaczeń z landingu dla menu
+
+// Jeśli nie jesteśmy na Landing Page, musimy dodawać prefix językowy do kotwic (np. /pl/#pricing)
 const linkPrefix = isLandingPage ? "" : `/${lang}`;
 ---
 
 <header>
-  {/* Jeśli to Landing Page: domyślnie ukryty i wyjeżdża przy scrollu (klasy opacity-0 itd. obsługiwane przez JS).
-      Jeśli to Blog/Inna strona: zawsze widoczny (opacity-100 translate-y-0).
+  {/* 1. STICKY NAV (Pigułka) 
+      - Na Landing Page: startuje niewidoczna (-translate-y-4 opacity-0) i wjeżdża przy scrollu.
+      - Na Innych stronach: jest widoczna na stałe (translate-y-0 opacity-100).
   */}
   <div 
     id="sticky-nav"
@@ -23,34 +26,35 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
   >
     <nav class="w-[95%] md:w-[63rem] bg-white/80 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between pointer-events-auto">
       
-      {/* LOGO */}
+      {/* LOGO (Sticky) */}
       <div class="flex items-center gap-3 pl-3">
         <a href={`/${lang}/`} class="flex items-center gap-2 group opacity-90 hover:opacity-100 transition-opacity">
           <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-5 md:h-6 object-contain" />
         </a>
       </div>
 
-      {/* MENU DESKTOPOWE */}
+      {/* MENU DESKTOPOWE (Sticky) */}
+      {/* Używamy rem [0.8125rem] zamiast px, żeby skalowało się ze stylami globalnymi */}
       <div class="hidden md:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
         <a href={`${linkPrefix}/#how-it-works`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
         <a href={`${linkPrefix}/#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         <a href={`${linkPrefix}/#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
         <a href={`${linkPrefix}/#pricing`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
-        {/* Link do bloga zawsze kieruje na /pl/blog */}
-        <a href={`/${lang}/blog`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all font-bold text-emerald-600 bg-emerald-50/50">{t.nav.blog}</a>
+        {/* Link do bloga - wyróżniony jeśli jesteśmy na landingu, aktywny/zwykły jeśli na blogu */}
+        <a href={`/${lang}/blog`} class={`px-4 py-2 rounded-full transition-all ${isLandingPage ? 'hover:bg-zinc-100 hover:text-zinc-900' : 'bg-zinc-100 text-zinc-900 font-bold'}`}>{t.nav.blog}</a>
       </div>
 
-      {/* AKCJE (Login/Lang) */}
+      {/* AKCJE (Login/Lang - Sticky) */}
       <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
-        <LanguageSwitcher currentLang={lang} slug="" />
+        <LanguageSwitcher currentLang={lang as any} slug="" />
         <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors px-3">{t.nav.login}</a>
         <a href="/register" class="bg-zinc-900 text-white rounded-full font-medium hover:bg-black transition-all hover:scale-105 active:scale-95 px-5 py-2 shadow-lg shadow-zinc-900/10">{t.nav.start}</a>
       </div>
 
-      {/* MENU MOBILNE (Hamburger) */}
+      {/* HAMBURGER (Sticky) */}
       <div class="md:hidden flex items-center gap-2 pr-1">
-        <LanguageSwitcher currentLang={lang} slug="" />
-        <button class="p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform" id="mobile-menu-btn">
+        <LanguageSwitcher currentLang={lang as any} slug="" />
+        <button class="p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform mobile-menu-trigger">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -59,8 +63,33 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
     </nav>
   </div>
 
-  {/* MOBILE MENU OVERLAY (Pełnoekranowe) */}
-  <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl hidden" id="mobile-menu">
+  {/* 2. STATIC HEADER (Tylko na Landing Page)
+      Widoczny tylko na samej górze strony głównej. Znika przy scrollu.
+  */}
+  {isLandingPage && (
+    <div class="absolute top-0 left-0 w-full z-40 py-6 px-6 flex justify-between items-center max-w-7xl mx-auto left-0 right-0 transition-opacity duration-300" id="static-header">
+      <div class="flex items-center gap-2">
+        <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-6 md:h-7 object-contain opacity-90" />
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <LanguageSwitcher currentLang={lang as any} slug="" />
+        <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
+        <a href="/register" class="bg-zinc-900 text-white px-5 py-2.5 rounded-full font-medium hover:bg-black transition-all hover:shadow-xl hover:shadow-zinc-900/10 active:scale-95">{t.nav.startFree}</a>
+      </div>
+      {/* Mobile Actions (Static) */}
+      <div class="md:hidden flex items-center gap-2">
+        <LanguageSwitcher currentLang={lang as any} slug="" />
+        <button class="p-2 text-zinc-600 active:scale-90 transition-transform mobile-menu-trigger">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </div>
+  )}
+
+  {/* 3. MOBILE MENU OVERLAY 
+      Wspólne dla obu stanów
+  */}
+  <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl hidden transition-opacity duration-300" id="mobile-menu">
     <div class="flex items-center justify-between p-6 border-b border-zinc-100">
       <img src="/images/landing/logotype.png" alt="Logo" class="h-6 opacity-90" />
       <button class="p-2 -mr-2 text-zinc-500 active:scale-90 transition-transform bg-zinc-50 rounded-full" id="close-mobile-menu">
@@ -84,9 +113,28 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
             <span>{t.nav.blog}</span>
         </a>
 
+        {/* Contact Widget in Mobile Menu */}
+        <div class="mt-4 mb-2 p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
+            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">{t.hero.demo}</p>
+            <div class="space-y-4">
+                <a href="tel:+48695151096" class="flex items-center gap-3 group">
+                    <div class="w-9 h-9 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-500 group-hover:text-emerald-600 group-hover:border-emerald-200 transition-colors shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <span class="text-sm font-semibold text-zinc-700 group-hover:text-zinc-900 transition-colors">+48 695 151 096</span>
+                </a>
+                <a href="mailto:contact@chataptor.com" class="flex items-center gap-3 group">
+                    <div class="w-9 h-9 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-500 group-hover:text-emerald-600 group-hover:border-emerald-200 transition-colors shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <span class="text-sm font-semibold text-zinc-700 group-hover:text-zinc-900 transition-colors">contact@chataptor.com</span>
+                </a>
+            </div>
+        </div>
+
         <div class="flex flex-col gap-3 mt-auto">
-            <a href="/login" class="text-sm font-bold text-zinc-500 text-center py-2">{t.nav.loginFull}</a>
-            <a href="/register" class="bg-zinc-900 text-white px-4 py-3.5 rounded-xl text-base font-bold w-full text-center">{t.nav.startFree}</a>
+            <a href="/login" class="text-sm font-bold text-zinc-500 text-center py-2 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
+            <a href="/register" class="bg-zinc-900 text-white px-4 py-3.5 rounded-xl text-base font-bold w-full shadow-lg shadow-zinc-900/10 active:scale-[0.98] transition-transform text-center">{t.nav.startFree}</a>
         </div>
     </div>
   </div>
@@ -94,27 +142,48 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
 
 <script is:inline>
   // Logika Sticky Menu i Mobile Menu
+  // Używamy is:inline, aby kod wykonał się od razu w przeglądarce
+  
   const nav = document.getElementById('sticky-nav');
-  const btn = document.getElementById('mobile-menu-btn');
+  const staticHeader = document.getElementById('static-header');
+  const triggers = document.querySelectorAll('.mobile-menu-trigger');
   const closeBtn = document.getElementById('close-mobile-menu');
   const menu = document.getElementById('mobile-menu');
   const links = document.querySelectorAll('.mobile-menu-link');
 
-  // Sticky Logic - działa tylko jeśli nav ma klasę początkową opacity-0 (czyli na Landing Page)
+  // Sticky Logic
+  // Sprawdzamy czy element ma klasę opacity-0, co oznacza, że jest to Landing Page w stanie początkowym
   if (nav && nav.classList.contains('opacity-0')) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 100) {
+        // Pokaż Sticky Nav
         nav.classList.remove('-translate-y-4', 'opacity-0', 'pointer-events-none');
         nav.classList.add('translate-y-0', 'opacity-100');
+        nav.querySelector('nav').classList.remove('pointer-events-none');
+        
+        // Ukryj Static Header (jeśli istnieje)
+        if (staticHeader) {
+            staticHeader.classList.add('opacity-0', 'pointer-events-none');
+        }
       } else {
+        // Ukryj Sticky Nav
         nav.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
         nav.classList.remove('translate-y-0', 'opacity-100');
+        nav.querySelector('nav').classList.add('pointer-events-none');
+
+        // Pokaż Static Header
+        if (staticHeader) {
+            staticHeader.classList.remove('opacity-0', 'pointer-events-none');
+        }
       }
     });
+    
+    // Inicjalnie zablokuj pointer events na sticky nav (żeby nie klikać w niewidoczne)
+    nav.querySelector('nav').classList.add('pointer-events-none');
   }
 
   // Mobile Menu Logic
-  btn?.addEventListener('click', () => menu.classList.remove('hidden'));
+  triggers.forEach(btn => btn.addEventListener('click', () => menu.classList.remove('hidden')));
   closeBtn?.addEventListener('click', () => menu.classList.add('hidden'));
   links.forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
 </script>

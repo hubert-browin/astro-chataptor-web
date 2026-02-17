@@ -2,7 +2,6 @@
 import { locales, type Locale } from '../../i18n/config';
 import { getLanding } from '../../i18n/landing';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 
 export function getStaticPaths() {
   return locales.map((lang) => ({
@@ -14,8 +13,6 @@ const { lang } = Astro.params as { lang: Locale };
 
 // Get translations for current language
 const t = getLanding(lang);
-
-const currentYear = new Date().getFullYear();
 
 // Chat conversations data (using translations)
 const conversations = [
@@ -83,50 +80,15 @@ const logos = [
   description={t.hero.description}
   lang={lang}
   slug=""
-  hideHeader={true}
-  hideFooter={true}
+  isLandingPage={true} 
 >
-  <style is:global>
-    /* Responsive Scaling Logic (The "80-90% Zoom" Effect) */
-      
-    /* Default (Mobile): Adjusted from 16px to 15px to make text slightly smaller globally on mobile */
-    html {
-      font-size: 15px;
-    }
-
-    /* Desktop Fluid Scaling */
-    /* Reduced base font size to 11.5px on laptops to create a "zoomed out" feel.
-       This scales down all rem-based sizes by ~28% compared to standard 16px.
-    */
-    @media (min-width: 1024px) {
-      html {
-        font-size: 11.5px; 
-      }
-    }
-
-    /* On very large screens (Full HD+), slight increase to maintain readability */
-    @media (min-width: 1536px) {
-      html {
-        font-size: 13px; 
-      }
-    }
-      
-    /* Smooth transition for resizing */
-    html { transition: font-size 0.2s ease-out; }
-  </style>
-
+  {/* Style lokalne dla tej strony (animacje, popovery) - usunąłem globalne font-size */}
   <style>
     /* Custom Pulse Animation for the Demo Button */
     @keyframes pulse-ring {
-      0% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
     .animate-pulse-ring {
       animation: pulse-ring 2s infinite;
@@ -137,56 +99,26 @@ const logos = [
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    #demo-popover:not(.is-open) {
-      pointer-events: none;
-    }
-    #demo-popover:not(.is-open) #demo-popover-backdrop {
-      opacity: 0;
-    }
+    #demo-popover:not(.is-open) { pointer-events: none; }
+    #demo-popover:not(.is-open) #demo-popover-backdrop { opacity: 0; }
 
-    #demo-popover.is-open {
-      pointer-events: auto;
-    }
-    #demo-popover.is-open #demo-popover-backdrop {
-      opacity: 1;
-    }
+    #demo-popover.is-open { pointer-events: auto; }
+    #demo-popover.is-open #demo-popover-backdrop { opacity: 1; }
 
     @media (max-width: 639px) {
-      #demo-popover .popover-content {
-        transform: translateY(100%);
-      }
-      #demo-popover.is-open .popover-content {
-        transform: translateY(0);
-      }
+      #demo-popover .popover-content { transform: translateY(100%); }
+      #demo-popover.is-open .popover-content { transform: translateY(0); }
     }
 
     @media (min-width: 640px) {
-      #demo-popover:not(.is-open) {
-        opacity: 0;
-        visibility: hidden;
-      }
-      #demo-popover.is-open {
-        opacity: 1;
-        visibility: visible;
-      }
+      #demo-popover:not(.is-open) { opacity: 0; visibility: hidden; }
+      #demo-popover.is-open { opacity: 1; visibility: visible; }
       
-      #demo-popover:not(.is-open) .popover-content {
-        transform: translateX(-15px) scale(0.95);
-        opacity: 0;
-      }
-      #demo-popover.is-open .popover-content {
-        transform: translateX(0) scale(1);
-        opacity: 1;
-      }
+      #demo-popover:not(.is-open) .popover-content { transform: translateX(-15px) scale(0.95); opacity: 0; }
+      #demo-popover.is-open .popover-content { transform: translateX(0) scale(1); opacity: 1; }
       
-      #demo-popover:not(.is-open) .popover-triangle {
-        transform: translateX(-15px) scale(0.95) rotate(45deg);
-        opacity: 0;
-      }
-      #demo-popover.is-open .popover-triangle {
-        transform: translateX(0) scale(1) rotate(45deg);
-        opacity: 1;
-      }
+      #demo-popover:not(.is-open) .popover-triangle { transform: translateX(-15px) scale(0.95) rotate(45deg); opacity: 0; }
+      #demo-popover.is-open .popover-triangle { transform: translateX(0) scale(1) rotate(45deg); opacity: 1; }
     }
 
     /* --- CENTERED MODAL STYLES (Pricing) --- */
@@ -222,131 +154,12 @@ const logos = [
     }
   </style>
 
-    <main class="flex min-h-screen flex-col bg-white overflow-x-hidden font-sans text-zinc-900 selection:bg-emerald-100 selection:text-emerald-900">
-      <!-- NAVIGATION (Sticky on scroll) -->
-      <div class="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-6 px-4 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-4 opacity-0" id="sticky-nav">
-        <!-- Expanded width to 58rem for better text fit -->
-        <nav class="pointer-events-auto w-[95%] md:w-[63rem] bg-white/70 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between">
-          <div class="flex items-center gap-3 pl-3">
-            <a href={`/${lang}/`} class="flex items-center gap-2 group opacity-90 hover:opacity-100 transition-opacity">
-              <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-5 md:h-6 object-contain" />
-            </a>
-          </div>
-          <!-- CHANGED: text-[13px] replaced with rem equivalent [0.8125rem] to support scaling -->
-          <div class="hidden md:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
-            <a href="#how-it-works" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
-            <a href="#implementation" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
-            <a href="#product" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
-            <a href="#pricing" class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
-            <a href={`/${lang}/blog`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.blog}</a>
-          </div>
-          <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
-            <LanguageSwitcher currentLang={lang} slug="" />
-            <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors px-3">{t.nav.login}</a>
-            <a href="/register" class="bg-zinc-900 text-white rounded-full font-medium hover:bg-black transition-all hover:scale-105 active:scale-95 px-5 py-2 shadow-lg shadow-zinc-900/10">{t.nav.start}</a>
-          </div>
-          <!-- Mobile Actions (Sticky) -->
-          <div class="md:hidden flex items-center gap-2 pr-1">
-            <LanguageSwitcher currentLang={lang} slug="" />
-            <button class="p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform" id="sticky-mobile-menu-btn">
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </nav>
-      </div>
-
-      <!-- Static Header Logo -->
-      <div class="absolute top-0 left-0 w-full z-40 py-6 px-6 flex justify-between items-center max-w-7xl mx-auto left-0 right-0" id="static-header">
-        <div class="flex items-center gap-2">
-          <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-6 md:h-7 object-contain opacity-90" />
-        </div>
-        <div class="hidden md:flex items-center gap-6 text-sm">
-          <LanguageSwitcher currentLang={lang} slug="" />
-          <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
-          <a href="/register" class="bg-zinc-900 text-white px-5 py-2.5 rounded-full font-medium hover:bg-black transition-all hover:shadow-xl hover:shadow-zinc-900/10 active:scale-95">{t.nav.startFree}</a>
-        </div>
-        <!-- Mobile Actions (Static) -->
-        <div class="md:hidden flex items-center gap-2">
-          <LanguageSwitcher currentLang={lang} slug="" />
-          <button class="p-2 text-zinc-600 active:scale-90 transition-transform" id="mobile-menu-btn">
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Menu Overlay -->
-      <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl hidden" id="mobile-menu">
-        <div class="flex items-center justify-between p-6 border-b border-zinc-100">
-          <img src="/images/landing/logotype.png" alt="Logo" class="h-6 opacity-90" />
-          <button class="p-2 -mr-2 text-zinc-500 active:scale-90 transition-transform bg-zinc-50 rounded-full" id="close-mobile-menu">
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
-        </div>
-        <div class="flex flex-col p-6 gap-2 mt-2 h-full overflow-y-auto">
-          <!-- Menu Links with Arrows -->
-          <a href="#how-it-works" class="flex items-center justify-between text-xl font-bold text-zinc-900 tracking-tight mo
-bile-menu-link group py-3 border-b border-zinc-50">
-            <span>{t.nav.howItWorks}</span>
-            <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-          <a href="#implementation" class="flex items-center justify-between text-xl font-bold text-zinc-900 tracking-tight mobile-menu-link group py-3 border-b border-zinc-50">
-            <span>{t.nav.implementation}</span>
-            <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-          <a href="#product" class="flex items-center justify-between text-xl font-bold text-zinc-900 tracking-tight mobile-menu-link group py-3 border-b border-zinc-50">
-            <span>{t.nav.features}</span>
-            <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-          <a href="#pricing" class="flex items-center justify-between text-xl font-bold text-zinc-900 tracking-tight mobile-menu-link group py-3 border-b border-zinc-50">
-            <span>{t.nav.pricing}</span>
-            <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-          <a href={`/${lang}/blog`} class="flex items-center justify-between text-xl font-bold text-zinc-900 tracking-tight mobile-menu-link group py-3 border-b border-zinc-50">
-            <span>{t.nav.blog}</span>
-            <svg class="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-          
-          <!-- Contact Widget (New) -->
-          <div class="mt-4 mb-2 p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
-            <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">{t.hero.demo}</p>
-            <div class="space-y-4">
-              <!-- Phone -->
-              <a href="tel:+48695151096" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-500 group-hover:text-emerald-600 group-hover:border-emerald-200 transition-colors shadow-sm">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                </div>
-                <span class="text-sm font-semibold text-zinc-700 group-hover:text-zinc-900 transition-colors">+48 695 151 096</span>
-              </a>
-              <!-- Email -->
-              <a href="mailto:contact@chataptor.com" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-500 group-hover:text-emerald-600 group-hover:border-emerald-200 transition-colors shadow-sm">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <span class="text-sm font-semibold text-zinc-700 group-hover:text-zinc-900 transition-colors">contact@chataptor.com</span>
-              </a>
-              <!-- Instant Messaging Compact Row -->
-              <div class="grid grid-cols-2 gap-3 pt-1">
-                <a href="https://wa.me/48695151096" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 p-2.5 bg-white border border-zinc-200 rounded-xl text-xs font-bold text-zinc-600 hover:bg-green-50 hover:text-green-700 hover:border-green-200 transition-colors shadow-sm">
-                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                  WhatsApp
-                </a>
-                <a href="https://m.me/chataptor" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 p-2.5 bg-white border border-zinc-200 rounded-xl text-xs font-bold text-zinc-600 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors shadow-sm">
-                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
-                  Messenger
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Buttons -->
-          <div class="flex flex-col gap-3 mt-auto">
-            <a href="/login" class="text-sm font-bold text-zinc-500 text-center py-2 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
-            <a href="/register" class="bg-zinc-900 text-white px-4 py-3.5 rounded-xl text-base font-bold w-full shadow-lg shadow-zinc-900/10 active:scale-[0.98] transition-transform text-center">{t.nav.startFree}</a>
-          </div>
-        </div>
-      </div>
+    <main>
+      
+      {/* UWAGA: Usunąłem stąd kod NAV i STICKY HEADER.
+          Jest on teraz w src/layouts/BaseLayout.astro (poprzez Header component).
+          Dlatego też usunąłem hideHeader={true} w BaseLayout props powyżej.
+      */}
 
       <!-- HERO SECTION -->
       <section class="relative min-h-[100dvh] flex flex-col pt-24 pb-4 md:pt-0 md:pb-0 text-center overflow-hidden">
@@ -471,53 +284,53 @@ bile-menu-link group py-3 border-b border-zinc-50">
                           <a href="https://wa.me/48695151096" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1 h-full">
                               <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-green-600 group-hover/item:bg-green-500 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                              </div>
+                              <div class="min-w-0 flex-1">
+                                <div class="text-xs font-bold text-zinc-900">WhatsApp</div>
+                                <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.chat}</div>
+                              </div>
+                              <div class="text-zinc-300 group-hover/item:text-green-500 transition-colors">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                              </div>
+                          </a>
+
+                          <!-- 4. Messenger -->
+                          <a href="https://m.me/chataptor" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1 h-full">
+                            <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
+                              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
                             </div>
                             <div class="min-w-0 flex-1">
-                              <div class="text-xs font-bold text-zinc-900">WhatsApp</div>
-                              <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.chat}</div>
+                              <div class="text-xs font-bold text-zinc-900">Messenger</div>
+                              <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.write}</div>
                             </div>
-                            <div class="text-zinc-300 group-hover/item:text-green-500 transition-colors">
+                            <div class="text-zinc-300 group-hover/item:text-blue-500 transition-colors">
                               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </div>
-                        </a>
+                          </a>
 
-                        <!-- 4. Messenger -->
-                        <a href="https://m.me/chataptor" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1 h-full">
-                          <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
+                          <!-- 5. Live Chat -->
+                          <div class="sm:col-span-2 pt-1 h-full">
+                            <button class="flex items-center justify-between w-full p-3 rounded-xl bg-zinc-900 text-white hover:bg-black transition-all group/item shadow-md shadow-zinc-900/10 active:scale-[0.98] cursor-pointer h-full" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 flex items-center justify-center shrink-0">
+                                        <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-full h-full object-contain brightness-0 invert" />
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                      <span class="text-xs font-bold">{t.contactPopup.liveChat}</span>
+                                      <span class="text-[9px] text-zinc-400">{t.contactPopup.liveChatDesc}</span>
+                                    </div>
+                                </div>
+                                <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white/70 group-hover/item:text-white group-hover/item:bg-white/20 transition-all">
+                                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                </div>
+                            </button>
                           </div>
-                          <div class="min-w-0 flex-1">
-                            <div class="text-xs font-bold text-zinc-900">Messenger</div>
-                            <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.write}</div>
-                          </div>
-                          <div class="text-zinc-300 group-hover/item:text-blue-500 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                          </div>
-                        </a>
-
-                        <!-- 5. Live Chat -->
-                        <div class="sm:col-span-2 pt-1 h-full">
-                          <button class="flex items-center justify-between w-full p-3 rounded-xl bg-zinc-900 text-white hover:bg-black transition-all group/item shadow-md shadow-zinc-900/10 active:scale-[0.98] cursor-pointer h-full" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
-                              <div class="flex items-center gap-3">
-                                  <div class="w-6 h-6 flex items-center justify-center shrink-0">
-                                      <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-full h-full object-contain brightness-0 invert" />
-                                  </div>
-                                  <div class="flex flex-col items-start">
-                                    <span class="text-xs font-bold">{t.contactPopup.liveChat}</span>
-                                    <span class="text-[9px] text-zinc-400">{t.contactPopup.liveChatDesc}</span>
-                                  </div>
-                              </div>
-                              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white/70 group-hover/item:text-white group-hover/item:bg-white/20 transition-all">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                              </div>
-                          </button>
                         </div>
-                      </div>
-                      
-                      <!-- Safe area for bottom on mobile -->
-                      <div class="h-6 sm:hidden"></div>
+                        
+                        <!-- Safe area for bottom on mobile -->
+                        <div class="h-6 sm:hidden"></div>
 
-                  </div>
+                    </div>
                 </div>
               </div>
 
@@ -1174,92 +987,50 @@ bile-menu-link group py-3 border-b border-zinc-50">
                 <a href="https://wa.me/48695151096" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1 h-full">
                     <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-green-600 group-hover/item:bg-green-500 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
                       <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                              <div class="text-xs font-bold text-zinc-900">WhatsApp</div>
-                              <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.chat}</div>
-                            </div>
-                            <div class="text-zinc-300 group-hover/item:text-green-500 transition-colors">
-                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </div>
-                        </a>
-
-                        <!-- 4. Messenger -->
-                        <a href="https://m.me/chataptor" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1 h-full">
-                          <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
-                          </div>
-                          <div class="min-w-0 flex-1">
-                            <div class="text-xs font-bold text-zinc-900">Messenger</div>
-                            <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.write}</div>
-                          </div>
-                          <div class="text-zinc-300 group-hover/item:text-blue-500 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                          </div>
-                        </a>
-
-                        <!-- 5. Live Chat -->
-                        <div class="sm:col-span-2 pt-1 h-full">
-                          <button class="flex items-center justify-between w-full p-3 rounded-xl bg-zinc-900 text-white hover:bg-black transition-all group/item shadow-md shadow-zinc-900/10 active:scale-[0.98] cursor-pointer h-full" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
-                              <div class="flex items-center gap-3">
-                                  <div class="w-6 h-6 flex items-center justify-center shrink-0">
-                                      <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-full h-full object-contain brightness-0 invert" />
-                                  </div>
-                                  <div class="flex flex-col items-start">
-                                    <span class="text-xs font-bold">{t.contactPopup.liveChat}</span>
-                                    <span class="text-[9px] text-zinc-400">{t.contactPopup.liveChatDesc}</span>
-                                  </div>
-                              </div>
-                              <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white/70 group-hover/item:text-white group-hover/item:bg-white/20 transition-all">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                              </div>
-                          </button>
-                        </div>
                     </div>
-                </div>
-      </div>
+                    <div class="min-w-0 flex-1">
+                      <div class="text-xs font-bold text-zinc-900">WhatsApp</div>
+                      <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.chat}</div>
+                    </div>
+                    <div class="text-zinc-300 group-hover/item:text-green-500 transition-colors">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </a>
 
-      <!-- FOOTER (Refined Layout) -->
-      <footer id="contact" class="py-12 lg:py-20 xl:py-32 bg-white border-t border-zinc-200">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="grid md:grid-cols-4 gap-12 md:gap-16 mb-20 md:mb-24">
-            <div class="md:col-span-2 space-y-8">
-              <div class="flex items-center gap-3">
-                <img src="/images/landing/logotype.png" alt="Chataptor" class="h-6 w-auto object-contain opacity-80" />
-              </div>
-              <p class="text-zinc-500 font-light leading-relaxed max-w-md text-lg">{t.footer.tagline}</p>
-            </div>
-            <div class="space-y-8">
-              <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">{t.footer.contact}</h4>
-              <div class="space-y-4">
-                <a href="mailto:contact@chataptor.com" class="flex items-center gap-3 text-zinc-500 hover:text-zinc-900 transition-colors">
-                  <span class="font-medium">contact@chataptor.com</span>
+                <!-- 4. Messenger -->
+                <a href="https://m.me/chataptor" target="_blank" rel="noopener noreferrer" class="relative group/item flex items-center gap-3 p-3 rounded-xl bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-100/50 hover:border-zinc-200 transition-all sm:col-span-1 h-full">
+                  <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors shrink-0 shadow-sm">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-xs font-bold text-zinc-900">Messenger</div>
+                    <div class="text-[11px] text-zinc-500 font-medium truncate">{t.contactPopup.write}</div>
+                  </div>
+                  <div class="text-zinc-300 group-hover/item:text-blue-500 transition-colors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </div>
                 </a>
-                <a href="tel:+48695151096" class="flex items-center gap-3 text-zinc-500 hover:text-zinc-900 transition-colors">
-                  <span class="font-medium">+48 695 151 096</span>
-                </a>
-                <div class="flex items-center gap-3 text-zinc-500">
-                  <span class="font-medium">{t.footer.location}</span>
+
+                <!-- 5. Live Chat -->
+                <div class="sm:col-span-2 pt-1 h-full">
+                  <button class="flex items-center justify-between w-full p-3 rounded-xl bg-zinc-900 text-white hover:bg-black transition-all group/item shadow-md shadow-zinc-900/10 active:scale-[0.98] cursor-pointer h-full" onclick="document.querySelector('#chat-mockup').scrollIntoView({behavior: 'smooth'})">
+                      <div class="flex items-center gap-3">
+                          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+                              <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-full h-full object-contain brightness-0 invert" />
+                          </div>
+                          <div class="flex flex-col items-start">
+                            <span class="text-xs font-bold">{t.contactPopup.liveChat}</span>
+                            <span class="text-[9px] text-zinc-400">{t.contactPopup.liveChatDesc}</span>
+                          </div>
+                      </div>
+                      <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white/70 group-hover/item:text-white group-hover/item:bg-white/20 transition-all">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                      </div>
+                  </button>
                 </div>
-              </div>
-            </div>
-            <div class="space-y-8">
-              <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">{t.footer.legal}</h4>
-              <ul class="space-y-4 text-zinc-500 font-medium">
-                <li><a href={`/${lang}/privacy`} class="hover:text-zinc-900 transition-colors">{t.footer.privacy}</a></li>
-                <li><a href={`/${lang}/terms`} class="hover:text-zinc-900 transition-colors">{t.footer.terms}</a></li>
-              </ul>
             </div>
           </div>
-          <div class="border-t border-zinc-100 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-zinc-400 text-sm font-medium text-center">© {currentYear} Chataptor. {t.footer.rights}</p>
-            <div class="flex items-center gap-2 text-[10px] font-bold text-zinc-400 bg-zinc-50 px-3 py-1.5 rounded-full border border-zinc-100">
-              <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-              {t.footer.uptime}
-            </div>
-          </div>
-        </div>
-      </footer>
+      </div>
     </main>
 
     <script define:vars={{ conversations, suggestionText: t.chat.suggestion }}>
@@ -1365,49 +1136,6 @@ bile-menu-link group py-3 border-b border-zinc-50">
             }
         });
       });
-
-
-      // Mobile menu handling
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const stickyMobileMenuBtn = document.getElementById('sticky-mobile-menu-btn');
-      const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-
-      function openMobileMenu() {
-        mobileMenu.classList.remove('hidden');
-      }
-
-      function closeMobileMenu() {
-        mobileMenu.classList.add('hidden');
-      }
-
-      mobileMenuBtn?.addEventListener('click', openMobileMenu);
-      stickyMobileMenuBtn?.addEventListener('click', openMobileMenu);
-      closeMobileMenuBtn?.addEventListener('click', closeMobileMenu);
-      mobileMenuLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
-
-      // Sticky nav handling
-      const stickyNav = document.getElementById('sticky-nav');
-      const stickyNavInner = stickyNav?.querySelector('nav');
-      const staticHeader = document.getElementById('static-header');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-          stickyNav.classList.remove('-translate-y-4', 'opacity-0');
-          stickyNav.classList.add('translate-y-0', 'opacity-100');
-          stickyNavInner?.classList.remove('pointer-events-none');
-          staticHeader.classList.add('opacity-0', 'pointer-events-none');
-        } else {
-          stickyNav.classList.add('-translate-y-4', 'opacity-0');
-          stickyNav.classList.remove('translate-y-0', 'opacity-100');
-          stickyNavInner?.classList.add('pointer-events-none');
-          staticHeader.classList.remove('opacity-0', 'pointer-events-none');
-        }
-      });
-
-      // Initially disable pointer events on sticky nav inner
-      stickyNavInner?.classList.add('pointer-events-none');
 
       // Chat mockup handling
       const chatList = document.getElementById('chat-list');
@@ -1553,7 +1281,6 @@ bile-menu-link group py-3 border-b border-zinc-50">
             toggleSwitch.classList.add('bg-zinc-200');
             toggleSwitch.classList.remove('bg-zinc-900');
             toggleKnob.classList.remove('translate-x-[1.25rem]');
-            // Clear inline style if present from previous version
             toggleKnob.style.transform = '';
             countryName.classList.add('text-zinc-400');
             countryName.classList.remove('text-zinc-900');
