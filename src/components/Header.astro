@@ -1,54 +1,120 @@
 ---
-import type { Locale } from '../i18n/config';
+// src/components/Header.astro
+import { getLanding } from '../i18n/landing';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
-interface Props {
-  lang: Locale;
-  slug: string;
-}
+const { lang, isLandingPage = false } = Astro.props;
+const t = getLanding(lang);
 
-const { lang, slug } = Astro.props;
+// LOGIKA LINKÓW:
+// Jeśli jesteśmy na Landing Page -> link to "#pricing"
+// Jeśli jesteśmy na Blogu -> link to "/pl/#pricing"
+const linkPrefix = isLandingPage ? "" : `/${lang}`;
 ---
 
-<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-zinc-100">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href={`/${lang}/`} class="flex items-center gap-2">
-      <img
-        src="/images/logotype.png"
-        alt="Chataptor Logo"
-        class="h-6 md:h-7 object-contain opacity-90"
-      />
-    </a>
+<header>
+  {/* Jeśli to Landing Page: domyślnie ukryty i wyjeżdża przy scrollu (klasy opacity-0 itd. obsługiwane przez JS).
+      Jeśli to Blog/Inna strona: zawsze widoczny (opacity-100 translate-y-0).
+  */}
+  <div 
+    id="sticky-nav"
+    class={`fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-6 px-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] 
+    ${isLandingPage ? '-translate-y-4 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 pointer-events-auto'}`}
+  >
+    <nav class="w-[95%] md:w-[63rem] bg-white/80 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between pointer-events-auto">
+      
+      {/* LOGO */}
+      <div class="flex items-center gap-3 pl-3">
+        <a href={`/${lang}/`} class="flex items-center gap-2 group opacity-90 hover:opacity-100 transition-opacity">
+          <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-5 md:h-6 object-contain" />
+        </a>
+      </div>
 
-    <nav class="hidden md:flex items-center gap-6">
-      <a
-        href={`/${lang}/`}
-        class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
-      >
-        Home
-      </a>
-      <a
-        href={`/${lang}/blog/`}
-        class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
-      >
-        Blog
-      </a>
+      {/* MENU DESKTOPOWE */}
+      <div class="hidden md:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
+        <a href={`${linkPrefix}/#how-it-works`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
+        <a href={`${linkPrefix}/#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
+        <a href={`${linkPrefix}/#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
+        <a href={`${linkPrefix}/#pricing`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
+        {/* Link do bloga zawsze kieruje na /pl/blog */}
+        <a href={`/${lang}/blog`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all font-bold text-emerald-600 bg-emerald-50/50">{t.nav.blog}</a>
+      </div>
+
+      {/* AKCJE (Login/Lang) */}
+      <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
+        <LanguageSwitcher currentLang={lang} slug="" />
+        <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors px-3">{t.nav.login}</a>
+        <a href="/register" class="bg-zinc-900 text-white rounded-full font-medium hover:bg-black transition-all hover:scale-105 active:scale-95 px-5 py-2 shadow-lg shadow-zinc-900/10">{t.nav.start}</a>
+      </div>
+
+      {/* MENU MOBILNE (Hamburger) */}
+      <div class="md:hidden flex items-center gap-2 pr-1">
+        <LanguageSwitcher currentLang={lang} slug="" />
+        <button class="p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform" id="mobile-menu-btn">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </nav>
+  </div>
 
-    <div class="flex items-center gap-4">
-      <LanguageSwitcher currentLang={lang} slug={slug} />
-      <a
-        href="/login"
-        class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
-      >
-        Zaloguj
-      </a>
-      <a
-        href="/register"
-        class="bg-zinc-900 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-black transition-all"
-      >
-        Rozpocznij
-      </a>
+  {/* MOBILE MENU OVERLAY (Pełnoekranowe) */}
+  <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl hidden" id="mobile-menu">
+    <div class="flex items-center justify-between p-6 border-b border-zinc-100">
+      <img src="/images/landing/logotype.png" alt="Logo" class="h-6 opacity-90" />
+      <button class="p-2 -mr-2 text-zinc-500 active:scale-90 transition-transform bg-zinc-50 rounded-full" id="close-mobile-menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="flex flex-col p-6 gap-2 mt-2 h-full overflow-y-auto">
+        <a href={`${linkPrefix}/#how-it-works`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+            <span>{t.nav.howItWorks}</span>
+        </a>
+        <a href={`${linkPrefix}/#implementation`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+            <span>{t.nav.implementation}</span>
+        </a>
+        <a href={`${linkPrefix}/#product`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+            <span>{t.nav.features}</span>
+        </a>
+        <a href={`${linkPrefix}/#pricing`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+            <span>{t.nav.pricing}</span>
+        </a>
+        <a href={`/${lang}/blog`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-emerald-700 bg-emerald-50/50 -mx-2 px-2 rounded-lg py-3 border-b border-zinc-50">
+            <span>{t.nav.blog}</span>
+        </a>
+
+        <div class="flex flex-col gap-3 mt-auto">
+            <a href="/login" class="text-sm font-bold text-zinc-500 text-center py-2">{t.nav.loginFull}</a>
+            <a href="/register" class="bg-zinc-900 text-white px-4 py-3.5 rounded-xl text-base font-bold w-full text-center">{t.nav.startFree}</a>
+        </div>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  // Logika Sticky Menu i Mobile Menu
+  const nav = document.getElementById('sticky-nav');
+  const btn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-mobile-menu');
+  const menu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('.mobile-menu-link');
+
+  // Sticky Logic - działa tylko jeśli nav ma klasę początkową opacity-0 (czyli na Landing Page)
+  if (nav && nav.classList.contains('opacity-0')) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.remove('-translate-y-4', 'opacity-0', 'pointer-events-none');
+        nav.classList.add('translate-y-0', 'opacity-100');
+      } else {
+        nav.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
+        nav.classList.remove('translate-y-0', 'opacity-100');
+      }
+    });
+  }
+
+  // Mobile Menu Logic
+  btn?.addEventListener('click', () => menu.classList.remove('hidden'));
+  closeBtn?.addEventListener('click', () => menu.classList.add('hidden'));
+  links.forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
+</script>
