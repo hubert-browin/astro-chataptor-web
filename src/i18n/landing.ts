@@ -7,6 +7,7 @@ export interface LandingTranslations {
     implementation: string;
     features: string;
     pricing: string;
+    blog: string;
     login: string;
     loginFull: string;
     start: string;
@@ -231,6 +232,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Wdrożenie',
       features: 'Funkcje',
       pricing: 'Cennik',
+      blog: 'Blog',
       login: 'Zaloguj',
       loginFull: 'Zaloguj się',
       start: 'Rozpocznij',
@@ -443,6 +445,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Implementation',
       features: 'Features',
       pricing: 'Pricing',
+      blog: 'Blog',
       login: 'Login',
       loginFull: 'Log in',
       start: 'Get started',
@@ -656,6 +659,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Implementierung',
       features: 'Funktionen',
       pricing: 'Preise',
+      blog: 'Blog',
       login: 'Login',
       loginFull: 'Anmelden',
       start: 'Starten',
@@ -869,6 +873,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Implémentation',
       features: 'Fonctionnalités',
       pricing: 'Tarifs',
+      blog: 'Blog',
       login: 'Connexion',
       loginFull: 'Se connecter',
       start: 'Démarrer',
@@ -1082,6 +1087,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Implementación',
       features: 'Funciones',
       pricing: 'Precios',
+      blog: 'Blog',
       login: 'Entrar',
       loginFull: 'Iniciar sesión',
       start: 'Empezar',
@@ -1295,6 +1301,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Implementazione',
       features: 'Funzionalità',
       pricing: 'Prezzi',
+      blog: 'Blog',
       login: 'Accedi',
       loginFull: 'Accedi',
       start: 'Inizia',
@@ -1508,6 +1515,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Implementace',
       features: 'Funkce',
       pricing: 'Ceník',
+      blog: 'Blog',
       login: 'Přihlásit',
       loginFull: 'Přihlásit se',
       start: 'Začít',
@@ -1721,6 +1729,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       implementation: 'Implementácia',
       features: 'Funkcie',
       pricing: 'Cenník',
+      blog: 'Blog',
       login: 'Prihlásiť',
       loginFull: 'Prihlásiť sa',
       start: 'Začať',
