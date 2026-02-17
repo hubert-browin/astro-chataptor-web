@@ -10,7 +10,10 @@ interface Props {
 const { lang, isLandingPage = false } = Astro.props;
 const t = getLanding(lang);
 
-const linkPrefix = isLandingPage ? "" : `/${lang}`;
+// POPRAWIONA LOGIKA:
+// Jeśli jesteśmy na Landingu -> anchorBase to puszty string (link będzie "#id")
+// Jeśli jesteśmy na Blogu -> anchorBase to "/pl/" (link będzie "/pl/#id")
+const anchorBase = isLandingPage ? "" : `/${lang}/`;
 ---
 
 <header>
@@ -28,10 +31,13 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
       </div>
 
       <div class="hidden md:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
-        <a href={`${linkPrefix}/#how-it-works`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
-        <a href={`${linkPrefix}/#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
-        <a href={`${linkPrefix}/#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
-        <a href={`${linkPrefix}/#pricing`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
+        {/* ZMIANA TUTAJ: Usunąłem slash z template stringa i używam anchorBase */}
+        {/* Na Landingu: "#how-it-works" */}
+        {/* Na Blogu: "/pl/#how-it-works" */}
+        <a href={`${anchorBase}#how-it-works`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
+        <a href={`${anchorBase}#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
+        <a href={`${anchorBase}#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
+        <a href={`${anchorBase}#pricing`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
         <a href={`/${lang}/blog`} class={`px-4 py-2 rounded-full transition-all ${isLandingPage ? 'hover:bg-zinc-100 hover:text-zinc-900' : 'bg-zinc-100 text-zinc-900 font-bold'}`}>{t.nav.blog}</a>
       </div>
 
@@ -79,16 +85,16 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
       </button>
     </div>
     <div class="flex flex-col p-6 gap-2 mt-2 h-full overflow-y-auto">
-        <a href={`${linkPrefix}/#how-it-works`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+        <a href={`${anchorBase}#how-it-works`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
             <span>{t.nav.howItWorks}</span>
         </a>
-        <a href={`${linkPrefix}/#implementation`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+        <a href={`${anchorBase}#implementation`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
             <span>{t.nav.implementation}</span>
         </a>
-        <a href={`${linkPrefix}/#product`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+        <a href={`${anchorBase}#product`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
             <span>{t.nav.features}</span>
         </a>
-        <a href={`${linkPrefix}/#pricing`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+        <a href={`${anchorBase}#pricing`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
             <span>{t.nav.pricing}</span>
         </a>
         <a href={`/${lang}/blog`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-emerald-700 bg-emerald-50/50 -mx-2 px-2 rounded-lg py-3 border-b border-zinc-50">
@@ -155,8 +161,6 @@ const linkPrefix = isLandingPage ? "" : `/${lang}`;
       };
 
       window.addEventListener('scroll', handleScroll);
-      // Cleanup on unmount not strictly necessary for simple scroll listener in Astro SPA mode 
-      // but good practice if needed.
       
       // Inicjalnie zablokuj pointer events na sticky nav
       nav.querySelector('nav')?.classList.add('pointer-events-none');
