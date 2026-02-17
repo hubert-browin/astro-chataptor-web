@@ -1,86 +1,77 @@
 ---
-import type { Locale } from '../i18n/config';
-import SEOHead from '../components/SEOHead.astro';
+// src/layouts/BaseLayout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
 
-interface Props {
-  title: string;
-  description: string;
-  lang: Locale;
-  slug: string;
-  image?: string;
-  type?: 'website' | 'article';
-  publishedAt?: Date;
-  hideHeader?: boolean;
-  hideFooter?: boolean;
-}
-
-const {
-  title,
-  description,
-  lang,
-  slug,
-  image,
-  type = 'website',
-  publishedAt,
-  hideHeader = false,
-  hideFooter = false,
-} = Astro.props;
+const { title, description, lang, isLandingPage = false, hideFooter = false } = Astro.props;
 ---
 
-<!doctype html>
-<html lang={lang}>
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <SEOHead
-      title={title}
-      description={description}
-      lang={lang}
-      slug={slug}
-      image={image}
-      type={type}
-      publishedAt={publishedAt}
-    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <ViewTransitions />
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1BV9YBEBDT');
-</script>
+    {/* STYLE GLOBALNE - Przeniesione z Landing Page dla spójności */}
+    <style is:global>
+      /* Responsive Scaling Logic (The "80-90% Zoom" Effect) */
+      /* Zapewnia to samo odczucie wielkości na każdej podstronie */
+      
+      /* Default (Mobile) */
+      html {
+        font-size: 15px;
+      }
 
+      /* Desktop Fluid Scaling - "Zoomed out feel" */
+      @media (min-width: 1024px) {
+        html {
+          font-size: 11.5px; 
+        }
+      }
+
+      /* Large Screens */
+      @media (min-width: 1536px) {
+        html {
+          font-size: 13px; 
+        }
+      }
+       
+      html { transition: font-size 0.2s ease-out; }
+      
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    </style>
   </head>
-  <body class="min-h-screen bg-white text-zinc-900 antialiased">
-    {!hideHeader && <Header lang={lang} slug={slug} />}
-    <main>
+  <body class="bg-white text-zinc-900 font-sans selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden flex flex-col min-h-screen">
+    
+    {/* Header jest teraz częścią layoutu, identyczny wszędzie */}
+    <Header lang={lang} isLandingPage={isLandingPage} />
+
+    {/* Główna treść */}
+    <div class="flex-1 w-full">
       <slot />
-    </main>
+    </div>
+
+    {/* Footer (chyba że ukryty) */}
     {!hideFooter && <Footer lang={lang} />}
-    <script
-      is:inline
-      src="https://chataptor.com/widget/quantumchat-widget.umd.js"
-      data-api-url="https://chataptor.com"
-      data-site-id="chataptor-1769604218"
-      data-widget-key="cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y"
-      data-welcome-message="Hello! How can I help you today?"
-      data-header-title="Customer Support"
-      data-input-placeholder="Type your message..."
-      data-theme="light"
-      data-position="bottom-right"
-      data-primary-color="#18181B"
-      data-translation-enabled="true"
-      data-debug="false"
-    ></script>
+    
   </body>
 </html>
