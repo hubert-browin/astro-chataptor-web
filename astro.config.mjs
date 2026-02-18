@@ -7,6 +7,7 @@ export default defineConfig({
   site: 'https://chataptor.com',
   integrations: [
     sitemap({
+      filter: (page) => page.pathname !== '/',
       i18n: {
         defaultLocale: 'en',
         locales: {
