@@ -5,13 +5,22 @@ import { getBlogUI } from '../../../i18n/blog';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map(post => ({
-    params: { 
-        lang: post.data.lang, 
-        slug: post.slug.split('/')[0] 
-    },
-    props: { post },
-  }));
+
+  return posts.map((post) => {
+    const [folderLang, ...rest] = post.slug.split('/');
+    const slug = rest.join('/'); // obsłuży też zagnieżdżone slugi
+
+    // opcjonalna sanity-check (warto w dev)
+    // if (folderLang !== post.data.lang) console.warn('Lang mismatch', post.slug);
+
+    return {
+      params: {
+        lang: post.data.lang,
+        slug,
+      },
+      props: { post },
+    };
+  });
 }
 
 const { post } = Astro.props;

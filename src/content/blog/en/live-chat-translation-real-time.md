@@ -7,9 +7,10 @@ updatedAt: 2024-02-18
 author: "Chataptor Team"
 tags: ["Live Chat", "Translation", "Customer Support", "E-commerce", "AI"]
 image: "/images/blog/live_chat_translation.webp"
-translateTo: ["pl", "de"]
+translateTo: ["pl", "de", "fr", "es", "it", "cs", "sk"]
 translatedBy: "manual"
 reviewed: true
+sourceFile: "en/live-chat-translation-real-time"
 ---
 
 Have you ever tried helping a customer who’s typing in German while your only German phrase is “Bratwurst”?
