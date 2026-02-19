@@ -1,4 +1,5 @@
 ---
+// src/pages/[lang]/blog/index.astro
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { locales } from '../../../i18n/config';
@@ -9,19 +10,35 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const ui = getBlogUI(lang as any); 
+const ui = getBlogUI(lang as any);
 
-const posts = await getCollection('blog', ({ data }) => {
-  return data.lang === lang;
+// Helper: "en/some/post" -> "some/post" (dla danego lang)
+const stripLangFromSlug = (fullSlug: string, lang: string) =>
+  fullSlug.startsWith(`${lang}/`) ? fullSlug.slice(lang.length + 1) : fullSlug;
+
+// Helper: buduje finalny URL wpisu: "/en/blog/some/post"
+const postHref = (post: any) => `/${lang}/blog/${stripLangFromSlug(post.slug, lang)}`;
+
+// Jeśli trzymasz posty w folderach językowych (src/content/blog/en/...),
+// to najpewniejsza filtracja jest po prefiksie sluga.
+// (Możesz też dopiąć && data.lang === lang jeśli chcesz podwójną walidację.)
+const posts = await getCollection('blog', ({ slug, data }) => {
+  return slug.startsWith(`${lang}/`) && data.lang === lang;
 });
 
-const sortedPosts = posts.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const sortedPosts = posts.sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
 
 const heroPost = sortedPosts[0];
 const otherPosts = sortedPosts.slice(1);
 
 const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+  return new Intl.DateTimeFormat(lang, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
 };
 ---
 
@@ -35,11 +52,11 @@ const formatDate = (date: Date) => {
 
       {/* --- HEADER SEKCJI (Bardziej subtelny i elegancki) --- */}
       <div class="relative mb-20 md:mb-28 text-center">
-         {/* Tło ambientowe */}
+        {/* Tło ambientowe */}
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-emerald-100/40 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
 
         <span class="inline-block py-1 px-3 rounded-full bg-zinc-50 border border-zinc-100 text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-6">
-            Blog & News
+          Blog & News
         </span>
         <h1 class="text-5xl md:text-7xl font-extrabold text-zinc-900 mb-6 tracking-tight leading-[1.1]">
           {ui.hero.title}
@@ -59,109 +76,111 @@ const formatDate = (date: Date) => {
 
           {/* --- HERO POST (Layout Magazynowy: Obraz + Tekst obok siebie) --- */}
           {heroPost && (
-            <a href={`/${lang}/blog/${heroPost.slug.split('/')[0]}`} class="group relative block">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-                    {/* Lewa strona: Duże zdjęcie */}
-                    <div class="lg:col-span-7 relative">
-                        <div class="aspect-[16/9] lg:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-zinc-200/50 ring-1 ring-black/5 relative">
-                             {heroPost.data.image ? (
-                                <img
-                                    src={heroPost.data.image}
-                                    alt={heroPost.data.title}
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
-                            ) : (
-                                <div class="absolute inset-0 bg-zinc-100 w-full h-full flex items-center justify-center text-zinc-300 text-6xl font-bold opacity-30">News</div>
-                            )}
-                            <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[2.5rem]"></div>
-                        </div>
-                    </div>
+            <a href={postHref(heroPost)} class="group relative block">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
-                    {/* Prawa strona: Treść */}
-                    <div class="lg:col-span-5 flex flex-col justify-center py-4">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="text-[10px] font-bold text-white bg-zinc-900 px-3 py-1 rounded-full shadow-md tracking-wide">
-                                {ui.hero.new}
-                            </span>
-                            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full ring-1 ring-emerald-100 uppercase tracking-wide">
-                                {heroPost.data.tags[0] || 'Article'}
-                            </span>
-                            <time class="text-xs text-zinc-400 font-medium ml-auto lg:ml-0">
-                                {formatDate(heroPost.data.publishedAt)}
-                            </time>
-                        </div>
-
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-zinc-900 mb-6 leading-[1.1] group-hover:text-emerald-700 transition-colors">
-                            {heroPost.data.title}
-                        </h2>
-
-                        <p class="text-zinc-500 text-base md:text-lg mb-8 leading-relaxed line-clamp-3">
-                            {heroPost.data.description}
-                        </p>
-
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-xs font-bold text-zinc-500 ring-1 ring-zinc-200">
-                                {heroPost.data.author.charAt(0)}
-                            </div>
-                            <span class="text-sm font-bold text-zinc-900">{heroPost.data.author}</span>
-                            <span class="w-1 h-1 rounded-full bg-zinc-300 mx-2"></span>
-                            <span class="text-sm font-bold text-emerald-600 flex items-center gap-1 group-hover:gap-2 transition-all">
-                                {ui.hero.readMore} →
-                            </span>
-                        </div>
-                    </div>
+                {/* Lewa strona: Duże zdjęcie */}
+                <div class="lg:col-span-7 relative">
+                  <div class="aspect-[16/9] lg:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-zinc-200/50 ring-1 ring-black/5 relative">
+                    {heroPost.data.image ? (
+                      <img
+                        src={heroPost.data.image}
+                        alt={heroPost.data.title}
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div class="absolute inset-0 bg-zinc-100 w-full h-full flex items-center justify-center text-zinc-300 text-6xl font-bold opacity-30">News</div>
+                    )}
+                    <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[2.5rem]"></div>
+                  </div>
                 </div>
+
+                {/* Prawa strona: Treść */}
+                <div class="lg:col-span-5 flex flex-col justify-center py-4">
+                  <div class="flex items-center gap-3 mb-6">
+                    <span class="text-[10px] font-bold text-white bg-zinc-900 px-3 py-1 rounded-full shadow-md tracking-wide">
+                      {ui.hero.new}
+                    </span>
+                    <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full ring-1 ring-emerald-100 uppercase tracking-wide">
+                      {heroPost.data.tags[0] || 'Article'}
+                    </span>
+                    <time class="text-xs text-zinc-400 font-medium ml-auto lg:ml-0">
+                      {formatDate(heroPost.data.publishedAt)}
+                    </time>
+                  </div>
+
+                  <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-zinc-900 mb-6 leading-[1.1] group-hover:text-emerald-700 transition-colors">
+                    {heroPost.data.title}
+                  </h2>
+
+                  <p class="text-zinc-500 text-base md:text-lg mb-8 leading-relaxed line-clamp-3">
+                    {heroPost.data.description}
+                  </p>
+
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-xs font-bold text-zinc-500 ring-1 ring-zinc-200">
+                      {heroPost.data.author.charAt(0)}
+                    </div>
+                    <span class="text-sm font-bold text-zinc-900">{heroPost.data.author}</span>
+                    <span class="w-1 h-1 rounded-full bg-zinc-300 mx-2"></span>
+                    <span class="text-sm font-bold text-emerald-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                      {ui.hero.readMore} →
+                    </span>
+                  </div>
+                </div>
+
+              </div>
             </a>
           )}
 
           {/* --- GRID POZOSTAŁYCH WPISÓW --- */}
           {otherPosts.length > 0 && (
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 border-t border-zinc-100 pt-16 md:pt-24">
-                {otherPosts.map((post) => (
-                    <a href={`/${lang}/blog/${post.slug.split('/')[0]}`} class="group flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
-                        {/* Zdjęcie */}
-                        <div class="aspect-[3/2] rounded-[2rem] overflow-hidden bg-zinc-100 mb-6 relative shadow-md ring-1 ring-black/5">
-                            {post.data.image ? (
-                                <img
-                                    src={post.data.image}
-                                    alt={post.data.title}
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                            ) : (
-                                <div class="absolute inset-0 flex items-center justify-center text-zinc-300">Blog</div>
-                            )}
-                            {/* Hover Overlay */}
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 border-t border-zinc-100 pt-16 md:pt-24">
+              {otherPosts.map((post) => (
+                <a href={postHref(post)} class="group flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+                  {/* Zdjęcie */}
+                  <div class="aspect-[3/2] rounded-[2rem] overflow-hidden bg-zinc-100 mb-6 relative shadow-md ring-1 ring-black/5">
+                    {post.data.image ? (
+                      <img
+                        src={post.data.image}
+                        alt={post.data.title}
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div class="absolute inset-0 flex items-center justify-center text-zinc-300">Blog</div>
+                    )}
+                    {/* Hover Overlay */}
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
+                  </div>
 
-                        {/* Treść */}
-                        <div class="flex-1 flex flex-col">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-wide ring-1 ring-emerald-100/50">
-                                    {post.data.tags[0] || 'Article'}
-                                </span>
-                                <time class="text-[11px] text-zinc-400 font-medium">
-                                    {formatDate(post.data.publishedAt)}
-                                </time>
-                            </div>
+                  {/* Treść */}
+                  <div class="flex-1 flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                      <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-wide ring-1 ring-emerald-100/50">
+                        {post.data.tags[0] || 'Article'}
+                      </span>
+                      <time class="text-[11px] text-zinc-400 font-medium">
+                        {formatDate(post.data.publishedAt)}
+                      </time>
+                    </div>
 
-                            <h3 class="text-xl font-bold text-zinc-900 mb-3 leading-snug group-hover:text-emerald-700 transition-colors">
-                                {post.data.title}
-                            </h3>
+                    <h3 class="text-xl font-bold text-zinc-900 mb-3 leading-snug group-hover:text-emerald-700 transition-colors">
+                      {post.data.title}
+                    </h3>
 
-                            <p class="text-sm text-zinc-500 line-clamp-2 leading-relaxed mb-4 flex-1">
-                                {post.data.description}
-                            </p>
+                    <p class="text-sm text-zinc-500 line-clamp-2 leading-relaxed mb-4 flex-1">
+                      {post.data.description}
+                    </p>
 
-                            <div class="flex items-center gap-2 mt-auto pt-4 border-t border-zinc-50/50">
-                                <span class="text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors flex items-center gap-1">
-                                    {ui.card.readMore} <span class="transition-transform group-hover:translate-x-1">→</span>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                ))}
-              </div>
+                    <div class="flex items-center gap-2 mt-auto pt-4 border-t border-zinc-50/50">
+                      <span class="text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors flex items-center gap-1">
+                        {ui.card.readMore} <span class="transition-transform group-hover:translate-x-1">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           )}
 
         </div>
