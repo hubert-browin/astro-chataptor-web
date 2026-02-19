@@ -6,7 +6,7 @@ publishedAt: 2024-02-18
 updatedAt: 2024-02-18
 author: "Chataptor Team"
 tags: ["Live Chat", "Translation", "Customer Support", "E-commerce", "AI"]
-image: "/images/blog/multilangual_livechat_chataptor.webp"
+image: "/images/blog/live_chat_translation.webp"
 translateTo: ["pl", "de"]
 translatedBy: "manual"
 reviewed: true

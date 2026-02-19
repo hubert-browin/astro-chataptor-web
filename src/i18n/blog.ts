@@ -3,7 +3,7 @@ import type { Locale } from './config';
 const translations = {
   pl: {
     hero: {
-      title: "Centrum Wiedzy",
+      title: "Centrum wiedzy",
       subtitle: "Najnowsze trendy w AI, poradniki e-commerce i aktualizacje Chataptor.",
       readMore: "Czytaj artykuł",
       new: "NOWOŚĆ",
@@ -22,7 +22,7 @@ const translations = {
   },
   en: {
     hero: {
-      title: "Knowledge Hub",
+      title: "Knowledge hub",
       subtitle: "Latest AI trends, e-commerce guides, and Chataptor updates.",
       readMore: "Read article",
       new: "NEW",
