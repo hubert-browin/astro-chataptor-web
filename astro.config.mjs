@@ -7,17 +7,18 @@ export default defineConfig({
   site: 'https://chataptor.com',
   integrations: [
     sitemap({
+      filter: (page) => page.pathname !== '/',
       i18n: {
         defaultLocale: 'en',
         locales: {
-          en: 'en',
-          pl: 'pl',
-          de: 'de',
-          fr: 'fr',
-          es: 'es',
-          it: 'it',
-          cs: 'cs',
-          sk: 'sk',
+          en: 'en-US',
+          pl: 'pl-PL',
+          de: 'de-DE',
+          fr: 'fr-FR',
+          es: 'es-ES',
+          it: 'it-IT',
+          cs: 'cs-CZ',
+          sk: 'sk-SK',
         },
       },
     }),
