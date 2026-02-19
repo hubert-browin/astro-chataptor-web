@@ -1,5 +1,4 @@
 ---
-// src/pages/[lang]/blog/[...slug].astro
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getBlogUI } from '../../../i18n/blog';
@@ -10,10 +9,14 @@ export async function getStaticPaths() {
 
   return posts
     .map((post) => {
-      // post.slug np. "en/live-chat-translation-real-time" albo "de/poradnik/seo"
-      const [lang, ...rest] = post.slug.split('/');
-      const slug = rest.join('/');
+      // post.slug: "en/live-chat-translation-real-time" / "de/poradnik/seo"
+      const fullSlug = post.slug ?? '';
+      const parts = fullSlug.split('/');
 
+      const lang = parts[0];
+      const slug = parts.slice(1).join('/');
+
+      // odfiltruj rzeczy bez prefiksu języka / błędne
       if (!lang || !slug) return null;
       if (!locales.includes(lang as any)) return null;
 
@@ -38,9 +41,13 @@ const formattedDate = new Intl.DateTimeFormat(lang, {
   year: 'numeric',
 }).format(post.data.publishedAt);
 
-// Obliczanie czasu czytania (szacunkowo)
-const wordCount = post.body.split(/\s+/g).length;
-const readTime = Math.ceil(wordCount / 200);
+// Obliczanie czasu czytania (szacunkowo) — post.body bywa undefined (np. MDX / różne wersje Astro)
+const rawTextForCount = (post.body ?? post.data.description ?? '').toString();
+const wordCount = rawTextForCount.trim().length
+  ? rawTextForCount.trim().split(/\s+/g).filter(Boolean).length
+  : 0;
+
+const readTime = Math.max(1, Math.ceil(wordCount / 200));
 ---
 
 <BaseLayout
@@ -68,7 +75,7 @@ const readTime = Math.ceil(wordCount / 200);
 
         {/* Tagi */}
         <div class="flex flex-wrap justify-center gap-2 mb-6">
-          {post.data.tags.map((tag) => (
+          {post.data.tags.map(tag => (
             <span class="px-3 py-1 bg-white ring-1 ring-zinc-200 rounded-full text-[11px] font-bold text-emerald-700 uppercase tracking-wider shadow-sm">
               {tag}
             </span>
@@ -124,13 +131,13 @@ const readTime = Math.ceil(wordCount / 200);
     {/* --- TREŚĆ ARTYKUŁU --- */}
     <div class="max-w-4xl mx-auto px-6 relative">
 
-      {/* Opcjonalny Spis treści (Desktop) - Pływający po lewej */}
+      {/* Opcjonalny Spis treści (Desktop) */}
       {headings && headings.length > 0 && (
         <div class="hidden 2xl:block absolute left-[-260px] top-0 w-56 h-full">
           <div class="sticky top-32">
             <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 pl-3">W tym artykule</h4>
             <ul class="space-y-1 border-l border-zinc-100">
-              {headings.filter((h) => h.depth <= 2).map((heading) => (
+              {headings.filter(h => h.depth <= 2).map(heading => (
                 <li>
                   <a href={`#${heading.slug}`} class="block pl-3 py-1 text-xs text-zinc-500 hover:text-emerald-600 hover:border-l hover:border-emerald-500 -ml-px transition-all truncate">
                     {heading.text}
@@ -143,17 +150,15 @@ const readTime = Math.ceil(wordCount / 200);
       )}
 
       {/* Markdown Content */}
-      <div
-        class="prose prose-zinc prose-lg md:prose-xl max-w-none
-          prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:text-zinc-900
-          prose-h1:text-3xl md:prose-h1:text-4xl
-          prose-p:text-zinc-600 prose-p:leading-relaxed
-          prose-a:text-emerald-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:text-emerald-500 hover:prose-a:underline
-          prose-img:rounded-3xl prose-img:shadow-xl prose-img:my-12 prose-img:ring-1 prose-img:ring-black/5
-          prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:bg-zinc-50 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-zinc-800
-          prose-code:bg-zinc-100 prose-code:text-emerald-700 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
-          prose-li:marker:text-emerald-500"
-      >
+      <div class="prose prose-zinc prose-lg md:prose-xl max-w-none
+        prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:text-zinc-900
+        prose-h1:text-3xl md:prose-h1:text-4xl
+        prose-p:text-zinc-600 prose-p:leading-relaxed
+        prose-a:text-emerald-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:text-emerald-500 hover:prose-a:underline
+        prose-img:rounded-3xl prose-img:shadow-xl prose-img:my-12 prose-img:ring-1 prose-img:ring-black/5
+        prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:bg-zinc-50 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-zinc-800
+        prose-code:bg-zinc-100 prose-code:text-emerald-700 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+        prose-li:marker:text-emerald-500">
         <Content />
       </div>
 
@@ -186,7 +191,6 @@ const readTime = Math.ceil(wordCount / 200);
 </BaseLayout>
 
 <script>
-  // Prosty skrypt do paska postępu
   document.addEventListener('astro:page-load', () => {
     const progressBar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
