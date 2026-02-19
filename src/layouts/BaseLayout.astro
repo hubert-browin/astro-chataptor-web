@@ -35,25 +35,6 @@ const {
     <meta name="description" content={description} />
     <ViewTransitions />
 
-    <script
-        src="https://chataptor.com/widget/quantumchat-widget.umd.js"
-        data-api-url="https://chataptor.com"
-        data-site-id="chataptor-1769604218"
-        data-widget-key="cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y"
-        data-customer-id="<?php echo $user->id; ?>"
-        data-customer-email="<?php echo $user->email; ?>"
-        data-customer-name="<?php echo $user->name; ?>"
-        data-customer-type="<?php echo $user->type; ?>"
-        data-welcome-message="Hello! How can I help you today?"
-        data-header-title="Customer Support"
-        data-input-placeholder="Type your message..."
-        data-theme="light"
-        data-position="bottom-right"
-        data-primary-color="#18181B"
-        data-translation-enabled="true"
-        data-debug="false"
-    ></script>
-
     {/* GLOBALNE STYLE SKALOWANIA */}
     <style is:global>
       /* Default (Mobile): 15px base */
@@ -97,6 +78,26 @@ const {
         color: #064e3b;
       }
     </style>
+
+    <script
+        src="https://chataptor.com/widget/quantumchat-widget.umd.js"
+        data-api-url="https://chataptor.com"
+        data-site-id="chataptor-1769604218"
+        data-widget-key="cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y"
+        data-customer-id="<?php echo $user->id; ?>"
+        data-customer-email="<?php echo $user->email; ?>"
+        data-customer-name="<?php echo $user->name; ?>"
+        data-customer-type="<?php echo $user->type; ?>"
+        data-welcome-message="Hello! How can I help you today?"
+        data-header-title="Customer Support"
+        data-input-placeholder="Type your message..."
+        data-theme="light"
+        data-position="bottom-right"
+        data-primary-color="#18181B"
+        data-translation-enabled="true"
+        data-debug="false"
+    ></script>
+
   </head>
   <body class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
     
