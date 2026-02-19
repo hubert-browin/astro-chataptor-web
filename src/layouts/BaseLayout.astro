@@ -1,95 +1,64 @@
 ---
+import type { Locale } from '../i18n/config';
+import SEOHead from '../components/SEOHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { ViewTransitions } from 'astro:transitions';
-import '../styles/global.css'; // <--- KLUCZOWA POPRAWKA: Import stylów globalnych (Tailwind)
+import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
-  lang: string;
-  slug?: string;
-  isLandingPage?: boolean;
+  lang: Locale;
+  slug: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedAt?: Date;
   hideHeader?: boolean;
   hideFooter?: boolean;
 }
 
-const { 
-  title, 
-  description, 
-  lang, 
-  isLandingPage = false, 
-  hideHeader = false, 
-  hideFooter = false 
+const {
+  title,
+  description,
+  lang,
+  slug,
+  image,
+  type = 'website',
+  publishedAt,
+  hideHeader = false,
+  hideFooter = false,
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang={lang} class="scroll-smooth">
+<!doctype html>
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <ViewTransitions />
-
-    {/* GLOBALNE STYLE SKALOWANIA */}
-    <style is:global>
-      /* Default (Mobile): 15px base */
-      html {
-        font-size: 15px;
-      }
-
-      /* Desktop Fluid Scaling */
-      @media (min-width: 1024px) {
-        html {
-          font-size: 11.5px; 
-        }
-      }
-
-      /* Large Screens */
-      @media (min-width: 1536px) {
-        html {
-          font-size: 13px; 
-        }
-      }
-       
-      html { transition: font-size 0.2s ease-out; }
-      
-      /* Custom Scrollbar */
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 6px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.1);
-        border-radius: 20px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-      }
-
-      ::selection {
-        background-color: #d1fae5;
-        color: #064e3b;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <SEOHead
+      title={title}
+      description={description}
+      lang={lang}
+      slug={slug}
+      image={image}
+      type={type}
+      publishedAt={publishedAt}
+    />
 
   </head>
-  <body class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
-    
-    {!hideHeader && <Header lang={lang} isLandingPage={isLandingPage} />}
-
-    <div class="flex-1 w-full">
+  <body class="min-h-screen bg-white text-zinc-900 antialiased">
+    {!hideHeader && <Header lang={lang} slug={slug} />}
+    <main>
       <slot />
-    </div>
-
+    </main>
     {!hideFooter && <Footer lang={lang} />}
-    
     <script
       is:inline
       src="https://chataptor.com/widget/quantumchat-widget.umd.js"
@@ -105,6 +74,5 @@ const {
       data-translation-enabled="true"
       data-debug="false"
     ></script>
-
   </body>
 </html>
