@@ -53,7 +53,7 @@ To wszystko dzieje się w ułamku sekundy. Bez przerw, bez „chwilkę, muszę t
 
 ## Obsługiwane języki
 
-Większość narzędzi do tłumaczenia czatu na żywo obsługuje ponad 100 języków. Najwięksi gracze — tacy jak [Chataptor](https://chataptor.com/en/), [Zendesk](https://www.zendesk.com) i [Intercom](https://www.intercom.com) — obejmują wszystko: od francuskiego i niemieckiego po japoński, arabski, a nawet mniej popularne języki, jak słowacki czy czeski. Niektóre platformy pozwalają też dodawać własne zwroty albo terminy branżowe, żeby „etykieta zwrotu” nie zamieniła się w „naklejkę-bumerang”.
+Większość narzędzi do tłumaczenia czatu na żywo obsługuje ponad 100 języków. Najwięksi gracze — tacy jak [Chataptor](https://chataptor.com), [Zendesk](https://www.zendesk.com) i [Intercom](https://www.intercom.com) — obejmują wszystko: od francuskiego i niemieckiego po japoński, arabski, a nawet mniej popularne języki, jak słowacki czy czeski. Niektóre platformy pozwalają też dodawać własne zwroty albo terminy branżowe, żeby „etykieta zwrotu” nie zamieniła się w „naklejkę-bumerang”.
 
 ## Najważniejsze funkcje, na które warto zwrócić uwagę w oprogramowaniu do tłumaczenia czatu na żywo
 
@@ -87,7 +87,7 @@ Myślisz, że potrzebujesz doktoratu z informatyki? Spokojnie. Większość narz
 
 ### Konfiguracja krok po kroku
 
-1. Zarejestruj się na platformie do tłumaczenia czatu na żywo (np. [Chataptor](https://chataptor.com/en/)).
+1. Zarejestruj się na platformie do tłumaczenia czatu na żywo (np. [Chataptor](https://chataptor.com)).
 2. Skopiuj kod widgetu z panelu administracyjnego.
 3. Wklej go w sekcji swojej strony.
 4. Wybierz obsługiwane języki w dashboardzie.
@@ -198,7 +198,7 @@ Mocne strony: nielimitowane tłumaczenia, prosta konfiguracja, 100+ języków, d
 
 Najlepsze dla: sklepów e-commerce i firm rozwijających się globalnie.
 
-Dowiedz się więcej: [strona Chataptor](https://www.chataptor.com/en/)
+Dowiedz się więcej: [strona Chataptor](https://www.chataptor.com)
 
 ### Zendesk Chat Translation
 
@@ -222,7 +222,7 @@ Najlepsze dla: małych i średnich firm.
 
 ### Czy mogę używać tłumaczenia czatu na żywo na WhatsApp albo Messenger?
 
-Tak! Wiele platform (np. [Chataptor](https://chataptor.com/en/)) pozwala połączyć czat na stronie, [WhatsApp](https://www.whatsapp.com), [Messenger](https://www.messenger.com), a nawet e-mail. Dzięki temu możesz rozmawiać z klientami tam, gdzie im wygodnie — w ich języku.
+Tak! Wiele platform (np. [Chataptor](https://chataptor.com)) pozwala połączyć czat na stronie, [WhatsApp](https://www.whatsapp.com), [Messenger](https://www.messenger.com), a nawet e-mail. Dzięki temu możesz rozmawiać z klientami tam, gdzie im wygodnie — w ich języku.
 
 ### Czy tłumaczenie czatu na żywo jest bezpieczne?
 
@@ -250,4 +250,4 @@ Chcesz przełamać bariery językowe i docierać do klientów wszędzie? Tłumac
 
 Więc gdy następnym razem klient napisze w języku, którego nie znasz, nie panikuj — pozwól narzędziu do tłumaczenia czatu na żywo zrobić całą robotę. Klienci (i Twój zespół wsparcia) naprawdę to docenią.
 
-Chcesz zobaczyć tłumaczenie czatu na żywo w praktyce? Zajrzyj na [stronę Chataptor](https://chataptor.com/en/) po więcej informacji.
+Chcesz zobaczyć tłumaczenie czatu na żywo w praktyce? Zajrzyj na [stronę Chataptor](https://chataptor.com) po więcej informacji.

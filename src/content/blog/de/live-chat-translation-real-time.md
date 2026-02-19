@@ -53,7 +53,7 @@ Das alles passiert in Millisekunden. Keine peinlichen Pausen, kein „Moment, ic
 
 ## Unterstützte Sprachen
 
-Die meisten Live-Chat-Übersetzungstools unterstützen 100+ Sprachen. Die großen Anbieter—wie [Chataptor](https://chataptor.com/en/), [Zendesk](https://www.zendesk.com) und [Intercom](https://www.intercom.com)—decken alles ab: von Französisch und Deutsch über Japanisch und Arabisch bis hin zu weniger verbreiteten Sprachen wie Slowakisch oder Tschechisch. Manche Plattformen erlauben sogar eigene Phrasen oder branchenspezifische Begriffe, damit aus dem „Rücksendeetikett“ nicht plötzlich ein „Boomerang-Aufkleber“ wird.
+Die meisten Live-Chat-Übersetzungstools unterstützen 100+ Sprachen. Die großen Anbieter—wie [Chataptor](https://chataptor.com), [Zendesk](https://www.zendesk.com) und [Intercom](https://www.intercom.com)—decken alles ab: von Französisch und Deutsch über Japanisch und Arabisch bis hin zu weniger verbreiteten Sprachen wie Slowakisch oder Tschechisch. Manche Plattformen erlauben sogar eigene Phrasen oder branchenspezifische Begriffe, damit aus dem „Rücksendeetikett“ nicht plötzlich ein „Boomerang-Aufkleber“ wird.
 
 ## Wichtige Funktionen bei Live-Chat-Übersetzungssoftware
 
@@ -87,7 +87,7 @@ Du denkst, dafür braucht man einen Doktortitel in Informatik? Keine Sorge. Die 
 
 ### Schritt-für-Schritt-Setup
 
-1. Registriere dich bei einer Live-Chat-Übersetzungsplattform (z. B. [Chataptor](https://chataptor.com/en/)).
+1. Registriere dich bei einer Live-Chat-Übersetzungsplattform (z. B. [Chataptor](https://chataptor.com)).
 2. Kopiere den Widget-Code aus deinem Admin-Panel.
 3. Füge ihn in den entsprechenden Abschnitt deiner Website ein.
 4. Wähle im Dashboard deine unterstützten Sprachen aus.
@@ -198,7 +198,7 @@ Stärken: Unbegrenzte Übersetzungen, einfache Einrichtung, unterstützt 100+ Sp
 
 Am besten für: E-Commerce-Shops und Unternehmen mit globaler Expansion.
 
-Mehr erfahren: [Chataptor website](https://www.chataptor.com/en/)
+Mehr erfahren: [Chataptor website](https://www.chataptor.com)
 
 ### Zendesk Chat Translation
 
@@ -222,7 +222,7 @@ Am besten für: Kleine bis mittlere Unternehmen.
 
 ### Kann ich Live-Chat-Übersetzung auf WhatsApp oder Messenger nutzen?
 
-Ja! Viele Plattformen (wie [Chataptor](https://chataptor.com/en/)) verbinden Website-Chat, [WhatsApp](https://www.whatsapp.com), [Messenger](https://www.messenger.com) und sogar E-Mail. So kannst du mit Kunden dort chatten, wo sie sind—in ihrer Sprache.
+Ja! Viele Plattformen (wie [Chataptor](https://chataptor.com)) verbinden Website-Chat, [WhatsApp](https://www.whatsapp.com), [Messenger](https://www.messenger.com) und sogar E-Mail. So kannst du mit Kunden dort chatten, wo sie sind—in ihrer Sprache.
 
 ### Ist Live-Chat-Übersetzung sicher?
 
@@ -250,4 +250,4 @@ Bereit, Sprachbarrieren abzubauen und Kunden überall zu erreichen? Live-Chat-Ü
 
 Wenn dir also das nächste Mal ein Kunde in einer Sprache schreibt, die du nicht sprichst: nicht in Panik geraten—lass einfach dein Live-Chat-Übersetzungstool die Arbeit machen. Deine Kunden (und dein Support-Team) werden es dir danken.
 
-Du willst Live-Chat-Übersetzung in Aktion sehen? Schau auf [Chataptor’s website](https://chataptor.com/en/) vorbei, um mehr zu erfahren.
+Du willst Live-Chat-Übersetzung in Aktion sehen? Schau auf [Chataptor’s website](https://chataptor.com) vorbei, um mehr zu erfahren.

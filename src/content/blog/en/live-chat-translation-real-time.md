@@ -53,7 +53,7 @@ All of this happens in milliseconds. No awkward pauses, no “hold on while I tr
 
 ## Supported Languages
 
-Most live chat translation tools support 100+ languages. The big players—like [Chataptor](https://chataptor.com/en/), [Zendesk](https://www.zendesk.com), and [Intercom](https://www.intercom.com)—cover everything from French and German to Japanese, Arabic, and even less common languages like Slovak or Czech. Some platforms even let you add custom phrases or industry-specific terms, so you don’t end up calling a “return label” a “boomerang sticker.”
+Most live chat translation tools support 100+ languages. The big players—like [Chataptor](https://chataptor.com), [Zendesk](https://www.zendesk.com), and [Intercom](https://www.intercom.com)—cover everything from French and German to Japanese, Arabic, and even less common languages like Slovak or Czech. Some platforms even let you add custom phrases or industry-specific terms, so you don’t end up calling a “return label” a “boomerang sticker.”
 
 ## Key Features to Look For in Live Chat Translation Software
 
@@ -87,7 +87,7 @@ Worried you’ll need a PhD in computer science? Relax. Most live chat translati
 
 ### Step-by-Step Setup
 
-1. Sign up for a live chat translation platform (like [Chataptor](https://chataptor.com/en/)).
+1. Sign up for a live chat translation platform (like [Chataptor](https://chataptor.com)).
 2. Copy the widget code from your admin panel.
 3. Paste it into your website’s section.
 4. Choose your supported languages in the dashboard.
@@ -198,7 +198,7 @@ Strengths: Unlimited translations, easy setup, supports 100+ languages, works wi
 
 Best for: E-commerce stores and businesses expanding globally.
 
-Learn more: [Chataptor website](https://www.chataptor.com/en/)
+Learn more: [Chataptor website](https://www.chataptor.com)
 
 ### Zendesk Chat Translation
 
@@ -222,7 +222,7 @@ Best for: Small to medium businesses.
 
 ### Can I use live chat translation on WhatsApp or Messenger?
 
-Yes! Many platforms (like [Chataptor](https://chataptor.com/en/)) let you connect your website chat, [WhatsApp](https://www.whatsapp.com), [Messenger](https://www.messenger.com), and even email. That means you can chat with customers wherever they are, in their language.
+Yes! Many platforms (like [Chataptor](https://chataptor.com)) let you connect your website chat, [WhatsApp](https://www.whatsapp.com), [Messenger](https://www.messenger.com), and even email. That means you can chat with customers wherever they are, in their language.
 
 ### Is live chat translation secure?
 
@@ -250,4 +250,4 @@ Ready to break down language barriers and reach customers everywhere? Live chat 
 
 So, next time a customer messages you in a language you don’t speak, don’t panic—just let your live chat translation tool do the heavy lifting. Your customers (and your support team) will thank you.
 
-Want to see live chat translation in action? Check out [Chataptor’s website](https://chataptor.com/en/) for more details.
+Want to see live chat translation in action? Check out [Chataptor’s website](https://chataptor.com) for more details.
