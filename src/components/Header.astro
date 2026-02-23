@@ -10,7 +10,6 @@ interface Props {
 const { lang, isLandingPage = false } = Astro.props;
 const t = getLanding(lang);
 
-// POPRAWIONA LOGIKA:
 // Jeśli jesteśmy na Landingu -> anchorBase to puszty string (link będzie "#id")
 // Jeśli jesteśmy na Blogu -> anchorBase to "/pl/" (link będzie "/pl/#id")
 const anchorBase = isLandingPage ? "" : `/${lang}/`;
@@ -19,10 +18,11 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
 <header>
   <div 
     id="sticky-nav"
+    data-landing={isLandingPage.toString()}
     class={`fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-6 px-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] 
     ${isLandingPage ? '-translate-y-4 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 pointer-events-auto'}`}
   >
-    <nav class="w-[95%] md:w-[63rem] bg-white/80 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between pointer-events-auto">
+    <nav class="w-[95%] md:w-[63rem] bg-white/80 backdrop-blur-xl ring-1 ring-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] py-2.5 px-3 md:px-4 rounded-full flex items-center justify-between">
       
       <div class="flex items-center gap-3 pl-3">
         <a href={`/${lang}/`} class="flex items-center gap-2 group opacity-90 hover:opacity-100 transition-opacity">
@@ -31,9 +31,6 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
       </div>
 
       <div class="hidden md:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
-        {/* ZMIANA TUTAJ: Usunąłem slash z template stringa i używam anchorBase */}
-        {/* Na Landingu: "#how-it-works" */}
-        {/* Na Blogu: "/pl/#how-it-works" */}
         <a href={`${anchorBase}#how-it-works`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
         <a href={`${anchorBase}#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         <a href={`${anchorBase}#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
@@ -49,7 +46,7 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
 
       <div class="md:hidden flex items-center gap-2 pr-1">
         <LanguageSwitcher currentLang={lang as any} slug="" />
-        <button class="p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform mobile-menu-trigger">
+        <button class="p-2 text-zinc-600 rounded-full hover:bg-zinc-100 active:scale-90 transition-transform mobile-menu-trigger" aria-label="Open menu">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -59,7 +56,7 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
   </div>
 
   {isLandingPage && (
-    <div class="absolute top-0 left-0 w-full z-40 py-6 px-6 flex justify-between items-center max-w-7xl mx-auto left-0 right-0 transition-opacity duration-300" id="static-header">
+    <div class="absolute top-0 w-full z-40 py-6 px-6 flex justify-between items-center max-w-7xl mx-auto left-0 right-0 transition-all duration-300 opacity-100 pointer-events-auto" id="static-header">
       <div class="flex items-center gap-2">
         <img src="/images/landing/logotype.png" alt="Chataptor Logo" class="h-6 md:h-7 object-contain opacity-90" />
       </div>
@@ -70,17 +67,18 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
       </div>
       <div class="md:hidden flex items-center gap-2">
         <LanguageSwitcher currentLang={lang as any} slug="" />
-        <button class="p-2 text-zinc-600 active:scale-90 transition-transform mobile-menu-trigger">
+        <button class="p-2 text-zinc-600 active:scale-90 transition-transform mobile-menu-trigger" aria-label="Open menu">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
         </button>
       </div>
     </div>
   )}
 
-  <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl hidden transition-opacity duration-300" id="mobile-menu">
+  {/* ULEPSZONE MOBILE MENU: Usunięto 'hidden', dodano domyślne 'opacity-0 pointer-events-none' dla płynnej animacji */}
+  <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl transition-all duration-300 opacity-0 pointer-events-none" id="mobile-menu">
     <div class="flex items-center justify-between p-6 border-b border-zinc-100">
       <img src="/images/landing/logotype.png" alt="Logo" class="h-6 opacity-90" />
-      <button class="p-2 -mr-2 text-zinc-500 active:scale-90 transition-transform bg-zinc-50 rounded-full" id="close-mobile-menu">
+      <button class="p-2 -mr-2 text-zinc-500 active:scale-90 transition-transform bg-zinc-50 rounded-full" id="close-mobile-menu" aria-label="Close menu">
         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
     </div>
@@ -101,7 +99,6 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
             <span>{t.nav.blog}</span>
         </a>
 
-        {/* Contact Widget in Mobile Menu */}
         <div class="mt-4 mb-2 p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
             <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4">{t.hero.demo}</p>
             <div class="space-y-4">
@@ -129,46 +126,66 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
 </header>
 
 <script>
-  // Zmienione na zwykły <script> z obsługą astro:page-load
-  document.addEventListener('astro:page-load', () => {
+  // Czysty, klasyczny JavaScript uruchamiany raz po załadowaniu dokumentu
+  document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('sticky-nav');
     const staticHeader = document.getElementById('static-header');
+    
     const triggers = document.querySelectorAll('.mobile-menu-trigger');
     const closeBtn = document.getElementById('close-mobile-menu');
     const menu = document.getElementById('mobile-menu');
     const links = document.querySelectorAll('.mobile-menu-link');
 
-    // Sticky Logic
-    if (nav && nav.classList.contains('opacity-0')) {
+    // 1. Logika dla Sticky Nav
+    if (nav && nav.dataset.landing === 'true') {
       const handleScroll = () => {
-        if (window.scrollY > 100) {
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        
+        if (scrollY > 50) {
+          // Pokaż sticky
           nav.classList.remove('-translate-y-4', 'opacity-0', 'pointer-events-none');
-          nav.classList.add('translate-y-0', 'opacity-100');
-          nav.querySelector('nav')?.classList.remove('pointer-events-none');
+          nav.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
           
+          // Ukryj statyczny
           if (staticHeader) {
-              staticHeader.classList.add('opacity-0', 'pointer-events-none');
+            staticHeader.classList.remove('opacity-100', 'pointer-events-auto');
+            staticHeader.classList.add('opacity-0', 'pointer-events-none');
           }
         } else {
+          // Ukryj sticky
+          nav.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
           nav.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
-          nav.classList.remove('translate-y-0', 'opacity-100');
-          nav.querySelector('nav')?.classList.add('pointer-events-none');
 
+          // Pokaż statyczny
           if (staticHeader) {
-              staticHeader.classList.remove('opacity-0', 'pointer-events-none');
+            staticHeader.classList.remove('opacity-0', 'pointer-events-none');
+            staticHeader.classList.add('opacity-100', 'pointer-events-auto');
           }
         }
       };
 
-      window.addEventListener('scroll', handleScroll);
-      
-      // Inicjalnie zablokuj pointer events na sticky nav
-      nav.querySelector('nav')?.classList.add('pointer-events-none');
+      // Podpinamy event i wywołujemy na start (na wypadek gdyby strona była zescrollowana przy odświeżeniu)
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll(); 
     }
 
-    // Mobile Menu Logic
-    triggers.forEach(btn => btn.addEventListener('click', () => menu?.classList.remove('hidden')));
-    closeBtn?.addEventListener('click', () => menu?.classList.add('hidden'));
-    links.forEach(l => l.addEventListener('click', () => menu?.classList.add('hidden')));
+    // 2. Logika mobilnego menu
+    const openMobileMenu = () => {
+      if (menu) {
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    };
+
+    const closeMobileMenu = () => {
+      if (menu) {
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none');
+      }
+    };
+
+    triggers.forEach(btn => btn.addEventListener('click', openMobileMenu));
+    if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
+    links.forEach(l => l.addEventListener('click', closeMobileMenu));
   });
 </script>
