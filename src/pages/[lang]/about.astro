@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, type Locale } from '../../i18n/config';
+import { getAboutTranslations } from '../../i18n/about';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getAboutTranslations(lang);
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  lang={lang}
+  slug="about"
+>
+  <main class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-32">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6">{t.title}</h1>
+    <p class="text-lg text-zinc-600">{t.description}</p>
+  </main>
+</BaseLayout>
