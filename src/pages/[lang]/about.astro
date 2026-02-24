@@ -21,127 +21,154 @@ const marekImg = "/images/about/marek.png";
   lang={lang}
   slug="about"
 >
-  <main class="bg-white selection:bg-zinc-900 selection:text-white pb-24">
+  <main class="bg-white selection:bg-zinc-900 selection:text-white">
     
-    <section class="pt-32 pb-16 md:pt-48 md:pb-24 px-6 md:px-12 max-w-5xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-zinc-900 tracking-tighter leading-[1.05] mb-8">
-        Zbudowaliśmy Chataptora, bo mieliśmy dość. <br class="hidden md:block" />
-        <span class="text-zinc-400 mt-2 block">(I wiemy, że Ty też masz).</span>
-      </h1>
-    </section>
-
-    <section class="px-6 md:px-12 max-w-3xl mx-auto text-lg md:text-xl text-zinc-600 font-normal leading-relaxed space-y-8">
-      <p>
-        Znasz ten moment, gdy Twój biznes wreszcie nabiera wiatru w żagle? Chcesz wyjść ze swoim produktem za granicę, obsługiwać klientów z całej Europy, a nagle... zderzasz się z betonowym murem. Tym murem jest bariera językowa.
-      </p>
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto overflow-hidden">
+      <div class="absolute top-0 right-10 w-[1px] h-full bg-zinc-100 hidden md:block"></div>
+      <div class="absolute top-0 right-40 w-[1px] h-full bg-zinc-100 hidden md:block"></div>
       
-      <p class="text-zinc-900 font-medium">
-        Byliśmy w dokładnie tym samym miejscu.
-      </p>
-      
-      <p>
-        Chataptor nie powstał na desce kreślarskiej startupowców, którzy na siłę szukali pomysłu na biznes. Zrodził się z naszego własnego, bardzo realnego bólu. Widzieliśmy, jak firmy chcą rosnąć globalnie, ale dostępne na rynku opcje są po prostu bezlitosne:
-      </p>
-
-      <ul class="space-y-6 md:space-y-8 py-8">
-        <li class="pl-6 border-l border-zinc-900">
-          <strong class="text-zinc-900 block mb-1">Zatrudnienie native speakerów dla każdego nowego rynku?</strong> 
-          Gigantyczne koszty, które pożerają całą marżę.
-        </li>
-        <li class="pl-6 border-l border-zinc-900">
-          <strong class="text-zinc-900 block mb-1">Posiłkowanie się darmowymi translatorami?</strong> 
-          Żenująca amatorka, wieczne „kopiuj-wklej” i wstyd przed klientem.
-        </li>
-        <li class="pl-6 border-l border-zinc-900">
-          <strong class="text-zinc-900 block mb-1">Korzystanie z rozwiązań rynkowych gigantów?</strong> 
-          Płacenie korporacyjnego haraczu za przeładowane systemy, z których 80% funkcji i tak nigdy nie użyjesz.
-        </li>
-      </ul>
-
-      <p>
-        Zrozumieliśmy, że nikt nie stworzył narzędzia dla firm takich jak nasza – chcących po prostu sprawnie i profesjonalnie obsługiwać zagranicznych klientów, bez konieczności rozbijania banku. Więc postanowiliśmy zbudować je sami.
-      </p>
-    </section>
-
-    <section class="py-24 md:py-32 px-6 md:px-12 max-w-6xl mx-auto border-t border-zinc-200 mt-24">
-      <div class="mb-16 md:mb-24">
-        <h2 class="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter mb-6">
-          Poznaj ludzi po drugiej stronie ekranu
-        </h2>
-        <p class="text-lg md:text-xl text-zinc-600 max-w-2xl leading-relaxed">
-          Nie jesteśmy wielką korporacją z armią inwestorów w garniturach. Jesteśmy dwuosobowym zespołem, który postanowił udowodnić, że można rzucić wyzwanie rynkowym gigantom, tworząc mądrzejszy i sprytniejszy produkt.
+      <div class="relative z-10 max-w-5xl">
+        <h1 class="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter text-zinc-900 leading-[1.05]">
+          Zbudowaliśmy Chataptora, bo mieliśmy <span class="text-zinc-300">dość.</span>
+        </h1>
+        <p class="text-xl md:text-3xl font-medium text-zinc-400 mt-6 tracking-tight">
+          (I wiemy, że Ty też masz).
         </p>
       </div>
+    </section>
 
-      <div class="grid md:grid-cols-2 gap-16 md:gap-12 lg:gap-24">
-        <div class="group">
-          <div class="aspect-[4/5] overflow-hidden bg-zinc-100 rounded-sm mb-8 relative">
-            <img 
-              src={hubertImg} 
-              alt="Hubert - Business Development Manager" 
-              class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out mix-blend-multiply"
-            />
-          </div>
-          <h3 class="text-2xl font-bold text-zinc-900 mb-1 tracking-tight">Hubert</h3>
-          <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-6">Twój głos w Chataptorze</p>
-          <p class="text-zinc-600 leading-relaxed">
-            Młody, ambitny i napędzany wizją stworzenia czegoś wielkiego. Jako Business Development Manager odpowiadam za to, żeby cały ten statek płynął w dobrym kierunku. Moim zadaniem jest słuchać Ciebie – klienta – i upewniać się, że Chataptor idealnie rozwiązuje Twoje problemy. Pilnuję, żeby nasz produkt nigdy nie stał w miejscu i zawsze był o krok przed konkurencją.
-          </p>
+    <section class="px-6 max-w-7xl mx-auto border-t border-zinc-200 py-20 md:py-32 relative">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-20">
+        <div class="md:col-span-5">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 sticky top-32">
+            Zderzenie z murem.
+          </h2>
         </div>
-
-        <div class="group md:mt-24">
-          <div class="aspect-[4/5] overflow-hidden bg-zinc-100 rounded-sm mb-8 relative">
-            <img 
-              src={marekImg} 
-              alt="Marek - Programista" 
-              class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out mix-blend-multiply"
-            />
-          </div>
-          <h3 class="text-2xl font-bold text-zinc-900 mb-1 tracking-tight">Marek</h3>
-          <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-6">Magik od kodu i e-commerce</p>
-          <p class="text-zinc-600 leading-relaxed">
-            Mózg operacyjny i architekt całej naszej technologii. Programista, który przez lata hartował się w rygorystycznej branży bankowej (gdzie nie ma miejsca na błędy ani opóźnienia), a potem przeniósł tę niezawodność do świata e-commerce. Marek to prawdziwy specjalista od wykorzystywania IT do zwiększania sprzedaży. Udowodnił, że niemożliwe nie istnieje – z drobną pomocą sztucznej inteligencji, w zaledwie rok napisał całego Chataptora od zera. Jeśli nasz system działa błyskawicznie, to właśnie jego zasługa.
+        
+        <div class="md:col-span-7 text-lg md:text-xl text-zinc-600 space-y-8 leading-relaxed">
+          <p>
+            Znasz ten moment, gdy Twój biznes wreszcie nabiera wiatru w żagle? Chcesz wyjść ze swoim produktem za granicę, obsługiwać klientów z całej Europy, a nagle... zderzasz się z betonowym murem. Tym murem jest bariera językowa.
+          </p>
+          <p class="text-2xl font-bold text-zinc-900 tracking-tight border-l-4 border-zinc-900 pl-6 py-2">
+            Byliśmy w dokładnie tym samym miejscu.
+          </p>
+          <p>
+            Chataptor nie powstał na desce kreślarskiej startupowców, którzy na siłę szukali pomysłu na biznes. Zrodził się z naszego własnego, bardzo realnego bólu. Widzieliśmy, jak firmy chcą rosnąć globalnie, ale dostępne na rynku opcje są po prostu bezlitosne:
           </p>
         </div>
       </div>
     </section>
 
-    <section class="py-24 px-6 md:px-12 max-w-3xl mx-auto border-t border-zinc-200">
-      
-      <div class="mb-24">
-        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tighter mb-6">
-          Człowiek w centrum, AI w tle.
-        </h2>
-        <div class="space-y-6 text-lg md:text-xl text-zinc-600 leading-relaxed">
-          <p>
-            Postawmy sprawę jasno: nienawidzimy bezdusznych botów, które udają ludzi i doprowadzają klientów do szału. Wierzymy, że sercem biznesu zawsze jest i będzie człowiek.
-          </p>
-          <p>
-            Dlatego nie stworzyliśmy sztucznej inteligencji po to, by zastąpić Twoich pracowników. Stworzyliśmy ją po to, by dać im supermoce. Dzięki Chataptorowi Twój zespół może obsługiwać klientów z 20 różnych krajów, nie znając ani jednego słowa w obcym języku. Wy piszecie po swojemu, Wasi klienci czytają po swojemu. Płynnie, natychmiastowo i z pełnym profesjonalizmem, nad którym dyskretnie czuwa nasza technologia.
-          </p>
+    <section class="px-6 max-w-7xl mx-auto pb-20 md:pb-32">
+      <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div class="border-t-2 border-zinc-900 pt-8 group">
+          <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-zinc-900 transition-colors duration-500">01</div>
+          <h3 class="text-xl font-bold text-zinc-900 mb-4 pr-4">Zatrudnienie native speakerów dla każdego nowego rynku?</h3>
+          <p class="text-zinc-600">Gigantyczne koszty, które pożerają całą marżę.</p>
+        </div>
+        <div class="border-t-2 border-zinc-200 pt-8 group hover:border-zinc-900 transition-colors duration-500">
+          <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-zinc-900 transition-colors duration-500">02</div>
+          <h3 class="text-xl font-bold text-zinc-900 mb-4 pr-4">Posiłkowanie się darmowymi translatorami?</h3>
+          <p class="text-zinc-600">Żenująca amatorka, wieczne „kopiuj-wklej” i wstyd przed klientem.</p>
+        </div>
+        <div class="border-t-2 border-zinc-200 pt-8 group hover:border-zinc-900 transition-colors duration-500">
+          <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-zinc-900 transition-colors duration-500">03</div>
+          <h3 class="text-xl font-bold text-zinc-900 mb-4 pr-4">Korzystanie z rozwiązań rynkowych gigantów?</h3>
+          <p class="text-zinc-600">Płacenie korporacyjnego haraczu za przeładowane systemy, z których 80% funkcji i tak nigdy nie użyjesz.</p>
         </div>
       </div>
+      
+      <div class="mt-16 md:mt-24 max-w-3xl text-xl md:text-2xl font-medium text-zinc-900 leading-relaxed">
+        Zrozumieliśmy, że nikt nie stworzył narzędzia dla firm takich jak nasza – chcących po prostu sprawnie i profesjonalnie obsługiwać zagranicznych klientów, bez konieczności rozbijania banku. <span class="bg-zinc-100 px-2 py-1">Więc postanowiliśmy zbudować je sami.</span>
+      </div>
+    </section>
 
-      <div>
-        <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tighter mb-6">
-          Nasza Misja: Cały świat to Twój lokalny rynek.
-        </h2>
-        <div class="space-y-6 text-lg md:text-xl text-zinc-600 leading-relaxed">
-          <p>
+    <section class="bg-zinc-50 py-24 md:py-32 border-y border-zinc-200">
+      <div class="px-6 max-w-7xl mx-auto">
+        <div class="mb-20 md:mb-32 max-w-3xl">
+          <h2 class="text-4xl md:text-6xl font-extrabold text-zinc-900 tracking-tighter mb-6">
+            Poznaj ludzi po drugiej stronie ekranu
+          </h2>
+          <p class="text-lg md:text-xl text-zinc-600 leading-relaxed">
+            Nie jesteśmy wielką korporacją z armią inwestorów w garniturach. Jesteśmy dwuosobowym zespołem, który postanowił udowodnić, że można rzucić wyzwanie rynkowym gigantom, tworząc mądrzejszy i sprytniejszy produkt.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 md:gap-24">
+          <div class="group relative">
+            <div class="aspect-[4/5] overflow-hidden bg-zinc-200 rounded-lg mb-8 relative">
+              <img 
+                src={hubertImg} 
+                alt="Hubert" 
+                class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out mix-blend-multiply group-hover:scale-105"
+              />
+            </div>
+            <div class="pr-8">
+              <h3 class="text-3xl font-bold text-zinc-900 mb-2 tracking-tight">Hubert</h3>
+              <p class="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-6">Twój głos w Chataptorze</p>
+              <p class="text-zinc-600 leading-relaxed text-lg">
+                Młody, ambitny i napędzany wizją stworzenia czegoś wielkiego. Jako Business Development Manager odpowiadam za to, żeby cały ten statek płynął w dobrym kierunku. Moim zadaniem jest słuchać Ciebie – klienta – i upewniać się, że Chataptor idealnie rozwiązuje Twoje problemy. Pilnuję, żeby nasz produkt nigdy nie stał w miejscu i zawsze był o krok przed konkurencją.
+              </p>
+            </div>
+          </div>
+
+          <div class="group relative md:mt-40">
+            <div class="aspect-[4/5] overflow-hidden bg-zinc-200 rounded-lg mb-8 relative">
+              <img 
+                src={marekImg} 
+                alt="Marek" 
+                class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out mix-blend-multiply group-hover:scale-105"
+              />
+            </div>
+            <div class="pr-8">
+              <h3 class="text-3xl font-bold text-zinc-900 mb-2 tracking-tight">Marek</h3>
+              <p class="text-sm font-bold text-zinc-400 uppercase tracking-widest mb-6">Magik od kodu i e-commerce</p>
+              <p class="text-zinc-600 leading-relaxed text-lg">
+                Mózg operacyjny i architekt całej naszej technologii. Programista, który przez lata hartował się w rygorystycznej branży bankowej (gdzie nie ma miejsca na błędy ani opóźnienia), a potem przeniósł tę niezawodność do świata e-commerce. Marek to prawdziwy specjalista od wykorzystywania IT do zwiększania sprzedaży. Udowodnił, że niemożliwe nie istnieje – z drobną pomocą sztucznej inteligencji, w zaledwie rok napisał całego Chataptora od zera. Jeśli nasz system działa błyskawicznie, to właśnie jego zasługa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-zinc-900 text-zinc-400 py-24 md:py-32 px-6">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24">
+        
+        <div>
+          <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-8 leading-tight">
+            Człowiek w centrum,<br />AI w tle.
+          </h2>
+          <p class="text-lg md:text-xl leading-relaxed mb-6">
+            Postawmy sprawę jasno: <strong class="text-white">nienawidzimy bezdusznych botów</strong>, które udają ludzi i doprowadzają klientów do szału. Wierzymy, że sercem biznesu zawsze jest i będzie człowiek.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed">
+            Dlatego nie stworzyliśmy sztucznej inteligencji po to, by zastąpić Twoich pracowników. <strong class="text-white">Stworzyliśmy ją po to, by dać im supermoce.</strong> Dzięki Chataptorowi Twój zespół może obsługiwać klientów z 20 różnych krajów, nie znając ani jednego słowa w obcym języku. Wy piszecie po swojemu, Wasi klienci czytają po swojemu. Płynnie, natychmiastowo i z pełnym profesjonalizmem, nad którym dyskretnie czuwa nasza technologia.
+          </p>
+        </div>
+
+        <div class="md:border-l border-zinc-800 md:pl-24 flex flex-col justify-center">
+          <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-8 leading-tight">
+            Nasza Misja:<br />Cały świat to Twój lokalny rynek.
+          </h2>
+          <p class="text-lg md:text-xl leading-relaxed mb-6">
             Naszym celem jest zburzenie granic. Chcemy, aby każda firma – niezależnie od tego, czy jest to rozwijający się e-commerce, lokalny software house, czy butikowy hotel – mogła uruchomić sprzedaż na nowym rynku dosłownie z dnia na dzień.
           </p>
-          <p>
+          <p class="text-lg md:text-xl leading-relaxed">
             Dajemy Ci narzędzie do globalnej ekspansji, które jest proste, uczciwe cenowo i po prostu działa. Zostaw bariery językowe nam, a Ty skup się na tym, co robisz najlepiej – rozwijaniu swojego biznesu.
           </p>
         </div>
-      </div>
 
+      </div>
     </section>
 
-    <section class="pt-12 pb-24 px-6 md:px-12 text-center max-w-4xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 tracking-tighter">
-        Poznajmy się bliżej. Świat czeka na Twój produkt.
+    <section class="py-24 md:py-32 px-6 text-center max-w-4xl mx-auto">
+      <h2 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-zinc-900 tracking-tighter mb-12">
+        Poznajmy się bliżej. <br class="hidden md:block" />Świat czeka na Twój produkt.
       </h2>
+      <a href="/register" class="inline-block px-10 py-4 bg-zinc-900 text-white rounded-full text-lg font-bold hover:bg-zinc-800 transition-all hover:scale-105 active:scale-95 shadow-xl">
+        Zacznij działać globalnie
+      </a>
     </section>
 
   </main>
