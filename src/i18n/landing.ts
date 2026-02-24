@@ -8,6 +8,7 @@ export interface LandingTranslations {
     features: string;
     pricing: string;
     blog: string;
+    about: string;
     login: string;
     loginFull: string;
     start: string;
@@ -233,6 +234,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Funkcje',
       pricing: 'Cennik',
       blog: 'Blog',
+      about: 'O nas',
       login: 'Zaloguj',
       loginFull: 'Zaloguj się',
       start: 'Rozpocznij',
@@ -446,6 +448,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Features',
       pricing: 'Pricing',
       blog: 'Blog',
+      about: 'About us',
       login: 'Login',
       loginFull: 'Log in',
       start: 'Get started',
@@ -660,6 +663,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Funktionen',
       pricing: 'Preise',
       blog: 'Blog',
+      about: 'Über uns',
       login: 'Login',
       loginFull: 'Anmelden',
       start: 'Starten',
@@ -874,6 +878,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Fonctionnalités',
       pricing: 'Tarifs',
       blog: 'Blog',
+      about: 'À propos',
       login: 'Connexion',
       loginFull: 'Se connecter',
       start: 'Démarrer',
@@ -1088,6 +1093,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Funciones',
       pricing: 'Precios',
       blog: 'Blog',
+      about: 'Sobre nosotros',
       login: 'Entrar',
       loginFull: 'Iniciar sesión',
       start: 'Empezar',
@@ -1302,6 +1308,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Funzionalità',
       pricing: 'Prezzi',
       blog: 'Blog',
+      about: 'Chi siamo',
       login: 'Accedi',
       loginFull: 'Accedi',
       start: 'Inizia',
@@ -1516,6 +1523,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Funkce',
       pricing: 'Ceník',
       blog: 'Blog',
+      about: 'O nás',
       login: 'Přihlásit',
       loginFull: 'Přihlásit se',
       start: 'Začít',
@@ -1730,6 +1738,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       features: 'Funkcie',
       pricing: 'Cenník',
       blog: 'Blog',
+      about: 'O nás',
       login: 'Prihlásiť',
       loginFull: 'Prihlásiť sa',
       start: 'Začať',

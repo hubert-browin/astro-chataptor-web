@@ -35,6 +35,7 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
         <a href={`${anchorBase}#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         <a href={`${anchorBase}#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
         <a href={`${anchorBase}#pricing`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
+        <a href={`/${lang}/about`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.about}</a>
         <a href={`/${lang}/blog`} class={`px-4 py-2 rounded-full transition-all ${isLandingPage ? 'hover:bg-zinc-100 hover:text-zinc-900' : 'bg-zinc-100 text-zinc-900 font-bold'}`}>{t.nav.blog}</a>
       </div>
 
@@ -94,6 +95,9 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
         </a>
         <a href={`${anchorBase}#pricing`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
             <span>{t.nav.pricing}</span>
+        </a>
+        <a href={`/${lang}/about`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+            <span>{t.nav.about}</span>
         </a>
         <a href={`/${lang}/blog`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-emerald-700 bg-emerald-50/50 -mx-2 px-2 rounded-lg py-3 border-b border-zinc-50">
             <span>{t.nav.blog}</span>
