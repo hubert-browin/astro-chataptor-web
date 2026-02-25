@@ -25,24 +25,24 @@ const marekImg = "/images/about/marek.webp";
   lang={lang}
   slug="about"
 >
-  <main class="bg-white selection:bg-emerald-500 selection:text-white">
+  <main class="bg-white selection:bg-emerald-500 selection:text-white overflow-x-hidden">
     
-    <section class="relative pt-32 pb-20 md:pt-48 md:pb-28 w-[95%] md:max-w-[72rem] mx-auto overflow-hidden">
+    <section class="relative pt-28 pb-16 md:pt-48 md:pb-28 w-[90%] md:w-[95%] md:max-w-[72rem] mx-auto overflow-hidden">
       <div class="absolute top-0 right-[5%] w-[1px] h-full bg-zinc-100 hidden md:block"></div>
       <div class="absolute top-0 right-[25%] w-[1px] h-full bg-zinc-100 hidden md:block"></div>
       
       <div class="relative z-10 max-w-5xl">
-        <h1 class="text-5xl md:text-6xl lg:text-[5.2rem] font-extrabold tracking-tighter text-zinc-900 leading-[1.05]">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[5.2rem] font-extrabold tracking-tighter text-zinc-900 leading-[1.05]">
           {tAbout.hero.title}<span class="text-zinc-300">{tAbout.hero.highlight}<span class="text-emerald-500">.</span></span>
         </h1>
-        <p class="text-xl md:text-2xl font-medium text-zinc-400 mt-6 tracking-tight">
+        <p class="text-lg sm:text-xl md:text-2xl font-medium text-zinc-400 mt-5 md:mt-6 tracking-tight">
           {tAbout.hero.subtitle}
         </p>
       </div>
     </section>
 
-    <section class="w-[95%] md:max-w-[72rem] mx-auto border-t border-zinc-200 py-20 md:py-28">
-      <div class="max-w-5xl text-lg md:text-xl text-zinc-600 space-y-8 leading-relaxed font-medium">
+    <section class="w-[90%] md:w-[95%] md:max-w-[72rem] mx-auto border-t border-zinc-200 py-16 md:py-28">
+      <div class="max-w-5xl text-base sm:text-lg md:text-xl text-zinc-600 space-y-6 md:space-y-8 leading-relaxed font-medium">
         <p>
           {tAbout.story.part1} <strong class="text-zinc-900 font-bold text-emerald-900 bg-emerald-50 px-2 py-1">{tAbout.story.highlight}</strong>
         </p>
@@ -52,48 +52,48 @@ const marekImg = "/images/about/marek.webp";
       </div>
     </section>
 
-    <section class="w-[95%] md:max-w-[72rem] mx-auto pb-24 md:pb-32">
-      <div class="grid md:grid-cols-3 gap-10 md:gap-12">
-        <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-8 group transition-colors duration-500">
-          <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">01</div>
-          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">{tAbout.problems.p1.title}</h3>
-          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">{tAbout.problems.p1.desc}</p>
+    <section class="w-[90%] md:w-[95%] md:max-w-[72rem] mx-auto pb-16 md:pb-32">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-6 md:pt-8 group transition-colors duration-500">
+          <div class="text-4xl md:text-6xl font-extrabold text-zinc-100 mb-4 md:mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">01</div>
+          <h3 class="text-lg md:text-2xl font-bold text-zinc-900 mb-2 md:mb-3 pr-4 leading-tight">{tAbout.problems.p1.title}</h3>
+          <p class="text-zinc-500 text-sm md:text-lg leading-relaxed">{tAbout.problems.p1.desc}</p>
         </div>
-        <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-8 group transition-colors duration-500">
-          <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">02</div>
-          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">{tAbout.problems.p2.title}</h3>
-          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">{tAbout.problems.p2.desc}</p>
+        <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-6 md:pt-8 group transition-colors duration-500">
+          <div class="text-4xl md:text-6xl font-extrabold text-zinc-100 mb-4 md:mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">02</div>
+          <h3 class="text-lg md:text-2xl font-bold text-zinc-900 mb-2 md:mb-3 pr-4 leading-tight">{tAbout.problems.p2.title}</h3>
+          <p class="text-zinc-500 text-sm md:text-lg leading-relaxed">{tAbout.problems.p2.desc}</p>
         </div>
-        <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-8 group transition-colors duration-500">
-          <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">03</div>
-          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">{tAbout.problems.p3.title}</h3>
-          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">{tAbout.problems.p3.desc}</p>
+        <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-6 md:pt-8 group transition-colors duration-500">
+          <div class="text-4xl md:text-6xl font-extrabold text-zinc-100 mb-4 md:mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">03</div>
+          <h3 class="text-lg md:text-2xl font-bold text-zinc-900 mb-2 md:mb-3 pr-4 leading-tight">{tAbout.problems.p3.title}</h3>
+          <p class="text-zinc-500 text-sm md:text-lg leading-relaxed">{tAbout.problems.p3.desc}</p>
         </div>
       </div>
       
-      <div class="mt-20 md:mt-24 max-w-4xl text-xl md:text-3xl font-medium text-zinc-900 leading-snug tracking-tight">
-        {tAbout.solution.text} <span class="block mt-4 text-emerald-600">{tAbout.solution.highlight}</span>
+      <div class="mt-16 md:mt-24 max-w-4xl text-lg sm:text-xl md:text-3xl font-medium text-zinc-900 leading-snug tracking-tight">
+        {tAbout.solution.text} <span class="block mt-3 md:mt-4 text-emerald-600">{tAbout.solution.highlight}</span>
       </div>
     </section>
 
     <!-- ZAKTUALIZOWANA SEKCJA ZESPOŁU -->
-    <section class="bg-zinc-50 py-24 md:py-32 border-y border-zinc-200">
-      <div class="w-[95%] md:max-w-[72rem] mx-auto">
-        <div class="mb-20 md:mb-28 max-w-4xl">
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 tracking-tighter mb-6 leading-[1.05]">
+    <section class="bg-zinc-50 py-16 md:py-32 border-y border-zinc-200">
+      <div class="w-[90%] md:w-[95%] md:max-w-[72rem] mx-auto">
+        <div class="mb-12 md:mb-28 max-w-4xl">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 tracking-tighter mb-4 md:mb-6 leading-[1.05]">
             {tAbout.team.title.replace('.', '')}<span class="text-emerald-500">.</span>
           </h2>
-          <p class="text-lg md:text-xl text-zinc-500 leading-relaxed font-medium">
+          <p class="text-base sm:text-lg md:text-xl text-zinc-500 leading-relaxed font-medium">
             {tAbout.team.desc}
           </p>
         </div>
 
-        <div class="space-y-20 md:space-y-24">
+        <div class="space-y-16 md:space-y-24">
           <!-- HUBERT -->
-          <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-            <div class="w-full md:w-1/3 relative group shrink-0">
+          <div class="flex flex-col md:flex-row gap-6 md:gap-16 items-start">
+            <div class="w-full sm:w-[80%] mx-auto md:w-1/3 relative group shrink-0">
               <!-- Dekoracyjny offset (cień/blok z tyłu) -->
-              <div class="absolute inset-0 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-700 ease-out z-0"></div>
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl translate-x-2 translate-y-2 md:translate-x-3 md:translate-y-3 group-hover:translate-x-3 group-hover:translate-y-3 md:group-hover:translate-x-4 md:group-hover:translate-y-4 transition-transform duration-700 ease-out z-0"></div>
               
               <!-- Główny kontener zdjęcia -->
               <div class="aspect-square md:aspect-[4/5] overflow-hidden bg-white rounded-2xl relative shadow-md ring-1 ring-black/5 group-hover:shadow-2xl group-hover:shadow-emerald-900/10 transition-all duration-700 z-10">
@@ -108,19 +108,19 @@ const marekImg = "/images/about/marek.webp";
             </div>
             
             <div class="w-full md:w-2/3 md:pt-4 relative z-10">
-              <h3 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-2 tracking-tight">Hubert</h3>
-              <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">{tAbout.team.hubert.role}</p>
-              <p class="text-zinc-500 leading-relaxed text-base md:text-lg">
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 mb-1 md:mb-2 tracking-tight">Hubert</h3>
+              <p class="text-[10px] md:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-4 md:mb-6">{tAbout.team.hubert.role}</p>
+              <p class="text-zinc-500 leading-relaxed text-sm sm:text-base md:text-lg">
                 {tAbout.team.hubert.bio}
               </p>
             </div>
           </div>
 
           <!-- MAREK -->
-          <div class="flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-start">
-            <div class="w-full md:w-1/3 relative group shrink-0">
+          <div class="flex flex-col md:flex-row-reverse gap-6 md:gap-16 items-start">
+            <div class="w-full sm:w-[80%] mx-auto md:w-1/3 relative group shrink-0">
               <!-- Dekoracyjny offset w przeciwną stronę dla symetrii -->
-              <div class="absolute inset-0 bg-gradient-to-bl from-emerald-100 to-emerald-50 rounded-2xl -translate-x-3 translate-y-3 group-hover:-translate-x-4 group-hover:translate-y-4 transition-transform duration-700 ease-out z-0"></div>
+              <div class="absolute inset-0 bg-gradient-to-bl from-emerald-100 to-emerald-50 rounded-2xl -translate-x-2 translate-y-2 md:-translate-x-3 md:translate-y-3 group-hover:-translate-x-3 group-hover:translate-y-3 md:group-hover:-translate-x-4 md:group-hover:translate-y-4 transition-transform duration-700 ease-out z-0"></div>
               
               <!-- Główny kontener zdjęcia -->
               <div class="aspect-square md:aspect-[4/5] overflow-hidden bg-white rounded-2xl relative shadow-md ring-1 ring-black/5 group-hover:shadow-2xl group-hover:shadow-emerald-900/10 transition-all duration-700 z-10">
@@ -135,9 +135,9 @@ const marekImg = "/images/about/marek.webp";
             </div>
             
             <div class="w-full md:w-2/3 md:pt-4 md:text-right relative z-10">
-              <h3 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-2 tracking-tight">Marek</h3>
-              <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">{tAbout.team.marek.role}</p>
-              <p class="text-zinc-500 leading-relaxed text-base md:text-lg">
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 mb-1 md:mb-2 tracking-tight">Marek</h3>
+              <p class="text-[10px] md:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-4 md:mb-6">{tAbout.team.marek.role}</p>
+              <p class="text-zinc-500 leading-relaxed text-sm sm:text-base md:text-lg">
                 {tAbout.team.marek.bio}
               </p>
             </div>
@@ -146,14 +146,14 @@ const marekImg = "/images/about/marek.webp";
       </div>
     </section>
 
-    <section class="bg-zinc-900 text-zinc-400 py-24 md:py-32 flex justify-center w-full">
-      <div class="w-[95%] md:max-w-[72rem] grid md:grid-cols-2 gap-16 md:gap-24">
+    <section class="bg-zinc-900 text-zinc-400 py-16 md:py-32 flex justify-center w-full">
+      <div class="w-[90%] md:w-[95%] md:max-w-[72rem] grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
         
         <div class="pr-0 md:pr-8">
-          <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-8 leading-tight">
+          <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white tracking-tighter mb-6 md:mb-8 leading-tight">
             {tAbout.philosophy.title1.replace('.', '')}<span class="text-emerald-500">.</span>
           </h2>
-          <div class="space-y-6 text-lg md:text-xl leading-relaxed">
+          <div class="space-y-4 md:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed">
             <p>
               {tAbout.philosophy.p1}
             </p>
@@ -163,11 +163,11 @@ const marekImg = "/images/about/marek.webp";
           </div>
         </div>
 
-        <div class="md:border-l border-zinc-800 pt-10 md:pt-0 pl-0 md:pl-16 flex flex-col justify-center">
-          <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-8 leading-tight">
+        <div class="md:border-l border-zinc-800 pt-8 md:pt-0 pl-0 md:pl-16 flex flex-col justify-center border-t md:border-t-0">
+          <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white tracking-tighter mb-6 md:mb-8 leading-tight">
             {tAbout.philosophy.title2.replace('.', '')}<span class="text-emerald-500">.</span>
           </h2>
-          <div class="space-y-6 text-lg md:text-xl leading-relaxed">
+          <div class="space-y-4 md:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed">
             <p>
               {tAbout.philosophy.p3}
             </p>
@@ -179,21 +179,21 @@ const marekImg = "/images/about/marek.webp";
       </div>
     </section>
 
-    <section id="pricing" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 w-[95%] md:max-w-[72rem] mx-auto">
-      <div class="text-center mb-12 lg:mb-16 xl:mb-24">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{tAbout.cta.title}</h2>
-        <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{tAbout.cta.desc}</p>
+    <section id="pricing" class="py-16 md:py-24 lg:py-32 w-[90%] md:w-[95%] md:max-w-[72rem] mx-auto">
+      <div class="text-center mb-10 lg:mb-16 xl:mb-24">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-4 md:mb-6 tracking-tight">{tAbout.cta.title}</h2>
+        <p class="text-base sm:text-lg text-zinc-500 max-w-2xl mx-auto">{tAbout.cta.desc}</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-zinc-50 rounded-[2.5rem] p-8 ring-1 ring-black/5 hover:shadow-xl transition-all relative flex flex-col">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-zinc-50 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 ring-1 ring-black/5 hover:shadow-xl transition-all relative flex flex-col">
           <div class="mb-4">
-            <h3 class="text-xl font-bold text-zinc-900">{t.pricing.starter.title}</h3>
-            <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold text-zinc-900">{t.pricing.starter.price}</span>
-              <span class="text-zinc-500">{t.pricing.starter.period}</span>
+            <h3 class="text-lg md:text-xl font-bold text-zinc-900">{t.pricing.starter.title}</h3>
+            <div class="mt-3 md:mt-4 flex items-baseline gap-1">
+              <span class="text-3xl md:text-4xl font-extrabold text-zinc-900">{t.pricing.starter.price}</span>
+              <span class="text-zinc-500 text-sm md:text-base">{t.pricing.starter.period}</span>
             </div>
-            <p class="text-sm text-zinc-500 mt-2">{t.pricing.starter.desc}</p>
+            <p class="text-xs md:text-sm text-zinc-500 mt-2">{t.pricing.starter.desc}</p>
           </div>
           <ul class="space-y-3 mb-8 flex-1">
             <li class="flex items-start gap-3 text-sm text-zinc-600">
@@ -224,15 +224,15 @@ const marekImg = "/images/about/marek.webp";
           <a href="/register" class="w-full block text-center py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 font-bold hover:bg-zinc-50 transition-colors shadow-sm">{t.pricing.starter.cta}</a>
         </div>
 
-        <div class="bg-zinc-900 text-white rounded-[2.5rem] p-8 ring-1 ring-black/5 hover:shadow-2xl transition-all relative flex flex-col transform md:-translate-y-4">
+        <div class="bg-zinc-900 text-white rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 ring-1 ring-black/5 hover:shadow-2xl transition-all relative flex flex-col transform md:-translate-y-4 mt-4 md:mt-0">
           <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">{t.pricing.plus.badge}</div>
           <div class="mb-4">
-            <h3 class="text-xl font-bold text-white">{t.pricing.plus.title}</h3>
-            <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold text-white">{t.pricing.plus.price}</span>
-              <span class="text-zinc-400">{t.pricing.plus.period}</span>
+            <h3 class="text-lg md:text-xl font-bold text-white">{t.pricing.plus.title}</h3>
+            <div class="mt-3 md:mt-4 flex items-baseline gap-1">
+              <span class="text-3xl md:text-4xl font-extrabold text-white">{t.pricing.plus.price}</span>
+              <span class="text-zinc-400 text-sm md:text-base">{t.pricing.plus.period}</span>
             </div>
-            <p class="text-sm text-zinc-400 mt-2">{t.pricing.plus.desc}</p>
+            <p class="text-xs md:text-sm text-zinc-400 mt-2">{t.pricing.plus.desc}</p>
           </div>
           <ul class="space-y-3 mb-8 flex-1">
             <li class="flex items-start gap-3 text-sm text-zinc-300">
@@ -259,13 +259,13 @@ const marekImg = "/images/about/marek.webp";
           <a href="/register?plan=plus" class="w-full block text-center py-3 rounded-xl bg-emerald-500 text-white font-bold hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-900/20">{t.pricing.plus.cta}</a>
         </div>
 
-        <div class="bg-white rounded-[2.5rem] p-8 ring-1 ring-zinc-200 hover:shadow-xl transition-all relative flex flex-col">
+        <div class="bg-white rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 ring-1 ring-zinc-200 hover:shadow-xl transition-all relative flex flex-col mt-4 md:mt-0">
           <div class="mb-4">
-            <h3 class="text-xl font-bold text-zinc-900">{t.pricing.unlimited.title}</h3>
-            <div class="mt-4 flex items-baseline gap-1">
+            <h3 class="text-lg md:text-xl font-bold text-zinc-900">{t.pricing.unlimited.title}</h3>
+            <div class="mt-3 md:mt-4 flex items-baseline gap-1">
               <span class="text-3xl font-bold text-zinc-900">{t.pricing.unlimited.price}</span>
             </div>
-            <p class="text-sm text-zinc-500 mt-2">{t.pricing.unlimited.desc}</p>
+            <p class="text-xs md:text-sm text-zinc-500 mt-2">{t.pricing.unlimited.desc}</p>
           </div>
           <ul class="space-y-3 mb-8 flex-1">
             <li class="flex items-start gap-3 text-sm text-zinc-600">
