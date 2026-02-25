@@ -10,8 +10,13 @@ interface Props {
 const { lang, isLandingPage = false } = Astro.props;
 const t = getLanding(lang);
 
-// Jeśli jesteśmy na Landingu -> anchorBase to puszty string (link będzie "#id")
-// Jeśli jesteśmy na Blogu -> anchorBase to "/pl/" (link będzie "/pl/#id")
+// Rozpoznajemy na jakiej stronie aktualnie jesteśmy
+const pathname = Astro.url.pathname;
+const isAbout = pathname.includes('/about');
+const isBlog = pathname.includes('/blog');
+
+// Jeśli jesteśmy na Landingu -> anchorBase to pusty string (link będzie "#id")
+// Jeśli jesteśmy na Blogu/About -> anchorBase to "/pl/" (link będzie "/pl/#id")
 const anchorBase = isLandingPage ? "" : `/${lang}/`;
 ---
 
@@ -35,8 +40,10 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
         <a href={`${anchorBase}#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         <a href={`${anchorBase}#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
         <a href={`${anchorBase}#pricing`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.pricing}</a>
-        <a href={`/${lang}/about`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.about}</a>
-        <a href={`/${lang}/blog`} class={`px-4 py-2 rounded-full transition-all ${isLandingPage ? 'hover:bg-zinc-100 hover:text-zinc-900' : 'bg-zinc-100 text-zinc-900 font-bold'}`}>{t.nav.blog}</a>
+        
+        <a href={`/${lang}/about`} class={`px-4 py-2 rounded-full transition-all ${isAbout ? 'bg-zinc-100 text-zinc-900 font-bold' : 'hover:bg-zinc-100 hover:text-zinc-900'}`}>{t.nav.about}</a>
+        
+        <a href={`/${lang}/blog`} class={`px-4 py-2 rounded-full transition-all ${isBlog ? 'bg-zinc-100 text-zinc-900 font-bold' : 'hover:bg-zinc-100 hover:text-zinc-900'}`}>{t.nav.blog}</a>
       </div>
 
       <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
@@ -75,7 +82,6 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
     </div>
   )}
 
-  {/* ULEPSZONE MOBILE MENU: Usunięto 'hidden', dodano domyślne 'opacity-0 pointer-events-none' dla płynnej animacji */}
   <div class="fixed inset-0 z-[60] flex flex-col bg-white/95 backdrop-blur-2xl transition-all duration-300 opacity-0 pointer-events-none" id="mobile-menu">
     <div class="flex items-center justify-between p-6 border-b border-zinc-100">
       <img src="/images/landing/logotype.png" alt="Logo" class="h-6 opacity-90" />
@@ -96,10 +102,12 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
         <a href={`${anchorBase}#pricing`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
             <span>{t.nav.pricing}</span>
         </a>
-        <a href={`/${lang}/about`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-zinc-900 py-3 border-b border-zinc-50">
+        
+        <a href={`/${lang}/about`} class={`mobile-menu-link flex items-center justify-between text-xl font-bold py-3 border-b border-zinc-50 ${isAbout ? 'text-emerald-700 bg-emerald-50/50 -mx-2 px-2 rounded-lg' : 'text-zinc-900'}`}>
             <span>{t.nav.about}</span>
         </a>
-        <a href={`/${lang}/blog`} class="mobile-menu-link flex items-center justify-between text-xl font-bold text-emerald-700 bg-emerald-50/50 -mx-2 px-2 rounded-lg py-3 border-b border-zinc-50">
+        
+        <a href={`/${lang}/blog`} class={`mobile-menu-link flex items-center justify-between text-xl font-bold py-3 border-b border-zinc-50 ${isBlog ? 'text-emerald-700 bg-emerald-50/50 -mx-2 px-2 rounded-lg' : 'text-zinc-900'}`}>
             <span>{t.nav.blog}</span>
         </a>
 
@@ -130,7 +138,6 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
 </header>
 
 <script>
-  // Czysty, klasyczny JavaScript uruchamiany raz po załadowaniu dokumentu
   document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('sticky-nav');
     const staticHeader = document.getElementById('static-header');
@@ -140,27 +147,22 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
     const menu = document.getElementById('mobile-menu');
     const links = document.querySelectorAll('.mobile-menu-link');
 
-    // 1. Logika dla Sticky Nav
     if (nav && nav.dataset.landing === 'true') {
       const handleScroll = () => {
         const scrollY = window.scrollY || document.documentElement.scrollTop;
         
         if (scrollY > 50) {
-          // Pokaż sticky
           nav.classList.remove('-translate-y-4', 'opacity-0', 'pointer-events-none');
           nav.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
           
-          // Ukryj statyczny
           if (staticHeader) {
             staticHeader.classList.remove('opacity-100', 'pointer-events-auto');
             staticHeader.classList.add('opacity-0', 'pointer-events-none');
           }
         } else {
-          // Ukryj sticky
           nav.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
           nav.classList.add('-translate-y-4', 'opacity-0', 'pointer-events-none');
 
-          // Pokaż statyczny
           if (staticHeader) {
             staticHeader.classList.remove('opacity-0', 'pointer-events-none');
             staticHeader.classList.add('opacity-100', 'pointer-events-auto');
@@ -168,12 +170,10 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
         }
       };
 
-      // Podpinamy event i wywołujemy na start (na wypadek gdyby strona była zescrollowana przy odświeżeniu)
       window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll(); 
     }
 
-    // 2. Logika mobilnego menu
     const openMobileMenu = () => {
       if (menu) {
         menu.classList.remove('opacity-0', 'pointer-events-none');
