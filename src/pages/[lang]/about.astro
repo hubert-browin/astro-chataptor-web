@@ -1,6 +1,7 @@
 ---
 import { locales, type Locale } from '../../i18n/config';
-import { getLanding } from '../../i18n/landing'; // Dodano import tłumaczeń
+import { getLanding } from '../../i18n/landing';
+import { getAbout } from '../../i18n/about';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
@@ -10,7 +11,8 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Locale };
-const t = getLanding(lang); // Inicjalizacja tłumaczeń dla danej strony
+const t = getLanding(lang); // For Pricing, Footer, Modal
+const tAbout = getAbout(lang); // For About page content
 
 // Ścieżki do zdjęć
 const hubertImg = "/images/about/hubert.png";
@@ -18,8 +20,8 @@ const marekImg = "/images/about/marek.png";
 ---
 
 <BaseLayout
-  title="O nas | Chataptor"
-  description="Zbudowaliśmy Chataptora, bo mieliśmy dość. Poznaj naszą misję i wizję."
+  title={`${tAbout.hero.title} | Chataptor`}
+  description={tAbout.hero.subtitle}
   lang={lang}
   slug="about"
 >
@@ -31,10 +33,10 @@ const marekImg = "/images/about/marek.png";
       
       <div class="relative z-10 max-w-5xl">
         <h1 class="text-5xl md:text-6xl lg:text-[5.2rem] font-extrabold tracking-tighter text-zinc-900 leading-[1.05]">
-          Zbudowaliśmy Chataptora, bo mieliśmy <span class="text-zinc-300">dość<span class="text-emerald-500">.</span></span>
+          {tAbout.hero.title}<span class="text-zinc-300">{tAbout.hero.highlight}<span class="text-emerald-500">.</span></span>
         </h1>
         <p class="text-xl md:text-2xl font-medium text-zinc-400 mt-6 tracking-tight">
-          (I wiemy, że Ty też masz).
+          {tAbout.hero.subtitle}
         </p>
       </div>
     </section>
@@ -42,10 +44,10 @@ const marekImg = "/images/about/marek.png";
     <section class="w-[95%] md:max-w-[72rem] mx-auto border-t border-zinc-200 py-20 md:py-28">
       <div class="max-w-5xl text-lg md:text-xl text-zinc-600 space-y-8 leading-relaxed font-medium">
         <p>
-          Gdy Twój biznes rośnie i chcesz rozpocząć sprzedaż na zagranicznych rynkach, pojawia się bardzo realny, kosztowny problem: bariera językowa. <strong class="text-zinc-900 font-bold text-emerald-900 bg-emerald-50 px-2 py-1">Byliśmy w dokładnie tym samym miejscu.</strong>
+          {tAbout.story.part1} <strong class="text-zinc-900 font-bold text-emerald-900 bg-emerald-50 px-2 py-1">{tAbout.story.highlight}</strong>
         </p>
         <p>
-          Chataptor nie powstał w inkubatorze startupów jako kolejny "genialny pomysł na aplikację". Powstał wewnątrz działającej firmy, która próbowała skalować sprzedaż międzynarodową. Przeanalizowaliśmy rynek i okazało się, że dostępne opcje to po prostu biznesowa droga przez mękę:
+          {tAbout.story.part2}
         </p>
       </div>
     </section>
@@ -54,23 +56,23 @@ const marekImg = "/images/about/marek.png";
       <div class="grid md:grid-cols-3 gap-10 md:gap-12">
         <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-8 group transition-colors duration-500">
           <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">01</div>
-          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">Zatrudnienie native speakerów dla każdego nowego rynku?</h3>
-          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">Gigantyczne koszty, które pożerają całą marżę.</p>
+          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">{tAbout.problems.p1.title}</h3>
+          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">{tAbout.problems.p1.desc}</p>
         </div>
         <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-8 group transition-colors duration-500">
           <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">02</div>
-          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">Posiłkowanie się darmowymi translatorami?</h3>
-          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">Amatorka, wieczne „kopiuj-wklej” i wstyd przed klientem.</p>
+          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">{tAbout.problems.p2.title}</h3>
+          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">{tAbout.problems.p2.desc}</p>
         </div>
         <div class="border-t-2 border-zinc-200 hover:border-emerald-500 pt-8 group transition-colors duration-500">
           <div class="text-5xl md:text-6xl font-extrabold text-zinc-100 mb-6 group-hover:text-emerald-500 transition-colors duration-500 tracking-tighter">03</div>
-          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">Korzystanie z rozwiązań rynkowych gigantów?</h3>
-          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">Płacenie korporacyjnego haraczu za przeładowane systemy, z których 80% funkcji i tak nigdy nie użyjesz.</p>
+          <h3 class="text-xl md:text-2xl font-bold text-zinc-900 mb-3 pr-4 leading-tight">{tAbout.problems.p3.title}</h3>
+          <p class="text-zinc-500 text-base md:text-lg leading-relaxed">{tAbout.problems.p3.desc}</p>
         </div>
       </div>
       
       <div class="mt-20 md:mt-24 max-w-4xl text-xl md:text-3xl font-medium text-zinc-900 leading-snug tracking-tight">
-        Zrozumieliśmy, że nikt nie stworzył narzędzia dla firm takich jak nasza - chcących po prostu sprawnie obsługiwać zagranicznych klientów, bez rozbijania banku. <span class="block mt-4 text-emerald-600">Więc postanowiliśmy zbudować je sami.</span>
+        {tAbout.solution.text} <span class="block mt-4 text-emerald-600">{tAbout.solution.highlight}</span>
       </div>
     </section>
 
@@ -78,10 +80,10 @@ const marekImg = "/images/about/marek.png";
       <div class="w-[95%] md:max-w-[72rem] mx-auto">
         <div class="mb-20 md:mb-28 max-w-4xl">
           <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 tracking-tighter mb-6 leading-[1.05]">
-            Poznaj ludzi po drugiej stronie ekranu<span class="text-emerald-500">.</span>
+            {tAbout.team.title.replace('.', '')}<span class="text-emerald-500">.</span>
           </h2>
           <p class="text-lg md:text-xl text-zinc-500 leading-relaxed font-medium">
-            Nie jesteśmy wielką korporacją z armią inwestorów w garniturach. Jesteśmy dwuosobowym zespołem, który postanowił udowodnić, że można rzucić wyzwanie rynkowym gigantom, tworząc mądrzejszy i sprytniejszy produkt.
+            {tAbout.team.desc}
           </p>
         </div>
 
@@ -98,9 +100,9 @@ const marekImg = "/images/about/marek.png";
             </div>
             <div class="w-full md:w-2/3 md:pt-4">
               <h3 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-2 tracking-tight">Hubert</h3>
-              <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">Twój głos w Chataptorze</p>
+              <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">{tAbout.team.hubert.role}</p>
               <p class="text-zinc-500 leading-relaxed text-base md:text-lg">
-                Młody, ambitny i napędzany wizją stworzenia czegoś wielkiego. Odpowiadam za to, żeby cały ten statek płynął w dobrym kierunku. Moim zadaniem jest słuchać Ciebie - klienta - i upewniać się, że Chataptor idealnie rozwiązuje Twoje problemy. Pilnuję, żeby nasz produkt nigdy nie stał w miejscu i zawsze był o krok przed Twoimi potrzebami.
+                {tAbout.team.hubert.bio}
               </p>
             </div>
           </div>
@@ -117,9 +119,9 @@ const marekImg = "/images/about/marek.png";
             </div>
             <div class="w-full md:w-2/3 md:pt-4 md:text-right">
               <h3 class="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-2 tracking-tight">Marek</h3>
-              <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">Magik od kodu i e-commerce</p>
+              <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">{tAbout.team.marek.role}</p>
               <p class="text-zinc-500 leading-relaxed text-base md:text-lg">
-                Mózg operacyjny i architekt całej naszej technologii. Programista, który przez lata hartował się w rygorystycznej branży bankowej (gdzie nie ma miejsca na błędy ani opóźnienia), a potem przeniósł tę niezawodność do świata e-commerce. Marek to prawdziwy specjalista od wykorzystywania IT do zwiększania sprzedaży. Udowodnił, że niemożliwe nie istnieje - z pomocą sztucznej inteligencji, w zaledwie rok napisał całego Chataptora od zera. Nasz system działa błyskawicznie i to właśnie jego zasługa.
+                {tAbout.team.marek.bio}
               </p>
             </div>
           </div>
@@ -132,28 +134,28 @@ const marekImg = "/images/about/marek.png";
         
         <div class="pr-0 md:pr-8">
           <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-8 leading-tight">
-            Człowiek w centrum,<br />AI w tle<span class="text-emerald-500">.</span>
+            {tAbout.philosophy.title1.replace('.', '')}<span class="text-emerald-500">.</span>
           </h2>
           <div class="space-y-6 text-lg md:text-xl leading-relaxed">
             <p>
-              Postawmy sprawę jasno: <strong class="text-white">nie lubimy bezdusznych botów</strong>, które udają ludzi i doprowadzają klientów do szału. Wierzymy, że sercem biznesu zawsze jest i będzie człowiek.
+              {tAbout.philosophy.p1}
             </p>
             <p>
-              Dlatego nie stworzyliśmy sztucznej inteligencji po to, by zastąpić Twoich pracowników. <strong class="text-emerald-400">Stworzyliśmy ją po to, by dać im supermoce.</strong> Dzięki Chataptorowi Twój zespół może obsługiwać klientów ze stu różnych krajów, nie znając ani jednego słowa w obcym języku. Wy piszecie po swojemu, Wasi klienci czytają po swojemu.
+              {tAbout.philosophy.p2}
             </p>
           </div>
         </div>
 
         <div class="md:border-l border-zinc-800 pt-10 md:pt-0 pl-0 md:pl-16 flex flex-col justify-center">
           <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-8 leading-tight">
-            Nasza Misja:<br />Cały świat to lokalny rynek<span class="text-emerald-500">.</span>
+            {tAbout.philosophy.title2.replace('.', '')}<span class="text-emerald-500">.</span>
           </h2>
           <div class="space-y-6 text-lg md:text-xl leading-relaxed">
             <p>
-              Naszym celem jest zburzenie granic. Chcemy, aby każda firma - niezależnie od tego, czy jest to rozwijający się e-commerce, lokalny software house, czy hotel - mogła uruchomić sprzedaż na nowym rynku dosłownie z dnia na dzień.
+              {tAbout.philosophy.p3}
             </p>
             <p>
-              Dajemy Ci narzędzie do globalnej ekspansji, które jest proste, uczciwe cenowo i po prostu działa.
+              {tAbout.philosophy.p4}
             </p>
           </div>
         </div>
@@ -162,8 +164,8 @@ const marekImg = "/images/about/marek.png";
 
     <section id="pricing" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 w-[95%] md:max-w-[72rem] mx-auto">
       <div class="text-center mb-12 lg:mb-16 xl:mb-24">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">Gotowy na usunięcie barier?</h2>
-        <p class="text-lg text-zinc-500 max-w-2xl mx-auto">Nie potrzebujesz kolejnego skomplikowanego systemu. Wybierz pakiet, wklej jeden kod na stronę i zacznij działać globalnie.</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{tAbout.cta.title}</h2>
+        <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{tAbout.cta.desc}</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
