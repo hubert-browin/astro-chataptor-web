@@ -197,10 +197,10 @@ const logos = [
       <!-- Main Hero Wrapper - Two Columns Layout -->
       <div class="w-full h-full px-4 md:px-6 max-w-7xl mx-auto relative z-30 flex-1 flex flex-col pt-8 lg:pt-32">
         
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 flex-1 w-full">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 flex-1 w-full">
           
           <!-- LEFT COLUMN: Content -->
-          <div class="flex flex-col justify-center items-center lg:items-start w-full lg:w-[60%] text-center lg:text-left z-20">
+          <div class="flex flex-col justify-center items-center lg:items-start w-full lg:w-[65%] text-center lg:text-left z-20">
             
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto lg:mx-0 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
               <span class="relative flex h-2 w-2">
@@ -360,16 +360,16 @@ const logos = [
           </div>
 
           <!-- RIGHT COLUMN: Animation / Chat Visualization -->
-          <div class="w-full lg:w-[40%] relative hidden md:flex items-center justify-center z-10 lg:pl-4 xl:pl-10 mt-12 lg:mt-0 perspective-1000">
+          <div class="w-full lg:w-[35%] relative hidden md:flex items-center justify-center z-10 lg:pl-4 xl:pl-10 mt-12 lg:mt-0">
             
-            <!-- Main Chat UI (Simplified bubbles only) -->
-            <div class="relative w-full max-w-md flex flex-col gap-5 animate-float-rotate">
+            <!-- Main Chat UI (Simplified bubbles only, NO animations/shadows) -->
+            <div class="relative w-full max-w-md flex flex-col gap-5">
               
               <!-- Incoming Foreign Message -->
               <div class="flex items-start gap-3 w-full">
-                <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 shadow-sm ring-1 ring-blue-100/50 overflow-hidden"><img src="/images/landing/messenger-logo.png" alt="Messenger" class="w-4 h-4" /></div>
+                <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 ring-1 ring-blue-100/50 overflow-hidden text-xs font-bold text-blue-600">FR</div>
                 <div class="flex flex-col gap-1.5 w-[85%]">
-                  <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-xl shadow-zinc-200/50 ring-1 ring-zinc-100/50 text-sm text-zinc-800 relative group">
+                  <div class="bg-white p-4 rounded-2xl rounded-tl-none ring-1 ring-zinc-200/80 text-sm text-zinc-800 relative group">
                     <p class="font-medium text-zinc-900">Bonjour! Est-ce que mon colis a été envoyé ?</p>
                     
                     <!-- Translation indicator inside message -->
@@ -383,9 +383,9 @@ const logos = [
 
               <!-- Outgoing Native Message -->
               <div class="flex items-end gap-3 w-full flex-row-reverse mt-2">
-                <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-md">TY</div>
+                <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-bold shrink-0">PL</div>
                 <div class="flex flex-col gap-1.5 w-[85%] items-end">
-                  <div class="bg-zinc-900 text-white p-4 rounded-2xl rounded-tr-none shadow-xl shadow-zinc-900/20 text-sm relative w-full text-left">
+                  <div class="bg-zinc-900 text-white p-4 rounded-2xl rounded-tr-none text-sm relative w-full text-left">
                     <p class="font-medium text-white/90">Tak, nadaliśmy ją dzisiaj rano. Będzie u Pana w piątek.</p>
                     
                     <div class="mt-3 pt-3 border-t border-white/20 text-[11px] text-zinc-300 flex items-start gap-2">
@@ -397,12 +397,12 @@ const logos = [
               </div>
 
               <!-- User Typing Indicator -->
-              <div class="flex items-start gap-3 w-full animate-pulse mt-4">
+              <div class="flex items-start gap-3 w-full mt-4">
                 <div class="w-6 h-6 rounded-full bg-zinc-200/80 shrink-0"></div>
-                <div class="bg-white px-3 py-2.5 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-zinc-100/50 flex items-center gap-1.5 w-16">
-                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce"></div>
-                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
-                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+                <div class="bg-white px-3 py-2.5 rounded-2xl rounded-tl-none ring-1 ring-zinc-200/80 flex items-center gap-1.5 w-16">
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div>
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div>
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div>
                 </div>
               </div>
 
