@@ -200,7 +200,7 @@ const logos = [
         <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 flex-1 w-full">
           
           <!-- LEFT COLUMN: Content -->
-          <div class="flex flex-col justify-center items-center lg:items-start w-full lg:w-[50%] xl:w-[55%] text-center lg:text-left z-20">
+          <div class="flex flex-col justify-center items-center lg:items-start w-full lg:w-[60%] text-center lg:text-left z-20">
             
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto lg:mx-0 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
               <span class="relative flex h-2 w-2">
@@ -360,81 +360,52 @@ const logos = [
           </div>
 
           <!-- RIGHT COLUMN: Animation / Chat Visualization -->
-          <div class="w-full lg:w-[50%] xl:w-[45%] relative hidden md:flex items-center justify-center z-10 lg:pl-4 xl:pl-10 mt-12 lg:mt-0 perspective-1000">
+          <div class="w-full lg:w-[40%] relative hidden md:flex items-center justify-center z-10 lg:pl-4 xl:pl-10 mt-12 lg:mt-0 perspective-1000">
             
-            <!-- Background Glow -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-200/40 via-blue-100/40 to-indigo-100/40 rounded-full blur-3xl opacity-60"></div>
-            
-            <!-- Floating Decorators -->
-            <div class="absolute -top-8 -right-4 bg-white/90 backdrop-blur px-3 py-2 rounded-xl shadow-xl ring-1 ring-black/5 animate-float z-20 flex items-center gap-2">
-              <span class="text-xl">🇫🇷</span> <span class="text-xs font-bold text-zinc-700">Client</span>
-            </div>
-            <div class="absolute bottom-6 -left-8 bg-white/90 backdrop-blur px-3 py-2 rounded-xl shadow-xl ring-1 ring-black/5 animate-float-delayed z-20 flex items-center gap-2">
-              <span class="text-xl">🇵🇱</span> <span class="text-xs font-bold text-zinc-700">Agent</span>
-            </div>
-
-            <!-- Main Glass Chat UI -->
-            <div class="relative w-full max-w-lg bg-white/70 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl ring-1 ring-white p-6 sm:p-8 flex flex-col gap-6 animate-float-rotate border border-zinc-100">
+            <!-- Main Chat UI (Simplified bubbles only) -->
+            <div class="relative w-full max-w-md flex flex-col gap-5 animate-float-rotate">
               
-              <!-- Chat Header -->
-              <div class="flex items-center justify-between pb-4 border-b border-zinc-200/50">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold shadow-inner">P</div>
-                  <div>
-                    <div class="text-sm font-bold text-zinc-900">Pierre Dubois</div>
-                    <div class="text-[10px] text-zinc-500 font-medium flex items-center gap-1.5">
-                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Online w Messenger
+              <!-- Incoming Foreign Message -->
+              <div class="flex items-start gap-3 w-full">
+                <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 shadow-sm ring-1 ring-blue-100/50 overflow-hidden"><img src="/images/landing/messenger-logo.png" alt="Messenger" class="w-4 h-4" /></div>
+                <div class="flex flex-col gap-1.5 w-[85%]">
+                  <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-xl shadow-zinc-200/50 ring-1 ring-zinc-100/50 text-sm text-zinc-800 relative group">
+                    <p class="font-medium text-zinc-900">Bonjour! Est-ce que mon colis a été envoyé ?</p>
+                    
+                    <!-- Translation indicator inside message -->
+                    <div class="mt-3 pt-3 border-t border-zinc-100/80 text-[11px] text-zinc-500 flex items-start gap-2">
+                      <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                      <span class="italic leading-tight">Dzień dobry! Czy moja paczka została już wysłana?</span>
                     </div>
                   </div>
                 </div>
-                <div class="bg-zinc-100 px-2.5 py-1 rounded-md text-[10px] font-bold text-zinc-500 tracking-wide uppercase">Auto-Translate</div>
               </div>
 
-              <!-- Messages Area -->
-              <div class="flex flex-col gap-5">
-                
-                <!-- Incoming Foreign Message -->
-                <div class="flex items-start gap-3 w-full">
-                  <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 shadow-sm ring-1 ring-blue-100/50 overflow-hidden"><img src="/images/landing/messenger-logo.png" alt="Messenger" class="w-4 h-4" /></div>
-                  <div class="flex flex-col gap-1.5 w-[85%]">
-                    <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-zinc-100 text-sm text-zinc-800 relative group">
-                      <p class="font-medium text-zinc-900">Bonjour! Est-ce que mon colis a été envoyé ?</p>
-                      
-                      <!-- Translation indicator inside message -->
-                      <div class="mt-3 pt-3 border-t border-zinc-100/80 text-[11px] text-zinc-500 flex items-start gap-2">
-                        <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                        <span class="italic leading-tight">Dzień dobry! Czy moja paczka została już wysłana?</span>
-                      </div>
+              <!-- Outgoing Native Message -->
+              <div class="flex items-end gap-3 w-full flex-row-reverse mt-2">
+                <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-md">TY</div>
+                <div class="flex flex-col gap-1.5 w-[85%] items-end">
+                  <div class="bg-zinc-900 text-white p-4 rounded-2xl rounded-tr-none shadow-xl shadow-zinc-900/20 text-sm relative w-full text-left">
+                    <p class="font-medium text-white/90">Tak, nadaliśmy ją dzisiaj rano. Będzie u Pana w piątek.</p>
+                    
+                    <div class="mt-3 pt-3 border-t border-white/20 text-[11px] text-zinc-300 flex items-start gap-2">
+                      <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                      <span class="italic leading-tight text-white/70">Oui, nous l'avons expédié ce matin. Il sera chez vous vendredi.</span>
                     </div>
                   </div>
                 </div>
-
-                <!-- Outgoing Native Message -->
-                <div class="flex items-end gap-3 w-full flex-row-reverse">
-                  <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-md">TY</div>
-                  <div class="flex flex-col gap-1.5 w-[85%] items-end">
-                    <div class="bg-zinc-900 text-white p-4 rounded-2xl rounded-tr-none shadow-md text-sm relative w-full text-left">
-                      <p class="font-medium text-white/90">Tak, nadaliśmy ją dzisiaj rano. Będzie u Pana w piątek.</p>
-                      
-                      <div class="mt-3 pt-3 border-t border-white/20 text-[11px] text-zinc-300 flex items-start gap-2">
-                        <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                        <span class="italic leading-tight text-white/70">Oui, nous l'avons expédié ce matin. Il sera chez vous vendredi.</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- User Typing Indicator -->
-                <div class="flex items-start gap-3 w-full animate-pulse mt-2">
-                  <div class="w-6 h-6 rounded-full bg-zinc-200 shrink-0"></div>
-                  <div class="bg-white px-3 py-2.5 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-zinc-100 flex items-center gap-1.5 w-16">
-                    <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce"></div>
-                    <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
-                    <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
-                  </div>
-                </div>
-
               </div>
+
+              <!-- User Typing Indicator -->
+              <div class="flex items-start gap-3 w-full animate-pulse mt-4">
+                <div class="w-6 h-6 rounded-full bg-zinc-200/80 shrink-0"></div>
+                <div class="bg-white px-3 py-2.5 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-zinc-100/50 flex items-center gap-1.5 w-16">
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce"></div>
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -449,10 +420,9 @@ const logos = [
             <div class="h-6 md:h-8 flex items-center"><img src="/images/landing/elixir-logo.png" alt="Elixir" class="h-full w-auto object-contain" /></div>
           </div>
         </div>
-        
+
       </div>
     </section>
-
 
       <!-- UI MOCKUP -->
       <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-24 mb-12 lg:mb-20 relative z-20">
