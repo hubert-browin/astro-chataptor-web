@@ -49,7 +49,7 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
       <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
         <LanguageSwitcher currentLang={lang as any} slug="" />
         <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors px-3">{t.nav.login}</a>
-        <a href="/register" class="bg-emerald-600 text-white rounded-full font-medium hover:bg-emerald-800 transition-all hover:scale-105 active:scale-95 px-5 py-2 shadow-lg shadow-emerald-600/20">{t.nav.start}</a>
+        <a href="/register" class="bg-emerald-600 text-white rounded-full font-medium hover:bg-emerald-500 transition-all hover:scale-105 active:scale-95 px-5 py-2">{t.nav.start}</a>
       </div>
 
       <div class="md:hidden flex items-center gap-2 pr-1">
@@ -71,7 +71,7 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
       <div class="hidden md:flex items-center gap-6 text-sm">
         <LanguageSwitcher currentLang={lang as any} slug="" />
         <a href="/login" class="font-medium text-zinc-500 hover:text-zinc-900 transition-colors">{t.nav.loginFull}</a>
-        <a href="/register" class="bg-emerald-600 text-white px-5 py-2.5 rounded-full font-medium hover:bg-emerald-500 transition-all hover:shadow-xl hover:shadow-emerald-600/20 active:scale-95">{t.nav.startFree}</a>
+        <a href="/register" class="bg-emerald-600 text-white px-5 py-2.5 rounded-full font-medium hover:bg-emerald-500 transition-all active:scale-95">{t.nav.startFree}</a>
       </div>
       <div class="md:hidden flex items-center gap-2">
         <LanguageSwitcher currentLang={lang as any} slug="" />
