@@ -1,13 +1,18 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SEOHead from '../components/SEOHead.astro'; // <-- 1. IMPORT KOMPONENTU SEO
+import type { Locale } from '../i18n/config';      // <-- IMPORT TYPU LOCALE
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
-  lang: string;
+  lang: Locale;           // Zmieniono na Locale, aby pasowało do SEOHead
   slug?: string;
+  image?: string;         // <-- 2. NOWE PROPSY DLA OPEN GRAPH
+  type?: 'website' | 'article';
+  publishedAt?: Date;
   isLandingPage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
@@ -17,6 +22,10 @@ const {
   title, 
   description, 
   lang, 
+  slug = '',              // Domyślny pusty string, jeśli nie podano
+  image,                  // <-- ODBIÓR NOWYCH PROPSÓW
+  type,
+  publishedAt,
   isLandingPage = false, 
   hideHeader = false, 
   hideFooter = false 
@@ -35,8 +44,16 @@ const {
     <meta name="apple-mobile-web-app-title" content="Chataptor" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    
+    <SEOHead 
+      title={title}
+      description={description}
+      lang={lang}
+      slug={slug}
+      image={image}
+      type={type}
+      publishedAt={publishedAt}
+    />
 
     {/* GLOBALNE STYLE SKALOWANIA */}
     <style is:global>
@@ -58,9 +75,9 @@ const {
           font-size: 13px; 
         }
       }
-       
+        
       html { transition: font-size 0.2s ease-out; }
-      
+       
       /* Custom Scrollbar */
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
@@ -82,7 +99,6 @@ const {
       }
     </style>
 
-    <!-- Google tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -102,6 +118,7 @@ const {
     </div>
 
     {!hideFooter && <Footer lang={lang} />}
+    
     <script
       is:inline
       src="https://chataptor.com/widget/quantumchat-widget.umd.js"
