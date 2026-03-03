@@ -1,13 +1,18 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SEOHead from '../components/SEOHead.astro'; // <-- 1. IMPORT KOMPONENTU SEO
+import type { Locale } from '../i18n/config';      // <-- IMPORT TYPU LOCALE
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
-  lang: string;
+  lang: Locale;           // Zmieniono na Locale, aby pasowało do SEOHead
   slug?: string;
+  image?: string;         // <-- 2. NOWE PROPSY DLA OPEN GRAPH
+  type?: 'website' | 'article';
+  publishedAt?: Date;
   isLandingPage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
@@ -17,6 +22,10 @@ const {
   title, 
   description, 
   lang, 
+  slug = '',              // Domyślny pusty string, jeśli nie podano
+  image,                  // <-- ODBIÓR NOWYCH PROPSÓW
+  type,
+  publishedAt,
   isLandingPage = false, 
   hideHeader = false, 
   hideFooter = false 
@@ -35,8 +44,16 @@ const {
     <meta name="apple-mobile-web-app-title" content="Chataptor" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    
+    <SEOHead 
+      title={title}
+      description={description}
+      lang={lang}
+      slug={slug}
+      image={image}
+      type={type}
+      publishedAt={publishedAt}
+    />
 
     {/* GLOBALNE STYLE SKALOWANIA */}
     <style is:global>
@@ -58,9 +75,9 @@ const {
           font-size: 13px; 
         }
       }
-       
+        
       html { transition: font-size 0.2s ease-out; }
-      
+       
       /* Custom Scrollbar */
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
@@ -82,27 +99,6 @@ const {
       }
     </style>
 
-    <meta name="facebook-domain-verification" content="i533n4spyu2g2dsx68kjvtoo66fk6o" />
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2724753977896367');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2724753977896367&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Google tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -122,6 +118,7 @@ const {
     </div>
 
     {!hideFooter && <Footer lang={lang} />}
+    
     <script
       is:inline
       src="https://chataptor.com/widget/quantumchat-widget.umd.js"
