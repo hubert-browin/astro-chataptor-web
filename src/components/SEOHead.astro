@@ -17,17 +17,19 @@ const {
   description,
   lang,
   slug,
-  image = '/images/og-default.jpg',
+  image,
   type = 'website',
   publishedAt,
 } = Astro.props;
+
+// Jeśli nie podasz 'image' na podstronie, Astro samo zbuduje ścieżkę na podstawie aktualnego języka (np. /images/og-default-pl.jpg)
+const finalImage = image || `/images/og-default-${lang}.jpg`;
 
 const alternates = getAlternateUrls(slug);
 const canonical = getCanonicalUrl(lang, slug);
 const fullTitle = `${title}`;
 
-// Dynamiczny URL dla obrazka przy użyciu domeny skonfigurowanej w astro.config.mjs
-const ogImage = new URL(image, Astro.site).toString();
+const ogImage = new URL(finalImage, Astro.site).toString();
 
 // Mapowanie locale pod standard Open Graph (np. dla Facebooka)
 const localeMap: Record<Locale, string> = {
