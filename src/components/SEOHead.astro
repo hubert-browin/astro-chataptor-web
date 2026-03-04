@@ -22,7 +22,8 @@ const {
   publishedAt,
 } = Astro.props;
 
-// Jeśli nie podasz 'image' na podstronie, Astro samo zbuduje ścieżkę na podstawie aktualnego języka (np. /images/og-default-pl.jpg)
+const cleanDescription = description.replace(/<[^>]*>?/gm, '').trim();
+
 const finalImage = image || `/images/og-default-${lang}.jpg`;
 
 const alternates = getAlternateUrls(slug);
@@ -31,7 +32,9 @@ const fullTitle = `${title}`;
 
 const ogImage = new URL(finalImage, Astro.site).toString();
 
-// Mapowanie locale pod standard Open Graph (np. dla Facebooka)
+const siteUrl = Astro.site ? new URL('/', Astro.site).toString() : 'https://chataptor.com/';
+const logoUrl = Astro.site ? new URL('/images/landing/logo-black.png', Astro.site).toString() : 'https://chataptor.com/images/landing/logo-black.png';
+
 const localeMap: Record<Locale, string> = {
   en: 'en_US',
   pl: 'pl_PL',
@@ -47,7 +50,7 @@ const formattedLocale = localeMap[lang] || 'en_US';
 ---
 
 <title>{fullTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={cleanDescription} />
 <link rel="canonical" href={canonical} />
 
 {alternates.map((alt) => (
@@ -61,7 +64,7 @@ const formattedLocale = localeMap[lang] || 'en_US';
 
 <meta property="og:site_name" content="Chataptor" />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={cleanDescription} />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImage} />
@@ -75,7 +78,7 @@ const formattedLocale = localeMap[lang] || 'en_US';
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={cleanDescription} />
 <meta name="twitter:image" content={ogImage} />
 
 {type === 'article' && publishedAt && (
@@ -84,12 +87,22 @@ const formattedLocale = localeMap[lang] || 'en_US';
 
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
-  "@type": type === 'article' ? 'Article' : 'WebPage',
-  "name": title,
-  "description": description,
-  "url": canonical,
-  "inLanguage": lang,
-  ...(type === 'article' && publishedAt && {
-    "datePublished": publishedAt.toISOString(),
-  }),
+  "@graph": [
+    {
+      "@type": type === 'article' ? 'Article' : 'WebPage',
+      "name": title,
+      "description": cleanDescription,
+      "url": canonical,
+      "inLanguage": lang,
+      ...(type === 'article' && publishedAt && {
+        "datePublished": publishedAt.toISOString(),
+      }),
+    },
+    {
+      "@type": "Organization",
+      "name": "Chataptor",
+      "url": siteUrl,
+      "logo": logoUrl
+    }
+  ]
 })} />
