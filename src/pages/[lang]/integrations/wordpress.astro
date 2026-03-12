@@ -1,0 +1,121 @@
+---
+import { locales, type Locale } from '../../../i18n/config';
+import { getWordPressIntegration } from '../../../i18n/integrations-wordpress';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import IntegrationHero from '../../../components/integrations/IntegrationHero.astro';
+import FeaturesGrid from '../../../components/integrations/FeaturesGrid.astro';
+import HowItWorks from '../../../components/integrations/HowItWorks.astro';
+import PlatformSection from '../../../components/integrations/PlatformSection.astro';
+import WidgetPreview from '../../../components/integrations/WidgetPreview.astro';
+import TechRequirements from '../../../components/integrations/TechRequirements.astro';
+import IntegrationFAQ from '../../../components/integrations/IntegrationFAQ.astro';
+import IntegrationCTA from '../../../components/integrations/IntegrationCTA.astro';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getWordPressIntegration(lang);
+
+const wpOrgUrl = 'https://wordpress.org/plugins/chataptor/';
+const demoUrl = `/${lang}/`;
+const registerUrl = '/register';
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  lang={lang}
+  slug="integrations/wordpress"
+>
+  <IntegrationHero
+    badge={t.hero.badge}
+    platformBadge={t.hero.platformBadge}
+    title={t.hero.title}
+    titleAccent={t.hero.titleAccent}
+    subtitle={t.hero.subtitle}
+    primaryCTA={{ text: t.hero.primaryCTA, href: wpOrgUrl }}
+    secondaryCTA={{ text: t.hero.secondaryCTA, href: demoUrl }}
+  >
+    <svg slot="platform-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.009 12c0-1.298.283-2.529.784-3.643l4.32 11.838C5.223 18.702 3.01 15.617 3.01 12zm8.991 9c-.934 0-1.836-.135-2.691-.382l2.857-8.301 2.926 8.014c.02.048.042.094.067.137A8.946 8.946 0 0112 21zm1.233-13.209c.573-.03 1.088-.09 1.088-.09.514-.06.454-.812-.06-.783 0 0-1.545.12-2.542.12-.943 0-2.527-.12-2.527-.12-.513-.03-.573.753-.06.783 0 0 .488.06 1.003.09l1.49 4.08-2.09 6.271-3.48-10.35c.574-.03 1.088-.09 1.088-.09.513-.06.453-.812-.06-.783 0 0-1.545.12-2.542.12-.18 0-.39-.005-.61-.013A8.96 8.96 0 0112 3.009c2.349 0 4.494.9 6.1 2.374-.039-.003-.076-.009-.117-.009-1.314 0-2.245 1.143-2.245 2.37 0 .823.475 1.52.982 2.345.38.66.822 1.506.822 2.73 0 .846-.326 1.828-.756 3.195l-.99 3.306-3.553-10.53zm4.937 13.386l2.862-8.27c.535-1.337.713-2.406.713-3.358 0-.345-.023-.666-.065-.962A8.954 8.954 0 0120.991 12c0 3.326-1.796 6.229-4.47 7.807z"/>
+    </svg>
+    <svg slot="primary-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.009 12c0-1.298.283-2.529.784-3.643l4.32 11.838C5.223 18.702 3.01 15.617 3.01 12zm8.991 9c-.934 0-1.836-.135-2.691-.382l2.857-8.301 2.926 8.014c.02.048.042.094.067.137A8.946 8.946 0 0112 21zm1.233-13.209c.573-.03 1.088-.09 1.088-.09.514-.06.454-.812-.06-.783 0 0-1.545.12-2.542.12-.943 0-2.527-.12-2.527-.12-.513-.03-.573.753-.06.783 0 0 .488.06 1.003.09l1.49 4.08-2.09 6.271-3.48-10.35c.574-.03 1.088-.09 1.088-.09.513-.06.453-.812-.06-.783 0 0-1.545.12-2.542.12-.18 0-.39-.005-.61-.013A8.96 8.96 0 0112 3.009c2.349 0 4.494.9 6.1 2.374-.039-.003-.076-.009-.117-.009-1.314 0-2.245 1.143-2.245 2.37 0 .823.475 1.52.982 2.345.38.66.822 1.506.822 2.73 0 .846-.326 1.828-.756 3.195l-.99 3.306-3.553-10.53zm4.937 13.386l2.862-8.27c.535-1.337.713-2.406.713-3.358 0-.345-.023-.666-.065-.962A8.954 8.954 0 0120.991 12c0 3.326-1.796 6.229-4.47 7.807z"/>
+    </svg>
+  </IntegrationHero>
+
+  <FeaturesGrid
+    label={t.features.label}
+    title={t.features.title}
+    subtitle={t.features.subtitle}
+    features={t.features.items}
+  />
+
+  <HowItWorks
+    label={t.howItWorks.label}
+    title={t.howItWorks.title}
+    subtitle={t.howItWorks.subtitle}
+    steps={t.howItWorks.steps}
+  />
+
+  <PlatformSection
+    badge={t.woocommerce.badge}
+    title={t.woocommerce.title}
+    subtitle={t.woocommerce.subtitle}
+    features={t.woocommerce.items}
+  />
+
+  <WidgetPreview
+    label={t.widgetPreview.label}
+    title={t.widgetPreview.title}
+    subtitle={t.widgetPreview.subtitle}
+    browserUrl={t.widgetPreview.browserUrl}
+    userMsg={t.widgetPreview.userMsg}
+    userTranslation={t.widgetPreview.userTranslation}
+    agentMsg={t.widgetPreview.agentMsg}
+    agentTranslation={t.widgetPreview.agentTranslation}
+  />
+
+  <TechRequirements
+    label={t.techRequirements.label}
+    title={t.techRequirements.title}
+    subtitle={t.techRequirements.subtitle}
+    items={t.techRequirements.items}
+  />
+
+  <IntegrationFAQ
+    label={t.faq.label}
+    title={t.faq.title}
+    items={t.faq.items}
+  />
+
+  <IntegrationCTA
+    title={t.cta.title}
+    subtitle={t.cta.subtitle}
+    primaryCTA={{ text: t.cta.primaryCTA, href: wpOrgUrl }}
+    secondaryCTA={{ text: t.cta.secondaryCTA, href: registerUrl }}
+  >
+    <svg slot="primary-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.009 12c0-1.298.283-2.529.784-3.643l4.32 11.838C5.223 18.702 3.01 15.617 3.01 12zm8.991 9c-.934 0-1.836-.135-2.691-.382l2.857-8.301 2.926 8.014c.02.048.042.094.067.137A8.946 8.946 0 0112 21zm1.233-13.209c.573-.03 1.088-.09 1.088-.09.514-.06.454-.812-.06-.783 0 0-1.545.12-2.542.12-.943 0-2.527-.12-2.527-.12-.513-.03-.573.753-.06.783 0 0 .488.06 1.003.09l1.49 4.08-2.09 6.271-3.48-10.35c.574-.03 1.088-.09 1.088-.09.513-.06.453-.812-.06-.783 0 0-1.545.12-2.542.12-.18 0-.39-.005-.61-.013A8.96 8.96 0 0112 3.009c2.349 0 4.494.9 6.1 2.374-.039-.003-.076-.009-.117-.009-1.314 0-2.245 1.143-2.245 2.37 0 .823.475 1.52.982 2.345.38.66.822 1.506.822 2.73 0 .846-.326 1.828-.756 3.195l-.99 3.306-3.553-10.53zm4.937 13.386l2.862-8.27c.535-1.337.713-2.406.713-3.358 0-.345-.023-.666-.065-.962A8.954 8.954 0 0120.991 12c0 3.326-1.796 6.229-4.47 7.807z"/>
+    </svg>
+  </IntegrationCTA>
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Chataptor for WordPress",
+    "applicationCategory": "CommunicationApplication",
+    "operatingSystem": "WordPress 6.0+",
+    "description": t.meta.description,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  })} />
+</BaseLayout>
