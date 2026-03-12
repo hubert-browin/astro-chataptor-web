@@ -1,68 +1,112 @@
 ---
 // src/components/CallbackWidget.astro
+// Minimalistyczny widget kontaktowy w stylu Apple / iOS.
 ---
 
-<div 
+<!-- Przycisk wywołujący (Floating Action Button) -->
+<button 
   id="callback-trigger" 
-  class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 -translate-x-2 hover:translate-x-0 transition-transform duration-300 z-40 cursor-pointer shadow-sm border border-gray-100 rounded-r-2xl bg-white text-gray-800 p-2 pl-4 pr-3 items-center group"
+  class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 flex items-center gap-2.5 bg-white/90 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[#E4E4E7] rounded-full pl-3 pr-4 py-2.5 text-[#18181B] transition-all duration-300 hover:scale-[1.03] active:scale-95 group"
+  aria-label="Otwórz formularz kontaktowy"
 >
-  <span class="text-sm font-medium tracking-wide">Zostaw numer</span>
-  <span class="relative flex h-2.5 w-2.5 mx-3">
-    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-  </span>
-</div>
+  <div class="relative flex items-center justify-center w-8 h-8 bg-[#FAFAFA] rounded-full text-[#18181B] group-hover:bg-[#18181B] group-hover:text-white transition-colors duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+    <!-- Subtelny indykator dostępności -->
+    <span class="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#059669] opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#059669] border-2 border-white"></span>
+    </span>
+  </div>
+  <span class="text-[14px] font-medium tracking-tight">Zostaw numer</span>
+</button>
 
+<!-- Tło zaciemniające (Backdrop) -->
 <div 
   id="callback-backdrop" 
-  class="fixed inset-0 z-40 bg-gray-900/5 backdrop-blur-[2px] opacity-0 pointer-events-none transition-opacity duration-300"
+  class="fixed inset-0 z-50 bg-black/20 backdrop-blur-[4px] opacity-0 pointer-events-none transition-opacity duration-400 ease-[cubic-bezier(0.32,0.72,0,1)]"
 ></div>
 
+<!-- Panel Modalny -->
 <div 
   id="callback-panel" 
-  class="fixed z-50 bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] flex flex-col transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-         top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] rounded-3xl opacity-0 scale-95 pointer-events-none p-7 border border-gray-100
-         md:left-6 md:-translate-x-[120%] md:opacity-100 md:scale-100"
+  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-[400px] bg-white rounded-[24px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)] opacity-0 scale-[0.92] pointer-events-none transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] p-7 md:p-8 border border-[#E4E4E7]/50"
 >
-  <button id="callback-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-all duration-300 hover:rotate-90 bg-gray-50 hover:bg-gray-100 p-1.5 rounded-full z-20">
+  <!-- Przycisk zamykania -->
+  <button 
+    id="callback-close" 
+    class="absolute top-4 right-4 p-2 bg-[#FAFAFA] text-[#71717A] hover:text-[#18181B] hover:bg-[#E4E4E7] rounded-full transition-colors duration-200 z-10"
+    aria-label="Zamknij okno"
+  >
     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>
 
-  <div class="flex items-center gap-4 mb-6 mt-1">
-    <div class="relative shrink-0">
+  <!-- Nagłówek i awatar -->
+  <div class="flex flex-col items-center text-center mb-6 mt-2">
+    <div class="relative mb-4">
       <img 
         src="/images/about/hubert.webp" 
         alt="Hubert" 
-        class="w-16 h-16 rounded-full object-cover object-top border-2 border-white shadow-sm"
+        class="w-16 h-16 rounded-full object-cover object-top border border-[#E4E4E7] shadow-sm"
+        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23FAFAFA\' width=\'100\' height=\'100\'/><circle fill=\'%23E4E4E7\' cx=\'50\' cy=\'40\' r=\'20\'/><path fill=\'%23E4E4E7\' d=\'M50 70c-20 0-35 15-35 30h70c0-15-15-30-35-30z\'/></svg>'"
       />
-      <div class="absolute bottom-0 right-0 h-4 w-4 bg-green-500 border-2 border-white rounded-full z-10"></div>
+      <div class="absolute bottom-0 right-0 h-4 w-4 bg-[#059669] border-2 border-white rounded-full z-10 shadow-sm"></div>
     </div>
-    <div>
-      <h3 class="text-[18px] font-semibold text-gray-900 leading-tight tracking-tight">Hej, masz chwilę? 👋</h3>
-      <p class="text-gray-500 text-[13px] mt-1 leading-snug pr-2">
-        Zostaw mi swój numer, oddzwonię do Ciebie w max. 10 minut!
-      </p>
-    </div>
+    <h3 class="text-[20px] font-semibold text-[#18181B] leading-tight tracking-tight mb-1.5">Hej, masz chwilę? 👋</h3>
+    <p class="text-[#71717A] text-[14px] leading-relaxed max-w-[280px]">
+      Zostaw mi swój numer. Obiecuję oddzwonić w mniej niż 10 minut!
+    </p>
   </div>
 
-  <form id="callback-form" class="relative w-full group" onsubmit="event.preventDefault(); alert('Wysyłanie numeru: ' + document.getElementById('phone-input').value);">
-    <input 
-      type="tel" 
-      id="phone-input"
-      placeholder="np. +48 123 456 789" 
-      required
-      maxlength="16"
-      class="w-full pl-5 pr-14 py-4 rounded-2xl border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:ring-4 focus:ring-gray-900/5 focus:border-gray-300 transition-all duration-300 outline-none text-gray-800 text-sm font-medium shadow-sm"
-    />
+  <!-- Formularz -->
+  <form id="callback-form" class="relative w-full flex flex-col gap-3 group" novalidate>
+    
+    <!-- Wrapper na input telefoniczny (Apple style input) -->
+    <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[12px] overflow-hidden border border-transparent transition-all duration-200 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10">
+      
+      <!-- Statyczny prefiks z flagą -->
+      <div class="pl-4 pr-3 py-3.5 flex items-center gap-2 border-r border-[#E4E4E7] select-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-5 h-auto rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.05)]">
+          <rect width="3" height="2" fill="#fff"/>
+          <rect width="3" height="1" y="1" fill="#dc143c"/>
+        </svg>
+        <span class="text-[#18181B] font-medium text-[15px] tracking-wide">+48</span>
+      </div>
+
+      <!-- Właściwe pole input -->
+      <input 
+        type="tel" 
+        id="phone-input"
+        inputmode="tel"
+        autocomplete="tel"
+        placeholder="123 456 789" 
+        class="w-full bg-transparent border-none outline-none pl-3 pr-10 py-3.5 text-[#18181B] text-[15px] font-medium placeholder:text-[#71717A]/60 tracking-wide"
+      />
+
+      <!-- Ikona weryfikacji (Checkmark) -->
+      <div id="valid-icon" class="absolute right-3.5 text-[#059669] transition-all duration-300 opacity-0 scale-50 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Przycisk akcji -->
     <button 
       type="submit" 
-      class="absolute right-1.5 top-1.5 bottom-1.5 aspect-square flex items-center justify-center bg-gray-900 hover:bg-black text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-[1px] active:scale-95"
-      aria-label="Wyślij numer"
+      id="submit-btn"
+      disabled
+      class="w-full relative py-3.5 mt-2 bg-[#18181B] hover:bg-black text-white rounded-full font-bold text-[15px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#18181B] active:scale-[0.98] flex items-center justify-center overflow-hidden"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-focus-within:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      <span id="submit-text" class="transition-opacity duration-200">Zadzwoń do mnie</span>
+      
+      <!-- Spinner ładowania -->
+      <svg id="submit-spinner" class="absolute h-5 w-5 text-white opacity-0 scale-50 transition-all duration-200 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
       </svg>
     </button>
   </form>
@@ -74,59 +118,133 @@
     const panel = document.getElementById('callback-panel');
     const trigger = document.getElementById('callback-trigger');
     const closeBtn = document.getElementById('callback-close');
+    const form = document.getElementById('callback-form') as HTMLFormElement;
     const phoneInput = document.getElementById('phone-input') as HTMLInputElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitText = document.getElementById('submit-text');
+    const submitSpinner = document.getElementById('submit-spinner');
+    const validIcon = document.getElementById('valid-icon');
+    const inputWrapper = document.getElementById('input-wrapper');
 
-    // --- LOGIKA WALIDACJI (Na żywo) ---
+    let isSubmitting = false;
+
+    // --- LOGIKA WALIDACJI I FORMATOWANIA ---
+    const formatPhoneNumber = (value: string) => {
+      // Zostawiamy tylko cyfry
+      const digits = value.replace(/\D/g, '');
+      
+      // Ograniczenie do 9 cyfr
+      const truncated = digits.slice(0, 9);
+      
+      // Dodawanie spacji co 3 cyfry (XXX XXX XXX)
+      let formatted = '';
+      for (let i = 0; i < truncated.length; i++) {
+        if (i > 0 && i % 3 === 0) formatted += ' ';
+        formatted += truncated[i];
+      }
+      return { formatted, rawLength: truncated.length };
+    };
+
     if (phoneInput) {
       phoneInput.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement;
+        const { formatted, rawLength } = formatPhoneNumber(target.value);
         
-        // Zostaw tylko cyfry i ewentualnie znak '+'
-        let val = target.value.replace(/[^\d+]/g, '');
+        // Zapisz sformatowaną wartość z powrotem do inputa
+        target.value = formatted;
+
+        // Walidacja (Dokładnie 9 cyfr)
+        const isValid = rawLength === 9;
         
-        // Jeśli '+' występuje, upewnij się, że jest tylko na początku
-        if (val.includes('+')) {
-          const hasLeadingPlus = val.startsWith('+');
-          val = val.replace(/\+/g, ''); // Usuń wszystkie plusy
-          if (hasLeadingPlus) {
-            val = '+' + val; // Dodaj z powrotem tylko na start
-          }
+        // Aktualizacja UI na podstawie walidacji
+        if (isValid) {
+          submitBtn.disabled = false;
+          validIcon?.classList.remove('opacity-0', 'scale-50');
+          validIcon?.classList.add('opacity-100', 'scale-100');
+          inputWrapper?.classList.add('ring-2', 'ring-[#059669]/20', 'border-[#059669]');
+        } else {
+          submitBtn.disabled = true;
+          validIcon?.classList.add('opacity-0', 'scale-50');
+          validIcon?.classList.remove('opacity-100', 'scale-100');
+          inputWrapper?.classList.remove('ring-2', 'ring-[#059669]/20', 'border-[#059669]');
         }
-        
-        target.value = val;
       });
     }
 
-    // --- LOGIKA OKIENKA ---
+    // --- LOGIKA OBSŁUGI FORMULARZA ---
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (submitBtn.disabled || isSubmitting) return;
+
+      const phoneNumber = `+48 ${phoneInput.value}`;
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      phoneInput.disabled = true;
+
+      // Pokazanie spinnera
+      submitText?.classList.add('opacity-0');
+      submitSpinner?.classList.remove('opacity-0', 'scale-50');
+      submitSpinner?.classList.add('opacity-100', 'scale-100');
+
+      // Symulacja wysyłania (Zastąp swoim zapytaniem fetch/axios)
+      setTimeout(() => {
+        // Sukces
+        submitSpinner?.classList.add('opacity-0', 'scale-50');
+        submitSpinner?.classList.remove('opacity-100', 'scale-100');
+        
+        if (submitText) {
+          submitText.textContent = 'Wysłano pomyślnie!';
+          submitText.classList.remove('opacity-0');
+        }
+        submitBtn.classList.replace('bg-[#18181B]', 'bg-[#059669]');
+
+        // Zamknij po chwili
+        setTimeout(() => {
+          closeModal();
+          // Reset formularza do pierwotnego stanu
+          setTimeout(resetForm, 400); 
+        }, 1500);
+
+      }, 1200);
+    });
+
+    const resetForm = () => {
+      if (!phoneInput || !submitBtn || !submitText || !validIcon) return;
+      form.reset();
+      phoneInput.disabled = false;
+      submitBtn.disabled = true;
+      isSubmitting = false;
+      submitText.textContent = 'Zadzwoń do mnie';
+      submitBtn.classList.replace('bg-[#059669]', 'bg-[#18181B]');
+      validIcon.classList.add('opacity-0', 'scale-50');
+      validIcon.classList.remove('opacity-100', 'scale-100');
+      inputWrapper?.classList.remove('ring-2', 'ring-[#059669]/20', 'border-[#059669]');
+    };
+
+    // --- LOGIKA OKIENKA (MODAL) ---
     const openModal = () => {
       if (!backdrop || !panel) return;
       
+      // Pokazywanie tła
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100', 'pointer-events-auto');
       
-      // Mobile
-      panel.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+      // Animacja wejścia panelu
+      panel.classList.remove('opacity-0', 'scale-[0.92]', 'pointer-events-none');
       panel.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
       
-      // Desktop
-      panel.classList.remove('md:-translate-x-[120%]');
-      panel.classList.add('md:-translate-x-0');
-      
-      // Focus na input po wysunięciu
-      setTimeout(() => phoneInput?.focus(), 300);
+      // Autofocus z małym opóźnieniem, żeby animacja się skończyła
+      setTimeout(() => phoneInput?.focus(), 350);
     };
 
     const closeModal = () => {
       if (!backdrop || !panel) return;
       
+      backdrop.classList.remove('opacity-100', 'pointer-events-auto');
       backdrop.classList.add('opacity-0', 'pointer-events-none');
       
-      // Mobile
-      panel.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
       panel.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
-      
-      // Desktop
-      panel.classList.add('md:-translate-x-[120%]');
-      panel.classList.remove('md:-translate-x-0');
+      panel.classList.add('opacity-0', 'scale-[0.92]', 'pointer-events-none');
       
       sessionStorage.setItem('callback_shown', 'true');
     };
@@ -135,13 +253,14 @@
     closeBtn?.addEventListener('click', closeModal);
     backdrop?.addEventListener('click', closeModal);
 
+    // Auto-otwieranie na mobile (jeśli user nie widział)
     const isMobile = window.innerWidth < 768;
     const hasBeenShown = sessionStorage.getItem('callback_shown');
 
     if (isMobile && !hasBeenShown) {
       setTimeout(() => {
         openModal();
-      }, 10000);
+      }, 10000); // 10 sekund
     }
   });
 </script>
