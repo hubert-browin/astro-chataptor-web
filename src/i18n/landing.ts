@@ -40,6 +40,9 @@ export interface LandingTranslations {
     copyEmail: string;
     liveChat: string;
     liveChatDesc: string;
+    tooltipCall: string;
+    tooltipEmail: string;
+    tooltipChat: string;
   };
   // Chat mockup
   chat: {
@@ -263,6 +266,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'Kopiuj email',
       liveChat: 'Live Chat',
       liveChatDesc: 'Zobacz demo na stronie',
+      tooltipCall: 'Zadzwoń',
+      tooltipEmail: 'Wyślij maila',
+      tooltipChat: 'Otwórz czat',
     },
     chat: {
       messages: 'Wiadomości',
@@ -478,6 +484,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'Copy email',
       liveChat: 'Live Chat',
       liveChatDesc: 'See demo on site',
+      tooltipCall: 'Call',
+      tooltipEmail: 'Send email',
+      tooltipChat: 'Open chat',
     },
     chat: {
       messages: 'Messages',
@@ -693,6 +702,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'E-Mail kopieren',
       liveChat: 'Live-Chat',
       liveChatDesc: 'Demo ansehen',
+      tooltipCall: 'Anrufen',
+      tooltipEmail: 'E-Mail senden',
+      tooltipChat: 'Chat öffnen',
     },
     chat: {
       messages: 'Nachrichten',
@@ -908,6 +920,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'Copier l\'e-mail',
       liveChat: 'Live Chat',
       liveChatDesc: 'Voir la démo sur le site',
+      tooltipCall: 'Appeler',
+      tooltipEmail: 'Envoyer un e-mail',
+      tooltipChat: 'Ouvrir le chat',
     },
     chat: {
       messages: 'Messages',
@@ -1123,6 +1138,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'Copiar correo',
       liveChat: 'Chat en vivo',
       liveChatDesc: 'Ver demo en el sitio',
+      tooltipCall: 'Llamar',
+      tooltipEmail: 'Enviar correo',
+      tooltipChat: 'Abrir chat',
     },
     chat: {
       messages: 'Mensajes',
@@ -1338,6 +1356,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'Copia email',
       liveChat: 'Live Chat',
       liveChatDesc: 'Vedi demo sul sito',
+      tooltipCall: 'Chiama',
+      tooltipEmail: 'Invia email',
+      tooltipChat: 'Apri la chat',
     },
     chat: {
       messages: 'Messaggi',
@@ -1553,6 +1574,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'Kopírovat e-mail',
       liveChat: 'Live Chat',
       liveChatDesc: 'Zobrazit demo na webu',
+      tooltipCall: 'Zavolat',
+      tooltipEmail: 'Poslat e-mail',
+      tooltipChat: 'Otevřít chat',
     },
     chat: {
       messages: 'Zprávy',
@@ -1768,6 +1792,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       copyEmail: 'Kopírovať e-mail',
       liveChat: 'Live Chat',
       liveChatDesc: 'Pozrieť demo na webe',
+      tooltipCall: 'Zavolať',
+      tooltipEmail: 'Poslať e-mail',
+      tooltipChat: 'Otvoriť chat',
     },
     chat: {
       messages: 'Správy',
