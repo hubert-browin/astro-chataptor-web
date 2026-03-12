@@ -1,0 +1,107 @@
+---
+// src/components/CallbackWidget.astro
+// Możesz tu później dodać logikę i18n z Twojego projektu, 
+// na razie wpisuję tekst na sztywno zgodnie z życzeniem.
+---
+
+<div 
+  id="callback-trigger" 
+  class="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 translate-x-2 hover:translate-x-0 transition-transform duration-300 z-40 cursor-pointer shadow-lg rounded-l-xl bg-slate-900 text-white p-1 pr-3 items-center group"
+>
+  <span class="relative flex h-3 w-3 mx-3">
+    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+  </span>
+  <span class="text-sm font-medium tracking-wide">Zostaw numer</span>
+</div>
+
+<div 
+  id="callback-modal" 
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+>
+  <div class="bg-white rounded-2xl shadow-2xl p-6 w-[90%] max-w-md relative transform scale-95 transition-transform duration-300" id="callback-content">
+    
+    <button id="callback-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="flex flex-col items-center text-center mt-2">
+      <div class="relative mb-4">
+        <div class="absolute inset-0 bg-green-100 rounded-full animate-pulse blur-md"></div>
+        <img 
+          src="/images/about/hubert.webp" 
+          alt="Hubert" 
+          class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md relative z-10"
+        />
+        <div class="absolute bottom-0 right-0 h-5 w-5 bg-green-500 border-2 border-white rounded-full z-20"></div>
+      </div>
+      
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Zostaw swój numer!</h3>
+      <p class="text-gray-600 text-sm mb-6">
+        Oddzwonimy w max. 10 minut i porozmawiamy o Twoim projekcie.
+      </p>
+
+      <form class="w-full flex flex-col gap-3" onsubmit="event.preventDefault(); alert('Tu podepnij wysyłkę!');">
+        <input 
+          type="tel" 
+          placeholder="Twój numer telefonu" 
+          required
+          class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition-all outline-none"
+        />
+        <button 
+          type="submit" 
+          class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200"
+        >
+          Czekam na telefon
+        </button>
+      </form>
+      <span class="text-xs text-gray-400 mt-4">Twoje dane są u nas bezpieczne.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Logika widżetu
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('callback-modal');
+    const content = document.getElementById('callback-content');
+    const trigger = document.getElementById('callback-trigger');
+    const closeBtn = document.getElementById('callback-close');
+
+    const openModal = () => {
+      if (!modal || !content) return;
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    };
+
+    const closeModal = () => {
+      if (!modal || !content) return;
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      content.classList.remove('scale-100');
+      content.classList.add('scale-95');
+      // Zapobiega ponownemu otwieraniu po automatycznym wyskoczeniu na mobile
+      sessionStorage.setItem('callback_shown', 'true');
+    };
+
+    // Eventy dla desktopu
+    trigger?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal(); // Zamknięcie po kliknięciu w tło
+    });
+
+    // Logika dla mobile: wyskocz po 10 sekundach
+    // Zakładamy, że mobile to ekrany poniżej 768px (zgodnie z md: w Tailwind)
+    const isMobile = window.innerWidth < 768;
+    const hasBeenShown = sessionStorage.getItem('callback_shown');
+
+    if (isMobile && !hasBeenShown) {
+      setTimeout(() => {
+        openModal();
+      }, 10000); // 10 sekund = 10000 milisekund
+    }
+  });
+</script>
