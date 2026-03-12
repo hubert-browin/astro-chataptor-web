@@ -116,11 +116,6 @@
         </svg>
       </button>
     </div>
-    
-    <!-- Subtelny komunikat o sukcesie pod spodem -->
-    <div id="success-msg" class="absolute -bottom-8 left-0 right-0 text-center opacity-0 transition-opacity duration-300 pointer-events-none">
-      <span class="text-[13px] font-medium tracking-tight text-[#059669] bg-[#059669]/10 px-3 py-1 rounded-full">Numer został wysłany!</span>
-    </div>
   </form>
 </div>
 
@@ -140,7 +135,6 @@
     const submitSuccess = document.getElementById('submit-success');
     
     const inputWrapper = document.getElementById('input-wrapper');
-    const successMsg = document.getElementById('success-msg');
     const countryFlag = document.getElementById('country-flag') as HTMLImageElement;
 
     // Jeżeli formularz został już wysłany podczas tej sesji, całkowicie usuń elementy z DOM
@@ -283,9 +277,9 @@
         if (code === '48') {
             isValid = number.length === 9;
         } 
-        // Globalny przypadek: Numery telefonów na świecie mają od ok. 5 do 15 cyfr
+        // Globalny przypadek: Numery telefonów na świecie mają od ok. 7 do 15 cyfr
         else if (code.length >= 1) {
-            isValid = number.length >= 5 && number.length <= 15;
+            isValid = number.length >= 7 && number.length <= 15;
         }
 
         updateValidationState(isValid);
@@ -314,8 +308,6 @@
         
         submitSuccess?.classList.remove('opacity-0', 'scale-50');
         submitSuccess?.classList.add('opacity-100', 'scale-100');
-        
-        successMsg?.classList.remove('opacity-0');
 
         setTimeout(() => {
           closeModal();
