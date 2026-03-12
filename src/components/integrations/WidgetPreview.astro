@@ -1,0 +1,81 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  subtitle: string;
+  browserUrl: string;
+  userMsg: string;
+  userTranslation: string;
+  agentMsg: string;
+  agentTranslation: string;
+}
+
+const { label, title, subtitle, browserUrl, userMsg, userTranslation, agentMsg, agentTranslation } = Astro.props;
+---
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs font-bold uppercase tracking-widest text-emerald-600 text-center mb-3">
+      {label}
+    </p>
+    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-3">
+      {title}
+    </h2>
+    <p class="text-base text-zinc-500 text-center max-w-lg mx-auto mb-12 leading-relaxed">
+      {subtitle}
+    </p>
+
+    <!-- Browser mockup -->
+    <div class="bg-zinc-100 rounded-2xl p-4 md:p-8">
+      <div class="bg-white rounded-xl overflow-hidden shadow-xl shadow-zinc-200/50">
+        <!-- Browser chrome -->
+        <div class="flex items-center gap-2 px-4 py-3 bg-zinc-50 border-b border-zinc-200">
+          <div class="flex gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-300"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-300"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-green-300"></div>
+          </div>
+          <div class="flex-1 bg-white rounded-md px-3 py-1.5 text-xs text-zinc-400 ring-1 ring-zinc-200">
+            🔒 {browserUrl}
+          </div>
+        </div>
+
+        <!-- Page content area -->
+        <div class="relative p-8 md:p-12 min-h-[280px]">
+          <!-- Placeholder lines -->
+          <div class="space-y-3">
+            <div class="h-3 bg-zinc-100 rounded w-3/5"></div>
+            <div class="h-3 bg-zinc-100 rounded w-4/5"></div>
+            <div class="h-3 bg-zinc-100 rounded w-2/5"></div>
+            <div class="mt-6 h-3 bg-zinc-100 rounded w-7/12"></div>
+            <div class="h-3 bg-zinc-100 rounded w-1/2"></div>
+            <div class="h-3 bg-zinc-100 rounded w-2/3"></div>
+          </div>
+
+          <!-- Chat widget mockup -->
+          <div class="absolute bottom-4 right-4 w-64 bg-white rounded-2xl shadow-2xl ring-1 ring-zinc-200 overflow-hidden">
+            <div class="bg-zinc-900 text-white px-4 py-3 text-sm font-semibold">
+              💬 Chat with us
+            </div>
+            <div class="p-3 space-y-2">
+              <!-- User message -->
+              <div class="max-w-[85%]">
+                <div class="bg-zinc-100 text-zinc-700 rounded-xl px-3 py-2 text-xs leading-relaxed">
+                  {userMsg}
+                  <div class="text-[10px] text-zinc-400 mt-1 italic">🇩🇪 {userTranslation}</div>
+                </div>
+              </div>
+              <!-- Agent message -->
+              <div class="max-w-[85%] ml-auto">
+                <div class="bg-zinc-900 text-white rounded-xl px-3 py-2 text-xs leading-relaxed">
+                  {agentMsg}
+                  <div class="text-[10px] text-zinc-400 mt-1 italic">🇬🇧 {agentTranslation}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

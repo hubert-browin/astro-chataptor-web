@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  primaryCTA: { text: string; href: string };
+  secondaryCTA: { text: string; href: string };
+}
+
+const { title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
+---
+
+<section class="py-20 md:py-24 px-6 bg-zinc-900 text-white">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+      {title}
+    </h2>
+    <p class="text-base text-zinc-400 mb-8 leading-relaxed">
+      {subtitle}
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a
+        href={primaryCTA.href}
+        class="inline-flex items-center gap-2 bg-white text-zinc-900 px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-zinc-100 transition-all hover:scale-105 active:scale-95"
+      >
+        <slot name="primary-icon" />
+        {primaryCTA.text}
+      </a>
+      <a
+        href={secondaryCTA.href}
+        class="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full font-semibold text-sm ring-1 ring-white/20 hover:ring-white/40 hover:bg-white/5 transition-all"
+      >
+        {secondaryCTA.text} →
+      </a>
+    </div>
+  </div>
+</section>
