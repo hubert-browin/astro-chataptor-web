@@ -313,27 +313,22 @@
       submitSpinner?.classList.remove('opacity-0', 'scale-50', 'hidden');
       submitSpinner?.classList.add('opacity-100', 'scale-100');
 
-      // Wpisz tutaj swój adres webhooka z n8n (zastąp poniższy tekst)
+      // Twój adres webhooka n8n
       const WEBHOOK_URL = 'https://n8n.hisecore.pl/webhook/66e72f27-c70e-4269-bbc9-76dba4d70b4b';
 
       try {
-        // Wysyłamy żądanie do webhooka jeśli został wprowadzony
-        if (WEBHOOK_URL !== 'https://n8n.hisecore.pl/webhook/66e72f27-c70e-4269-bbc9-76dba4d70b4b') {
-          await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ 
-              phone: phoneNumber, 
-              source: 'callback_widget_website',
-              timestamp: new Date().toISOString()
-            })
-          });
-        } else {
-          // Jeżeli linku nie ma, po prostu udajemy wysyłanie (symulacja)
-          await new Promise(resolve => setTimeout(resolve, 1200));
-        }
+        // Natychmiastowe wysłanie danych z usuniętym warunkiem blokującym
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 
+            phone: phoneNumber, 
+            source: 'callback_widget_website',
+            timestamp: new Date().toISOString()
+          })
+        });
 
         // Animacja sukcesu po poprawnym wysłaniu
         submitSpinner?.classList.add('opacity-0', 'scale-50', 'hidden');
@@ -357,7 +352,7 @@
       } catch (error) {
         console.error('Błąd podczas wysyłania numeru telefonu:', error);
         
-        // W razie błędu przywracamy formularz do stanu początkowego i pozwalamy spróbować jeszcze raz
+        // W razie błędu przywracamy formularz do stanu początkowego
         isSubmitting = false;
         submitBtn.disabled = false;
         phoneInput.disabled = false;
