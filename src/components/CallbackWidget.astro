@@ -70,9 +70,14 @@
     <!-- Wrapper na input telefoniczny -->
     <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[18px] overflow-hidden border border-[#E4E4E7] transition-all duration-300 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10 shadow-sm p-1.5">
       
-      <!-- Kontener flagi - dynamiczny -->
+      <!-- Kontener flagi z obrazkiem (zastępuje problematyczne emoji) -->
       <div id="flag-container" class="pl-3 pr-2 py-2 flex items-center justify-center border-r border-[#E4E4E7]/80 select-none shrink-0 min-w-[48px] transition-all duration-300">
-        <span id="country-emoji" class="text-[18px] leading-none transition-transform duration-300">🇵🇱</span>
+        <img 
+          id="country-flag" 
+          src="https://flagcdn.com/w40/pl.png" 
+          alt="Flaga" 
+          class="w-6 h-4 object-cover rounded-[3px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)] transition-all duration-300" 
+        />
       </div>
 
       <!-- Właściwe pole input -->
@@ -135,44 +140,43 @@
     
     const inputWrapper = document.getElementById('input-wrapper');
     const successMsg = document.getElementById('success-msg');
-    const countryEmoji = document.getElementById('country-emoji');
+    const countryFlag = document.getElementById('country-flag') as HTMLImageElement;
 
     let isSubmitting = false;
+    let currentFlagIso = 'pl';
 
-    // Prosta baza popularnych kierunkowych dla detekcji flagi
-    // Format: 'kierunkowy': { emoji: 'flag_emoji', length: dlugosc_numeru_bez_kierunkowego }
-    // Jeśli długość to 'any', akceptujemy minimalną sensowną długość (np. 6 cyfr)
-    const countryCodes: Record<string, { emoji: string, minLength: number, maxLength: number, format?: (num: string) => string }> = {
-      '48': { emoji: '🇵🇱', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Polska: 9 cyfr
-      '49': { emoji: '🇩🇪', minLength: 10, maxLength: 11 }, // Niemcy: zmienna dlugosc (zazwyczaj 10-11)
-      '44': { emoji: '🇬🇧', minLength: 10, maxLength: 10, format: (n) => n.replace(/(\d{4})(\d{6})/, '$1 $2') }, // UK: 10 cyfr
-      '420': { emoji: '🇨🇿', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Czechy: 9 cyfr
-      '421': { emoji: '🇸🇰', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Słowacja: 9 cyfr
-      '33': { emoji: '🇫🇷', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5').trim() }, // Francja: 9 cyfr
-      '34': { emoji: '🇪🇸', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4').trim() }, // Hiszpania: 9 cyfr
-      '39': { emoji: '🇮🇹', minLength: 9, maxLength: 10 }, // Włochy: 9-10 cyfr
-      '1': { emoji: '🇺🇸', minLength: 10, maxLength: 10, format: (n) => n.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') }, // USA/Kanada: 10 cyfr
-      '380': { emoji: '🇺🇦', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4') }, // Ukraina: 9 cyfr
-      // Domyślny fallback dla innych
-      'default': { emoji: '🌐', minLength: 6, maxLength: 15 } 
+    // Baza kierunkowych z kodami ISO zamiast emoji
+    const countryCodes: Record<string, { iso: string, minLength: number, maxLength: number, format?: (num: string) => string }> = {
+      '48': { iso: 'pl', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Polska
+      '49': { iso: 'de', minLength: 10, maxLength: 11 }, // Niemcy
+      '44': { iso: 'gb', minLength: 10, maxLength: 10, format: (n) => n.replace(/(\d{4})(\d{6})/, '$1 $2') }, // UK
+      '420': { iso: 'cz', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Czechy
+      '421': { iso: 'sk', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Słowacja
+      '33': { iso: 'fr', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5').trim() }, // Francja
+      '34': { iso: 'es', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4').trim() }, // Hiszpania
+      '39': { iso: 'it', minLength: 9, maxLength: 10 }, // Włochy
+      '1': { iso: 'us', minLength: 10, maxLength: 10, format: (n) => n.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') }, // USA/Kanada
+      '380': { iso: 'ua', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4') }, // Ukraina
+      'default': { iso: 'globe', minLength: 6, maxLength: 15 } // Fallback
     };
 
-    // Funkcja do wyciągania kierunkowego i numeru właściwego z wpisanego ciągu
+    // Obrazek SVG z globusem (w data URI) do użycia gdy kraj jest nieznany
+    const globeSvg = "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='2' y1='12' x2='22' y2='12'%3E%3C/line%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'%3E%3C/path%3E%3C/svg%3E";
+
+    const getFlagUrl = (iso: string) => {
+      if (iso === 'globe') return globeSvg;
+      return `https://flagcdn.com/w40/${iso}.png`;
+    };
+
     const parsePhoneNumber = (input: string) => {
-      // Usuń wszystko oprócz cyfr i +
       let cleaned = input.replace(/[^\d+]/g, '');
       
-      // Jeśli zaczyna się od cyfry, zakładamy polski domyślny
       if (/^[1-9]/.test(cleaned)) {
         cleaned = '+48' + cleaned;
       }
-
-      // Jeśli zaczyna się od zera, zamieniamy 00 na + (standardowy prefix międzynarodowy)
       if (cleaned.startsWith('00')) {
           cleaned = '+' + cleaned.substring(2);
       }
-
-      // Upewnij się, że ma tylko jednego plusa na początku
       if(cleaned.includes('+') && cleaned.indexOf('+') !== 0) {
           cleaned = '+' + cleaned.replace(/\+/g, '');
       }
@@ -182,10 +186,8 @@
       let countryInfo = countryCodes['default'];
       let foundCode = false;
 
-      // Szukaj pasującego kodu kraju (od najdłuższych do najkrótszych, max kierunkowy ma 3 cyfry zazwyczaj, 4 w rzadkich przypadkach)
       if (cleaned.startsWith('+')) {
-        const potentialCodeStr = cleaned.substring(1); // bez +
-        // Sprawdź długości 3, 2, 1
+        const potentialCodeStr = cleaned.substring(1); 
         for (let i = 3; i >= 1; i--) {
           const potentialCode = potentialCodeStr.substring(0, i);
           if (countryCodes[potentialCode]) {
@@ -197,105 +199,87 @@
           }
         }
         
-        // Jeśli nie znaleziono w naszej bazie, ale wygląda jak kierunkowy
         if (!foundCode && potentialCodeStr.length > 0) {
-           // Prosta heurystyka: większość kodów to 2 cyfry, a te zaczynające się od 1 to USA/Kanada (1 cyfra), a od niektórych (np. 42X to 3)
            let codeLen = 2;
-           if(potentialCodeStr.startsWith('1') || potentialCodeStr.startsWith('7')) codeLen = 1; // USA, Rosja/Kazachstan
+           if(potentialCodeStr.startsWith('1') || potentialCodeStr.startsWith('7')) codeLen = 1; 
            if(potentialCodeStr.startsWith('42') || potentialCodeStr.startsWith('38') || potentialCodeStr.startsWith('37')) codeLen = 3;
            
            code = potentialCodeStr.substring(0, codeLen);
            number = potentialCodeStr.substring(codeLen);
-           // Pozostaw default countryInfo
         }
       } else {
-        // Powinno być pokryte przez dodanie +48, ale w razie czego
         code = '48';
         number = cleaned;
         countryInfo = countryCodes['48'];
       }
 
-      return {
-        raw: cleaned,
-        code: code,
-        number: number,
-        info: countryInfo
-      };
+      return { raw: cleaned, code: code, number: number, info: countryInfo };
     };
 
     if (phoneInput) {
-      // Dodaj +48 gdy użytkownik sfocusuje na puste pole, jeśli chce
       phoneInput.addEventListener('focus', () => {
           if(phoneInput.value === '') {
               phoneInput.value = '+48 ';
-              // Animacja flagi (opcjonalnie)
-              if(countryEmoji) countryEmoji.textContent = '🇵🇱';
+              if(countryFlag && currentFlagIso !== 'pl') {
+                 currentFlagIso = 'pl';
+                 countryFlag.src = getFlagUrl('pl');
+              }
           }
       });
 
       phoneInput.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement;
-        
-        // Pamiętaj gdzie był kursor przed manipulacją
         const selectionStart = target.selectionStart;
         const oldLength = target.value.length;
 
         const parsed = parsePhoneNumber(target.value);
         
-        // Aktualizacja emoji flagi
-        if (countryEmoji && parsed.code) {
-           // Sprawdź czy flaga się zmieniła, dodaj subtelną animację jeśli tak
-           if (countryEmoji.textContent !== parsed.info.emoji) {
-               countryEmoji.style.transform = 'scale(0.8) opacity(0.5)';
+        // --- AKTUALIZACJA OBRAZKA FLAGI Z PŁYNNĄ ANIMACJĄ ---
+        if (countryFlag && parsed.code) {
+           if (currentFlagIso !== parsed.info.iso) {
+               currentFlagIso = parsed.info.iso;
+               countryFlag.style.transform = 'scale(0.8)';
+               countryFlag.style.opacity = '0.5';
                setTimeout(() => {
-                   countryEmoji.textContent = parsed.info.emoji;
-                   countryEmoji.style.transform = 'scale(1) opacity(1)';
+                   countryFlag.src = getFlagUrl(parsed.info.iso);
+                   countryFlag.style.transform = 'scale(1)';
+                   countryFlag.style.opacity = '1';
                }, 150);
            }
-        } else if (countryEmoji && !parsed.raw) {
-            countryEmoji.textContent = '🌐'; // Default jak puste
+        } else if (countryFlag && !parsed.raw && currentFlagIso !== 'globe') {
+            currentFlagIso = 'globe';
+            countryFlag.src = globeSvg;
         }
 
-        // Formatowanie wyświetlanej wartości
+        // --- FORMATOWANIE NUMERU ---
         let displayValue = parsed.raw.startsWith('+') ? '+' + parsed.code : '';
         if (displayValue) displayValue += ' ';
 
         if (parsed.number) {
             if (parsed.info.format) {
-                // Użyj dedykowanego formatera jeśli istnieje i numer ma max długość lub jest w trakcie wpisywania
-                // Ale formatuj tylko to co wpisano
                 let formattedNum = parsed.info.format(parsed.number);
                 displayValue += formattedNum;
             } else {
-                // Domyślne formatowanie: dziel na bloki co 3/4 cyfry w zależności od długości dla czytelności
-                let formatted = parsed.number.replace(/\s/g, ''); // usun spacje
-                // Prosty spacing - np. co 3, ale to skomplikowane bez wiedzy o kraju
-                // Dla 'default' nie robimy agresywnego formatowania, żeby nie popsuć
+                let formatted = parsed.number.replace(/\s/g, ''); 
                 displayValue += formatted;
             }
         }
         
-        // Ogranicz do max długości numeru (żeby nie wpisywać w nieskończoność)
-        // Jeśli długość number przekracza maxLength z countryInfo (plus ew spacje z formatowania), ucinamy
         const maxLenWithoutSpaces = parsed.info.maxLength;
         const currentNumLen = parsed.number.replace(/\s/g, '').length;
         
         if (currentNumLen > maxLenWithoutSpaces) {
-             // Wyrzucamy ostatnio dodany znak z raw inputu i parsujemy ponownie
-             // To proste zabezpieczenie
              target.value = displayValue.substring(0, displayValue.length - 1);
         } else {
              target.value = displayValue;
         }
 
-        // Próba inteligentnego przywrócenia kursora (może być niedoskonała przy formaterach)
         if (selectionStart !== null && target.value.length !== oldLength) {
              const diff = target.value.length - oldLength;
              target.setSelectionRange(selectionStart + diff, selectionStart + diff);
         }
 
         // --- WALIDACJA ---
-        // Sprawdzamy czy wpisano minimalną wymaganą liczbę cyfr dla danego kraju
         const isValid = parsed.number.replace(/\s/g, '').length >= parsed.info.minLength && 
                         parsed.number.replace(/\s/g, '').length <= parsed.info.maxLength &&
                         parsed.code.length > 0;
@@ -321,35 +305,28 @@
       e.preventDefault();
       if (submitBtn.disabled || isSubmitting) return;
 
-      // Złap wyczyszczoną wartość do wysłania
       const phoneNumber = phoneInput.value.replace(/\s/g, '');
-      console.log('Wysyłanie numeru:', phoneNumber); // Do testów
+      console.log('Wysyłanie numeru:', phoneNumber); 
 
       isSubmitting = true;
       submitBtn.disabled = true;
       phoneInput.disabled = true;
 
-      // 1. Ukryj ikonę strzałki, pokaż spinner
       submitIcon?.classList.add('opacity-0', 'scale-0', 'hidden');
       submitSpinner?.classList.remove('opacity-0', 'scale-50', 'hidden');
       submitSpinner?.classList.add('opacity-100', 'scale-100');
 
-      // 2. Symulacja wysyłania (Zastąp fetch/axios)
       setTimeout(() => {
-        // 3. Sukces: ukryj spinner, pokaż "V"
         submitSpinner?.classList.add('opacity-0', 'scale-50', 'hidden');
         submitSpinner?.classList.remove('opacity-100', 'scale-100');
         
         submitSuccess?.classList.remove('opacity-0', 'scale-50');
         submitSuccess?.classList.add('opacity-100', 'scale-100');
-        // Przycisk jest już zielony z walidacji
         
         successMsg?.classList.remove('opacity-0');
 
-        // 4. Zamknij po chwili
         setTimeout(() => {
           closeModal();
-          // Reset po zakończeniu animacji zamykania
           setTimeout(resetForm, 500); 
         }, 1800);
 
@@ -359,18 +336,22 @@
     const resetForm = () => {
       if (!phoneInput || !form) return;
       form.reset();
-      phoneInput.value = ''; // Wyzeruj manualnie
-      if(countryEmoji) countryEmoji.textContent = '🇵🇱'; // Reset do PL emoji
+      phoneInput.value = ''; 
+      
+      // Reset do polskiej flagi
+      if(countryFlag) {
+          currentFlagIso = 'pl';
+          countryFlag.src = getFlagUrl('pl');
+      }
+
       phoneInput.disabled = false;
       isSubmitting = false;
       
-      // Reset przycisku inline
       submitIcon?.classList.remove('opacity-0', 'scale-0', 'hidden', 'translate-x-[2px]');
       submitSpinner?.classList.add('opacity-0', 'scale-50');
-      submitSpinner?.classList.remove('hidden'); // ukrywamy go spowrotem po reszcie
+      submitSpinner?.classList.remove('hidden'); 
       submitSuccess?.classList.add('opacity-0', 'scale-50');
       
-      // Reset stanów walidacji
       submitBtn.disabled = true;
       submitBtn.classList.add('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
       submitBtn.classList.remove('bg-[#059669]', 'hover:bg-[#047857]', 'text-white', 'cursor-pointer', 'shadow-[0_4px_12px_rgba(5,150,105,0.25)]', 'hover:-translate-y-[1px]', 'active:translate-y-[1px]', 'active:scale-95');
@@ -386,15 +367,12 @@
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
       backdrop.classList.add('opacity-100', 'pointer-events-auto');
       
-      // Animacja wejścia (Klasy Mobile)
       panel.classList.remove('opacity-0', 'scale-[0.92]', 'pointer-events-none');
       panel.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
       
-      // Animacja wejścia (Klasy Desktop - wysunięcie od lewej)
       panel.classList.remove('md:-translate-x-[120%]');
       panel.classList.add('md:-translate-x-0');
       
-      // Autofocus z opóźnieniem
       setTimeout(() => phoneInput?.focus(), 400);
     };
 
@@ -404,11 +382,9 @@
       backdrop.classList.remove('opacity-100', 'pointer-events-auto');
       backdrop.classList.add('opacity-0', 'pointer-events-none');
       
-      // Klasy Mobile
       panel.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
       panel.classList.add('opacity-0', 'scale-[0.92]', 'pointer-events-none');
       
-      // Klasy Desktop (chowanie do lewej)
       panel.classList.remove('md:-translate-x-0');
       panel.classList.add('md:-translate-x-[120%]');
       
@@ -419,7 +395,6 @@
     closeBtn?.addEventListener('click', closeModal);
     backdrop?.addEventListener('click', closeModal);
 
-    // Auto-otwieranie na mobile po 10 sek
     const isMobile = window.innerWidth < 768;
     const hasBeenShown = sessionStorage.getItem('callback_shown');
 
