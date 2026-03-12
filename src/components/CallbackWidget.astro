@@ -298,7 +298,7 @@
       });
     }
 
-    form?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (submitBtn.disabled || isSubmitting) return;
 
@@ -313,7 +313,29 @@
       submitSpinner?.classList.remove('opacity-0', 'scale-50', 'hidden');
       submitSpinner?.classList.add('opacity-100', 'scale-100');
 
-      setTimeout(() => {
+      // Wpisz tutaj swój adres webhooka z n8n (zastąp poniższy tekst)
+      const WEBHOOK_URL = 'https://n8n.hisecore.pl/webhook/66e72f27-c70e-4269-bbc9-76dba4d70b4b';
+
+      try {
+        // Wysyłamy żądanie do webhooka jeśli został wprowadzony
+        if (WEBHOOK_URL !== 'https://n8n.hisecore.pl/webhook/66e72f27-c70e-4269-bbc9-76dba4d70b4b') {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+              phone: phoneNumber, 
+              source: 'callback_widget_website',
+              timestamp: new Date().toISOString()
+            })
+          });
+        } else {
+          // Jeżeli linku nie ma, po prostu udajemy wysyłanie (symulacja)
+          await new Promise(resolve => setTimeout(resolve, 1200));
+        }
+
+        // Animacja sukcesu po poprawnym wysłaniu
         submitSpinner?.classList.add('opacity-0', 'scale-50', 'hidden');
         submitSpinner?.classList.remove('opacity-100', 'scale-100');
         
@@ -332,7 +354,20 @@
 
         }, 1800);
 
-      }, 1200);
+      } catch (error) {
+        console.error('Błąd podczas wysyłania numeru telefonu:', error);
+        
+        // W razie błędu przywracamy formularz do stanu początkowego i pozwalamy spróbować jeszcze raz
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        phoneInput.disabled = false;
+        
+        submitSpinner?.classList.add('opacity-0', 'scale-50', 'hidden');
+        submitSpinner?.classList.remove('opacity-100', 'scale-100');
+        submitIcon?.classList.remove('opacity-0', 'scale-0', 'hidden');
+        
+        alert('Wystąpił problem z wysłaniem formularza. Sprawdź połączenie lub spróbuj ponownie później.');
+      }
     });
 
     const openModal = () => {
