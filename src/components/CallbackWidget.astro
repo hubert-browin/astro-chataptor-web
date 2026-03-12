@@ -4,7 +4,7 @@
 
 <div 
   id="callback-trigger" 
-  class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 -translate-x-2 hover:translate-x-0 transition-transform duration-300 z-40 cursor-pointer shadow-md border border-gray-100 rounded-r-2xl bg-white text-gray-800 p-2 pl-4 pr-3 items-center group"
+  class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 -translate-x-2 hover:translate-x-0 transition-transform duration-300 z-40 cursor-pointer shadow-sm border border-gray-100 rounded-r-2xl bg-white text-gray-800 p-2 pl-4 pr-3 items-center group"
 >
   <span class="text-sm font-medium tracking-wide">Zostaw numer</span>
   <span class="relative flex h-2.5 w-2.5 mx-3">
@@ -15,51 +15,53 @@
 
 <div 
   id="callback-backdrop" 
-  class="fixed inset-0 z-40 bg-gray-900/10 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+  class="fixed inset-0 z-40 bg-gray-900/5 backdrop-blur-[2px] opacity-0 pointer-events-none transition-opacity duration-300"
 ></div>
 
 <div 
   id="callback-panel" 
-  class="fixed z-50 bg-white shadow-2xl flex flex-col transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-         top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-sm rounded-3xl opacity-0 scale-95 pointer-events-none p-6 border border-gray-100
+  class="fixed z-50 bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] flex flex-col transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+         top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[420px] rounded-3xl opacity-0 scale-95 pointer-events-none p-7 border border-gray-100
          md:left-6 md:-translate-x-[120%] md:opacity-100 md:scale-100"
 >
-  <button id="callback-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors bg-gray-50 hover:bg-gray-100 p-1.5 rounded-full z-20">
+  <button id="callback-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-all duration-300 hover:rotate-90 bg-gray-50 hover:bg-gray-100 p-1.5 rounded-full z-20">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>
 
-  <div class="flex items-center gap-4 mb-6 mt-2">
+  <div class="flex items-center gap-4 mb-6 mt-1">
     <div class="relative shrink-0">
       <img 
         src="/images/about/hubert.webp" 
         alt="Hubert" 
-        class="w-16 h-16 rounded-full object-cover object-top border border-gray-100 shadow-sm"
+        class="w-16 h-16 rounded-full object-cover object-top border-2 border-white shadow-sm"
       />
       <div class="absolute bottom-0 right-0 h-4 w-4 bg-green-500 border-2 border-white rounded-full z-10"></div>
     </div>
     <div>
-      <h3 class="text-[17px] font-semibold text-gray-900 leading-tight tracking-tight">Hej, masz chwilę? 👋</h3>
-      <p class="text-gray-500 text-[13px] mt-1 leading-snug">
+      <h3 class="text-[18px] font-semibold text-gray-900 leading-tight tracking-tight">Hej, masz chwilę? 👋</h3>
+      <p class="text-gray-500 text-[13px] mt-1 leading-snug pr-2">
         Zostaw mi swój numer, oddzwonię do Ciebie w max. 10 minut!
       </p>
     </div>
   </div>
 
-  <form class="relative w-full" onsubmit="event.preventDefault(); alert('Tu podepnij wysyłkę!');">
+  <form id="callback-form" class="relative w-full group" onsubmit="event.preventDefault(); alert('Wysyłanie numeru: ' + document.getElementById('phone-input').value);">
     <input 
       type="tel" 
-      placeholder="Wpisz numer telefonu..." 
+      id="phone-input"
+      placeholder="np. +48 123 456 789" 
       required
-      class="w-full pl-5 pr-14 py-3.5 rounded-2xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition-all outline-none text-gray-800 text-sm"
+      maxlength="16"
+      class="w-full pl-5 pr-14 py-4 rounded-2xl border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:ring-4 focus:ring-gray-900/5 focus:border-gray-300 transition-all duration-300 outline-none text-gray-800 text-sm font-medium shadow-sm"
     />
     <button 
       type="submit" 
-      class="absolute right-1.5 top-1.5 bottom-1.5 aspect-square flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white rounded-xl transition-transform hover:scale-105 active:scale-95"
+      class="absolute right-1.5 top-1.5 bottom-1.5 aspect-square flex items-center justify-center bg-gray-900 hover:bg-black text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-[1px] active:scale-95"
       aria-label="Wyślij numer"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 translate-x-[1px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-focus-within:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
     </button>
@@ -72,33 +74,57 @@
     const panel = document.getElementById('callback-panel');
     const trigger = document.getElementById('callback-trigger');
     const closeBtn = document.getElementById('callback-close');
+    const phoneInput = document.getElementById('phone-input') as HTMLInputElement;
 
+    // --- LOGIKA WALIDACJI (Na żywo) ---
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        
+        // Zostaw tylko cyfry i ewentualnie znak '+'
+        let val = target.value.replace(/[^\d+]/g, '');
+        
+        // Jeśli '+' występuje, upewnij się, że jest tylko na początku
+        if (val.includes('+')) {
+          const hasLeadingPlus = val.startsWith('+');
+          val = val.replace(/\+/g, ''); // Usuń wszystkie plusy
+          if (hasLeadingPlus) {
+            val = '+' + val; // Dodaj z powrotem tylko na start
+          }
+        }
+        
+        target.value = val;
+      });
+    }
+
+    // --- LOGIKA OKIENKA ---
     const openModal = () => {
       if (!backdrop || !panel) return;
       
-      // Pokazujemy tło
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
       
-      // Klasy dla wersji Mobile
+      // Mobile
       panel.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
       panel.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
       
-      // Klasy dla wersji Desktop (wysuwa się i centruje pionowo)
+      // Desktop
       panel.classList.remove('md:-translate-x-[120%]');
       panel.classList.add('md:-translate-x-0');
+      
+      // Focus na input po wysunięciu
+      setTimeout(() => phoneInput?.focus(), 300);
     };
 
     const closeModal = () => {
       if (!backdrop || !panel) return;
       
-      // Ukrywamy tło
       backdrop.classList.add('opacity-0', 'pointer-events-none');
       
-      // Klasy dla wersji Mobile
+      // Mobile
       panel.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
       panel.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
       
-      // Klasy dla wersji Desktop
+      // Desktop
       panel.classList.add('md:-translate-x-[120%]');
       panel.classList.remove('md:-translate-x-0');
       
