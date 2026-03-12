@@ -1,107 +1,144 @@
 ---
 // src/components/CallbackWidget.astro
-// Możesz tu później dodać logikę i18n z Twojego projektu, 
-// na razie wpisuję tekst na sztywno zgodnie z życzeniem.
 ---
 
 <div 
   id="callback-trigger" 
-  class="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 translate-x-2 hover:translate-x-0 transition-transform duration-300 z-40 cursor-pointer shadow-lg rounded-l-xl bg-slate-900 text-white p-1 pr-3 items-center group"
+  class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 -translate-x-2 hover:translate-x-0 transition-transform duration-300 z-40 cursor-pointer shadow-[4px_0_15px_rgba(0,0,0,0.1)] rounded-r-xl bg-slate-900 text-white p-2 pl-4 pr-3 items-center group"
 >
+  <span class="text-sm font-medium tracking-wide">Zostaw numer</span>
   <span class="relative flex h-3 w-3 mx-3">
     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
     <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
   </span>
-  <span class="text-sm font-medium tracking-wide">Zostaw numer</span>
 </div>
 
 <div 
-  id="callback-modal" 
-  class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+  id="callback-backdrop" 
+  class="fixed inset-0 z-40 bg-slate-900/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500"
+></div>
+
+<div 
+  id="callback-panel" 
+  class="fixed z-50 bg-white shadow-2xl flex flex-col transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+         top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-sm rounded-2xl opacity-0 scale-95 pointer-events-none
+         md:top-0 md:left-0 md:translate-y-0 md:h-screen md:w-[400px] md:max-w-none md:rounded-none md:-translate-x-full md:opacity-100 md:scale-100"
 >
-  <div class="bg-white rounded-2xl shadow-2xl p-6 w-[90%] max-w-md relative transform scale-95 transition-transform duration-300" id="callback-content">
+  
+  <div class="relative h-48 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center rounded-t-2xl md:rounded-none overflow-hidden shrink-0">
+    <div class="absolute top-0 left-0 w-40 h-40 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-32 h-32 bg-green-400/10 rounded-full blur-2xl translate-x-1/3 translate-y-1/3"></div>
     
-    <button id="callback-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <button id="callback-close" class="absolute top-4 right-4 text-white/70 hover:text-white transition-colors bg-black/20 hover:bg-black/40 p-2 rounded-full backdrop-blur-md z-20">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
 
-    <div class="flex flex-col items-center text-center mt-2">
-      <div class="relative mb-4">
-        <div class="absolute inset-0 bg-green-100 rounded-full animate-pulse blur-md"></div>
-        <img 
-          src="/images/about/hubert.webp" 
-          alt="Hubert" 
-          class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md relative z-10"
-        />
-        <div class="absolute bottom-0 right-0 h-5 w-5 bg-green-500 border-2 border-white rounded-full z-20"></div>
+    <div class="relative z-10 mt-6 group">
+      <div class="absolute inset-0 bg-green-400/20 rounded-full animate-pulse blur-xl transition-all group-hover:bg-green-400/40"></div>
+      <img 
+        src="/images/about/hubert.webp" 
+        alt="Hubert" 
+        class="w-28 h-28 rounded-full object-cover object-top border-4 border-slate-800 shadow-xl relative z-10"
+      />
+      <div class="absolute bottom-1 right-2 h-6 w-6 bg-green-500 border-[3px] border-slate-800 rounded-full z-20 shadow-lg flex items-center justify-center">
+        <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
       </div>
-      
-      <h3 class="text-xl font-bold text-gray-800 mb-2">Zostaw swój numer!</h3>
-      <p class="text-gray-600 text-sm mb-6">
-        Oddzwonimy w max. 10 minut i porozmawiamy o Twoim projekcie.
-      </p>
+    </div>
+  </div>
 
-      <form class="w-full flex flex-col gap-3" onsubmit="event.preventDefault(); alert('Tu podepnij wysyłkę!');">
+  <div class="p-8 flex flex-col flex-grow bg-slate-50">
+    <div class="text-center mb-8">
+      <h3 class="text-2xl font-bold text-slate-900 mb-3 tracking-tight">Porozmawiajmy!</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        Zostaw swój numer telefonu, a oddzwonimy do Ciebie w <strong class="text-slate-900">maksymalnie 10 minut</strong>. Szybko, konkretnie i bez zobowiązań.
+      </p>
+    </div>
+
+    <form class="w-full flex flex-col gap-4 mt-auto" onsubmit="event.preventDefault(); alert('Tu podepnij wysyłkę!');">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+          </svg>
+        </div>
         <input 
           type="tel" 
-          placeholder="Twój numer telefonu" 
+          placeholder="+48 000 000 000" 
           required
-          class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition-all outline-none"
+          class="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition-all outline-none shadow-sm text-slate-800"
         />
-        <button 
-          type="submit" 
-          class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200"
-        >
-          Czekam na telefon
-        </button>
-      </form>
-      <span class="text-xs text-gray-400 mt-4">Twoje dane są u nas bezpieczne.</span>
+      </div>
+      
+      <button 
+        type="submit" 
+        class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3.5 px-4 rounded-xl transition-all duration-300 transform active:scale-[0.98] shadow-md flex items-center justify-center gap-2 group"
+      >
+        <span>Czekam na kontakt</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </button>
+    </form>
+    
+    <div class="text-center mt-6">
+      <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Gwarantujemy bezpieczeństwo danych</span>
     </div>
   </div>
 </div>
 
 <script>
-  // Logika widżetu
   document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('callback-modal');
-    const content = document.getElementById('callback-content');
+    const backdrop = document.getElementById('callback-backdrop');
+    const panel = document.getElementById('callback-panel');
     const trigger = document.getElementById('callback-trigger');
     const closeBtn = document.getElementById('callback-close');
 
     const openModal = () => {
-      if (!modal || !content) return;
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      content.classList.remove('scale-95');
-      content.classList.add('scale-100');
+      if (!backdrop || !panel) return;
+      
+      // Pokazujemy tło
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      
+      // Klasy dla wersji Mobile (pojawianie się z pop-upu)
+      panel.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+      panel.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+      
+      // Klasy dla wersji Desktop (wysuwanie z lewej)
+      panel.classList.remove('md:-translate-x-full');
+      panel.classList.add('md:translate-x-0');
     };
 
     const closeModal = () => {
-      if (!modal || !content) return;
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      content.classList.remove('scale-100');
-      content.classList.add('scale-95');
-      // Zapobiega ponownemu otwieraniu po automatycznym wyskoczeniu na mobile
+      if (!backdrop || !panel) return;
+      
+      // Ukrywamy tło
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      
+      // Klasy dla wersji Mobile
+      panel.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+      panel.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+      
+      // Klasy dla wersji Desktop (chowanie do lewej)
+      panel.classList.add('md:-translate-x-full');
+      panel.classList.remove('md:translate-x-0');
+      
       sessionStorage.setItem('callback_shown', 'true');
     };
 
-    // Eventy dla desktopu
     trigger?.addEventListener('click', openModal);
     closeBtn?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal(); // Zamknięcie po kliknięciu w tło
-    });
+    backdrop?.addEventListener('click', closeModal);
 
-    // Logika dla mobile: wyskocz po 10 sekundach
-    // Zakładamy, że mobile to ekrany poniżej 768px (zgodnie z md: w Tailwind)
+    // Wyskakujące okienko na mobile po 10 sekundach
     const isMobile = window.innerWidth < 768;
     const hasBeenShown = sessionStorage.getItem('callback_shown');
 
     if (isMobile && !hasBeenShown) {
       setTimeout(() => {
         openModal();
-      }, 10000); // 10 sekund = 10000 milisekund
+      }, 10000);
     }
   });
 </script>
