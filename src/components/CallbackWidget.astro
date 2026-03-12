@@ -1,66 +1,71 @@
 ---
 // src/components/CallbackWidget.astro
-// Innowacyjny widget kontaktowy: Morphing Pill (Desktop) + Modal (Mobile)
+// Agresywny, ultra-szybki Morphing Pill (Desktop) + Modal (Mobile)
 ---
 
 <style is:global>
-  /* Subtelne dzwonienie słuchawki */
-  @keyframes subtle-wiggle {
+  /* Agresywne, krótkie wibracje - budzą poczucie pilności */
+  @keyframes sharp-ring {
     0%, 100% { transform: rotate(0deg); }
-    15% { transform: rotate(-12deg); }
-    30% { transform: rotate(12deg); }
-    45% { transform: rotate(-6deg); }
-    60% { transform: rotate(6deg); }
-    75% { transform: rotate(0deg); }
+    10% { transform: rotate(-15deg); }
+    20% { transform: rotate(15deg); }
+    30% { transform: rotate(-15deg); }
+    40% { transform: rotate(15deg); }
+    50%, 100% { transform: rotate(0deg); } /* Dłuższa pauza i znowu atak */
   }
-  .animate-subtle-wiggle {
-    animation: subtle-wiggle 3s infinite ease-in-out;
-  }
-
-  /* Animacja przyciągająca wzrok (Ping/Pulse) - łagodniejsza niż sonar */
-  @keyframes soft-ping {
-    0% { transform: scale(1); opacity: 0.6; }
-    80%, 100% { transform: scale(2); opacity: 0; }
-  }
-  .animate-soft-ping {
-    animation: soft-ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  .animate-sharp-ring {
+    animation: sharp-ring 2.5s infinite;
   }
 
-  /* Apple-style sprężyste przejścia dla morfingu */
-  .spring-morph {
+  /* Szybkie, ostre pulsowanie kropki powiadomienia */
+  @keyframes fast-ping {
+    0% { transform: scale(1); opacity: 1; }
+    70%, 100% { transform: scale(2.5); opacity: 0; }
+  }
+  .animate-fast-ping {
+    animation: fast-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* Ultra-szybkie przejście "Snap" */
+  .snap-morph {
     transition-property: all;
-    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.15); /* Delikatny bounce */
-    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.2, 1); /* Szybki start, ostre hamowanie */
+    transition-duration: 250ms;
   }
 </style>
 
 <div 
   id="callback-backdrop" 
-  class="fixed inset-0 z-40 bg-[#18181B]/10 backdrop-blur-[3px] opacity-0 pointer-events-none transition-opacity duration-400 ease-out md:hidden"
+  class="fixed inset-0 z-40 bg-[#18181B]/15 backdrop-blur-[3px] opacity-0 pointer-events-none transition-opacity duration-200 ease-out md:hidden"
 ></div>
 
 <div 
   id="callback-panel" 
-  class="fixed z-50 overflow-hidden group spring-morph
-         /* Wersja Mobile: Wyśrodkowany Modal (Sterowany przez JS) */
-         top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-[400px] h-auto bg-white rounded-[28px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)] opacity-0 pointer-events-none scale-[0.95]
-         /* Wersja Desktop: Pływająca pastylka z lewej strony (Sterowana przez Hover/Focus) */
-         md:top-1/2 md:left-6 md:-translate-x-0 md:-translate-y-1/2 md:w-[64px] md:h-[64px] md:rounded-full md:bg-white/80 md:backdrop-blur-xl md:shadow-[0_8px_32px_rgba(5,150,105,0.12)] md:border md:border-white/60 md:opacity-100 md:pointer-events-auto md:scale-100
-         /* Zachowanie na Desktopie przy Hover LUB Focus wewnątrz (Rozwinięcie) */
-         md:hover:w-[380px] md:hover:h-[200px] md:hover:rounded-[28px] md:hover:bg-white md:hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] md:hover:border-[#E4E4E7]/60
-         md:focus-within:w-[380px] md:focus-within:h-[200px] md:focus-within:rounded-[28px] md:focus-within:bg-white md:focus-within:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] md:focus-within:border-[#E4E4E7]/60"
+  class="fixed z-50 overflow-hidden group snap-morph
+         /* Wersja Mobile: Wyśrodkowany Modal */
+         top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-[400px] h-auto bg-white rounded-[24px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.25)] opacity-0 pointer-events-none scale-[0.95]
+         /* Wersja Desktop: Mocno widoczna ikona boczna */
+         md:top-1/2 md:left-5 md:-translate-x-0 md:-translate-y-1/2 md:w-[60px] md:h-[60px] md:rounded-[20px] md:bg-white md:shadow-[0_8px_24px_rgba(5,150,105,0.25)] md:border md:border-[#059669]/20 md:opacity-100 md:pointer-events-auto md:scale-100
+         /* Zachowanie po Hover/Focus - Agresywny "Snap" do pełnego rozmiaru */
+         md:hover:w-[380px] md:hover:h-[190px] md:hover:rounded-[24px] md:hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.25)] md:hover:border-[#E4E4E7] md:hover:bg-white
+         md:focus-within:w-[380px] md:focus-within:h-[190px] md:focus-within:rounded-[24px] md:focus-within:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.25)] md:focus-within:border-[#E4E4E7] md:focus-within:bg-white"
 >
 
-  <div class="hidden md:flex absolute inset-0 items-center justify-center transition-opacity duration-300 md:group-hover:opacity-0 md:group-hover:pointer-events-none md:focus-within:opacity-0 md:focus-within:pointer-events-none">
-    <div class="absolute w-[40px] h-[40px] bg-[#059669] rounded-full animate-soft-ping"></div>
-    <div class="relative flex items-center justify-center w-[46px] h-[46px] bg-[#059669] rounded-full text-white shadow-[0_4px_12px_rgba(5,150,105,0.4)] transition-transform duration-300 hover:scale-105">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-subtle-wiggle origin-center">
+  <div class="hidden md:flex absolute inset-0 items-center justify-center transition-opacity duration-150 md:group-hover:opacity-0 md:group-hover:pointer-events-none md:focus-within:opacity-0 md:focus-within:pointer-events-none">
+    
+    <div class="absolute top-[-4px] right-[-4px] z-10 w-[14px] h-[14px]">
+      <div class="absolute inset-0 bg-red-500 rounded-full animate-fast-ping"></div>
+      <div class="relative w-full h-full bg-red-500 rounded-full border-2 border-white"></div>
+    </div>
+
+    <div class="relative flex items-center justify-center w-[48px] h-[48px] bg-[#059669] rounded-[14px] text-white shadow-[0_4px_12px_rgba(5,150,105,0.5)]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-sharp-ring origin-center">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
       </svg>
     </div>
   </div>
 
-  <div class="absolute inset-0 flex flex-col justify-center p-6 md:w-[380px] transition-opacity duration-400 md:opacity-0 md:pointer-events-none md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:focus-within:opacity-100 md:focus-within:pointer-events-auto md:delay-100">
+  <div class="absolute inset-0 flex flex-col justify-center p-6 md:w-[380px] transition-opacity duration-200 md:opacity-0 md:pointer-events-none md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:focus-within:opacity-100 md:focus-within:pointer-events-auto md:delay-[50ms]">
     
     <button 
       id="callback-close" 
@@ -77,12 +82,12 @@
         <img 
           src="/images/about/hubert.webp" 
           alt="Hubert" 
-          class="w-[52px] h-[52px] md:w-[56px] md:h-[56px] rounded-full object-cover object-top border border-[#E4E4E7] shadow-sm"
+          class="w-[52px] h-[52px] rounded-full object-cover object-top border border-[#E4E4E7] shadow-sm"
           onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23FAFAFA\' width=\'100\' height=\'100\'/><circle fill=\'%23E4E4E7\' cx=\'50\' cy=\'40\' r=\'20\'/><path fill=\'%23E4E4E7\' d=\'M50 70c-20 0-35 15-35 30h70c0-15-15-30-35-30z\'/></svg>'"
         />
         <div class="absolute bottom-0 right-0 h-3.5 w-3.5 bg-[#059669] border-2 border-white rounded-full z-10 shadow-sm"></div>
       </div>
-      <div class="pr-4 md:pr-0">
+      <div>
         <h3 class="text-[17px] font-semibold text-[#18181B] leading-tight tracking-tight mb-0.5">Hej, masz chwilę? 👋</h3>
         <p class="text-[#71717A] text-[13px] leading-snug">
           Zostaw numer. Oddzwonię w <strong class="font-medium text-[#18181B]">mniej niż 10 min</strong>!
@@ -91,14 +96,14 @@
     </div>
 
     <form id="callback-form" class="relative w-full" novalidate>
-      <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[16px] overflow-hidden border border-[#E4E4E7] transition-all duration-300 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10 shadow-sm p-1">
+      <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[12px] overflow-hidden border border-[#E4E4E7] transition-all duration-200 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-[3px] focus-within:ring-[#059669]/15 shadow-sm p-1">
         
-        <div class="pl-2.5 pr-1.5 py-1.5 flex items-center justify-center border-r border-[#E4E4E7]/80 select-none shrink-0 min-w-[42px] transition-all duration-300">
+        <div class="pl-2.5 pr-1.5 py-1.5 flex items-center justify-center border-r border-[#E4E4E7]/80 select-none shrink-0 min-w-[42px] transition-all duration-200">
           <img 
             id="country-flag" 
             src="https://flagcdn.com/w40/pl.png" 
             alt="Flaga" 
-            class="w-5 h-3.5 object-cover rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)] transition-all duration-300" 
+            class="w-5 h-3.5 object-cover rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)] transition-all duration-200" 
           />
         </div>
 
@@ -108,26 +113,26 @@
           inputmode="tel"
           autocomplete="tel"
           placeholder="+48 123 456 789" 
-          class="w-full bg-transparent border-none outline-none pl-2 pr-[50px] py-2.5 text-[#18181B] text-[15px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
+          class="w-full bg-transparent border-none outline-none pl-2 pr-[50px] py-2 text-[#18181B] text-[15px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
         />
 
         <button 
           type="submit" 
           id="submit-btn"
           disabled
-          class="absolute right-1 top-1 bottom-1 w-[40px] flex items-center justify-center rounded-[12px] transition-all duration-300 overflow-hidden bg-[#E4E4E7] text-[#A1A1AA] cursor-not-allowed"
+          class="absolute right-1 top-1 bottom-1 w-[40px] flex items-center justify-center rounded-[8px] transition-all duration-200 overflow-hidden bg-[#E4E4E7] text-[#A1A1AA] cursor-not-allowed"
           aria-label="Wyślij numer"
         >
-          <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
           
-          <svg id="submit-spinner" class="absolute h-[18px] w-[18px] text-white opacity-0 scale-50 transition-all duration-300 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <svg id="submit-spinner" class="absolute h-[18px] w-[18px] text-white opacity-0 scale-50 transition-all duration-200 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
 
-          <svg id="submit-success" xmlns="http://www.w3.org/2000/svg" class="absolute w-5 h-5 text-white opacity-0 scale-50 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+          <svg id="submit-success" xmlns="http://www.w3.org/2000/svg" class="absolute w-5 h-5 text-white opacity-0 scale-50 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </button>
@@ -137,6 +142,7 @@
 </div>
 
 <script>
+  // Cała logika JS zostaje bez zmian, bo sprawdzała się idealnie!
   document.addEventListener('DOMContentLoaded', () => {
     const backdrop = document.getElementById('callback-backdrop');
     const panel = document.getElementById('callback-panel');
@@ -153,7 +159,6 @@
     const inputWrapper = document.getElementById('input-wrapper');
     const countryFlag = document.getElementById('country-flag') as HTMLImageElement;
 
-    // Jeżeli formularz został wysłany w tej sesji, usuń wszystko z DOM
     const hasBeenSubmitted = sessionStorage.getItem('callback_submitted');
     if (hasBeenSubmitted) {
       panel?.remove();
@@ -165,7 +170,6 @@
     let isSubmitting = false;
     let currentFlagIso = 'pl';
 
-    // Baza numerów (pozostawiona bez zmian)
     const globalCountryCodes: Record<string, string> = {"1":"us","7":"ru","20":"eg","27":"za","30":"gr","31":"nl","32":"be","33":"fr","34":"es","36":"hu","39":"it","40":"ro","41":"ch","43":"at","44":"gb","45":"dk","46":"se","47":"no","48":"pl","49":"de","51":"pe","52":"mx","53":"cu","54":"ar","55":"br","56":"cl","57":"co","58":"ve","60":"my","61":"au","62":"id","63":"ph","64":"nz","65":"sg","66":"th","81":"jp","82":"kr","84":"vn","86":"cn","90":"tr","91":"in","92":"pk","93":"af","94":"lk","95":"mm","98":"ir","211":"ss","212":"ma","213":"dz","216":"tn","218":"ly","220":"gm","221":"sn","222":"mr","223":"ml","224":"gn","225":"ci","226":"bf","227":"ne","228":"tg","229":"bj","230":"mu","231":"lr","232":"sl","233":"gh","234":"ng","235":"td","236":"cf","237":"cm","238":"cv","239":"st","240":"gq","241":"ga","242":"cg","243":"cd","244":"ao","245":"gw","246":"io","248":"sc","249":"sd","250":"rw","251":"et","252":"so","253":"dj","254":"ke","255":"tz","256":"ug","257":"bi","258":"mz","260":"zm","261":"mg","262":"re","263":"zw","264":"na","265":"mw","266":"ls","267":"bw","268":"sz","269":"km","290":"sh","291":"er","297":"aw","298":"fo","299":"gl","350":"gi","351":"pt","352":"lu","353":"ie","354":"is","355":"al","356":"mt","357":"cy","358":"fi","359":"bg","370":"lt","371":"lv","372":"ee","373":"md","374":"am","375":"by","376":"ad","377":"mc","378":"sm","379":"va","380":"ua","381":"rs","382":"me","383":"xk","385":"hr","386":"si","387":"ba","389":"mk","420":"cz","421":"sk","423":"li","500":"fk","501":"bz","502":"gt","503":"sv","504":"hn","505":"ni","506":"cr","507":"pa","508":"pm","509":"ht","590":"gp","591":"bo","592":"gy","593":"ec","594":"gf","595":"py","596":"mq","597":"sr","598":"uy","599":"cw","670":"tl","672":"nf","673":"bn","674":"nr","675":"pg","676":"to","677":"sb","678":"vu","679":"fj","680":"pw","681":"wf","682":"ck","683":"nu","685":"ws","686":"ki","687":"nc","688":"tv","689":"pf","690":"tk","691":"fm","692":"mh","850":"kp","852":"hk","853":"mo","855":"kh","856":"la","880":"bd","886":"tw","960":"mv","961":"lb","962":"jo","963":"sy","964":"iq","965":"kw","966":"sa","967":"ye","968":"om","970":"ps","971":"ae","972":"il","973":"bh","974":"qa","975":"bt","976":"mn","977":"np","992":"tj","993":"tm","994":"az","995":"ge","996":"kg","998":"uz"};
 
     const globeSvg = "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='2' y1='12' x2='22' y2='12'%3E%3C/line%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'%3E%3C/path%3E%3C/svg%3E";
@@ -179,13 +183,13 @@
       if (isValid) {
         submitBtn.disabled = false;
         submitBtn.classList.remove('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
-        submitBtn.classList.add('bg-[#059669]', 'text-white', 'cursor-pointer', 'hover:-translate-y-[1px]', 'hover:bg-[#047857]', 'active:translate-y-[1px]', 'active:scale-95');
-        inputWrapper?.classList.add('ring-4', 'ring-[#059669]/15', 'border-[#059669]');
+        submitBtn.classList.add('bg-[#059669]', 'text-white', 'cursor-pointer', 'hover:bg-[#047857]', 'active:scale-95');
+        inputWrapper?.classList.add('ring-[3px]', 'ring-[#059669]/20', 'border-[#059669]');
       } else {
         submitBtn.disabled = true;
         submitBtn.classList.add('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
-        submitBtn.classList.remove('bg-[#059669]', 'text-white', 'cursor-pointer', 'hover:-translate-y-[1px]', 'hover:bg-[#047857]', 'active:translate-y-[1px]', 'active:scale-95');
-        inputWrapper?.classList.remove('ring-4', 'ring-[#059669]/15', 'border-[#059669]');
+        submitBtn.classList.remove('bg-[#059669]', 'text-white', 'cursor-pointer', 'hover:bg-[#047857]', 'active:scale-95');
+        inputWrapper?.classList.remove('ring-[3px]', 'ring-[#059669]/20', 'border-[#059669]');
       }
     };
 
@@ -244,7 +248,7 @@
                 countryFlag.src = getFlagUrl(iso);
                 countryFlag.style.transform = 'scale(1)';
                 countryFlag.style.opacity = '1';
-            }, 150);
+            }, 100); // Przyspieszone przejście flagi
         }
 
         let displayValue = code ? '+' + code : raw;
@@ -269,19 +273,17 @@
       });
     }
 
-    // Obsługa okienka - Na desktopie działa to przez CSS, JS obsługuje tylko Mobile Modala
     const openModal = () => {
       if (!isMobile || !backdrop || !panel) return;
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
       backdrop.classList.add('opacity-100', 'pointer-events-auto');
       panel.classList.remove('opacity-0', 'scale-[0.95]', 'pointer-events-none');
       panel.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
-      setTimeout(() => phoneInput?.focus(), 400);
+      setTimeout(() => phoneInput?.focus(), 250); // Szybszy focus
     };
 
     const closeModal = () => {
       if (!isMobile) {
-        // Na desktopie zdejmujemy focus, żeby CSS focus-within zadziałał i zwinął okno
         document.activeElement?.blur();
         return;
       }
@@ -293,11 +295,9 @@
       sessionStorage.setItem('callback_shown', 'true');
     };
 
-    // Obsługa zamknięcia
     closeBtn?.addEventListener('click', closeModal);
     backdrop?.addEventListener('click', closeModal);
 
-    // Na desktopie okienko może się zwinąć po wysłaniu
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
       if (submitBtn.disabled || isSubmitting) return;
@@ -327,12 +327,11 @@
           setTimeout(() => {
             panel?.remove();
             backdrop?.remove();
-          }, 500); 
-        }, 1800);
-      }, 1200);
+          }, 300); 
+        }, 1500); // Szybsze zamknięcie po sukcesie
+      }, 800); // Szybszy "fake" loading
     });
 
-    // Auto-otwieranie na mobile
     const hasBeenShown = sessionStorage.getItem('callback_shown');
     if (isMobile && !hasBeenShown && !hasBeenSubmitted) {
       setTimeout(() => {
