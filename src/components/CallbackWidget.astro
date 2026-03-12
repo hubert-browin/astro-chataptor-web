@@ -2,11 +2,17 @@
 // src/components/CallbackWidget.astro
 // Minimalistyczny widget kontaktowy w stylu Apple / iOS (wersja globalna).
 
+import { callbackTranslations } from '../i18n/callback';
+
 // 1. Pobieramy aktualny język (Astro.currentLocale działa w Astro 4+, ew. fallback na URL lub 'pl')
 const currentLang = Astro.currentLocale || Astro.params.lang || Astro.url.pathname.split('/')[1] || 'pl';
 
 // 2. Określamy listę dozwolonych języków
 const isVisible = ['pl', 'en'].includes(currentLang as string);
+
+// 3. Ładujemy odpowiednie tłumaczenia (zabezpieczone fallbackiem do 'pl')
+const langKey = (currentLang in callbackTranslations ? currentLang : 'pl') as keyof typeof callbackTranslations;
+const t = callbackTranslations[langKey];
 ---
 
 <style is:global>
@@ -30,14 +36,14 @@ const isVisible = ['pl', 'en'].includes(currentLang as string);
   }
 </style>
 
-{/* 3. Renderujemy strukturę HTML TYLKO wtedy, gdy język jest dozwolony */}
+{/* 4. Renderujemy strukturę HTML TYLKO wtedy, gdy język jest dozwolony */}
 {isVisible && (
   <>
     <!-- Przycisk wywołujący (Desktop: doczepiony do lewej krawędzi, wydłużony pasek) -->
     <button 
       id="callback-trigger" 
       class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 items-center justify-center bg-white/95 backdrop-blur-xl shadow-[8px_0_32px_rgba(0,0,0,0.12)] border border-[#E4E4E7] border-l-0 rounded-r-[32px] pl-8 pr-3.5 py-3.5 transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] hover:pl-10 hover:shadow-[12px_0_40px_rgba(0,0,0,0.16)] group"
-      aria-label="Otwórz formularz kontaktowy"
+      aria-label={t.openForm}
     >
       <div class="relative flex items-center justify-center w-[44px] h-[44px]">
         <!-- Fale tła (Ripple) -->
@@ -75,7 +81,7 @@ const isVisible = ['pl', 'en'].includes(currentLang as string);
       <button 
         id="callback-close" 
         class="absolute top-5 right-5 p-1.5 bg-[#FAFAFA] text-[#71717A] hover:text-[#18181B] hover:bg-[#E4E4E7] rounded-full transition-colors duration-200 z-10"
-        aria-label="Zamknij okno"
+        aria-label={t.closeWindow}
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
@@ -94,15 +100,13 @@ const isVisible = ['pl', 'en'].includes(currentLang as string);
           <div class="absolute bottom-0 right-0 h-4 w-4 bg-[#059669] border-2 border-white rounded-full z-10 shadow-sm"></div>
         </div>
         <div class="pr-6">
-          <h3 class="text-[18px] font-semibold text-[#18181B] leading-tight tracking-tight mb-1">Hej, masz chwilę? 👋</h3>
-          <p class="text-[#71717A] text-[13.5px] leading-snug">
-            Zostaw mi swój numer. Obiecuję oddzwonić w <strong class="font-medium text-[#18181B]">mniej niż 10 minut</strong>!
-          </p>
+          <h3 class="text-[18px] font-semibold text-[#18181B] leading-tight tracking-tight mb-1">{t.heading}</h3>
+          <p class="text-[#71717A] text-[13.5px] leading-snug" set:html={t.description}></p>
         </div>
       </div>
 
-      <!-- Formularz (W pełni Inline) -->
-      <form id="callback-form" class="relative w-full group" novalidate>
+      <!-- Formularz (W pełni Inline, przekazujemy błąd w data-atrybucie dla JS) -->
+      <form id="callback-form" class="relative w-full group" novalidate data-error-msg={t.errorMessage}>
         
         <!-- Wrapper na input telefoniczny -->
         <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[20px] overflow-hidden border border-[#E4E4E7] transition-all duration-300 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10 shadow-sm p-1.5">
@@ -124,7 +128,7 @@ const isVisible = ['pl', 'en'].includes(currentLang as string);
             id="phone-input"
             inputmode="tel"
             autocomplete="tel"
-            placeholder="+48 123 456 789" 
+            placeholder={t.placeholder}
             class="w-full bg-transparent border-none outline-none pl-3 pr-[60px] py-3 text-[#18181B] text-[16px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
           />
 
@@ -134,7 +138,7 @@ const isVisible = ['pl', 'en'].includes(currentLang as string);
             id="submit-btn"
             disabled
             class="absolute right-1.5 top-1.5 bottom-1.5 w-[46px] flex items-center justify-center rounded-[14px] transition-all duration-300 overflow-hidden bg-[#E4E4E7] text-[#A1A1AA] cursor-not-allowed"
-            aria-label="Wyślij numer"
+            aria-label={t.sendNumber}
           >
             <!-- Ikonka strzałki -->
             <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -374,7 +378,9 @@ const isVisible = ['pl', 'en'].includes(currentLang as string);
         submitSpinner?.classList.remove('opacity-100', 'scale-100');
         submitIcon?.classList.remove('opacity-0', 'scale-0', 'hidden');
         
-        alert('Wystąpił problem z wysłaniem formularza. Sprawdź połączenie lub spróbuj ponownie później.');
+        // Pobieramy komunikat o błędzie z atrybutu (aby móc go przetłumaczyć na inny język)
+        const errorMsg = form?.getAttribute('data-error-msg') || 'Wystąpił problem z wysłaniem formularza.';
+        alert(errorMsg);
       }
     });
 
