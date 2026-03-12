@@ -86,26 +86,19 @@
         inputmode="numeric"
         autocomplete="tel"
         placeholder="123 456 789" 
-        class="w-full bg-transparent border-none outline-none pl-3 pr-10 py-2.5 text-[#18181B] text-[15px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
+        class="w-full bg-transparent border-none outline-none pl-3 pr-2 py-2.5 text-[#18181B] text-[15px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
       />
 
-      <!-- Ikona weryfikacji (Checkmark) pojawia się nad inputem -->
-      <div id="valid-icon" class="absolute right-[54px] text-[#059669] transition-all duration-300 opacity-0 scale-50 pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-[22px] w-[22px]" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-        </svg>
-      </div>
-
-      <!-- Przycisk akcji (Inline) -->
+      <!-- Przycisk akcji (Inline) -> integruje w sobie weryfikację -->
       <button 
         type="submit" 
         id="submit-btn"
         disabled
-        class="shrink-0 w-11 h-11 flex items-center justify-center bg-[#18181B] hover:bg-black text-white rounded-[13px] transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-[#18181B] active:scale-[0.95] relative overflow-hidden group-focus-within:shadow-md"
+        class="shrink-0 w-11 h-11 flex items-center justify-center rounded-[13px] transition-all duration-300 relative overflow-hidden bg-[#E4E4E7] text-[#A1A1AA] cursor-not-allowed"
         aria-label="Wyślij numer"
       >
         <!-- Ikonka strzałki -->
-        <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px] transition-transform duration-300 group-focus-within:translate-x-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px] transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
         
@@ -145,7 +138,6 @@
     const submitSpinner = document.getElementById('submit-spinner');
     const submitSuccess = document.getElementById('submit-success');
     
-    const validIcon = document.getElementById('valid-icon');
     const inputWrapper = document.getElementById('input-wrapper');
     const successMsg = document.getElementById('success-msg');
 
@@ -180,13 +172,15 @@
         
         if (isValid) {
           submitBtn.disabled = false;
-          validIcon?.classList.remove('opacity-0', 'scale-50');
-          validIcon?.classList.add('opacity-100', 'scale-100');
+          submitBtn.classList.remove('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
+          submitBtn.classList.add('bg-[#059669]', 'hover:bg-[#047857]', 'text-white', 'cursor-pointer', 'shadow-[0_4px_12px_rgba(5,150,105,0.25)]', 'hover:-translate-y-[1px]', 'active:translate-y-[1px]', 'active:scale-95');
+          submitIcon?.classList.add('translate-x-[2px]');
           inputWrapper?.classList.add('ring-4', 'ring-[#059669]/15', 'border-[#059669]');
         } else {
           submitBtn.disabled = true;
-          validIcon?.classList.add('opacity-0', 'scale-50');
-          validIcon?.classList.remove('opacity-100', 'scale-100');
+          submitBtn.classList.add('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
+          submitBtn.classList.remove('bg-[#059669]', 'hover:bg-[#047857]', 'text-white', 'cursor-pointer', 'shadow-[0_4px_12px_rgba(5,150,105,0.25)]', 'hover:-translate-y-[1px]', 'active:translate-y-[1px]', 'active:scale-95');
+          submitIcon?.classList.remove('translate-x-[2px]');
           inputWrapper?.classList.remove('ring-4', 'ring-[#059669]/15', 'border-[#059669]');
         }
       });
@@ -209,13 +203,13 @@
 
       // 2. Symulacja wysyłania (Zastąp fetch/axios)
       setTimeout(() => {
-        // 3. Sukces: ukryj spinner, pokaż "V", zmień kolor buttona na zielony
+        // 3. Sukces: ukryj spinner, pokaż "V"
         submitSpinner?.classList.add('opacity-0', 'scale-50', 'hidden');
         submitSpinner?.classList.remove('opacity-100', 'scale-100');
         
         submitSuccess?.classList.remove('opacity-0', 'scale-50');
         submitSuccess?.classList.add('opacity-100', 'scale-100');
-        submitBtn.classList.replace('bg-[#18181B]', 'bg-[#059669]');
+        // Przycisk jest już zielony z walidacji, nie musimy używać .replace()
         
         successMsg?.classList.remove('opacity-0');
 
@@ -236,15 +230,16 @@
       isSubmitting = false;
       
       // Reset przycisku inline
-      submitIcon?.classList.remove('opacity-0', 'scale-0', 'hidden');
+      submitIcon?.classList.remove('opacity-0', 'scale-0', 'hidden', 'translate-x-[2px]');
       submitSpinner?.classList.add('opacity-0', 'scale-50');
       submitSpinner?.classList.remove('hidden');
       submitSuccess?.classList.add('opacity-0', 'scale-50');
-      submitBtn.classList.replace('bg-[#059669]', 'bg-[#18181B]');
       
       // Reset stanów walidacji
-      validIcon?.classList.add('opacity-0', 'scale-50');
-      validIcon?.classList.remove('opacity-100', 'scale-100');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
+      submitBtn.classList.remove('bg-[#059669]', 'hover:bg-[#047857]', 'text-white', 'cursor-pointer', 'shadow-[0_4px_12px_rgba(5,150,105,0.25)]', 'hover:-translate-y-[1px]', 'active:translate-y-[1px]', 'active:scale-95');
+      
       inputWrapper?.classList.remove('ring-4', 'ring-[#059669]/15', 'border-[#059669]');
       successMsg?.classList.add('opacity-0');
     };
