@@ -1,6 +1,12 @@
 ---
 // src/components/CallbackWidget.astro
 // Minimalistyczny widget kontaktowy w stylu Apple / iOS (wersja globalna).
+
+// 1. Pobieramy aktualny język (Astro.currentLocale działa w Astro 4+, ew. fallback na URL lub 'pl')
+const currentLang = Astro.currentLocale || Astro.params.lang || Astro.url.pathname.split('/')[1] || 'pl';
+
+// 2. Określamy listę dozwolonych języków
+const isVisible = ['pl', 'en'].includes(currentLang as string);
 ---
 
 <style is:global>
@@ -24,133 +30,141 @@
   }
 </style>
 
-<!-- Przycisk wywołujący (Desktop: doczepiony do lewej krawędzi, wydłużony pasek) -->
-<button 
-  id="callback-trigger" 
-  class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 items-center justify-center bg-white/95 backdrop-blur-xl shadow-[8px_0_32px_rgba(0,0,0,0.12)] border border-[#E4E4E7] border-l-0 rounded-r-[32px] pl-8 pr-3.5 py-3.5 transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] hover:pl-10 hover:shadow-[12px_0_40px_rgba(0,0,0,0.16)] group"
-  aria-label="Otwórz formularz kontaktowy"
->
-  <div class="relative flex items-center justify-center w-[44px] h-[44px]">
-    <!-- Fale tła (Ripple) -->
-    <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple"></div>
-    <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple" style="animation-delay: 1s"></div>
+{/* 3. Renderujemy strukturę HTML TYLKO wtedy, gdy język jest dozwolony */}
+{isVisible && (
+  <>
+    <!-- Przycisk wywołujący (Desktop: doczepiony do lewej krawędzi, wydłużony pasek) -->
+    <button 
+      id="callback-trigger" 
+      class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 items-center justify-center bg-white/95 backdrop-blur-xl shadow-[8px_0_32px_rgba(0,0,0,0.12)] border border-[#E4E4E7] border-l-0 rounded-r-[32px] pl-8 pr-3.5 py-3.5 transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] hover:pl-10 hover:shadow-[12px_0_40px_rgba(0,0,0,0.16)] group"
+      aria-label="Otwórz formularz kontaktowy"
+    >
+      <div class="relative flex items-center justify-center w-[44px] h-[44px]">
+        <!-- Fale tła (Ripple) -->
+        <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple"></div>
+        <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple" style="animation-delay: 1s"></div>
 
-    <!-- Czerwona kropeczka (Powiadomienie) -->
-    <div class="absolute -top-1 -right-1 z-10 w-[14px] h-[14px]">
-      <div class="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-75 duration-1000"></div>
-      <div class="relative w-full h-full bg-red-500 rounded-full border-2 border-white"></div>
-    </div>
+        <!-- Czerwona kropeczka (Powiadomienie) -->
+        <div class="absolute -top-1 -right-1 z-10 w-[14px] h-[14px]">
+          <div class="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-75 duration-1000"></div>
+          <div class="relative w-full h-full bg-red-500 rounded-full border-2 border-white"></div>
+        </div>
 
-    <!-- Główny okrągły przycisk ze słuchawką -->
-    <div class="relative flex items-center justify-center w-full h-full bg-[#059669] rounded-full text-white shadow-[0_4px_12px_rgba(5,150,105,0.4)] group-hover:bg-[#047857] group-hover:scale-110 transition-all duration-300">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-phone-wiggle origin-center">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-      </svg>
-    </div>
-  </div>
-</button>
-
-<!-- Tło zaciemniające (Backdrop) -->
-<div 
-  id="callback-backdrop" 
-  class="fixed inset-0 z-50 bg-[#18181B]/5 backdrop-blur-[3px] opacity-0 pointer-events-none transition-opacity duration-400 ease-[cubic-bezier(0.32,0.72,0,1)]"
-></div>
-
-<!-- Panel Modalny (Desktop: Zintegrowana szufladka z lewej | Mobile: Na środku) -->
-<div 
-  id="callback-panel" 
-  class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-[400px] bg-white rounded-[28px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)] opacity-0 scale-[0.92] pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] p-6 md:p-7 border border-[#E4E4E7]/60
-         md:left-0 md:top-1/2 md:-translate-y-1/2 md:rounded-l-none md:rounded-r-[32px] md:border-l-0 md:-translate-x-[120%] md:opacity-100 md:scale-100"
->
-  <!-- Przycisk zamykania -->
-  <button 
-    id="callback-close" 
-    class="absolute top-5 right-5 p-1.5 bg-[#FAFAFA] text-[#71717A] hover:text-[#18181B] hover:bg-[#E4E4E7] rounded-full transition-colors duration-200 z-10"
-    aria-label="Zamknij okno"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  </button>
-
-  <!-- Nagłówek i awatar -->
-  <div class="flex items-center gap-4 mb-7 mt-1">
-    <div class="relative shrink-0">
-      <img 
-        src="/images/about/hubert.webp" 
-        alt="Hubert" 
-        class="w-[60px] h-[60px] rounded-full object-cover object-top border border-[#E4E4E7] shadow-sm"
-        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23FAFAFA\' width=\'100\' height=\'100\'/><circle fill=\'%23E4E4E7\' cx=\'50\' cy=\'40\' r=\'20\'/><path fill=\'%23E4E4E7\' d=\'M50 70c-20 0-35 15-35 30h70c0-15-15-30-35-30z\'/></svg>'"
-      />
-      <div class="absolute bottom-0 right-0 h-4 w-4 bg-[#059669] border-2 border-white rounded-full z-10 shadow-sm"></div>
-    </div>
-    <div class="pr-6">
-      <h3 class="text-[18px] font-semibold text-[#18181B] leading-tight tracking-tight mb-1">Hej, masz chwilę? 👋</h3>
-      <p class="text-[#71717A] text-[13.5px] leading-snug">
-        Zostaw mi swój numer. Obiecuję oddzwonić w <strong class="font-medium text-[#18181B]">mniej niż 10 minut</strong>!
-      </p>
-    </div>
-  </div>
-
-  <!-- Formularz (W pełni Inline) -->
-  <form id="callback-form" class="relative w-full group" novalidate>
-    
-    <!-- Wrapper na input telefoniczny -->
-    <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[20px] overflow-hidden border border-[#E4E4E7] transition-all duration-300 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10 shadow-sm p-1.5">
-      
-      <!-- Kontener flagi z obrazkiem -->
-      <div id="flag-container" class="pl-3 pr-2 py-2 flex items-center justify-center border-r border-[#E4E4E7]/80 select-none shrink-0 min-w-[48px] transition-all duration-300">
-        <img 
-          id="country-flag" 
-          src="https://flagcdn.com/w40/pl.png" 
-          alt="Flaga" 
-          class="w-6 h-4 object-cover rounded-[3px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)] transition-all duration-300" 
-        />
+        <!-- Główny okrągły przycisk ze słuchawką -->
+        <div class="relative flex items-center justify-center w-full h-full bg-[#059669] rounded-full text-white shadow-[0_4px_12px_rgba(5,150,105,0.4)] group-hover:bg-[#047857] group-hover:scale-110 transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-phone-wiggle origin-center">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
       </div>
+    </button>
 
-      <!-- Właściwe pole input -->
-      <!-- text-[16px] zapobiega zooma na iOS, pr-[60px] chroni przed tekstem pod przyciskiem -->
-      <input 
-        type="tel" 
-        id="phone-input"
-        inputmode="tel"
-        autocomplete="tel"
-        placeholder="+48 123 456 789" 
-        class="w-full bg-transparent border-none outline-none pl-3 pr-[60px] py-3 text-[#18181B] text-[16px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
-      />
+    <!-- Tło zaciemniające (Backdrop) -->
+    <div 
+      id="callback-backdrop" 
+      class="fixed inset-0 z-50 bg-[#18181B]/5 backdrop-blur-[3px] opacity-0 pointer-events-none transition-opacity duration-400 ease-[cubic-bezier(0.32,0.72,0,1)]"
+    ></div>
 
-      <!-- Przycisk akcji -->
+    <!-- Panel Modalny (Desktop: Zintegrowana szufladka z lewej | Mobile: Na środku) -->
+    <div 
+      id="callback-panel" 
+      class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-[400px] bg-white rounded-[28px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)] opacity-0 scale-[0.92] pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] p-6 md:p-7 border border-[#E4E4E7]/60
+             md:left-0 md:top-1/2 md:-translate-y-1/2 md:rounded-l-none md:rounded-r-[32px] md:border-l-0 md:-translate-x-[120%] md:opacity-100 md:scale-100"
+    >
+      <!-- Przycisk zamykania -->
       <button 
-        type="submit" 
-        id="submit-btn"
-        disabled
-        class="absolute right-1.5 top-1.5 bottom-1.5 w-[46px] flex items-center justify-center rounded-[14px] transition-all duration-300 overflow-hidden bg-[#E4E4E7] text-[#A1A1AA] cursor-not-allowed"
-        aria-label="Wyślij numer"
+        id="callback-close" 
+        class="absolute top-5 right-5 p-1.5 bg-[#FAFAFA] text-[#71717A] hover:text-[#18181B] hover:bg-[#E4E4E7] rounded-full transition-colors duration-200 z-10"
+        aria-label="Zamknij okno"
       >
-        <!-- Ikonka strzałki -->
-        <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-        
-        <!-- Spinner ładowania -->
-        <svg id="submit-spinner" class="absolute h-[22px] w-[22px] text-white opacity-0 scale-50 transition-all duration-300 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-
-        <!-- Ikonka sukcesu (po wysłaniu) -->
-        <svg id="submit-success" xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6 text-white opacity-0 scale-50 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+
+      <!-- Nagłówek i awatar -->
+      <div class="flex items-center gap-4 mb-7 mt-1">
+        <div class="relative shrink-0">
+          <img 
+            src="/images/about/hubert.webp" 
+            alt="Hubert" 
+            class="w-[60px] h-[60px] rounded-full object-cover object-top border border-[#E4E4E7] shadow-sm"
+            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23FAFAFA\' width=\'100\' height=\'100\'/><circle fill=\'%23E4E4E7\' cx=\'50\' cy=\'40\' r=\'20\'/><path fill=\'%23E4E4E7\' d=\'M50 70c-20 0-35 15-35 30h70c0-15-15-30-35-30z\'/></svg>'"
+          />
+          <div class="absolute bottom-0 right-0 h-4 w-4 bg-[#059669] border-2 border-white rounded-full z-10 shadow-sm"></div>
+        </div>
+        <div class="pr-6">
+          <h3 class="text-[18px] font-semibold text-[#18181B] leading-tight tracking-tight mb-1">Hej, masz chwilę? 👋</h3>
+          <p class="text-[#71717A] text-[13.5px] leading-snug">
+            Zostaw mi swój numer. Obiecuję oddzwonić w <strong class="font-medium text-[#18181B]">mniej niż 10 minut</strong>!
+          </p>
+        </div>
+      </div>
+
+      <!-- Formularz (W pełni Inline) -->
+      <form id="callback-form" class="relative w-full group" novalidate>
+        
+        <!-- Wrapper na input telefoniczny -->
+        <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[20px] overflow-hidden border border-[#E4E4E7] transition-all duration-300 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10 shadow-sm p-1.5">
+          
+          <!-- Kontener flagi z obrazkiem -->
+          <div id="flag-container" class="pl-3 pr-2 py-2 flex items-center justify-center border-r border-[#E4E4E7]/80 select-none shrink-0 min-w-[48px] transition-all duration-300">
+            <img 
+              id="country-flag" 
+              src="https://flagcdn.com/w40/pl.png" 
+              alt="Flaga" 
+              class="w-6 h-4 object-cover rounded-[3px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)] transition-all duration-300" 
+            />
+          </div>
+
+          <!-- Właściwe pole input -->
+          <!-- text-[16px] zapobiega zooma na iOS, pr-[60px] chroni przed tekstem pod przyciskiem -->
+          <input 
+            type="tel" 
+            id="phone-input"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="+48 123 456 789" 
+            class="w-full bg-transparent border-none outline-none pl-3 pr-[60px] py-3 text-[#18181B] text-[16px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
+          />
+
+          <!-- Przycisk akcji -->
+          <button 
+            type="submit" 
+            id="submit-btn"
+            disabled
+            class="absolute right-1.5 top-1.5 bottom-1.5 w-[46px] flex items-center justify-center rounded-[14px] transition-all duration-300 overflow-hidden bg-[#E4E4E7] text-[#A1A1AA] cursor-not-allowed"
+            aria-label="Wyślij numer"
+          >
+            <!-- Ikonka strzałki -->
+            <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+            
+            <!-- Spinner ładowania -->
+            <svg id="submit-spinner" class="absolute h-[22px] w-[22px] text-white opacity-0 scale-50 transition-all duration-300 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+
+            <!-- Ikonka sukcesu (po wysłaniu) -->
+            <svg id="submit-success" xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6 text-white opacity-0 scale-50 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
+  </>
+)}
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const backdrop = document.getElementById('callback-backdrop');
+    // KLUCZOWE: Jeżeli panelu nie ma na stronie (bo to np. wersja niemiecka), natychmiast przerywamy działanie skryptu
     const panel = document.getElementById('callback-panel');
+    if (!panel) return;
+
+    const backdrop = document.getElementById('callback-backdrop');
     const trigger = document.getElementById('callback-trigger');
     const closeBtn = document.getElementById('callback-close');
     
@@ -317,7 +331,6 @@
       const WEBHOOK_URL = 'https://n8n.hisecore.pl/webhook/66e72f27-c70e-4269-bbc9-76dba4d70b4b';
 
       try {
-        // Natychmiastowe wysłanie danych z usuniętym warunkiem blokującym
         await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: {
