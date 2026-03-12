@@ -3,22 +3,46 @@
 // Minimalistyczny widget kontaktowy w stylu Apple / iOS (wersja globalna).
 ---
 
+<style is:global>
+  /* Animacja wibracji telefonu (dzwonienie) */
+  @keyframes phone-wiggle {
+    0%, 15%, 100% { transform: rotate(0deg); }
+    2%, 6%, 10% { transform: rotate(-15deg); }
+    4%, 8%, 12% { transform: rotate(15deg); }
+  }
+  .animate-phone-wiggle {
+    animation: phone-wiggle 3s infinite ease-in-out;
+  }
+  
+  /* Animacja rozchodzących się fal (sonar) */
+  @keyframes ripple-wave {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .animate-ripple {
+    animation: ripple-wave 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+</style>
+
 <!-- Przycisk wywołujący (Desktop: doczepiony do lewej krawędzi) -->
 <button 
   id="callback-trigger" 
-  class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 -translate-x-3 hover:translate-x-0 z-40 items-center gap-3 bg-white/90 backdrop-blur-md shadow-[4px_0_24px_rgba(0,0,0,0.08)] border border-[#E4E4E7] rounded-r-[20px] pl-5 pr-3 py-2.5 text-[#18181B] transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] group"
+  class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 items-center gap-3 bg-white/95 backdrop-blur-xl shadow-[8px_0_32px_rgba(0,0,0,0.12)] border border-[#E4E4E7] rounded-r-[24px] pl-4 pr-3 py-2.5 text-[#18181B] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:pl-5 hover:shadow-[12px_0_40px_rgba(0,0,0,0.16)] group"
   aria-label="Otwórz formularz kontaktowy"
 >
-  <span class="text-[14.5px] font-medium tracking-tight">Zostaw numer</span>
-  <div class="relative flex items-center justify-center w-8 h-8 bg-[#FAFAFA] rounded-full text-[#18181B] border border-[#E4E4E7]/50 group-hover:bg-[#18181B] group-hover:text-white transition-colors duration-300 shadow-sm">
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-    </svg>
-    <!-- Subtelny indykator dostępności -->
-    <span class="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#059669] opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#059669] border-2 border-white"></span>
-    </span>
+  <span class="text-[14.5px] font-semibold tracking-tight">Zostaw numer</span>
+  
+  <div class="relative flex items-center justify-center w-[38px] h-[38px]">
+    <!-- Fale tła (Ripple) -->
+    <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple"></div>
+    <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple" style="animation-delay: 1s"></div>
+
+    <!-- Główny okrągły przycisk ze słuchawką -->
+    <div class="relative flex items-center justify-center w-full h-full bg-[#059669] rounded-full text-white shadow-[0_4px_12px_rgba(5,150,105,0.4)] group-hover:bg-[#047857] group-hover:scale-110 transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-phone-wiggle origin-center">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </div>
   </div>
 </button>
 
