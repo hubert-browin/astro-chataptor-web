@@ -1,8 +1,9 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SEOHead from '../components/SEOHead.astro'; // <-- 1. IMPORT KOMPONENTU SEO
-import type { Locale } from '../i18n/config';      // <-- IMPORT TYPU LOCALE
+import SEOHead from '../components/SEOHead.astro';
+import CallbackWidget from '../components/CallbackWidget.astro';
+import type { Locale } from '../i18n/config';
 import '../styles/global.css';
 
 interface Props {
@@ -115,7 +116,9 @@ const {
 
     <div class="flex-1 w-full">
       <slot />
+      <CallbackWidget />
     </div>
+
 
     {!hideFooter && <Footer lang={lang} />}
     

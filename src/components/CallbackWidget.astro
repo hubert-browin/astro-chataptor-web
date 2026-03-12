@@ -1,0 +1,435 @@
+---
+// src/components/CallbackWidget.astro
+// Minimalistyczny widget kontaktowy w stylu Apple / iOS (wersja globalna).
+
+import { callbackTranslations } from '../i18n/callback';
+
+// 1. Pobieramy aktualny język (Astro.currentLocale działa w Astro 4+, ew. fallback na URL lub 'pl')
+const currentLang = Astro.currentLocale || Astro.params.lang || Astro.url.pathname.split('/')[1] || 'pl';
+
+// 2. Określamy listę dozwolonych języków
+const isVisible = ['pl', 'en'].includes(currentLang as string);
+
+// 3. Ładujemy odpowiednie tłumaczenia (zabezpieczone fallbackiem do 'pl')
+const langKey = (currentLang in callbackTranslations ? currentLang : 'pl') as keyof typeof callbackTranslations;
+const t = callbackTranslations[langKey];
+---
+
+<style is:global>
+  /* Animacja wibracji telefonu (dzwonienie) */
+  @keyframes phone-wiggle {
+    0%, 15%, 100% { transform: rotate(0deg); }
+    2%, 6%, 10% { transform: rotate(-15deg); }
+    4%, 8%, 12% { transform: rotate(15deg); }
+  }
+  .animate-phone-wiggle {
+    animation: phone-wiggle 3s infinite ease-in-out;
+  }
+  
+  /* Animacja rozchodzących się fal (sonar) */
+  @keyframes ripple-wave {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .animate-ripple {
+    animation: ripple-wave 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+</style>
+
+{/* 4. Renderujemy strukturę HTML TYLKO wtedy, gdy język jest dozwolony */}
+{isVisible && (
+  <>
+    <!-- Przycisk wywołujący (Desktop: doczepiony do lewej krawędzi, wydłużony pasek) -->
+    <button 
+      id="callback-trigger" 
+      class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 items-center justify-center bg-white/95 backdrop-blur-xl shadow-[8px_0_32px_rgba(0,0,0,0.12)] border border-[#E4E4E7] border-l-0 rounded-r-[32px] pl-8 pr-3.5 py-3.5 transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] hover:pl-10 hover:shadow-[12px_0_40px_rgba(0,0,0,0.16)] group"
+      aria-label={t.openForm}
+    >
+      <div class="relative flex items-center justify-center w-[44px] h-[44px]">
+        <!-- Fale tła (Ripple) -->
+        <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple"></div>
+        <div class="absolute inset-0 bg-[#059669] rounded-full animate-ripple" style="animation-delay: 1s"></div>
+
+        <!-- Czerwona kropeczka (Powiadomienie) -->
+        <div class="absolute -top-1 -right-1 z-10 w-[14px] h-[14px]">
+          <div class="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-75 duration-1000"></div>
+          <div class="relative w-full h-full bg-red-500 rounded-full border-2 border-white"></div>
+        </div>
+
+        <!-- Główny okrągły przycisk ze słuchawką -->
+        <div class="relative flex items-center justify-center w-full h-full bg-[#059669] rounded-full text-white shadow-[0_4px_12px_rgba(5,150,105,0.4)] group-hover:bg-[#047857] group-hover:scale-110 transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="animate-phone-wiggle origin-center">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+      </div>
+    </button>
+
+    <!-- Tło zaciemniające (Backdrop) -->
+    <div 
+      id="callback-backdrop" 
+      class="fixed inset-0 z-50 bg-[#18181B]/5 backdrop-blur-[3px] opacity-0 pointer-events-none transition-opacity duration-400 ease-[cubic-bezier(0.32,0.72,0,1)]"
+    ></div>
+
+    <!-- Panel Modalny (Desktop: Zintegrowana szufladka z lewej | Mobile: Na środku) -->
+    <div 
+      id="callback-panel" 
+      class="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-[400px] bg-white rounded-[28px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)] opacity-0 scale-[0.92] pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] p-6 md:p-7 border border-[#E4E4E7]/60
+             md:left-0 md:top-1/2 md:-translate-y-1/2 md:rounded-l-none md:rounded-r-[32px] md:border-l-0 md:-translate-x-[120%] md:opacity-100 md:scale-100"
+    >
+      <!-- Przycisk zamykania -->
+      <button 
+        id="callback-close" 
+        class="absolute top-5 right-5 p-1.5 bg-[#FAFAFA] text-[#71717A] hover:text-[#18181B] hover:bg-[#E4E4E7] rounded-full transition-colors duration-200 z-10"
+        aria-label={t.closeWindow}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Nagłówek i awatar -->
+      <div class="flex items-center gap-4 mb-7 mt-1">
+        <div class="relative shrink-0">
+          <img 
+            src="/images/about/hubert.webp" 
+            alt="Hubert" 
+            class="w-[60px] h-[60px] rounded-full object-cover object-top border border-[#E4E4E7] shadow-sm"
+            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23FAFAFA\' width=\'100\' height=\'100\'/><circle fill=\'%23E4E4E7\' cx=\'50\' cy=\'40\' r=\'20\'/><path fill=\'%23E4E4E7\' d=\'M50 70c-20 0-35 15-35 30h70c0-15-15-30-35-30z\'/></svg>'"
+          />
+          <div class="absolute bottom-0 right-0 h-4 w-4 bg-[#059669] border-2 border-white rounded-full z-10 shadow-sm"></div>
+        </div>
+        <div class="pr-6">
+          <h3 class="text-[18px] font-semibold text-[#18181B] leading-tight tracking-tight mb-1">{t.heading}</h3>
+          <p class="text-[#71717A] text-[13.5px] leading-snug" set:html={t.description}></p>
+        </div>
+      </div>
+
+      <!-- Formularz (W pełni Inline, przekazujemy błąd w data-atrybucie dla JS) -->
+      <form id="callback-form" class="relative w-full group" novalidate data-error-msg={t.errorMessage}>
+        
+        <!-- Wrapper na input telefoniczny -->
+        <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[20px] overflow-hidden border border-[#E4E4E7] transition-all duration-300 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10 shadow-sm p-1.5">
+          
+          <!-- Kontener flagi z obrazkiem -->
+          <div id="flag-container" class="pl-3 pr-2 py-2 flex items-center justify-center border-r border-[#E4E4E7]/80 select-none shrink-0 min-w-[48px] transition-all duration-300">
+            <img 
+              id="country-flag" 
+              src="https://flagcdn.com/w40/pl.png" 
+              alt="Flaga" 
+              class="w-6 h-4 object-cover rounded-[3px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)] transition-all duration-300" 
+            />
+          </div>
+
+          <!-- Właściwe pole input -->
+          <!-- text-[16px] zapobiega zooma na iOS, pr-[60px] chroni przed tekstem pod przyciskiem -->
+          <input 
+            type="tel" 
+            id="phone-input"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder={t.placeholder}
+            class="w-full bg-transparent border-none outline-none pl-3 pr-[60px] py-3 text-[#18181B] text-[16px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
+          />
+
+          <!-- Przycisk akcji -->
+          <button 
+            type="submit" 
+            id="submit-btn"
+            disabled
+            class="absolute right-1.5 top-1.5 bottom-1.5 w-[46px] flex items-center justify-center rounded-[14px] transition-all duration-300 overflow-hidden bg-[#E4E4E7] text-[#A1A1AA] cursor-not-allowed"
+            aria-label={t.sendNumber}
+          >
+            <!-- Ikonka strzałki -->
+            <svg id="submit-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+            
+            <!-- Spinner ładowania -->
+            <svg id="submit-spinner" class="absolute h-[22px] w-[22px] text-white opacity-0 scale-50 transition-all duration-300 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+
+            <!-- Ikonka sukcesu (po wysłaniu) -->
+            <svg id="submit-success" xmlns="http://www.w3.org/2000/svg" class="absolute w-6 h-6 text-white opacity-0 scale-50 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </>
+)}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // KLUCZOWE: Jeżeli panelu nie ma na stronie (bo to np. wersja niemiecka), natychmiast przerywamy działanie skryptu
+    const panel = document.getElementById('callback-panel');
+    if (!panel) return;
+
+    const backdrop = document.getElementById('callback-backdrop');
+    const trigger = document.getElementById('callback-trigger');
+    const closeBtn = document.getElementById('callback-close');
+    
+    const form = document.getElementById('callback-form') as HTMLFormElement;
+    const phoneInput = document.getElementById('phone-input') as HTMLInputElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    
+    const submitIcon = document.getElementById('submit-icon');
+    const submitSpinner = document.getElementById('submit-spinner');
+    const submitSuccess = document.getElementById('submit-success');
+    
+    const inputWrapper = document.getElementById('input-wrapper');
+    const countryFlag = document.getElementById('country-flag') as HTMLImageElement;
+
+    // Jeżeli formularz został już wysłany podczas tej sesji, całkowicie usuń elementy z DOM
+    const hasBeenSubmitted = sessionStorage.getItem('callback_submitted');
+    if (hasBeenSubmitted) {
+      trigger?.remove();
+      panel?.remove();
+      backdrop?.remove();
+      return; 
+    }
+
+    let isSubmitting = false;
+    let currentFlagIso = 'pl';
+
+    // Obszerna baza kierunkowych świata
+    const globalCountryCodes: Record<string, string> = {"1":"us","7":"ru","20":"eg","27":"za","30":"gr","31":"nl","32":"be","33":"fr","34":"es","36":"hu","39":"it","40":"ro","41":"ch","43":"at","44":"gb","45":"dk","46":"se","47":"no","48":"pl","49":"de","51":"pe","52":"mx","53":"cu","54":"ar","55":"br","56":"cl","57":"co","58":"ve","60":"my","61":"au","62":"id","63":"ph","64":"nz","65":"sg","66":"th","81":"jp","82":"kr","84":"vn","86":"cn","90":"tr","91":"in","92":"pk","93":"af","94":"lk","95":"mm","98":"ir","211":"ss","212":"ma","213":"dz","216":"tn","218":"ly","220":"gm","221":"sn","222":"mr","223":"ml","224":"gn","225":"ci","226":"bf","227":"ne","228":"tg","229":"bj","230":"mu","231":"lr","232":"sl","233":"gh","234":"ng","235":"td","236":"cf","237":"cm","238":"cv","239":"st","240":"gq","241":"ga","242":"cg","243":"cd","244":"ao","245":"gw","246":"io","248":"sc","249":"sd","250":"rw","251":"et","252":"so","253":"dj","254":"ke","255":"tz","256":"ug","257":"bi","258":"mz","260":"zm","261":"mg","262":"re","263":"zw","264":"na","265":"mw","266":"ls","267":"bw","268":"sz","269":"km","290":"sh","291":"er","297":"aw","298":"fo","299":"gl","350":"gi","351":"pt","352":"lu","353":"ie","354":"is","355":"al","356":"mt","357":"cy","358":"fi","359":"bg","370":"lt","371":"lv","372":"ee","373":"md","374":"am","375":"by","376":"ad","377":"mc","378":"sm","379":"va","380":"ua","381":"rs","382":"me","383":"xk","385":"hr","386":"si","387":"ba","389":"mk","420":"cz","421":"sk","423":"li","500":"fk","501":"bz","502":"gt","503":"sv","504":"hn","505":"ni","506":"cr","507":"pa","508":"pm","509":"ht","590":"gp","591":"bo","592":"gy","593":"ec","594":"gf","595":"py","596":"mq","597":"sr","598":"uy","599":"cw","670":"tl","672":"nf","673":"bn","674":"nr","675":"pg","676":"to","677":"sb","678":"vu","679":"fj","680":"pw","681":"wf","682":"ck","683":"nu","685":"ws","686":"ki","687":"nc","688":"tv","689":"pf","690":"tk","691":"fm","692":"mh","850":"kp","852":"hk","853":"mo","855":"kh","856":"la","880":"bd","886":"tw","960":"mv","961":"lb","962":"jo","963":"sy","964":"iq","965":"kw","966":"sa","967":"ye","968":"om","970":"ps","971":"ae","972":"il","973":"bh","974":"qa","975":"bt","976":"mn","977":"np","992":"tj","993":"tm","994":"az","995":"ge","996":"kg","998":"uz"};
+
+    const globeSvg = "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='2' y1='12' x2='22' y2='12'%3E%3C/line%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'%3E%3C/path%3E%3C/svg%3E";
+
+    const getFlagUrl = (iso: string) => {
+      if (iso === 'globe') return globeSvg;
+      return `https://flagcdn.com/w40/${iso}.png`;
+    };
+
+    const updateValidationState = (isValid: boolean) => {
+      if (isValid) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
+        submitBtn.classList.add('bg-[#059669]', 'text-white', 'cursor-pointer', 'hover:-translate-y-[1px]', 'hover:bg-[#047857]', 'active:translate-y-[1px]', 'active:scale-95');
+        inputWrapper?.classList.add('ring-4', 'ring-[#059669]/15', 'border-[#059669]');
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('bg-[#E4E4E7]', 'text-[#A1A1AA]', 'cursor-not-allowed');
+        submitBtn.classList.remove('bg-[#059669]', 'text-white', 'cursor-pointer', 'hover:-translate-y-[1px]', 'hover:bg-[#047857]', 'active:translate-y-[1px]', 'active:scale-95');
+        inputWrapper?.classList.remove('ring-4', 'ring-[#059669]/15', 'border-[#059669]');
+      }
+    };
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        const oldSelection = target.selectionStart;
+        const oldLength = target.value.length;
+
+        let raw = target.value.replace(/[^\d+]/g, '');
+
+        if (raw === '' || raw === '+') {
+            target.value = raw;
+            if (currentFlagIso !== 'globe' && countryFlag) {
+                currentFlagIso = 'globe';
+                countryFlag.src = globeSvg;
+            }
+            updateValidationState(false);
+            return;
+        }
+
+        if (/^[1-9]/.test(raw)) {
+            raw = '+48' + raw; 
+        }
+        if (raw.startsWith('00')) {
+            raw = '+' + raw.substring(2);
+        }
+        if (raw.indexOf('+') > 0) {
+            raw = '+' + raw.replace(/\+/g, '');
+        }
+
+        let code = '';
+        let number = '';
+        let iso = 'globe';
+
+        if (raw.startsWith('+')) {
+            const rest = raw.substring(1); 
+            for (let i = 3; i >= 1; i--) {
+                const chunk = rest.substring(0, i);
+                if (globalCountryCodes[chunk]) {
+                    code = chunk;
+                    number = rest.substring(i);
+                    iso = globalCountryCodes[chunk];
+                    break;
+                }
+            }
+            if (!code && rest.length > 0) {
+                const maxLen = Math.min(3, rest.length);
+                code = rest.substring(0, maxLen);
+                number = rest.substring(maxLen);
+            }
+        }
+
+        let maxLength = 15; 
+        if (code === '48') maxLength = 9; 
+        
+        if (number.length > maxLength) {
+             number = number.substring(0, maxLength); 
+             raw = (code ? '+' + code : '') + number; 
+        }
+
+        if (countryFlag && currentFlagIso !== iso) {
+            currentFlagIso = iso;
+            countryFlag.style.transform = 'scale(0.8)';
+            countryFlag.style.opacity = '0.5';
+            setTimeout(() => {
+                countryFlag.src = getFlagUrl(iso);
+                countryFlag.style.transform = 'scale(1)';
+                countryFlag.style.opacity = '1';
+            }, 150);
+        }
+
+        let displayValue = code ? '+' + code : raw;
+        if (number.length > 0) {
+            displayValue += ' ';
+            const chunks = number.match(/.{1,3}/g); 
+            if (chunks) {
+                displayValue += chunks.join(' ');
+            }
+        }
+
+        target.value = displayValue;
+
+        if (oldSelection !== null && target.value.length !== oldLength) {
+             const diff = target.value.length - oldLength;
+             target.setSelectionRange(oldSelection + diff, oldSelection + diff);
+        }
+
+        let isValid = false;
+        if (code === '48') {
+            isValid = number.length === 9;
+        } 
+        else if (code.length >= 1) {
+            isValid = number.length >= 7 && number.length <= 15;
+        }
+
+        updateValidationState(isValid);
+      });
+    }
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitBtn.disabled || isSubmitting) return;
+
+      const phoneNumber = phoneInput.value.replace(/\s/g, '');
+      console.log('Wysyłanie numeru:', phoneNumber); 
+
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      phoneInput.disabled = true;
+
+      submitIcon?.classList.add('opacity-0', 'scale-0', 'hidden');
+      submitSpinner?.classList.remove('opacity-0', 'scale-50', 'hidden');
+      submitSpinner?.classList.add('opacity-100', 'scale-100');
+
+      // Twój adres webhooka n8n
+      const WEBHOOK_URL = 'https://n8n.hisecore.pl/webhook/66e72f27-c70e-4269-bbc9-76dba4d70b4b';
+
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 
+            phone: phoneNumber, 
+            source: 'callback_widget_website',
+            timestamp: new Date().toISOString()
+          })
+        });
+
+        // Animacja sukcesu po poprawnym wysłaniu
+        submitSpinner?.classList.add('opacity-0', 'scale-50', 'hidden');
+        submitSpinner?.classList.remove('opacity-100', 'scale-100');
+        
+        submitSuccess?.classList.remove('opacity-0', 'scale-50');
+        submitSuccess?.classList.add('opacity-100', 'scale-100');
+
+        setTimeout(() => {
+          closeModal();
+          sessionStorage.setItem('callback_submitted', 'true');
+          
+          setTimeout(() => {
+            trigger?.remove();
+            panel?.remove();
+            backdrop?.remove();
+          }, 500); 
+
+        }, 1800);
+
+      } catch (error) {
+        console.error('Błąd podczas wysyłania numeru telefonu:', error);
+        
+        // W razie błędu przywracamy formularz do stanu początkowego
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        phoneInput.disabled = false;
+        
+        submitSpinner?.classList.add('opacity-0', 'scale-50', 'hidden');
+        submitSpinner?.classList.remove('opacity-100', 'scale-100');
+        submitIcon?.classList.remove('opacity-0', 'scale-0', 'hidden');
+        
+        // Pobieramy komunikat o błędzie z atrybutu (aby móc go przetłumaczyć na inny język)
+        const errorMsg = form?.getAttribute('data-error-msg') || 'Wystąpił problem z wysłaniem formularza.';
+        alert(errorMsg);
+      }
+    });
+
+    const openModal = () => {
+      if (!backdrop || !panel) return;
+      
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100', 'pointer-events-auto');
+      
+      panel.classList.remove('opacity-0', 'scale-[0.92]', 'pointer-events-none');
+      panel.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+      
+      // Obsługa wyjazdu zza ekranu (szufladka)
+      panel.classList.remove('md:-translate-x-[120%]');
+      panel.classList.add('md:translate-x-0');
+      
+      setTimeout(() => phoneInput?.focus(), 400);
+    };
+
+    const closeModal = () => {
+      if (!backdrop || !panel) return;
+      
+      backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      
+      panel.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+      panel.classList.add('opacity-0', 'scale-[0.92]', 'pointer-events-none');
+      
+      // Chowanie z powrotem za lewą krawędź
+      panel.classList.remove('md:translate-x-0');
+      panel.classList.add('md:-translate-x-[120%]');
+      
+      sessionStorage.setItem('callback_shown', 'true');
+    };
+
+    // Otwieranie najechanie lub kliknięcie
+    trigger?.addEventListener('mouseenter', openModal);
+    trigger?.addEventListener('click', openModal); 
+    
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop?.addEventListener('click', closeModal);
+
+    const isMobile = window.innerWidth < 768;
+    const hasBeenShown = sessionStorage.getItem('callback_shown');
+
+    if (isMobile && !hasBeenShown && !hasBeenSubmitted) {
+      setTimeout(() => {
+        openModal();
+      }, 10000); 
+    }
+  });
+</script>
