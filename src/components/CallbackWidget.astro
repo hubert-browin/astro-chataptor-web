@@ -67,25 +67,21 @@
   <!-- Formularz (W pełni Inline) -->
   <form id="callback-form" class="relative w-full group" novalidate>
     
-    <!-- Wrapper na input telefoniczny (Apple style input, wszystko w jednej linii) -->
+    <!-- Wrapper na input telefoniczny -->
     <div id="input-wrapper" class="relative flex items-center bg-[#FAFAFA] rounded-[18px] overflow-hidden border border-[#E4E4E7] transition-all duration-300 focus-within:bg-white focus-within:border-[#059669] focus-within:ring-4 focus-within:ring-[#059669]/10 shadow-sm p-1.5">
       
-      <!-- Statyczny prefiks z flagą PL i kierunkowym -->
-      <div class="pl-3 pr-2 py-2 flex items-center gap-2 border-r border-[#E4E4E7]/80 select-none shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" class="w-[18px] h-auto rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.06)]">
-          <rect width="3" height="2" fill="#fff"/>
-          <rect width="3" height="1" y="1" fill="#dc143c"/>
-        </svg>
-        <span class="text-[#18181B] font-semibold text-[14.5px] tracking-wide">+48</span>
+      <!-- Kontener flagi - dynamiczny -->
+      <div id="flag-container" class="pl-3 pr-2 py-2 flex items-center justify-center border-r border-[#E4E4E7]/80 select-none shrink-0 min-w-[48px] transition-all duration-300">
+        <span id="country-emoji" class="text-[18px] leading-none transition-transform duration-300">🇵🇱</span>
       </div>
 
       <!-- Właściwe pole input -->
       <input 
         type="tel" 
         id="phone-input"
-        inputmode="numeric"
+        inputmode="tel"
         autocomplete="tel"
-        placeholder="123 456 789" 
+        placeholder="+48 123 456 789" 
         class="w-full bg-transparent border-none outline-none pl-3 pr-2 py-2.5 text-[#18181B] text-[15px] font-medium placeholder:text-[#A1A1AA] tracking-wide"
       />
 
@@ -103,7 +99,7 @@
         </svg>
         
         <!-- Spinner ładowania -->
-        <svg id="submit-spinner" class="absolute h-5 w-5 text-white opacity-0 scale-50 transition-all duration-300 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <svg id="submit-spinner" class="absolute h-5 w-5 text-white opacity-0 scale-50 transition-all duration-300 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>
@@ -133,42 +129,176 @@
     const phoneInput = document.getElementById('phone-input') as HTMLInputElement;
     const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
     
-    // Ikony wewnątrz przycisku inline
     const submitIcon = document.getElementById('submit-icon');
     const submitSpinner = document.getElementById('submit-spinner');
     const submitSuccess = document.getElementById('submit-success');
     
     const inputWrapper = document.getElementById('input-wrapper');
     const successMsg = document.getElementById('success-msg');
+    const countryEmoji = document.getElementById('country-emoji');
 
     let isSubmitting = false;
 
-    // --- LOGIKA WALIDACJI I FORMATOWANIA ---
-    const formatPhoneNumber = (value: string) => {
-      // Zostawiamy tylko cyfry
-      const digits = value.replace(/\D/g, '');
+    // Prosta baza popularnych kierunkowych dla detekcji flagi
+    // Format: 'kierunkowy': { emoji: 'flag_emoji', length: dlugosc_numeru_bez_kierunkowego }
+    // Jeśli długość to 'any', akceptujemy minimalną sensowną długość (np. 6 cyfr)
+    const countryCodes: Record<string, { emoji: string, minLength: number, maxLength: number, format?: (num: string) => string }> = {
+      '48': { emoji: '🇵🇱', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Polska: 9 cyfr
+      '49': { emoji: '🇩🇪', minLength: 10, maxLength: 11 }, // Niemcy: zmienna dlugosc (zazwyczaj 10-11)
+      '44': { emoji: '🇬🇧', minLength: 10, maxLength: 10, format: (n) => n.replace(/(\d{4})(\d{6})/, '$1 $2') }, // UK: 10 cyfr
+      '420': { emoji: '🇨🇿', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Czechy: 9 cyfr
+      '421': { emoji: '🇸🇰', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(?=\d)/g, '$1 ') }, // Słowacja: 9 cyfr
+      '33': { emoji: '🇫🇷', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5').trim() }, // Francja: 9 cyfr
+      '34': { emoji: '🇪🇸', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{3})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4').trim() }, // Hiszpania: 9 cyfr
+      '39': { emoji: '🇮🇹', minLength: 9, maxLength: 10 }, // Włochy: 9-10 cyfr
+      '1': { emoji: '🇺🇸', minLength: 10, maxLength: 10, format: (n) => n.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') }, // USA/Kanada: 10 cyfr
+      '380': { emoji: '🇺🇦', minLength: 9, maxLength: 9, format: (n) => n.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4') }, // Ukraina: 9 cyfr
+      // Domyślny fallback dla innych
+      'default': { emoji: '🌐', minLength: 6, maxLength: 15 } 
+    };
+
+    // Funkcja do wyciągania kierunkowego i numeru właściwego z wpisanego ciągu
+    const parsePhoneNumber = (input: string) => {
+      // Usuń wszystko oprócz cyfr i +
+      let cleaned = input.replace(/[^\d+]/g, '');
       
-      // Polskie numery mają 9 cyfr
-      const truncated = digits.slice(0, 9);
-      
-      // Dodawanie spacji co 3 cyfry (XXX XXX XXX)
-      let formatted = '';
-      for (let i = 0; i < truncated.length; i++) {
-        if (i > 0 && i % 3 === 0) formatted += ' ';
-        formatted += truncated[i];
+      // Jeśli zaczyna się od cyfry, zakładamy polski domyślny
+      if (/^[1-9]/.test(cleaned)) {
+        cleaned = '+48' + cleaned;
       }
-      return { formatted, rawLength: truncated.length };
+
+      // Jeśli zaczyna się od zera, zamieniamy 00 na + (standardowy prefix międzynarodowy)
+      if (cleaned.startsWith('00')) {
+          cleaned = '+' + cleaned.substring(2);
+      }
+
+      // Upewnij się, że ma tylko jednego plusa na początku
+      if(cleaned.includes('+') && cleaned.indexOf('+') !== 0) {
+          cleaned = '+' + cleaned.replace(/\+/g, '');
+      }
+
+      let code = '';
+      let number = '';
+      let countryInfo = countryCodes['default'];
+      let foundCode = false;
+
+      // Szukaj pasującego kodu kraju (od najdłuższych do najkrótszych, max kierunkowy ma 3 cyfry zazwyczaj, 4 w rzadkich przypadkach)
+      if (cleaned.startsWith('+')) {
+        const potentialCodeStr = cleaned.substring(1); // bez +
+        // Sprawdź długości 3, 2, 1
+        for (let i = 3; i >= 1; i--) {
+          const potentialCode = potentialCodeStr.substring(0, i);
+          if (countryCodes[potentialCode]) {
+            code = potentialCode;
+            number = potentialCodeStr.substring(i);
+            countryInfo = countryCodes[potentialCode];
+            foundCode = true;
+            break;
+          }
+        }
+        
+        // Jeśli nie znaleziono w naszej bazie, ale wygląda jak kierunkowy
+        if (!foundCode && potentialCodeStr.length > 0) {
+           // Prosta heurystyka: większość kodów to 2 cyfry, a te zaczynające się od 1 to USA/Kanada (1 cyfra), a od niektórych (np. 42X to 3)
+           let codeLen = 2;
+           if(potentialCodeStr.startsWith('1') || potentialCodeStr.startsWith('7')) codeLen = 1; // USA, Rosja/Kazachstan
+           if(potentialCodeStr.startsWith('42') || potentialCodeStr.startsWith('38') || potentialCodeStr.startsWith('37')) codeLen = 3;
+           
+           code = potentialCodeStr.substring(0, codeLen);
+           number = potentialCodeStr.substring(codeLen);
+           // Pozostaw default countryInfo
+        }
+      } else {
+        // Powinno być pokryte przez dodanie +48, ale w razie czego
+        code = '48';
+        number = cleaned;
+        countryInfo = countryCodes['48'];
+      }
+
+      return {
+        raw: cleaned,
+        code: code,
+        number: number,
+        info: countryInfo
+      };
     };
 
     if (phoneInput) {
+      // Dodaj +48 gdy użytkownik sfocusuje na puste pole, jeśli chce
+      phoneInput.addEventListener('focus', () => {
+          if(phoneInput.value === '') {
+              phoneInput.value = '+48 ';
+              // Animacja flagi (opcjonalnie)
+              if(countryEmoji) countryEmoji.textContent = '🇵🇱';
+          }
+      });
+
       phoneInput.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement;
-        const { formatted, rawLength } = formatPhoneNumber(target.value);
         
-        target.value = formatted;
+        // Pamiętaj gdzie był kursor przed manipulacją
+        const selectionStart = target.selectionStart;
+        const oldLength = target.value.length;
 
-        // Walidacja (Dokładnie 9 cyfr)
-        const isValid = rawLength === 9;
+        const parsed = parsePhoneNumber(target.value);
+        
+        // Aktualizacja emoji flagi
+        if (countryEmoji && parsed.code) {
+           // Sprawdź czy flaga się zmieniła, dodaj subtelną animację jeśli tak
+           if (countryEmoji.textContent !== parsed.info.emoji) {
+               countryEmoji.style.transform = 'scale(0.8) opacity(0.5)';
+               setTimeout(() => {
+                   countryEmoji.textContent = parsed.info.emoji;
+                   countryEmoji.style.transform = 'scale(1) opacity(1)';
+               }, 150);
+           }
+        } else if (countryEmoji && !parsed.raw) {
+            countryEmoji.textContent = '🌐'; // Default jak puste
+        }
+
+        // Formatowanie wyświetlanej wartości
+        let displayValue = parsed.raw.startsWith('+') ? '+' + parsed.code : '';
+        if (displayValue) displayValue += ' ';
+
+        if (parsed.number) {
+            if (parsed.info.format) {
+                // Użyj dedykowanego formatera jeśli istnieje i numer ma max długość lub jest w trakcie wpisywania
+                // Ale formatuj tylko to co wpisano
+                let formattedNum = parsed.info.format(parsed.number);
+                displayValue += formattedNum;
+            } else {
+                // Domyślne formatowanie: dziel na bloki co 3/4 cyfry w zależności od długości dla czytelności
+                let formatted = parsed.number.replace(/\s/g, ''); // usun spacje
+                // Prosty spacing - np. co 3, ale to skomplikowane bez wiedzy o kraju
+                // Dla 'default' nie robimy agresywnego formatowania, żeby nie popsuć
+                displayValue += formatted;
+            }
+        }
+        
+        // Ogranicz do max długości numeru (żeby nie wpisywać w nieskończoność)
+        // Jeśli długość number przekracza maxLength z countryInfo (plus ew spacje z formatowania), ucinamy
+        const maxLenWithoutSpaces = parsed.info.maxLength;
+        const currentNumLen = parsed.number.replace(/\s/g, '').length;
+        
+        if (currentNumLen > maxLenWithoutSpaces) {
+             // Wyrzucamy ostatnio dodany znak z raw inputu i parsujemy ponownie
+             // To proste zabezpieczenie
+             target.value = displayValue.substring(0, displayValue.length - 1);
+        } else {
+             target.value = displayValue;
+        }
+
+        // Próba inteligentnego przywrócenia kursora (może być niedoskonała przy formaterach)
+        if (selectionStart !== null && target.value.length !== oldLength) {
+             const diff = target.value.length - oldLength;
+             target.setSelectionRange(selectionStart + diff, selectionStart + diff);
+        }
+
+        // --- WALIDACJA ---
+        // Sprawdzamy czy wpisano minimalną wymaganą liczbę cyfr dla danego kraju
+        const isValid = parsed.number.replace(/\s/g, '').length >= parsed.info.minLength && 
+                        parsed.number.replace(/\s/g, '').length <= parsed.info.maxLength &&
+                        parsed.code.length > 0;
         
         if (isValid) {
           submitBtn.disabled = false;
@@ -191,14 +321,17 @@
       e.preventDefault();
       if (submitBtn.disabled || isSubmitting) return;
 
-      const phoneNumber = `+48 ${phoneInput.value}`;
+      // Złap wyczyszczoną wartość do wysłania
+      const phoneNumber = phoneInput.value.replace(/\s/g, '');
+      console.log('Wysyłanie numeru:', phoneNumber); // Do testów
+
       isSubmitting = true;
       submitBtn.disabled = true;
       phoneInput.disabled = true;
 
       // 1. Ukryj ikonę strzałki, pokaż spinner
       submitIcon?.classList.add('opacity-0', 'scale-0', 'hidden');
-      submitSpinner?.classList.remove('opacity-0', 'scale-50');
+      submitSpinner?.classList.remove('opacity-0', 'scale-50', 'hidden');
       submitSpinner?.classList.add('opacity-100', 'scale-100');
 
       // 2. Symulacja wysyłania (Zastąp fetch/axios)
@@ -209,7 +342,7 @@
         
         submitSuccess?.classList.remove('opacity-0', 'scale-50');
         submitSuccess?.classList.add('opacity-100', 'scale-100');
-        // Przycisk jest już zielony z walidacji, nie musimy używać .replace()
+        // Przycisk jest już zielony z walidacji
         
         successMsg?.classList.remove('opacity-0');
 
@@ -226,13 +359,15 @@
     const resetForm = () => {
       if (!phoneInput || !form) return;
       form.reset();
+      phoneInput.value = ''; // Wyzeruj manualnie
+      if(countryEmoji) countryEmoji.textContent = '🇵🇱'; // Reset do PL emoji
       phoneInput.disabled = false;
       isSubmitting = false;
       
       // Reset przycisku inline
       submitIcon?.classList.remove('opacity-0', 'scale-0', 'hidden', 'translate-x-[2px]');
       submitSpinner?.classList.add('opacity-0', 'scale-50');
-      submitSpinner?.classList.remove('hidden');
+      submitSpinner?.classList.remove('hidden'); // ukrywamy go spowrotem po reszcie
       submitSuccess?.classList.add('opacity-0', 'scale-50');
       
       // Reset stanów walidacji
@@ -248,7 +383,6 @@
     const openModal = () => {
       if (!backdrop || !panel) return;
       
-      // Pokazywanie tła
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
       backdrop.classList.add('opacity-100', 'pointer-events-auto');
       
