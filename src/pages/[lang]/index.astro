@@ -168,7 +168,7 @@ const logos = [
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto lg:mx-0 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
               <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-50"></span>
               </span>
               <span class="hidden sm:inline">{t.hero.badge}</span>
               <span class="sm:hidden">{t.hero.badgeMobile}</span>
@@ -788,9 +788,38 @@ const logos = [
 
       <!-- PRICING SECTION -->
       <section id="pricing" class="py-16 md:py-24 lg:py-32 px-4 md:px-6 max-w-7xl mx-auto w-full border-t border-zinc-100">
-        <div class="text-center mb-12 lg:mb-16 xl:mb-24">
+        <div class="text-center mb-8 lg:mb-12">
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.pricing.title}</h2>
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{t.pricing.subtitle}</p>
+        </div>
+
+        <!-- TODO: Przenieś teksty do i18n/landing.ts, jeśli strona ma obsługiwać wiele języków -->
+        <!-- BETA BANNER -->
+        <div class="max-w-4xl mx-auto mb-12 sm:mb-16 bg-gradient-to-br from-emerald-50 to-teal-50/50 ring-1 ring-emerald-200/60 rounded-[2rem] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-sm">
+          <div class="absolute -right-20 -top-20 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-teal-400/10 rounded-full blur-2xl pointer-events-none"></div>
+          
+          <div class="relative z-10 flex items-start sm:items-center gap-5 w-full md:w-auto">
+            <div class="w-14 h-14 rounded-2xl bg-white shadow-sm ring-1 ring-emerald-100 flex items-center justify-center shrink-0 text-2xl">
+              🚀
+            </div>
+            <div class="text-left">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-widest mb-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Early Adopters Program
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-zinc-900 mb-1">Dołącz do fazy Beta i testuj za darmo</h3>
+              <p class="text-zinc-600 text-sm sm:text-base leading-relaxed max-w-xl">
+                Szukamy pierwszych firm do testów! Odbierz <strong>6 miesięcy planu Plus całkowicie za darmo</strong> (zamiast regularnej ceny) w zamian za regularny feedback o produkcie.
+              </p>
+            </div>
+          </div>
+          <div class="relative z-10 w-full md:w-auto shrink-0 flex flex-col items-center">
+            <a href="/register?plan=plus-beta" class="w-full sm:w-auto px-6 py-3 bg-emerald-600 text-white rounded-xl text-sm font-bold hover:bg-emerald-500 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 text-center whitespace-nowrap">
+              Odbierz darmowy dostęp
+            </a>
+            <span class="text-[10px] text-zinc-500 mt-2 font-medium">Ilość miejsc w becie ograniczona</span>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -798,11 +827,17 @@ const logos = [
           <div class="bg-zinc-50 rounded-[2.5rem] p-8 ring-1 ring-black/5 hover:shadow-xl transition-all relative flex flex-col">
             <div class="mb-4">
               <h3 class="text-xl font-bold text-zinc-900">{t.pricing.starter.title}</h3>
-              <div class="mt-4 flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-zinc-900">{t.pricing.starter.price}</span>
-                <span class="text-zinc-500">{t.pricing.starter.period}</span>
+              <div class="mt-4 flex flex-col gap-1">
+                <div class="flex items-center gap-2 opacity-80">
+                  <span class="text-2xl font-bold text-zinc-400 line-through decoration-zinc-300">{t.pricing.starter.price}</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-700 tracking-wide uppercase">Beta</span>
+                </div>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-4xl font-extrabold text-zinc-900">0</span>
+                  <span class="text-zinc-500">{t.pricing.starter.period}</span>
+                </div>
               </div>
-              <p class="text-sm text-zinc-500 mt-2">{t.pricing.starter.desc}</p>
+              <p class="text-sm text-zinc-500 mt-3">{t.pricing.starter.desc}</p>
             </div>
             <ul class="space-y-3 mb-8 flex-1">
               <li class="flex items-start gap-3 text-sm text-zinc-600">
@@ -835,14 +870,22 @@ const logos = [
 
           <!-- Plus -->
           <div class="bg-zinc-900 text-white rounded-[2.5rem] p-8 ring-1 ring-black/5 hover:shadow-2xl transition-all relative flex flex-col transform md:-translate-y-4">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">{t.pricing.plus.badge}</div>
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-emerald-400 to-emerald-600 text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg shadow-emerald-500/30 whitespace-nowrap ring-4 ring-zinc-900">
+              ✨ 6 miesięcy za darmo
+            </div>
             <div class="mb-4">
               <h3 class="text-xl font-bold text-white">{t.pricing.plus.title}</h3>
-              <div class="mt-4 flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-white">{t.pricing.plus.price}</span>
-                <span class="text-zinc-400">{t.pricing.plus.period}</span>
+              <div class="mt-4 flex flex-col gap-0.5">
+                <div class="flex items-center gap-2 opacity-90">
+                  <span class="text-2xl font-bold text-zinc-500 line-through decoration-zinc-500">{t.pricing.plus.price}</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 ring-1 ring-emerald-500/30 tracking-wide uppercase">Beta 100% OFF</span>
+                </div>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-zinc-300">0</span>
+                  <span class="text-zinc-400">{t.pricing.plus.period}</span>
+                </div>
               </div>
-              <p class="text-sm text-zinc-400 mt-2">{t.pricing.plus.desc}</p>
+              <p class="text-sm text-zinc-400 mt-3">{t.pricing.plus.desc}</p>
             </div>
             <ul class="space-y-3 mb-8 flex-1">
               <li class="flex items-start gap-3 text-sm text-zinc-300">
@@ -866,10 +909,10 @@ const logos = [
                 <span>{t.pricing.plus.features.limit}</span>
               </li>
             </ul>
-            <a href="/register?plan=plus" class="w-full block text-center py-3 rounded-xl bg-emerald-500 text-white font-bold hover:bg-emerald-500 transition-colors">{t.pricing.plus.cta}</a>
+            <a href="/register?plan=plus" class="w-full block text-center py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold hover:from-emerald-400 hover:to-teal-400 transition-all shadow-lg shadow-emerald-500/25 active:scale-95">{t.pricing.plus.cta}</a>
           </div>
 
-          <!-- Unlimited (Z MODYFIKACJĄ CTA) -->
+          <!-- Unlimited -->
           <div class="bg-white rounded-[2.5rem] p-8 ring-1 ring-zinc-200 hover:shadow-xl transition-all relative flex flex-col">
             <div class="mb-4">
               <h3 class="text-xl font-bold text-zinc-900">{t.pricing.unlimited.title}</h3>
