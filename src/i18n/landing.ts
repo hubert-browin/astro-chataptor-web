@@ -171,6 +171,19 @@ export interface LandingTranslations {
   pricing: {
     title: string;
     subtitle: string;
+    betaBanner: {
+      badge: string;
+      title: string;
+      desc: string;
+      f1: string;
+      f2: string;
+      f3: string;
+      f4: string;
+      spotsLeft: string;
+      spotsCount: string;
+      cta: string;
+      autoAccess: string;
+    };
     starter: {
       title: string;
       price: string;
@@ -188,6 +201,9 @@ export interface LandingTranslations {
     };
     plus: {
       badge: string;
+      recommendedBadge: string;
+      discountBadge: string;
+      freePrice: string;
       title: string;
       price: string;
       period: string;
@@ -200,6 +216,7 @@ export interface LandingTranslations {
         limit: string;
       };
       cta: string;
+      freeCta: string;
     };
     unlimited: {
       title: string;
@@ -390,6 +407,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Wybierz plan dla siebie',
       subtitle: 'Elastyczne plany dopasowane do Twojego biznesu. Zmień w dowolnym momencie.',
+      betaBanner: {
+        badge: 'Program Early Adopters',
+        title: 'Testuj i odbierz 6 miesięcy za darmo.',
+        desc: 'Wdrażaj, testuj i buduj z nami produkt. W zamian za feedback otrzymasz darmowy dostęp, dedykowane wsparcie oraz gwarancję stałej ceny po zakończeniu testów.',
+        f1: 'Gwarancja stałej ceny',
+        f2: 'Bezpośrednie wsparcie',
+        f3: 'Wpływ na rozwój platformy',
+        f4: 'Dostęp do wszystkich funkcji',
+        spotsLeft: 'Pozostało miejsc',
+        spotsCount: '12 / 50',
+        cta: 'Odbierz darmowy dostęp',
+        autoAccess: 'Dostęp automatyczny po rejestracji.',
+      },
       starter: {
         title: 'Starter',
         price: '129 zł',
@@ -407,6 +437,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Najczęściej wybierany',
+        recommendedBadge: 'Rekomendowany',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 zł',
         period: '/miesiąc',
@@ -419,6 +452,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Do 500 wiadomości / mc',
         },
         cta: 'Wybierz Plus',
+        freeCta: 'Rozpocznij za darmo',
       },
       unlimited: {
         title: 'Unlimited',
@@ -608,6 +642,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Choose your plan',
       subtitle: 'Flexible plans tailored to your business. Change at any time.',
+      betaBanner: {
+        badge: 'Early Adopters Program',
+        title: 'Test and get 6 months for free.',
+        desc: 'Implement, test, and build the product with us. In exchange for feedback, you get free access, dedicated support, and a fixed price guarantee after the test ends.',
+        f1: 'Fixed price guarantee',
+        f2: 'Direct support',
+        f3: 'Influence on platform development',
+        f4: 'Access to all features',
+        spotsLeft: 'Spots left',
+        spotsCount: '12 / 50',
+        cta: 'Claim free access',
+        autoAccess: 'Automatic access after registration.',
+      },
       starter: {
         title: 'Starter',
         price: '129 PLN',
@@ -625,6 +672,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Most Popular',
+        recommendedBadge: 'Recommended',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 PLN',
         period: '/month',
@@ -637,6 +687,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Up to 500 messages / mo',
         },
         cta: 'Choose Plus',
+        freeCta: 'Start for free',
       },
       unlimited: {
         title: 'Unlimited',
@@ -826,6 +877,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Wählen Sie Ihren Plan',
       subtitle: 'Flexible Pläne, angepasst an Ihr Geschäft. Jederzeit änderbar.',
+      betaBanner: {
+        badge: 'Early Adopters Programm',
+        title: 'Testen und 6 Monate kostenlos erhalten.',
+        desc: 'Implementieren, testen und bauen Sie das Produkt mit uns auf. Als Gegenleistung für Feedback erhalten Sie kostenlosen Zugang, dedizierten Support und eine Festpreisgarantie nach Testende.',
+        f1: 'Festpreisgarantie',
+        f2: 'Direkter Support',
+        f3: 'Einfluss auf Plattformentwicklung',
+        f4: 'Zugang zu allen Funktionen',
+        spotsLeft: 'Verbleibende Plätze',
+        spotsCount: '12 / 50',
+        cta: 'Kostenlosen Zugang sichern',
+        autoAccess: 'Automatischer Zugang nach Registrierung.',
+      },
       starter: {
         title: 'Starter',
         price: '129 PLN',
@@ -843,6 +907,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Meistgewählt',
+        recommendedBadge: 'Empfohlen',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 PLN',
         period: '/Monat',
@@ -855,6 +922,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Bis zu 500 Nachrichten / Mt',
         },
         cta: 'Plus wählen',
+        freeCta: 'Kostenlos starten',
       },
       unlimited: {
         title: 'Unlimited',
@@ -1044,6 +1112,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Choisissez votre plan',
       subtitle: 'Des plans flexibles adaptés à votre entreprise. Changez à tout moment.',
+      betaBanner: {
+        badge: 'Programme Early Adopters',
+        title: 'Testez et obtenez 6 mois gratuits.',
+        desc: 'Implémentez, testez et développez le produit avec nous. En échange de vos retours, obtenez un accès gratuit, un support dédié et une garantie de prix fixe après la fin des tests.',
+        f1: 'Garantie de prix fixe',
+        f2: 'Support direct',
+        f3: 'Influence sur le développement',
+        f4: 'Accès à toutes les fonctionnalités',
+        spotsLeft: 'Places restantes',
+        spotsCount: '12 / 50',
+        cta: 'Obtenir l\'accès gratuit',
+        autoAccess: 'Accès automatique après inscription.',
+      },
       starter: {
         title: 'Starter',
         price: '129 PLN',
@@ -1061,6 +1142,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Le plus populaire',
+        recommendedBadge: 'Recommandé',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 PLN',
         period: '/mois',
@@ -1073,6 +1157,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Jusqu\'à 500 messages / mois',
         },
         cta: 'Choisir Plus',
+        freeCta: 'Commencer gratuitement',
       },
       unlimited: {
         title: 'Unlimited',
@@ -1262,6 +1347,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Elige tu plan',
       subtitle: 'Planes flexibles adaptados a tu negocio. Cambia en cualquier momento.',
+      betaBanner: {
+        badge: 'Programa Early Adopters',
+        title: 'Prueba y obtén 6 meses gratis.',
+        desc: 'Implementa, prueba y construye el producto con nosotros. A cambio de tus comentarios, obtienes acceso gratuito, soporte dedicado y garantía de precio fijo al finalizar la prueba.',
+        f1: 'Garantía de precio fijo',
+        f2: 'Soporte directo',
+        f3: 'Influencia en el desarrollo',
+        f4: 'Acceso a todas las funciones',
+        spotsLeft: 'Plazas restantes',
+        spotsCount: '12 / 50',
+        cta: 'Obtener acceso gratis',
+        autoAccess: 'Acceso automático al registrarse.',
+      },
       starter: {
         title: 'Starter',
         price: '129 PLN',
@@ -1279,6 +1377,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Más popular',
+        recommendedBadge: 'Recomendado',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 PLN',
         period: '/mes',
@@ -1291,6 +1392,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Hasta 500 mensajes / mes',
         },
         cta: 'Elegir Plus',
+        freeCta: 'Empezar gratis',
       },
       unlimited: {
         title: 'Unlimited',
@@ -1480,6 +1582,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Scegli il tuo piano',
       subtitle: 'Piani flessibili adatti al tuo business. Cambia quando vuoi.',
+      betaBanner: {
+        badge: 'Programma Early Adopters',
+        title: 'Testa e ottieni 6 mesi gratis.',
+        desc: 'Implementa, testa e costruisci il prodotto con noi. In cambio del tuo feedback avrai accesso gratuito, supporto dedicato e garanzia di prezzo bloccato dopo la fine del test.',
+        f1: 'Garanzia di prezzo fisso',
+        f2: 'Supporto diretto',
+        f3: 'Influenza sullo sviluppo',
+        f4: 'Accesso a tutte le funzioni',
+        spotsLeft: 'Posti rimanenti',
+        spotsCount: '12 / 50',
+        cta: 'Ottieni accesso gratuito',
+        autoAccess: 'Accesso automatico dopo la registrazione.',
+      },
       starter: {
         title: 'Starter',
         price: '129 PLN',
@@ -1497,6 +1612,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Più popolare',
+        recommendedBadge: 'Raccomandato',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 PLN',
         period: '/mese',
@@ -1509,6 +1627,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Fino a 500 messaggi / mese',
         },
         cta: 'Scegli Plus',
+        freeCta: 'Inizia gratis',
       },
       unlimited: {
         title: 'Unlimited',
@@ -1698,6 +1817,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Vyberte si plán',
       subtitle: 'Flexibilní plány pro vaše podnikání. Kdykoli změňte.',
+      betaBanner: {
+        badge: 'Program Early Adopters',
+        title: 'Testuj a získej 6 měsíců zdarma.',
+        desc: 'Implementuj, testuj a buduj produkt s námi. Výměnou za zpětnou vazbu získáš přístup zdarma, dedikovanou podporu a garanci fixní ceny po ukončení testů.',
+        f1: 'Garance fixní ceny',
+        f2: 'Přímá podpora',
+        f3: 'Vliv na vývoj platformy',
+        f4: 'Přístup ke všem funkcím',
+        spotsLeft: 'Zbývající místa',
+        spotsCount: '12 / 50',
+        cta: 'Získat přístup zdarma',
+        autoAccess: 'Automatický přístup po registraci.',
+      },
       starter: {
         title: 'Starter',
         price: '129 PLN',
@@ -1715,6 +1847,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Nejoblíbenější',
+        recommendedBadge: 'Doporučeno',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 PLN',
         period: '/měsíc',
@@ -1727,6 +1862,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Až 500 zpráv / měs',
         },
         cta: 'Vybrat Plus',
+        freeCta: 'Začít zdarma',
       },
       unlimited: {
         title: 'Unlimited',
@@ -1916,6 +2052,19 @@ export const landing: Record<Locale, LandingTranslations> = {
     pricing: {
       title: 'Vyberte si plán',
       subtitle: 'Flexibilné plány pre vaše podnikanie. Kedykoľvek zmeňte.',
+      betaBanner: {
+        badge: 'Program Early Adopters',
+        title: 'Testuj a získaj 6 mesiacov zadarmo.',
+        desc: 'Implementuj, testuj a buduj produkt s nami. Výmenou za spätnú väzbu získaš prístup zadarmo, dedikovanú podporu a garanciu fixnej ceny po ukončení testov.',
+        f1: 'Garancia fixnej ceny',
+        f2: 'Priama podpora',
+        f3: 'Vplyv na vývoj platformy',
+        f4: 'Prístup ku všetkým funkciám',
+        spotsLeft: 'Zostávajúce miesta',
+        spotsCount: '12 / 50',
+        cta: 'Získať prístup zadarmo',
+        autoAccess: 'Automatický prístup po registrácii.',
+      },
       starter: {
         title: 'Starter',
         price: '129 PLN',
@@ -1933,6 +2082,9 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
       plus: {
         badge: 'Najobľúbenejší',
+        recommendedBadge: 'Odporúčané',
+        discountBadge: '100% OFF',
+        freePrice: '0',
         title: 'Plus',
         price: '399 PLN',
         period: '/mesiac',
@@ -1945,6 +2097,7 @@ export const landing: Record<Locale, LandingTranslations> = {
           limit: 'Až 500 správ / mes',
         },
         cta: 'Vybrať Plus',
+        freeCta: 'Začať zadarmo',
       },
       unlimited: {
         title: 'Unlimited',
