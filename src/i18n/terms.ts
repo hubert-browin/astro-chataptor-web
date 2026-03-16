@@ -61,6 +61,7 @@ export interface TermsTranslations {
     item2password: string;
     item2org: string;
     item3: string;
+    item3apple: string;
     item4intro: string;
     item4truthful: string;
     item4confidential: string;
@@ -146,6 +147,8 @@ export interface TermsTranslations {
   section10: {
     title: string;
     item1: string;
+    item1mobile: string;
+    item1ownerNote: string;
     item2: string;
     item3intro: string;
     item3violation: string;
@@ -288,6 +291,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Hasła',
       item2org: 'Nazwy organizacji (opcjonalnie)',
       item3: 'Użytkownik może również zarejestrować się za pomocą konta Google (OAuth).',
+      item3apple: 'Na urządzeniach Apple (iOS) dostępne jest również logowanie za pomocą konta Apple (Sign in with Apple).',
       item4intro: 'Użytkownik zobowiązuje się do:',
       item4truthful: 'Podania prawdziwych danych',
       item4confidential: 'Zachowania poufności danych logowania',
@@ -391,7 +395,9 @@ const translations: Record<Locale, TermsTranslations> = {
     section10: {
       title: 'Rozwiązanie umowy',
       item1:
-        'Użytkownik może w każdej chwili usunąć Konto poprzez ustawienia w panelu lub kontakt z obsługą.',
+        'Użytkownik może w każdej chwili usunąć Konto poprzez ustawienia w panelu, w aplikacji mobilnej lub kontakt z obsługą.',
+      item1mobile: 'W aplikacji mobilnej opcja usunięcia konta jest dostępna w Ustawieniach.',
+      item1ownerNote: 'W przypadku właściciela organizacji, usunięcie konta może skutkować usunięciem całej organizacji wraz ze wszystkimi powiązanymi danymi, jeśli jest jedynym właścicielem.',
       item2: 'Usługodawca może wypowiedzieć umowę z zachowaniem 30-dniowego okresu wypowiedzenia.',
       item3intro: 'Usługodawca może rozwiązać umowę ze skutkiem natychmiastowym w przypadku:',
       item3violation: 'Rażącego naruszenia Regulaminu',
@@ -518,6 +524,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Password',
       item2org: 'Organization name (optional)',
       item3: 'Users may also register using a Google account (OAuth).',
+      item3apple: 'On Apple devices (iOS), Sign in with Apple is also available.',
       item4intro: 'The User agrees to:',
       item4truthful: 'Provide truthful information',
       item4confidential: 'Keep login credentials confidential',
@@ -595,7 +602,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section10: {
       title: 'Termination',
-      item1: 'The User may delete their Account at any time through panel settings or by contacting support.',
+      item1: 'The User may delete their Account at any time through panel settings, the mobile app, or by contacting support.',
+      item1mobile: 'In the mobile app, the account deletion option is available in Settings.',
+      item1ownerNote: 'If the User is the sole owner of an organization, deleting their account may result in the deletion of the entire organization and all associated data.',
       item2: 'The Service Provider may terminate the agreement with a 30-day notice period.',
       item3intro: 'The Service Provider may terminate the agreement with immediate effect in case of:',
       item3violation: 'Serious Terms violation',
@@ -707,6 +716,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Passwort',
       item2org: 'Organisationsname (optional)',
       item3: 'Der Nutzer kann sich auch über ein Google-Konto (OAuth) registrieren.',
+      item3apple: 'Auf Apple-Geräten (iOS) steht auch die Anmeldung mit Apple (Sign in with Apple) zur Verfügung.',
       item4intro: 'Der Nutzer erklärt sich verpflichtet zu:',
       item4truthful: 'Angabe wahrheitsgetreuer Daten',
       item4confidential: 'Geheimhaltung der Anmeldedaten',
@@ -784,7 +794,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section10: {
       title: 'Beendigung des Vertrags',
-      item1: 'Der Nutzer kann sein Konto jederzeit über die Einstellungen im Dashboard oder durch Kontakt mit dem Support löschen.',
+      item1: 'Der Nutzer kann sein Konto jederzeit über die Einstellungen im Dashboard, in der mobilen App oder durch Kontakt mit dem Support löschen.',
+      item1mobile: 'In der mobilen App ist die Kontolöschung unter Einstellungen verfügbar.',
+      item1ownerNote: 'Ist der Nutzer der alleinige Inhaber einer Organisation, kann die Löschung des Kontos die Löschung der gesamten Organisation und aller zugehörigen Daten zur Folge haben.',
       item2: 'Der Dienstleister kann den Vertrag mit einer Kündigungsfrist von 30 Tagen beenden.',
       item3intro: 'Der Dienstleister kann den Vertrag mit sofortiger Wirkung in folgenden Fällen beenden:',
       item3violation: 'Grobe Verletzung dieser Nutzungsbedingungen',
@@ -896,6 +908,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Mot de passe',
       item2org: 'Nom de l\'organisation (optionnel)',
       item3: 'L\'Utilisateur peut également s\'inscrire en utilisant un compte Google (OAuth).',
+      item3apple: 'Sur les appareils Apple (iOS), la connexion avec Apple (Sign in with Apple) est également disponible.',
       item4intro: 'L\'Utilisateur s\'engage à :',
       item4truthful: 'Fournir des données exactes et véridiques',
       item4confidential: 'Maintenir la confidentialité de ses identifiants de connexion',
@@ -973,7 +986,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section10: {
       title: 'Résiliation du Contrat',
-      item1: 'L\'Utilisateur peut à tout moment supprimer son Compte via les paramètres de son tableau de bord ou en contactant l\'assistance.',
+      item1: 'L\'Utilisateur peut à tout moment supprimer son Compte via les paramètres de son tableau de bord, l\'application mobile ou en contactant l\'assistance.',
+      item1mobile: 'Dans l\'application mobile, l\'option de suppression du compte est disponible dans les Paramètres.',
+      item1ownerNote: 'Si l\'Utilisateur est le seul propriétaire d\'une organisation, la suppression de son compte peut entraîner la suppression de l\'ensemble de l\'organisation et de toutes les données associées.',
       item2: 'Le Prestataire de services peut résilier le contrat avec un préavis de 30 jours.',
       item3intro: 'Le Prestataire de services peut résilier le contrat avec effet immédiat en cas de :',
       item3violation: 'Violation grave des présentes Conditions d\'utilisation',
@@ -1085,6 +1100,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Contraseña',
       item2org: 'Nombre de la organización (opcional)',
       item3: 'El Usuario puede registrarse también utilizando su cuenta de Google (OAuth).',
+      item3apple: 'En dispositivos Apple (iOS), también está disponible el inicio de sesión con Apple (Sign in with Apple).',
       item4intro: 'El Usuario se compromete a:',
       item4truthful: 'Proporcionar datos verdaderos y precisos',
       item4confidential: 'Mantener la confidencialidad de sus datos de acceso',
@@ -1162,7 +1178,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section10: {
       title: 'Terminación del contrato',
-      item1: 'El Usuario puede eliminar su Cuenta en cualquier momento a través de la configuración del panel o contactando con el servicio de atención al cliente.',
+      item1: 'El Usuario puede eliminar su Cuenta en cualquier momento a través de la configuración del panel, la aplicación móvil o contactando con el servicio de atención al cliente.',
+      item1mobile: 'En la aplicación móvil, la opción de eliminación de cuenta está disponible en Configuración.',
+      item1ownerNote: 'Si el Usuario es el único propietario de una organización, la eliminación de su cuenta puede conllevar la eliminación de toda la organización y todos los datos asociados.',
       item2: 'El Proveedor del servicio puede rescindir el contrato con un período de notificación de 30 días.',
       item3intro: 'El Proveedor del servicio puede rescindir el contrato con efecto inmediato en caso de:',
       item3violation: 'Incumplimiento grave de los presentes Términos de servicio',
@@ -1274,6 +1292,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Password',
       item2org: 'Nome dell\'organizzazione (facoltativo)',
       item3: 'L\'utente può inoltre registrarsi utilizzando il suo account Google (OAuth).',
+      item3apple: 'Sui dispositivi Apple (iOS), è disponibile anche l\'accesso con Apple (Sign in with Apple).',
       item4intro: 'L\'utente si impegna a:',
       item4truthful: 'Fornire dati veritieri e corretti',
       item4confidential: 'Mantenere la riservatezza dei dati di accesso',
@@ -1351,7 +1370,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section10: {
       title: 'Risoluzione del contratto',
-      item1: 'L\'utente può eliminare l\'Account in qualsiasi momento tramite le impostazioni del pannello o contattando l\'assistenza.',
+      item1: 'L\'utente può eliminare l\'Account in qualsiasi momento tramite le impostazioni del pannello, l\'app mobile o contattando l\'assistenza.',
+      item1mobile: 'Nell\'app mobile, l\'opzione di eliminazione dell\'account è disponibile nelle Impostazioni.',
+      item1ownerNote: 'Se l\'utente è l\'unico proprietario di un\'organizzazione, l\'eliminazione dell\'account può comportare l\'eliminazione dell\'intera organizzazione e di tutti i dati associati.',
       item2: 'Il Fornitore può risolvere il contratto con un periodo di preavviso di 30 giorni.',
       item3intro: 'Il Fornitore può risolvere il contratto con effetto immediato in caso di:',
       item3violation: 'Violazione grave del presente Regolamento',
@@ -1463,6 +1484,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Hesla',
       item2org: 'Názvu organizace (volitelně)',
       item3: 'Uživatel se může také zaregistrovat pomocí účtu Google (OAuth).',
+      item3apple: 'Na zařízeních Apple (iOS) je k dispozici také přihlášení pomocí Apple (Sign in with Apple).',
       item4intro: 'Uživatel se zavazuje:',
       item4truthful: 'Poskytnout pravdivé údaje',
       item4confidential: 'Udržovat důvěrnost přihlašovacích údajů',
@@ -1540,7 +1562,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section10: {
       title: 'Ukončení smlouvy',
-      item1: 'Uživatel může kdykoli smazat svůj účet prostřednictvím nastavení v panelu nebo kontaktem na podporu.',
+      item1: 'Uživatel může kdykoli smazat svůj účet prostřednictvím nastavení v panelu, v mobilní aplikaci nebo kontaktem na podporu.',
+      item1mobile: 'V mobilní aplikaci je možnost smazání účtu dostupná v Nastavení.',
+      item1ownerNote: 'Pokud je uživatel jediným vlastníkem organizace, smazání účtu může vést ke smazání celé organizace a všech souvisejících dat.',
       item2: 'Poskytovatel služeb může smlouvu vypovědět se zachováním 30denní doby výpovědi.',
       item3intro: 'Poskytovatel služeb může smlouvu okamžitě vypovědět v případě:',
       item3violation: 'Hrubého porušení obchodních podmínek',
@@ -1652,6 +1676,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item2password: 'Heslo',
       item2org: 'Názov organizácie (voliteľne)',
       item3: 'Používateľ sa tiež môže zaregistrovať pomocou účtu Google (OAuth).',
+      item3apple: 'Na zariadeniach Apple (iOS) je k dispozícii aj prihlásenie pomocou Apple (Sign in with Apple).',
       item4intro: 'Používateľ sa zaväzuje:',
       item4truthful: 'Poskytnúť pravdivé údaje',
       item4confidential: 'Zachovávať dôvernosť prihlasovacích údajov',
@@ -1729,7 +1754,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section10: {
       title: 'Ukončenie zmluvy',
-      item1: 'Používateľ môže kedykoľvek vymazať Účet prostredníctvom nastavení panelu alebo kontaktom so podporou.',
+      item1: 'Používateľ môže kedykoľvek vymazať Účet prostredníctvom nastavení panelu, v mobilnej aplikácii alebo kontaktom so podporou.',
+      item1mobile: 'V mobilnej aplikácii je možnosť vymazania účtu dostupná v Nastaveniach.',
+      item1ownerNote: 'Ak je používateľ jediným vlastníkom organizácie, vymazanie účtu môže viesť k vymazaniu celej organizácie a všetkých súvisiacich údajov.',
       item2: 'Poskytovateľ môže vypovedať zmluvu so zachovaním 30-dňovej lehoty na výpoveď.',
       item3intro: 'Poskytovateľ môže zmluvu ukončiť s okamžitou platnosťou v prípade:',
       item3violation: 'Hrubého porušenia týchto Obchodných podmienok',
