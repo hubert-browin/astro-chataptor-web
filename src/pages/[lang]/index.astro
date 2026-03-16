@@ -793,78 +793,53 @@ const logos = [
           <p class="text-lg text-zinc-500 max-w-2xl mx-auto font-medium">{t.pricing.subtitle}</p>
         </div>
 
-        <!-- SLEEK TECH BETA BANNER -->
-        <div class="max-w-6xl mx-auto mb-16 lg:mb-20 relative group">
-          <!-- Ożywione tło z poświatą przyciągającą wzrok -->
-          <div class="absolute -inset-1 bg-gradient-to-r from-emerald-100/60 via-teal-50/60 to-emerald-100/60 rounded-[2.5rem] blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <!-- COMPACT BETA BANNER -->
+        <div class="max-w-5xl mx-auto mb-12 lg:mb-16">
+          <div class="bg-white rounded-[2rem] ring-1 ring-zinc-200 shadow-sm flex flex-col md:flex-row items-center justify-between p-6 md:p-8 gap-8">
+            
+            <!-- Content Left -->
+            <div class="flex-1 w-full text-left">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="flex h-2 w-2 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">Program Early Adopters</span>
+              </div>
+              <h3 class="text-xl md:text-2xl font-extrabold text-zinc-900 mb-2 tracking-tight">Testuj w akcji. 6 miesięcy planu Plus w prezencie.</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed max-w-xl mb-5">
+                Wdrażaj, testuj i buduj z nami produkt. W zamian za feedback otrzymasz darmowy dostęp oraz gwarancję stałej ceny po zakończeniu testów.
+              </p>
 
-          <div class="relative bg-white rounded-[2.25rem] p-1.5 ring-1 ring-zinc-200/80 shadow-xl shadow-zinc-200/50 overflow-hidden">
-            <!-- Inner container: czysta biel z delikatnym emeraldowym gradientem w prawym rogu -->
-            <div class="bg-gradient-to-br from-white via-white to-emerald-50/60 rounded-[2rem] p-8 md:p-10 flex flex-col lg:flex-row gap-10 items-center justify-between relative overflow-hidden">
-              
-              <!-- Subtelne dekoracje dodające "tech" vibe'u -->
-              <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-emerald-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-
-              <!-- Content Left -->
-              <div class="relative z-10 flex-1 w-full text-left">
-                <div class="flex items-center gap-2.5 mb-4">
-                  <span class="flex h-2 w-2 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">Program Early Adopters</span>
+              <!-- Feature List (Compact) -->
+              <div class="flex flex-wrap gap-x-5 gap-y-2">
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-sm font-medium text-zinc-600">Wpływ na rozwój</span>
                 </div>
-                <h3 class="text-2xl md:text-3xl font-extrabold text-zinc-900 mb-4 tracking-tight">Testuj narzędzie w akcji. <br class="hidden sm:block"/>Odbierz 6 miesięcy planu Plus.</h3>
-                <p class="text-zinc-600 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
-                  Szukamy firm, które chcą wdrożyć naszą platformę i wycisnąć z niej maksimum. Chętnie posłuchamy Twojej opinii – w zamian oferujemy pół roku najwyższego planu <strong>całkowicie za darmo</strong>. Żadnych haczyków, po prostu budujmy ten produkt razem.
-                </p>
-
-                <!-- Feature Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 max-w-3xl">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center shrink-0 ring-1 ring-emerald-200 shadow-sm">
-                      <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    </div>
-                    <span class="text-sm font-semibold text-zinc-800">Plan Plus na pół roku za 0 zł</span>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 ring-1 ring-zinc-200 shadow-sm">
-                      <svg class="w-4 h-4 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                    </div>
-                    <span class="text-sm font-semibold text-zinc-700">Gwarancja stałej ceny po testach</span>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 ring-1 ring-zinc-200 shadow-sm">
-                      <svg class="w-4 h-4 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                    </div>
-                    <span class="text-sm font-semibold text-zinc-700">Realny wpływ na rozwój narzędzia</span>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 ring-1 ring-zinc-200 shadow-sm">
-                      <svg class="w-4 h-4 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
-                    </div>
-                    <span class="text-sm font-semibold text-zinc-700">Bezpośredni kontakt i wsparcie</span>
-                  </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-sm font-medium text-zinc-600">Bezpośrednie wsparcie</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-sm font-medium text-zinc-600">Gwarancja ceny</span>
                 </div>
               </div>
-
-              <!-- Content Right (CTA) -->
-              <div class="relative z-10 w-full lg:w-80 shrink-0 flex flex-col bg-white p-7 rounded-[1.5rem] ring-1 ring-zinc-200/80 shadow-lg shadow-zinc-200/30">
-                <div class="text-center mb-6">
-                  <span class="text-zinc-400 text-[10px] font-bold uppercase tracking-widest block mb-2">Miejsca w programie</span>
-                  <div class="flex items-baseline justify-center gap-1.5">
-                    <span class="text-5xl font-extrabold text-zinc-900 tracking-tight">12</span>
-                    <span class="text-xl text-zinc-400 font-medium">/ 50</span>
-                  </div>
-                </div>
-                <a href="/register?plan=plus-beta" class="group/btn w-full px-6 py-4 bg-emerald-600 text-white rounded-xl text-[15px] font-bold hover:bg-emerald-500 transition-all text-center shadow-lg shadow-emerald-600/25 active:scale-95 whitespace-nowrap focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 flex items-center justify-center gap-2">
-                  <span>Odbierz darmowy dostęp</span>
-                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </a>
-                <p class="text-[11px] text-zinc-500 mt-4 font-medium text-center leading-tight">Konto aktywuje się automatycznie po rejestracji.</p>
-              </div>
-
             </div>
+
+            <!-- Content Right (CTA) -->
+            <div class="w-full md:w-auto shrink-0 flex flex-col items-center md:items-end bg-zinc-50 rounded-2xl p-5 ring-1 ring-zinc-100">
+              <div class="flex items-baseline justify-center gap-1.5 mb-4">
+                <span class="text-3xl font-extrabold text-zinc-900 tracking-tight">12</span>
+                <span class="text-sm text-zinc-500 font-medium">/ 50 wolnych miejsc</span>
+              </div>
+              <a href="/register?plan=plus-beta" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 text-white rounded-full text-[0.9375rem] font-semibold hover:bg-emerald-500 transition-all hover:scale-[1.02] shadow-xl shadow-emerald-600/10 active:scale-95 text-center whitespace-nowrap">
+                Odbierz darmowy dostęp
+              </a>
+              <p class="text-[10px] text-zinc-400 mt-3 font-medium text-center">Dostęp automatyczny po rejestracji.</p>
+            </div>
+
           </div>
         </div>
 
