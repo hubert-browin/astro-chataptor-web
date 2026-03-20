@@ -9,11 +9,13 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
-  lang: Locale;           // Zmieniono na Locale, aby pasowało do SEOHead
+  lang: Locale;
   slug?: string;
-  image?: string;         // <-- 2. NOWE PROPSY DLA OPEN GRAPH
+  image?: string;
   type?: 'website' | 'article';
   publishedAt?: Date;
+  author?: string;         // <-- NOWE: Przekazywanie autora dla bloga
+  noindex?: boolean;       // <-- NOWE: Obsługa tagu noindex
   isLandingPage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
@@ -23,10 +25,12 @@ const {
   title, 
   description, 
   lang, 
-  slug = '',              // Domyślny pusty string, jeśli nie podano
-  image,                  // <-- ODBIÓR NOWYCH PROPSÓW
+  slug = '', 
+  image, 
   type,
   publishedAt,
+  author,                  // <-- ODBIÓR NOWEGO PROPSA
+  noindex = false,         // <-- ODBIÓR NOWEGO PROPSA (domyślnie false)
   isLandingPage = false, 
   hideHeader = false, 
   hideFooter = false 
@@ -36,13 +40,6 @@ const {
 <!DOCTYPE html>
 <html lang={lang} class="scroll-smooth">
   <head>
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "vypq0o7uwg");
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -61,6 +58,8 @@ const {
       image={image}
       type={type}
       publishedAt={publishedAt}
+      author={author}      {/* <-- PRZEKAZANIE DO SEOHead */}
+      noindex={noindex}    {/* <-- PRZEKAZANIE DO SEOHead */}
     />
 
     {/* GLOBALNE STYLE SKALOWANIA */}
@@ -107,6 +106,14 @@ const {
       }
     </style>
 
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vypq0o7uwg");
+  </script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -126,7 +133,6 @@ const {
       <CallbackWidget />
     </div>
 
-
     {!hideFooter && <Footer lang={lang} />}
     
     <script
@@ -143,6 +149,7 @@ const {
       data-primary-color="#18181B"
       data-translation-enabled="true"
       data-debug="false"
+      defer
     ></script>
   </body>
 </html>

@@ -10,6 +10,8 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   publishedAt?: Date;
+  author?: string; // Dodany opcjonalny autor dla bloga
+  noindex?: boolean;
 }
 
 const {
@@ -20,6 +22,8 @@ const {
   image,
   type = 'website',
   publishedAt,
+  author = 'Chataptor', // Domyślny autor
+  noindex = false,
 } = Astro.props;
 
 const cleanDescription = description.replace(/<[^>]*>?/gm, '').trim();
@@ -47,9 +51,78 @@ const localeMap: Record<Locale, string> = {
 };
 
 const formattedLocale = localeMap[lang] || 'en_US';
+
+// --- LOGIKA SCHEMA.ORG ---
+
+// 1. Ustalanie dokładnego typu strony
+let schemaPageType = 'WebPage';
+if (type === 'article') {
+  schemaPageType = 'Article';
+} else if (slug.includes('about')) {
+  schemaPageType = 'AboutPage'; // Wzmocnienie sygnałów E-E-A-T dla zakładki "O nas"
+} else if (slug.includes('privacy') || slug.includes('terms')) {
+  schemaPageType = 'WebPage'; 
+}
+
+// 2. Budowa głównej encji strony
+const mainEntity: any = {
+  "@type": schemaPageType,
+  "@id": `${canonical}#webpage`,
+  "name": title,
+  "description": cleanDescription,
+  "url": canonical,
+  "inLanguage": lang,
+  "publisher": {
+    "@id": `${siteUrl}#organization`
+  }
+};
+
+// 3. Dodatkowe pola dla artykułów (Blog)
+if (type === 'article') {
+  mainEntity["author"] = {
+    "@type": author === 'Chataptor' ? "Organization" : "Person",
+    "name": author
+  };
+  if (publishedAt) {
+    mainEntity["datePublished"] = publishedAt.toISOString();
+  }
+}
+
+const schemaGraph: any[] = [
+  mainEntity,
+  {
+    "@type": "Organization",
+    "@id": `${siteUrl}#organization`,
+    "name": "Chataptor",
+    "url": siteUrl,
+    "logo": logoUrl,
+    "sameAs": [
+      // "https://twitter.com/chataptor",
+      // "https://www.linkedin.com/company/chataptor"
+    ]
+  }
+];
+
+// 4. Wstrzykiwanie SoftwareApplication TYLKO dla strony głównej (Landing Page)
+if (slug === '') {
+  schemaGraph.push({
+    "@type": "SoftwareApplication",
+    "@id": `${siteUrl}#software`,
+    "name": "Chataptor",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": siteUrl,
+    "offers": {
+      "@type": "Offer",
+      "price": "0", // Lub inna domyślna cena/informacja
+      "priceCurrency": "USD"
+    }
+  });
+}
 ---
 
 <title>{fullTitle}</title>
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 <meta name="description" content={cleanDescription} />
 <link rel="canonical" href={canonical} />
 
@@ -77,6 +150,7 @@ const formattedLocale = localeMap[lang] || 'en_US';
   ))}
 
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@chataptor" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={cleanDescription} />
 <meta name="twitter:image" content={ogImage} />
@@ -87,22 +161,5 @@ const formattedLocale = localeMap[lang] || 'en_US';
 
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": type === 'article' ? 'Article' : 'WebPage',
-      "name": title,
-      "description": cleanDescription,
-      "url": canonical,
-      "inLanguage": lang,
-      ...(type === 'article' && publishedAt && {
-        "datePublished": publishedAt.toISOString(),
-      }),
-    },
-    {
-      "@type": "Organization",
-      "name": "Chataptor",
-      "url": siteUrl,
-      "logo": logoUrl
-    }
-  ]
+  "@graph": schemaGraph
 })} />

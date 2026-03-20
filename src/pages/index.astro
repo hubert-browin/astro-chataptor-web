@@ -9,5 +9,5 @@ const preferredLang = acceptLanguage.split(',')[0].split('-')[0];
 const supportedLocales = ['pl', 'en', 'de', 'fr', 'es', 'it', 'cs', 'sk'];
 const redirectLang = supportedLocales.includes(preferredLang) ? preferredLang : 'en';
 
-return Astro.redirect(`/${redirectLang}/`, 302);
+return Astro.redirect(`/${redirectLang}/`, 301);
 ---

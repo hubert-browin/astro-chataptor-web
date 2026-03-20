@@ -32,12 +32,19 @@ const otherPosts = sortedPosts.slice(1);
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
 };
+
+// Pomocnicza funkcja do sformatowania daty jako atrybut 'datetime'
+const getIsoDate = (date: Date) => {
+  return date.toISOString().split('T')[0];
+};
 ---
 
 <BaseLayout
   title={`${ui.hero.title} - Chataptor`}
   description={ui.hero.subtitle}
   lang={lang}
+  slug="blog"
+  type="website"
 >
   <main class="bg-white min-h-screen pt-32 pb-24 px-4 md:px-6 overflow-hidden">
     <div class="max-w-7xl mx-auto">
@@ -78,6 +85,9 @@ const formatDate = (date: Date) => {
                                     src={heroPost.data.image}
                                     alt={heroPost.data.title}
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    fetchpriority="high"
+                                    loading="eager"
+                                    decoding="async"
                                 />
                             ) : (
                                 <div class="absolute inset-0 bg-zinc-100 w-full h-full flex items-center justify-center text-zinc-300 text-6xl font-bold opacity-30">News</div>
@@ -95,7 +105,7 @@ const formatDate = (date: Date) => {
                             <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full ring-1 ring-emerald-100 uppercase tracking-wide">
                                 {heroPost.data.tags[0] || 'Article'}
                             </span>
-                            <time class="text-xs text-zinc-400 font-medium ml-auto lg:ml-0">
+                            <time datetime={getIsoDate(heroPost.data.publishedAt)} class="text-xs text-zinc-400 font-medium ml-auto lg:ml-0">
                                 {formatDate(heroPost.data.publishedAt)}
                             </time>
                         </div>
@@ -134,6 +144,8 @@ const formatDate = (date: Date) => {
                                 <img
                                     src={post.data.image}
                                     alt={post.data.title}
+                                    loading="lazy"
+                                    decoding="async"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                             ) : (
@@ -149,7 +161,7 @@ const formatDate = (date: Date) => {
                                 <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-wide ring-1 ring-emerald-100/50">
                                     {post.data.tags[0] || 'Article'}
                                 </span>
-                                <time class="text-[11px] text-zinc-400 font-medium">
+                                <time datetime={getIsoDate(post.data.publishedAt)} class="text-[11px] text-zinc-400 font-medium">
                                     {formatDate(post.data.publishedAt)}
                                 </time>
                             </div>
