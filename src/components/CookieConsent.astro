@@ -1,0 +1,256 @@
+---
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+// Basic dictionary for Consent
+const translations = {
+  pl: {
+    bannerText: "Używamy plików cookies w celu analizy ruchu, personalizacji treści oraz zapewnienia prawidłowego działania serwisu.",
+    acceptAll: "Akceptuj wszystkie",
+    rejectAll: "Odrzuć wszystkie",
+    customize: "Dostosuj",
+    save: "Zapisz preferencje",
+    necessary: "Niezbędne",
+    necessaryDesc: "Wymagane do działania strony. Nie można ich wyłączyć.",
+    analytics: "Analityczne",
+    analyticsDesc: "Pomagają nam zrozumieć, w jaki sposób użytkownicy korzystają ze strony.",
+    marketing: "Marketingowe",
+    marketingDesc: "Wykorzystywane do wyświetlania odpowiednich reklam.",
+    functional: "Funkcjonalne",
+    functionalDesc: "Umożliwiają stronie zapamiętanie Twoich wyborów (np. działanie widgetu chatu)."
+  },
+  en: {
+    bannerText: "We use cookies to analyze traffic, personalize content, and ensure proper site operation.",
+    acceptAll: "Accept all",
+    rejectAll: "Reject all",
+    customize: "Customize",
+    save: "Save preferences",
+    necessary: "Necessary",
+    necessaryDesc: "Required for site operation. Cannot be disabled.",
+    analytics: "Analytics",
+    analyticsDesc: "Helps us understand how visitors interact with the site.",
+    marketing: "Marketing",
+    marketingDesc: "Used to display relevant advertisements.",
+    functional: "Functional",
+    functionalDesc: "Enables the website to remember your choices (e.g., chat widget functionality)."
+  },
+  de: {
+    bannerText: "Wir verwenden Cookies, um den Datenverkehr zu analysieren, Inhalte zu personalisieren und den Betrieb der Website sicherzustellen.",
+    acceptAll: "Alle akzeptieren",
+    rejectAll: "Alle ablehnen",
+    customize: "Anpassen",
+    save: "Speichern",
+    necessary: "Notwendig",
+    necessaryDesc: "Für den Betrieb der Website erforderlich. Kann nicht deaktiviert werden.",
+    analytics: "Analytik",
+    analyticsDesc: "Helfen uns zu verstehen, wie Besucher mit der Website interagieren.",
+    marketing: "Marketing",
+    marketingDesc: "Wird verwendet, um relevante Werbung anzuzeigen.",
+    functional: "Funktional",
+    functionalDesc: "Ermöglicht es der Website, sich an Ihre Entscheidungen zu erinnern (z. B. Chat-Widget-Funktionalität)."
+  },
+  fr: {
+    bannerText: "Nous utilisons des cookies pour analyser le trafic, personnaliser le contenu et assurer le fonctionnement du site.",
+    acceptAll: "Tout accepter",
+    rejectAll: "Tout refuser",
+    customize: "Personnaliser",
+    save: "Enregistrer",
+    necessary: "Nécessaires",
+    necessaryDesc: "Requis pour le fonctionnement du site. Ne peut pas être désactivé.",
+    analytics: "Analytiques",
+    analyticsDesc: "Nous aident à comprendre comment les visiteurs interagissent avec le site.",
+    marketing: "Marketing",
+    marketingDesc: "Utilisés pour afficher des publicités pertinentes.",
+    functional: "Fonctionnels",
+    functionalDesc: "Permet au site web de se souvenir de vos choix (ex. widget de chat)."
+  },
+  es: {
+    bannerText: "Utilizamos cookies para analizar el tráfico, personalizar el contenido y garantizar el funcionamiento del sitio.",
+    acceptAll: "Aceptar todas",
+    rejectAll: "Rechazar todas",
+    customize: "Personalizar",
+    save: "Guardar",
+    necessary: "Necesarias",
+    necessaryDesc: "Requeridas para el funcionamiento del sitio. No se pueden desactivar.",
+    analytics: "Analíticas",
+    analyticsDesc: "Nos ayudan a comprender cómo los visitantes interactúan con el sitio.",
+    marketing: "Marketing",
+    marketingDesc: "Se utilizan para mostrar anuncios relevantes.",
+    functional: "Funcionales",
+    functionalDesc: "Permite que el sitio web recuerde sus elecciones (ej. funcionalidad del chat)."
+  },
+  it: {
+    bannerText: "Utilizziamo i cookie per analizzare il traffico, personalizzare i contenuti e garantire il funzionamento del sito.",
+    acceptAll: "Accetta tutti",
+    rejectAll: "Rifiuta tutti",
+    customize: "Personalizza",
+    save: "Salva",
+    necessary: "Necessari",
+    necessaryDesc: "Richiesti per il funzionamento del sito. Non possono essere disabilitati.",
+    analytics: "Analitici",
+    analyticsDesc: "Ci aiutano a capire come i visitatori interagiscono con il sito.",
+    marketing: "Marketing",
+    marketingDesc: "Utilizzati per visualizzare annunci pertinenti.",
+    functional: "Funzionali",
+    functionalDesc: "Consente al sito web di ricordare le tue scelte (es. widget chat)."
+  }
+};
+
+const t = translations[lang as keyof typeof translations] || translations.en;
+---
+
+<div id="cookie-consent-container" class="fixed bottom-0 left-0 w-full md:bottom-4 md:left-4 md:w-[400px] bg-white border border-zinc-200 p-5 z-[99999] text-sm hidden font-sans text-zinc-900" style="box-shadow: none;">
+  
+  <div id="cookie-banner" class="flex flex-col gap-4">
+    <p class="text-zinc-800 leading-relaxed m-0 text-xs sm:text-sm text-justify">
+      {t.bannerText}
+    </p>
+    <div class="flex flex-wrap gap-2 items-center">
+      <button id="btn-accept-all" class="flex-1 bg-zinc-900 text-white border border-zinc-900 px-3 py-2 text-xs font-medium hover:bg-zinc-800 transition-colors">
+        {t.acceptAll}
+      </button>
+      <button id="btn-reject-all" class="flex-1 bg-white text-zinc-900 border border-zinc-300 px-3 py-2 text-xs font-medium hover:bg-zinc-50 transition-colors">
+        {t.rejectAll}
+      </button>
+      <button id="btn-customize" class="w-full sm:w-auto bg-transparent text-zinc-500 underline text-xs font-medium px-2 py-2 hover:text-zinc-800 transition-colors text-center">
+        {t.customize}
+      </button>
+    </div>
+  </div>
+
+  <div id="cookie-customize" class="hidden flex-col gap-4">
+    <h3 class="font-semibold text-zinc-900 text-sm m-0">{t.customize}</h3>
+    
+    <div class="flex flex-col gap-3 max-h-[50vh] overflow-y-auto custom-scrollbar pr-2">
+      <!-- Necessary -->
+      <label class="flex items-start gap-3 cursor-not-allowed opacity-80">
+        <input type="checkbox" checked disabled class="mt-1 w-4 h-4 text-zinc-900 bg-zinc-100 border-zinc-300 rounded-none focus:ring-zinc-900 disabled:opacity-50" />
+        <div class="flex-1">
+          <span class="block font-medium text-zinc-900 mb-1 leading-none text-xs">{t.necessary}</span>
+          <span class="block text-[11px] text-zinc-500 leading-relaxed">{t.necessaryDesc}</span>
+        </div>
+      </label>
+
+      <!-- Analytics -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="toggle-analytics" class="mt-1 w-4 h-4 text-zinc-900 bg-zinc-100 border-zinc-300 rounded-none focus:ring-zinc-900" />
+        <div class="flex-1">
+          <span class="block font-medium text-zinc-900 mb-1 leading-none text-xs">{t.analytics}</span>
+          <span class="block text-[11px] text-zinc-500 leading-relaxed">{t.analyticsDesc}</span>
+        </div>
+      </label>
+
+      <!-- Functional -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="toggle-functional" class="mt-1 w-4 h-4 text-zinc-900 bg-zinc-100 border-zinc-300 rounded-none focus:ring-zinc-900" />
+        <div class="flex-1">
+          <span class="block font-medium text-zinc-900 mb-1 leading-none text-xs">{t.functional}</span>
+          <span class="block text-[11px] text-zinc-500 leading-relaxed">{t.functionalDesc}</span>
+        </div>
+      </label>
+
+      <!-- Marketing -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="toggle-marketing" class="mt-1 w-4 h-4 text-zinc-900 bg-zinc-100 border-zinc-300 rounded-none focus:ring-zinc-900" />
+        <div class="flex-1">
+          <span class="block font-medium text-zinc-900 mb-1 leading-none text-xs">{t.marketing}</span>
+          <span class="block text-[11px] text-zinc-500 leading-relaxed">{t.marketingDesc}</span>
+        </div>
+      </label>
+    </div>
+
+    <button id="btn-save-preferences" class="w-full bg-zinc-900 text-white border border-zinc-900 px-3 py-2 text-xs font-medium hover:bg-zinc-800 transition-colors mt-2">
+      {t.save}
+    </button>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const CONSENT_KEY = 'cookie_consent';
+    const container = document.getElementById('cookie-consent-container');
+    const banner = document.getElementById('cookie-banner');
+    const customizePanel = document.getElementById('cookie-customize');
+    
+    const btnAcceptAll = document.getElementById('btn-accept-all');
+    const btnRejectAll = document.getElementById('btn-reject-all');
+    const btnCustomize = document.getElementById('btn-customize');
+    const btnSave = document.getElementById('btn-save-preferences');
+
+    const toggleAnalytics = document.getElementById('toggle-analytics') as HTMLInputElement;
+    const toggleFunctional = document.getElementById('toggle-functional') as HTMLInputElement;
+    const toggleMarketing = document.getElementById('toggle-marketing') as HTMLInputElement;
+
+    function getConsent() {
+      try {
+        const item = localStorage.getItem(CONSENT_KEY);
+        return item ? JSON.parse(item) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function saveConsent(preferences: { analytics: boolean; functional: boolean; marketing: boolean }) {
+      const data = {
+        ...preferences,
+        necessary: true,
+        timestamp: new Date().getTime()
+      };
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(data));
+      hideBanner();
+      window.dispatchEvent(new CustomEvent('cookie_consent_updated', { detail: data }));
+    }
+
+    function hideBanner() {
+      if (container) {
+        container.classList.add('hidden');
+      }
+    }
+
+    function showBanner() {
+      if (container) {
+        container.classList.remove('hidden');
+      }
+    }
+
+    const existingConsent = getConsent();
+    if (!existingConsent) {
+      showBanner();
+    }
+
+    if (btnAcceptAll) {
+      btnAcceptAll.addEventListener('click', () => {
+        saveConsent({ analytics: true, functional: true, marketing: true });
+      });
+    }
+
+    if (btnRejectAll) {
+      btnRejectAll.addEventListener('click', () => {
+        saveConsent({ analytics: false, functional: false, marketing: false });
+      });
+    }
+
+    if (btnCustomize && banner && customizePanel) {
+      btnCustomize.addEventListener('click', () => {
+        banner.classList.add('hidden');
+        customizePanel.classList.remove('hidden');
+        customizePanel.classList.add('flex');
+      });
+    }
+
+    if (btnSave) {
+      btnSave.addEventListener('click', () => {
+        saveConsent({
+          analytics: toggleAnalytics?.checked || false,
+          functional: toggleFunctional?.checked || false,
+          marketing: toggleMarketing?.checked || false,
+        });
+      });
+    }
+  })();
+</script>
