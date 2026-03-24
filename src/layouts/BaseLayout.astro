@@ -108,6 +108,30 @@ const {
     </style>
 
   <script is:inline>
+    // Inicjalizacja Google Consent Mode v2 (Domyślnie blokuje cookies, pozwala na anonimowe pingi)
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Ustawienia początkowe - odrzucone
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+
+  <!-- GA4 script must load immediately for Consent Mode to work -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-1BV9YBEBDT');
+  </script>
+
+  <script is:inline>
     // Minimalistyczna funkcja ładowania skryptów na podstawie zgody
     (function() {
       function getC() {
@@ -116,40 +140,28 @@ const {
       function loadAnalytics() {
         if (window.analyticsLoaded) return;
         window.analyticsLoaded = true;
-        // Clarity
+        
+        // Clarity w pełni zablokowane bez zgody
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vypq0o7uwg");
-        // GA4
-        var gs = document.createElement('script'); gs.async = true; gs.src = "https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"; document.head.appendChild(gs);
-        window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} window.gtag = gtag; gtag('js', new Date()); gtag('config', 'G-1BV9YBEBDT');
-      }
-      function loadFunctional() {
-        if (window.functionalLoaded) return;
-        window.functionalLoaded = true;
-        // Chataptor Widget
-        var cs = document.createElement('script');
-        cs.src = "https://chataptor.com/widget/quantumchat-widget.umd.js";
-        cs.defer = true;
-        cs.setAttribute('data-api-url', "https://chataptor.com");
-        cs.setAttribute('data-site-id', "chataptor-1769604218");
-        cs.setAttribute('data-widget-key', "cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y");
-        cs.setAttribute('data-welcome-message', "Hello! How can I help you today?");
-        cs.setAttribute('data-header-title', "Customer Support");
-        cs.setAttribute('data-input-placeholder', "Type your message...");
-        cs.setAttribute('data-theme', "light");
-        cs.setAttribute('data-position', "bottom-right");
-        cs.setAttribute('data-primary-color', "#18181B");
-        cs.setAttribute('data-translation-enabled', "true");
-        cs.setAttribute('data-debug', "false");
-        document.head.appendChild(cs);
       }
       function applyC(c) {
         if (!c) return;
-        if (c.analytics) loadAnalytics();
-        if (c.functional) loadFunctional();
+        
+        // Aktualizacja Consent Mode GA4
+        if (window.gtag) {
+          window.gtag('consent', 'update', {
+            'analytics_storage': c.analytics ? 'granted' : 'denied',
+            'ad_storage': c.marketing ? 'granted' : 'denied',
+            'ad_user_data': c.marketing ? 'granted' : 'denied',
+            'ad_personalization': c.marketing ? 'granted' : 'denied'
+          });
+        }
+
+        if (c.analytics) loadAnalytics(); // To załaduje tylko Clarity po udzieleniu zgody
       }
       applyC(getC());
       window.addEventListener('cookie_consent_updated', function(e) { applyC(e.detail); });
@@ -169,5 +181,22 @@ const {
     {!hideFooter && <Footer lang={lang} />}
     
     <CookieConsent lang={lang} />
+
+    <script
+      is:inline
+      src="https://chataptor.com/widget/quantumchat-widget.umd.js"
+      data-api-url="https://chataptor.com"
+      data-site-id="chataptor-1769604218"
+      data-widget-key="cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y"
+      data-welcome-message="Hello! How can I help you today?"
+      data-header-title="Customer Support"
+      data-input-placeholder="Type your message..."
+      data-theme="light"
+      data-position="bottom-right"
+      data-primary-color="#18181B"
+      data-translation-enabled="true"
+      data-debug="false"
+      defer
+    ></script>
   </body>
 </html>
