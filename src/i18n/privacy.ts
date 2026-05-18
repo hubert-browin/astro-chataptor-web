@@ -196,7 +196,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: 'Pytania o dane?',
     dataProtectionBadge: 'Ochrona danych',
     privacyPolicyTitle: 'Polityka Prywatności',
-    lastUpdated: 'Ostatnia aktualizacja: 29 stycznia 2026',
+    lastUpdated: 'Ostatnia aktualizacja: 18 maja 2026',
     introTitle: 'Twoja prywatność jest dla nas priorytetem',
     introDescription: 'Niniejsza Polityka Prywatności wyjaśnia, jakie dane zbieramy, w jaki sposób je przetwarzamy oraz jakie prawa Ci przysługują.',
 
@@ -300,7 +300,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Dane konta', period: 'Okres korzystania + 3 lata' },
         { dataType: 'Historia konwersacji', period: 'Okres korzystania + 1 rok' },
         { dataType: 'Dane analityczne', period: 'Maksymalnie 26 miesięcy' },
-        { dataType: 'Dane rozliczeniowe', period: '5 lat (przepisy podatkowe)' },
+        {
+          dataType: 'Dane rozliczeniowe, jeśli wprowadzimy usługi płatne',
+          period: '5 lat (przepisy podatkowe)',
+        },
       ],
     },
 
@@ -367,7 +370,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'Brama na świat dla Twojego e-commerce. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
+      tagline:
+        'Brama do rozmów z klientami na całym świecie. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
       contactTitle: 'Kontakt',
       legalTitle: 'Legal',
       privacyPolicy: 'Polityka prywatności',
@@ -387,7 +391,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: 'Questions about your data?',
     dataProtectionBadge: 'Data Protection',
     privacyPolicyTitle: 'Privacy Policy',
-    lastUpdated: 'Last updated: January 29, 2026',
+    lastUpdated: 'Last updated: May 18, 2026',
     introTitle: 'Your privacy is our priority',
     introDescription: 'This Privacy Policy explains what data we collect, how we process it, and what rights you have.',
 
@@ -491,7 +495,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Account data', period: 'Duration of use + 3 years' },
         { dataType: 'Conversation history', period: 'Duration of use + 1 year' },
         { dataType: 'Analytics data', period: 'Maximum 26 months' },
-        { dataType: 'Billing data', period: '5 years (tax regulations)' },
+        {
+          dataType: 'Billing data, if paid services are introduced',
+          period: '5 years (tax regulations)',
+        },
       ],
     },
 
@@ -558,7 +565,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'The gateway to the world for your e-commerce. Breaking language barriers by combining AI with human empathy.',
+      tagline:
+        'A gateway to customer conversations around the world. Breaking language barriers by combining AI with human empathy.',
       contactTitle: 'Contact',
       legalTitle: 'Legal',
       privacyPolicy: 'Privacy Policy',
@@ -578,7 +586,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: 'Fragen zu Ihren Daten?',
     dataProtectionBadge: 'Datenschutz',
     privacyPolicyTitle: 'Datenschutzerklärung',
-    lastUpdated: 'Letzte Aktualisierung: 29. Januar 2026',
+    lastUpdated: 'Letzte Aktualisierung: 18. Mai 2026',
     introTitle: 'Ihr Datenschutz hat für uns Priorität',
     introDescription: 'Diese Datenschutzerklärung erläutert, welche Daten wir erheben, wie wir sie verarbeiten und welche Rechte Ihnen zustehen.',
 
@@ -682,7 +690,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Kontodaten', period: 'Nutzungsdauer + 3 Jahre' },
         { dataType: 'Konversationsverlauf', period: 'Nutzungsdauer + 1 Jahr' },
         { dataType: 'Analysedaten', period: 'Maximal 26 Monate' },
-        { dataType: 'Abrechnungsdaten', period: '5 Jahre (Steuervorschriften)' },
+        {
+          dataType: 'Abrechnungsdaten, falls kostenpflichtige Dienste eingeführt werden',
+          period: '5 Jahre (Steuervorschriften)',
+        },
       ],
     },
 
@@ -749,7 +760,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'Das Tor zur Welt für Ihren E-Commerce. Wir überwinden Sprachbarrieren durch die Verbindung von KI mit menschlicher Empathie.',
+      tagline:
+        'Das Tor zu Kundengesprächen auf der ganzen Welt. Wir überwinden Sprachbarrieren durch die Verbindung von KI mit menschlicher Empathie.',
       contactTitle: 'Kontakt',
       legalTitle: 'Rechtliches',
       privacyPolicy: 'Datenschutzerklärung',
@@ -769,7 +781,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: 'Questions sur vos données ?',
     dataProtectionBadge: 'Protection des données',
     privacyPolicyTitle: 'Politique de Confidentialité',
-    lastUpdated: 'Dernière mise à jour : 29 janvier 2026',
+    lastUpdated: 'Dernière mise à jour : 18 mai 2026',
     introTitle: 'Votre vie privée est notre priorité',
     introDescription: 'Cette Politique de Confidentialité explique quelles données nous collectons, comment nous les traitons et quels droits vous avez.',
 
@@ -873,7 +885,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Données de compte', period: 'Durée d\'utilisation + 3 ans' },
         { dataType: 'Historique des conversations', period: 'Durée d\'utilisation + 1 an' },
         { dataType: 'Données analytiques', period: 'Maximum 26 mois' },
-        { dataType: 'Données de facturation', period: '5 ans (réglementations fiscales)' },
+        {
+          dataType: 'Données de facturation, si des services payants sont introduits',
+          period: '5 ans (réglementations fiscales)',
+        },
       ],
     },
 
@@ -940,7 +955,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'La porte vers le monde pour votre e-commerce. Nous brisons les barrières linguistiques en combinant l\'IA avec l\'empathie humaine.',
+      tagline:
+        'La porte vers les conversations client dans le monde entier. Nous brisons les barrières linguistiques en combinant l\'IA avec l\'empathie humaine.',
       contactTitle: 'Contact',
       legalTitle: 'Mentions légales',
       privacyPolicy: 'Politique de confidentialité',
@@ -960,7 +976,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: '¿Preguntas sobre sus datos?',
     dataProtectionBadge: 'Protección de datos',
     privacyPolicyTitle: 'Política de Privacidad',
-    lastUpdated: 'Última actualización: 29 de enero de 2026',
+    lastUpdated: 'Última actualización: 18 de mayo de 2026',
     introTitle: 'Su privacidad es nuestra prioridad',
     introDescription: 'Esta Política de Privacidad explica qué datos recopilamos, cómo los procesamos y qué derechos tiene usted.',
 
@@ -1064,7 +1080,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Datos de cuenta', period: 'Duración del uso + 3 años' },
         { dataType: 'Historial de conversaciones', period: 'Duración del uso + 1 año' },
         { dataType: 'Datos analíticos', period: 'Máximo 26 meses' },
-        { dataType: 'Datos de facturación', period: '5 años (normativa fiscal)' },
+        {
+          dataType: 'Datos de facturación, si se introducen servicios de pago',
+          period: '5 años (normativa fiscal)',
+        },
       ],
     },
 
@@ -1131,7 +1150,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'La puerta al mundo para su e-commerce. Rompemos las barreras lingüísticas combinando IA con empatía humana.',
+      tagline:
+        'La puerta a conversaciones con clientes en todo el mundo. Rompemos las barreras lingüísticas combinando IA con empatía humana.',
       contactTitle: 'Contacto',
       legalTitle: 'Legal',
       privacyPolicy: 'Política de privacidad',
@@ -1151,7 +1171,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: 'Domande sui tuoi dati?',
     dataProtectionBadge: 'Protezione dei dati',
     privacyPolicyTitle: 'Informativa sulla Privacy',
-    lastUpdated: 'Ultimo aggiornamento: 29 gennaio 2026',
+    lastUpdated: 'Ultimo aggiornamento: 18 maggio 2026',
     introTitle: 'La tua privacy è la nostra priorità',
     introDescription: 'Questa Informativa sulla Privacy spiega quali dati raccogliamo, come li trattiamo e quali diritti hai.',
 
@@ -1255,7 +1275,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Dati dell\'account', period: 'Durata dell\'utilizzo + 3 anni' },
         { dataType: 'Cronologia delle conversazioni', period: 'Durata dell\'utilizzo + 1 anno' },
         { dataType: 'Dati analitici', period: 'Massimo 26 mesi' },
-        { dataType: 'Dati di fatturazione', period: '5 anni (normative fiscali)' },
+        {
+          dataType: 'Dati di fatturazione, se saranno introdotti servizi a pagamento',
+          period: '5 anni (normative fiscali)',
+        },
       ],
     },
 
@@ -1322,7 +1345,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'La porta sul mondo per il tuo e-commerce. Abbattiamo le barriere linguistiche combinando l\'IA con l\'empatia umana.',
+      tagline:
+        'La porta verso conversazioni con clienti in tutto il mondo. Abbattiamo le barriere linguistiche combinando l\'IA con l\'empatia umana.',
       contactTitle: 'Contatti',
       legalTitle: 'Legale',
       privacyPolicy: 'Informativa sulla Privacy',
@@ -1342,7 +1366,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: 'Otázky ohledně vašich údajů?',
     dataProtectionBadge: 'Ochrana údajů',
     privacyPolicyTitle: 'Zásady ochrany osobních údajů',
-    lastUpdated: 'Poslední aktualizace: 29. ledna 2026',
+    lastUpdated: 'Poslední aktualizace: 18. května 2026',
     introTitle: 'Vaše soukromí je naší prioritou',
     introDescription: 'Tyto Zásady ochrany osobních údajů vysvětlují, jaké údaje shromažďujeme, jak je zpracováváme a jaká práva máte.',
 
@@ -1446,7 +1470,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Údaje o účtu', period: 'Doba užívání + 3 roky' },
         { dataType: 'Historie konverzací', period: 'Doba užívání + 1 rok' },
         { dataType: 'Analytické údaje', period: 'Maximálně 26 měsíců' },
-        { dataType: 'Fakturační údaje', period: '5 let (daňové předpisy)' },
+        {
+          dataType: 'Fakturační údaje, pokud budou zavedeny placené služby',
+          period: '5 let (daňové předpisy)',
+        },
       ],
     },
 
@@ -1513,7 +1540,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'Brána do světa pro váš e-commerce. Boříme jazykové bariéry kombinací AI s lidskou empatií.',
+      tagline:
+        'Brána ke konverzacím se zákazníky po celém světě. Boříme jazykové bariéry kombinací AI s lidskou empatií.',
       contactTitle: 'Kontakt',
       legalTitle: 'Právní',
       privacyPolicy: 'Zásady ochrany osobních údajů',
@@ -1533,7 +1561,7 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     questionsAboutData: 'Otázky ohľadom vašich údajov?',
     dataProtectionBadge: 'Ochrana údajov',
     privacyPolicyTitle: 'Zásady ochrany osobných údajov',
-    lastUpdated: 'Posledná aktualizácia: 29. januára 2026',
+    lastUpdated: 'Posledná aktualizácia: 18. mája 2026',
     introTitle: 'Vaše súkromie je našou prioritou',
     introDescription: 'Tieto Zásady ochrany osobných údajov vysvetľujú, aké údaje zhromažďujeme, ako ich spracúvame a aké práva máte.',
 
@@ -1637,7 +1665,10 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
         { dataType: 'Údaje o účte', period: 'Doba používania + 3 roky' },
         { dataType: 'História konverzácií', period: 'Doba používania + 1 rok' },
         { dataType: 'Analytické údaje', period: 'Maximálne 26 mesiacov' },
-        { dataType: 'Fakturačné údaje', period: '5 rokov (daňové predpisy)' },
+        {
+          dataType: 'Fakturačné údaje, ak budú zavedené platené služby',
+          period: '5 rokov (daňové predpisy)',
+        },
       ],
     },
 
@@ -1704,7 +1735,8 @@ export const privacyTranslations: Record<Locale, PrivacyTranslations> = {
     },
 
     footer: {
-      tagline: 'Brána do sveta pre váš e-commerce. Búrame jazykové bariéry kombináciou AI s ľudskou empatiou.',
+      tagline:
+        'Brána ku konverzáciám so zákazníkmi po celom svete. Búrame jazykové bariéry kombináciou AI s ľudskou empatiou.',
       contactTitle: 'Kontakt',
       legalTitle: 'Právne',
       privacyPolicy: 'Zásady ochrany osobných údajov',

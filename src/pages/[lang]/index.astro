@@ -22,6 +22,7 @@ const conversations = [
     time: "2m",
     lastMessage: t.conversations.customer1.lastMessage,
     lang: "DE",
+    flagSrc: "/images/flags/de.svg",
     source: "Messenger",
     avatarColor: "bg-indigo-100 text-indigo-600",
     messages: [
@@ -35,6 +36,7 @@ const conversations = [
     time: "15m",
     lastMessage: t.conversations.customer2.lastMessage,
     lang: "FR",
+    flagSrc: "/images/flags/fr.svg",
     source: "Email",
     avatarColor: "bg-emerald-100 text-emerald-600",
     messages: [
@@ -49,6 +51,7 @@ const conversations = [
     time: "1h",
     lastMessage: t.conversations.customer3.lastMessage,
     lang: "IT",
+    flagSrc: "/images/flags/it.svg",
     source: "WhatsApp",
     avatarColor: "bg-rose-100 text-rose-600",
     messages: [
@@ -58,11 +61,11 @@ const conversations = [
 ];
 
 const countries = [
-  { code: "de", flag: "🇩🇪", name: t.countries.germany.name, sub: t.countries.germany.sub, population: 83000000 },
-  { code: "fr", flag: "🇫🇷", name: t.countries.france.name, sub: t.countries.france.sub, population: 67000000 },
-  { code: "it", flag: "🇮🇹", name: t.countries.italy.name, sub: t.countries.italy.sub, population: 59000000 },
-  { code: "es", flag: "🇪🇸", name: t.countries.spain.name, sub: t.countries.spain.sub, population: 47000000 },
-  { code: "gb", flag: "🇬🇧", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 67000000 }
+  { code: "de", flagSrc: "/images/flags/de.svg", name: t.countries.germany.name, sub: t.countries.germany.sub, population: 83000000 },
+  { code: "fr", flagSrc: "/images/flags/fr.svg", name: t.countries.france.name, sub: t.countries.france.sub, population: 67000000 },
+  { code: "it", flagSrc: "/images/flags/it.svg", name: t.countries.italy.name, sub: t.countries.italy.sub, population: 59000000 },
+  { code: "es", flagSrc: "/images/flags/es.svg", name: t.countries.spain.name, sub: t.countries.spain.sub, population: 47000000 },
+  { code: "gb", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 67000000 }
 ];
 
 const logos = [
@@ -237,7 +240,9 @@ const logos = [
               
               <!-- Incoming Foreign Message -->
               <div class="flex items-start gap-3 w-full">
-                <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center shrink-0 ring-1 ring-emerald-100/50 overflow-hidden text-xs font-bold text-emerald-600">FR</div>
+                <div class="w-8 h-8 rounded-full bg-white shrink-0 ring-1 ring-emerald-100/50 overflow-hidden shadow-sm">
+                  <img src="/images/flags/fr.svg" alt="FR" class="h-full w-full object-cover" width="32" height="32" />
+                </div>
                 <div class="flex flex-col gap-1.5 w-[85%]">
                   <div class="bg-white p-4 rounded-2xl rounded-tl-none ring-1 ring-zinc-200/80 text-sm text-zinc-800 relative group">
                     <p class="font-medium text-zinc-900">Bonjour! Est-ce que mon colis a été envoyé ?</p>
@@ -253,7 +258,9 @@ const logos = [
 
               <!-- Outgoing Native Message -->
               <div class="flex items-end gap-3 w-full flex-row-reverse mt-2">
-                <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-bold shrink-0">PL</div>
+                <div class="w-8 h-8 rounded-full bg-white shrink-0 ring-1 ring-zinc-200 overflow-hidden shadow-sm">
+                  <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="32" height="32" />
+                </div>
                 <div class="flex flex-col gap-1.5 w-[85%] items-end">
                   <div class="bg-zinc-900 text-white p-4 rounded-2xl rounded-tr-none text-sm relative w-full text-left">
                     <p class="font-medium text-white/90">Tak, nadaliśmy ją dzisiaj. Będzie u Pana w piątek.</p>
@@ -317,7 +324,9 @@ const logos = [
               <div class="relative w-full max-w-sm bg-zinc-50/50 ring-1 ring-black/5 p-4 md:p-6 rounded-3xl">
                 <div class="flex flex-col gap-4">
                   <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center text-xs font-bold text-zinc-600">DE</div>
+                    <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm">
+                      <img src="/images/flags/de.svg" alt="DE" class="h-full w-full object-cover" width="32" height="32" loading="lazy" />
+                    </div>
                     <div class="flex-1">
                       <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-black/5 text-sm text-zinc-800">
                         {t.howItWorks.step3.exampleMessage}
@@ -330,7 +339,9 @@ const logos = [
                     </div>
                   </div>
                   <div class="flex items-start gap-3 flex-row-reverse mt-2">
-                    <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-xs font-bold text-white">PL</div>
+                    <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm">
+                      <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="32" height="32" loading="lazy" />
+                    </div>
                     <div class="flex-1 text-right">
                       <div class="bg-zinc-900 text-white p-3 rounded-2xl rounded-tr-none shadow-md text-sm text-left">
                         {t.features.translation.checking}
@@ -372,7 +383,14 @@ const logos = [
                 <!-- Poland (locked) -->
                 <div class="flex items-center justify-between py-2 px-1 transition-all cursor-default group select-none opacity-70">
                   <div class="flex items-center gap-4">
-                    <span class="text-2xl filter drop-shadow-sm">🇵🇱</span>
+                    <img
+                      src="/images/flags/pl.svg"
+                      alt=""
+                      class="h-7 w-7 rounded-full object-cover ring-1 ring-black/10 shadow-sm"
+                      width="28"
+                      height="28"
+                      aria-hidden="true"
+                    />
                     <div>
                       <div class="text-sm font-bold text-zinc-900">{t.countries.poland.name}</div>
                       <div class="text-[10px] font-medium text-emerald-600 font-bold">{t.countries.homeMarket}</div>
@@ -391,7 +409,15 @@ const logos = [
                     data-population={country.population}
                   >
                     <div class="flex items-center gap-4">
-                      <span class="text-2xl filter drop-shadow-sm group-hover:scale-110 transition-transform grayscale-0 md:grayscale md:group-hover:grayscale-0">{country.flag}</span>
+                      <img
+                        src={country.flagSrc}
+                        alt=""
+                        class="h-7 w-7 rounded-full object-cover ring-1 ring-black/10 shadow-sm group-hover:scale-110 transition-transform grayscale-0 md:grayscale md:group-hover:grayscale-0"
+                        width="28"
+                        height="28"
+                        loading="lazy"
+                        aria-hidden="true"
+                      />
                       <div>
                         <div class="country-name text-sm font-bold text-zinc-400">{country.name}</div>
                         <div class="country-sub text-[10px] font-medium text-zinc-300">{country.sub}</div>
@@ -556,6 +582,7 @@ const logos = [
                       <div class={`text-xs truncate ${index === 0 ? 'text-zinc-600' : 'text-zinc-400'}`}>{chat.lastMessage}</div>
                       <div class="mt-2 flex items-center gap-2">
                         <span class="inline-flex items-center gap-1.5 px-2 py-1 bg-white border border-zinc-100 rounded text-[10px] font-medium text-zinc-500 shadow-sm">
+                          <img src={chat.flagSrc} alt="" class="h-3.5 w-3.5 rounded-full object-cover ring-1 ring-black/10" width="14" height="14" loading="lazy" aria-hidden="true" />
                           <span class="font-bold">{chat.lang}</span>
                           <span class="text-zinc-300">|</span>
                           <span class="capitalize">{chat.source}</span>
@@ -584,7 +611,11 @@ const logos = [
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> {t.chat.online}
                       </span>
                       <span class="text-zinc-300">•</span>
-                      <span>{t.chat.language}: <strong class="uppercase" id="chat-lang">DE</strong></span>
+                      <span class="inline-flex items-center gap-1">
+                        {t.chat.language}:
+                        <img src="/images/flags/de.svg" alt="" class="h-3.5 w-3.5 rounded-full object-cover ring-1 ring-black/10" width="14" height="14" id="chat-lang-flag" aria-hidden="true" />
+                        <strong class="uppercase" id="chat-lang">DE</strong>
+                      </span>
                       <span class="text-zinc-300">•</span>
                       <span class="capitalize" id="chat-source">Messenger</span>
                     </div>
@@ -615,7 +646,11 @@ const logos = [
                 </div>
                 <div class="mt-2 md:mt-3 flex items-center justify-center gap-2 text-[10px] text-zinc-400 font-medium">
                   <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                  <span>{t.chat.aiTranslateHint} <strong class="uppercase" id="target-lang">DE</strong></span>
+                  <span class="inline-flex items-center gap-1">
+                    {t.chat.aiTranslateHint}
+                    <img src="/images/flags/de.svg" alt="" class="h-3.5 w-3.5 rounded-full object-cover ring-1 ring-black/10" width="14" height="14" id="target-lang-flag" aria-hidden="true" />
+                    <strong class="uppercase" id="target-lang">DE</strong>
+                  </span>
                 </div>
               </div>
             </div>
@@ -634,8 +669,10 @@ const logos = [
       const chatAvatar = document.getElementById('chat-avatar');
       const chatName = document.getElementById('chat-name');
       const chatLang = document.getElementById('chat-lang');
+      const chatLangFlag = document.getElementById('chat-lang-flag');
       const chatSource = document.getElementById('chat-source');
       const targetLang = document.getElementById('target-lang');
+      const targetLangFlag = document.getElementById('target-lang-flag');
 
       let activeChat = conversations[0];
 
@@ -700,8 +737,10 @@ const logos = [
         chatAvatar.className = `w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${chat.avatarColor} ring-1 ring-black/5`;
         chatName.textContent = chat.name;
         chatLang.textContent = chat.lang;
+        chatLangFlag.setAttribute('src', chat.flagSrc);
         chatSource.textContent = chat.source;
         targetLang.textContent = chat.lang;
+        targetLangFlag.setAttribute('src', chat.flagSrc);
 
         // Render messages
         renderMessages(chat);

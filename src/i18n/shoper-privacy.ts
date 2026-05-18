@@ -3,7 +3,7 @@ import type { Locale } from './config';
 /**
  * Tłumaczenia Polityki Prywatności dla aplikacji Chataptor w Shoper App Store.
  *
- * Źródło treści: docs/legal/shoper-privacy-policy.md (repo główne Chataptor, wersja PL, 2026-02-25).
+ * Źródło treści: docs/legal/shoper-privacy-policy.md (repo główne Chataptor, wersja PL, 2026-05-18).
  *
  * Uwaga: aktualnie tylko wersja PL. Dla pozostałych locale (en/de/fr/es/it/cs/sk)
  * funkcja `getShoperPrivacy` zwraca wariant PL jako fallback — lepiej pokazać pełną,
@@ -74,9 +74,9 @@ const pl: ShoperPrivacyTranslations = {
     backToHome: 'Powrót do strony głównej',
     badge: 'Ochrona danych osobowych',
     pageTitle: 'Polityka Prywatności — Chataptor dla Shoper',
-    effectiveDate: 'Data wejścia w życie: 25 lutego 2026',
-    lastUpdated: 'Ostatnia aktualizacja: 25 lutego 2026',
-    version: 'Wersja 1.0',
+    effectiveDate: 'Data wejścia w życie: 18 maja 2026',
+    lastUpdated: 'Ostatnia aktualizacja: 18 maja 2026',
+    version: 'Wersja 1.1',
   },
   intro: {
     title: 'Twoje dane są bezpieczne',
@@ -253,7 +253,12 @@ const pl: ShoperPrivacyTranslations = {
             { cells: ['Historia konwersacji', '12 miesięcy od zakończenia rozmowy'] },
             { cells: ['Dane po odinstalowaniu', '30 dni (na wypadek reaktywacji)'] },
             { cells: ['Logi systemowe', '90 dni'] },
-            { cells: ['Dane rozliczeniowe', '5 lat (wymogi księgowe)'] },
+            {
+              cells: [
+                'Dane rozliczeniowe, jeśli wprowadzimy usługi płatne',
+                '5 lat (wymogi księgowe)',
+              ],
+            },
           ],
         },
       ],

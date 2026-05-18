@@ -15,6 +15,17 @@ export const localeNames: Record<Locale, string> = {
   sk: 'Slovenčina',
 };
 
+export const localeFlagSrc: Record<Locale, string> = {
+  pl: '/images/flags/pl.svg',
+  en: '/images/flags/gb.svg',
+  de: '/images/flags/de.svg',
+  fr: '/images/flags/fr.svg',
+  es: '/images/flags/es.svg',
+  it: '/images/flags/it.svg',
+  cs: '/images/flags/cz.svg',
+  sk: '/images/flags/sk.svg',
+};
+
 export function isValidLocale(locale: string): locale is Locale {
   return locales.includes(locale as Locale);
 }

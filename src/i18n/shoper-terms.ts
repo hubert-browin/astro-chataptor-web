@@ -3,7 +3,7 @@ import type { Locale } from './config';
 /**
  * Tłumaczenia Regulaminu Usługi dla aplikacji Chataptor w Shoper App Store.
  *
- * Źródło treści: docs/legal/shoper-terms-of-service.md (repo główne Chataptor, wersja PL, 2026-02-25).
+ * Źródło treści: docs/legal/shoper-terms-of-service.md (repo główne Chataptor, wersja PL, 2026-05-18).
  *
  * Uwaga: aktualnie tylko wersja PL. Dla pozostałych locale (en/de/fr/es/it/cs/sk)
  * funkcja `getShoperTerms` zwraca wariant PL jako fallback — dokument prawny, lepiej pokazać
@@ -64,15 +64,15 @@ const pl: ShoperTermsTranslations = {
   meta: {
     title: 'Regulamin Usługi — Chataptor dla Shoper',
     description:
-      'Regulamin korzystania z aplikacji Chataptor zainstalowanej ze Shoper App Store. Opis usługi, plany, zasady korzystania, odpowiedzialność, rozwiązanie umowy.',
+      'Regulamin korzystania z aplikacji Chataptor zainstalowanej ze Shoper App Store. Opis usługi, bezpłatnego korzystania, zasad korzystania, odpowiedzialności i rozwiązania umowy.',
   },
   header: {
     backToHome: 'Powrót do strony głównej',
     badge: 'Regulamin usługi',
     pageTitle: 'Regulamin Usługi Chataptor dla Shoper',
-    effectiveDate: 'Data wejścia w życie: 25 lutego 2026',
-    lastUpdated: 'Ostatnia aktualizacja: 25 lutego 2026',
-    version: 'Wersja 1.0',
+    effectiveDate: 'Data wejścia w życie: 18 maja 2026',
+    lastUpdated: 'Ostatnia aktualizacja: 18 maja 2026',
+    version: 'Wersja 1.1',
   },
   intro: {
     title: 'Zasady korzystania z Chataptor',
@@ -189,7 +189,7 @@ const pl: ShoperTermsTranslations = {
           number: '3.3',
           title: 'Dodatkowi agenci',
           paragraphs: [
-            'Użytkownik może zapraszać dodatkowych agentów zgodnie z limitem wynikającym z wybranego planu.',
+            'Użytkownik może zapraszać dodatkowych agentów zgodnie z aktualnymi limitami technicznymi, bezpieczeństwa, stabilności lub zasadami uczciwego korzystania.',
           ],
         },
       ],
@@ -197,68 +197,43 @@ const pl: ShoperTermsTranslations = {
     {
       id: 'section-4',
       number: '4',
-      title: 'Plany i płatności',
+      title: 'Bezpłatne korzystanie i przyszłe opłaty',
       subsections: [
         {
           number: '4.1',
-          title: 'Dostępne plany',
-          tables: [
-            {
-              headers: ['Plan', 'Cena netto', 'Rozmowy/mies.', 'Agenci'],
-              rows: [
-                { cells: ['<strong>Free</strong>', '0 zł', '100', '1'] },
-                { cells: ['<strong>Pro</strong>', '199 zł', '5 000', '10'] },
-                { cells: ['<strong>Enterprise</strong>', '799 zł', '50 000', 'Bez limitu'] },
-              ],
-            },
+          title: 'Aktualny model korzystania',
+          paragraphs: [
+            'Na dzień obowiązywania niniejszego Regulaminu korzystanie z aplikacji Chataptor dla Shoper jest bezpłatne. Usługodawca nie pobiera opłat za instalację aplikacji, utworzenie konta ani korzystanie z podstawowych funkcjonalności Usługi.',
           ],
         },
         {
           number: '4.2',
-          title: 'Okres promocyjny',
+          title: 'Limity i uczciwe korzystanie',
           paragraphs: [
-            'Nowi Użytkownicy otrzymują <strong>3 miesiące</strong> bezpłatnego dostępu do planu Pro (promocja „Early Adopter").',
+            'Dostępność poszczególnych funkcji, liczba agentów, liczba rozmów lub zakres integracji mogą podlegać limitom technicznym, bezpieczeństwa, stabilności lub zasadom uczciwego korzystania. Limity te nie stanowią opłaty.',
           ],
         },
         {
           number: '4.3',
-          title: 'Rozliczenia',
-          lists: [
-            {
-              items: [
-                'Płatności miesięczne, z góry',
-                'Faktura VAT wystawiana automatycznie',
-                'Metody płatności: karta, przelew, Shoper Billing (jeśli dostępne)',
-              ],
-            },
+          title: 'Możliwe opłaty w przyszłości',
+          paragraphs: [
+            'Usługodawca może w przyszłości wprowadzić odpłatne plany, limity lub funkcje premium, ale wyłącznie po wcześniejszym poinformowaniu Użytkowników z co najmniej 30-dniowym wyprzedzeniem.',
+            'Wprowadzenie opłat wobec danego Użytkownika wymaga jego wyraźnej akceptacji nowych warunków lub odrębnego zamówienia płatnej usługi. Brak akceptacji oznacza brak obowiązku zapłaty.',
           ],
         },
         {
           number: '4.4',
-          title: 'Zmiana planu',
-          lists: [
-            {
-              items: [
-                'Upgrade: natychmiastowy, proporcjonalne naliczenie',
-                'Downgrade: od następnego okresu rozliczeniowego',
-              ],
-            },
+          title: 'Brak automatycznych opłat',
+          paragraphs: [
+            'Usługodawca nie pobierze żadnych opłat automatycznie i bez zgody Użytkownika, w szczególności bez wcześniejszego przedstawienia ceny, zakresu płatnej usługi oraz zasad rozliczeń.',
           ],
         },
         {
           number: '4.5',
-          title: 'Brak płatności',
-          paragraphs: ['W przypadku braku płatności:'],
-          lists: [
-            {
-              ordered: true,
-              items: [
-                'Przypomnienie email (dzień 1)',
-                'Drugie przypomnienie (dzień 7)',
-                'Ograniczenie funkcji do planu Free (dzień 14)',
-                'Zawieszenie konta (dzień 30)',
-              ],
-            },
+          title: 'Brak akceptacji płatnych warunków',
+          paragraphs: [
+            'Jeżeli Użytkownik nie zaakceptuje przyszłych płatnych warunków, może nadal korzystać z bezpłatnego zakresu Usługi, o ile będzie on dostępny, albo zrezygnować z korzystania z Usługi przed wejściem zmian w życie.',
+            'Po ewentualnym wprowadzeniu płatnych usług zasady płatności, fakturowania, zwrotów i reklamacji płatności zostaną określone w zaktualizowanym Regulaminie lub osobnych warunkach zaakceptowanych przez Użytkownika.',
           ],
         },
       ],
@@ -389,7 +364,7 @@ const pl: ShoperTermsTranslations = {
           number: '7.2',
           title: 'Licencja użytkowania',
           paragraphs: [
-            'Użytkownik otrzymuje niewyłączną, niezbywalną licencję na korzystanie z Usługi w zakresie określonym planem.',
+            'Użytkownik otrzymuje niewyłączną, niezbywalną licencję na korzystanie z Usługi w zakresie wynikającym z Regulaminu, konfiguracji Usługi oraz obowiązujących limitów technicznych lub zasad uczciwego korzystania.',
           ],
         },
         {
@@ -417,7 +392,7 @@ const pl: ShoperTermsTranslations = {
                 'Przerwy w działaniu wynikające z siły wyższej',
                 'Działania osób trzecich (np. ataki hakerskie)',
                 'Utratę zysków lub korzyści biznesowych',
-                'Szkody przekraczające wartość opłat za ostatnie 12 miesięcy',
+                'Szkody przekraczające zakres odpowiedzialności dopuszczalny przez prawo; po ewentualnym wprowadzeniu usług płatnych — wartość opłat uiszczonych za Usługę w ostatnich 12 miesiącach',
               ],
             },
           ],
@@ -508,7 +483,7 @@ const pl: ShoperTermsTranslations = {
             {
               items: [
                 'Naruszenia Regulaminu',
-                'Braku płatności przez 30 dni',
+                'Braku akceptacji przyszłych płatnych warunków, jeżeli dalsze świadczenie danego zakresu Usługi będzie od nich zależne',
                 'Działań na szkodę Usługi lub innych użytkowników',
               ],
             },
@@ -542,7 +517,7 @@ const pl: ShoperTermsTranslations = {
           lists: [
             {
               items: [
-                'Emailem z 14-dniowym wyprzedzeniem',
+                'Emailem z co najmniej 30-dniowym wyprzedzeniem',
                 'Komunikatem w Panelu',
               ],
             },
@@ -552,7 +527,7 @@ const pl: ShoperTermsTranslations = {
           number: '11.2',
           title: 'Akceptacja zmian',
           paragraphs: [
-            'Dalsze korzystanie z Usługi po wejściu zmian w życie oznacza akceptację nowego Regulaminu.',
+            'Dalsze korzystanie z Usługi po wejściu zmian w życie oznacza akceptację nowego Regulaminu, z zastrzeżeniem że wprowadzenie odpłatnych usług wobec danego Użytkownika wymaga jego wyraźnej akceptacji.',
           ],
         },
         {

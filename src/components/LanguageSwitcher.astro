@@ -1,5 +1,5 @@
 ---
-import { locales, localeNames, type Locale } from '../i18n/config';
+import { locales, localeFlagSrc, localeNames, type Locale } from '../i18n/config';
 
 interface Props {
   currentLang: Locale;
@@ -16,7 +16,16 @@ const { currentLang, slug } = Astro.props;
     aria-label="Select language"
     onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dropdown-arrow').classList.toggle('rotate-180'); event.stopPropagation();"
   >
-    {localeNames[currentLang]}
+    <img
+      src={localeFlagSrc[currentLang]}
+      alt=""
+      class="h-5 w-5 rounded-full object-cover ring-1 ring-black/10 shadow-sm"
+      width="20"
+      height="20"
+      aria-hidden="true"
+    />
+    <span class="hidden sm:inline">{localeNames[currentLang]}</span>
+    <span class="sm:hidden uppercase">{currentLang}</span>
     <svg
       class="w-4 h-4 transition-transform dropdown-arrow"
       fill="none"
@@ -33,7 +42,7 @@ const { currentLang, slug } = Astro.props;
   </button>
 
   <ul
-    class="absolute right-0 mt-2 w-25 bg-white rounded-xl shadow-lg ring-1 ring-zinc-200 py-2 z-[100] hidden dropdown-menu"
+    class="absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-lg ring-1 ring-zinc-200 py-2 z-[100] hidden dropdown-menu"
   >
     {locales.map((locale) => (
       <li>
@@ -41,13 +50,25 @@ const { currentLang, slug } = Astro.props;
           href={`/${locale}/${slug}`}
           hreflang={locale}
           class:list={[
-            'block px-4 py-2 text-sm hover:bg-zinc-50 transition-colors',
+            'flex items-center gap-2 px-3 py-2 text-sm hover:bg-zinc-50 transition-colors',
             locale === currentLang
               ? 'text-zinc-900 font-semibold bg-zinc-50'
               : 'text-zinc-600',
           ]}
         >
-          {localeNames[locale]}
+          <img
+            src={localeFlagSrc[locale]}
+            alt=""
+            class="h-5 w-5 rounded-full object-cover ring-1 ring-black/10 shadow-sm"
+            width="20"
+            height="20"
+            loading="lazy"
+            aria-hidden="true"
+          />
+          <span>{localeNames[locale]}</span>
+          <span class="ml-auto text-[10px] font-bold uppercase tracking-wide text-zinc-400">
+            {locale}
+          </span>
         </a>
       </li>
     ))}

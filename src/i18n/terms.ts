@@ -213,7 +213,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Regulamin korzystania z platformy Chataptor',
     backLink: 'Strona główna',
     tocTitle: 'Spis treści',
-    lastUpdate: 'Ostatnia aktualizacja: 29 stycznia 2026',
+    lastUpdate: 'Ostatnia aktualizacja: 18 maja 2026',
     introTitle: 'Zasady korzystania z platformy Chataptor',
     introText:
       'Niniejszy Regulamin określa zasady korzystania z platformy Chataptor. Korzystając z naszych usług, akceptujesz poniższe warunki.',
@@ -226,7 +226,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'Postanowienia ogólne',
       registrationAccount: 'Rejestracja i Konto',
       scopeOfServices: 'Zakres Usług',
-      feesPayments: 'Opłaty i płatności',
+      feesPayments: 'Bezpłatne korzystanie i przyszłe opłaty',
       userObligations: 'Obowiązki Użytkownika',
       liability: 'Odpowiedzialność',
       intellectualProperty: 'Własność intelektualna',
@@ -315,7 +315,8 @@ const translations: Record<Locale, TermsTranslations> = {
         title: 'Integracje',
         description: 'Połączenie z e-mailem, Messengerem, WhatsApp i innymi kanałami',
       },
-      item1: 'Dostępność poszczególnych funkcjonalności może zależeć od wybranego planu taryfowego.',
+      item1:
+        'Aktualnie Serwis jest udostępniany bez opłat; dostępność poszczególnych funkcjonalności może zależeć od ograniczeń technicznych, bezpieczeństwa, stabilności lub zasad uczciwego korzystania.',
       item2:
         'Usługodawca zastrzega sobie prawo do modyfikacji zakresu Usług z zachowaniem 30-dniowego okresu wypowiedzenia.',
       item3:
@@ -323,15 +324,19 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     section5: {
-      title: 'Opłaty i płatności',
+      title: 'Bezpłatne korzystanie i przyszłe opłaty',
       item1:
-        'Serwis oferuje darmowy plan z ograniczoną funkcjonalnością oraz płatne plany subskrypcyjne.',
-      item2: 'Szczegółowy cennik dostępny jest na stronie chataptor.com/pricing.',
-      item3: 'Płatności realizowane są z góry za okres rozliczeniowy (miesiąc lub rok).',
-      item4: 'Faktury VAT wystawiane są automatycznie i przesyłane na adres e-mail Użytkownika.',
+        'Na dzień obowiązywania niniejszego Regulaminu korzystanie z Serwisu jest bezpłatne. Usługodawca nie pobiera opłat za rejestrację, konto ani korzystanie z podstawowych funkcjonalności Serwisu.',
+      item2:
+        'Usługodawca może w przyszłości wprowadzić odpłatne plany, limity lub funkcje premium, wyłącznie po wcześniejszym poinformowaniu Użytkowników z odpowiednim wyprzedzeniem, nie krótszym niż 30 dni.',
+      item3:
+        'Wprowadzenie opłat wobec danego Użytkownika wymaga jego wyraźnej akceptacji nowych warunków lub odrębnego zamówienia płatnej usługi; brak akceptacji oznacza brak obowiązku zapłaty.',
+      item4:
+        'Usługodawca nie pobierze żadnych opłat automatycznie i bez zgody Użytkownika, w szczególności bez wcześniejszego przedstawienia ceny, zakresu płatnej usługi oraz zasad rozliczeń.',
       item5:
-        'W przypadku opóźnienia w płatności Usługodawca może zawiesić dostęp do płatnych funkcjonalności.',
-      item6: 'Zwroty realizowane są zgodnie z obowiązującymi przepisami prawa konsumenckiego.',
+        'Jeżeli Użytkownik nie zaakceptuje przyszłych płatnych warunków, może nadal korzystać z bezpłatnego zakresu Usług, o ile będzie on dostępny, albo zrezygnować z korzystania z Serwisu przed wejściem zmian w życie.',
+      item6:
+        'Po ewentualnym wprowadzeniu płatnych usług zasady płatności, fakturowania, zwrotów i reklamacji płatności zostaną określone w zaktualizowanym Regulaminie lub osobnych warunkach zaakceptowanych przez Użytkownika.',
     },
 
     section6: {
@@ -357,7 +362,7 @@ const translations: Record<Locale, TermsTranslations> = {
       item1dataLoss: 'Utratę danych wynikającą z działań Użytkownika',
       item1damages: 'Szkody wynikające z nieprawidłowego korzystania z Serwisu',
       item2:
-        'Odpowiedzialność Usługodawcy wobec Użytkowników biznesowych jest ograniczona do wartości opłat uiszczonych w okresie ostatnich 12 miesięcy.',
+        'W zakresie dopuszczalnym przez prawo, gdy Serwis jest udostępniany bezpłatnie, odpowiedzialność Usługodawcy wobec Użytkowników biznesowych jest ograniczona w najszerszym dopuszczalnym zakresie; po ewentualnym wprowadzeniu odpłatnych usług może zostać ograniczona do wartości opłat uiszczonych przez danego Użytkownika za Serwis w okresie ostatnich 12 miesięcy.',
       item3:
         'Ograniczenia odpowiedzialności nie dotyczą szkód wyrządzonych umyślnie lub wskutek rażącego niedbalstwa.',
     },
@@ -430,9 +435,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Postanowienia końcowe',
-      item1: 'Regulamin obowiązuje od dnia 29 stycznia 2026 roku.',
+      item1: 'Regulamin obowiązuje od dnia 18 maja 2026 roku.',
       item2:
-        'Usługodawca zastrzega sobie prawo do zmiany Regulaminu. O zmianach Użytkownicy zostaną poinformowani z 14-dniowym wyprzedzeniem.',
+        'Usługodawca zastrzega sobie prawo do zmiany Regulaminu. O zmianach Użytkownicy zostaną poinformowani z co najmniej 30-dniowym wyprzedzeniem, a wprowadzenie odpłatnych usług wobec danego Użytkownika wymaga jego wyraźnej akceptacji.',
       item3:
         'W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają przepisy prawa polskiego.',
       item4:
@@ -451,7 +456,7 @@ const translations: Record<Locale, TermsTranslations> = {
 
     footer: {
       tagline:
-        'Brama na świat dla Twojego e-commerce. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
+        'Brama do rozmów z klientami na całym świecie. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
       contact: 'Kontakt',
       legal: 'Legal',
       privacy: 'Polityka prywatności',
@@ -467,7 +472,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Terms of use for the Chataptor platform',
     backLink: 'Home',
     tocTitle: 'Table of Contents',
-    lastUpdate: 'Last updated: January 29, 2026',
+    lastUpdate: 'Last updated: May 18, 2026',
     introTitle: 'Rules for using the Chataptor platform',
     introText: 'These Terms of Service govern your use of the Chataptor platform. By using our services, you accept these terms.',
     needHelp: 'Need help?',
@@ -479,7 +484,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'General Provisions',
       registrationAccount: 'Registration and Account',
       scopeOfServices: 'Scope of Services',
-      feesPayments: 'Fees and Payments',
+      feesPayments: 'Free Use and Future Fees',
       userObligations: 'User Obligations',
       liability: 'Liability',
       intellectualProperty: 'Intellectual Property',
@@ -532,19 +537,26 @@ const translations: Record<Locale, TermsTranslations> = {
       aiTranslation: { title: 'AI Translation', description: 'Automatic message translation between multiple languages' },
       agentPanel: { title: 'Agent Panel', description: 'Central interface for managing all conversations' },
       integrations: { title: 'Integrations', description: 'Connection with email, Messenger, WhatsApp, and other channels' },
-      item1: 'Availability of specific features may depend on the selected pricing plan.',
+      item1:
+        'The Service is currently provided free of charge; availability of specific features may depend on technical, security, stability, or fair-use limits.',
       item2: 'The Service Provider reserves the right to modify the scope of Services with a 30-day notice period.',
       item3: 'The Service Provider strives to ensure uninterrupted Service operation but does not guarantee 100% availability.',
     },
 
     section5: {
-      title: 'Fees and Payments',
-      item1: 'The Service offers a free plan with limited functionality and paid subscription plans.',
-      item2: 'Detailed pricing is available at chataptor.com/pricing.',
-      item3: 'Payments are made in advance for the billing period (monthly or annually).',
-      item4: 'VAT invoices are issued automatically and sent to the User\'s email address.',
-      item5: 'In case of payment delay, the Service Provider may suspend access to paid features.',
-      item6: 'Refunds are processed in accordance with applicable consumer protection laws.',
+      title: 'Free Use and Future Fees',
+      item1:
+        'As of the effective date of these Terms, the Service is provided free of charge. The Service Provider does not charge for registration, an Account, or use of the core Service features.',
+      item2:
+        'The Service Provider may introduce paid plans, limits, or premium features in the future only after giving Users prior notice of at least 30 days.',
+      item3:
+        'Applying fees to a specific User requires that User\'s explicit acceptance of the new terms or a separate order for a paid service; lack of acceptance means no payment obligation.',
+      item4:
+        'The Service Provider will not charge any fees automatically or without the User\'s consent, in particular without first presenting the price, scope of the paid service, and billing rules.',
+      item5:
+        'If a User does not accept future paid terms, they may continue to use the free scope of Services if available, or stop using the Service before the changes take effect.',
+      item6:
+        'If paid services are introduced, payment, invoicing, refund, and payment complaint rules will be set out in updated Terms or separate terms accepted by the User.',
     },
 
     section6: {
@@ -568,7 +580,8 @@ const translations: Record<Locale, TermsTranslations> = {
       item1interruptions: 'Service interruptions due to causes beyond the Service Provider\'s control',
       item1dataLoss: 'Data loss resulting from User actions',
       item1damages: 'Damages resulting from improper use of the Service',
-      item2: 'The Service Provider\'s liability to business Users is limited to the value of fees paid in the last 12 months.',
+      item2:
+        'To the extent permitted by law, while the Service is provided free of charge, the Service Provider\'s liability to business Users is limited to the fullest extent permitted; if paid services are introduced, it may be limited to the fees paid by that User for the Service in the last 12 months.',
       item3: 'Liability limitations do not apply to damages caused intentionally or through gross negligence.',
     },
 
@@ -625,8 +638,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Final Provisions',
-      item1: 'These Terms are effective from January 29, 2026.',
-      item2: 'The Service Provider reserves the right to amend the Terms. Users will be notified of changes 14 days in advance.',
+      item1: 'These Terms are effective from May 18, 2026.',
+      item2:
+        'The Service Provider reserves the right to amend the Terms. Users will be notified of changes at least 30 days in advance, and applying paid services to a specific User requires that User\'s explicit acceptance.',
       item3: 'Matters not regulated by these Terms are governed by Polish law.',
       item4: 'Disputes arising from these Terms shall be resolved by the court having jurisdiction over the Service Provider\'s registered office (for business disputes) or the court having jurisdiction over the consumer\'s place of residence.',
       item5: 'If any provision of these Terms is found to be invalid, the remaining provisions remain in effect.',
@@ -641,7 +655,8 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     footer: {
-      tagline: 'Your gateway to the world for e-commerce. Breaking language barriers by combining AI with human empathy.',
+      tagline:
+        'A gateway to customer conversations around the world. Breaking language barriers by combining AI with human empathy.',
       contact: 'Contact',
       legal: 'Legal',
       privacy: 'Privacy Policy',
@@ -656,7 +671,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Nutzungsbedingungen der Chataptor-Plattform',
     backLink: 'Startseite',
     tocTitle: 'Inhaltsverzeichnis',
-    lastUpdate: 'Letzte Aktualisierung: 29. Januar 2026',
+    lastUpdate: 'Letzte Aktualisierung: 18. Mai 2026',
     introTitle: 'Regeln für die Nutzung der Chataptor-Plattform',
     introText: 'Diese Nutzungsbedingungen regeln die Nutzung der Chataptor-Plattform. Durch die Nutzung unserer Dienste akzeptieren Sie diese Bedingungen.',
     needHelp: 'Benötigen Sie Hilfe?',
@@ -668,7 +683,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'Allgemeine Bestimmungen',
       registrationAccount: 'Registrierung und Konto',
       scopeOfServices: 'Umfang der Dienstleistungen',
-      feesPayments: 'Gebühren und Zahlungen',
+      feesPayments: 'Kostenlose Nutzung und künftige Gebühren',
       userObligations: 'Pflichten des Nutzers',
       liability: 'Haftung',
       intellectualProperty: 'Geistiges Eigentum',
@@ -721,19 +736,26 @@ const translations: Record<Locale, TermsTranslations> = {
       aiTranslation: { title: 'KI-gestützte Übersetzung', description: 'Automatische Nachrichtenübersetzung zwischen mehreren Sprachen' },
       agentPanel: { title: 'Agent Dashboard', description: 'Zentrale Schnittstelle zur Verwaltung aller Konversationen' },
       integrations: { title: 'Integrationen', description: 'Verbindung mit E-Mail, Messenger, WhatsApp und anderen Kanälen' },
-      item1: 'Die Verfügbarkeit einzelner Funktionalitäten kann vom gewählten Tarifplan abhängen.',
+      item1:
+        'Der Dienst wird derzeit kostenlos bereitgestellt; die Verfügbarkeit einzelner Funktionen kann von technischen, sicherheitsbezogenen, stabilitätsbezogenen oder Fair-Use-Beschränkungen abhängen.',
       item2: 'Der Dienstleister behält sich das Recht vor, den Umfang der Dienstleistungen mit einer Kündigungsfrist von 30 Tagen zu ändern.',
       item3: 'Der Dienstleister bemüht sich, den Dienst ununterbrochen verfügbar zu machen, garantiert aber keine 100%ige Verfügbarkeit.',
     },
 
     section5: {
-      title: 'Gebühren und Zahlungen',
-      item1: 'Der Dienst bietet einen kostenlosen Plan mit eingeschränkter Funktionalität sowie kostenpflichtige Abonnementpläne an.',
-      item2: 'Die detaillierte Preisliste finden Sie auf der Website chataptor.com/pricing.',
-      item3: 'Zahlungen erfolgen im Voraus für den Abrechnungszeitraum (Monat oder Jahr).',
-      item4: 'Rechnungen mit Mehrwertsteuer werden automatisch ausgestellt und an die E-Mail-Adresse des Nutzers versendet.',
-      item5: 'Bei Zahlungsverzug kann der Dienstleister den Zugriff auf kostenpflichtige Funktionalitäten sperren.',
-      item6: 'Rückerstattungen erfolgen in Übereinstimmung mit den geltenden Verbraucherschutzgesetzen.',
+      title: 'Kostenlose Nutzung und künftige Gebühren',
+      item1:
+        'Zum Zeitpunkt des Inkrafttretens dieser Nutzungsbedingungen wird der Dienst kostenlos bereitgestellt. Der Dienstleister erhebt keine Gebühren für Registrierung, Konto oder Nutzung der grundlegenden Funktionen des Dienstes.',
+      item2:
+        'Der Dienstleister kann künftig kostenpflichtige Pläne, Limits oder Premium-Funktionen einführen, jedoch nur nach vorheriger Benachrichtigung der Nutzer mit einer Frist von mindestens 30 Tagen.',
+      item3:
+        'Die Anwendung von Gebühren gegenüber einem bestimmten Nutzer erfordert dessen ausdrückliche Zustimmung zu den neuen Bedingungen oder eine gesonderte Bestellung einer kostenpflichtigen Dienstleistung; ohne Zustimmung entsteht keine Zahlungspflicht.',
+      item4:
+        'Der Dienstleister erhebt keine Gebühren automatisch oder ohne Zustimmung des Nutzers, insbesondere nicht ohne vorherige Darstellung des Preises, des Umfangs der kostenpflichtigen Dienstleistung und der Abrechnungsregeln.',
+      item5:
+        'Akzeptiert ein Nutzer künftige kostenpflichtige Bedingungen nicht, kann er den kostenlosen Umfang der Dienstleistungen weiter nutzen, sofern dieser verfügbar bleibt, oder die Nutzung des Dienstes vor Inkrafttreten der Änderungen beenden.',
+      item6:
+        'Wenn kostenpflichtige Dienstleistungen eingeführt werden, werden Zahlungs-, Rechnungs-, Erstattungs- und Zahlungsreklamationsregeln in aktualisierten Nutzungsbedingungen oder separaten vom Nutzer akzeptierten Bedingungen festgelegt.',
     },
 
     section6: {
@@ -757,7 +779,8 @@ const translations: Record<Locale, TermsTranslations> = {
       item1interruptions: 'Dienstunterbrechungen aufgrund von Ursachen außerhalb der Kontrolle des Dienstleisters',
       item1dataLoss: 'Datenverluste aufgrund von Nutzerhandlungen',
       item1damages: 'Schäden, die sich aus unsachgemäßer Nutzung des Dienstes ergeben',
-      item2: 'Die Haftung des Dienstleisters gegenüber geschäftlichen Nutzern ist auf den in den letzten 12 Monaten gezahlten Betrag begrenzt.',
+      item2:
+        'Soweit gesetzlich zulässig, ist die Haftung des Dienstleisters gegenüber geschäftlichen Nutzern während der kostenlosen Bereitstellung des Dienstes im größtmöglichen zulässigen Umfang beschränkt; nach einer etwaigen Einführung kostenpflichtiger Dienstleistungen kann sie auf die vom jeweiligen Nutzer in den letzten 12 Monaten für den Dienst gezahlten Gebühren beschränkt werden.',
       item3: 'Haftungsbeschränkungen gelten nicht für Schäden, die vorsätzlich oder durch grobe Fahrlässigkeit verursacht wurden.',
     },
 
@@ -814,8 +837,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Schlussbestimmungen',
-      item1: 'Diese Nutzungsbedingungen gelten ab 29. Januar 2026.',
-      item2: 'Der Dienstleister behält sich das Recht vor, die Nutzungsbedingungen zu ändern. Nutzer werden mindestens 14 Tage vor einer Änderung benachrichtigt.',
+      item1: 'Diese Nutzungsbedingungen gelten ab 18. Mai 2026.',
+      item2:
+        'Der Dienstleister behält sich das Recht vor, die Nutzungsbedingungen zu ändern. Nutzer werden mindestens 30 Tage vor einer Änderung benachrichtigt; die Anwendung kostenpflichtiger Dienstleistungen gegenüber einem bestimmten Nutzer erfordert dessen ausdrückliche Zustimmung.',
       item3: 'In Angelegenheiten, die in diesen Nutzungsbedingungen nicht geregelt sind, gelten die Gesetze Deutschlands.',
       item4: 'Alle Streitigkeiten, die sich aus diesen Nutzungsbedingungen ergeben, unterliegen der ausschließlichen Gerichtsbarkeit des Gerichts am Sitz des Dienstleisters (für Geschäftsstreitigkeiten) oder des für den Wohnort des Verbrauchers zuständigen Gerichts.',
       item5: 'Sollte eine Bestimmung dieser Nutzungsbedingungen für ungültig befunden werden, bleiben die übrigen Bestimmungen gültig.',
@@ -830,7 +854,8 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     footer: {
-      tagline: 'Das Tor zur Welt für Ihren E-Commerce. Wir überbrücken Sprachbarrieren und verbinden KI mit menschlicher Empathie.',
+      tagline:
+        'Das Tor zu Kundengesprächen auf der ganzen Welt. Wir überwinden Sprachbarrieren durch die Verbindung von KI mit menschlicher Empathie.',
       contact: 'Kontakt',
       legal: 'Rechtliches',
       privacy: 'Datenschutzrichtlinie',
@@ -845,7 +870,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Conditions d\'utilisation de la plateforme Chataptor',
     backLink: 'Accueil',
     tocTitle: 'Table des matières',
-    lastUpdate: 'Dernière mise à jour : 29 janvier 2026',
+    lastUpdate: 'Dernière mise à jour : 18 mai 2026',
     introTitle: 'Règles d\'utilisation de la plateforme Chataptor',
     introText: 'Les présentes Conditions d\'utilisation régissent l\'utilisation de la plateforme Chataptor. En utilisant nos services, vous acceptez ces conditions.',
     needHelp: 'Besoin d\'aide ?',
@@ -857,7 +882,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'Dispositions générales',
       registrationAccount: 'Inscription et Compte',
       scopeOfServices: 'Étendue des Services',
-      feesPayments: 'Tarifs et Paiements',
+      feesPayments: 'Utilisation gratuite et frais futurs',
       userObligations: 'Obligations de l\'Utilisateur',
       liability: 'Responsabilité',
       intellectualProperty: 'Propriété intellectuelle',
@@ -910,19 +935,26 @@ const translations: Record<Locale, TermsTranslations> = {
       aiTranslation: { title: 'Traduction IA', description: 'Traduction automatique des messages entre plusieurs langues' },
       agentPanel: { title: 'Tableau de bord Agent', description: 'Interface centralisée pour gérer l\'ensemble de vos conversations' },
       integrations: { title: 'Intégrations', description: 'Connexion avec e-mail, Messenger, WhatsApp et d\'autres canaux' },
-      item1: 'La disponibilité de certaines fonctionnalités peut dépendre du plan tarifaire choisi.',
+      item1:
+        'Le Service est actuellement fourni gratuitement ; la disponibilité de certaines fonctionnalités peut dépendre de limites techniques, de sécurité, de stabilité ou d\'utilisation équitable.',
       item2: 'Le Prestataire de services se réserve le droit de modifier l\'étendue des Services avec un préavis de 30 jours.',
       item3: 'Le Prestataire de services s\'efforce de maintenir le Service en continu, mais ne garantit pas une disponibilité de 100 %.',
     },
 
     section5: {
-      title: 'Tarifs et Paiements',
-      item1: 'Le Service propose un plan gratuit avec fonctionnalités limitées ainsi que des plans d\'abonnement payants.',
-      item2: 'Le tarif détaillé est disponible sur le site chataptor.com/pricing.',
-      item3: 'Les paiements s\'effectuent à l\'avance pour la période de facturation (mois ou année).',
-      item4: 'Les factures TVA sont générées automatiquement et envoyées à l\'adresse e-mail de l\'Utilisateur.',
-      item5: 'En cas de retard de paiement, le Prestataire de services peut suspendre l\'accès aux fonctionnalités payantes.',
-      item6: 'Les remboursements sont effectués conformément aux dispositions applicables du droit de la consommation.',
+      title: 'Utilisation gratuite et frais futurs',
+      item1:
+        'À la date d\'entrée en vigueur des présentes Conditions d\'utilisation, le Service est fourni gratuitement. Le Prestataire de services ne facture pas l\'inscription, le Compte ni l\'utilisation des fonctionnalités principales du Service.',
+      item2:
+        'Le Prestataire de services peut introduire à l\'avenir des formules payantes, des limites ou des fonctionnalités premium uniquement après avoir informé les Utilisateurs au moins 30 jours à l\'avance.',
+      item3:
+        'L\'application de frais à un Utilisateur donné nécessite son acceptation expresse des nouvelles conditions ou une commande séparée d\'un service payant ; l\'absence d\'acceptation signifie qu\'aucune obligation de paiement ne naît.',
+      item4:
+        'Le Prestataire de services ne prélèvera aucun frais automatiquement ni sans le consentement de l\'Utilisateur, notamment sans présenter au préalable le prix, l\'étendue du service payant et les règles de facturation.',
+      item5:
+        'Si un Utilisateur n\'accepte pas de futures conditions payantes, il peut continuer à utiliser le périmètre gratuit des Services s\'il reste disponible, ou cesser d\'utiliser le Service avant l\'entrée en vigueur des modifications.',
+      item6:
+        'Si des services payants sont introduits, les règles de paiement, de facturation, de remboursement et de réclamation liées aux paiements seront précisées dans des Conditions d\'utilisation mises à jour ou dans des conditions séparées acceptées par l\'Utilisateur.',
     },
 
     section6: {
@@ -946,7 +978,8 @@ const translations: Record<Locale, TermsTranslations> = {
       item1interruptions: 'Les interruptions du Service résultant de causes indépendantes du Prestataire',
       item1dataLoss: 'La perte de données résultant des actions de l\'Utilisateur',
       item1damages: 'Les préjudices résultant d\'une utilisation incorrecte du Service',
-      item2: 'La responsabilité du Prestataire de services envers les Utilisateurs commerciaux est limitée à la valeur des frais payés au cours des 12 derniers mois.',
+      item2:
+        'Dans la mesure permise par la loi, lorsque le Service est fourni gratuitement, la responsabilité du Prestataire envers les Utilisateurs professionnels est limitée dans toute la mesure autorisée ; si des services payants sont introduits, elle peut être limitée aux frais payés par cet Utilisateur pour le Service au cours des 12 derniers mois.',
       item3: 'Les limitations de responsabilité ne s\'appliquent pas aux préjudices causés intentionnellement ou par négligence grave.',
     },
 
@@ -1003,8 +1036,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Dispositions finales',
-      item1: 'Les présentes Conditions d\'utilisation entrent en vigueur à compter du 29 janvier 2026.',
-      item2: 'Le Prestataire de services se réserve le droit de modifier les Conditions d\'utilisation. Les Utilisateurs seront informés des modifications avec un préavis de 14 jours.',
+      item1: 'Les présentes Conditions d\'utilisation entrent en vigueur à compter du 18 mai 2026.',
+      item2:
+        'Le Prestataire de services se réserve le droit de modifier les Conditions d\'utilisation. Les Utilisateurs seront informés des modifications au moins 30 jours à l\'avance, et l\'application de services payants à un Utilisateur donné nécessite son acceptation expresse.',
       item3: 'Pour les matières non réglementées par les présentes Conditions d\'utilisation, les dispositions du droit français s\'appliquent.',
       item4: 'Les litiges découlant des présentes Conditions d\'utilisation seront résolus par le tribunal compétent du siège du Prestataire de services (pour les litiges avec des entreprises) ou par le tribunal compétent du lieu de résidence du consommateur.',
       item5: 'Si une disposition quelconque des présentes Conditions d\'utilisation est jugée invalide, les dispositions restantes demeurent en vigueur.',
@@ -1019,7 +1053,8 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     footer: {
-      tagline: 'La porte vers le monde pour votre e-commerce. Nous brisons les barrières linguistiques en combinant l\'IA avec l\'empathie humaine.',
+      tagline:
+        'La porte vers les conversations client dans le monde entier. Nous brisons les barrières linguistiques en combinant l\'IA avec l\'empathie humaine.',
       contact: 'Contact',
       legal: 'Légal',
       privacy: 'Politique de confidentialité',
@@ -1034,7 +1069,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Términos de uso de la plataforma Chataptor',
     backLink: 'Inicio',
     tocTitle: 'Índice',
-    lastUpdate: 'Última actualización: 29 de enero de 2026',
+    lastUpdate: 'Última actualización: 18 de mayo de 2026',
     introTitle: 'Términos de servicio de la plataforma Chataptor',
     introText: 'Los presentes Términos de servicio regulan el uso de la plataforma Chataptor. Al utilizar nuestros servicios, usted acepta estos términos y condiciones.',
     needHelp: '¿Necesita ayuda?',
@@ -1046,7 +1081,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'Disposiciones generales',
       registrationAccount: 'Registro y Cuenta',
       scopeOfServices: 'Alcance de los Servicios',
-      feesPayments: 'Tarifas y pagos',
+      feesPayments: 'Uso gratuito y posibles tarifas futuras',
       userObligations: 'Obligaciones del Usuario',
       liability: 'Responsabilidad',
       intellectualProperty: 'Propiedad intelectual',
@@ -1099,19 +1134,26 @@ const translations: Record<Locale, TermsTranslations> = {
       aiTranslation: { title: 'Traducción IA', description: 'Traducción automática de mensajes entre múltiples idiomas' },
       agentPanel: { title: 'Panel de agente', description: 'Interfaz centralizada para gestionar todas las conversaciones' },
       integrations: { title: 'Integraciones', description: 'Conexión con correo electrónico, Messenger, WhatsApp y otros canales' },
-      item1: 'La disponibilidad de funcionalidades específicas puede depender del plan tarifario seleccionado.',
+      item1:
+        'El Servicio se proporciona actualmente de forma gratuita; la disponibilidad de funcionalidades específicas puede depender de límites técnicos, de seguridad, de estabilidad o de uso razonable.',
       item2: 'El Proveedor del servicio se reserva el derecho de modificar el alcance de los Servicios con un período de notificación de 30 días.',
       item3: 'El Proveedor del servicio hace esfuerzos para que el Servicio funcione ininterrumpidamente, pero no garantiza una disponibilidad del 100%.',
     },
 
     section5: {
-      title: 'Tarifas y pagos',
-      item1: 'El Servicio ofrece un plan gratuito con funcionalidad limitada, así como planes de suscripción de pago.',
-      item2: 'La lista de precios detallada está disponible en chataptor.com/pricing.',
-      item3: 'Los pagos se realizan por anticipado para el período de facturación (mes o año).',
-      item4: 'Las facturas con IVA se emiten automáticamente y se envían a la dirección de correo electrónico del Usuario.',
-      item5: 'En caso de retraso en el pago, el Proveedor del servicio puede suspender el acceso a las funcionalidades de pago.',
-      item6: 'Los reembolsos se realizan de conformidad con la legislación vigente de protección del consumidor.',
+      title: 'Uso gratuito y posibles tarifas futuras',
+      item1:
+        'A la fecha de entrada en vigor de estos Términos, el Servicio se proporciona de forma gratuita. El Proveedor del servicio no cobra por el registro, la Cuenta ni el uso de las funcionalidades principales del Servicio.',
+      item2:
+        'El Proveedor del servicio podrá introducir en el futuro planes de pago, límites o funcionalidades premium únicamente tras informar previamente a los Usuarios con una antelación mínima de 30 días.',
+      item3:
+        'La aplicación de tarifas a un Usuario concreto requiere su aceptación expresa de las nuevas condiciones o un pedido separado de un servicio de pago; la falta de aceptación significa que no nace obligación de pago.',
+      item4:
+        'El Proveedor del servicio no cobrará ninguna tarifa de forma automática ni sin el consentimiento del Usuario, en particular sin presentar previamente el precio, el alcance del servicio de pago y las reglas de facturación.',
+      item5:
+        'Si un Usuario no acepta futuras condiciones de pago, podrá seguir utilizando el alcance gratuito de los Servicios si está disponible, o dejar de usar el Servicio antes de que los cambios entren en vigor.',
+      item6:
+        'Si se introducen servicios de pago, las reglas de pago, facturación, reembolsos y reclamaciones de pago se establecerán en Términos actualizados o en condiciones separadas aceptadas por el Usuario.',
     },
 
     section6: {
@@ -1135,7 +1177,8 @@ const translations: Record<Locale, TermsTranslations> = {
       item1interruptions: 'Las interrupciones en el funcionamiento del Servicio por causas ajenas al Proveedor del servicio',
       item1dataLoss: 'La pérdida de datos derivada de las acciones del Usuario',
       item1damages: 'Los daños resultantes del uso indebido del Servicio',
-      item2: 'La responsabilidad del Proveedor del servicio ante los Usuarios comerciales se limita al valor de los pagos realizados en los últimos 12 meses.',
+      item2:
+        'En la medida permitida por la ley, mientras el Servicio se proporcione de forma gratuita, la responsabilidad del Proveedor del servicio ante los Usuarios comerciales se limita en la máxima medida permitida; si se introducen servicios de pago, podrá limitarse a las tarifas pagadas por ese Usuario por el Servicio en los últimos 12 meses.',
       item3: 'Las limitaciones de responsabilidad no se aplican a los daños causados intencionalmente o por negligencia grave.',
     },
 
@@ -1192,8 +1235,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Disposiciones finales',
-      item1: 'Los presentes Términos de servicio entran en vigor el 29 de enero de 2026.',
-      item2: 'El Proveedor del servicio se reserva el derecho de modificar los presentes Términos de servicio. Los Usuarios serán informados de los cambios con 14 días de anticipación.',
+      item1: 'Estos Términos entran en vigor el 18 de mayo de 2026.',
+      item2:
+        'El Proveedor del servicio se reserva el derecho de modificar los Términos. Los Usuarios serán informados de los cambios con al menos 30 días de antelación, y la aplicación de servicios de pago a un Usuario concreto requiere su aceptación expresa.',
       item3: 'En los asuntos no regulados por los presentes Términos de servicio se aplicará la legislación española.',
       item4: 'Las controversias derivadas de los presentes Términos de servicio serán resueltas por el tribunal competente de la sede del Proveedor del servicio (para controversias con empresas) o por el tribunal competente del lugar de domicilio del consumidor.',
       item5: 'Si una disposición de los presentes Términos de servicio se considera inválida, las demás disposiciones permanecen en vigor.',
@@ -1208,7 +1252,8 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     footer: {
-      tagline: 'La puerta al mundo para tu comercio electrónico. Rompemos barreras idiomáticas, combinando IA con empatía humana.',
+      tagline:
+        'La puerta a conversaciones con clientes en todo el mundo. Rompemos las barreras lingüísticas combinando IA con empatía humana.',
       contact: 'Contacto',
       legal: 'Legal',
       privacy: 'Política de privacidad',
@@ -1223,7 +1268,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Termini di utilizzo della piattaforma Chataptor',
     backLink: 'Home',
     tocTitle: 'Indice dei contenuti',
-    lastUpdate: 'Ultimo aggiornamento: 29 gennaio 2026',
+    lastUpdate: 'Ultimo aggiornamento: 18 maggio 2026',
     introTitle: 'Norme d\'utilizzo della piattaforma Chataptor',
     introText: 'I presenti Termini di servizio disciplinano l\'utilizzo della piattaforma Chataptor. Utilizzando i nostri servizi, l\'utente accetta integralmente le presenti condizioni.',
     needHelp: 'Hai bisogno di aiuto?',
@@ -1235,7 +1280,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'Disposizioni generali',
       registrationAccount: 'Registrazione e Account',
       scopeOfServices: 'Portata dei servizi',
-      feesPayments: 'Tariffe e pagamenti',
+      feesPayments: 'Uso gratuito e possibili tariffe future',
       userObligations: 'Obblighi dell\'utente',
       liability: 'Responsabilità',
       intellectualProperty: 'Proprietà intellettuale',
@@ -1288,19 +1333,26 @@ const translations: Record<Locale, TermsTranslations> = {
       aiTranslation: { title: 'Traduzione AI', description: 'Traduzione automatica dei messaggi tra più lingue' },
       agentPanel: { title: 'Pannello dell\'agente', description: 'Interfaccia centralizzata per la gestione di tutte le conversazioni' },
       integrations: { title: 'Integrazioni', description: 'Collegamento con e-mail, Messenger, WhatsApp e altri canali' },
-      item1: 'La disponibilità di singole funzionalità può dipendere dal piano tariffario selezionato.',
+      item1:
+        'Il Servizio è attualmente fornito gratuitamente; la disponibilità di singole funzionalità può dipendere da limiti tecnici, di sicurezza, di stabilità o di uso corretto.',
       item2: 'Il Fornitore si riserva il diritto di modificare la portata dei Servizi con un periodo di preavviso di 30 giorni.',
       item3: 'Il Fornitore si impegna affinché il Servizio funzioni ininterrottamente, ma non garantisce una disponibilità del 100%.',
     },
 
     section5: {
-      title: 'Tariffe e pagamenti',
-      item1: 'Il Servizio offre un piano gratuito con funzionalità limitate e piani di abbonamento a pagamento.',
-      item2: 'L\'elenco dei prezzi dettagliato è disponibile su chataptor.com/pricing.',
-      item3: 'I pagamenti vengono effettuati in anticipo per il periodo di fatturazione (mese o anno).',
-      item4: 'Le fatture IVA vengono emesse automaticamente e inviate all\'indirizzo di posta elettronica dell\'utente.',
-      item5: 'In caso di ritardo nei pagamenti, il Fornitore può sospendere l\'accesso alle funzionalità a pagamento.',
-      item6: 'I rimborsi vengono effettuati in conformità alle normative vigenti sulla protezione dei consumatori.',
+      title: 'Uso gratuito e possibili tariffe future',
+      item1:
+        'Alla data di entrata in vigore dei presenti Termini, il Servizio è fornito gratuitamente. Il Fornitore non addebita costi per la registrazione, l\'Account o l\'utilizzo delle funzionalità principali del Servizio.',
+      item2:
+        'Il Fornitore potrà introdurre in futuro piani a pagamento, limiti o funzionalità premium solo dopo aver informato preventivamente gli utenti con almeno 30 giorni di anticipo.',
+      item3:
+        'L\'applicazione di tariffe a un determinato utente richiede la sua accettazione espressa delle nuove condizioni o un ordine separato di un servizio a pagamento; la mancata accettazione non comporta alcun obbligo di pagamento.',
+      item4:
+        'Il Fornitore non addebiterà alcuna tariffa automaticamente o senza il consenso dell\'utente, in particolare senza aver prima presentato il prezzo, l\'ambito del servizio a pagamento e le regole di fatturazione.',
+      item5:
+        'Se un utente non accetta future condizioni a pagamento, può continuare a utilizzare l\'ambito gratuito dei Servizi, se disponibile, oppure interrompere l\'uso del Servizio prima dell\'entrata in vigore delle modifiche.',
+      item6:
+        'Se saranno introdotti servizi a pagamento, le regole relative a pagamenti, fatturazione, rimborsi e reclami sui pagamenti saranno definite in Termini aggiornati o in condizioni separate accettate dall\'utente.',
     },
 
     section6: {
@@ -1324,7 +1376,8 @@ const translations: Record<Locale, TermsTranslations> = {
       item1interruptions: 'Interruzioni del Servizio dovute a cause indipendenti dal Fornitore',
       item1dataLoss: 'Perdita di dati derivante da azioni dell\'utente',
       item1damages: 'Danni derivanti dall\'uso improprio del Servizio',
-      item2: 'La responsabilità del Fornitore nei confronti degli utenti commerciali è limitata all\'importo delle tariffe pagate negli ultimi 12 mesi.',
+      item2:
+        'Nei limiti consentiti dalla legge, mentre il Servizio è fornito gratuitamente, la responsabilità del Fornitore nei confronti degli utenti commerciali è limitata nella massima misura consentita; se saranno introdotti servizi a pagamento, potrà essere limitata alle tariffe pagate da tale utente per il Servizio negli ultimi 12 mesi.',
       item3: 'I limiti di responsabilità non si applicano ai danni causati intenzionalmente o per negligenza grave.',
     },
 
@@ -1381,8 +1434,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Disposizioni finali',
-      item1: 'Il presente Regolamento è vigente dal 29 gennaio 2026.',
-      item2: 'Il Fornitore si riserva il diritto di modificare il Regolamento. Gli utenti saranno informati delle modifiche con un preavviso di 14 giorni.',
+      item1: 'I presenti Termini sono in vigore dal 18 maggio 2026.',
+      item2:
+        'Il Fornitore si riserva il diritto di modificare i Termini. Gli utenti saranno informati delle modifiche con almeno 30 giorni di anticipo, e l\'applicazione di servizi a pagamento a un determinato utente richiede la sua accettazione espressa.',
       item3: 'Per le questioni non disciplinate dal presente Regolamento si applica la legge italiana.',
       item4: 'Le controversie derivanti dal presente Regolamento saranno risolte dal tribunale competente per la sede del Fornitore (per le controversie con imprenditori) o dal tribunale competente per il domicilio del consumatore.',
       item5: 'Se una qualsiasi disposizione del presente Regolamento è ritenuta invalida, le altre disposizioni rimangono in vigore.',
@@ -1397,7 +1451,8 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     footer: {
-      tagline: 'Il vostro gateway verso il mondo per l\'e-commerce. Abbattiamo le barriere linguistiche combinando l\'intelligenza artificiale con l\'empatia umana.',
+      tagline:
+        'La porta verso conversazioni con clienti in tutto il mondo. Abbattiamo le barriere linguistiche combinando l\'intelligenza artificiale con l\'empatia umana.',
       contact: 'Contatti',
       legal: 'Legale',
       privacy: 'Informativa sulla privacy',
@@ -1412,7 +1467,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Podmínky používání platformy Chataptor',
     backLink: 'Domů',
     tocTitle: 'Obsah',
-    lastUpdate: 'Poslední aktualizace: 29. ledna 2026',
+    lastUpdate: 'Poslední aktualizace: 18. května 2026',
     introTitle: 'Pravidla používání platformy Chataptor',
     introText: 'Tyto obchodní podmínky upravují používání platformy Chataptor. Používáním našich služeb přijímáte tyto podmínky.',
     needHelp: 'Potřebujete pomoc?',
@@ -1424,7 +1479,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'Obecná ustanovení',
       registrationAccount: 'Registrace a účet',
       scopeOfServices: 'Rozsah služeb',
-      feesPayments: 'Poplatky a platby',
+      feesPayments: 'Bezplatné používání a možné budoucí poplatky',
       userObligations: 'Povinnosti uživatele',
       liability: 'Odpovědnost',
       intellectualProperty: 'Duševní vlastnictví',
@@ -1477,19 +1532,26 @@ const translations: Record<Locale, TermsTranslations> = {
       aiTranslation: { title: 'Překlad AI', description: 'Automatický překlad zpráv mezi více jazyky' },
       agentPanel: { title: 'Agentský panel', description: 'Centrální rozhraní pro správu všech konverzací' },
       integrations: { title: 'Integrace', description: 'Propojení s e-mailem, Messengerem, WhatsAppem a dalšími kanály' },
-      item1: 'Dostupnost jednotlivých funkcionalit může záviset na vybraném tarifu.',
+      item1:
+        'Služba je aktuálně poskytována zdarma; dostupnost jednotlivých funkcí může záviset na technických, bezpečnostních, stabilitních nebo fair-use omezeních.',
       item2: 'Poskytovatel služeb si vyhrazuje právo upravit rozsah Služeb se zachováním 30denní doby výpovědi.',
       item3: 'Poskytovatel služeb se snaží, aby Služba fungovala nepřetržitě, ale nezaručuje 100% dostupnost.',
     },
 
     section5: {
-      title: 'Poplatky a platby',
-      item1: 'Služba nabízí bezplatný plán s omezenou funkcionalitou a placené předplacené plány.',
-      item2: 'Detailný ceník je k dispozici na stránce chataptor.com/pricing.',
-      item3: 'Platby se realizují předem za zúčtovací období (měsíc nebo rok).',
-      item4: 'Daňové doklady se vystavují automaticky a odesílají na e-mailovou adresu uživatele.',
-      item5: 'V případě opožděné platby může Poskytovatel služeb pozastavit přístup k placeným funkcionalitám.',
-      item6: 'Náhrady se realizují v souladu s platnými předpisy ochrany práv spotřebitele.',
+      title: 'Bezplatné používání a možné budoucí poplatky',
+      item1:
+        'Ke dni účinnosti těchto podmínek je Služba poskytována zdarma. Poskytovatel služeb neúčtuje poplatky za registraci, účet ani používání základních funkcí Služby.',
+      item2:
+        'Poskytovatel služeb může v budoucnu zavést placené plány, limity nebo prémiové funkce pouze po předchozím informování Uživatelů nejméně 30 dní předem.',
+      item3:
+        'Uplatnění poplatků vůči konkrétnímu Uživateli vyžaduje jeho výslovný souhlas s novými podmínkami nebo samostatnou objednávku placené služby; bez souhlasu nevzniká povinnost platby.',
+      item4:
+        'Poskytovatel služeb nebude účtovat žádné poplatky automaticky ani bez souhlasu Uživatele, zejména bez předchozího uvedení ceny, rozsahu placené služby a pravidel účtování.',
+      item5:
+        'Pokud Uživatel nepřijme budoucí placené podmínky, může nadále využívat bezplatný rozsah Služeb, pokud bude dostupný, nebo ukončit používání Služby před účinností změn.',
+      item6:
+        'Pokud budou zavedeny placené služby, pravidla plateb, fakturace, vracení plateb a reklamací plateb budou stanovena v aktualizovaných podmínkách nebo samostatných podmínkách přijatých Uživatelem.',
     },
 
     section6: {
@@ -1513,7 +1575,8 @@ const translations: Record<Locale, TermsTranslations> = {
       item1interruptions: 'Výpadky Služby vyplývající z příčin nezávislých na Poskytovali služeb',
       item1dataLoss: 'Ztrátu dat vyplývající z činnosti uživatele',
       item1damages: 'Škody vyplývající z nesprávného používání Služby',
-      item2: 'Odpovědnost Poskytovatele služeb vůči podnikatelským uživatelům je omezena na výši poplatků zaplacených za posledních 12 měsíců.',
+      item2:
+        'V rozsahu povoleném právem je při bezplatném poskytování Služby odpovědnost Poskytovatele služeb vůči obchodním Uživatelům omezena v nejširším přípustném rozsahu; po případném zavedení placených služeb může být omezena na poplatky zaplacené daným Uživatelem za Službu za posledních 12 měsíců.',
       item3: 'Omezení odpovědnosti se nevztahuje na škody způsobené úmyslně nebo hrubou nedbalostí.',
     },
 
@@ -1570,8 +1633,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Závěrečná ustanovení',
-      item1: 'Tyto obchodní podmínky platí od 29. ledna 2026.',
-      item2: 'Poskytovatel služeb si vyhrazuje právo upravit obchodní podmínky. O změnách budou uživatelé informováni s 14denním předstihem.',
+      item1: 'Tyto obchodní podmínky jsou účinné od 18. května 2026.',
+      item2:
+        'Poskytovatel služeb si vyhrazuje právo změnit obchodní podmínky. Uživatelé budou o změnách informováni nejméně 30 dní předem a uplatnění placených služeb vůči konkrétnímu Uživateli vyžaduje jeho výslovný souhlas.',
       item3: 'V záležitostech neupravených těmito obchodními podmínkami se použijí právní předpisy České republiky.',
       item4: 'Spory vyplývající z těchto obchodních podmínek budou řešeny soudem příslušným pro sídlo Poskytovatele služeb (pro spory s podnikateli) nebo soudem příslušným pro místo bydliště spotřebitele.',
       item5: 'Pokud bude kterékoli ustanovení obchodních podmínek považováno za neplatné, zbývající ustanovení zůstávají v platnosti.',
@@ -1586,7 +1650,8 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     footer: {
-      tagline: 'Brána do světa pro váš e-commerce. Překonáváme jazykové bariéry a kombinujeme AI s lidskou empatií.',
+      tagline:
+        'Brána ke konverzacím se zákazníky po celém světě. Překonáváme jazykové bariéry a kombinujeme AI s lidskou empatií.',
       contact: 'Kontakt',
       legal: 'Právní',
       privacy: 'Zásady ochrany osobních údajů',
@@ -1601,7 +1666,7 @@ const translations: Record<Locale, TermsTranslations> = {
     description: 'Podmienky používania platformy Chataptor',
     backLink: 'Domov',
     tocTitle: 'Obsah',
-    lastUpdate: 'Posledná aktualizácia: 29. januára 2026',
+    lastUpdate: 'Posledná aktualizácia: 18. mája 2026',
     introTitle: 'Pravidlá používania platformy Chataptor',
     introText: 'Tieto Obchodné podmienky upravujú používanie platformy Chataptor. Používaním našich služieb prijímate tieto podmienky.',
     needHelp: 'Potrebujete pomoc?',
@@ -1613,7 +1678,7 @@ const translations: Record<Locale, TermsTranslations> = {
       generalProvisions: 'Všeobecné ustanovenia',
       registrationAccount: 'Registrácia a účet',
       scopeOfServices: 'Rozsah služieb',
-      feesPayments: 'Poplatky a platby',
+      feesPayments: 'Bezplatné používanie a možné budúce poplatky',
       userObligations: 'Povinnosti používateľa',
       liability: 'Zodpovednosť',
       intellectualProperty: 'Duševné vlastníctvo',
@@ -1666,19 +1731,26 @@ const translations: Record<Locale, TermsTranslations> = {
       aiTranslation: { title: 'AI preklad', description: 'Automatický preklad správ medzi viacerými jazykmi' },
       agentPanel: { title: 'Panel agenta', description: 'Centrálne rozhranie na správu všetkých konverzácií' },
       integrations: { title: 'Integrácie', description: 'Pripojenie k e-mailu, Messengerom, WhatsApp a ďalším kanálom' },
-      item1: 'Dostupnosť jednotlivých funkcií môže závisieť od zvoleného tarifného plánu.',
+      item1:
+        'Služba je aktuálne poskytovaná bezplatne; dostupnosť jednotlivých funkcií môže závisieť od technických, bezpečnostných, stabilitných alebo fair-use obmedzení.',
       item2: 'Poskytovateľ si vyhradzuje právo modifikovať rozsah Služieb so zachovaním 30-dňovej lehoty na výpoveď.',
       item3: 'Poskytovateľ sa snaží, aby Služba fungovala nepretržite, ale nezaručuje 100% dostupnosť.',
     },
 
     section5: {
-      title: 'Poplatky a platby',
-      item1: 'Služba ponúka bezplatný plán s obmedzenou funkčnosťou a platené plány na základe predplatného.',
-      item2: 'Detailný cenník je dostupný na stránke chataptor.com/pricing.',
-      item3: 'Platby sa realizujú vopred za zúčtovacie obdobie (mesiac alebo rok).',
-      item4: 'Faktúry s DPH sa generujú automaticky a posielajú na emailovú adresu Používateľa.',
-      item5: 'V prípade oneskorenia platby môže Poskytovateľ pozastaviť prístup k plateným funkciám.',
-      item6: 'Vrátenie sa realizuje v súlade s platným spotrebiteľským zákonom.',
+      title: 'Bezplatné používanie a možné budúce poplatky',
+      item1:
+        'Ku dňu účinnosti týchto podmienok je Služba poskytovaná bezplatne. Poskytovateľ neúčtuje poplatky za registráciu, účet ani používanie základných funkcií Služby.',
+      item2:
+        'Poskytovateľ môže v budúcnosti zaviesť platené plány, limity alebo prémiové funkcie iba po predchádzajúcom informovaní Používateľov najmenej 30 dní vopred.',
+      item3:
+        'Uplatnenie poplatkov voči konkrétnemu Používateľovi vyžaduje jeho výslovný súhlas s novými podmienkami alebo samostatnú objednávku platenej služby; bez súhlasu nevzniká povinnosť platby.',
+      item4:
+        'Poskytovateľ nebude účtovať žiadne poplatky automaticky ani bez súhlasu Používateľa, najmä bez predchádzajúceho uvedenia ceny, rozsahu platenej služby a pravidiel účtovania.',
+      item5:
+        'Ak Používateľ neprijme budúce platené podmienky, môže naďalej využívať bezplatný rozsah Služieb, ak bude dostupný, alebo ukončiť používanie Služby pred účinnosťou zmien.',
+      item6:
+        'Ak budú zavedené platené služby, pravidlá platieb, fakturácie, vrátenia platieb a reklamácií platieb budú uvedené v aktualizovaných podmienkach alebo samostatných podmienkach prijatých Používateľom.',
     },
 
     section6: {
@@ -1702,7 +1774,8 @@ const translations: Record<Locale, TermsTranslations> = {
       item1interruptions: 'Výpadky Služby vyplývajúce z príčin mimo kontroly Poskytovateľa',
       item1dataLoss: 'Stratu údajov vyplývajúcu z činnosti Používateľa',
       item1damages: 'Škody vyplývajúce z nesprávneho používania Služby',
-      item2: 'Zodpovednosť Poskytovateľa voči obchodným Používateľom je obmedzená na výšku poplatkov zaplatených v posledných 12 mesiacoch.',
+      item2:
+        'V rozsahu povolenom právom je pri bezplatnom poskytovaní Služby zodpovednosť Poskytovateľa voči obchodným Používateľom obmedzená v najširšom prípustnom rozsahu; po prípadnom zavedení platených služieb môže byť obmedzená na poplatky zaplatené daným Používateľom za Službu za posledných 12 mesiacov.',
       item3: 'Toto obmedzenie zodpovednosti sa nevzťahuje na škody spôsobené úmyselne alebo hrubou nedbanlivosťou.',
     },
 
@@ -1759,8 +1832,9 @@ const translations: Record<Locale, TermsTranslations> = {
 
     section13: {
       title: 'Záverečné ustanovenia',
-      item1: 'Tieto Obchodné podmienky platia od 29. januára 2026.',
-      item2: 'Poskytovateľ si vyhradzuje právo zmeniť tieto Obchodné podmienky. Používatelia budú informovaní o zmenách s 14-dňovým výstupom.',
+      item1: 'Tieto obchodné podmienky sú účinné od 18. mája 2026.',
+      item2:
+        'Poskytovateľ si vyhradzuje právo zmeniť obchodné podmienky. Používatelia budú o zmenách informovaní najmenej 30 dní vopred a uplatnenie platených služieb voči konkrétnemu Používateľovi vyžaduje jeho výslovný súhlas.',
       item3: 'V záležitostiach nezaradených v týchto Obchodných podmienkach sa uplatňujú pravidlá slovenskej legislatívy.',
       item4: 'Spory vyplývajúce z týchto Obchodných podmienok budú riešené súdom príslušným pre sídlo Poskytovateľa (v sporoch s podnikateľmi) alebo súdom príslušným pre miesto bydliska spotrebiteľa.',
       item5: 'Ak bude ktorékoľvek ustanovenie týchto Obchodných podmienok považované za neplatné, ostatné ustanovenia ostávajú v platnosti.',
@@ -1775,7 +1849,8 @@ const translations: Record<Locale, TermsTranslations> = {
     },
 
     footer: {
-      tagline: 'Brána do sveta pre vašu elektronickú obchod. Prelamujeme jazykové bariéry kombinovaním AI s ľudskou empatiou.',
+      tagline:
+        'Brána ku konverzáciám so zákazníkmi po celom svete. Búrame jazykové bariéry kombináciou AI s ľudskou empatiou.',
       contact: 'Kontakt',
       legal: 'Právne',
       privacy: 'Zásady ochrany osobných údajov',
