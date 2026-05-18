@@ -380,7 +380,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'Twoje meta tagi',
     },
     features: {
-      title: 'Wszystko w jednym panelu.',
+      title: 'Nowoczesna obsługa klienta.',
       subtitle: 'Zastąp Intercom, Mailchimp i zewnętrznych tłumaczy jednym narzędziem zaprojektowanym dla nowoczesnych firm.',
       translation: {
         title: 'Real-time Translation',
@@ -394,7 +394,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Dostępni klienci',
       },
       omnichannel: {
-        title: 'Omnichannel',
+        title: 'Wszystko w jednym miejscu',
         description: 'Podłącz e-mail, Instagram, Facebook i WhatsApp. Wszystkie wiadomości z każdego kanału wpadają do jednego panelu.',
         widget: 'Widget na stronie',
         email: 'Email',
@@ -619,7 +619,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'Your meta tags',
     },
     features: {
-      title: 'Everything in one dashboard.',
+      title: 'Modern customer support.',
       subtitle: 'Replace Intercom, Mailchimp and external translators with one tool designed for modern businesses.',
       translation: {
         title: 'Real-time Translation',
@@ -633,7 +633,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Available customers',
       },
       omnichannel: {
-        title: 'Omnichannel',
+        title: 'Everything in one place',
         description: 'Connect email, Instagram, Facebook, and WhatsApp. Every message from every channel lands in one shared inbox.',
         widget: 'Website Widget',
         email: 'Email',
@@ -858,7 +858,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'Ihre Meta-Tags',
     },
     features: {
-      title: 'Alles in einem Dashboard.',
+      title: 'Moderner Kundenservice.',
       subtitle: 'Ersetzen Sie Intercom, Mailchimp und externe Übersetzer durch ein Tool für moderne Unternehmen.',
       translation: {
         title: 'Echtzeit-Übersetzung',
@@ -872,7 +872,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Verfügbare Kunden',
       },
       omnichannel: {
-        title: 'Omnichannel',
+        title: 'Alles an einem Ort',
         description: 'Verbinden Sie E-Mail, Instagram, Facebook und WhatsApp. Jede Nachricht aus jedem Kanal landet in einem gemeinsamen Posteingang.',
         widget: 'Website Widget',
         email: 'E-Mail',
@@ -1097,7 +1097,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'Vos balises meta',
     },
     features: {
-      title: 'Tout en un seul endroit.',
+      title: 'Support client moderne.',
       subtitle: 'Remplacez Intercom, Mailchimp et les traducteurs externes par un outil conçu pour les entreprises modernes.',
       translation: {
         title: 'Traduction en temps réel',
@@ -1111,7 +1111,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Clients disponibles',
       },
       omnichannel: {
-        title: 'Omnicanal',
+        title: 'Tout au même endroit',
         description: 'Connectez e-mail, Instagram, Facebook et WhatsApp. Tous les messages de chaque canal arrivent dans une seule boîte de réception.',
         widget: 'Widget Site Web',
         email: 'E-mail',
@@ -1336,7 +1336,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'Tus meta etiquetas',
     },
     features: {
-      title: 'Todo en un solo panel.',
+      title: 'Atención al cliente moderna.',
       subtitle: 'Reemplaza Intercom, Mailchimp y traductores externos con una herramienta para empresas modernas.',
       translation: {
         title: 'Traducción en tiempo real',
@@ -1350,7 +1350,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Clientes disponibles',
       },
       omnichannel: {
-        title: 'Omnicanal',
+        title: 'Todo en un lugar',
         description: 'Conecta email, Instagram, Facebook y WhatsApp. Todos los mensajes de cada canal llegan a una única bandeja compartida.',
         widget: 'Widget web',
         email: 'Email',
@@ -1575,7 +1575,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'I tuoi meta tag',
     },
     features: {
-      title: 'Tutto in un\'unica dashboard.',
+      title: 'Assistenza clienti moderna.',
       subtitle: 'Sostituisci Intercom, Mailchimp e traduttori esterni con uno strumento per aziende moderne.',
       translation: {
         title: 'Traduzione Real-time',
@@ -1589,7 +1589,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Clienti disponibili',
       },
       omnichannel: {
-        title: 'Omnichannel',
+        title: 'Tutto in un unico posto',
         description: 'Collega email, Instagram, Facebook e WhatsApp. Tutti i messaggi da ogni canale arrivano in un\'unica inbox.',
         widget: 'Widget Sito',
         email: 'Email',
@@ -1814,7 +1814,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'Vaše meta tagy',
     },
     features: {
-      title: 'Vše v jednom panelu.',
+      title: 'Moderní zákaznická podpora.',
       subtitle: 'Nahraďte Intercom, Mailchimp a externí překladatele jedním nástrojem pro moderní firmy.',
       translation: {
         title: 'Překlad v reálném čase',
@@ -1828,7 +1828,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Dostupní zákazníci',
       },
       omnichannel: {
-        title: 'Omnichannel',
+        title: 'Vše na jednom místě',
         description: 'Propojte e-mail, Instagram, Facebook a WhatsApp. Všechny zprávy ze všech kanálů přicházejí do jedné sdílené schránky.',
         widget: 'Widget na web',
         email: 'E-mail',
@@ -2053,7 +2053,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       codeMetaComment: 'Vaše meta tagy',
     },
     features: {
-      title: 'Všetko v jednom paneli.',
+      title: 'Moderná zákaznícka podpora.',
       subtitle: 'Nahraďte Intercom, Mailchimp a externých prekladateľov jedným nástrojom pre moderné firmy.',
       translation: {
         title: 'Preklad v reálnom čase',
@@ -2067,7 +2067,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         availableCustomers: 'Dostupní zákazníci',
       },
       omnichannel: {
-        title: 'Omnichannel',
+        title: 'Všetko na jednom mieste',
         description: 'Prepojte e-mail, Instagram, Facebook a WhatsApp. Všetky správy zo všetkých kanálov prichádzajú do jednej spoločnej schránky.',
         widget: 'Widget na web',
         email: 'E-mail',
