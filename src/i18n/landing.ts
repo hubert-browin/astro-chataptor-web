@@ -293,7 +293,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Wiadomości',
-      newCount: '3 nowe',
+      newCount: '4 nowe',
       online: 'Online',
       language: 'Język',
       placeholder: 'Napisz po polsku...',
@@ -532,7 +532,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Messages',
-      newCount: '3 new',
+      newCount: '4 new',
       online: 'Online',
       language: 'Language',
       placeholder: 'Type in English...',
@@ -771,7 +771,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Nachrichten',
-      newCount: '3 neue',
+      newCount: '4 neue',
       online: 'Online',
       language: 'Sprache',
       placeholder: 'Schreiben Sie auf Deutsch...',
@@ -1010,7 +1010,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Messages',
-      newCount: '3 nouveaux',
+      newCount: '4 nouveaux',
       online: 'En ligne',
       language: 'Langue',
       placeholder: 'Écrivez en français...',
@@ -1249,7 +1249,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Mensajes',
-      newCount: '3 nuevos',
+      newCount: '4 nuevos',
       online: 'En línea',
       language: 'Idioma',
       placeholder: 'Escribe en español...',
@@ -1488,7 +1488,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Messaggi',
-      newCount: '3 nuovi',
+      newCount: '4 nuovi',
       online: 'Online',
       language: 'Lingua',
       placeholder: 'Scrivi in italiano...',
@@ -1727,7 +1727,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Zprávy',
-      newCount: '3 nové',
+      newCount: '4 nové',
       online: 'Online',
       language: 'Jazyk',
       placeholder: 'Pište česky...',
@@ -1966,7 +1966,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     chat: {
       messages: 'Správy',
-      newCount: '3 nové',
+      newCount: '4 nové',
       online: 'Online',
       language: 'Jazyk',
       placeholder: 'Píšte po slovensky...',

@@ -1,5 +1,5 @@
 ---
-import { localeFlagSrc, locales, type Locale } from '../../i18n/config';
+import { locales, type Locale } from '../../i18n/config';
 import { getLanding } from '../../i18n/landing';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -13,8 +13,6 @@ const { lang } = Astro.params as { lang: Locale };
 
 // Get translations for current language
 const t = getLanding(lang);
-const operatorLangCode = lang.toUpperCase();
-const operatorFlagSrc = localeFlagSrc[lang];
 
 // Chat conversations data (using translations)
 const conversations = [
@@ -58,6 +56,19 @@ const conversations = [
     avatarColor: "bg-rose-100 text-rose-600",
     messages: [
       { id: 1, sender: "user", text: t.conversations.customer3.msg1, translation: t.conversations.customer3.msg1Translation, timestamp: "08:30" }
+    ]
+  },
+  {
+    id: 4,
+    name: "Anna Kowalska",
+    time: "1m",
+    lastMessage: "Dzień dobry, czy mogę dostać więcej informacji?",
+    lang: "PL",
+    flagSrc: "/images/flags/pl.svg",
+    source: "Widget",
+    avatarColor: "bg-zinc-100 text-zinc-700",
+    messages: [
+      { id: 1, sender: "user", text: "Dzień dobry, czy mogę dostać więcej informacji o wdrożeniu Chataptora?", timestamp: "10:31" }
     ]
   }
 ];
@@ -642,26 +653,6 @@ const logos = [
                 <!-- Messages will be populated by JS -->
               </div>
 
-              <!-- Demo Summary -->
-              <div class="p-3 md:p-4 bg-white border-t border-zinc-100 sticky bottom-0">
-                <div class="rounded-2xl bg-zinc-50 ring-1 ring-zinc-200/80 px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div class="flex items-start gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-700 shrink-0 shadow-sm">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h6m-9 8V6a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H8l-4 3z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <div class="text-xs font-bold text-zinc-900">{t.features.omnichannel.title}</div>
-                      <div class="text-[11px] text-zinc-500 mt-0.5 leading-relaxed">{t.features.omnichannel.allMessages}</div>
-                    </div>
-                  </div>
-                  <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white ring-1 ring-zinc-200 text-[11px] font-bold text-zinc-700 self-start sm:self-center shadow-sm">
-                    <img src={operatorFlagSrc} alt="" class="h-3.5 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="14" aria-hidden="true" />
-                    <span>{operatorLangCode}</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
