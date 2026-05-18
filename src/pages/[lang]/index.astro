@@ -511,64 +511,6 @@ const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454
           </div>
         </div>
       </section>
-
-      <!-- SEKCJA: WDROŻENIE (Implementation) -->
-      <section id="implementation" class="py-16 md:py-24 lg:py-32 xl:py-32 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mb-12 md:mb-16">
-          <div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
-            <p class="text-zinc-500 text-base md:text-lg mb-10 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded ring-1 ring-zinc-200 shadow-sm">{t.implementation.timeHighlight}</span>.</p>
-            <div class="space-y-6 md:space-y-8">
-              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">1</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step1.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step1.description}</p></div></div>
-              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">2</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step2.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step2.description}</p></div></div>
-              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">3</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step3.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step3.description}</p></div></div>
-              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">4</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step4.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step4.description}</p></div></div>
-            </div>
-          </div>
-          <div class="relative mt-4 lg:mt-0">
-            <div class="absolute -inset-2 bg-gradient-to-r from-zinc-200 to-zinc-100 rounded-3xl blur-lg opacity-60"></div>
-            <div class="relative bg-[#F5F5F7] rounded-2xl ring-1 ring-black/5 shadow-2xl font-mono text-xs md:text-sm flex flex-col overflow-hidden max-w-[calc(100vw-2rem)] md:max-w-full mx-auto">
-              <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 border-b border-zinc-200/50 bg-[#F5F5F7] relative z-10">
-                <div class="flex items-center gap-2 min-w-[50px]">
-                  <div class="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]"></div>
-                  <div class="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#D89E24]"></div>
-                  <div class="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]"></div>
-                </div>
-                <div class="text-zinc-400 text-xs font-semibold truncate px-2">index.html</div>
-                <div class="flex items-center justify-end min-w-[50px]">
-                  <div class="flex items-center gap-1.5 px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full ring-1 ring-emerald-100/50">
-                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span>Connected</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-3 sm:p-5 md:p-8 overflow-x-auto bg-white">
-                <div class="text-zinc-600 space-y-0.5 md:space-y-1.5 leading-tight whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
-                  <div><span class="text-purple-600">&lt;body&gt;</span></div>
-                  <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
-                  <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
-                  <div class="pl-4 text-zinc-400 italic">&lt;!-- {t.implementation.codeComment} --&gt;</div>
-                  <div class="pl-4 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r w-full"><span class="text-purple-600">&lt;script</span> <span class="text-zinc-600">src</span>=<span class="text-emerald-600">"https://cdn.chataptor.com/widget.js"</span></div>
-                  <div class="pl-8 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r -mt-1 w-full"><span class="text-zinc-600">data-id</span>=<span class="text-emerald-600">"YOUR_SITE_ID"</span> <span class="text-purple-600">&gt;&lt;/script&gt;</span></div>
-                  <div><span class="text-purple-600">&lt;/body&gt;</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- LOGOTYPY INTEGRACJI -->
-        <div class="w-full relative mask-gradient mt-8 md:mt-12 overflow-hidden">
-          <div class="flex animate-marquee-mobile md:animate-marquee whitespace-nowrap items-center">
-            {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo) => (
-              <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 flex items-center justify-center mx-3 md:mx-10 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                <img src={logo} alt="Integration" class="w-24 h-24 md:w-32 md:h-32 object-contain" loading="lazy" width="128" height="128" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <!-- UI MOCKUP -->
       <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-24 mb-12 lg:mb-20 relative z-20">
         <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[34rem] sm:h-[38rem] lg:h-[42rem] border md:border-none border-zinc-100">
@@ -661,20 +603,77 @@ const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454
         </div>
       </div>
 
+      <!-- SEKCJA: WDROŻENIE (Implementation) -->
+      <section id="implementation" class="py-16 md:py-24 lg:py-32 xl:py-32 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mb-12 md:mb-16">
+          <div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
+            <p class="text-zinc-500 text-base md:text-lg mb-10 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded ring-1 ring-zinc-200 shadow-sm">{t.implementation.timeHighlight}</span>.</p>
+            <div class="space-y-6 md:space-y-8">
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">1</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step1.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step1.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">2</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step2.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step2.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">3</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step3.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step3.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">4</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step4.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step4.description}</p></div></div>
+            </div>
+          </div>
+          <div class="relative mt-4 lg:mt-0">
+            <div class="absolute -inset-2 bg-gradient-to-r from-zinc-200 to-zinc-100 rounded-3xl blur-lg opacity-60"></div>
+            <div class="relative bg-[#F5F5F7] rounded-2xl ring-1 ring-black/5 shadow-2xl font-mono text-xs md:text-sm flex flex-col overflow-hidden max-w-[calc(100vw-2rem)] md:max-w-full mx-auto">
+              <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 border-b border-zinc-200/50 bg-[#F5F5F7] relative z-10">
+                <div class="flex items-center gap-2 min-w-[50px]">
+                  <div class="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#D89E24]"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]"></div>
+                </div>
+                <div class="text-zinc-400 text-xs font-semibold truncate px-2">index.html</div>
+                <div class="flex items-center justify-end min-w-[50px]">
+                  <div class="flex items-center gap-1.5 px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full ring-1 ring-emerald-100/50">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span>Connected</span>
+                  </div>
+                </div>
+              </div>
+              <div class="p-3 sm:p-5 md:p-8 overflow-x-auto bg-white">
+                <div class="text-zinc-600 space-y-0.5 md:space-y-1.5 leading-tight whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
+                  <div><span class="text-purple-600">&lt;body&gt;</span></div>
+                  <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
+                  <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
+                  <div class="pl-4 text-zinc-400 italic">&lt;!-- {t.implementation.codeComment} --&gt;</div>
+                  <div class="pl-4 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r w-full"><span class="text-purple-600">&lt;script</span> <span class="text-zinc-600">src</span>=<span class="text-emerald-600">"https://cdn.chataptor.com/widget.js"</span></div>
+                  <div class="pl-8 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r -mt-1 w-full"><span class="text-zinc-600">data-id</span>=<span class="text-emerald-600">"YOUR_SITE_ID"</span> <span class="text-purple-600">&gt;&lt;/script&gt;</span></div>
+                  <div><span class="text-purple-600">&lt;/body&gt;</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOGOTYPY INTEGRACJI -->
+        <div class="w-full relative mask-gradient mt-8 md:mt-12 overflow-hidden">
+          <div class="flex animate-marquee-mobile md:animate-marquee whitespace-nowrap items-center">
+            {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo) => (
+              <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 flex items-center justify-center mx-3 md:mx-10 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src={logo} alt="Integration" class="w-24 h-24 md:w-32 md:h-32 object-contain" loading="lazy" width="128" height="128" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <!-- MOBILE APP SECTION -->
       <section id="mobile-app" class="w-full max-w-7xl mx-auto px-4 md:px-6 mt-6 md:mt-10 mb-16 lg:mb-24 relative z-20">
-        <div class="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-zinc-950 text-white ring-1 ring-zinc-900 shadow-2xl shadow-zinc-900/15">
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(16,185,129,0.18),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_30%)] pointer-events-none"></div>
+        <div class="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white text-zinc-900 ring-1 ring-black/5 shadow-2xl shadow-zinc-200/70">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(16,185,129,0.10),transparent_30%),radial-gradient(circle_at_82%_8%,rgba(15,23,42,0.06),transparent_32%)] pointer-events-none"></div>
           <div class="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center p-6 sm:p-8 lg:p-12">
             <div class="max-w-2xl">
-              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 ring-1 ring-white/10 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-200 mb-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 ring-1 ring-emerald-100 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700 mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 {t.mobileApp.eyebrow}
               </div>
               <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-5">
                 {t.mobileApp.title}
               </h2>
-              <p class="text-zinc-300 text-base md:text-lg leading-relaxed max-w-xl mb-8">
+              <p class="text-zinc-500 text-base md:text-lg leading-relaxed max-w-xl mb-8">
                 {t.mobileApp.description}
               </p>
 
@@ -688,13 +687,13 @@ const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454
               </div>
             </div>
 
-            <div class="relative min-h-[24rem] sm:min-h-[27rem]">
-              <div class="absolute left-0 top-10 hidden sm:block rounded-2xl bg-white/10 backdrop-blur-xl ring-1 ring-white/10 px-4 py-3 shadow-2xl shadow-black/20">
-                <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">{t.mobileApp.instant}</div>
+            <div class="relative min-h-[30rem] sm:min-h-[32rem]">
+              <div class="absolute left-0 top-10 hidden sm:block rounded-2xl bg-white/80 backdrop-blur-xl ring-1 ring-zinc-200 px-4 py-3 shadow-xl shadow-zinc-200/70">
+                <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">{t.mobileApp.instant}</div>
               </div>
 
-              <div class="relative mx-auto w-[16.5rem] sm:w-[18rem] rounded-[2.75rem] bg-zinc-900 p-2 ring-1 ring-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
-                <div class="relative overflow-hidden rounded-[2.25rem] bg-white min-h-[24rem] sm:min-h-[26rem] text-zinc-900 p-4">
+              <div class="relative mx-auto w-[15.75rem] sm:w-[18rem] aspect-[9/16] rounded-[2.75rem] bg-zinc-900 p-2 ring-1 ring-zinc-900 shadow-[0_30px_90px_rgba(15,23,42,0.25)]">
+                <div class="relative h-full overflow-hidden rounded-[2.25rem] bg-white text-zinc-900 p-4">
                   <div class="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-6 rounded-full bg-zinc-950"></div>
                   <div class="pt-10 flex items-center justify-between mb-5">
                     <div>
