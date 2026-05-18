@@ -231,19 +231,6 @@ const logos = [
               </div>
             </div>
 
-            <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2 max-w-2xl text-[11px] font-semibold text-zinc-500">
-              <span class="px-3 py-1.5 rounded-full bg-zinc-900 text-white shadow-sm">{t.features.omnichannel.title}</span>
-              {[
-                t.features.omnichannel.email,
-                t.features.omnichannel.instagram,
-                t.features.omnichannel.facebook,
-                t.features.omnichannel.whatsapp
-              ].map((channel) => (
-                <span class="px-3 py-1.5 rounded-full bg-white/85 ring-1 ring-zinc-200/80 shadow-sm">{channel}</span>
-              ))}
-              <span class="hidden sm:inline text-zinc-300" aria-hidden="true">&rarr;</span>
-              <span class="px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100 shadow-sm">{t.features.omnichannel.oneInbox}</span>
-            </div>
           </div>
 
           <!-- RIGHT COLUMN: Animation / Chat Visualization -->
@@ -438,91 +425,72 @@ const logos = [
           </div>
 
           <!-- Card 3 - Omnichannel -->
-          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 md:p-5 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 relative overflow-hidden flex flex-col min-h-[22rem]">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,rgba(16,185,129,0.14),transparent_34%),linear-gradient(180deg,rgba(250,250,250,0.95),rgba(255,255,255,0))] pointer-events-none"></div>
-            <div class="relative z-10 mb-4">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100 text-[10px] font-bold uppercase tracking-wide mb-3">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                {t.features.omnichannel.oneInbox}
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-8 md:gap-10 items-center relative overflow-hidden">
+            <div class="flex-1 relative z-10 text-left">
+              <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 text-zinc-900 flex items-center justify-center mb-6 shadow-sm">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8M8 12h5m-9 8V6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H9l-5 4z"></path>
+                </svg>
               </div>
-              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.omnichannel.title}</h3>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+              <p class="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.22em] mb-3">{t.features.omnichannel.oneInbox}</p>
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-3 tracking-tight">{t.features.omnichannel.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed mb-4">
                 {t.features.omnichannel.description}
               </p>
+              <p class="text-xs font-bold text-zinc-400 uppercase tracking-wide">{t.features.omnichannel.andMore}</p>
             </div>
-            <div class="relative z-10 mt-auto rounded-[2rem] bg-zinc-50/80 ring-1 ring-zinc-900/5 p-3 shadow-inner shadow-zinc-200/50">
-              <div class="grid grid-cols-2 gap-2">
-                {[
-                  { name: t.features.omnichannel.email, icon: '@', bg: 'bg-amber-500' },
-                  { name: t.features.omnichannel.instagram, icon: 'IG', bg: 'bg-gradient-to-br from-fuchsia-500 via-pink-500 to-amber-400' },
-                  { name: t.features.omnichannel.facebook, icon: 'f', bg: 'bg-blue-600' },
-                  { name: t.features.omnichannel.whatsapp, icon: 'WA', bg: 'bg-emerald-500' }
-                ].map((channel) => (
-                  <div class="rounded-2xl bg-white ring-1 ring-zinc-200/70 p-2.5 flex items-center gap-2 shadow-sm transition-all duration-300 group-hover:-translate-y-0.5">
-                    <div class={`w-8 h-8 rounded-xl ${channel.bg} text-white flex items-center justify-center text-[11px] font-black shadow-lg shadow-zinc-900/10`}>
-                      {channel.icon}
-                    </div>
-                    <span class="font-bold text-zinc-700 text-xs truncate">{channel.name}</span>
-                  </div>
-                ))}
-              </div>
 
-              <div class="flex items-center justify-center py-2" aria-hidden="true">
-                <div class="h-px w-12 bg-gradient-to-r from-transparent via-zinc-300 to-transparent"></div>
-                <div class="mx-2 w-7 h-7 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-400 text-xs font-bold shadow-sm">&rarr;</div>
-                <div class="h-px w-12 bg-gradient-to-r from-transparent via-zinc-300 to-transparent"></div>
-              </div>
+            <div class="relative z-10 w-full md:w-1/2 min-h-[18rem] rounded-[2rem] bg-zinc-50/70 ring-1 ring-zinc-200/70 p-5 overflow-hidden">
+              <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 420 300" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M82 62 C160 62 192 134 210 150" fill="none" stroke="#d4d4d8" stroke-width="1.5" stroke-dasharray="5 7"></path>
+                <path d="M82 150 C145 150 173 150 210 150" fill="none" stroke="#d4d4d8" stroke-width="1.5" stroke-dasharray="5 7"></path>
+                <path d="M82 238 C160 238 192 166 210 150" fill="none" stroke="#d4d4d8" stroke-width="1.5" stroke-dasharray="5 7"></path>
+                <path d="M338 150 C292 150 255 150 210 150" fill="none" stroke="#d4d4d8" stroke-width="1.5" stroke-dasharray="5 7"></path>
+              </svg>
 
-              <div class="rounded-[1.45rem] bg-zinc-950 text-white p-4 shadow-xl shadow-zinc-900/15">
-                <div class="flex items-center justify-between gap-4">
-                  <div>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-emerald-300 font-bold">{t.features.omnichannel.oneInbox}</p>
-                    <p class="text-sm font-bold mt-1 leading-snug">{t.features.omnichannel.allMessages}</p>
-                  </div>
-                  <div class="flex -space-x-2 shrink-0">
-                    {['12', '8', '5'].map((count) => (
-                      <div class="w-8 h-8 rounded-full bg-white/10 ring-2 ring-zinc-950 flex items-center justify-center text-[10px] font-black text-white">
-                        {count}
-                      </div>
-                    ))}
-                  </div>
+              <div class="absolute left-5 top-6 flex items-center gap-3 rounded-2xl bg-white ring-1 ring-zinc-200 shadow-sm px-2.5 sm:px-3 py-2">
+                <div class="w-9 h-9 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"></path>
+                  </svg>
                 </div>
-                <div class="mt-3 grid grid-cols-4 gap-1.5">
-                  {[100, 72, 88, 56].map((width) => (
-                    <div class="h-1.5 rounded-full bg-white/10 overflow-hidden">
-                      <div class="h-full rounded-full bg-emerald-400" style={`width: ${width}%`}></div>
-                    </div>
-                  ))}
-                </div>
+                <span class="hidden sm:inline text-xs font-bold text-zinc-700">{t.features.omnichannel.facebook}</span>
               </div>
 
-              <p class="text-center pt-3 text-[10px] font-bold text-zinc-400 uppercase tracking-wide">{t.features.omnichannel.andMore}</p>
-            </div>
-          </div>
+              <div class="absolute left-5 top-1/2 -translate-y-1/2 flex items-center gap-3 rounded-2xl bg-white ring-1 ring-zinc-200 shadow-sm px-2.5 sm:px-3 py-2">
+                <div class="w-9 h-9 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="4" y="4" width="16" height="16" rx="5" stroke-width="2"></rect>
+                    <circle cx="12" cy="12" r="3.5" stroke-width="2"></circle>
+                    <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"></circle>
+                  </svg>
+                </div>
+                <span class="hidden sm:inline text-xs font-bold text-zinc-700">{t.features.omnichannel.instagram}</span>
+              </div>
 
-          <!-- Card 4 - Marketing -->
-          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 relative overflow-hidden flex flex-col">
-            <div class="relative z-10 mb-4">
-              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketing.title}</h3>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
-                {t.features.marketing.description1}
-              </p>
-              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
-                {t.features.marketing.description2}
-              </p>
-            </div>
-            <div class="rounded-2xl p-4 flex-1 flex flex-col justify-end relative overflow-hidden">
-              <div class="flex items-end justify-between gap-2 h-20 mt-2">
-                {[30, 45, 35, 60, 50, 75, 90].map((height, i) => (
-                  <div
-                    class={`w-full rounded-t-sm relative group/bar hover:bg-pink-200 transition-colors ${i === 6 ? '' : 'bg-slate-200'}`}
-                    style={`height: ${height}%`}
-                  >
-                    {i === 6 && (
-                      <div class="absolute inset-0 bg-gradient-to-t from-pink-500 to-rose-500 rounded-t-sm shadow-lg shadow-pink-500/30"></div>
-                    )}
-                  </div>
-                ))}
+              <div class="absolute left-5 bottom-6 flex items-center gap-3 rounded-2xl bg-white ring-1 ring-zinc-200 shadow-sm px-2.5 sm:px-3 py-2">
+                <div class="w-9 h-9 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.84 9.84 0 0019.04 4.9 9.83 9.83 0 0012.04 2zm5.83 14.18c-.25.7-1.45 1.34-2.03 1.43-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.72-.63-3.03-1.31-5-4.35-5.15-4.55-.15-.2-1.23-1.64-1.23-3.12 0-1.49.78-2.22 1.06-2.52.28-.3.6-.38.8-.38h.58c.18.01.43-.07.67.51.25.6.85 2.08.92 2.23.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.17-.32.39-.46.52-.15.15-.31.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.37 1.46.3.15.47.13.64-.07.18-.2.77-.9.97-1.19.2-.3.4-.25.68-.15.28.1 1.78.84 2.08.99.3.15.5.22.58.35.07.13.07.73-.18 1.43z"></path>
+                  </svg>
+                </div>
+                <span class="hidden sm:inline text-xs font-bold text-zinc-700">{t.features.omnichannel.whatsapp}</span>
+              </div>
+
+              <div class="absolute right-5 top-1/2 -translate-y-1/2 flex items-center gap-3 rounded-2xl bg-white ring-1 ring-zinc-200 shadow-sm px-2.5 sm:px-3 py-2">
+                <div class="w-9 h-9 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"></path>
+                  </svg>
+                </div>
+                <span class="hidden sm:inline text-xs font-bold text-zinc-700">{t.features.omnichannel.email}</span>
+              </div>
+
+              <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-[1.5rem] sm:rounded-[1.75rem] bg-zinc-950 ring-4 ring-white shadow-2xl shadow-zinc-900/20 flex flex-col items-center justify-center text-white">
+                  <img src="/images/landing/logo-black.png" alt="Chataptor" class="w-8 h-8 object-contain brightness-0 invert mb-1" loading="lazy" width="32" height="32" />
+                  <span class="hidden sm:block text-[10px] font-bold tracking-wide">Chataptor</span>
+                </div>
               </div>
             </div>
           </div>
