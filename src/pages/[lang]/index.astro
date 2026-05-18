@@ -1,0 +1,869 @@
+---
+import { locales, type Locale } from '../../i18n/config';
+import { getLanding } from '../../i18n/landing';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+
+// Get translations for current language
+const t = getLanding(lang);
+
+// Chat conversations data (using translations)
+const conversations = [
+  {
+    id: 1,
+    name: t.conversations.customer1.name,
+    time: "2m",
+    lastMessage: t.conversations.customer1.lastMessage,
+    lang: "DE",
+    flagSrc: "/images/flags/de.svg",
+    source: "Messenger",
+    avatarColor: "bg-indigo-100 text-indigo-600",
+    messages: [
+      { id: 1, sender: "user", text: t.conversations.customer1.msg1, translation: t.conversations.customer1.msg1Translation, timestamp: "10:23" },
+      { id: 2, sender: "agent", text: t.conversations.customer1.msg2, translation: t.conversations.customer1.msg2Translation, timestamp: "10:24" }
+    ]
+  },
+  {
+    id: 2,
+    name: t.conversations.customer2.name,
+    time: "15m",
+    lastMessage: t.conversations.customer2.lastMessage,
+    lang: "FR",
+    flagSrc: "/images/flags/fr.svg",
+    source: "Email",
+    avatarColor: "bg-emerald-100 text-emerald-600",
+    messages: [
+      { id: 1, sender: "user", text: t.conversations.customer2.msg1, translation: t.conversations.customer2.msg1Translation, timestamp: "09:45" },
+      { id: 2, sender: "agent", text: t.conversations.customer2.msg2, translation: t.conversations.customer2.msg2Translation, timestamp: "09:46" },
+      { id: 3, sender: "user", text: t.conversations.customer2.msg3, translation: t.conversations.customer2.msg3Translation, timestamp: "09:48" }
+    ]
+  },
+  {
+    id: 3,
+    name: t.conversations.customer3.name,
+    time: "1h",
+    lastMessage: t.conversations.customer3.lastMessage,
+    lang: "IT",
+    flagSrc: "/images/flags/it.svg",
+    source: "WhatsApp",
+    avatarColor: "bg-rose-100 text-rose-600",
+    messages: [
+      { id: 1, sender: "user", text: t.conversations.customer3.msg1, translation: t.conversations.customer3.msg1Translation, timestamp: "08:30" }
+    ]
+  }
+];
+
+const countries = [
+  { code: "de", flagSrc: "/images/flags/de.svg", name: t.countries.germany.name, sub: t.countries.germany.sub, population: 83000000 },
+  { code: "fr", flagSrc: "/images/flags/fr.svg", name: t.countries.france.name, sub: t.countries.france.sub, population: 67000000 },
+  { code: "it", flagSrc: "/images/flags/it.svg", name: t.countries.italy.name, sub: t.countries.italy.sub, population: 59000000 },
+  { code: "es", flagSrc: "/images/flags/es.svg", name: t.countries.spain.name, sub: t.countries.spain.sub, population: 47000000 },
+  { code: "gb", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 67000000 }
+];
+
+const logos = [
+  "/images/landing/messenger-logo.png",
+  "/images/landing/whatsapp-logo.png",
+  "/images/landing/gmail-logo.png",
+  "/images/landing/openai-logo.png",
+  "/images/landing/deepl-logo.png"
+];
+---
+
+<BaseLayout
+  title={t.hero.pagetitle}
+  description={t.hero.description}
+  lang={lang}
+  slug=""
+  isLandingPage={true} 
+>
+  {/* Style lokalne dla tej strony (animacje, popovery) */}
+  <style>
+    /* --- NOWE ANIMACJE DLA WIZUALIZACJI HERO --- */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: float 6s ease-in-out infinite 3s;
+    }
+    
+    @keyframes float-rotate {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-15px) rotate(1deg); }
+    }
+    .animate-float-rotate {
+      animation: float-rotate 8s ease-in-out infinite;
+    }
+  </style>
+
+  <main>
+    
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[100dvh] flex flex-col pt-24 pb-4 md:pt-0 md:pb-0 overflow-hidden">
+      <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
+
+      <!-- World Map Background -->
+      <img
+        src="/images/dotted_worldmap.svg"
+        alt=""
+        aria-hidden="true"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] sm:w-[140%] md:w-[95%] 2xl:w-[115%] max-w-[120rem] h-auto z-0 opacity-[0.05] md:opacity-[0.06] pointer-events-none"
+        style="filter: grayscale(100%) brightness(0);"
+      />
+
+      <!-- Main Hero Wrapper - Two Columns Layout -->
+      <div class="w-full h-full px-4 md:px-6 max-w-7xl mx-auto relative z-30 flex-1 flex flex-col pt-8 lg:pt-32">
+        
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 flex-1 w-full">
+          
+          <!-- LEFT COLUMN: Content -->
+          <div class="flex flex-col justify-center items-center lg:items-start w-full lg:w-[65%] text-center lg:text-left z-20">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto lg:mx-0 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-50"></span>
+              </span>
+              <span class="hidden sm:inline">{t.hero.badge}</span>
+              <span class="sm:hidden">{t.hero.badgeMobile}</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.2] mb-6 text-zinc-900">
+              {t.hero.title1}<br class="block sm:hidden lg:block" />
+              <span class="hidden sm:inline lg:hidden"><br /></span>
+              <span class="text-zinc-400 mt-2 sm:mt-0 block sm:inline lg:block font-semibold">{t.hero.title2}</span>
+            </h1>
+
+            <p class="text-sm sm:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto lg:mx-0 font-normal mb-8 leading-relaxed lg:pr-8">
+              <span class="md:hidden">{t.hero.descriptionMobile}</span>
+              <span class="hidden md:inline">{t.hero.description}</span>
+              <br class="hidden md:block"/>
+              <span class="block mt-2 md:inline md:mt-0 text-zinc-900 font-medium">{t.hero.descriptionHighlight}</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 sm:gap-4 lg:gap-6 relative w-full sm:w-auto">
+              <!-- Main CTA -->
+              <a href="/register" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 text-white rounded-full text-[0.9375rem] font-semibold hover:bg-emerald-500 transition-all hover:scale-[1.02] shadow-xl shadow-emerald-600/10 active:scale-95 text-center">
+                {t.hero.cta}
+              </a>
+              
+              <!-- INLINE CONTACT QUICK ACTIONS (Hero) -->
+              <div class="relative w-full sm:w-auto z-20 flex items-center justify-between px-2 sm:px-0 sm:justify-start gap-3 sm:gap-3 md:gap-4 mt-2 sm:mt-0">
+                
+                  <!-- Phone with copy badge on hover -->
+                  <div class="relative group/copy group/btn shrink-0">
+                    <a href="tel:+48695151096" class="w-14 h-14 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white hover:bg-zinc-50 ring-1 ring-zinc-200/80 text-zinc-600 hover:text-zinc-900 transition-all shadow-sm hover:shadow hover:scale-105 active:scale-95" aria-label={t.contactPopup.tooltipCall}>
+                      <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </a>
+                    <button class="copy-btn absolute -top-1.5 -right-1.5 opacity-0 pointer-events-none group-hover/copy:opacity-100 group-hover/copy:pointer-events-auto w-7 h-7 sm:w-6 sm:h-6 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-md scale-75 group-hover/copy:scale-100 transition-all z-10 cursor-pointer" data-text="+48 695 151 096" title={t.contactPopup.copyNumber}>
+                      <svg class="w-3.5 h-3.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </button>
+                    <!-- Desktop Tooltip -->
+                    <div class="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 opacity-0 translate-y-1 group-hover/btn:opacity-100 group-hover/btn:translate-y-0 pointer-events-none transition-all duration-200 bg-zinc-800 text-zinc-50 text-[11px] font-medium px-2.5 py-1.5 rounded-md shadow-sm whitespace-nowrap hidden sm:block z-50">
+                      {t.contactPopup.tooltipCall}
+                      <div class="absolute -top-[5px] left-1/2 -translate-x-1/2 border-[3px] border-transparent border-b-zinc-800"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- Email with copy badge on hover -->
+                  <div class="relative group/copy group/btn shrink-0">
+                    <a href="mailto:contact@chataptor.com" class="w-14 h-14 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white hover:bg-zinc-50 ring-1 ring-zinc-200/80 text-zinc-600 hover:text-zinc-900 transition-all shadow-sm hover:shadow hover:scale-105 active:scale-95" aria-label={t.contactPopup.tooltipEmail}>
+                      <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </a>
+                    <button class="copy-btn absolute -top-1.5 -right-1.5 opacity-0 pointer-events-none group-hover/copy:opacity-100 group-hover/copy:pointer-events-auto w-7 h-7 sm:w-6 sm:h-6 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-md scale-75 group-hover/copy:scale-100 transition-all z-10 cursor-pointer" data-text="contact@chataptor.com" title={t.contactPopup.copyEmail}>
+                      <svg class="w-3.5 h-3.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </button>
+                    <!-- Desktop Tooltip -->
+                    <div class="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 opacity-0 translate-y-1 group-hover/btn:opacity-100 group-hover/btn:translate-y-0 pointer-events-none transition-all duration-200 bg-zinc-800 text-zinc-50 text-[11px] font-medium px-2.5 py-1.5 rounded-md shadow-sm whitespace-nowrap hidden sm:block z-50">
+                      {t.contactPopup.tooltipEmail}
+                      <div class="absolute -top-[5px] left-1/2 -translate-x-1/2 border-[3px] border-transparent border-b-zinc-800"></div>
+                    </div>
+                  </div>
+
+                  <!-- WhatsApp -->
+                  <div class="relative group/btn shrink-0">
+                    <a href="https://wa.me/48695151096" target="_blank" rel="noopener noreferrer nofollow" class="w-14 h-14 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white hover:bg-[#25D366]/10 ring-1 ring-zinc-200/80 text-[#25D366] transition-all shadow-sm hover:shadow hover:scale-105 active:scale-95" aria-label="WhatsApp">
+                      <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                    <!-- Desktop Tooltip -->
+                    <div class="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 opacity-0 translate-y-1 group-hover/btn:opacity-100 group-hover/btn:translate-y-0 pointer-events-none transition-all duration-200 bg-zinc-800 text-zinc-50 text-[11px] font-medium px-2.5 py-1.5 rounded-md shadow-sm whitespace-nowrap hidden sm:block z-50">
+                      WhatsApp
+                      <div class="absolute -top-[5px] left-1/2 -translate-x-1/2 border-[3px] border-transparent border-b-zinc-800"></div>
+                    </div>
+                  </div>
+
+                  <!-- Messenger -->
+                  <div class="relative group/btn shrink-0">
+                    <a href="https://m.me/chataptor" target="_blank" rel="noopener noreferrer nofollow" class="w-14 h-14 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white hover:bg-[#0084FF]/10 ring-1 ring-zinc-200/80 text-[#0084FF] transition-all shadow-sm hover:shadow hover:scale-105 active:scale-95" aria-label="Messenger">
+                      <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.21 5.56 3.16 7.39.16.15.26.36.26.59V21.5c0 .63.66 1.04 1.21.75l2.67-1.4a.97.97 0 0 1 .64-.09c.68.12 1.37.19 2.06.19 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.61 11.33l-2.07-2.2a.53.53 0 0 0-.76 0l-4.52 3.44c-.45.34-1.04-.26-.67-.7l3.85-4.57a.54.54 0 0 1 .83 0l2.07 2.2a.53.53 0 0 0 .76 0l4.52-3.45c.45-.34 1.04.26.67.7l-3.85 4.58a.54.54 0 0 1-.83 0z"/></svg>
+                    </a>
+                    <!-- Desktop Tooltip -->
+                    <div class="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 opacity-0 translate-y-1 group-hover/btn:opacity-100 group-hover/btn:translate-y-0 pointer-events-none transition-all duration-200 bg-zinc-800 text-zinc-50 text-[11px] font-medium px-2.5 py-1.5 rounded-md shadow-sm whitespace-nowrap hidden sm:block z-50">
+                      Messenger
+                      <div class="absolute -top-[5px] left-1/2 -translate-x-1/2 border-[3px] border-transparent border-b-zinc-800"></div>
+                    </div>
+                  </div>
+
+                  <!-- Live Chat -->
+                  <div class="relative group/btn shrink-0">
+                    <button data-quantumchat-open class="w-14 h-14 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-zinc-900 hover:bg-black ring-1 ring-zinc-900 text-white transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 relative cursor-pointer" aria-label={t.contactPopup.tooltipChat}>
+                      <span class="absolute top-0 right-0 sm:top-0 sm:right-0 w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
+                      <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-6 h-6 sm:w-5 sm:h-5 object-contain brightness-0 invert" loading="lazy" width="24" height="24" />
+                    </button>
+                    <!-- Desktop Tooltip -->
+                    <div class="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 opacity-0 translate-y-1 group-hover/btn:opacity-100 group-hover/btn:translate-y-0 pointer-events-none transition-all duration-200 bg-zinc-800 text-zinc-50 text-[11px] font-medium px-2.5 py-1.5 rounded-md shadow-sm whitespace-nowrap hidden sm:block z-50">
+                      {t.contactPopup.tooltipChat}
+                      <div class="absolute -top-[5px] left-1/2 -translate-x-1/2 border-[3px] border-transparent border-b-zinc-800"></div>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2 max-w-2xl text-[11px] font-semibold text-zinc-500">
+              <span class="px-3 py-1.5 rounded-full bg-zinc-900 text-white shadow-sm">{t.features.omnichannel.title}</span>
+              {[
+                t.features.omnichannel.email,
+                t.features.omnichannel.instagram,
+                t.features.omnichannel.facebook,
+                t.features.omnichannel.whatsapp
+              ].map((channel) => (
+                <span class="px-3 py-1.5 rounded-full bg-white/85 ring-1 ring-zinc-200/80 shadow-sm">{channel}</span>
+              ))}
+              <span class="hidden sm:inline text-zinc-300" aria-hidden="true">&rarr;</span>
+              <span class="px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100 shadow-sm">{t.features.omnichannel.oneInbox}</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Animation / Chat Visualization -->
+          <div class="w-full lg:w-[35%] relative hidden md:flex items-center justify-center z-10 lg:pl-4 mt-12 lg:mt-0">
+            
+            <!-- Main Chat UI (Simplified bubbles only, NO animations/shadows) -->
+            <div class="relative w-full max-w-md flex flex-col gap-5">
+              
+              <!-- Incoming Foreign Message -->
+              <div class="flex items-start gap-3 w-full">
+                <div class="h-6 w-9 rounded-[4px] bg-white shrink-0 ring-1 ring-emerald-100/50 overflow-hidden shadow-sm mt-1">
+                  <img src="/images/flags/fr.svg" alt="FR" class="h-full w-full object-cover" width="36" height="24" />
+                </div>
+                <div class="flex flex-col gap-1.5 w-[85%]">
+                  <div class="bg-white p-4 rounded-2xl rounded-tl-none ring-1 ring-zinc-200/80 text-sm text-zinc-800 relative group">
+                    <p class="font-medium text-zinc-900">Bonjour! Est-ce que mon colis a été envoyé ?</p>
+                    
+                    <!-- Translation indicator inside message -->
+                    <div class="mt-3 pt-3 border-t border-zinc-100/80 text-[11px] text-zinc-500 flex items-start gap-2">
+                      <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                      <span class="italic leading-tight">Dzień dobry! Czy moja paczka została już wysłana?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Outgoing Native Message -->
+              <div class="flex items-end gap-3 w-full flex-row-reverse mt-2">
+                <div class="h-6 w-9 rounded-[4px] bg-white shrink-0 ring-1 ring-zinc-200 overflow-hidden shadow-sm mb-1">
+                  <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="36" height="24" />
+                </div>
+                <div class="flex flex-col gap-1.5 w-[85%] items-end">
+                  <div class="bg-zinc-900 text-white p-4 rounded-2xl rounded-tr-none text-sm relative w-full text-left">
+                    <p class="font-medium text-white/90">Tak, nadaliśmy ją dzisiaj. Będzie u Pana w piątek.</p>
+                    
+                    <div class="mt-3 pt-3 border-t border-white/20 text-[11px] text-zinc-300 flex items-start gap-2">
+                      <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                      <span class="italic leading-tight text-white/70">Oui, nous l'avons expédié ce matin. Il sera chez vous vendredi.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- User Typing Indicator -->
+              <div class="flex items-start gap-3 w-full animate-pulse mt-4">
+                <div class="w-6 h-6 rounded-full bg-zinc-200/80 shrink-0"></div>
+                <div class="bg-white px-3 py-2.5 rounded-2xl rounded-tl-none ring-1 ring-zinc-200/80 flex items-center gap-1.5 w-16">
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce"></div>
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
+                  <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+      <!-- FEATURE BENTO GRID (Features) -->
+      <section id="product" class="py-16 md:py-24 lg:py-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-12 lg:mb-16 xl:mb-24">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.features.title}</h2>
+          <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{t.features.subtitle}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-6 xl:gap-8 auto-rows-min">
+          <!-- Card 1 - Translation -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-2 md:gap-10 items-center relative overflow-hidden">
+            <div class="flex-1 relative z-10 text-left">
+              <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 text-zinc-900 flex items-center justify-center mb-6 shadow-sm">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-3 tracking-tight">{t.features.translation.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed mb-2 md:mb-6">
+                {t.features.translation.description}
+              </p>
+            </div>
+            <div class="relative w-full md:w-1/2 flex flex-col gap-6 justify-center items-center py-4">
+              <div class="relative w-full max-w-sm bg-zinc-50/50 ring-1 ring-black/5 p-4 md:p-6 rounded-3xl">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-3">
+                    <div class="h-6 w-9 rounded-[4px] bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm mt-1 shrink-0">
+                      <img src="/images/flags/de.svg" alt="DE" class="h-full w-full object-cover" width="36" height="24" loading="lazy" />
+                    </div>
+                    <div class="flex-1">
+                      <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-black/5 text-sm text-zinc-800">
+                        {t.howItWorks.step3.exampleMessage}
+                        <div class="h-px bg-zinc-100 my-2"></div>
+                        <div class="text-zinc-500 font-medium flex items-center gap-2 text-xs">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                          {t.howItWorks.step3.exampleTranslation}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3 flex-row-reverse mt-2">
+                    <div class="h-6 w-9 rounded-[4px] bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm mt-1 shrink-0">
+                      <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="36" height="24" loading="lazy" />
+                    </div>
+                    <div class="flex-1 text-right">
+                      <div class="bg-zinc-900 text-white p-3 rounded-2xl rounded-tr-none shadow-md text-sm text-left">
+                        {t.features.translation.checking}
+                        <div class="h-px bg-white/20 my-2"></div>
+                        <div class="text-zinc-400 font-medium flex items-center gap-2 text-xs">
+                          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                          Ich überprüfe das...
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 - Market Unlock -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:row-span-2 flex flex-col relative overflow-hidden">
+            <div class="relative z-10 mb-4 flex-none">
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketUnlock.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+                {t.features.marketUnlock.description}
+              </p>
+            </div>
+            <!-- Market Counter -->
+            <div class="w-full space-y-4 md:space-y-6 flex flex-col h-full" id="market-counter">
+              <div class="text-center pt-2 pb-4 border-b border-zinc-100 shrink-0">
+                <p class="text-zinc-400 text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-1">{t.features.marketUnlock.totalPotential}</p>
+                <div class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-600 tabular-nums transition-all duration-300 tracking-tight" id="market-count">
+                  38 000 000
+                </div>
+                <div class="text-xs font-medium text-emerald-600 mt-1 flex items-center justify-center gap-1">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                  {t.features.marketUnlock.availableCustomers}
+                </div>
+              </div>
+
+              <div class="space-y-2 md:space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1">
+                <!-- Poland (locked) -->
+                <div class="flex items-center justify-between py-2 px-1 transition-all cursor-default group select-none opacity-70">
+                  <div class="flex items-center gap-4">
+                    <img
+                      src="/images/flags/pl.svg"
+                      alt=""
+                      class="h-5 w-8 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm"
+                      width="32"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <div class="text-sm font-bold text-zinc-900">{t.countries.poland.name}</div>
+                      <div class="text-[10px] font-medium text-emerald-600 font-bold">{t.countries.homeMarket}</div>
+                    </div>
+                  </div>
+                  <!-- Fixed Switch Structure -->
+                  <div class="w-11 h-6 rounded-full relative bg-zinc-900 shrink-0 transition-colors duration-200">
+                    <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md translate-x-[1.25rem]"></div>
+                  </div>
+                </div>
+                <!-- Other countries -->
+                {countries.map((country) => (
+                  <div
+                    class="country-toggle flex items-center justify-between py-2 px-1 transition-all cursor-pointer group select-none active:scale-[0.98] md:active:scale-100"
+                    data-code={country.code}
+                    data-population={country.population}
+                  >
+                    <div class="flex items-center gap-4">
+                      <img
+                        src={country.flagSrc}
+                        alt=""
+                        class="country-flag h-5 w-8 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm grayscale opacity-60 transition-all"
+                        width="32"
+                        height="20"
+                        loading="lazy"
+                        aria-hidden="true"
+                      />
+                      <div>
+                        <div class="country-name text-sm font-bold text-zinc-400">{country.name}</div>
+                        <div class="country-sub text-[10px] font-medium text-zinc-300">{country.sub}</div>
+                      </div>
+                    </div>
+                    <!-- Fixed Switch Structure -->
+                    <div class="toggle-switch w-11 h-6 rounded-full relative bg-zinc-200 shrink-0 transition-colors duration-300 ease-in-out">
+                      <div class="toggle-knob absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-transform duration-300 ease-in-out"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 - Omnichannel -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 md:p-5 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 relative overflow-hidden flex flex-col min-h-[22rem]">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,rgba(16,185,129,0.14),transparent_34%),linear-gradient(180deg,rgba(250,250,250,0.95),rgba(255,255,255,0))] pointer-events-none"></div>
+            <div class="relative z-10 mb-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100 text-[10px] font-bold uppercase tracking-wide mb-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                {t.features.omnichannel.oneInbox}
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.omnichannel.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+                {t.features.omnichannel.description}
+              </p>
+            </div>
+            <div class="relative z-10 mt-auto rounded-[2rem] bg-zinc-50/80 ring-1 ring-zinc-900/5 p-3 shadow-inner shadow-zinc-200/50">
+              <div class="grid grid-cols-2 gap-2">
+                {[
+                  { name: t.features.omnichannel.email, icon: '@', bg: 'bg-amber-500' },
+                  { name: t.features.omnichannel.instagram, icon: 'IG', bg: 'bg-gradient-to-br from-fuchsia-500 via-pink-500 to-amber-400' },
+                  { name: t.features.omnichannel.facebook, icon: 'f', bg: 'bg-blue-600' },
+                  { name: t.features.omnichannel.whatsapp, icon: 'WA', bg: 'bg-emerald-500' }
+                ].map((channel) => (
+                  <div class="rounded-2xl bg-white ring-1 ring-zinc-200/70 p-2.5 flex items-center gap-2 shadow-sm transition-all duration-300 group-hover:-translate-y-0.5">
+                    <div class={`w-8 h-8 rounded-xl ${channel.bg} text-white flex items-center justify-center text-[11px] font-black shadow-lg shadow-zinc-900/10`}>
+                      {channel.icon}
+                    </div>
+                    <span class="font-bold text-zinc-700 text-xs truncate">{channel.name}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div class="flex items-center justify-center py-2" aria-hidden="true">
+                <div class="h-px w-12 bg-gradient-to-r from-transparent via-zinc-300 to-transparent"></div>
+                <div class="mx-2 w-7 h-7 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-400 text-xs font-bold shadow-sm">&rarr;</div>
+                <div class="h-px w-12 bg-gradient-to-r from-transparent via-zinc-300 to-transparent"></div>
+              </div>
+
+              <div class="rounded-[1.45rem] bg-zinc-950 text-white p-4 shadow-xl shadow-zinc-900/15">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-emerald-300 font-bold">{t.features.omnichannel.oneInbox}</p>
+                    <p class="text-sm font-bold mt-1 leading-snug">{t.features.omnichannel.allMessages}</p>
+                  </div>
+                  <div class="flex -space-x-2 shrink-0">
+                    {['12', '8', '5'].map((count) => (
+                      <div class="w-8 h-8 rounded-full bg-white/10 ring-2 ring-zinc-950 flex items-center justify-center text-[10px] font-black text-white">
+                        {count}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div class="mt-3 grid grid-cols-4 gap-1.5">
+                  {[100, 72, 88, 56].map((width) => (
+                    <div class="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                      <div class="h-full rounded-full bg-emerald-400" style={`width: ${width}%`}></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <p class="text-center pt-3 text-[10px] font-bold text-zinc-400 uppercase tracking-wide">{t.features.omnichannel.andMore}</p>
+            </div>
+          </div>
+
+          <!-- Card 4 - Marketing -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 relative overflow-hidden flex flex-col">
+            <div class="relative z-10 mb-4">
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketing.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+                {t.features.marketing.description1}
+              </p>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+                {t.features.marketing.description2}
+              </p>
+            </div>
+            <div class="rounded-2xl p-4 flex-1 flex flex-col justify-end relative overflow-hidden">
+              <div class="flex items-end justify-between gap-2 h-20 mt-2">
+                {[30, 45, 35, 60, 50, 75, 90].map((height, i) => (
+                  <div
+                    class={`w-full rounded-t-sm relative group/bar hover:bg-pink-200 transition-colors ${i === 6 ? '' : 'bg-slate-200'}`}
+                    style={`height: ${height}%`}
+                  >
+                    {i === 6 && (
+                      <div class="absolute inset-0 bg-gradient-to-t from-pink-500 to-rose-500 rounded-t-sm shadow-lg shadow-pink-500/30"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEKCJA: WDROŻENIE (Implementation) -->
+      <section id="implementation" class="py-16 md:py-24 lg:py-32 xl:py-32 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mb-12 md:mb-16">
+          <div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
+            <p class="text-zinc-500 text-base md:text-lg mb-10 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded ring-1 ring-zinc-200 shadow-sm">{t.implementation.timeHighlight}</span>.</p>
+            <div class="space-y-6 md:space-y-8">
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">1</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step1.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step1.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">2</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step2.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step2.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">3</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step3.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step3.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">4</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step4.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step4.description}</p></div></div>
+            </div>
+          </div>
+          <div class="relative mt-4 lg:mt-0">
+            <div class="absolute -inset-2 bg-gradient-to-r from-zinc-200 to-zinc-100 rounded-3xl blur-lg opacity-60"></div>
+            <div class="relative bg-[#F5F5F7] rounded-2xl ring-1 ring-black/5 shadow-2xl font-mono text-xs md:text-sm flex flex-col overflow-hidden max-w-[calc(100vw-2rem)] md:max-w-full mx-auto">
+              <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 border-b border-zinc-200/50 bg-[#F5F5F7] relative z-10">
+                <div class="flex items-center gap-2 min-w-[50px]">
+                  <div class="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#D89E24]"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]"></div>
+                </div>
+                <div class="text-zinc-400 text-xs font-semibold truncate px-2">index.html</div>
+                <div class="flex items-center justify-end min-w-[50px]">
+                  <div class="flex items-center gap-1.5 px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full ring-1 ring-emerald-100/50">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span>Connected</span>
+                  </div>
+                </div>
+              </div>
+              <div class="p-3 sm:p-5 md:p-8 overflow-x-auto bg-white">
+                <div class="text-zinc-600 space-y-0.5 md:space-y-1.5 leading-tight whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
+                  <div><span class="text-purple-600">&lt;body&gt;</span></div>
+                  <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
+                  <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
+                  <div class="pl-4 text-zinc-400 italic">&lt;!-- {t.implementation.codeComment} --&gt;</div>
+                  <div class="pl-4 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r w-full"><span class="text-purple-600">&lt;script</span> <span class="text-zinc-600">src</span>=<span class="text-emerald-600">"https://cdn.chataptor.com/widget.js"</span></div>
+                  <div class="pl-8 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r -mt-1 w-full"><span class="text-zinc-600">data-id</span>=<span class="text-emerald-600">"YOUR_SITE_ID"</span> <span class="text-purple-600">&gt;&lt;/script&gt;</span></div>
+                  <div><span class="text-purple-600">&lt;/body&gt;</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOGOTYPY INTEGRACJI -->
+        <div class="w-full relative mask-gradient mt-8 md:mt-12 overflow-hidden">
+          <div class="flex animate-marquee-mobile md:animate-marquee whitespace-nowrap items-center">
+            {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo) => (
+              <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 flex items-center justify-center mx-3 md:mx-10 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src={logo} alt="Integration" class="w-24 h-24 md:w-32 md:h-32 object-contain" loading="lazy" width="128" height="128" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- UI MOCKUP -->
+      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-24 mb-12 lg:mb-20 relative z-20">
+        <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[40rem] sm:h-[45rem] lg:h-[50rem] border md:border-none border-zinc-100">
+          <!-- Mockup Header -->
+          <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
+            <div class="flex gap-2 opacity-50"><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div></div>
+            <div class="flex items-center gap-2 px-3 py-1 bg-zinc-50 rounded-md border border-zinc-100/50">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zinc-400"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span class="text-[10px] md:text-[11px] text-zinc-500 font-medium tracking-wide">app.chataptor.com</span>
+            </div>
+            <div class="w-8 md:w-10"></div>
+          </div>
+
+          <!-- Body Mockupu -->
+          <div class="flex flex-1 overflow-hidden relative bg-zinc-50/50" id="chat-mockup">
+            <!-- Sidebar - LIST VIEW -->
+            <div class="w-full md:w-[280px] lg:w-[320px] border-r border-zinc-100 bg-white/80 backdrop-blur-xl flex flex-col overflow-y-auto custom-scrollbar absolute md:relative z-10 h-full" id="chat-list">
+              <div class="p-4 md:p-5 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur z-10 border-b border-zinc-50">
+                <div class="text-sm font-bold text-zinc-900 tracking-tight">{t.chat.messages}</div>
+                <div class="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded-md font-medium">{t.chat.newCount}</div>
+              </div>
+              <div class="p-2 space-y-1">
+                {conversations.map((chat, index) => (
+                  <button
+                    data-chat-id={chat.id}
+                    class={`chat-item w-full text-left p-3 rounded-xl border transition-all duration-200 group flex items-start gap-3 relative ${index === 0 ? 'bg-zinc-100 border-zinc-200 shadow-sm z-10 active' : 'bg-transparent border-transparent hover:bg-zinc-50'}`}
+                  >
+                    <div class={`active-indicator absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-zinc-900 rounded-r-full hidden md:block ${index === 0 ? '' : 'opacity-0'}`}></div>
+                    <div class={`w-10 h-10 rounded-full shrink-0 flex items-center justify-center text-sm font-bold ${chat.avatarColor} ring-1 ring-black/5 shadow-sm transition-colors`}>{chat.name.charAt(0)}</div>
+                    <div class="flex-1 min-w-0 py-0.5">
+                      <div class="flex justify-between items-center mb-0.5">
+                        <span class={`text-sm font-semibold truncate ${index === 0 ? 'text-zinc-900' : 'text-zinc-600'}`}>{chat.name}</span>
+                        <span class="text-[10px] text-zinc-400 ml-2 whitespace-nowrap">{chat.time}</span>
+                      </div>
+                      <div class={`text-xs truncate ${index === 0 ? 'text-zinc-600' : 'text-zinc-400'}`}>{chat.lastMessage}</div>
+                      <div class="mt-2 flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-1 bg-white border border-zinc-100 rounded text-[10px] font-medium text-zinc-500 shadow-sm">
+                          <img src={chat.flagSrc} alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" loading="lazy" aria-hidden="true" />
+                          <span class="font-bold">{chat.lang}</span>
+                          <span class="text-zinc-300">|</span>
+                          <span class="capitalize">{chat.source}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Main Chat Area - CONVERSATION VIEW -->
+            <div class="flex-1 flex-col bg-zinc-50/30 relative w-full h-full flex" id="chat-view">
+              <!-- Chat Header -->
+              <div class="h-16 border-b border-zinc-100 bg-white/80 backdrop-blur-md flex items-center justify-between px-4 md:px-6 shrink-0 sticky top-0 z-10">
+                <div class="flex items-center gap-3 md:gap-4">
+                  <!-- MOBILE BACK BUTTON -->
+                  <div class="md:hidden -ml-2 mr-1 cursor-pointer p-2 hover:bg-zinc-100 rounded-full text-zinc-600" id="back-to-list">
+                    <svg width="24" height="24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                  </div>
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold bg-indigo-100 text-indigo-600 ring-1 ring-black/5" id="chat-avatar">H</div>
+                  <div>
+                    <div class="text-sm font-bold text-zinc-900" id="chat-name">Hans Müller</div>
+                    <div class="text-[11px] text-zinc-500 flex items-center gap-2">
+                      <span class="flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> {t.chat.online}
+                      </span>
+                      <span class="text-zinc-300">•</span>
+                      <span class="inline-flex items-center gap-1">
+                        {t.chat.language}:
+                        <img src="/images/flags/de.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" id="chat-lang-flag" aria-hidden="true" />
+                        <strong class="uppercase" id="chat-lang">DE</strong>
+                      </span>
+                      <span class="text-zinc-300">•</span>
+                      <span class="capitalize" id="chat-source">Messenger</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <button class="p-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-lg transition-colors">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Chat Messages -->
+              <div class="flex-1 overflow-y-auto p-4 md:p-8 space-y-6 md:space-y-8 custom-scrollbar" id="chat-messages">
+                <!-- Messages will be populated by JS -->
+              </div>
+
+              <!-- Input Area -->
+              <div class="p-3 md:p-4 bg-white border-t border-zinc-100 sticky bottom-0">
+                <div class="flex gap-2 p-1.5 md:p-2 bg-zinc-50 ring-1 ring-zinc-200 rounded-xl focus-within:ring-2 focus-within:ring-zinc-900/10 transition-all shadow-inner">
+                  <input type="text" placeholder={t.chat.placeholder} class="flex-1 bg-transparent border-none outline-none text-sm text-zinc-700 placeholder:text-zinc-400 px-2 min-w-0" />
+                  <div class="flex items-center gap-1 border-r border-zinc-200 pr-2 mr-1">
+                    <button class="hover:bg-zinc-200 p-1.5 rounded-lg text-zinc-400 transition-colors hidden sm:block" title="Attach file">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                    </button>
+                  </div>
+                  <button class="bg-zinc-900 hover:bg-black text-white text-sm font-semibold px-3 py-1.5 md:px-4 rounded-lg transition-all shadow-md active:scale-95">{t.chat.send}</button>
+                </div>
+                <div class="mt-2 md:mt-3 flex items-center justify-center gap-2 text-[10px] text-zinc-400 font-medium">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span class="inline-flex items-center gap-1">
+                    {t.chat.aiTranslateHint}
+                    <img src="/images/flags/de.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" id="target-lang-flag" aria-hidden="true" />
+                    <strong class="uppercase" id="target-lang">DE</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script define:vars={{ conversations, suggestionText: t.chat.suggestion }}>
+      // Chat mockup handling
+      const chatList = document.getElementById('chat-list');
+      const chatView = document.getElementById('chat-view');
+      const backToList = document.getElementById('back-to-list');
+      const chatItems = document.querySelectorAll('.chat-item');
+      const chatMessages = document.getElementById('chat-messages');
+      const chatAvatar = document.getElementById('chat-avatar');
+      const chatName = document.getElementById('chat-name');
+      const chatLang = document.getElementById('chat-lang');
+      const chatLangFlag = document.getElementById('chat-lang-flag');
+      const chatSource = document.getElementById('chat-source');
+      const targetLang = document.getElementById('target-lang');
+      const targetLangFlag = document.getElementById('target-lang-flag');
+
+      let activeChat = conversations[0];
+
+      function renderMessages(chat) {
+        chatMessages.innerHTML = '';
+        chat.messages.forEach(msg => {
+          const isAgent = msg.sender === 'agent';
+          const msgHtml = `
+            <div class="flex gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-2 duration-300 ${isAgent ? 'justify-end' : ''}">
+              ${!isAgent ? `<div class="w-8 h-8 rounded-full shrink-0 flex items-center justify-center text-xs font-bold shadow-sm mt-2 ${chat.avatarColor} hidden sm:flex">${chat.name.charAt(0)}</div>` : ''}
+              <div class="flex flex-col max-w-[90%] md:max-w-[65%] ${isAgent ? 'items-end' : 'items-start'}">
+                <div class="p-4 md:p-5 rounded-2xl text-sm leading-relaxed shadow-sm relative group transition-all ${isAgent ? 'bg-zinc-900 text-white rounded-tr-sm' : 'bg-white text-zinc-800 ring-1 ring-zinc-200 rounded-tl-sm shadow-sm'}">
+                  <div>${msg.text}</div>
+                  ${msg.translation ? `
+                    <div class="mt-3 pt-2 text-xs border-t flex items-start gap-2 ${isAgent ? 'border-white/20 text-zinc-300' : 'border-zinc-100 text-zinc-400'}">
+                      <svg class="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-70 ${isAgent ? 'text-emerald-400' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                      <span class="italic">${msg.translation}</span>
+                    </div>
+                  ` : ''}
+                </div>
+                <span class="text-xs text-zinc-400 mt-2 px-1 font-medium">${msg.timestamp}</span>
+              </div>
+              ${isAgent ? '<div class="w-8 h-8 rounded-full bg-zinc-900 shrink-0 hidden sm:flex items-center justify-center text-white text-xs font-bold mt-2 shadow-sm">A</div>' : ''}
+            </div>
+          `;
+          chatMessages.innerHTML += msgHtml;
+        });
+
+        // Add suggestion if last message is from user
+        if (chat.messages.length > 0 && chat.messages[chat.messages.length - 1].sender === 'user') {
+          chatMessages.innerHTML += `
+            <div class="flex justify-center mt-6">
+              <button class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-medium px-4 py-2 rounded-full flex items-center gap-2 transition-all ring-1 ring-emerald-200 shadow-sm hover:shadow-md active:scale-95">
+                <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <span>${suggestionText}</span>
+              </button>
+            </div>
+          `;
+        }
+      }
+
+      function selectChat(chatId) {
+        const chat = conversations.find(c => c.id === chatId);
+        if (!chat) return;
+
+        activeChat = chat;
+
+        // Update UI
+        chatItems.forEach(item => {
+          const isActive = parseInt(item.dataset.chatId) === chatId;
+          item.classList.toggle('bg-zinc-100', isActive);
+          item.classList.toggle('border-zinc-200', isActive);
+          item.classList.toggle('shadow-sm', isActive);
+          item.classList.toggle('active', isActive);
+          item.classList.toggle('bg-transparent', !isActive);
+          item.classList.toggle('border-transparent', !isActive);
+          item.querySelector('.active-indicator')?.classList.toggle('opacity-0', !isActive);
+        });
+
+        // Update header
+        chatAvatar.textContent = chat.name.charAt(0);
+        chatAvatar.className = `w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${chat.avatarColor} ring-1 ring-black/5`;
+        chatName.textContent = chat.name;
+        chatLang.textContent = chat.lang;
+        chatLangFlag.setAttribute('src', chat.flagSrc);
+        chatSource.textContent = chat.source;
+        targetLang.textContent = chat.lang;
+        targetLangFlag.setAttribute('src', chat.flagSrc);
+
+        // Render messages
+        renderMessages(chat);
+
+        // Mobile: show chat view
+        if (window.innerWidth < 768) {
+          chatList.classList.add('hidden');
+          chatView.classList.remove('hidden');
+        }
+      }
+
+      chatItems.forEach(item => {
+        item.addEventListener('click', () => {
+          selectChat(parseInt(item.dataset.chatId));
+        });
+      });
+
+      backToList?.addEventListener('click', () => {
+        chatList.classList.remove('hidden');
+        chatView.classList.add('hidden');
+      });
+
+      // Initialize with first chat
+      selectChat(1);
+
+      // Market counter handling
+      const countryToggles = document.querySelectorAll('.country-toggle');
+      const marketCount = document.getElementById('market-count');
+      let baseCount = 38000000;
+      const activeCountries = new Set();
+
+      function formatCount(count) {
+        return count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      }
+
+      countryToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const code = toggle.dataset.code;
+          const population = parseInt(toggle.dataset.population);
+          const isActive = activeCountries.has(code);
+
+          if (isActive) {
+            activeCountries.delete(code);
+            baseCount -= population;
+          } else {
+            activeCountries.add(code);
+            baseCount += population;
+          }
+
+          // Update toggle UI
+          const toggleSwitch = toggle.querySelector('.toggle-switch');
+          const toggleKnob = toggle.querySelector('.toggle-knob');
+          const countryName = toggle.querySelector('.country-name');
+          const countrySub = toggle.querySelector('.country-sub');
+          const countryFlag = toggle.querySelector('.country-flag');
+
+          if (activeCountries.has(code)) {
+            toggleSwitch.classList.remove('bg-zinc-200');
+            toggleSwitch.classList.add('bg-zinc-900');
+            toggleKnob.classList.add('translate-x-[1.25rem]');
+            countryName.classList.remove('text-zinc-400');
+            countryName.classList.add('text-zinc-900');
+            countrySub.classList.remove('text-zinc-300');
+            countrySub.classList.add('text-emerald-600', 'font-bold');
+            countryFlag?.classList.remove('grayscale', 'opacity-60');
+            countryFlag?.classList.add('opacity-100');
+          } else {
+            toggleSwitch.classList.add('bg-zinc-200');
+            toggleSwitch.classList.remove('bg-zinc-900');
+            toggleKnob.classList.remove('translate-x-[1.25rem]');
+            toggleKnob.style.transform = '';
+            countryName.classList.add('text-zinc-400');
+            countryName.classList.remove('text-zinc-900');
+            countrySub.classList.add('text-zinc-300');
+            countrySub.classList.remove('text-emerald-600', 'font-bold');
+            countryFlag?.classList.add('grayscale', 'opacity-60');
+            countryFlag?.classList.remove('opacity-100');
+          }
+
+          // Update count
+          marketCount.textContent = formatCount(baseCount);
+        });
+      });
+    </script>
+</BaseLayout>

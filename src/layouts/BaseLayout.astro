@@ -1,0 +1,202 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEOHead from '../components/SEOHead.astro';
+import CallbackWidget from '../components/CallbackWidget.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import type { Locale } from '../i18n/config';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Locale;
+  slug?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedAt?: Date;
+  author?: string;         // <-- NOWE: Przekazywanie autora dla bloga
+  noindex?: boolean;       // <-- NOWE: Obsługa tagu noindex
+  isLandingPage?: boolean;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  lang, 
+  slug = '', 
+  image, 
+  type,
+  publishedAt,
+  author,                  // <-- ODBIÓR NOWEGO PROPSA
+  noindex = false,         // <-- ODBIÓR NOWEGO PROPSA (domyślnie false)
+  isLandingPage = false, 
+  hideHeader = false, 
+  hideFooter = false 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Chataptor" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <SEOHead 
+      title={title}
+      description={description}
+      lang={lang}
+      slug={slug}
+      image={image}
+      type={type}
+      publishedAt={publishedAt}
+      author={author}      {/* <-- PRZEKAZANIE DO SEOHead */}
+      noindex={noindex}    {/* <-- PRZEKAZANIE DO SEOHead */}
+    />
+
+    {/* GLOBALNE STYLE SKALOWANIA */}
+    <style is:global>
+      /* Default (Mobile): 15px base */
+      html {
+        font-size: 15px;
+      }
+
+      /* Desktop Fluid Scaling */
+      @media (min-width: 1024px) {
+        html {
+          font-size: 11.5px; 
+        }
+      }
+
+      /* Large Screens */
+      @media (min-width: 1536px) {
+        html {
+          font-size: 13px; 
+        }
+      }
+        
+      html { transition: font-size 0.2s ease-out; }
+       
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+
+      ::selection {
+        background-color: #d1fae5;
+        color: #064e3b;
+      }
+    </style>
+
+  <script is:inline>
+    // Inicjalizacja Google Consent Mode v2 (Domyślnie blokuje cookies, pozwala na anonimowe pingi)
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Ustawienia początkowe - odrzucone
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+
+  <!-- GA4 script must load immediately for Consent Mode to work -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-1BV9YBEBDT');
+  </script>
+
+  <script is:inline>
+    // Minimalistyczna funkcja ładowania skryptów na podstawie zgody
+    (function() {
+      function getC() {
+        try { return JSON.parse(localStorage.getItem('cookie_consent')); } catch (e) { return null; }
+      }
+      function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        
+        // Clarity w pełni zablokowane bez zgody
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vypq0o7uwg");
+      }
+      function applyC(c) {
+        if (!c) return;
+        
+        // Aktualizacja Consent Mode GA4
+        if (window.gtag) {
+          window.gtag('consent', 'update', {
+            'analytics_storage': c.analytics ? 'granted' : 'denied',
+            'ad_storage': c.marketing ? 'granted' : 'denied',
+            'ad_user_data': c.marketing ? 'granted' : 'denied',
+            'ad_personalization': c.marketing ? 'granted' : 'denied'
+          });
+        }
+
+        if (c.analytics) loadAnalytics(); // To załaduje tylko Clarity po udzieleniu zgody
+      }
+      applyC(getC());
+      window.addEventListener('cookie_consent_updated', function(e) { applyC(e.detail); });
+    })();
+  </script>
+
+  </head>
+  <body class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
+    
+    {!hideHeader && <Header lang={lang} isLandingPage={isLandingPage} />}
+
+    <div class="flex-1 w-full">
+      <slot />
+      <CallbackWidget />
+    </div>
+
+    {!hideFooter && <Footer lang={lang} />}
+    
+    <CookieConsent lang={lang} />
+
+    <script
+      is:inline
+      src="https://chataptor.com/widget/quantumchat-widget.umd.js"
+      data-api-url="https://chataptor.com"
+      data-site-id="chataptor-1769604218"
+      data-widget-key="cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y"
+      data-welcome-message="Hello! How can I help you today?"
+      data-header-title="Customer Support"
+      data-input-placeholder="Type your message..."
+      data-theme="light"
+      data-position="bottom-right"
+      data-primary-color="#18181B"
+      data-translation-enabled="true"
+      data-debug="false"
+      defer
+    ></script>
+  </body>
+</html>
