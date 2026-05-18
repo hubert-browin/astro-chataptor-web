@@ -240,8 +240,8 @@ const logos = [
               
               <!-- Incoming Foreign Message -->
               <div class="flex items-start gap-3 w-full">
-                <div class="w-8 h-8 rounded-full bg-white shrink-0 ring-1 ring-emerald-100/50 overflow-hidden shadow-sm">
-                  <img src="/images/flags/fr.svg" alt="FR" class="h-full w-full object-cover" width="32" height="32" />
+                <div class="h-6 w-9 rounded-[4px] bg-white shrink-0 ring-1 ring-emerald-100/50 overflow-hidden shadow-sm mt-1">
+                  <img src="/images/flags/fr.svg" alt="FR" class="h-full w-full object-cover" width="36" height="24" />
                 </div>
                 <div class="flex flex-col gap-1.5 w-[85%]">
                   <div class="bg-white p-4 rounded-2xl rounded-tl-none ring-1 ring-zinc-200/80 text-sm text-zinc-800 relative group">
@@ -258,8 +258,8 @@ const logos = [
 
               <!-- Outgoing Native Message -->
               <div class="flex items-end gap-3 w-full flex-row-reverse mt-2">
-                <div class="w-8 h-8 rounded-full bg-white shrink-0 ring-1 ring-zinc-200 overflow-hidden shadow-sm">
-                  <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="32" height="32" />
+                <div class="h-6 w-9 rounded-[4px] bg-white shrink-0 ring-1 ring-zinc-200 overflow-hidden shadow-sm mb-1">
+                  <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="36" height="24" />
                 </div>
                 <div class="flex flex-col gap-1.5 w-[85%] items-end">
                   <div class="bg-zinc-900 text-white p-4 rounded-2xl rounded-tr-none text-sm relative w-full text-left">
@@ -324,8 +324,8 @@ const logos = [
               <div class="relative w-full max-w-sm bg-zinc-50/50 ring-1 ring-black/5 p-4 md:p-6 rounded-3xl">
                 <div class="flex flex-col gap-4">
                   <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm">
-                      <img src="/images/flags/de.svg" alt="DE" class="h-full w-full object-cover" width="32" height="32" loading="lazy" />
+                    <div class="h-6 w-9 rounded-[4px] bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm mt-1 shrink-0">
+                      <img src="/images/flags/de.svg" alt="DE" class="h-full w-full object-cover" width="36" height="24" loading="lazy" />
                     </div>
                     <div class="flex-1">
                       <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-black/5 text-sm text-zinc-800">
@@ -339,8 +339,8 @@ const logos = [
                     </div>
                   </div>
                   <div class="flex items-start gap-3 flex-row-reverse mt-2">
-                    <div class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm">
-                      <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="32" height="32" loading="lazy" />
+                    <div class="h-6 w-9 rounded-[4px] bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm mt-1 shrink-0">
+                      <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="36" height="24" loading="lazy" />
                     </div>
                     <div class="flex-1 text-right">
                       <div class="bg-zinc-900 text-white p-3 rounded-2xl rounded-tr-none shadow-md text-sm text-left">
@@ -386,9 +386,9 @@ const logos = [
                     <img
                       src="/images/flags/pl.svg"
                       alt=""
-                      class="h-7 w-7 rounded-full object-cover ring-1 ring-black/10 shadow-sm"
-                      width="28"
-                      height="28"
+                      class="h-5 w-8 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm"
+                      width="32"
+                      height="20"
                       aria-hidden="true"
                     />
                     <div>
@@ -412,9 +412,9 @@ const logos = [
                       <img
                         src={country.flagSrc}
                         alt=""
-                        class="h-7 w-7 rounded-full object-cover ring-1 ring-black/10 shadow-sm group-hover:scale-110 transition-transform grayscale-0 md:grayscale md:group-hover:grayscale-0"
-                        width="28"
-                        height="28"
+                        class="country-flag h-5 w-8 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm grayscale opacity-60 transition-all"
+                        width="32"
+                        height="20"
                         loading="lazy"
                         aria-hidden="true"
                       />
@@ -582,7 +582,7 @@ const logos = [
                       <div class={`text-xs truncate ${index === 0 ? 'text-zinc-600' : 'text-zinc-400'}`}>{chat.lastMessage}</div>
                       <div class="mt-2 flex items-center gap-2">
                         <span class="inline-flex items-center gap-1.5 px-2 py-1 bg-white border border-zinc-100 rounded text-[10px] font-medium text-zinc-500 shadow-sm">
-                          <img src={chat.flagSrc} alt="" class="h-3.5 w-3.5 rounded-full object-cover ring-1 ring-black/10" width="14" height="14" loading="lazy" aria-hidden="true" />
+                          <img src={chat.flagSrc} alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" loading="lazy" aria-hidden="true" />
                           <span class="font-bold">{chat.lang}</span>
                           <span class="text-zinc-300">|</span>
                           <span class="capitalize">{chat.source}</span>
@@ -613,7 +613,7 @@ const logos = [
                       <span class="text-zinc-300">•</span>
                       <span class="inline-flex items-center gap-1">
                         {t.chat.language}:
-                        <img src="/images/flags/de.svg" alt="" class="h-3.5 w-3.5 rounded-full object-cover ring-1 ring-black/10" width="14" height="14" id="chat-lang-flag" aria-hidden="true" />
+                        <img src="/images/flags/de.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" id="chat-lang-flag" aria-hidden="true" />
                         <strong class="uppercase" id="chat-lang">DE</strong>
                       </span>
                       <span class="text-zinc-300">•</span>
@@ -648,7 +648,7 @@ const logos = [
                   <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
                   <span class="inline-flex items-center gap-1">
                     {t.chat.aiTranslateHint}
-                    <img src="/images/flags/de.svg" alt="" class="h-3.5 w-3.5 rounded-full object-cover ring-1 ring-black/10" width="14" height="14" id="target-lang-flag" aria-hidden="true" />
+                    <img src="/images/flags/de.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" id="target-lang-flag" aria-hidden="true" />
                     <strong class="uppercase" id="target-lang">DE</strong>
                   </span>
                 </div>
@@ -795,6 +795,7 @@ const logos = [
           const toggleKnob = toggle.querySelector('.toggle-knob');
           const countryName = toggle.querySelector('.country-name');
           const countrySub = toggle.querySelector('.country-sub');
+          const countryFlag = toggle.querySelector('.country-flag');
 
           if (activeCountries.has(code)) {
             toggleSwitch.classList.remove('bg-zinc-200');
@@ -804,6 +805,8 @@ const logos = [
             countryName.classList.add('text-zinc-900');
             countrySub.classList.remove('text-zinc-300');
             countrySub.classList.add('text-emerald-600', 'font-bold');
+            countryFlag?.classList.remove('grayscale', 'opacity-60');
+            countryFlag?.classList.add('opacity-100');
           } else {
             toggleSwitch.classList.add('bg-zinc-200');
             toggleSwitch.classList.remove('bg-zinc-900');
@@ -813,6 +816,8 @@ const logos = [
             countryName.classList.remove('text-zinc-900');
             countrySub.classList.add('text-zinc-300');
             countrySub.classList.remove('text-emerald-600', 'font-bold');
+            countryFlag?.classList.add('grayscale', 'opacity-60');
+            countryFlag?.classList.remove('opacity-100');
           }
 
           // Update count
