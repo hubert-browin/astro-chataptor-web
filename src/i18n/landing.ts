@@ -171,6 +171,19 @@ export interface LandingTranslations {
       description2: string;
     };
   };
+  // Mobile app section
+  mobileApp: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    notificationTitle: string;
+    notificationBody: string;
+    replyTitle: string;
+    replyBody: string;
+    instant: string;
+    appStoreAlt: string;
+    googlePlayAlt: string;
+  };
   // Pricing section
   pricing: {
     title: string;
@@ -412,6 +425,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description2: 'Zbieraj leady inteligentnymi pop-upami i prowadź skuteczne kampanie e-mailowe z jednego panelu.',
       },
     },
+    mobileApp: {
+      eyebrow: 'Aplikacja mobilna',
+      title: 'Odpowiadaj szybciej, gdziekolwiek jesteś.',
+      description: 'Chataptor działa także na iOS i Androidzie. Otrzymujesz powiadomienie o nowej wiadomości i możesz błyskawicznie odpisać klientowi z telefonu.',
+      notificationTitle: 'Nowa wiadomość',
+      notificationBody: 'Klient napisał z WhatsAppa',
+      replyTitle: 'Szybka odpowiedź',
+      replyBody: 'Odpowiedz z telefonu w kilka sekund.',
+      instant: 'Powiadomienia push w czasie rzeczywistym',
+      appStoreAlt: 'Pobierz w App Store',
+      googlePlayAlt: 'Pobierz z Google Play',
+    },
     pricing: {
       title: 'Wybierz plan dla siebie',
       subtitle: 'Elastyczne plany dopasowane do Twojego biznesu. Zmień w dowolnym momencie.',
@@ -650,6 +675,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Turn visitors into loyal customers.',
         description2: 'Collect leads with smart pop-ups and run effective email campaigns from one dashboard.',
       },
+    },
+    mobileApp: {
+      eyebrow: 'Mobile app',
+      title: 'Reply faster, wherever you are.',
+      description: 'Chataptor also works on iOS and Android. Get notified about every new message and reply instantly from your phone.',
+      notificationTitle: 'New message',
+      notificationBody: 'A customer wrote from WhatsApp',
+      replyTitle: 'Quick reply',
+      replyBody: 'Reply from your phone in seconds.',
+      instant: 'Real-time push notifications',
+      appStoreAlt: 'Download on the App Store',
+      googlePlayAlt: 'Get it on Google Play',
     },
     pricing: {
       title: 'Choose your plan',
@@ -890,6 +927,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description2: 'Sammeln Sie Leads mit intelligenten Pop-ups und führen Sie effektive E-Mail-Kampagnen durch.',
       },
     },
+    mobileApp: {
+      eyebrow: 'Mobile App',
+      title: 'Antworten Sie schneller, wo immer Sie sind.',
+      description: 'Chataptor funktioniert auch auf iOS und Android. Sie erhalten Benachrichtigungen zu neuen Nachrichten und können sofort vom Smartphone antworten.',
+      notificationTitle: 'Neue Nachricht',
+      notificationBody: 'Ein Kunde schrieb über WhatsApp',
+      replyTitle: 'Schnelle Antwort',
+      replyBody: 'Antworten Sie in Sekunden vom Smartphone.',
+      instant: 'Push-Benachrichtigungen in Echtzeit',
+      appStoreAlt: 'Im App Store laden',
+      googlePlayAlt: 'Bei Google Play herunterladen',
+    },
     pricing: {
       title: 'Wählen Sie Ihren Plan',
       subtitle: 'Flexible Pläne, angepasst an Ihr Geschäft. Jederzeit änderbar.',
@@ -1128,6 +1177,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Transformez les visiteurs en clients fidèles.',
         description2: 'Collectez des leads avec des pop-ups intelligents et gérez vos campagnes e-mail.',
       },
+    },
+    mobileApp: {
+      eyebrow: 'Application mobile',
+      title: 'Répondez plus vite, où que vous soyez.',
+      description: 'Chataptor fonctionne aussi sur iOS et Android. Recevez une notification pour chaque nouveau message et répondez instantanément depuis votre téléphone.',
+      notificationTitle: 'Nouveau message',
+      notificationBody: 'Un client a écrit via WhatsApp',
+      replyTitle: 'Réponse rapide',
+      replyBody: 'Répondez depuis votre téléphone en quelques secondes.',
+      instant: 'Notifications push en temps réel',
+      appStoreAlt: 'Télécharger dans l\'App Store',
+      googlePlayAlt: 'Disponible sur Google Play',
     },
     pricing: {
       title: 'Choisissez votre plan',
@@ -1368,6 +1429,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description2: 'Capta leads con pop-ups inteligentes y gestiona campañas de email.',
       },
     },
+    mobileApp: {
+      eyebrow: 'App móvil',
+      title: 'Responde más rápido, estés donde estés.',
+      description: 'Chataptor también funciona en iOS y Android. Recibe notificaciones de cada mensaje nuevo y responde al instante desde tu teléfono.',
+      notificationTitle: 'Nuevo mensaje',
+      notificationBody: 'Un cliente escribió desde WhatsApp',
+      replyTitle: 'Respuesta rápida',
+      replyBody: 'Responde desde el teléfono en segundos.',
+      instant: 'Notificaciones push en tiempo real',
+      appStoreAlt: 'Descargar en App Store',
+      googlePlayAlt: 'Disponible en Google Play',
+    },
     pricing: {
       title: 'Elige tu plan',
       subtitle: 'Planes flexibles adaptados a tu negocio. Cambia en cualquier momento.',
@@ -1606,6 +1679,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Trasforma i visitatori in clienti fedeli.',
         description2: 'Raccogli lead con pop-up intelligenti e gestisci campagne email efficaci.',
       },
+    },
+    mobileApp: {
+      eyebrow: 'App mobile',
+      title: 'Rispondi più velocemente, ovunque tu sia.',
+      description: 'Chataptor funziona anche su iOS e Android. Ricevi notifiche per ogni nuovo messaggio e rispondi subito dal telefono.',
+      notificationTitle: 'Nuovo messaggio',
+      notificationBody: 'Un cliente ha scritto da WhatsApp',
+      replyTitle: 'Risposta rapida',
+      replyBody: 'Rispondi dal telefono in pochi secondi.',
+      instant: 'Notifiche push in tempo reale',
+      appStoreAlt: 'Scarica su App Store',
+      googlePlayAlt: 'Disponibile su Google Play',
     },
     pricing: {
       title: 'Scegli il tuo piano',
@@ -1846,6 +1931,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description2: 'Sbírejte leady chytrými pop-upy a spravujte e-mailové kampaně.',
       },
     },
+    mobileApp: {
+      eyebrow: 'Mobilní aplikace',
+      title: 'Odpovídejte rychleji, ať jste kdekoli.',
+      description: 'Chataptor funguje také na iOS a Androidu. Dostanete upozornění na každou novou zprávu a můžete okamžitě odpovědět z telefonu.',
+      notificationTitle: 'Nová zpráva',
+      notificationBody: 'Zákazník napsal z WhatsAppu',
+      replyTitle: 'Rychlá odpověď',
+      replyBody: 'Odpovězte z telefonu během několika sekund.',
+      instant: 'Push notifikace v reálném čase',
+      appStoreAlt: 'Stáhnout v App Store',
+      googlePlayAlt: 'Získat na Google Play',
+    },
     pricing: {
       title: 'Vyberte si plán',
       subtitle: 'Flexibilní plány pro vaše podnikání. Kdykoli změňte.',
@@ -2084,6 +2181,18 @@ export const landing: Record<Locale, LandingTranslations> = {
         description1: 'Premeňte návštevníkov na verných zákazníkov.',
         description2: 'Zbierajte leady inteligentnými pop-upmi a spravujte e-mailové kampane.',
       },
+    },
+    mobileApp: {
+      eyebrow: 'Mobilná aplikácia',
+      title: 'Odpovedajte rýchlejšie, nech ste kdekoľvek.',
+      description: 'Chataptor funguje aj na iOS a Androide. Dostanete upozornenie na každú novú správu a môžete okamžite odpovedať z telefónu.',
+      notificationTitle: 'Nová správa',
+      notificationBody: 'Zákazník napísal z WhatsAppu',
+      replyTitle: 'Rýchla odpoveď',
+      replyBody: 'Odpovedzte z telefónu v priebehu niekoľkých sekúnd.',
+      instant: 'Push notifikácie v reálnom čase',
+      appStoreAlt: 'Stiahnuť v App Store',
+      googlePlayAlt: 'Získať na Google Play',
     },
     pricing: {
       title: 'Vyberte si plán',
