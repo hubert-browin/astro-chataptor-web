@@ -36,9 +36,8 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
       </div>
 
       <div class="hidden md:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
-        <a href={`${anchorBase}#how-it-works`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.howItWorks}</a>
-        <a href={`${anchorBase}#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         <a href={`${anchorBase}#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
+        <a href={`${anchorBase}#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         
         <a href={`/${lang}/about`} class={`px-4 py-2 rounded-full transition-all ${isAbout ? 'bg-zinc-100 text-zinc-900 font-bold' : 'hover:bg-zinc-100 hover:text-zinc-900'}`}>{t.nav.about}</a>
         
@@ -89,14 +88,11 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
       </button>
     </div>
     <div class="flex flex-col p-5 gap-1 h-full overflow-y-auto">
-        <a href={`${anchorBase}#how-it-works`} class="mobile-menu-link flex items-center justify-between text-lg font-bold text-zinc-800 py-2.5 border-b border-zinc-50">
-            <span>{t.nav.howItWorks}</span>
+        <a href={`${anchorBase}#product`} class="mobile-menu-link flex items-center justify-between text-lg font-bold text-zinc-800 py-2.5 border-b border-zinc-50">
+            <span>{t.nav.features}</span>
         </a>
         <a href={`${anchorBase}#implementation`} class="mobile-menu-link flex items-center justify-between text-lg font-bold text-zinc-800 py-2.5 border-b border-zinc-50">
             <span>{t.nav.implementation}</span>
-        </a>
-        <a href={`${anchorBase}#product`} class="mobile-menu-link flex items-center justify-between text-lg font-bold text-zinc-800 py-2.5 border-b border-zinc-50">
-            <span>{t.nav.features}</span>
         </a>
         
         <a href={`/${lang}/about`} class={`mobile-menu-link flex items-center justify-between text-lg font-bold py-2.5 border-b border-zinc-50 ${isAbout ? 'text-zinc-900 bg-zinc-100 -mx-3 px-3 rounded-lg border-transparent' : 'text-zinc-800'}`}>
