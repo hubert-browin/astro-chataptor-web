@@ -333,7 +333,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       homeMarket: 'Rynek domowy',
     },
     howItWorks: {
-      title: 'Od lokalnego sklepu<br/>do globalnego gracza.',
+      title: 'Od lokalnej firmy<br/>do globalnego gracza.',
       subtitle: 'Ścieżka, która poprowadzi Cię do międzynarodowego sukcesu. Prosta, logiczna, zautomatyzowana.',
       step1: {
         label: 'Krok 1',
@@ -366,10 +366,10 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Wdrożenie szybsze niż<br/>parzenie kawy.',
-      subtitle: 'Nie potrzebujesz armii programistów. Nasz widget zintegruje się z Twoim sklepem w',
+      subtitle: 'Nie potrzebujesz armii programistów. Nasz widget zintegruje się z Twoją stroną w',
       timeHighlight: '3 minuty',
       step1: { title: 'Skopiuj snippet', description: 'Dostępny w Twoim panelu administratora.' },
-      step2: { title: 'Wklej w <head>', description: 'Działa z każdym CMS i customowym sklepem.' },
+      step2: { title: 'Wklej w <head>', description: 'Działa z każdym CMS i customową stroną.' },
       step3: { title: 'Wybierz języki', description: 'Włącz niemiecki, francuski lub włoski jednym kliknięciem.' },
       step4: { title: 'Integracja (Opcjonalne)', description: 'Podłącz Messengera, WhatsAppa lub e-mail.' },
       codeComment: 'Chataptor Integration',
@@ -377,7 +377,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Wszystko w jednym panelu.',
-      subtitle: 'Zastąp Intercom, Mailchimp i zewnętrznych tłumaczy jednym narzędziem zaprojektowanym dla nowoczesnego e-commerce.',
+      subtitle: 'Zastąp Intercom, Mailchimp i zewnętrznych tłumaczy jednym narzędziem zaprojektowanym dla nowoczesnych firm.',
       translation: {
         title: 'Real-time Translation',
         description: 'Silnik oparty na OpenAI i DeepL. Klient pisze po niemiecku, Ty widzisz to od razu po polsku. Zero opóźnień, zero nieporozumień.',
@@ -424,7 +424,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         title: 'Starter',
         price: '129 zł',
         period: '/miesiąc',
-        desc: 'Idealny na start dla małych sklepów.',
+        desc: 'Idealny na start dla małych firm.',
         features: {
           realtime: 'Tłumaczenia real-time',
           ai: 'Funkcje AI',
@@ -469,7 +469,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'Brama na świat dla Twojego e-commerce. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
+      tagline: 'Brama do rozmów z klientami na całym świecie. Przełamujemy bariery językowe, łącząc AI z ludzką empatią.',
       contact: 'Kontakt',
       legal: 'Legal',
       privacy: 'Polityka prywatności',
@@ -601,10 +601,10 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Implementation faster than<br/>brewing coffee.',
-      subtitle: 'No army of developers needed. Our widget integrates with your store in',
+      subtitle: 'No army of developers needed. Our widget integrates with your website in',
       timeHighlight: '3 minutes',
       step1: { title: 'Copy snippet', description: 'Available in your admin panel.' },
-      step2: { title: 'Paste in <head>', description: 'Works with any CMS or custom store.' },
+      step2: { title: 'Paste in <head>', description: 'Works with any CMS or custom website.' },
       step3: { title: 'Select languages', description: 'Enable German, French or Italian with one click.' },
       step4: { title: 'Integration (Optional)', description: 'Connect Messenger, WhatsApp or Email.' },
       codeComment: 'Chataptor Integration',
@@ -612,7 +612,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Everything in one dashboard.',
-      subtitle: 'Replace Intercom, Mailchimp and external translators with one tool designed for modern e-commerce.',
+      subtitle: 'Replace Intercom, Mailchimp and external translators with one tool designed for modern businesses.',
       translation: {
         title: 'Real-time Translation',
         description: 'Engine based on OpenAI and DeepL. Customer writes in German, you see it instantly in English. Zero delays, zero misunderstandings.',
@@ -659,7 +659,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         title: 'Starter',
         price: '129 PLN',
         period: '/month',
-        desc: 'Perfect for small stores starting out.',
+        desc: 'Perfect for small businesses starting out.',
         features: {
           realtime: 'Real-time translation',
           ai: 'AI Features',
@@ -704,7 +704,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'Gateway to the world for your e-commerce. We break language barriers, combining AI with human empathy.',
+      tagline: 'A gateway to customer conversations around the world. We break language barriers, combining AI with human empathy.',
       contact: 'Contact',
       legal: 'Legal',
       privacy: 'Privacy Policy',
@@ -803,7 +803,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       homeMarket: 'Heimatmarkt',
     },
     howItWorks: {
-      title: 'Vom lokalen Shop<br/>zum Global Player.',
+      title: 'Vom lokalen Unternehmen<br/>zum Global Player.',
       subtitle: 'Der Weg zum internationalen Erfolg. Einfach, logisch, automatisiert.',
       step1: {
         label: 'Schritt 1',
@@ -836,10 +836,10 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Implementierung schneller als<br/>Kaffee kochen.',
-      subtitle: 'Keine Armee von Entwicklern nötig. Unser Widget integriert sich in Ihren Shop in',
+      subtitle: 'Keine Armee von Entwicklern nötig. Unser Widget integriert sich in Ihre Website in',
       timeHighlight: '3 Minuten',
       step1: { title: 'Snippet kopieren', description: 'Verfügbar in Ihrem Admin-Panel.' },
-      step2: { title: 'In <head> einfügen', description: 'Funktioniert mit jedem CMS oder Custom Shop.' },
+      step2: { title: 'In <head> einfügen', description: 'Funktioniert mit jedem CMS oder jeder individuellen Website.' },
       step3: { title: 'Sprachen wählen', description: 'Aktivieren Sie Englisch, Französisch oder Italienisch mit einem Klick.' },
       step4: { title: 'Integration (Optional)', description: 'Verbinden Sie Messenger, WhatsApp oder E-Mail.' },
       codeComment: 'Chataptor Integration',
@@ -847,7 +847,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Alles in einem Dashboard.',
-      subtitle: 'Ersetzen Sie Intercom, Mailchimp und externe Übersetzer durch ein Tool für modernen E-Commerce.',
+      subtitle: 'Ersetzen Sie Intercom, Mailchimp und externe Übersetzer durch ein Tool für moderne Unternehmen.',
       translation: {
         title: 'Echtzeit-Übersetzung',
         description: 'Engine basierend auf OpenAI und DeepL. Der Kunde schreibt auf Französisch, Sie sehen es sofort auf Deutsch. Keine Verzögerungen.',
@@ -894,7 +894,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         title: 'Starter',
         price: '129 PLN',
         period: '/Monat',
-        desc: 'Ideal für kleine Shops am Anfang.',
+        desc: 'Ideal für kleine Unternehmen am Anfang.',
         features: {
           realtime: 'Echtzeit-Übersetzung',
           ai: 'KI-Funktionen',
@@ -939,7 +939,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'Das Tor zur Welt für Ihren E-Commerce. Wir überwinden Sprachbarrieren und verbinden KI mit menschlicher Empathie.',
+      tagline: 'Das Tor zu Kundengesprächen auf der ganzen Welt. Wir überwinden Sprachbarrieren und verbinden KI mit menschlicher Empathie.',
       contact: 'Kontakt',
       legal: 'Rechtliches',
       privacy: 'Datenschutz',
@@ -1038,7 +1038,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       homeMarket: 'Marché domestique',
     },
     howItWorks: {
-      title: 'De la boutique locale<br/>au marché mondial.',
+      title: 'De l\'entreprise locale<br/>au marché mondial.',
       subtitle: 'Le chemin vers le succès international. Simple, logique, automatisé.',
       step1: {
         label: 'Étape 1',
@@ -1071,7 +1071,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Implémentation plus rapide<br/>qu\'un café.',
-      subtitle: 'Pas besoin d\'une armée de développeurs. Notre widget s\'intègre à votre boutique en',
+      subtitle: 'Pas besoin d\'une armée de développeurs. Notre widget s\'intègre à votre site en',
       timeHighlight: '3 minutes',
       step1: { title: 'Copier le snippet', description: 'Disponible dans votre panneau d\'admin.' },
       step2: { title: 'Coller dans <head>', description: 'Fonctionne avec tout CMS ou site sur mesure.' },
@@ -1082,7 +1082,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Tout en un seul endroit.',
-      subtitle: 'Remplacez Intercom, Mailchimp et les traducteurs externes par un outil conçu pour l\'e-commerce moderne.',
+      subtitle: 'Remplacez Intercom, Mailchimp et les traducteurs externes par un outil conçu pour les entreprises modernes.',
       translation: {
         title: 'Traduction en temps réel',
         description: 'Moteur basé sur OpenAI et DeepL. Le client écrit en allemand, vous voyez le français. Zéro délai.',
@@ -1129,7 +1129,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         title: 'Starter',
         price: '129 PLN',
         period: '/mois',
-        desc: 'Parfait pour les petites boutiques.',
+        desc: 'Parfait pour les petites entreprises.',
         features: {
           realtime: 'Traduction temps réel',
           ai: 'Fonctions IA',
@@ -1174,7 +1174,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'La porte sur le monde pour votre e-commerce. Nous brisons les barrières linguistiques en alliant IA et empathie humaine.',
+      tagline: 'La porte vers les conversations client dans le monde entier. Nous brisons les barrières linguistiques en alliant IA et empathie humaine.',
       contact: 'Contact',
       legal: 'Légal',
       privacy: 'Confidentialité',
@@ -1273,7 +1273,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       homeMarket: 'Mercado local',
     },
     howItWorks: {
-      title: 'De tienda local<br/>a jugador global.',
+      title: 'De empresa local<br/>a jugador global.',
       subtitle: 'El camino hacia el éxito internacional. Simple, lógico, automatizado.',
       step1: {
         label: 'Paso 1',
@@ -1306,10 +1306,10 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Implementación más rápida<br/>que hacer un café.',
-      subtitle: 'No necesitas un ejército de programadores. Nuestro widget se integra en tu tienda en',
+      subtitle: 'No necesitas un ejército de programadores. Nuestro widget se integra en tu sitio web en',
       timeHighlight: '3 minutos',
       step1: { title: 'Copiar código', description: 'Disponible en tu panel de administración.' },
-      step2: { title: 'Pegar en <head>', description: 'Funciona con cualquier CMS o tienda a medida.' },
+      step2: { title: 'Pegar en <head>', description: 'Funciona con cualquier CMS o sitio web a medida.' },
       step3: { title: 'Elegir idiomas', description: 'Activa alemán, inglés o francés con un clic.' },
       step4: { title: 'Integración (Opcional)', description: 'Conecta Messenger, WhatsApp o correo.' },
       codeComment: 'Chataptor Integration',
@@ -1317,7 +1317,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Todo en un solo panel.',
-      subtitle: 'Reemplaza Intercom, Mailchimp y traductores externos con una herramienta para el e-commerce moderno.',
+      subtitle: 'Reemplaza Intercom, Mailchimp y traductores externos con una herramienta para empresas modernas.',
       translation: {
         title: 'Traducción en tiempo real',
         description: 'Motor basado en OpenAI y DeepL. El cliente escribe en alemán, tú lo ves en español. Cero retrasos.',
@@ -1364,7 +1364,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         title: 'Starter',
         price: '129 PLN',
         period: '/mes',
-        desc: 'Ideal para tiendas pequeñas.',
+        desc: 'Ideal para pequeñas empresas.',
         features: {
           realtime: 'Traducción tiempo real',
           ai: 'Funciones IA',
@@ -1409,7 +1409,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'La puerta al mundo para tu e-commerce. Rompemos barreras lingüísticas uniendo IA con empatía humana.',
+      tagline: 'La puerta a conversaciones con clientes en todo el mundo. Rompemos barreras lingüísticas uniendo IA con empatía humana.',
       contact: 'Contacto',
       legal: 'Legal',
       privacy: 'Privacidad',
@@ -1508,7 +1508,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       homeMarket: 'Mercato domestico',
     },
     howItWorks: {
-      title: 'Da negozio locale<br/>a player globale.',
+      title: 'Da azienda locale<br/>a player globale.',
       subtitle: 'Il percorso verso il successo internazionale. Semplice, logico, automatizzato.',
       step1: {
         label: 'Step 1',
@@ -1541,7 +1541,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Implementazione più veloce<br/>di un caffè.',
-      subtitle: 'Non serve un esercito di programmatori. Il nostro widget si integra nel tuo store in',
+      subtitle: 'Non serve un esercito di programmatori. Il nostro widget si integra nel tuo sito in',
       timeHighlight: '3 minuti',
       step1: { title: 'Copia snippet', description: 'Disponibile nel tuo pannello admin.' },
       step2: { title: 'Incolla in <head>', description: 'Funziona con qualsiasi CMS o sito custom.' },
@@ -1552,7 +1552,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Tutto in un\'unica dashboard.',
-      subtitle: 'Sostituisci Intercom, Mailchimp e traduttori esterni con uno strumento per l\'e-commerce moderno.',
+      subtitle: 'Sostituisci Intercom, Mailchimp e traduttori esterni con uno strumento per aziende moderne.',
       translation: {
         title: 'Traduzione Real-time',
         description: 'Motore basato su OpenAI e DeepL. Il cliente scrive in tedesco, tu leggi in italiano. Zero ritardi.',
@@ -1644,7 +1644,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'La porta sul mondo per il tuo e-commerce. Abbattiamo le barriere linguistiche unendo IA ed empatia umana.',
+      tagline: 'La porta verso conversazioni con clienti in tutto il mondo. Abbattiamo le barriere linguistiche unendo IA ed empatia umana.',
       contact: 'Contatti',
       legal: 'Legale',
       privacy: 'Privacy',
@@ -1743,7 +1743,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       homeMarket: 'Domácí trh',
     },
     howItWorks: {
-      title: 'Z lokálního e-shopu<br/>globálním hráčem.',
+      title: 'Z lokální firmy<br/>globálním hráčem.',
       subtitle: 'Cesta k mezinárodnímu úspěchu. Jednoduchá, logická, automatizovaná.',
       step1: {
         label: 'Krok 1',
@@ -1776,7 +1776,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Implementace rychlejší než<br/>příprava kávy.',
-      subtitle: 'Nepotřebujete armádu programátorů. Náš widget se integruje do vašeho e-shopu za',
+      subtitle: 'Nepotřebujete armádu programátorů. Náš widget se integruje do vašeho webu za',
       timeHighlight: '3 minuty',
       step1: { title: 'Zkopírujte kód', description: 'Dostupný ve vašem administrátorském panelu.' },
       step2: { title: 'Vložte do <head>', description: 'Funguje s každým CMS i vlastním řešením.' },
@@ -1787,7 +1787,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Vše v jednom panelu.',
-      subtitle: 'Nahraďte Intercom, Mailchimp a externí překladatele jedním nástrojem pro moderní e-commerce.',
+      subtitle: 'Nahraďte Intercom, Mailchimp a externí překladatele jedním nástrojem pro moderní firmy.',
       translation: {
         title: 'Překlad v reálném čase',
         description: 'Engine založený na OpenAI a DeepL. Zákazník píše německy, vy vidíte česky. Žádné zpoždění.',
@@ -1834,7 +1834,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         title: 'Starter',
         price: '129 PLN',
         period: '/měsíc',
-        desc: 'Ideální pro začínající e-shopy.',
+        desc: 'Ideální pro začínající firmy.',
         features: {
           realtime: 'Překlady v reálném čase',
           ai: 'AI funkce',
@@ -1879,7 +1879,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'Brána do světa pro váš e-commerce. Boříme jazykové bariéry spojením AI a lidské empatie.',
+      tagline: 'Brána ke konverzacím se zákazníky po celém světě. Boříme jazykové bariéry spojením AI a lidské empatie.',
       contact: 'Kontakt',
       legal: 'Právní',
       privacy: 'Ochrana soukromí',
@@ -1978,7 +1978,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       homeMarket: 'Domáci trh',
     },
     howItWorks: {
-      title: 'Z lokálneho e-shopu<br/>na globálneho hráča.',
+      title: 'Z lokálnej firmy<br/>na globálneho hráča.',
       subtitle: 'Cesta k medzinárodnému úspechu. Jednoduchá, logická, automatizovaná.',
       step1: {
         label: 'Krok 1',
@@ -2011,7 +2011,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     implementation: {
       title: 'Implementácia rýchlejšia ako<br/>príprava kávy.',
-      subtitle: 'Nepotrebujete armádu programátorov. Náš widget sa integruje do vášho e-shopu za',
+      subtitle: 'Nepotrebujete armádu programátorov. Náš widget sa integruje do vášho webu za',
       timeHighlight: '3 minúty',
       step1: { title: 'Skopírujte kód', description: 'Dostupný vo vašom administrátorskom paneli.' },
       step2: { title: 'Vložte do <head>', description: 'Funguje s každým CMS aj vlastným riešením.' },
@@ -2022,7 +2022,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     },
     features: {
       title: 'Všetko v jednom paneli.',
-      subtitle: 'Nahraďte Intercom, Mailchimp a externých prekladateľov jedným nástrojom pre moderné e-commerce.',
+      subtitle: 'Nahraďte Intercom, Mailchimp a externých prekladateľov jedným nástrojom pre moderné firmy.',
       translation: {
         title: 'Preklad v reálnom čase',
         description: 'Engine založený na OpenAI a DeepL. Zákazník píše po nemecky, vy vidíte po slovensky. Žiadne oneskorenie.',
@@ -2069,7 +2069,7 @@ export const landing: Record<Locale, LandingTranslations> = {
         title: 'Starter',
         price: '129 PLN',
         period: '/mesiac',
-        desc: 'Ideálne pre začínajúce e-shopy.',
+        desc: 'Ideálne pre začínajúce firmy.',
         features: {
           realtime: 'Preklady v reálnom čase',
           ai: 'AI funkcie',
@@ -2114,7 +2114,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     footer: {
-      tagline: 'Brána do sveta pre váš e-commerce. Búrame jazykové bariéry spojením AI a ľudskej empatie.',
+      tagline: 'Brána ku konverzáciám so zákazníkmi po celom svete. Búrame jazykové bariéry spojením AI a ľudskej empatie.',
       contact: 'Kontakt',
       legal: 'Právne',
       privacy: 'Ochrana súkromia',

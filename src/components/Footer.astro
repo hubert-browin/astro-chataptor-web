@@ -1,4 +1,5 @@
 ---
+import { getLanding } from '../i18n/landing';
 import type { Locale } from '../i18n/config';
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const year = new Date().getFullYear();
+const t = getLanding(lang);
 ---
 
 <footer class="py-20 bg-white border-t border-zinc-200">
@@ -19,14 +21,13 @@ const year = new Date().getFullYear();
           class="h-6 w-auto object-contain opacity-80"
         />
         <p class="text-zinc-500 leading-relaxed max-w-md">
-          Brama na świat dla Twojego e-commerce. Przełamujemy bariery językowe,
-          łącząc AI z ludzką empatią.
+          {t.footer.tagline}
         </p>
       </div>
 
       <div class="space-y-6">
         <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">
-          Kontakt
+          {t.footer.contact}
         </h4>
         <div class="space-y-3">
           <a
@@ -35,13 +36,13 @@ const year = new Date().getFullYear();
           >
             +48 695 151 096
           </a>
-          <p class="text-zinc-500">Łódź, Polska</p>
+          <p class="text-zinc-500">{t.footer.location}</p>
         </div>
       </div>
 
       <div class="space-y-6">
         <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">
-          Legal
+          {t.footer.legal}
         </h4>
         <ul class="space-y-3 text-zinc-500">
           <li>
@@ -49,7 +50,7 @@ const year = new Date().getFullYear();
               href={`/${lang}/privacy`}
               class="hover:text-zinc-900 transition-colors"
             >
-              Polityka prywatności
+              {t.footer.privacy}
             </a>
           </li>
           <li>
@@ -57,7 +58,7 @@ const year = new Date().getFullYear();
               href={`/${lang}/terms`}
               class="hover:text-zinc-900 transition-colors"
             >
-              Regulamin
+              {t.footer.terms}
             </a>
           </li>
         </ul>
@@ -68,13 +69,13 @@ const year = new Date().getFullYear();
       class="border-t border-zinc-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
     >
       <p class="text-zinc-400 text-sm">
-        &copy; {year} Chataptor. Wszystkie prawa zastrzeżone.
+        &copy; {year} Chataptor. {t.footer.rights}
       </p>
       <div
         class="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-zinc-50 px-3 py-1.5 rounded-full"
       >
         <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-        Uptime: 99.89%
+        {t.footer.uptime}
       </div>
     </div>
   </div>
