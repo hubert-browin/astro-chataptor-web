@@ -84,15 +84,24 @@ const countries = [
 type MapRegion = { cx: number; cy: number; rx: number; ry: number };
 
 const marketMapCountries = [
-  { code: 'pl', active: true, regions: [{ cx: 110.5, cy: 29, rx: 3.6, ry: 2.4 }] },
-  { code: 'de', active: false, regions: [{ cx: 105, cy: 30.5, rx: 5, ry: 4.8 }] },
+  { code: 'pl', active: true, regions: [{ cx: 110.2, cy: 21.8, rx: 2.8, ry: 2.1 }] },
+  {
+    code: 'de',
+    active: false,
+    regions: [
+      { cx: 104.6, cy: 22.5, rx: 3.8, ry: 3.2 },
+      { cx: 105.3, cy: 26.2, rx: 3.4, ry: 2.4 },
+    ],
+  },
   {
     code: 'fr',
     active: false,
     regions: [
-      { cx: 100, cy: 34, rx: 5.4, ry: 4.4 },
+      { cx: 100.2, cy: 25.6, rx: 4.8, ry: 3.7 },
       { cx: 55, cy: 24, rx: 6.5, ry: 4.2 },
-      { cx: 108, cy: 58, rx: 12.5, ry: 14 },
+      { cx: 95.5, cy: 40.5, rx: 8, ry: 5.5 },
+      { cx: 99.5, cy: 49.5, rx: 10.5, ry: 11 },
+      { cx: 108, cy: 58, rx: 8.5, ry: 10 },
       { cx: 129, cy: 78, rx: 4, ry: 6 },
     ],
   },
@@ -100,15 +109,16 @@ const marketMapCountries = [
     code: 'it',
     active: false,
     regions: [
-      { cx: 108.5, cy: 40, rx: 4.5, ry: 7.8 },
-      { cx: 104.2, cy: 33.5, rx: 3.2, ry: 2.4 },
+      { cx: 106.6, cy: 27.5, rx: 2.5, ry: 4.4 },
+      { cx: 108.7, cy: 32.3, rx: 2.5, ry: 4.2 },
+      { cx: 104.2, cy: 25.2, rx: 2.8, ry: 2 },
     ],
   },
   {
     code: 'es',
     active: false,
     regions: [
-      { cx: 96, cy: 40, rx: 5.5, ry: 3.5 },
+      { cx: 96, cy: 29.2, rx: 5.3, ry: 3.2 },
       { cx: 43, cy: 45, rx: 13.5, ry: 8 },
       { cx: 60, cy: 65, rx: 14, ry: 19 },
       { cx: 69, cy: 76, rx: 5, ry: 8 },
@@ -118,10 +128,10 @@ const marketMapCountries = [
     code: 'en',
     active: false,
     regions: [
-      { cx: 95, cy: 24, rx: 4.6, ry: 3.8 },
+      { cx: 95, cy: 21.5, rx: 4.2, ry: 3.3 },
       { cx: 35, cy: 27, rx: 29, ry: 15 },
-      { cx: 134, cy: 50, rx: 13, ry: 9 },
-      { cx: 107, cy: 77, rx: 7, ry: 5 },
+      { cx: 143.5, cy: 38, rx: 8.5, ry: 6.5 },
+      { cx: 106.5, cy: 72.5, rx: 7, ry: 5 },
       { cx: 175, cy: 78, rx: 15, ry: 8 },
       { cx: 193, cy: 86, rx: 5.8, ry: 4 },
     ],
