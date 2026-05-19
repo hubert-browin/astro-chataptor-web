@@ -675,7 +675,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
             <div class="relative flex justify-center lg:justify-end">
               <div class="relative grid grid-cols-2 gap-3 sm:gap-8 xl:gap-10 items-center">
-                <div class="-rotate-2">
+                <div>
                   <div class="mb-2 text-center text-[10px] font-bold uppercase text-zinc-400">Chaos</div>
                   <div class="relative w-[8.6rem] sm:w-[13rem] xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
                     <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
@@ -712,35 +712,48 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                           <div class="phone-lock-time text-[2.1rem] font-semibold leading-none sm:text-[3.1rem]">09:41</div>
                         </div>
 
-                        <div class="mt-auto space-y-2 sm:space-y-2.5">
-                          <div class="w-[96%] -rotate-2 rounded-[1.1rem] bg-white/90 p-2.5 text-zinc-950 shadow-lg ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.4rem] sm:p-3">
-                            <div class="mb-1.5 flex items-center gap-2">
-                              <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] bg-[#1877F2] text-white shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]">
+                        <div class="mt-auto mb-3 space-y-1.5 sm:mb-4 sm:space-y-2.5">
+                          <div class="w-full rounded-[1.1rem] bg-white/95 p-2 text-zinc-950 shadow-lg ring-1 ring-white/70 sm:rounded-[1.4rem] sm:p-3">
+                            <div class="mb-1.5 flex min-w-0 items-center gap-1.5 sm:gap-2">
+                              <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-[7px] bg-[#1877F2] text-white shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]">
                                 <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                   <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"></path>
                                 </svg>
                               </div>
-                              <span class="text-[8px] font-bold text-zinc-600 sm:text-[10px]">FACEBOOK</span>
+                              <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">FACEBOOK</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">1m</span>
                             </div>
                             <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Neue Nachricht</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">Wann kommt mein Paket an?</p>
                           </div>
 
-                          <div class="ml-auto w-[96%] rotate-2 rounded-[1.1rem] bg-white/90 p-2.5 text-zinc-950 shadow-lg ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.4rem] sm:p-3">
-                            <div class="mb-1.5 flex items-center gap-2">
-                              <img src="/images/landing/whatsapp-logo.png" alt="" class="h-6 w-6 rounded-[7px] object-contain shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]" loading="lazy" width="28" height="28" aria-hidden="true" />
-                              <span class="text-[8px] font-bold text-zinc-600 sm:text-[10px]">WHATSAPP</span>
+                          <div class="w-full rounded-[1.1rem] bg-white/95 p-2 text-zinc-950 shadow-lg ring-1 ring-white/70 sm:rounded-[1.4rem] sm:p-3">
+                            <div class="mb-1.5 flex min-w-0 items-center gap-1.5 sm:gap-2">
+                              <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-[7px] bg-[#25D366] text-white shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]">
+                                <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                  <path d="M12.04 2.25a9.61 9.61 0 0 0-8.31 14.45L2.5 21.75l5.18-1.2a9.6 9.6 0 1 0 4.36-18.3Zm0 1.92a7.68 7.68 0 0 1 6.48 11.8 7.68 7.68 0 0 1-9.4 2.67l-.58-.29-2.91.67.69-2.82-.33-.6a7.68 7.68 0 0 1 6.05-11.43Zm-3.12 3.7c-.16 0-.42.04-.64.29-.22.24-.84.82-.84 2 0 1.17.86 2.31.98 2.47.12.16 1.68 2.68 4.13 3.65 2.03.8 2.45.64 2.89.6.44-.04 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41h-.48Z"></path>
+                                </svg>
+                              </div>
+                              <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">WHATSAPP</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">2m</span>
                             </div>
                             <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Nuevo mensaje</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">¿Está disponible hoy?</p>
                           </div>
 
-                          <div class="w-[96%] -rotate-1 rounded-[1.1rem] bg-white/90 p-2.5 text-zinc-950 shadow-lg ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.4rem] sm:p-3">
-                            <div class="mb-1.5 flex items-center gap-2">
-                              <img src="/images/landing/gmail-logo.png" alt="" class="h-6 w-6 rounded-[7px] object-contain shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]" loading="lazy" width="28" height="28" aria-hidden="true" />
-                              <span class="text-[8px] font-bold text-zinc-600 sm:text-[10px]">GMAIL</span>
+                          <div class="w-full rounded-[1.1rem] bg-white/95 p-2 text-zinc-950 shadow-lg ring-1 ring-white/70 sm:rounded-[1.4rem] sm:p-3">
+                            <div class="mb-1.5 flex min-w-0 items-center gap-1.5 sm:gap-2">
+                              <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-[7px] bg-white shadow-sm ring-1 ring-zinc-200 sm:h-7 sm:w-7 sm:rounded-[9px]">
+                                <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                  <path d="M4.5 7.4 12 13l7.5-5.6v9.35A1.75 1.75 0 0 1 17.75 18.5H6.25a1.75 1.75 0 0 1-1.75-1.75V7.4Z" fill="#fff"></path>
+                                  <path d="M4.5 7.4 12 13v2.4L4.5 9.8V7.4Z" fill="#EA4335"></path>
+                                  <path d="M19.5 7.4 12 13v2.4l7.5-5.6V7.4Z" fill="#34A853"></path>
+                                  <path d="M6.25 5.5h11.5c.44 0 .84.16 1.15.43L12 11.08 5.1 5.93c.31-.27.71-.43 1.15-.43Z" fill="#FBBC04"></path>
+                                  <path d="M4.5 9.8v6.95c0 .97.78 1.75 1.75 1.75h1.6v-6.48L4.5 9.8Z" fill="#4285F4"></path>
+                                  <path d="M19.5 9.8v6.95c0 .97-.78 1.75-1.75 1.75h-1.6v-6.48L19.5 9.8Z" fill="#C5221F"></path>
+                                </svg>
+                              </div>
+                              <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">GMAIL</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">3m</span>
                             </div>
                             <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Nouveau message</div>
@@ -753,7 +766,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   </div>
                 </div>
 
-                <div class="rotate-2">
+                <div>
                   <div class="mb-2 text-center text-[10px] font-bold uppercase text-emerald-600">Chataptor</div>
                   <div class="relative w-[8.6rem] sm:w-[13rem] xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
                     <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
@@ -790,9 +803,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                           <div class="phone-lock-time text-[2.1rem] font-semibold leading-none sm:text-[3.1rem]">09:41</div>
                         </div>
 
-                        <div class="mt-auto">
-                          <div class="rounded-[1.15rem] bg-white/90 p-2.5 text-zinc-950 shadow-xl ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.55rem] sm:p-3.5">
-                            <div class="mb-2.5 flex items-center gap-2">
+                        <div class="mt-auto mb-3 sm:mb-4">
+                          <div class="rounded-[1.15rem] bg-white/95 p-2.5 text-zinc-950 shadow-xl ring-1 ring-white/70 sm:rounded-[1.55rem] sm:p-3.5">
+                            <div class="mb-2.5 flex min-w-0 items-center gap-2">
                               <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[8px] bg-zinc-950 sm:h-8 sm:w-8 sm:rounded-[10px]">
                                 <img src="/images/landing/logo-black.png" alt="" class="h-3.5 w-3.5 object-contain brightness-0 invert sm:h-4 sm:w-4" loading="lazy" width="16" height="16" aria-hidden="true" />
                               </div>
