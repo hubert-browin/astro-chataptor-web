@@ -98,8 +98,10 @@ const marketMapCountries = [
     regions: [
       { d: 'M91.8 23 96.7 22.2 100 24.3 98.8 28 94.8 29.2 91.2 26.4Z' },
       { d: 'M49 20.6 56.4 19.8 61.6 23.2 59 28.7 52.2 29.1 47.8 25.5Z' },
-      { d: 'M82.6 36.1 93.5 34.7 101.2 40.8 98.5 50.4 89.5 52.2 81.2 45.2Z' },
-      { d: 'M96.3 48.2 109.5 47 116.4 53.8 112.8 65.8 102.7 68.6 95.2 59.4Z' },
+      { d: 'M80.9 37.2 87.3 34.8 94.1 36.2 97.6 40.1 94.7 44.9 97.2 49.6 91.5 52.4 84.5 50.1 80.7 45.8 82.8 41.2Z' },
+      { d: 'M94.5 43.7 101.8 42.5 108.9 46.4 112.7 51.6 110.2 57.4 114.1 62.3 108.2 67.2 101.3 64.9 98.1 59.2 92.7 57.6 95.4 52.2Z' },
+      { d: 'M87.2 53.4 94.4 55.2 97.9 61.4 94.8 67.1 88.6 64.2 85.4 58.8Z' },
+      { d: 'M108.4 45.1 115.8 48.4 119.7 55.8 116.3 61.7 112.1 56.6 107.4 53.2Z' },
       { d: 'M126.6 72.2 131.6 73.8 132.8 81.6 129.1 86 125.7 80.2Z' },
     ],
   },
@@ -560,6 +562,20 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   <div class="ml-auto h-5 w-5 rounded-full bg-white"></div>
                 </div>
               </div>
+              {countries.map((country) => (
+                <div class="country-toggle flex items-center justify-between rounded-xl bg-white px-3 py-2.5 transition-all cursor-pointer select-none active:scale-[0.98]" data-code={country.code} data-population={country.population}>
+                  <div class="flex min-w-0 items-center gap-2">
+                    <img src={country.flagSrc} alt="" class="country-flag h-4 w-6 rounded-[2px] object-cover ring-1 ring-black/10 grayscale opacity-60 transition-all" width="24" height="16" loading="lazy" aria-hidden="true" />
+                    <div class="min-w-0">
+                      <div class="country-name truncate text-xs font-bold text-zinc-400">{country.name}</div>
+                      <div class="country-sub text-[10px] font-medium text-zinc-300">{country.sub}</div>
+                    </div>
+                  </div>
+                  <div class="toggle-switch h-6 w-11 rounded-full bg-zinc-200 p-0.5 transition-colors">
+                    <div class="toggle-knob h-5 w-5 rounded-full bg-white transition-transform"></div>
+                  </div>
+                </div>
+              ))}
               <div class="all-languages-toggle flex items-center justify-between rounded-xl bg-white px-3 py-2.5 transition-all cursor-pointer select-none active:scale-[0.98]">
                 <div class="flex min-w-0 items-center gap-2">
                   <div class="country-flag grid h-5 w-6 place-items-center rounded-[2px] bg-zinc-100 text-zinc-400 ring-1 ring-black/10 grayscale opacity-60 transition-all" aria-hidden="true">
@@ -576,20 +592,6 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   <div class="toggle-knob h-5 w-5 rounded-full bg-white transition-transform"></div>
                 </div>
               </div>
-              {countries.map((country) => (
-                <div class="country-toggle flex items-center justify-between rounded-xl bg-white px-3 py-2.5 transition-all cursor-pointer select-none active:scale-[0.98]" data-code={country.code} data-population={country.population}>
-                  <div class="flex min-w-0 items-center gap-2">
-                    <img src={country.flagSrc} alt="" class="country-flag h-4 w-6 rounded-[2px] object-cover ring-1 ring-black/10 grayscale opacity-60 transition-all" width="24" height="16" loading="lazy" aria-hidden="true" />
-                    <div class="min-w-0">
-                      <div class="country-name truncate text-xs font-bold text-zinc-400">{country.name}</div>
-                      <div class="country-sub text-[10px] font-medium text-zinc-300">{country.sub}</div>
-                    </div>
-                  </div>
-                  <div class="toggle-switch h-6 w-11 rounded-full bg-zinc-200 p-0.5 transition-colors">
-                    <div class="toggle-knob h-5 w-5 rounded-full bg-white transition-transform"></div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
