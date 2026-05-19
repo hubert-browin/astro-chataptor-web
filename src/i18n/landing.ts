@@ -438,7 +438,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Market Unlock',
         description: 'Włącz nowy rynek jednym kliknięciem. Skaluj sprzedaż bez granic.',
-        totalPotential: 'Całkowity potencjał rynku',
+        totalPotential: 'Skaluj swój biznes bez granic.',
         availableCustomers: 'Dostępni klienci',
       },
       omnichannel: {
@@ -710,7 +710,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Market Unlock',
         description: 'Unlock a new market with one click. Scale sales without borders.',
-        totalPotential: 'Total market potential',
+        totalPotential: 'Scale your business without borders.',
         availableCustomers: 'Available customers',
       },
       omnichannel: {
@@ -982,7 +982,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Markt-Freischaltung',
         description: 'Erschließen Sie neue Märkte mit einem Klick. Skalieren Sie grenzenlos.',
-        totalPotential: 'Marktpotenzial',
+        totalPotential: 'Skalieren Sie Ihr Geschäft ohne Grenzen.',
         availableCustomers: 'Verfügbare Kunden',
       },
       omnichannel: {
@@ -1254,7 +1254,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Déblocage de marché',
         description: 'Ouvrez un nouveau marché en un clic. Développez vos ventes sans frontières.',
-        totalPotential: 'Potentiel du marché',
+        totalPotential: 'Développez votre activité sans frontières.',
         availableCustomers: 'Clients disponibles',
       },
       omnichannel: {
@@ -1526,7 +1526,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Desbloqueo de mercado',
         description: 'Abre un nuevo mercado con un clic. Escala ventas sin fronteras.',
-        totalPotential: 'Potencial de mercado',
+        totalPotential: 'Escala tu negocio sin fronteras.',
         availableCustomers: 'Clientes disponibles',
       },
       omnichannel: {
@@ -1798,7 +1798,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Sblocco Mercati',
         description: 'Apri un nuovo mercato con un clic. Scala le vendite senza confini.',
-        totalPotential: 'Potenziale di mercato',
+        totalPotential: 'Scala il tuo business senza confini.',
         availableCustomers: 'Clienti disponibili',
       },
       omnichannel: {
@@ -2070,7 +2070,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Odemknutí trhu',
         description: 'Otevřete nový trh jedním kliknutím. Škálujte prodeje bez hranic.',
-        totalPotential: 'Potenciál trhu',
+        totalPotential: 'Škálujte své podnikání bez hranic.',
         availableCustomers: 'Dostupní zákazníci',
       },
       omnichannel: {
@@ -2342,7 +2342,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Odomknutie trhu',
         description: 'Otvorte nový trh jedným kliknutím. Škáľujte predaje bez hraníc.',
-        totalPotential: 'Potenciál trhu',
+        totalPotential: 'Škálujte svoje podnikanie bez hraníc.',
         availableCustomers: 'Dostupní zákazníci',
       },
       omnichannel: {
