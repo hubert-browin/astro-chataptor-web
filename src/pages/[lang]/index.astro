@@ -1,4 +1,4 @@
----
+﻿---
 import { locales, type Locale } from '../../i18n/config';
 import { getLanding } from '../../i18n/landing';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -649,80 +649,161 @@ const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454
             </div>
 
             <div class="relative flex justify-center lg:justify-end">
-              <div class="relative grid grid-cols-2 gap-4 sm:gap-10 xl:gap-12 items-center">
-                <div>
-                  <div class="mb-2 text-center text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-400">Chaos</div>
-                  <div class="relative w-[10rem] sm:w-[13rem] xl:w-[14rem] aspect-[9/16] rounded-[2rem] sm:rounded-[2.35rem] bg-zinc-900 p-1.5 ring-1 ring-zinc-900">
-                    <div class="relative h-full overflow-hidden rounded-[1.55rem] sm:rounded-[1.95rem] bg-zinc-50 text-zinc-900 p-2.5">
-                      <div class="absolute top-2 left-1/2 -translate-x-1/2 w-14 sm:w-16 h-4 sm:h-5 rounded-full bg-zinc-950"></div>
-                      <div class="pt-8 mb-2">
-                        <div class="text-xs sm:text-sm font-extrabold tracking-tight">Powiadomienia</div>
+              <div class="relative grid grid-cols-2 gap-2 sm:gap-8 xl:gap-10 items-center">
+                <div class="-rotate-2">
+                  <div class="mb-2 text-center text-[10px] font-bold uppercase text-zinc-400">Chaos</div>
+                  <div class="relative w-[8.25rem] sm:w-[12rem] xl:w-[13.5rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
+                    <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
+                    <span class="absolute -left-[3px] top-[28%] h-11 w-[3px] rounded-l-full bg-zinc-700"></span>
+                    <span class="absolute -right-[3px] top-[24%] h-12 w-[3px] rounded-r-full bg-zinc-700"></span>
+                    <div class="relative h-full overflow-hidden rounded-[1.7rem] sm:rounded-[2.35rem] bg-zinc-950 text-white">
+                      <img src="/images/landing/wallpaper-phone.png" alt="" class="absolute inset-0 h-full w-full object-cover opacity-95" loading="lazy" width="720" height="1560" aria-hidden="true" />
+                      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/5 to-black/70"></div>
+                      <div class="absolute left-1/2 top-1.5 z-30 h-5 w-16 -translate-x-1/2 rounded-full bg-black shadow-inner sm:top-2 sm:h-6 sm:w-20">
+                        <span class="absolute right-2 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-zinc-800 ring-1 ring-zinc-700"></span>
+                      </div>
+                      <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-5 pt-3 text-white sm:px-7 sm:pt-4" aria-hidden="true">
+                        <span class="h-3 w-8"></span>
+                        <div class="flex items-center gap-1">
+                          <span class="flex h-3 items-end gap-[1px]">
+                            <span class="h-1 w-[2px] rounded-full bg-white/90"></span>
+                            <span class="h-1.5 w-[2px] rounded-full bg-white/90"></span>
+                            <span class="h-2 w-[2px] rounded-full bg-white/90"></span>
+                            <span class="h-2.5 w-[2px] rounded-full bg-white/90"></span>
+                          </span>
+                          <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                            <path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                          <span class="relative h-[7px] w-[16px] rounded-[2px] border border-white/90">
+                            <span class="absolute -right-[3px] top-1/2 h-[4px] w-[2px] -translate-y-1/2 rounded-r bg-white/90"></span>
+                            <span class="absolute bottom-[1px] left-[1px] top-[1px] w-[10px] rounded-[1px] bg-white/90"></span>
+                          </span>
+                        </div>
                       </div>
 
-                      <div class="absolute inset-x-2 bottom-3 space-y-2">
-                        <div class="w-[94%] -rotate-2 rounded-2xl bg-white ring-1 ring-blue-100 p-2">
-                          <div class="flex items-center gap-1.5 mb-1">
-                            <div class="w-5 h-5 rounded-lg bg-[#1877F2] text-white flex items-center justify-center">
-                              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"></path>
-                              </svg>
-                            </div>
-                            <span class="text-[9px] font-bold text-zinc-800">Facebook</span>
-                          </div>
-                          <p class="text-[9px] sm:text-[10px] leading-snug text-zinc-500">Wann ist mein Termin?</p>
+                      <div class="relative z-10 flex h-full flex-col px-2.5 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-14" data-phone-locale={lang}>
+                        <div class="text-center text-white drop-shadow">
+                          <div class="phone-lock-date text-[9px] font-semibold sm:text-xs">Tuesday, 19 May</div>
+                          <div class="phone-lock-time text-[2.1rem] font-semibold leading-none sm:text-[3.1rem]">09:41</div>
                         </div>
 
-                        <div class="ml-auto w-[94%] rotate-2 rounded-2xl bg-white ring-1 ring-emerald-100 p-2">
-                          <div class="flex items-center gap-1.5 mb-1">
-                            <div class="w-5 h-5 rounded-lg bg-[#25D366] text-white flex items-center justify-center">
-                              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.84 9.84 0 0019.04 4.9 9.83 9.83 0 0012.04 2z"></path>
-                              </svg>
+                        <div class="mt-auto space-y-1.5 sm:space-y-2">
+                          <div class="w-[94%] -rotate-2 rounded-[1.05rem] bg-white/75 p-2 text-zinc-950 shadow-lg ring-1 ring-white/30 backdrop-blur-2xl sm:rounded-[1.35rem] sm:p-2.5">
+                            <div class="mb-1 flex items-center gap-1.5">
+                              <img src="/images/landing/messenger-logo.png" alt="" class="h-5 w-5 rounded-[6px] object-contain sm:h-6 sm:w-6" loading="lazy" width="24" height="24" aria-hidden="true" />
+                              <span class="text-[7px] font-bold text-zinc-600 sm:text-[8px]">MESSENGER</span>
+                              <span class="ml-auto text-[7px] font-medium text-zinc-500 sm:text-[8px]">1m</span>
                             </div>
-                            <span class="text-[9px] font-bold text-zinc-800">WhatsApp</span>
+                            <div class="text-[9px] font-semibold leading-tight sm:text-[11px]">Neue Nachricht</div>
+                            <p class="text-[8px] leading-snug text-zinc-600 sm:text-[10px]">Wann kommt mein Paket an?</p>
                           </div>
-                          <p class="text-[9px] sm:text-[10px] leading-snug text-zinc-500">¿Está disponible hoy?</p>
+
+                          <div class="ml-auto w-[94%] rotate-2 rounded-[1.05rem] bg-white/75 p-2 text-zinc-950 shadow-lg ring-1 ring-white/30 backdrop-blur-2xl sm:rounded-[1.35rem] sm:p-2.5">
+                            <div class="mb-1 flex items-center gap-1.5">
+                              <img src="/images/landing/whatsapp-logo.png" alt="" class="h-5 w-5 rounded-[6px] object-contain sm:h-6 sm:w-6" loading="lazy" width="24" height="24" aria-hidden="true" />
+                              <span class="text-[7px] font-bold text-zinc-600 sm:text-[8px]">WHATSAPP</span>
+                              <span class="ml-auto text-[7px] font-medium text-zinc-500 sm:text-[8px]">2m</span>
+                            </div>
+                            <div class="text-[9px] font-semibold leading-tight sm:text-[11px]">New message</div>
+                            <p class="text-[8px] leading-snug text-zinc-600 sm:text-[10px]">Is this available today?</p>
+                          </div>
+
+                          <div class="w-[94%] -rotate-1 rounded-[1.05rem] bg-white/75 p-2 text-zinc-950 shadow-lg ring-1 ring-white/30 backdrop-blur-2xl sm:rounded-[1.35rem] sm:p-2.5">
+                            <div class="mb-1 flex items-center gap-1.5">
+                              <img src="/images/landing/gmail-logo.png" alt="" class="h-5 w-5 rounded-[6px] object-contain sm:h-6 sm:w-6" loading="lazy" width="24" height="24" aria-hidden="true" />
+                              <span class="text-[7px] font-bold text-zinc-600 sm:text-[8px]">GMAIL</span>
+                              <span class="ml-auto text-[7px] font-medium text-zinc-500 sm:text-[8px]">3m</span>
+                            </div>
+                            <div class="text-[9px] font-semibold leading-tight sm:text-[11px]">Nouveau message</div>
+                            <p class="text-[8px] leading-snug text-zinc-600 sm:text-[10px]">Bonjour, j'ai une question...</p>
+                          </div>
                         </div>
 
-                        <div class="ml-1 w-[94%] -rotate-1 rounded-2xl bg-white ring-1 ring-red-100 p-2">
-                          <div class="flex items-center gap-1.5 mb-1">
-                            <div class="w-5 h-5 rounded-lg bg-[#EA4335] text-white flex items-center justify-center">
-                              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"></path>
-                              </svg>
-                            </div>
-                            <span class="text-[9px] font-bold text-zinc-800">Email</span>
+                        <div class="mt-3 flex items-center justify-between px-2 sm:mt-4 sm:px-3" aria-hidden="true">
+                          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-black/40 text-white ring-1 ring-white/10 backdrop-blur-xl sm:h-9 sm:w-9">
+                            <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M9 2h6l-1 8h-4L9 2zM10 10h4v5a2 2 0 0 1-4 0v-5zM11 20h2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
                           </div>
-                          <p class="text-[9px] sm:text-[10px] leading-snug text-zinc-500">Bonjour, j'ai une question...</p>
+                          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-black/40 text-white ring-1 ring-white/10 backdrop-blur-xl sm:h-9 sm:w-9">
+                            <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M4 8h3l1.5-2h7L17 8h3v11H4V8z"></path>
+                              <circle cx="12" cy="13.5" r="3"></circle>
+                            </svg>
+                          </div>
                         </div>
                       </div>
+                      <div class="absolute bottom-1.5 left-1/2 z-20 h-1 w-16 -translate-x-1/2 rounded-full bg-white/80 sm:bottom-2"></div>
                     </div>
                   </div>
                 </div>
 
-                <div>
-                  <div class="mb-2 text-center text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-600">Chataptor</div>
-                  <div class="relative w-[10rem] sm:w-[13rem] xl:w-[14rem] aspect-[9/16] rounded-[2rem] sm:rounded-[2.35rem] bg-zinc-900 p-1.5 ring-1 ring-zinc-900">
-                    <div class="relative h-full overflow-hidden rounded-[1.55rem] sm:rounded-[1.95rem] bg-zinc-50 text-zinc-900 p-2.5">
-                      <div class="absolute top-2 left-1/2 -translate-x-1/2 w-14 sm:w-16 h-4 sm:h-5 rounded-full bg-zinc-950"></div>
-                      <div class="absolute inset-x-2 bottom-3">
-                        <div class="rounded-[1.5rem] bg-white ring-1 ring-zinc-200 p-3">
-                          <div class="flex items-center gap-2.5 mb-3">
-                            <div class="w-7 h-7 rounded-xl bg-zinc-950 flex items-center justify-center shrink-0">
-                              <img src="/images/landing/logo-black.png" alt="Chataptor" class="w-4 h-4 object-contain brightness-0 invert" loading="lazy" width="16" height="16" />
-                            </div>
-                            <div class="min-w-0">
-                              <div class="text-[11px] font-bold text-zinc-900">3 nowe wiadomości</div>
-                            </div>
-                          </div>
+                <div class="rotate-2">
+                  <div class="mb-2 text-center text-[10px] font-bold uppercase text-emerald-600">Chataptor</div>
+                  <div class="relative w-[8.25rem] sm:w-[12rem] xl:w-[13.5rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
+                    <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
+                    <span class="absolute -left-[3px] top-[28%] h-11 w-[3px] rounded-l-full bg-zinc-700"></span>
+                    <span class="absolute -right-[3px] top-[24%] h-12 w-[3px] rounded-r-full bg-zinc-700"></span>
+                    <div class="relative h-full overflow-hidden rounded-[1.7rem] sm:rounded-[2.35rem] bg-zinc-950 text-white">
+                      <img src="/images/landing/wallpaper-phone.png" alt="" class="absolute inset-0 h-full w-full object-cover opacity-95" loading="lazy" width="720" height="1560" aria-hidden="true" />
+                      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/5 to-black/70"></div>
+                      <div class="absolute left-1/2 top-1.5 z-30 h-5 w-16 -translate-x-1/2 rounded-full bg-black shadow-inner sm:top-2 sm:h-6 sm:w-20">
+                        <span class="absolute right-2 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-zinc-800 ring-1 ring-zinc-700"></span>
+                      </div>
+                      <div class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-5 pt-3 text-white sm:px-7 sm:pt-4" aria-hidden="true">
+                        <span class="h-3 w-8"></span>
+                        <div class="flex items-center gap-1">
+                          <span class="flex h-3 items-end gap-[1px]">
+                            <span class="h-1 w-[2px] rounded-full bg-white/90"></span>
+                            <span class="h-1.5 w-[2px] rounded-full bg-white/90"></span>
+                            <span class="h-2 w-[2px] rounded-full bg-white/90"></span>
+                            <span class="h-2.5 w-[2px] rounded-full bg-white/90"></span>
+                          </span>
+                          <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                            <path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                          <span class="relative h-[7px] w-[16px] rounded-[2px] border border-white/90">
+                            <span class="absolute -right-[3px] top-1/2 h-[4px] w-[2px] -translate-y-1/2 rounded-r bg-white/90"></span>
+                            <span class="absolute bottom-[1px] left-[1px] top-[1px] w-[12px] rounded-[1px] bg-emerald-300"></span>
+                          </span>
+                        </div>
+                      </div>
 
-                          <div class="space-y-1.5">
-                            <p class="text-[9px] sm:text-[10px] leading-snug text-zinc-500 sm:whitespace-nowrap">#1 Kiedy jest mój termin?</p>
-                            <p class="text-[9px] sm:text-[10px] leading-snug text-zinc-500 sm:whitespace-nowrap">#2 Czy jest dostępne dzisiaj?</p>
-                            <p class="text-[9px] sm:text-[10px] leading-snug text-zinc-500 sm:whitespace-nowrap">#3 Dzień dobry, mam pytanie...</p>
+                      <div class="relative z-10 flex h-full flex-col px-2.5 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-14" data-phone-locale={lang}>
+                        <div class="text-center text-white drop-shadow">
+                          <div class="phone-lock-date text-[9px] font-semibold sm:text-xs">Tuesday, 19 May</div>
+                          <div class="phone-lock-time text-[2.1rem] font-semibold leading-none sm:text-[3.1rem]">09:41</div>
+                        </div>
+
+                        <div class="mt-8 sm:mt-11">
+                          <div class="rounded-[1.15rem] bg-white/80 p-2.5 text-zinc-950 shadow-xl ring-1 ring-white/40 backdrop-blur-2xl sm:rounded-[1.55rem] sm:p-3.5">
+                            <div class="mb-2 flex items-center gap-2">
+                              <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[8px] bg-zinc-950 sm:h-7 sm:w-7 sm:rounded-[10px]">
+                                <img src="/images/landing/logo-black.png" alt="" class="h-3.5 w-3.5 object-contain brightness-0 invert sm:h-4 sm:w-4" loading="lazy" width="16" height="16" aria-hidden="true" />
+                              </div>
+                              <span class="min-w-0 truncate text-[7px] font-bold text-zinc-600 sm:text-[8px]">CHATAPTOR</span>
+                              <span class="ml-auto text-[7px] font-medium text-zinc-500 sm:text-[8px]">1m</span>
+                            </div>
+                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">{t.mobileApp.notificationTitle}</div>
+                            <p class="mt-0.5 text-[8px] leading-snug text-zinc-600 sm:text-[10px]">{t.mobileApp.notificationBody}</p>
+                          </div>
+                        </div>
+
+                        <div class="mt-auto flex items-center justify-between px-2 sm:px-3" aria-hidden="true">
+                          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-black/40 text-white ring-1 ring-white/10 backdrop-blur-xl sm:h-9 sm:w-9">
+                            <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M9 2h6l-1 8h-4L9 2zM10 10h4v5a2 2 0 0 1-4 0v-5zM11 20h2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </div>
+                          <div class="flex h-7 w-7 items-center justify-center rounded-full bg-black/40 text-white ring-1 ring-white/10 backdrop-blur-xl sm:h-9 sm:w-9">
+                            <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M4 8h3l1.5-2h7L17 8h3v11H4V8z"></path>
+                              <circle cx="12" cy="13.5" r="3"></circle>
+                            </svg>
                           </div>
                         </div>
                       </div>
+                      <div class="absolute bottom-1.5 left-1/2 z-20 h-1 w-16 -translate-x-1/2 rounded-full bg-white/80 sm:bottom-2"></div>
                     </div>
                   </div>
                 </div>
@@ -887,6 +968,47 @@ const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454
 
       // Initialize with first chat
       selectChat(1);
+
+      // Phone lock screen clock
+      const phoneLocaleMap = {
+        pl: 'pl-PL',
+        en: 'en-US',
+        de: 'de-DE',
+        fr: 'fr-FR',
+        es: 'es-ES',
+        it: 'it-IT',
+        cs: 'cs-CZ',
+        sk: 'sk-SK',
+      };
+
+      function updatePhoneLockScreens() {
+        const now = new Date();
+        document.querySelectorAll('[data-phone-locale]').forEach(phone => {
+          const localeCode = phone.getAttribute('data-phone-locale') || navigator.language;
+          const locale = phoneLocaleMap[localeCode] || localeCode;
+          const time = new Intl.DateTimeFormat(locale, {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+          }).format(now);
+          const date = new Intl.DateTimeFormat(locale, {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+          }).format(now);
+          const dateLabel = date.charAt(0).toLocaleUpperCase(locale) + date.slice(1);
+
+          phone.querySelectorAll('.phone-lock-time').forEach(element => {
+            element.textContent = time;
+          });
+          phone.querySelectorAll('.phone-lock-date').forEach(element => {
+            element.textContent = dateLabel;
+          });
+        });
+      }
+
+      updatePhoneLockScreens();
+      window.setInterval(updatePhoneLockScreens, 15000);
 
       // Market counter handling
       const countryToggles = document.querySelectorAll('.country-toggle');
