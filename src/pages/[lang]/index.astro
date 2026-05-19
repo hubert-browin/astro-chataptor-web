@@ -802,67 +802,42 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
       <!-- SEKCJA: WDROŻENIE (Implementation) -->
       <section id="implementation" class="py-16 md:py-24 lg:py-28 bg-zinc-50/70 border-y border-zinc-100 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 xl:gap-16 items-center relative z-10">
-          <div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
-            <p class="text-zinc-500 text-base md:text-lg mb-10 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded-md ring-1 ring-zinc-200">{t.implementation.timeHighlight}</span>.</p>
-            <div class="space-y-5 md:space-y-6">
-              {[t.implementation.step1, t.implementation.step2, t.implementation.step3, t.implementation.step4].map((step, index) => (
-                <div class="flex gap-4 md:gap-5">
-                  <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-bold text-zinc-900 ring-1 ring-zinc-200">{index + 1}</div>
-                  <div>
-                    <h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{step.title}</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">{step.description}</p>
-                  </div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-[1.12fr_0.88fr] gap-8 lg:gap-12 xl:gap-16 items-start relative z-10">
+          <div class="min-w-0">
+            <h2 class="max-w-4xl text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.implementation.title.replace('<br/>', ' ')}</h2>
+            <p class="max-w-4xl text-zinc-500 text-base md:text-lg mb-8 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded-md ring-1 ring-zinc-200">{t.implementation.timeHighlight}</span>.</p>
+
+            <div class="rounded-2xl border border-zinc-200 bg-white font-mono text-[11px] sm:text-xs md:text-sm overflow-hidden">
+              <div class="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 px-4 py-3">
+                <div class="flex items-center gap-2">
+                  <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
                 </div>
-              ))}
+                <div class="text-[11px] font-semibold text-zinc-400">index.html</div>
+              </div>
+              <div class="bg-white p-4 sm:p-5">
+                <div class="space-y-1.5 break-words leading-relaxed text-zinc-600">
+                  <div><span class="text-zinc-400">&lt;body&gt;</span></div>
+                  <div class="pl-4 text-zinc-400">&lt;!-- {t.implementation.codeComment} --&gt;</div>
+                  <div class="pl-4"><span class="text-zinc-950">&lt;script</span> src=<span class="text-emerald-700">"https://cdn.chataptor.com/widget.js"</span></div>
+                  <div class="pl-8">data-id=<span class="text-emerald-700">"YOUR_SITE_ID"</span> <span class="text-zinc-950">&gt;&lt;/script&gt;</span></div>
+                  <div><span class="text-zinc-400">&lt;/body&gt;</span></div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="relative mt-4 lg:mt-0">
-            <div class="grid gap-4 md:grid-cols-[1.05fr_0.95fr]">
-              <div class="rounded-2xl border border-zinc-200 bg-white font-mono text-xs md:text-sm overflow-hidden">
-                <div class="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 px-4 py-3">
-                  <div class="flex items-center gap-2">
-                    <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
-                    <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
-                    <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
-                  </div>
-                  <div class="text-[11px] font-semibold text-zinc-400">index.html</div>
-                </div>
-                <div class="bg-white p-4 sm:p-5 overflow-x-auto">
-                  <div class="space-y-1.5 leading-tight whitespace-nowrap text-zinc-600">
-                    <div><span class="text-zinc-400">&lt;body&gt;</span></div>
-                    <div class="pl-4 text-zinc-400">&lt;!-- {t.implementation.codeComment} --&gt;</div>
-                    <div class="pl-4 rounded-md border-l-2 border-zinc-900 bg-zinc-50 py-2 pr-3"><span class="text-zinc-950">&lt;script</span> src=<span class="text-emerald-700">"https://cdn.chataptor.com/widget.js"</span></div>
-                    <div class="pl-8 rounded-md border-l-2 border-zinc-900 bg-zinc-50 py-2 pr-3 -mt-1">data-id=<span class="text-emerald-700">"YOUR_SITE_ID"</span> <span class="text-zinc-950">&gt;&lt;/script&gt;</span></div>
-                    <div><span class="text-zinc-400">&lt;/body&gt;</span></div>
-                  </div>
-                </div>
-              </div>
 
-              <div class="rounded-2xl border border-zinc-200 bg-white p-4">
-                <div class="mb-4 flex items-center justify-between">
-                  <div>
-                    <div class="text-sm font-extrabold text-zinc-950">{t.implementation.previewTitle}</div>
-                    <div class="mt-0.5 flex items-center gap-1.5 text-xs font-medium text-emerald-700">
-                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                      {t.implementation.previewStatus}
-                    </div>
-                  </div>
-                  <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-950">
-                    <img src="/images/landing/logo-black.png" alt="" class="h-4 w-4 object-contain brightness-0 invert" loading="lazy" width="16" height="16" aria-hidden="true" />
-                  </div>
-                </div>
-                <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
-                  <div class="mb-3 w-fit rounded-2xl rounded-bl-sm bg-white px-3 py-2 text-sm font-medium text-zinc-800 ring-1 ring-zinc-200">{t.implementation.previewGreeting}</div>
-                  <div class="ml-auto w-fit rounded-2xl rounded-br-sm bg-zinc-950 px-3 py-2 text-sm font-medium text-white">{t.features.translation.checking}</div>
-                </div>
-                <div class="mt-4 grid grid-cols-2 gap-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-400">
-                  <div class="rounded-xl border border-zinc-200 px-3 py-2">{t.features.omnichannel.widget}</div>
-                  <div class="rounded-xl border border-zinc-200 px-3 py-2">{t.mobileApp.instant}</div>
+          <div class="space-y-5 md:space-y-6 lg:pt-3">
+            {[t.implementation.step1, t.implementation.step2, t.implementation.step3, t.implementation.step4].map((step, index) => (
+              <div class="flex gap-4 md:gap-5">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-bold text-zinc-900 ring-1 ring-zinc-200">{index + 1}</div>
+                <div>
+                  <h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{step.title}</h3>
+                  <p class="text-zinc-500 text-sm leading-relaxed">{step.description}</p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
