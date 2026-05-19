@@ -109,8 +109,8 @@ const marketMapCountries = [
     code: 'it',
     active: false,
     regions: [
-      { d: 'M99.4 24.9 101.7 25.6 102.6 27.8 104 30.1 104.5 32.7 102.8 34.6 101.3 32.4 100.5 29.5 99.1 27.2Z' },
-      { d: 'M99.9 23.4 102.2 23.1 103 25 100.8 25.6Z' },
+      { d: 'M97.8 24.9 100.1 25.6 101 27.8 102.4 30.1 102.9 32.7 101.2 34.6 99.7 32.4 98.9 29.5 97.5 27.2Z' },
+      { d: 'M98.3 23.4 100.6 23.1 101.4 25 99.2 25.6Z' },
     ],
   },
   {
@@ -1071,7 +1071,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       const allLanguagesToggle = document.querySelector('.all-languages-toggle');
       const marketCount = document.getElementById('market-count');
       const baseMarketCount = 45000000;
+      const allLanguagesMarketCount = 8200000000;
       const activeCountries = new Set();
+      let isAllLanguagesActive = false;
       const marketOptions = Array.from(countryToggles).map(toggle => ({
         toggle,
         code: toggle.dataset.code,
@@ -1125,6 +1127,11 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       }
 
       function updateMarketCount() {
+        if (isAllLanguagesActive) {
+          marketCount.textContent = formatCount(allLanguagesMarketCount);
+          return;
+        }
+
         const selectedCount = marketOptions.reduce((total, option) => {
           if (!activeCountries.has(option.code)) return total;
           return total + option.population;
@@ -1134,15 +1141,14 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       }
 
       function syncAllLanguagesToggle() {
-        const isEveryLanguageActive = marketOptions.every(option => activeCountries.has(option.code));
-
-        setMarketToggleState(allLanguagesToggle, isEveryLanguageActive);
-        updateMarketMapPoint('all', isEveryLanguageActive);
+        setMarketToggleState(allLanguagesToggle, isAllLanguagesActive);
+        updateMarketMapPoint('all', isAllLanguagesActive);
       }
 
       marketOptions.forEach(({ toggle, code }) => {
         toggle.addEventListener('click', () => {
           const shouldActivate = !activeCountries.has(code);
+          isAllLanguagesActive = false;
 
           if (shouldActivate) {
             activeCountries.add(code);
@@ -1158,17 +1164,17 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       });
 
       allLanguagesToggle?.addEventListener('click', () => {
-        const shouldActivateAll = !marketOptions.every(option => activeCountries.has(option.code));
+        isAllLanguagesActive = !isAllLanguagesActive;
 
         marketOptions.forEach(({ toggle, code }) => {
-          if (shouldActivateAll) {
+          if (isAllLanguagesActive) {
             activeCountries.add(code);
           } else {
             activeCountries.delete(code);
           }
 
-          setMarketToggleState(toggle, shouldActivateAll);
-          updateMarketMapPoint(code, shouldActivateAll);
+          setMarketToggleState(toggle, isAllLanguagesActive);
+          updateMarketMapPoint(code, isAllLanguagesActive);
         });
 
         syncAllLanguagesToggle();
