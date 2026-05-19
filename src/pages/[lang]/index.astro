@@ -1,4 +1,5 @@
 ﻿---
+import { readFileSync } from 'node:fs';
 import { locales, type Locale } from '../../i18n/config';
 import { getLanding } from '../../i18n/landing';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -74,20 +75,95 @@ const conversations = [
 ];
 
 const countries = [
-  { code: "de", flagSrc: "/images/flags/de.svg", name: t.countries.germany.name, sub: t.countries.germany.sub, population: 83000000 },
-  { code: "fr", flagSrc: "/images/flags/fr.svg", name: t.countries.france.name, sub: t.countries.france.sub, population: 67000000 },
-  { code: "it", flagSrc: "/images/flags/it.svg", name: t.countries.italy.name, sub: t.countries.italy.sub, population: 59000000 },
-  { code: "es", flagSrc: "/images/flags/es.svg", name: t.countries.spain.name, sub: t.countries.spain.sub, population: 47000000 },
-  { code: "gb", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 67000000 }
+  { code: "de", flagSrc: "/images/flags/de.svg", name: t.countries.germany.name, sub: t.countries.germany.sub, population: 130000000 },
+  { code: "fr", flagSrc: "/images/flags/fr.svg", name: t.countries.france.name, sub: t.countries.france.sub, population: 320000000 },
+  { code: "it", flagSrc: "/images/flags/it.svg", name: t.countries.italy.name, sub: t.countries.italy.sub, population: 67000000 },
+  { code: "es", flagSrc: "/images/flags/es.svg", name: t.countries.spain.name, sub: t.countries.spain.sub, population: 590000000 },
+  { code: "en", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 1500000000 }
 ];
 
+type MarketMapDot = { x: number; y: number };
+type MapRegion =
+  | { x1: number; x2: number; y1: number; y2: number; density?: number }
+  | { cx: number; cy: number; rx: number; ry: number; density?: number };
+
+const dottedWorldMapSvg = readFileSync(new URL('../../../public/images/dotted_worldmap.svg', import.meta.url), 'utf8');
+const worldMapDots = Array.from(dottedWorldMapSvg.matchAll(/<circle cx="([\d.]+)" cy="([\d.]+)" r="\.3"\/>/g)).map(
+  ([, x, y]) => ({ x: Number(x), y: Number(y) })
+);
+
+const isDotInRegion = (dot: MarketMapDot, region: MapRegion) => {
+  if ('cx' in region) {
+    return ((dot.x - region.cx) ** 2) / (region.rx ** 2) + ((dot.y - region.cy) ** 2) / (region.ry ** 2) <= 1;
+  }
+
+  return dot.x >= region.x1 && dot.x <= region.x2 && dot.y >= region.y1 && dot.y <= region.y2;
+};
+
+const makeLanguageDots = (regions: MapRegion[]) => {
+  const dots: MarketMapDot[] = [];
+  const seen = new Set<string>();
+
+  worldMapDots.forEach((dot) => {
+    const region = regions.find((item) => isDotInRegion(dot, item));
+    if (!region) return;
+
+    const density = region.density ?? 2;
+    const shouldKeep = density <= 1 || (Math.round(dot.x * 10) + Math.round(dot.y * 10)) % density === 0;
+    const key = `${dot.x}:${dot.y}`;
+
+    if (shouldKeep && !seen.has(key)) {
+      dots.push(dot);
+      seen.add(key);
+    }
+  });
+
+  return dots;
+};
+
 const marketMapCountries = [
-  { code: 'gb', active: false, dots: [[95, 23], [94, 24], [95, 24], [96, 24], [94, 25], [95, 25], [96, 26]] },
-  { code: 'fr', active: false, dots: [[100, 31], [101, 31], [99, 32], [100, 32], [101, 32], [102, 33], [99, 34], [100, 34], [101, 35]] },
-  { code: 'es', active: false, dots: [[95, 39], [96, 39], [97, 39], [98, 39], [95, 40], [96, 40], [97, 40], [96, 41], [97, 41]] },
-  { code: 'de', active: false, dots: [[104, 28], [105, 28], [106, 28], [104, 29], [105, 29], [106, 29], [105, 30], [106, 30]] },
-  { code: 'pl', active: true, dots: [[109, 28], [110, 28], [111, 28], [108, 29], [109, 29], [110, 29], [111, 29], [112, 29], [109, 30], [110, 30], [111, 30]] },
-  { code: 'it', active: false, dots: [[105, 36], [106, 37], [107, 38], [108, 39], [108, 40], [109, 41], [110, 42]] },
+  { code: 'pl', active: true, dots: makeLanguageDots([{ x1: 108, x2: 113, y1: 27, y2: 31, density: 1 }]) },
+  { code: 'de', active: false, dots: makeLanguageDots([{ x1: 101, x2: 108, y1: 26, y2: 35, density: 1 }]) },
+  {
+    code: 'fr',
+    active: false,
+    dots: makeLanguageDots([
+      { x1: 96, x2: 103, y1: 31, y2: 38, density: 1 },
+      { cx: 57, cy: 24, rx: 7, ry: 5, density: 2 },
+      { x1: 99, x2: 117, y1: 48, y2: 68, density: 2 },
+      { x1: 126, x2: 132, y1: 72, y2: 83, density: 1 },
+    ]),
+  },
+  {
+    code: 'it',
+    active: false,
+    dots: makeLanguageDots([
+      { x1: 105, x2: 112, y1: 36, y2: 45, density: 1 },
+      { x1: 102, x2: 106, y1: 31, y2: 35, density: 1 },
+    ]),
+  },
+  {
+    code: 'es',
+    active: false,
+    dots: makeLanguageDots([
+      { x1: 92, x2: 100, y1: 38, y2: 43, density: 1 },
+      { x1: 31, x2: 54, y1: 37, y2: 52, density: 2 },
+      { cx: 60, cy: 65, rx: 12, ry: 18, density: 2 },
+      { x1: 64, x2: 72, y1: 69, y2: 81, density: 2 },
+    ]),
+  },
+  {
+    code: 'en',
+    active: false,
+    dots: makeLanguageDots([
+      { x1: 91, x2: 98, y1: 20, y2: 27, density: 1 },
+      { x1: 10, x2: 58, y1: 12, y2: 39, density: 4 },
+      { x1: 122, x2: 145, y1: 41, y2: 60, density: 3 },
+      { x1: 101, x2: 113, y1: 72, y2: 82, density: 2 },
+      { x1: 162, x2: 188, y1: 70, y2: 86, density: 3 },
+      { x1: 188, x2: 200, y1: 82, y2: 92, density: 2 },
+    ]),
+  },
 ];
 
 const googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.chataptor.chataptor_mobile';
@@ -474,8 +550,8 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
               <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" class="opacity-[0.16] grayscale"></image>
               {marketMapCountries.map((country) => (
                 <g class={`market-map-country transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`} data-code={country.code}>
-                  {country.dots.map(([x, y]) => (
-                    <circle cx={x} cy={y} r="0.72" class="fill-emerald-500"></circle>
+                  {country.dots.map((dot) => (
+                    <circle cx={dot.x} cy={dot.y} r="0.64" class="fill-emerald-500"></circle>
                   ))}
                 </g>
               ))}
@@ -485,7 +561,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
           <div>
             <div class="mb-6">
               <p class="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400">{t.features.marketUnlock.totalPotential}</p>
-              <div class="text-4xl font-extrabold tracking-tight text-zinc-950 tabular-nums sm:text-5xl" id="market-count">38 000 000</div>
+              <div class="text-4xl font-extrabold tracking-tight text-zinc-950 tabular-nums sm:text-5xl" id="market-count">45 000 000</div>
               <div class="mt-2 text-sm font-semibold text-emerald-700">{t.features.marketUnlock.availableCustomers}</div>
             </div>
 
@@ -993,7 +1069,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       // Market counter handling
       const countryToggles = document.querySelectorAll('.country-toggle');
       const marketCount = document.getElementById('market-count');
-      let baseCount = 38000000;
+      let baseCount = 45000000;
       const activeCountries = new Set();
 
       function updateMarketMapPoint(code, isActive) {
