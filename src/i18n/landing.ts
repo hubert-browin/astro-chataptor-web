@@ -90,6 +90,7 @@ export interface LandingTranslations {
     spain: { name: string; sub: string };
     uk: { name: string; sub: string };
     poland: { name: string; sub: string };
+    allLanguages: { name: string; sub: string };
     homeMarket: string;
   };
   // How it works section
@@ -370,6 +371,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Hiszpański', sub: '+590M użytkowników' },
       uk: { name: 'Angielski', sub: '+1.5B użytkowników' },
       poland: { name: 'Polski', sub: '' },
+      allLanguages: { name: 'Cały świat', sub: 'Wszystkie języki' },
       homeMarket: 'Język bazowy',
     },
     howItWorks: {
@@ -642,6 +644,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Spanish', sub: '+590M speakers' },
       uk: { name: 'English', sub: '+1.5B speakers' },
       poland: { name: 'Polish', sub: '' },
+      allLanguages: { name: 'Whole world', sub: 'All languages' },
       homeMarket: 'Base language',
     },
     howItWorks: {
@@ -914,6 +917,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Spanisch', sub: '+590 Mio. Sprecher' },
       uk: { name: 'Englisch', sub: '+1.5 Mrd. Sprecher' },
       poland: { name: 'Polnisch', sub: '' },
+      allLanguages: { name: 'Ganze Welt', sub: 'Alle Sprachen' },
       homeMarket: 'Basissprache',
     },
     howItWorks: {
@@ -1186,6 +1190,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Espagnol', sub: '+590M locuteurs' },
       uk: { name: 'Anglais', sub: '+1.5Md locuteurs' },
       poland: { name: 'Polonais', sub: '' },
+      allLanguages: { name: 'Monde entier', sub: 'Toutes les langues' },
       homeMarket: 'Langue de base',
     },
     howItWorks: {
@@ -1458,6 +1463,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Español', sub: '+590M hablantes' },
       uk: { name: 'Inglés', sub: '+1.5B hablantes' },
       poland: { name: 'Polaco', sub: '' },
+      allLanguages: { name: 'Todo el mundo', sub: 'Todos los idiomas' },
       homeMarket: 'Idioma base',
     },
     howItWorks: {
@@ -1730,6 +1736,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Spagnolo', sub: '+590M parlanti' },
       uk: { name: 'Inglese', sub: '+1.5B parlanti' },
       poland: { name: 'Polacco', sub: '' },
+      allLanguages: { name: 'Tutto il mondo', sub: 'Tutte le lingue' },
       homeMarket: 'Lingua base',
     },
     howItWorks: {
@@ -2002,6 +2009,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Španělština', sub: '+590M mluvčích' },
       uk: { name: 'Angličtina', sub: '+1.5B mluvčích' },
       poland: { name: 'Polština', sub: '' },
+      allLanguages: { name: 'Celý svět', sub: 'Všechny jazyky' },
       homeMarket: 'Základní jazyk',
     },
     howItWorks: {
@@ -2274,6 +2282,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       spain: { name: 'Španielčina', sub: '+590M hovoriacich' },
       uk: { name: 'Angličtina', sub: '+1.5B hovoriacich' },
       poland: { name: 'Poľština', sub: '' },
+      allLanguages: { name: 'Celý svet', sub: 'Všetky jazyky' },
       homeMarket: 'Základný jazyk',
     },
     howItWorks: {

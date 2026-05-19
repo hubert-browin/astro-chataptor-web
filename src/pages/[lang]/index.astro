@@ -96,10 +96,10 @@ const marketMapCountries = [
     code: 'fr',
     active: false,
     regions: [
-      { d: 'M96 23.2 100.4 22.4 104.1 24.4 102.8 27.8 98.4 29.3 95.6 26.6Z' },
+      { d: 'M91.8 23 96.7 22.2 100 24.3 98.8 28 94.8 29.2 91.2 26.4Z' },
       { d: 'M49 20.6 56.4 19.8 61.6 23.2 59 28.7 52.2 29.1 47.8 25.5Z' },
-      { d: 'M84 35.6 95.4 33.6 104.8 38.4 103.6 48.2 96.2 55.4 87.6 52.3 82.2 44.6Z' },
-      { d: 'M96.2 46.6 108.8 45.4 118.2 52.8 116 64.8 106.2 70.6 96 64.2 90.8 54.4Z' },
+      { d: 'M82.6 36.1 93.5 34.7 101.2 40.8 98.5 50.4 89.5 52.2 81.2 45.2Z' },
+      { d: 'M96.3 48.2 109.5 47 116.4 53.8 112.8 65.8 102.7 68.6 95.2 59.4Z' },
       { d: 'M126.6 72.2 131.6 73.8 132.8 81.6 129.1 86 125.7 80.2Z' },
     ],
   },
@@ -115,7 +115,7 @@ const marketMapCountries = [
     code: 'es',
     active: false,
     regions: [
-      { d: 'M88.5 24.8 94.5 23.8 101.7 25.2 102.2 29.2 98.2 32.2 91.8 32 87.6 29Z' },
+      { d: 'M85.2 25.2 92.2 23.8 99.4 25.2 100.2 29.4 96.2 33.5 88.4 33.1 84.2 29.4Z' },
       { d: 'M31 36.2 42.2 35.2 50.8 39.1 57.2 44.6 54 51.6 45.4 49.8 37.8 46.4 29.3 42.6Z' },
       { d: 'M48.2 50.8 59.8 50.1 67.2 56.7 65.2 64.8 70.2 70.7 66.5 79.1 60.5 86.2 54.4 77.8 51.6 66.2 47.4 59.1Z' },
     ],
@@ -529,6 +529,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                 ))}
               </defs>
               <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" class="opacity-[0.16] grayscale"></image>
+              <g class="market-map-country opacity-0 transition-opacity duration-300" data-code="all">
+                <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
+              </g>
               {marketMapCountries.map((country) => (
                 <g class={`market-map-country transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`} data-code={country.code} clip-path={`url(#market-lang-${country.code})`}>
                   <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
@@ -555,6 +558,22 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                 </div>
                 <div class="h-6 w-11 rounded-full bg-zinc-950 p-0.5">
                   <div class="ml-auto h-5 w-5 rounded-full bg-white"></div>
+                </div>
+              </div>
+              <div class="all-languages-toggle flex items-center justify-between rounded-xl bg-white px-3 py-2.5 transition-all cursor-pointer select-none active:scale-[0.98]">
+                <div class="flex min-w-0 items-center gap-2">
+                  <div class="country-flag grid h-5 w-6 place-items-center rounded-[2px] bg-zinc-100 text-zinc-400 ring-1 ring-black/10 grayscale opacity-60 transition-all" aria-hidden="true">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+                    </svg>
+                  </div>
+                  <div class="min-w-0">
+                    <div class="country-name truncate text-xs font-bold text-zinc-400">{t.countries.allLanguages.name}</div>
+                    <div class="country-sub text-[10px] font-medium text-zinc-300">{t.countries.allLanguages.sub}</div>
+                  </div>
+                </div>
+                <div class="toggle-switch h-6 w-11 rounded-full bg-zinc-200 p-0.5 transition-colors">
+                  <div class="toggle-knob h-5 w-5 rounded-full bg-white transition-transform"></div>
                 </div>
               </div>
               {countries.map((country) => (
@@ -1047,9 +1066,15 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
       // Market counter handling
       const countryToggles = document.querySelectorAll('.country-toggle');
+      const allLanguagesToggle = document.querySelector('.all-languages-toggle');
       const marketCount = document.getElementById('market-count');
-      let baseCount = 45000000;
+      const baseMarketCount = 45000000;
       const activeCountries = new Set();
+      const marketOptions = Array.from(countryToggles).map(toggle => ({
+        toggle,
+        code: toggle.dataset.code,
+        population: parseInt(toggle.dataset.population || '0', 10),
+      }));
 
       function updateMarketMapPoint(code, isActive) {
         const mapCountry = document.querySelector(`.market-map-country[data-code="${code}"]`);
@@ -1064,55 +1089,88 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
         return count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
       }
 
-      countryToggles.forEach(toggle => {
+      function setMarketToggleState(toggle, isActive) {
+        if (!toggle) return;
+
+        const toggleSwitch = toggle.querySelector('.toggle-switch');
+        const toggleKnob = toggle.querySelector('.toggle-knob');
+        const countryName = toggle.querySelector('.country-name');
+        const countrySub = toggle.querySelector('.country-sub');
+        const countryFlag = toggle.querySelector('.country-flag');
+
+        if (isActive) {
+          toggleSwitch.classList.remove('bg-zinc-200');
+          toggleSwitch.classList.add('bg-zinc-900');
+          toggleKnob.classList.add('translate-x-[1.25rem]');
+          countryName.classList.remove('text-zinc-400');
+          countryName.classList.add('text-zinc-900');
+          countrySub.classList.remove('text-zinc-300');
+          countrySub.classList.add('text-emerald-600', 'font-bold');
+          countryFlag?.classList.remove('grayscale', 'opacity-60');
+          countryFlag?.classList.add('opacity-100');
+        } else {
+          toggleSwitch.classList.add('bg-zinc-200');
+          toggleSwitch.classList.remove('bg-zinc-900');
+          toggleKnob.classList.remove('translate-x-[1.25rem]');
+          toggleKnob.style.transform = '';
+          countryName.classList.add('text-zinc-400');
+          countryName.classList.remove('text-zinc-900');
+          countrySub.classList.add('text-zinc-300');
+          countrySub.classList.remove('text-emerald-600', 'font-bold');
+          countryFlag?.classList.add('grayscale', 'opacity-60');
+          countryFlag?.classList.remove('opacity-100');
+        }
+      }
+
+      function updateMarketCount() {
+        const selectedCount = marketOptions.reduce((total, option) => {
+          if (!activeCountries.has(option.code)) return total;
+          return total + option.population;
+        }, baseMarketCount);
+
+        marketCount.textContent = formatCount(selectedCount);
+      }
+
+      function syncAllLanguagesToggle() {
+        const isEveryLanguageActive = marketOptions.every(option => activeCountries.has(option.code));
+
+        setMarketToggleState(allLanguagesToggle, isEveryLanguageActive);
+        updateMarketMapPoint('all', isEveryLanguageActive);
+      }
+
+      marketOptions.forEach(({ toggle, code }) => {
         toggle.addEventListener('click', () => {
-          const code = toggle.dataset.code;
-          const population = parseInt(toggle.dataset.population);
-          const isActive = activeCountries.has(code);
+          const shouldActivate = !activeCountries.has(code);
 
-          if (isActive) {
-            activeCountries.delete(code);
-            baseCount -= population;
-          } else {
+          if (shouldActivate) {
             activeCountries.add(code);
-            baseCount += population;
-          }
-
-          // Update toggle UI
-          const toggleSwitch = toggle.querySelector('.toggle-switch');
-          const toggleKnob = toggle.querySelector('.toggle-knob');
-          const countryName = toggle.querySelector('.country-name');
-          const countrySub = toggle.querySelector('.country-sub');
-          const countryFlag = toggle.querySelector('.country-flag');
-
-          if (activeCountries.has(code)) {
-            toggleSwitch.classList.remove('bg-zinc-200');
-            toggleSwitch.classList.add('bg-zinc-900');
-            toggleKnob.classList.add('translate-x-[1.25rem]');
-            countryName.classList.remove('text-zinc-400');
-            countryName.classList.add('text-zinc-900');
-            countrySub.classList.remove('text-zinc-300');
-            countrySub.classList.add('text-emerald-600', 'font-bold');
-            countryFlag?.classList.remove('grayscale', 'opacity-60');
-            countryFlag?.classList.add('opacity-100');
-            updateMarketMapPoint(code, true);
           } else {
-            toggleSwitch.classList.add('bg-zinc-200');
-            toggleSwitch.classList.remove('bg-zinc-900');
-            toggleKnob.classList.remove('translate-x-[1.25rem]');
-            toggleKnob.style.transform = '';
-            countryName.classList.add('text-zinc-400');
-            countryName.classList.remove('text-zinc-900');
-            countrySub.classList.add('text-zinc-300');
-            countrySub.classList.remove('text-emerald-600', 'font-bold');
-            countryFlag?.classList.add('grayscale', 'opacity-60');
-            countryFlag?.classList.remove('opacity-100');
-            updateMarketMapPoint(code, false);
+            activeCountries.delete(code);
           }
 
-          // Update count
-          marketCount.textContent = formatCount(baseCount);
+          setMarketToggleState(toggle, shouldActivate);
+          updateMarketMapPoint(code, shouldActivate);
+          syncAllLanguagesToggle();
+          updateMarketCount();
         });
+      });
+
+      allLanguagesToggle?.addEventListener('click', () => {
+        const shouldActivateAll = !marketOptions.every(option => activeCountries.has(option.code));
+
+        marketOptions.forEach(({ toggle, code }) => {
+          if (shouldActivateAll) {
+            activeCountries.add(code);
+          } else {
+            activeCountries.delete(code);
+          }
+
+          setMarketToggleState(toggle, shouldActivateAll);
+          updateMarketMapPoint(code, shouldActivateAll);
+        });
+
+        syncAllLanguagesToggle();
+        updateMarketCount();
       });
     </script>
 </BaseLayout>
