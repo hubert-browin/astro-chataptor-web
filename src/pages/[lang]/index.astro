@@ -81,6 +81,46 @@ const countries = [
   { code: "gb", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 67000000 }
 ];
 
+const marketMapShapes = [
+  { cx: 148, cy: 96, rx: 82, ry: 42 },
+  { cx: 211, cy: 126, rx: 48, ry: 30 },
+  { cx: 255, cy: 211, rx: 38, ry: 76 },
+  { cx: 344, cy: 62, rx: 44, ry: 18 },
+  { cx: 394, cy: 118, rx: 43, ry: 27 },
+  { cx: 413, cy: 181, rx: 52, ry: 75 },
+  { cx: 524, cy: 129, rx: 122, ry: 58 },
+  { cx: 636, cy: 158, rx: 64, ry: 45 },
+  { cx: 648, cy: 236, rx: 46, ry: 28 },
+];
+
+const marketMapDots: { x: number; y: number }[] = [];
+for (let y = 44; y <= 278; y += 12) {
+  for (let x = 42; x <= 734; x += 12) {
+    const insideLand = marketMapShapes.some((shape) => (
+      ((x - shape.cx) ** 2) / (shape.rx ** 2) + ((y - shape.cy) ** 2) / (shape.ry ** 2) <= 1
+    ));
+
+    if (insideLand) {
+      marketMapDots.push({ x, y });
+    }
+  }
+}
+
+const marketMapCountries = [
+  { code: 'gb', cx: 381, cy: 121, active: false },
+  { code: 'fr', cx: 401, cy: 142, active: false },
+  { code: 'es', cx: 386, cy: 161, active: false },
+  { code: 'de', cx: 421, cy: 130, active: false },
+  { code: 'pl', cx: 439, cy: 128, active: true },
+  { code: 'it', cx: 421, cy: 159, active: false },
+];
+
+const marketMapClusterOffsets = [
+  [-6, -6], [0, -6], [6, -6],
+  [-6, 0], [0, 0], [6, 0],
+  [-6, 6], [0, 6], [6, 6],
+];
+
 const googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.chataptor.chataptor_mobile';
 const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454';
 
@@ -459,43 +499,47 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
       <!-- MARKET UNLOCK -->
       <section class="pt-0 pb-16 md:pb-24 lg:pb-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
-        <div class="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
-          <div class="max-w-xl">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-950 tracking-tight">{t.features.marketUnlock.title}</h2>
-            <p class="mt-5 text-base md:text-lg text-zinc-500 leading-relaxed">{t.features.marketUnlock.description}</p>
+        <div id="market-counter" class="grid gap-10 lg:grid-cols-[0.62fr_0.38fr] lg:items-center">
+          <div class="relative min-h-[19rem] md:min-h-[24rem]">
+            <svg class="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 780 320" fill="none" aria-hidden="true">
+              <g class="market-map-base">
+                {marketMapDots.map((dot) => (
+                  <circle cx={dot.x} cy={dot.y} r="2.25" class="fill-zinc-300/70"></circle>
+                ))}
+              </g>
+
+              {marketMapCountries.map((country) => (
+                <g class="market-map-country" data-code={country.code}>
+                  <circle
+                    cx={country.cx}
+                    cy={country.cy}
+                    r="18"
+                    class={`market-map-pulse transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`}
+                    fill="none"
+                    stroke="rgba(16, 185, 129, 0.28)"
+                    stroke-width="2"
+                  ></circle>
+                  {marketMapClusterOffsets.map(([dx, dy]) => (
+                    <circle
+                      cx={country.cx + dx}
+                      cy={country.cy + dy}
+                      r="2.9"
+                      class={`market-map-dot transition-colors duration-300 ${country.active ? 'fill-emerald-500' : 'fill-zinc-300'}`}
+                    ></circle>
+                  ))}
+                </g>
+              ))}
+            </svg>
           </div>
 
-          <div id="market-counter" class="relative">
-            <div class="relative mb-4 min-h-[18rem] overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white p-5 text-center md:p-6">
-              <img
-                src="/images/dotted_worldmap.svg"
-                alt=""
-                aria-hidden="true"
-                class="pointer-events-none absolute inset-x-0 top-1/2 mx-auto w-[118%] max-w-none -translate-y-1/2 opacity-[0.08] grayscale"
-                loading="lazy"
-              />
-              <div class="relative z-10">
-                <p class="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400">{t.features.marketUnlock.totalPotential}</p>
-                <div class="text-4xl font-extrabold tracking-tight text-zinc-950 tabular-nums sm:text-5xl" id="market-count">38 000 000</div>
-                <div class="mt-2 text-sm font-semibold text-emerald-700">{t.features.marketUnlock.availableCustomers}</div>
-              </div>
-
-              {[
-                { code: 'gb', label: t.countries.uk.name, left: '42%', top: '45%' },
-                { code: 'fr', label: t.countries.france.name, left: '47%', top: '53%' },
-                { code: 'es', label: t.countries.spain.name, left: '42%', top: '64%' },
-                { code: 'de', label: t.countries.germany.name, left: '53%', top: '48%' },
-                { code: 'pl', label: t.countries.poland.name, left: '58%', top: '47%', active: true },
-                { code: 'it', label: t.countries.italy.name, left: '55%', top: '63%' },
-              ].map((point) => (
-                <div class="market-map-point absolute z-10 -translate-x-1/2 -translate-y-1/2" data-code={point.code} style={`left: ${point.left}; top: ${point.top};`}>
-                  <div class={`market-map-dot mx-auto h-2.5 w-2.5 rounded-full transition-colors ${point.active ? 'bg-emerald-500 ring-4 ring-emerald-500/15' : 'bg-zinc-300 ring-4 ring-zinc-300/10'}`}></div>
-                  <div class={`market-map-label mt-1 whitespace-nowrap rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-bold transition-colors ${point.active ? 'text-emerald-700' : 'text-zinc-400'}`}>{point.label}</div>
-                </div>
-              ))}
+          <div>
+            <div class="mb-6">
+              <p class="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400">{t.features.marketUnlock.totalPotential}</p>
+              <div class="text-4xl font-extrabold tracking-tight text-zinc-950 tabular-nums sm:text-5xl" id="market-count">38 000 000</div>
+              <div class="mt-2 text-sm font-semibold text-emerald-700">{t.features.marketUnlock.availableCustomers}</div>
             </div>
 
-            <div class="grid gap-2 sm:grid-cols-2">
+            <div class="grid gap-2">
               <div class="flex items-center justify-between rounded-xl bg-white px-3 py-2.5">
                 <div class="flex min-w-0 items-center gap-2">
                   <img src="/images/flags/pl.svg" alt="" class="h-4 w-6 rounded-[2px] object-cover ring-1 ring-black/10" width="24" height="16" aria-hidden="true" />
@@ -799,11 +843,11 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                                 <div class="text-[9px] font-medium leading-tight text-zinc-700 sm:text-[11px]">
                                   - {message}
                                 </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
                       <div class="absolute bottom-1.5 left-1/2 z-20 h-1 w-16 -translate-x-1/2 rounded-full bg-white/80 sm:bottom-2"></div>
                     </div>
                   </div>
@@ -1003,18 +1047,18 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       const activeCountries = new Set();
 
       function updateMarketMapPoint(code, isActive) {
-        const mapPoint = document.querySelector(`.market-map-point[data-code="${code}"]`);
-        const mapDot = mapPoint?.querySelector('.market-map-dot');
-        const mapLabel = mapPoint?.querySelector('.market-map-label');
+        const mapCountry = document.querySelector(`.market-map-country[data-code="${code}"]`);
+        const mapDots = mapCountry?.querySelectorAll('.market-map-dot');
+        const mapPulse = mapCountry?.querySelector('.market-map-pulse');
 
-        if (!mapDot || !mapLabel) return;
+        if (!mapDots || !mapPulse) return;
 
-        mapDot.classList.toggle('bg-emerald-500', isActive);
-        mapDot.classList.toggle('ring-emerald-500/15', isActive);
-        mapDot.classList.toggle('bg-zinc-300', !isActive);
-        mapDot.classList.toggle('ring-zinc-300/10', !isActive);
-        mapLabel.classList.toggle('text-emerald-700', isActive);
-        mapLabel.classList.toggle('text-zinc-400', !isActive);
+        mapDots.forEach(dot => {
+          dot.classList.toggle('fill-emerald-500', isActive);
+          dot.classList.toggle('fill-zinc-300', !isActive);
+        });
+        mapPulse.classList.toggle('opacity-100', isActive);
+        mapPulse.classList.toggle('opacity-0', !isActive);
       }
 
       function formatCount(count) {
