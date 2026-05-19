@@ -81,44 +81,13 @@ const countries = [
   { code: "gb", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 67000000 }
 ];
 
-const marketMapShapes = [
-  { cx: 148, cy: 96, rx: 82, ry: 42 },
-  { cx: 211, cy: 126, rx: 48, ry: 30 },
-  { cx: 255, cy: 211, rx: 38, ry: 76 },
-  { cx: 344, cy: 62, rx: 44, ry: 18 },
-  { cx: 394, cy: 118, rx: 43, ry: 27 },
-  { cx: 413, cy: 181, rx: 52, ry: 75 },
-  { cx: 524, cy: 129, rx: 122, ry: 58 },
-  { cx: 636, cy: 158, rx: 64, ry: 45 },
-  { cx: 648, cy: 236, rx: 46, ry: 28 },
-];
-
-const marketMapDots: { x: number; y: number }[] = [];
-for (let y = 44; y <= 278; y += 12) {
-  for (let x = 42; x <= 734; x += 12) {
-    const insideLand = marketMapShapes.some((shape) => (
-      ((x - shape.cx) ** 2) / (shape.rx ** 2) + ((y - shape.cy) ** 2) / (shape.ry ** 2) <= 1
-    ));
-
-    if (insideLand) {
-      marketMapDots.push({ x, y });
-    }
-  }
-}
-
 const marketMapCountries = [
-  { code: 'gb', cx: 381, cy: 121, active: false },
-  { code: 'fr', cx: 401, cy: 142, active: false },
-  { code: 'es', cx: 386, cy: 161, active: false },
-  { code: 'de', cx: 421, cy: 130, active: false },
-  { code: 'pl', cx: 439, cy: 128, active: true },
-  { code: 'it', cx: 421, cy: 159, active: false },
-];
-
-const marketMapClusterOffsets = [
-  [-6, -6], [0, -6], [6, -6],
-  [-6, 0], [0, 0], [6, 0],
-  [-6, 6], [0, 6], [6, 6],
+  { code: 'gb', active: false, dots: [[95, 23], [94, 24], [95, 24], [96, 24], [94, 25], [95, 25], [96, 26]] },
+  { code: 'fr', active: false, dots: [[100, 31], [101, 31], [99, 32], [100, 32], [101, 32], [102, 33], [99, 34], [100, 34], [101, 35]] },
+  { code: 'es', active: false, dots: [[95, 39], [96, 39], [97, 39], [98, 39], [95, 40], [96, 40], [97, 40], [96, 41], [97, 41]] },
+  { code: 'de', active: false, dots: [[104, 28], [105, 28], [106, 28], [104, 29], [105, 29], [106, 29], [105, 30], [106, 30]] },
+  { code: 'pl', active: true, dots: [[109, 28], [110, 28], [111, 28], [108, 29], [109, 29], [110, 29], [111, 29], [112, 29], [109, 30], [110, 30], [111, 30]] },
+  { code: 'it', active: false, dots: [[105, 36], [106, 37], [107, 38], [108, 39], [108, 40], [109, 41], [110, 42]] },
 ];
 
 const googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.chataptor.chataptor_mobile';
@@ -500,32 +469,13 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       <!-- MARKET UNLOCK -->
       <section class="pt-0 pb-16 md:pb-24 lg:pb-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
         <div id="market-counter" class="grid gap-10 lg:grid-cols-[0.62fr_0.38fr] lg:items-center">
-          <div class="relative min-h-[19rem] md:min-h-[24rem]">
-            <svg class="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 780 320" fill="none" aria-hidden="true">
-              <g class="market-map-base">
-                {marketMapDots.map((dot) => (
-                  <circle cx={dot.x} cy={dot.y} r="2.25" class="fill-zinc-300/70"></circle>
-                ))}
-              </g>
-
+          <div class="relative min-h-[19rem] overflow-visible md:min-h-[24rem]">
+            <svg class="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 201 97" fill="none" aria-hidden="true">
+              <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" class="opacity-[0.16] grayscale"></image>
               {marketMapCountries.map((country) => (
-                <g class="market-map-country" data-code={country.code}>
-                  <circle
-                    cx={country.cx}
-                    cy={country.cy}
-                    r="18"
-                    class={`market-map-pulse transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`}
-                    fill="none"
-                    stroke="rgba(16, 185, 129, 0.28)"
-                    stroke-width="2"
-                  ></circle>
-                  {marketMapClusterOffsets.map(([dx, dy]) => (
-                    <circle
-                      cx={country.cx + dx}
-                      cy={country.cy + dy}
-                      r="2.9"
-                      class={`market-map-dot transition-colors duration-300 ${country.active ? 'fill-emerald-500' : 'fill-zinc-300'}`}
-                    ></circle>
+                <g class={`market-map-country transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`} data-code={country.code}>
+                  {country.dots.map(([x, y]) => (
+                    <circle cx={x} cy={y} r="0.72" class="fill-emerald-500"></circle>
                   ))}
                 </g>
               ))}
@@ -1048,17 +998,11 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
       function updateMarketMapPoint(code, isActive) {
         const mapCountry = document.querySelector(`.market-map-country[data-code="${code}"]`);
-        const mapDots = mapCountry?.querySelectorAll('.market-map-dot');
-        const mapPulse = mapCountry?.querySelector('.market-map-pulse');
 
-        if (!mapDots || !mapPulse) return;
+        if (!mapCountry) return;
 
-        mapDots.forEach(dot => {
-          dot.classList.toggle('fill-emerald-500', isActive);
-          dot.classList.toggle('fill-zinc-300', !isActive);
-        });
-        mapPulse.classList.toggle('opacity-100', isActive);
-        mapPulse.classList.toggle('opacity-0', !isActive);
+        mapCountry.classList.toggle('opacity-100', isActive);
+        mapCountry.classList.toggle('opacity-0', !isActive);
       }
 
       function formatCount(count) {
