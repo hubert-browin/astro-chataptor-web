@@ -103,6 +103,17 @@ const mobileInboxTitles: Record<Locale, string> = {
   sk: '3 nové správy',
 };
 
+const mobileNotificationTitles: Record<Locale, string> = {
+  pl: 'Nowa wiadomość',
+  en: 'New message',
+  de: 'Neue Nachricht',
+  fr: 'Nouveau message',
+  es: 'Nuevo mensaje',
+  it: 'Nuovo messaggio',
+  cs: 'Nová zpráva',
+  sk: 'Nová správa',
+};
+
 const mobileInboxMessages: Record<Locale, string[]> = {
   pl: ['Kiedy przyjdzie moja paczka?', 'Czy to jest dostępne dzisiaj?', 'Dzień dobry, mam pytanie...'],
   en: ['When will my package arrive?', 'Is this available today?', 'Hello, I have a question...'],
@@ -115,6 +126,7 @@ const mobileInboxMessages: Record<Locale, string[]> = {
 };
 
 const mobileInboxTitle = mobileInboxTitles[lang];
+const mobileNotificationTitle = mobileNotificationTitles[lang];
 const mobileInboxMessageList = mobileInboxMessages[lang];
 ---
 
@@ -723,7 +735,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                               <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">FACEBOOK</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">1m</span>
                             </div>
-                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Neue Nachricht</div>
+                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">{mobileNotificationTitle}</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">Wann kommt mein Paket an?</p>
                           </div>
 
@@ -737,7 +749,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                               <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">WHATSAPP</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">2m</span>
                             </div>
-                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Nuevo mensaje</div>
+                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">{mobileNotificationTitle}</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">¿Está disponible hoy?</p>
                           </div>
 
@@ -756,7 +768,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                               <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">GMAIL</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">3m</span>
                             </div>
-                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Nouveau message</div>
+                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">{mobileNotificationTitle}</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">Bonjour, j'ai une question...</p>
                           </div>
                         </div>
@@ -814,11 +826,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                             </div>
                             <div class="text-[11px] font-semibold leading-tight sm:text-[13px]">{mobileInboxTitle}</div>
                             <div class="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2">
-                              {mobileInboxMessageList.map((message, index) => (
+                              {mobileInboxMessageList.map((message) => (
                                 <div class="flex items-start gap-2 rounded-xl bg-zinc-100/80 px-2 py-1.5 sm:gap-2.5 sm:px-2.5 sm:py-2">
-                                  <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-zinc-950 text-[8px] font-bold leading-none text-white sm:h-5 sm:w-5 sm:text-[9px]">
-                                    {index + 1}
-                                  </span>
+                                  <span class="shrink-0 text-[9px] font-semibold leading-snug text-zinc-500 sm:text-[11px]">-</span>
                                   <span class="text-[9px] font-medium leading-snug text-zinc-700 sm:text-[11px]">
                                     {message}
                                   </span>
