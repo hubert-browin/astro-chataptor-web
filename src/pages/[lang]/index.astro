@@ -802,10 +802,10 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
       <!-- SEKCJA: WDROŻENIE (Implementation) -->
       <section id="implementation" class="py-16 md:py-24 lg:py-28 bg-zinc-50/70 border-y border-zinc-100 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-[1.12fr_0.88fr] gap-8 lg:gap-12 xl:gap-16 items-start relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-12 xl:gap-16 items-stretch relative z-10">
           <div class="min-w-0">
-            <h2 class="max-w-4xl text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.implementation.title.replace('<br/>', ' ')}</h2>
-            <p class="max-w-4xl text-zinc-500 text-base md:text-lg mb-8 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded-md ring-1 ring-zinc-200">{t.implementation.timeHighlight}</span>.</p>
+            <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight lg:whitespace-nowrap">{t.implementation.title.replace('<br/>', ' ')}</h2>
+            <p class="text-zinc-500 text-base xl:text-lg mb-8 leading-relaxed lg:whitespace-nowrap">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded-md ring-1 ring-zinc-200">{t.implementation.timeHighlight}</span>.</p>
 
             <div class="rounded-2xl border border-zinc-200 bg-white font-mono text-[11px] sm:text-xs md:text-sm overflow-hidden">
               <div class="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 px-4 py-3">
@@ -828,7 +828,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
             </div>
           </div>
 
-          <div class="space-y-5 md:space-y-6 lg:pt-3">
+          <div class="flex h-full flex-col justify-between gap-5 md:gap-6 lg:py-2">
             {[t.implementation.step1, t.implementation.step2, t.implementation.step3, t.implementation.step4].map((step, index) => (
               <div class="flex gap-4 md:gap-5">
                 <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-bold text-zinc-900 ring-1 ring-zinc-200">{index + 1}</div>
