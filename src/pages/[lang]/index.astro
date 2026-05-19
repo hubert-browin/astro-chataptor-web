@@ -1,5 +1,4 @@
 ﻿---
-import { readFileSync } from 'node:fs';
 import { locales, type Locale } from '../../i18n/config';
 import { getLanding } from '../../i18n/landing';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -82,89 +81,52 @@ const countries = [
   { code: "en", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 1500000000 }
 ];
 
-type MarketMapDot = { x: number; y: number };
-type MapRegion =
-  | { x1: number; x2: number; y1: number; y2: number; density?: number }
-  | { cx: number; cy: number; rx: number; ry: number; density?: number };
-
-const dottedWorldMapSvg = readFileSync(new URL('../../../public/images/dotted_worldmap.svg', import.meta.url), 'utf8');
-const worldMapDots = Array.from(dottedWorldMapSvg.matchAll(/<circle cx="([\d.]+)" cy="([\d.]+)" r="\.3"\/>/g)).map(
-  ([, x, y]) => ({ x: Number(x), y: Number(y) })
-);
-
-const isDotInRegion = (dot: MarketMapDot, region: MapRegion) => {
-  if ('cx' in region) {
-    return ((dot.x - region.cx) ** 2) / (region.rx ** 2) + ((dot.y - region.cy) ** 2) / (region.ry ** 2) <= 1;
-  }
-
-  return dot.x >= region.x1 && dot.x <= region.x2 && dot.y >= region.y1 && dot.y <= region.y2;
-};
-
-const makeLanguageDots = (regions: MapRegion[]) => {
-  const dots: MarketMapDot[] = [];
-  const seen = new Set<string>();
-
-  worldMapDots.forEach((dot) => {
-    const region = regions.find((item) => isDotInRegion(dot, item));
-    if (!region) return;
-
-    const density = region.density ?? 2;
-    const shouldKeep = density <= 1 || (Math.round(dot.x * 10) + Math.round(dot.y * 10)) % density === 0;
-    const key = `${dot.x}:${dot.y}`;
-
-    if (shouldKeep && !seen.has(key)) {
-      dots.push(dot);
-      seen.add(key);
-    }
-  });
-
-  return dots;
-};
+type MapRegion = { cx: number; cy: number; rx: number; ry: number };
 
 const marketMapCountries = [
-  { code: 'pl', active: true, dots: makeLanguageDots([{ x1: 108, x2: 113, y1: 27, y2: 31, density: 1 }]) },
-  { code: 'de', active: false, dots: makeLanguageDots([{ x1: 101, x2: 108, y1: 26, y2: 35, density: 1 }]) },
+  { code: 'pl', active: true, regions: [{ cx: 110.5, cy: 29, rx: 3.6, ry: 2.4 }] },
+  { code: 'de', active: false, regions: [{ cx: 105, cy: 30.5, rx: 5, ry: 4.8 }] },
   {
     code: 'fr',
     active: false,
-    dots: makeLanguageDots([
-      { x1: 96, x2: 103, y1: 31, y2: 38, density: 1 },
-      { cx: 57, cy: 24, rx: 7, ry: 5, density: 2 },
-      { x1: 99, x2: 117, y1: 48, y2: 68, density: 2 },
-      { x1: 126, x2: 132, y1: 72, y2: 83, density: 1 },
-    ]),
+    regions: [
+      { cx: 100, cy: 34, rx: 5.4, ry: 4.4 },
+      { cx: 55, cy: 24, rx: 6.5, ry: 4.2 },
+      { cx: 108, cy: 58, rx: 12.5, ry: 14 },
+      { cx: 129, cy: 78, rx: 4, ry: 6 },
+    ],
   },
   {
     code: 'it',
     active: false,
-    dots: makeLanguageDots([
-      { x1: 105, x2: 112, y1: 36, y2: 45, density: 1 },
-      { x1: 102, x2: 106, y1: 31, y2: 35, density: 1 },
-    ]),
+    regions: [
+      { cx: 108.5, cy: 40, rx: 4.5, ry: 7.8 },
+      { cx: 104.2, cy: 33.5, rx: 3.2, ry: 2.4 },
+    ],
   },
   {
     code: 'es',
     active: false,
-    dots: makeLanguageDots([
-      { x1: 92, x2: 100, y1: 38, y2: 43, density: 1 },
-      { x1: 31, x2: 54, y1: 37, y2: 52, density: 2 },
-      { cx: 60, cy: 65, rx: 12, ry: 18, density: 2 },
-      { x1: 64, x2: 72, y1: 69, y2: 81, density: 2 },
-    ]),
+    regions: [
+      { cx: 96, cy: 40, rx: 5.5, ry: 3.5 },
+      { cx: 43, cy: 45, rx: 13.5, ry: 8 },
+      { cx: 60, cy: 65, rx: 14, ry: 19 },
+      { cx: 69, cy: 76, rx: 5, ry: 8 },
+    ],
   },
   {
     code: 'en',
     active: false,
-    dots: makeLanguageDots([
-      { x1: 91, x2: 98, y1: 20, y2: 27, density: 1 },
-      { x1: 10, x2: 58, y1: 12, y2: 39, density: 4 },
-      { x1: 122, x2: 145, y1: 41, y2: 60, density: 3 },
-      { x1: 101, x2: 113, y1: 72, y2: 82, density: 2 },
-      { x1: 162, x2: 188, y1: 70, y2: 86, density: 3 },
-      { x1: 188, x2: 200, y1: 82, y2: 92, density: 2 },
-    ]),
+    regions: [
+      { cx: 95, cy: 24, rx: 4.6, ry: 3.8 },
+      { cx: 35, cy: 27, rx: 29, ry: 15 },
+      { cx: 134, cy: 50, rx: 13, ry: 9 },
+      { cx: 107, cy: 77, rx: 7, ry: 5 },
+      { cx: 175, cy: 78, rx: 15, ry: 8 },
+      { cx: 193, cy: 86, rx: 5.8, ry: 4 },
+    ],
   },
-];
+] satisfies { code: string; active: boolean; regions: MapRegion[] }[];
 
 const googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.chataptor.chataptor_mobile';
 const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454';
@@ -547,12 +509,23 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
         <div id="market-counter" class="grid gap-10 lg:grid-cols-[0.62fr_0.38fr] lg:items-center">
           <div class="relative min-h-[19rem] overflow-visible md:min-h-[24rem]">
             <svg class="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 201 97" fill="none" aria-hidden="true">
+              <defs>
+                <filter id="market-map-emerald" color-interpolation-filters="sRGB">
+                  <feFlood flood-color="#10b981" result="flood"></feFlood>
+                  <feComposite in="flood" in2="SourceAlpha" operator="in"></feComposite>
+                </filter>
+                {marketMapCountries.map((country) => (
+                  <clipPath id={`market-lang-${country.code}`} clipPathUnits="userSpaceOnUse">
+                    {country.regions.map((region) => (
+                      <ellipse cx={region.cx} cy={region.cy} rx={region.rx} ry={region.ry}></ellipse>
+                    ))}
+                  </clipPath>
+                ))}
+              </defs>
               <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" class="opacity-[0.16] grayscale"></image>
               {marketMapCountries.map((country) => (
-                <g class={`market-map-country transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`} data-code={country.code}>
-                  {country.dots.map((dot) => (
-                    <circle cx={dot.x} cy={dot.y} r="0.64" class="fill-emerald-500"></circle>
-                  ))}
+                <g class={`market-map-country transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`} data-code={country.code} clip-path={`url(#market-lang-${country.code})`}>
+                  <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
                 </g>
               ))}
             </svg>
