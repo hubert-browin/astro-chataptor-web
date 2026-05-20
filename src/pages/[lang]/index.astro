@@ -393,7 +393,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
     </section>
 
       <!-- OMNICHANNEL INBOX -->
-      <section id="product" class="pt-16 pb-10 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16 px-4 md:px-6 max-w-7xl mx-auto w-full">
+      <section id="product" class="pt-16 pb-24 md:pt-24 md:pb-28 lg:pt-28 lg:pb-32 px-4 md:px-6 max-w-7xl mx-auto w-full">
         <div class="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
           <div class="max-w-xl">
             <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">{t.productStory.eyebrow}</p>
@@ -423,7 +423,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
               <path d="M332 150H572" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-section-arrow)"></path>
             </svg>
 
-            <div class="relative z-10 grid gap-10 sm:gap-6 sm:grid-cols-[12rem_1fr_13rem] sm:items-center">
+            <div class="relative z-10 grid gap-6 sm:gap-6 sm:grid-cols-[12rem_1fr_13rem] sm:items-center">
               <div class="grid grid-cols-5 gap-1.5 sm:grid-cols-1 sm:gap-2.5">
                 {[
                   { label: t.features.omnichannel.email, icon: 'email', color: 'text-[#EA4335]', bg: 'bg-red-50' },
@@ -469,7 +469,13 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
               <div class="hidden sm:block sm:min-h-[16rem]" aria-hidden="true"></div>
 
-              <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-zinc-950 shadow-xl shadow-zinc-950/10 sm:mx-0 sm:h-20 sm:w-20">
+              <div class="pointer-events-none -my-1 flex justify-center text-zinc-400 sm:hidden" aria-hidden="true">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-6-6 6 6 6-6"></path>
+                </svg>
+              </div>
+
+              <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-zinc-950 sm:mx-0 sm:h-20 sm:w-20">
                 <img src="/images/landing/logo-black.png" alt="" class="h-8 w-8 object-contain brightness-0 invert sm:h-10 sm:w-10" loading="lazy" width="40" height="40" aria-hidden="true" />
               </div>
             </div>
@@ -478,7 +484,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       </section>
 
       <!-- REAL-TIME TRANSLATION -->
-      <section class="pt-0 pb-10 md:pb-14 lg:pb-16 px-4 md:px-6 max-w-7xl mx-auto w-full">
+      <section class="pt-0 pb-24 md:pb-28 lg:pb-32 px-4 md:px-6 max-w-7xl mx-auto w-full">
         <div class="grid gap-6 lg:gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-center">
           <div class="order-2 lg:order-1 relative overflow-hidden rounded-[1.5rem] py-2 md:p-4">
             <div class="space-y-3 md:space-y-4">
@@ -491,9 +497,17 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                 <div class="mt-2.5 border-t border-zinc-100 pt-2.5 text-xs font-medium text-emerald-700 md:text-sm">{t.howItWorks.step3.exampleTranslation}</div>
               </div>
 
-              <div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-white text-emerald-600 shadow-sm ring-1 ring-zinc-900/[0.05] md:h-14 md:w-14">
-                <svg class="h-6 w-6 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.05 9.5A18 18 0 0 1 6.4 9m6.1 9h7M11 21l5-10 5 10"></path>
+              <div class="mx-auto flex flex-col items-center gap-1 text-zinc-300">
+                <svg class="h-4 w-4 md:h-5 md:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v6m-4-4 4 4 4-4"></path>
+                </svg>
+                <div class="grid h-12 w-12 place-items-center rounded-2xl bg-white text-emerald-600 shadow-sm md:h-14 md:w-14">
+                  <svg class="h-6 w-6 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.05 9.5A18 18 0 0 1 6.4 9m6.1 9h7M11 21l5-10 5 10"></path>
+                  </svg>
+                </div>
+                <svg class="h-4 w-4 md:h-5 md:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v6m-4-4 4 4 4-4"></path>
                 </svg>
               </div>
 
@@ -517,7 +531,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       </section>
 
       <!-- MARKET UNLOCK -->
-      <section class="pt-0 pb-12 md:pb-24 lg:pb-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
+      <section class="pt-0 pb-24 md:pb-28 lg:pb-32 px-4 md:px-6 max-w-7xl mx-auto w-full">
         <div id="market-counter" class="grid gap-4 lg:gap-10 lg:grid-cols-[0.62fr_0.38fr] lg:items-center">
           <p class="text-center text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400 lg:hidden">{t.features.marketUnlock.totalPotential}</p>
 
@@ -603,7 +617,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
         </div>
       </section>
       <!-- UI MOCKUP -->
-      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-8 md:mt-10 lg:mt-12 mb-12 lg:mb-16 relative z-20">
+      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-8 md:mt-10 lg:mt-12 mb-24 lg:mb-32 relative z-20">
         <div class="mx-4 mb-5 max-w-3xl md:mx-0 md:mb-6">
           <p class="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">{t.productDemo.eyebrow}</p>
           <h2 class="text-2xl font-extrabold tracking-tight text-zinc-950 sm:text-3xl md:text-4xl">{t.productDemo.title}</h2>
@@ -700,8 +714,8 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       </div>
 
       <!-- MOBILE APP SECTION -->
-      <section id="mobile-app" class="w-full max-w-7xl mx-auto px-4 md:px-6 mt-6 md:mt-8 mb-12 lg:mb-16 relative z-20">
-        <div class="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white text-zinc-900">
+      <section id="mobile-app" class="w-full max-w-7xl mx-auto px-4 md:px-6 mt-6 md:mt-8 mb-24 lg:mb-32 relative z-20">
+        <div class="relative overflow-visible rounded-[2rem] md:rounded-[2.5rem] bg-white text-zinc-900">
           <div class="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 lg:gap-16 items-center p-0 md:p-8 lg:p-12">
             <div class="max-w-2xl">
               <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 ring-1 ring-emerald-100 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700 mb-6">
@@ -720,7 +734,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                 <span class="truncate text-[9px] font-bold uppercase tracking-[0.08em] text-zinc-500 sm:text-[10px] md:text-[11px] md:tracking-[0.18em]">{t.mobileApp.instant}</span>
               </div>
 
-              <div class="mx-auto grid w-full max-w-[22rem] grid-cols-2 gap-2 sm:mx-0 sm:max-w-[24rem] sm:gap-3 md:gap-4">
+              <div class="mx-auto grid w-full grid-cols-2 gap-2 sm:mx-0 sm:gap-3 md:max-w-[24rem] md:gap-4">
                 <a href={appStoreUrl} target="_blank" rel="noopener noreferrer nofollow" class="flex aspect-[163/48] w-full rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.appStoreAlt}>
                   <img src="/images/landing/app_store.svg" alt={t.mobileApp.appStoreAlt} class="h-full w-full" loading="lazy" />
                 </a>
