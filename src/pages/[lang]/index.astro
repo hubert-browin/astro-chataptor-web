@@ -401,18 +401,16 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
             <p class="mt-5 text-base md:text-lg text-zinc-500 leading-relaxed">{t.features.omnichannel.description}</p>
           </div>
 
-          <div class="relative overflow-hidden rounded-[1.5rem] bg-zinc-50 p-4 md:p-6">
-            <svg class="pointer-events-none absolute inset-x-4 top-16 z-0 h-36 w-[calc(100%-2rem)] sm:hidden" viewBox="0 0 320 150" fill="none" aria-hidden="true">
+          <div class="relative overflow-hidden rounded-[1.5rem] py-2 md:p-4">
+            <svg class="pointer-events-none absolute inset-x-0 top-[4.6rem] z-0 h-28 w-full sm:hidden" viewBox="0 0 320 112" fill="none" aria-hidden="true">
               <defs>
                 <marker id="omni-mobile-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                   <path d="M0 0L10 5L0 10Z" fill="#a1a1aa"></path>
                 </marker>
               </defs>
-              <path d="M44 8 C52 54 102 88 151 124" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-mobile-arrow)"></path>
-              <path d="M160 8 C160 52 160 86 160 124" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-mobile-arrow)"></path>
-              <path d="M276 8 C268 54 218 88 169 124" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-mobile-arrow)"></path>
-              <path d="M104 70 C112 92 134 108 153 124" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-mobile-arrow)"></path>
-              <path d="M216 70 C208 92 186 108 167 124" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-mobile-arrow)"></path>
+              <path d="M32 0V34M96 0V34M160 0V34M224 0V34M288 0V34" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M32 34H288" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M160 34V98" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-mobile-arrow)"></path>
             </svg>
             <svg class="pointer-events-none absolute inset-0 hidden h-full w-full sm:block" viewBox="0 0 720 300" fill="none" aria-hidden="true">
               <defs>
@@ -420,23 +418,21 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   <path d="M0 0L10 5L0 10Z" fill="#a1a1aa"></path>
                 </marker>
               </defs>
-              <path d="M172 38 C300 38 384 148 504 148" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#omni-section-arrow)"></path>
-              <path d="M172 94 C306 94 390 148 504 148" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#omni-section-arrow)"></path>
-              <path d="M172 150 C314 150 396 148 504 148" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#omni-section-arrow)"></path>
-              <path d="M172 206 C306 206 390 148 504 148" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#omni-section-arrow)"></path>
-              <path d="M172 262 C300 262 384 148 504 148" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#omni-section-arrow)"></path>
+              <path d="M172 38H332M172 94H332M172 150H332M172 206H332M172 262H332" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M332 38V262" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M332 150H572" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-section-arrow)"></path>
             </svg>
 
-            <div class="relative z-10 grid gap-7 sm:gap-6 sm:grid-cols-[12rem_1fr_13rem] sm:items-center">
-              <div class="grid grid-cols-6 gap-2 sm:grid-cols-1 sm:gap-2.5">
+            <div class="relative z-10 grid gap-10 sm:gap-6 sm:grid-cols-[12rem_1fr_13rem] sm:items-center">
+              <div class="grid grid-cols-5 gap-1.5 sm:grid-cols-1 sm:gap-2.5">
                 {[
                   { label: t.features.omnichannel.email, icon: 'email', color: 'text-[#EA4335]', bg: 'bg-red-50' },
                   { label: t.features.omnichannel.whatsapp, icon: 'whatsapp', color: 'text-[#25D366]', bg: 'bg-emerald-50' },
                   { label: t.features.omnichannel.facebook, icon: 'facebook', color: 'text-[#1877F2]', bg: 'bg-blue-50' },
                   { label: t.features.omnichannel.instagram, icon: 'instagram', color: 'text-[#E4405F]', bg: 'bg-pink-50' },
                   { label: t.features.omnichannel.messenger, icon: 'messenger', color: 'text-[#0084FF]', bg: 'bg-sky-50' },
-                ].map((channel, index) => (
-                  <div class={`col-span-2 ${index === 3 ? 'col-start-2' : ''} ${index === 4 ? 'col-start-4' : ''} sm:col-span-1 sm:col-start-auto flex flex-col items-center justify-center gap-1.5 rounded-xl bg-white px-2 py-2 text-center shadow-sm ring-1 ring-zinc-900/[0.03] sm:flex-row sm:justify-start sm:gap-3 sm:px-3 sm:py-2.5 sm:text-left sm:shadow-none sm:ring-0`}>
+                ].map((channel) => (
+                  <div class="flex flex-col items-center justify-center gap-1.5 rounded-xl bg-white px-1.5 py-2 text-center shadow-sm ring-1 ring-zinc-900/[0.05] sm:flex-row sm:justify-start sm:gap-3 sm:px-3 sm:py-2.5 sm:text-left sm:shadow-none sm:ring-0">
                     <div class={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 ${channel.bg} ${channel.color}`}>
                       {channel.icon === 'email' && (
                         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
@@ -466,18 +462,15 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                         </svg>
                       )}
                     </div>
-                    <span class="max-w-full truncate text-[10px] font-bold leading-tight text-zinc-700 sm:text-sm">{channel.label}</span>
+                    <span class="max-w-full truncate text-[9px] font-bold leading-tight text-zinc-700 sm:text-sm">{channel.label}</span>
                   </div>
                 ))}
               </div>
 
               <div class="hidden sm:block sm:min-h-[16rem]" aria-hidden="true"></div>
 
-              <div class="mx-auto w-[10.5rem] rounded-2xl bg-zinc-950 p-4 text-center text-white shadow-xl shadow-zinc-950/10 sm:mx-0 sm:w-auto sm:p-5 sm:shadow-none">
-                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white sm:h-20 sm:w-20">
-                  <img src="/images/landing/logo-black.png" alt="" class="h-9 w-9 object-contain brightness-0" loading="lazy" width="36" height="36" aria-hidden="true" />
-                </div>
-                <div class="mt-4 text-sm font-bold">Chataptor</div>
+              <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-zinc-950 shadow-xl shadow-zinc-950/10 sm:mx-0 sm:h-20 sm:w-20">
+                <img src="/images/landing/logo-black.png" alt="" class="h-8 w-8 object-contain brightness-0 invert sm:h-10 sm:w-10" loading="lazy" width="40" height="40" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -487,31 +480,30 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       <!-- REAL-TIME TRANSLATION -->
       <section class="pt-0 pb-10 md:pb-14 lg:pb-16 px-4 md:px-6 max-w-7xl mx-auto w-full">
         <div class="grid gap-6 lg:gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-center">
-          <div class="order-2 lg:order-1 relative overflow-hidden rounded-[1.5rem] bg-zinc-50 p-4 md:p-6">
-            <div class="space-y-4">
-              <div class="mr-auto w-[68%] min-w-[15rem] max-w-full rounded-2xl rounded-tl-sm bg-white p-4 text-sm text-zinc-800">
-                <div class="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
+          <div class="order-2 lg:order-1 relative overflow-hidden rounded-[1.5rem] py-2 md:p-4">
+            <div class="space-y-3 md:space-y-4">
+              <div class="mr-auto w-[62%] min-w-[12rem] max-w-full rounded-2xl rounded-tl-sm bg-white p-3 text-xs text-zinc-800 shadow-sm ring-1 ring-zinc-900/[0.04] md:min-w-[14rem] md:text-sm">
+                <div class="mb-2.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
                   <img src="/images/flags/de.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" loading="lazy" aria-hidden="true" />
                   DE
                 </div>
                 <div class="font-medium text-zinc-900">{t.howItWorks.step3.exampleMessage}</div>
-                <div class="mt-3 border-t border-zinc-100 pt-3 text-sm font-medium text-emerald-700">{t.howItWorks.step3.exampleTranslation}</div>
+                <div class="mt-2.5 border-t border-zinc-100 pt-2.5 text-xs font-medium text-emerald-700 md:text-sm">{t.howItWorks.step3.exampleTranslation}</div>
               </div>
 
-              <div class="mx-auto flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
-                <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-white text-emerald-600 shadow-sm ring-1 ring-zinc-900/[0.05] md:h-14 md:w-14">
+                <svg class="h-6 w-6 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.05 9.5A18 18 0 0 1 6.4 9m6.1 9h7M11 21l5-10 5 10"></path>
                 </svg>
-                AI
               </div>
 
-              <div class="ml-auto w-[68%] min-w-[15rem] max-w-full rounded-2xl rounded-tr-sm bg-zinc-950 p-4 text-sm text-white">
-                <div class="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
+              <div class="ml-auto w-[62%] min-w-[12rem] max-w-full rounded-2xl rounded-tr-sm bg-zinc-950 p-3 text-xs text-white shadow-sm md:min-w-[14rem] md:text-sm">
+                <div class="mb-2.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
                   <img src="/images/flags/pl.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" loading="lazy" aria-hidden="true" />
                   PL
                 </div>
                 <div class="font-medium">{t.features.translation.checking}</div>
-                <div class="mt-3 border-t border-white/15 pt-3 text-sm font-medium text-emerald-300">Ich überprüfe das...</div>
+                <div class="mt-2.5 border-t border-white/15 pt-2.5 text-xs font-medium text-emerald-300 md:text-sm">Ich überprüfe das...</div>
               </div>
             </div>
           </div>
@@ -723,23 +715,23 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                 {t.mobileApp.description}
               </p>
 
-              <div class="inline-flex items-center gap-3 rounded-2xl bg-zinc-50 ring-1 ring-zinc-200 px-4 py-3 mb-8">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span class="text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">{t.mobileApp.instant}</span>
+              <div class="mb-6 inline-flex max-w-full items-center gap-2 rounded-2xl bg-zinc-50 px-3 py-2 ring-1 ring-zinc-200 md:mb-8 md:gap-3 md:px-4 md:py-3">
+                <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 animate-pulse md:h-2 md:w-2"></span>
+                <span class="truncate text-[9px] font-bold uppercase tracking-[0.08em] text-zinc-500 sm:text-[10px] md:text-[11px] md:tracking-[0.18em]">{t.mobileApp.instant}</span>
               </div>
 
-              <div class="flex flex-row flex-nowrap gap-2 sm:gap-3 md:gap-4 items-center">
-                <a href={appStoreUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex shrink-0 rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.appStoreAlt}>
-                  <img src="/images/landing/app_store.svg" alt={t.mobileApp.appStoreAlt} class="h-10 sm:h-12 md:h-14 w-auto" loading="lazy" />
+              <div class="mx-auto grid w-full max-w-[22rem] grid-cols-2 gap-2 sm:mx-0 sm:max-w-[24rem] sm:gap-3 md:gap-4">
+                <a href={appStoreUrl} target="_blank" rel="noopener noreferrer nofollow" class="flex aspect-[163/48] w-full rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.appStoreAlt}>
+                  <img src="/images/landing/app_store.svg" alt={t.mobileApp.appStoreAlt} class="h-full w-full" loading="lazy" />
                 </a>
-                <a href={googlePlayUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex shrink-0 rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.googlePlayAlt}>
-                  <img src="/images/landing/google_play.svg" alt={t.mobileApp.googlePlayAlt} class="h-10 sm:h-12 md:h-14 w-auto" loading="lazy" />
+                <a href={googlePlayUrl} target="_blank" rel="noopener noreferrer nofollow" class="flex aspect-[163/48] w-full rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.googlePlayAlt}>
+                  <img src="/images/landing/google_play.svg" alt={t.mobileApp.googlePlayAlt} class="h-full w-full" loading="lazy" />
                 </a>
               </div>
             </div>
 
-            <div class="relative flex justify-center lg:justify-end">
-              <div class="relative grid grid-cols-2 gap-2 sm:gap-8 xl:gap-10 items-center">
+            <div class="relative -mx-4 flex justify-center overflow-visible md:mx-0 lg:justify-end">
+              <div class="relative flex w-screen max-w-[100vw] items-center justify-between px-2 sm:w-auto sm:max-w-none sm:gap-8 sm:px-0 xl:gap-10">
                 <div>
                   <div class="mb-2 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase text-zinc-400">
                     <span>Chaos</span>
@@ -747,7 +739,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6 6 18"></path>
                     </svg>
                   </div>
-                  <div class="relative w-[9rem] sm:w-[13rem] xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
+                  <div class="relative w-[45vw] max-w-[11.5rem] sm:w-[13rem] sm:max-w-none xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
                     <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -left-[3px] top-[28%] h-11 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -right-[3px] top-[24%] h-12 w-[3px] rounded-r-full bg-zinc-700"></span>
@@ -843,7 +835,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                       <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <div class="relative w-[9rem] sm:w-[13rem] xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
+                  <div class="relative w-[45vw] max-w-[11.5rem] sm:w-[13rem] sm:max-w-none xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
                     <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -left-[3px] top-[28%] h-11 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -right-[3px] top-[24%] h-12 w-[3px] rounded-r-full bg-zinc-700"></span>
