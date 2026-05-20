@@ -418,9 +418,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   <path d="M0 0L10 5L0 10Z" fill="#a1a1aa"></path>
                 </marker>
               </defs>
-              <path d="M172 38H332M172 94H332M172 150H332M172 206H332M172 262H332" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
+              <path d="M210 38H332M210 94H332M210 150H332M210 206H332M210 262H332" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
               <path d="M332 38V262" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
-              <path d="M332 150H572" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-section-arrow)"></path>
+              <path d="M332 150H535" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-section-arrow)"></path>
             </svg>
 
             <div class="relative z-10 grid gap-6 sm:gap-6 sm:grid-cols-[12rem_1fr_13rem] sm:items-center">
@@ -432,7 +432,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   { label: t.features.omnichannel.instagram, icon: 'instagram', color: 'text-[#E4405F]', bg: 'bg-pink-50' },
                   { label: t.features.omnichannel.messenger, icon: 'messenger', color: 'text-[#0084FF]', bg: 'bg-sky-50' },
                 ].map((channel) => (
-                  <div class="flex flex-col items-center justify-center gap-1.5 rounded-xl bg-white px-1.5 py-2 text-center shadow-sm ring-1 ring-zinc-900/[0.05] sm:flex-row sm:justify-start sm:gap-3 sm:bg-zinc-50/70 sm:px-3 sm:py-2.5 sm:text-left sm:shadow-none sm:ring-1 sm:ring-zinc-200/50">
+                  <div class="flex flex-col items-center justify-center gap-1.5 rounded-xl bg-white px-1.5 py-2 text-center shadow-sm ring-1 ring-zinc-900/[0.05] sm:flex-row sm:justify-start sm:gap-3 sm:bg-zinc-50 sm:px-3 sm:py-2.5 sm:text-left sm:shadow-none sm:ring-1 sm:ring-zinc-200/60">
                     <div class={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 ${channel.bg} ${channel.color}`}>
                       {channel.icon === 'email' && (
                         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
@@ -747,7 +747,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
             <div class="relative -mx-4 flex justify-center overflow-visible md:mx-0 lg:justify-end">
               <div class="relative flex w-screen max-w-[100vw] items-center justify-between px-2 sm:w-auto sm:max-w-none sm:gap-8 sm:px-0 xl:gap-10">
                 <div>
-                  <div class="mb-2 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase text-zinc-400">
+                  <div class="mb-2 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase text-red-500">
                     <span>Chaos</span>
                     <svg class="h-3.5 w-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6 6 18"></path>
