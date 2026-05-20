@@ -410,7 +410,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       eyebrow: 'Produkt w skrócie',
       title: 'Jedno miejsce do rozmów z klientami z każdego kanału.',
       subtitle: 'Klient pisze z live chatu, e-maila albo social mediów i w swoim języku. Ty widzisz wiadomość po polsku i odpowiadasz po swojemu.',
-      inbox: { title: 'Jeden panel do wiadomości', description: 'Wszystkie rozmowy trafiają do jednej uporządkowanej skrzynki.' },
+      inbox: { title: 'Jeden panel do wszystkiego', description: 'Wszystkie rozmowy trafiają do jednej uporządkowanej skrzynki.' },
       translation: { title: 'Automatyczne tłumaczenia AI', description: 'Chataptor tłumaczy wiadomości klienta i Twoje odpowiedzi w czasie rzeczywistym.' },
       liveChat: { title: 'Live chat na Twojej stronie', description: 'Dodajesz widget do strony i tworzysz nowy kanał kontaktu bez przebudowy serwisu.' },
       mobile: { title: 'Aplikacja mobilna', description: 'Dostajesz powiadomienia i odpisujesz z telefonu w swoim języku.' },
