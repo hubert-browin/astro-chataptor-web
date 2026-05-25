@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Slovakia flag">
+  <path fill="#fff" d="M0 0h640v160H0z"/>
+  <path fill="#0b4ea2" d="M0 160h640v160H0z"/>
+  <path fill="#ee1c25" d="M0 320h640v160H0z"/>
+  <path fill="#fff" d="M190 118c42 24 88 24 130 0v128c0 66-40 104-65 116-25-12-65-50-65-116z"/>
+  <path fill="#ee1c25" d="M203 138c34 14 70 14 104 0v105c0 50-30 80-52 93-22-13-52-43-52-93z"/>
+  <path fill="#fff" d="M247 166h16v36h35v16h-35v35h-16v-35h-35v-16h35z"/>
+  <path fill="#0b4ea2" d="M214 276c16-18 32-18 48 0 17-18 33-18 50 0-10 30-32 50-57 61-21-10-34-28-41-61z"/>
+</svg>

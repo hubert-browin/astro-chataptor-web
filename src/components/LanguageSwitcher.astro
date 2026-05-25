@@ -1,0 +1,90 @@
+---
+import { locales, localeFlagSrc, localeNames, type Locale } from '../i18n/config';
+
+interface Props {
+  currentLang: Locale;
+  slug: string;
+}
+
+const { currentLang, slug } = Astro.props;
+---
+
+<div class="relative language-switcher z-50">
+  <button
+    type="button"
+    class="lang-switcher-btn flex items-center gap-2 px-3 py-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors cursor-pointer"
+    aria-label="Select language"
+    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dropdown-arrow').classList.toggle('rotate-180'); event.stopPropagation();"
+  >
+    <img
+      src={localeFlagSrc[currentLang]}
+      alt=""
+      class="h-4 w-6 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm"
+      width="24"
+      height="16"
+      aria-hidden="true"
+    />
+    <span class="hidden sm:inline">{localeNames[currentLang]}</span>
+    <span class="sm:hidden uppercase">{currentLang}</span>
+    <svg
+      class="w-4 h-4 transition-transform dropdown-arrow"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"
+      />
+    </svg>
+  </button>
+
+  <ul
+    class="absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-lg ring-1 ring-zinc-200 py-2 z-[100] hidden dropdown-menu"
+  >
+    {locales.map((locale) => (
+      <li>
+        <a
+          href={`/${locale}/${slug}`}
+          hreflang={locale}
+          class:list={[
+            'flex items-center gap-2 px-3 py-2 text-sm hover:bg-zinc-50 transition-colors',
+            locale === currentLang
+              ? 'text-zinc-900 font-semibold bg-zinc-50'
+              : 'text-zinc-600',
+          ]}
+        >
+          <img
+            src={localeFlagSrc[locale]}
+            alt=""
+            class="h-4 w-6 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm"
+            width="24"
+            height="16"
+            loading="lazy"
+            aria-hidden="true"
+          />
+          <span>{localeNames[locale]}</span>
+          <span class="ml-auto text-[10px] font-bold uppercase tracking-wide text-zinc-400">
+            {locale}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.language-switcher').forEach((switcher) => {
+      if (!switcher.contains(e.target as Node)) {
+        const menu = switcher.querySelector('.dropdown-menu');
+        const arrow = switcher.querySelector('.dropdown-arrow');
+        menu?.classList.add('hidden');
+        arrow?.classList.remove('rotate-180');
+      }
+    });
+  });
+</script>

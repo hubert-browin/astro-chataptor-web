@@ -1,0 +1,42 @@
+---
+interface PlatformFeature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  badge: string;
+  title: string;
+  subtitle: string;
+  features: PlatformFeature[];
+  backgroundClass?: string;
+}
+
+const { badge, title, subtitle, features, backgroundClass = 'bg-gradient-to-br from-violet-50 to-blue-50' } = Astro.props;
+---
+
+<section class:list={['py-20 px-6', backgroundClass]}>
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="inline-flex items-center gap-1.5 bg-white text-violet-700 text-xs font-semibold px-3 py-1.5 rounded-full ring-1 ring-violet-200 mb-4">
+      <slot name="badge-icon" />
+      {badge}
+    </span>
+    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
+      {title}
+    </h2>
+    <p class="text-base text-zinc-500 max-w-lg mx-auto mb-12 leading-relaxed">
+      {subtitle}
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {features.map((feature) => (
+        <div class="bg-white rounded-2xl p-6 ring-1 ring-violet-100 text-left">
+          <div class="text-2xl mb-3">{feature.icon}</div>
+          <h3 class="text-sm font-bold mb-2">{feature.title}</h3>
+          <p class="text-sm text-zinc-500 leading-relaxed">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

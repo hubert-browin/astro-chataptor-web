@@ -1,0 +1,44 @@
+---
+interface Step {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  label: string;
+  title: string;
+  subtitle: string;
+  steps: Step[];
+}
+
+const { label, title, subtitle, steps } = Astro.props;
+---
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs font-bold uppercase tracking-widest text-emerald-600 text-center mb-3">
+      {label}
+    </p>
+    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-3">
+      {title}
+    </h2>
+    <p class="text-base text-zinc-500 text-center max-w-lg mx-auto mb-12 leading-relaxed">
+      {subtitle}
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-8 md:gap-6 justify-center">
+      {steps.map((step, i) => (
+        <div class="flex-1 text-center relative">
+          <div class="w-12 h-12 rounded-full bg-zinc-900 text-white flex items-center justify-center text-lg font-bold mx-auto mb-4">
+            {i + 1}
+          </div>
+          <h3 class="text-base font-bold mb-2">{step.title}</h3>
+          <p class="text-sm text-zinc-500 leading-relaxed max-w-[220px] mx-auto">{step.description}</p>
+          {i < steps.length - 1 && (
+            <span class="hidden md:block absolute top-6 -right-3 text-zinc-300 text-xl">→</span>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
