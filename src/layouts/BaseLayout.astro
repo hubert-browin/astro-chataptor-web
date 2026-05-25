@@ -5,6 +5,7 @@ import SEOHead from '../components/SEOHead.astro';
 import CallbackWidget from '../components/CallbackWidget.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import type { Locale } from '../i18n/config';
+import type { AlternateUrl } from '../utils/i18n';
 import '../styles/global.css';
 
 interface Props {
@@ -15,8 +16,11 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   publishedAt?: Date;
-  author?: string;         // <-- NOWE: Przekazywanie autora dla bloga
-  noindex?: boolean;       // <-- NOWE: Obsługa tagu noindex
+  updatedAt?: Date;
+  author?: string;
+  noindex?: boolean;
+  canonicalUrl?: string;
+  alternateUrls?: AlternateUrl[];
   isLandingPage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
@@ -30,8 +34,11 @@ const {
   image, 
   type,
   publishedAt,
-  author,                  // <-- ODBIÓR NOWEGO PROPSA
-  noindex = false,         // <-- ODBIÓR NOWEGO PROPSA (domyślnie false)
+  updatedAt,
+  author,
+  noindex = false,
+  canonicalUrl,
+  alternateUrls,
   isLandingPage = false, 
   hideHeader = false, 
   hideFooter = false 
@@ -59,8 +66,11 @@ const {
       image={image}
       type={type}
       publishedAt={publishedAt}
-      author={author}      {/* <-- PRZEKAZANIE DO SEOHead */}
-      noindex={noindex}    {/* <-- PRZEKAZANIE DO SEOHead */}
+      updatedAt={updatedAt}
+      author={author}
+      noindex={noindex}
+      canonicalUrl={canonicalUrl}
+      alternateUrls={alternateUrls}
     />
 
     {/* GLOBALNE STYLE SKALOWANIA */}
@@ -171,7 +181,7 @@ const {
   </head>
   <body class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
     
-    {!hideHeader && <Header lang={lang} isLandingPage={isLandingPage} />}
+    {!hideHeader && <Header lang={lang} slug={slug} alternateUrls={alternateUrls} isLandingPage={isLandingPage} />}
 
     <div class="flex-1 w-full">
       <slot />

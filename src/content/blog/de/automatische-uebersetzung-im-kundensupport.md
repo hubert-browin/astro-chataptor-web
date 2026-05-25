@@ -2,6 +2,7 @@
 title: "Automatische Übersetzung im Kundensupport – so funktioniert es"
 description: "Wie verkürzt automatische Übersetzung die Antwortzeit und verbessert den CSAT? Kennzahlen zum Prüfen und konkrete Schritte zur Implementierung für E-Commerce und Dienstleister."
 lang: "de"
+translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
 updatedAt: 2025-03-03
 author: "Chataptor Team"

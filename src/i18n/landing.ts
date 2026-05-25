@@ -90,7 +90,6 @@ export interface LandingTranslations {
     spain: { name: string; sub: string };
     uk: { name: string; sub: string };
     poland: { name: string; sub: string };
-    allLanguages: { name: string; sub: string };
     homeMarket: string;
   };
   // How it works section
@@ -126,16 +125,6 @@ export interface LandingTranslations {
       trendUp: string;
     };
   };
-  // Product story section
-  productStory: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
-    inbox: { title: string; description: string };
-    translation: { title: string; description: string };
-    liveChat: { title: string; description: string };
-    mobile: { title: string; description: string };
-  };
   // Implementation section
   implementation: {
     title: string;
@@ -147,9 +136,6 @@ export interface LandingTranslations {
     step4: { title: string; description: string };
     codeComment: string;
     codeMetaComment: string;
-    previewTitle: string;
-    previewStatus: string;
-    previewGreeting: string;
   };
   // Features section
   features: {
@@ -178,10 +164,6 @@ export interface LandingTranslations {
       oneInbox: string;
       allMessages: string;
       andMore: string;
-      inboxPreview: string;
-      translatedLabel: string;
-      sourceLabel: string;
-      languageLabel: string;
     };
     marketing: {
       title: string;
@@ -201,12 +183,6 @@ export interface LandingTranslations {
     instant: string;
     appStoreAlt: string;
     googlePlayAlt: string;
-  };
-  // Product demo section
-  productDemo: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
   };
   // Pricing section
   pricing: {
@@ -365,14 +341,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'Niemiecki', sub: '+130M użytkowników' },
-      france: { name: 'Francuski', sub: '+320M użytkowników' },
-      italy: { name: 'Włoski', sub: '+67M użytkowników' },
-      spain: { name: 'Hiszpański', sub: '+590M użytkowników' },
-      uk: { name: 'Angielski', sub: '+1.5B użytkowników' },
-      poland: { name: 'Polski', sub: '' },
-      allLanguages: { name: 'Wszystkie języki', sub: 'Cały świat' },
-      homeMarket: 'Język bazowy',
+      germany: { name: 'Niemcy', sub: '+83M klientów' },
+      france: { name: 'Francja', sub: '+67M klientów' },
+      italy: { name: 'Włochy', sub: '+59M klientów' },
+      spain: { name: 'Hiszpania', sub: '+47M klientów' },
+      uk: { name: 'Wlk. Brytania', sub: '+67M klientów' },
+      poland: { name: 'Polska', sub: '' },
+      homeMarket: 'Rynek domowy',
     },
     howItWorks: {
       title: 'Od lokalnej firmy<br/>do globalnego gracza.',
@@ -406,32 +381,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Trend wzrostowy',
       },
     },
-    productStory: {
-      eyebrow: 'Produkt w skrócie',
-      title: 'Jedno miejsce do rozmów z klientami z każdego kanału.',
-      subtitle: 'Klient pisze z live chatu, e-maila albo social mediów i w swoim języku. Ty widzisz wiadomość po polsku i odpowiadasz po swojemu.',
-      inbox: { title: 'Jeden panel do wszystkiego', description: 'Wszystkie rozmowy trafiają do jednej uporządkowanej skrzynki.' },
-      translation: { title: 'Automatyczne tłumaczenia AI', description: 'Chataptor tłumaczy wiadomości klienta i Twoje odpowiedzi w czasie rzeczywistym.' },
-      liveChat: { title: 'Live chat na Twojej stronie', description: 'Dodajesz widget do strony i tworzysz nowy kanał kontaktu bez przebudowy serwisu.' },
-      mobile: { title: 'Aplikacja mobilna', description: 'Dostajesz powiadomienia i odpisujesz z telefonu w swoim języku.' },
-    },
     implementation: {
-      title: 'Dodaj live chat<br/>do swojej strony.',
-      subtitle: 'Wklejasz jeden snippet, a nowy kanał rozmowy pojawia się na stronie w',
+      title: 'Wdrożenie szybsze niż<br/>parzenie kawy.',
+      subtitle: 'Nie potrzebujesz armii programistów. Nasz widget zintegruje się z Twoją stroną w',
       timeHighlight: '3 minuty',
-      step1: { title: 'Utwórz kanał Live Chat', description: 'Nadaj nazwę, ustaw język zespołu i skopiuj gotowy kod.' },
-      step2: { title: 'Wklej snippet', description: 'Dodaj go do strony, CMS lub sklepu internetowego.' },
-      step3: { title: 'Wiadomości trafiają do Chataptora', description: 'Każde pytanie z widgetu wpada do tego samego panelu co pozostałe kanały.' },
-      step4: { title: 'Odpowiadasz z panelu lub aplikacji', description: 'Piszesz po polsku, a Chataptor tłumaczy odpowiedź klientowi.' },
+      step1: { title: 'Skopiuj snippet', description: 'Dostępny w Twoim panelu administratora.' },
+      step2: { title: 'Wklej w <head>', description: 'Działa z każdym CMS i customową stroną.' },
+      step3: { title: 'Wybierz języki', description: 'Włącz niemiecki, francuski lub włoski jednym kliknięciem.' },
+      step4: { title: 'Integracja (Opcjonalne)', description: 'Podłącz e-mail, Instagram, Facebook i WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'Twoje meta tagi',
-      previewTitle: 'Widget live chat',
-      previewStatus: 'Online',
-      previewGreeting: 'Dzień dobry! Jak możemy pomóc?',
     },
     features: {
-      title: 'Komunikacja z klientami, bez barier językowych.',
-      subtitle: 'Jeden panel, wiele kanałów i automatyczne tłumaczenia AI. Chataptor porządkuje rozmowy, zanim Twój zespół w ogóle zacznie odpisywać.',
+      title: 'Nowoczesna obsługa klienta.',
+      subtitle: 'Zastąp Intercom, Mailchimp i zewnętrznych tłumaczy jednym narzędziem zaprojektowanym dla nowoczesnych firm.',
       translation: {
         title: 'Real-time Translation',
         description: 'Silnik oparty na OpenAI i DeepL. Klient pisze po niemiecku, Ty widzisz to od razu po polsku. Zero opóźnień, zero nieporozumień.',
@@ -440,7 +403,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Market Unlock',
         description: 'Włącz nowy rynek jednym kliknięciem. Skaluj sprzedaż bez granic.',
-        totalPotential: 'Skaluj swój biznes bez granic.',
+        totalPotential: 'Całkowity potencjał rynku',
         availableCustomers: 'Dostępni klienci',
       },
       omnichannel: {
@@ -455,10 +418,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'Jeden panel',
         allMessages: 'Wszystkie wiadomości trafiają tutaj',
         andMore: '...i wiele więcej',
-        inboxPreview: 'Inbox Chataptor',
-        translatedLabel: 'Przetłumaczone na Twój język',
-        sourceLabel: 'Kanał',
-        languageLabel: 'Język klienta',
       },
       marketing: {
         title: 'Marketing',
@@ -469,7 +428,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'Aplikacja mobilna',
       title: 'Odpowiadaj szybciej, gdziekolwiek jesteś.',
-      description: 'Wiadomość z live chatu, WhatsAppa albo e-maila trafia na telefon od razu w Twoim języku. Odpisujesz po swojemu, a Chataptor tłumaczy odpowiedź klientowi.',
+      description: 'Chataptor działa także na iOS i Androidzie. Otrzymujesz powiadomienie o nowej wiadomości i możesz błyskawicznie odpisać klientowi z telefonu.',
       notificationTitle: 'Nowa wiadomość',
       notificationBody: 'Klient napisał z WhatsAppa',
       replyTitle: 'Szybka odpowiedź',
@@ -477,11 +436,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Powiadomienia push w czasie rzeczywistym',
       appStoreAlt: 'Pobierz w App Store',
       googlePlayAlt: 'Pobierz z Google Play',
-    },
-    productDemo: {
-      eyebrow: 'Panel agenta',
-      title: 'Tak wygląda praca w jednym panelu.',
-      subtitle: 'Widzisz kanał, język klienta i tłumaczenie w tym samym miejscu, bez przełączania narzędzi.',
     },
     pricing: {
       title: 'Wybierz plan dla siebie',
@@ -638,14 +592,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'German', sub: '+130M speakers' },
-      france: { name: 'French', sub: '+320M speakers' },
-      italy: { name: 'Italian', sub: '+67M speakers' },
-      spain: { name: 'Spanish', sub: '+590M speakers' },
-      uk: { name: 'English', sub: '+1.5B speakers' },
-      poland: { name: 'Polish', sub: '' },
-      allLanguages: { name: 'All languages', sub: 'Whole world' },
-      homeMarket: 'Base language',
+      germany: { name: 'Germany', sub: '+83M customers' },
+      france: { name: 'France', sub: '+67M customers' },
+      italy: { name: 'Italy', sub: '+59M customers' },
+      spain: { name: 'Spain', sub: '+47M customers' },
+      uk: { name: 'UK', sub: '+67M customers' },
+      poland: { name: 'Poland', sub: '' },
+      homeMarket: 'Home market',
     },
     howItWorks: {
       title: 'From local shop<br/>to global player.',
@@ -679,32 +632,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Upward trend',
       },
     },
-    productStory: {
-      eyebrow: 'Product in brief',
-      title: 'One place to talk to customers from every channel.',
-      subtitle: 'A customer writes from live chat, email, or social media in their own language. You read it in English and reply naturally.',
-      inbox: { title: 'One inbox for messages', description: 'All conversations land in one organized support workspace.' },
-      translation: { title: 'Automatic AI translation', description: 'Chataptor translates customer messages and your replies in real time.' },
-      liveChat: { title: 'Live chat on your website', description: 'Add a widget to your site and create a new contact channel without rebuilding anything.' },
-      mobile: { title: 'Mobile app', description: 'Get notifications and reply from your phone in your own language.' },
-    },
     implementation: {
-      title: 'Add live chat<br/>to your website.',
-      subtitle: 'Paste one snippet and a new customer conversation channel appears on your site in',
+      title: 'Implementation faster than<br/>brewing coffee.',
+      subtitle: 'No army of developers needed. Our widget integrates with your website in',
       timeHighlight: '3 minutes',
-      step1: { title: 'Create a Live Chat channel', description: 'Name it, set your team language, and copy the ready code.' },
-      step2: { title: 'Paste the snippet', description: 'Add it to your website, CMS, or online store.' },
-      step3: { title: 'Messages land in Chataptor', description: 'Every question from the widget arrives in the same inbox as your other channels.' },
-      step4: { title: 'Reply from web or mobile', description: 'Write in English and Chataptor translates the answer for the customer.' },
+      step1: { title: 'Copy snippet', description: 'Available in your admin panel.' },
+      step2: { title: 'Paste in <head>', description: 'Works with any CMS or custom website.' },
+      step3: { title: 'Select languages', description: 'Enable German, French or Italian with one click.' },
+      step4: { title: 'Integration (Optional)', description: 'Connect email, Instagram, Facebook, and WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'Your meta tags',
-      previewTitle: 'Live chat widget',
-      previewStatus: 'Online',
-      previewGreeting: 'Hello! How can we help?',
     },
     features: {
-      title: 'Customer conversations without language barriers.',
-      subtitle: 'One inbox, many channels, and automatic AI translations. Chataptor organizes the conversation before your team even starts replying.',
+      title: 'Modern customer support.',
+      subtitle: 'Replace Intercom, Mailchimp and external translators with one tool designed for modern businesses.',
       translation: {
         title: 'Real-time Translation',
         description: 'Engine based on OpenAI and DeepL. Customer writes in German, you see it instantly in English. Zero delays, zero misunderstandings.',
@@ -713,7 +654,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Market Unlock',
         description: 'Unlock a new market with one click. Scale sales without borders.',
-        totalPotential: 'Scale your business without borders.',
+        totalPotential: 'Total market potential',
         availableCustomers: 'Available customers',
       },
       omnichannel: {
@@ -728,10 +669,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'One inbox',
         allMessages: 'Every message lands here',
         andMore: '...and much more',
-        inboxPreview: 'Chataptor inbox',
-        translatedLabel: 'Translated to your language',
-        sourceLabel: 'Channel',
-        languageLabel: 'Customer language',
       },
       marketing: {
         title: 'Marketing',
@@ -742,7 +679,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'Mobile app',
       title: 'Reply faster, wherever you are.',
-      description: 'A message from live chat, WhatsApp, or email reaches your phone in your language. You reply naturally, and Chataptor translates it for the customer.',
+      description: 'Chataptor also works on iOS and Android. Get notified about every new message and reply instantly from your phone.',
       notificationTitle: 'New message',
       notificationBody: 'A customer wrote from WhatsApp',
       replyTitle: 'Quick reply',
@@ -750,11 +687,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Real-time push notifications',
       appStoreAlt: 'Download on the App Store',
       googlePlayAlt: 'Get it on Google Play',
-    },
-    productDemo: {
-      eyebrow: 'Agent workspace',
-      title: 'This is how one-inbox support feels.',
-      subtitle: 'See the channel, customer language, and translation in one place, without switching tools.',
     },
     pricing: {
       title: 'Choose your plan',
@@ -911,14 +843,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'Deutsch', sub: '+130 Mio. Sprecher' },
-      france: { name: 'Französisch', sub: '+320 Mio. Sprecher' },
-      italy: { name: 'Italienisch', sub: '+67 Mio. Sprecher' },
-      spain: { name: 'Spanisch', sub: '+590 Mio. Sprecher' },
-      uk: { name: 'Englisch', sub: '+1.5 Mrd. Sprecher' },
-      poland: { name: 'Polnisch', sub: '' },
-      allLanguages: { name: 'Alle Sprachen', sub: 'Ganze Welt' },
-      homeMarket: 'Basissprache',
+      germany: { name: 'Deutschland', sub: '+83M Kunden' },
+      france: { name: 'Frankreich', sub: '+67M Kunden' },
+      italy: { name: 'Italien', sub: '+59M Kunden' },
+      spain: { name: 'Spanien', sub: '+47M Kunden' },
+      uk: { name: 'Großbritannien', sub: '+67M Kunden' },
+      poland: { name: 'Polen', sub: '' },
+      homeMarket: 'Heimatmarkt',
     },
     howItWorks: {
       title: 'Vom lokalen Unternehmen<br/>zum Global Player.',
@@ -952,32 +883,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Aufwärtstrend',
       },
     },
-    productStory: {
-      eyebrow: 'Produktüberblick',
-      title: 'Ein Ort für Kundengespräche aus jedem Kanal.',
-      subtitle: 'Kunden schreiben per Live-Chat, E-Mail oder Social Media in ihrer Sprache. Sie lesen alles auf Deutsch und antworten natürlich.',
-      inbox: { title: 'Ein Posteingang für Nachrichten', description: 'Alle Gespräche landen in einem klaren Support-Arbeitsbereich.' },
-      translation: { title: 'Automatische KI-Übersetzung', description: 'Chataptor übersetzt Kundennachrichten und Ihre Antworten in Echtzeit.' },
-      liveChat: { title: 'Live-Chat auf Ihrer Website', description: 'Fügen Sie ein Widget ein und schaffen Sie einen neuen Kontaktkanal ohne Website-Umbau.' },
-      mobile: { title: 'Mobile App', description: 'Erhalten Sie Benachrichtigungen und antworten Sie vom Telefon in Ihrer Sprache.' },
-    },
     implementation: {
-      title: 'Live-Chat auf<br/>Ihrer Website.',
-      subtitle: 'Fügen Sie ein Snippet ein und ein neuer Gesprächskanal erscheint auf Ihrer Website in',
+      title: 'Implementierung schneller als<br/>Kaffee kochen.',
+      subtitle: 'Keine Armee von Entwicklern nötig. Unser Widget integriert sich in Ihre Website in',
       timeHighlight: '3 Minuten',
-      step1: { title: 'Live-Chat-Kanal erstellen', description: 'Benennen Sie ihn, wählen Sie die Teamsprache und kopieren Sie den Code.' },
-      step2: { title: 'Snippet einfügen', description: 'Fügen Sie es in Website, CMS oder Shop ein.' },
-      step3: { title: 'Nachrichten landen in Chataptor', description: 'Jede Frage aus dem Widget kommt in denselben Posteingang wie andere Kanäle.' },
-      step4: { title: 'Antworten per Panel oder App', description: 'Sie schreiben auf Deutsch, Chataptor übersetzt die Antwort für den Kunden.' },
+      step1: { title: 'Snippet kopieren', description: 'Verfügbar in Ihrem Admin-Panel.' },
+      step2: { title: 'In <head> einfügen', description: 'Funktioniert mit jedem CMS oder jeder individuellen Website.' },
+      step3: { title: 'Sprachen wählen', description: 'Aktivieren Sie Englisch, Französisch oder Italienisch mit einem Klick.' },
+      step4: { title: 'Integration (Optional)', description: 'Verbinden Sie E-Mail, Instagram, Facebook und WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'Ihre Meta-Tags',
-      previewTitle: 'Live-Chat-Widget',
-      previewStatus: 'Online',
-      previewGreeting: 'Hallo! Wie können wir helfen?',
     },
     features: {
-      title: 'Kundengespräche ohne Sprachbarrieren.',
-      subtitle: 'Ein Posteingang, viele Kanäle und automatische KI-Übersetzung. Chataptor ordnet Gespräche, bevor Ihr Team antwortet.',
+      title: 'Moderner Kundenservice.',
+      subtitle: 'Ersetzen Sie Intercom, Mailchimp und externe Übersetzer durch ein Tool für moderne Unternehmen.',
       translation: {
         title: 'Echtzeit-Übersetzung',
         description: 'Engine basierend auf OpenAI und DeepL. Der Kunde schreibt auf Französisch, Sie sehen es sofort auf Deutsch. Keine Verzögerungen.',
@@ -986,7 +905,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Markt-Freischaltung',
         description: 'Erschließen Sie neue Märkte mit einem Klick. Skalieren Sie grenzenlos.',
-        totalPotential: 'Skalieren Sie Ihr Geschäft ohne Grenzen.',
+        totalPotential: 'Marktpotenzial',
         availableCustomers: 'Verfügbare Kunden',
       },
       omnichannel: {
@@ -1001,10 +920,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'Ein Posteingang',
         allMessages: 'Alle Nachrichten landen hier',
         andMore: '...und vieles mehr',
-        inboxPreview: 'Chataptor-Posteingang',
-        translatedLabel: 'In Ihre Sprache übersetzt',
-        sourceLabel: 'Kanal',
-        languageLabel: 'Kundensprache',
       },
       marketing: {
         title: 'Marketing',
@@ -1015,7 +930,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'Mobile App',
       title: 'Antworten Sie schneller, wo immer Sie sind.',
-      description: 'Nachrichten aus Live-Chat, WhatsApp oder E-Mail erreichen Ihr Telefon in Ihrer Sprache. Sie antworten natürlich, Chataptor übersetzt für den Kunden.',
+      description: 'Chataptor funktioniert auch auf iOS und Android. Sie erhalten Benachrichtigungen zu neuen Nachrichten und können sofort vom Smartphone antworten.',
       notificationTitle: 'Neue Nachricht',
       notificationBody: 'Ein Kunde schrieb über WhatsApp',
       replyTitle: 'Schnelle Antwort',
@@ -1023,11 +938,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Push-Benachrichtigungen in Echtzeit',
       appStoreAlt: 'Im App Store laden',
       googlePlayAlt: 'Bei Google Play herunterladen',
-    },
-    productDemo: {
-      eyebrow: 'Agentenbereich',
-      title: 'So arbeitet Support in einem Posteingang.',
-      subtitle: 'Kanal, Kundensprache und Übersetzung stehen an einem Ort, ohne Tool-Wechsel.',
     },
     pricing: {
       title: 'Wählen Sie Ihren Plan',
@@ -1184,14 +1094,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'Allemand', sub: '+130M locuteurs' },
-      france: { name: 'Français', sub: '+320M locuteurs' },
-      italy: { name: 'Italien', sub: '+67M locuteurs' },
-      spain: { name: 'Espagnol', sub: '+590M locuteurs' },
-      uk: { name: 'Anglais', sub: '+1.5Md locuteurs' },
-      poland: { name: 'Polonais', sub: '' },
-      allLanguages: { name: 'Toutes les langues', sub: 'Monde entier' },
-      homeMarket: 'Langue de base',
+      germany: { name: 'Allemagne', sub: '+83M clients' },
+      france: { name: 'France', sub: '+67M clients' },
+      italy: { name: 'Italie', sub: '+59M clients' },
+      spain: { name: 'Espagne', sub: '+47M clients' },
+      uk: { name: 'Royaume-Uni', sub: '+67M clients' },
+      poland: { name: 'Pologne', sub: '' },
+      homeMarket: 'Marché domestique',
     },
     howItWorks: {
       title: 'De l\'entreprise locale<br/>au marché mondial.',
@@ -1225,32 +1134,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Tendance haussière',
       },
     },
-    productStory: {
-      eyebrow: 'Produit en bref',
-      title: 'Un seul endroit pour parler aux clients de tous les canaux.',
-      subtitle: 'Le client écrit depuis le live chat, l’e-mail ou les réseaux sociaux dans sa langue. Vous lisez en français et répondez naturellement.',
-      inbox: { title: 'Une boîte de réception unique', description: 'Toutes les conversations arrivent dans un espace de support organisé.' },
-      translation: { title: 'Traduction IA automatique', description: 'Chataptor traduit les messages clients et vos réponses en temps réel.' },
-      liveChat: { title: 'Live chat sur votre site', description: 'Ajoutez un widget et créez un nouveau canal de contact sans refaire le site.' },
-      mobile: { title: 'Application mobile', description: 'Recevez les notifications et répondez depuis votre téléphone dans votre langue.' },
-    },
     implementation: {
-      title: 'Ajoutez le live chat<br/>à votre site.',
-      subtitle: 'Collez un snippet et un nouveau canal de conversation apparaît sur votre site en',
+      title: 'Implémentation plus rapide<br/>qu\'un café.',
+      subtitle: 'Pas besoin d\'une armée de développeurs. Notre widget s\'intègre à votre site en',
       timeHighlight: '3 minutes',
-      step1: { title: 'Créer un canal Live Chat', description: 'Nommez-le, choisissez la langue de l’équipe et copiez le code.' },
-      step2: { title: 'Coller le snippet', description: 'Ajoutez-le à votre site, CMS ou boutique en ligne.' },
-      step3: { title: 'Les messages arrivent dans Chataptor', description: 'Chaque question du widget rejoint la même boîte que vos autres canaux.' },
-      step4: { title: 'Répondre depuis le panel ou l’app', description: 'Vous écrivez en français, Chataptor traduit la réponse au client.' },
+      step1: { title: 'Copier le snippet', description: 'Disponible dans votre panneau d\'admin.' },
+      step2: { title: 'Coller dans <head>', description: 'Fonctionne avec tout CMS ou site sur mesure.' },
+      step3: { title: 'Choisir les langues', description: 'Activez l\'allemand ou l\'anglais en un clic.' },
+      step4: { title: 'Intégration (Optionnel)', description: 'Connectez e-mail, Instagram, Facebook et WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'Vos balises meta',
-      previewTitle: 'Widget live chat',
-      previewStatus: 'En ligne',
-      previewGreeting: 'Bonjour ! Comment pouvons-nous aider ?',
     },
     features: {
-      title: 'Des conversations client sans barrière de langue.',
-      subtitle: 'Une boîte de réception, plusieurs canaux et la traduction IA automatique. Chataptor organise les conversations avant même que votre équipe réponde.',
+      title: 'Support client moderne.',
+      subtitle: 'Remplacez Intercom, Mailchimp et les traducteurs externes par un outil conçu pour les entreprises modernes.',
       translation: {
         title: 'Traduction en temps réel',
         description: 'Moteur basé sur OpenAI et DeepL. Le client écrit en allemand, vous voyez le français. Zéro délai.',
@@ -1259,7 +1156,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Déblocage de marché',
         description: 'Ouvrez un nouveau marché en un clic. Développez vos ventes sans frontières.',
-        totalPotential: 'Développez votre activité sans frontières.',
+        totalPotential: 'Potentiel du marché',
         availableCustomers: 'Clients disponibles',
       },
       omnichannel: {
@@ -1274,10 +1171,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'Une boîte unique',
         allMessages: 'Tous les messages arrivent ici',
         andMore: '...et bien plus',
-        inboxPreview: 'Boîte Chataptor',
-        translatedLabel: 'Traduit dans votre langue',
-        sourceLabel: 'Canal',
-        languageLabel: 'Langue client',
       },
       marketing: {
         title: 'Marketing',
@@ -1288,7 +1181,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'Application mobile',
       title: 'Répondez plus vite, où que vous soyez.',
-      description: 'Un message du live chat, de WhatsApp ou de l’e-mail arrive sur votre téléphone dans votre langue. Vous répondez naturellement, Chataptor traduit pour le client.',
+      description: 'Chataptor fonctionne aussi sur iOS et Android. Recevez une notification pour chaque nouveau message et répondez instantanément depuis votre téléphone.',
       notificationTitle: 'Nouveau message',
       notificationBody: 'Un client a écrit via WhatsApp',
       replyTitle: 'Réponse rapide',
@@ -1296,11 +1189,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Notifications push en temps réel',
       appStoreAlt: 'Télécharger dans l\'App Store',
       googlePlayAlt: 'Disponible sur Google Play',
-    },
-    productDemo: {
-      eyebrow: 'Espace agent',
-      title: 'Voici le travail dans une boîte unique.',
-      subtitle: 'Canal, langue du client et traduction restent au même endroit, sans changer d’outil.',
     },
     pricing: {
       title: 'Choisissez votre plan',
@@ -1457,14 +1345,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'Alemán', sub: '+130M hablantes' },
-      france: { name: 'Francés', sub: '+320M hablantes' },
-      italy: { name: 'Italiano', sub: '+67M hablantes' },
-      spain: { name: 'Español', sub: '+590M hablantes' },
-      uk: { name: 'Inglés', sub: '+1.5B hablantes' },
-      poland: { name: 'Polaco', sub: '' },
-      allLanguages: { name: 'Todos los idiomas', sub: 'Todo el mundo' },
-      homeMarket: 'Idioma base',
+      germany: { name: 'Alemania', sub: '+83M clientes' },
+      france: { name: 'Francia', sub: '+67M clientes' },
+      italy: { name: 'Italia', sub: '+59M clientes' },
+      spain: { name: 'España', sub: '+47M clientes' },
+      uk: { name: 'Reino Unido', sub: '+67M clientes' },
+      poland: { name: 'Polonia', sub: '' },
+      homeMarket: 'Mercado local',
     },
     howItWorks: {
       title: 'De empresa local<br/>a jugador global.',
@@ -1498,32 +1385,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Tendencia al alza',
       },
     },
-    productStory: {
-      eyebrow: 'Producto en breve',
-      title: 'Un solo lugar para hablar con clientes de todos los canales.',
-      subtitle: 'El cliente escribe desde live chat, email o redes sociales en su idioma. Tú lo lees en español y respondes con naturalidad.',
-      inbox: { title: 'Una bandeja para mensajes', description: 'Todas las conversaciones llegan a un espacio de soporte ordenado.' },
-      translation: { title: 'Traducción IA automática', description: 'Chataptor traduce los mensajes del cliente y tus respuestas en tiempo real.' },
-      liveChat: { title: 'Live chat en tu web', description: 'Añade un widget y crea un nuevo canal de contacto sin rehacer tu sitio.' },
-      mobile: { title: 'Aplicación móvil', description: 'Recibe notificaciones y responde desde el teléfono en tu idioma.' },
-    },
     implementation: {
-      title: 'Añade live chat<br/>a tu sitio web.',
-      subtitle: 'Pegas un snippet y aparece un nuevo canal de conversación en tu sitio en',
+      title: 'Implementación más rápida<br/>que hacer un café.',
+      subtitle: 'No necesitas un ejército de programadores. Nuestro widget se integra en tu sitio web en',
       timeHighlight: '3 minutos',
-      step1: { title: 'Crea un canal Live Chat', description: 'Ponle nombre, define el idioma del equipo y copia el código.' },
-      step2: { title: 'Pega el snippet', description: 'Añádelo a tu web, CMS o tienda online.' },
-      step3: { title: 'Los mensajes llegan a Chataptor', description: 'Cada pregunta del widget entra en la misma bandeja que los demás canales.' },
-      step4: { title: 'Responde desde panel o app', description: 'Escribes en español y Chataptor traduce la respuesta para el cliente.' },
+      step1: { title: 'Copiar código', description: 'Disponible en tu panel de administración.' },
+      step2: { title: 'Pegar en <head>', description: 'Funciona con cualquier CMS o sitio web a medida.' },
+      step3: { title: 'Elegir idiomas', description: 'Activa alemán, inglés o francés con un clic.' },
+      step4: { title: 'Integración (Opcional)', description: 'Conecta email, Instagram, Facebook y WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'Tus meta etiquetas',
-      previewTitle: 'Widget live chat',
-      previewStatus: 'Online',
-      previewGreeting: '¡Hola! ¿Cómo podemos ayudar?',
     },
     features: {
-      title: 'Conversaciones con clientes sin barreras de idioma.',
-      subtitle: 'Una bandeja, muchos canales y traducción IA automática. Chataptor ordena cada conversación antes de que tu equipo responda.',
+      title: 'Atención al cliente moderna.',
+      subtitle: 'Reemplaza Intercom, Mailchimp y traductores externos con una herramienta para empresas modernas.',
       translation: {
         title: 'Traducción en tiempo real',
         description: 'Motor basado en OpenAI y DeepL. El cliente escribe en alemán, tú lo ves en español. Cero retrasos.',
@@ -1532,7 +1407,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Desbloqueo de mercado',
         description: 'Abre un nuevo mercado con un clic. Escala ventas sin fronteras.',
-        totalPotential: 'Escala tu negocio sin fronteras.',
+        totalPotential: 'Potencial de mercado',
         availableCustomers: 'Clientes disponibles',
       },
       omnichannel: {
@@ -1547,10 +1422,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'Una bandeja',
         allMessages: 'Todos los mensajes llegan aquí',
         andMore: '...y mucho más',
-        inboxPreview: 'Bandeja Chataptor',
-        translatedLabel: 'Traducido a tu idioma',
-        sourceLabel: 'Canal',
-        languageLabel: 'Idioma del cliente',
       },
       marketing: {
         title: 'Marketing',
@@ -1561,7 +1432,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'App móvil',
       title: 'Responde más rápido, estés donde estés.',
-      description: 'Un mensaje de live chat, WhatsApp o email llega al teléfono en tu idioma. Respondes con naturalidad y Chataptor lo traduce para el cliente.',
+      description: 'Chataptor también funciona en iOS y Android. Recibe notificaciones de cada mensaje nuevo y responde al instante desde tu teléfono.',
       notificationTitle: 'Nuevo mensaje',
       notificationBody: 'Un cliente escribió desde WhatsApp',
       replyTitle: 'Respuesta rápida',
@@ -1569,11 +1440,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Notificaciones push en tiempo real',
       appStoreAlt: 'Descargar en App Store',
       googlePlayAlt: 'Disponible en Google Play',
-    },
-    productDemo: {
-      eyebrow: 'Panel del agente',
-      title: 'Así se trabaja desde una sola bandeja.',
-      subtitle: 'Ves el canal, el idioma del cliente y la traducción en un solo lugar, sin cambiar de herramienta.',
     },
     pricing: {
       title: 'Elige tu plan',
@@ -1730,14 +1596,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'Tedesco', sub: '+130M parlanti' },
-      france: { name: 'Francese', sub: '+320M parlanti' },
-      italy: { name: 'Italiano', sub: '+67M parlanti' },
-      spain: { name: 'Spagnolo', sub: '+590M parlanti' },
-      uk: { name: 'Inglese', sub: '+1.5B parlanti' },
-      poland: { name: 'Polacco', sub: '' },
-      allLanguages: { name: 'Tutte le lingue', sub: 'Tutto il mondo' },
-      homeMarket: 'Lingua base',
+      germany: { name: 'Germania', sub: '+83M clienti' },
+      france: { name: 'Francia', sub: '+67M clienti' },
+      italy: { name: 'Italia', sub: '+59M clienti' },
+      spain: { name: 'Spagna', sub: '+47M clienti' },
+      uk: { name: 'Regno Unito', sub: '+67M clienti' },
+      poland: { name: 'Polonia', sub: '' },
+      homeMarket: 'Mercato domestico',
     },
     howItWorks: {
       title: 'Da azienda locale<br/>a player globale.',
@@ -1771,32 +1636,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Trend in crescita',
       },
     },
-    productStory: {
-      eyebrow: 'Prodotto in breve',
-      title: 'Un solo posto per parlare con clienti da ogni canale.',
-      subtitle: 'Il cliente scrive da live chat, email o social nel suo idioma. Tu leggi in italiano e rispondi naturalmente.',
-      inbox: { title: 'Una inbox per i messaggi', description: 'Tutte le conversazioni arrivano in uno spazio di supporto ordinato.' },
-      translation: { title: 'Traduzione IA automatica', description: 'Chataptor traduce i messaggi dei clienti e le tue risposte in tempo reale.' },
-      liveChat: { title: 'Live chat sul tuo sito', description: 'Aggiungi un widget e crei un nuovo canale di contatto senza rifare il sito.' },
-      mobile: { title: 'App mobile', description: 'Ricevi notifiche e rispondi dal telefono nella tua lingua.' },
-    },
     implementation: {
-      title: 'Aggiungi live chat<br/>al tuo sito.',
-      subtitle: 'Incolli uno snippet e un nuovo canale di conversazione appare sul sito in',
+      title: 'Implementazione più veloce<br/>di un caffè.',
+      subtitle: 'Non serve un esercito di programmatori. Il nostro widget si integra nel tuo sito in',
       timeHighlight: '3 minuti',
-      step1: { title: 'Crea un canale Live Chat', description: 'Dagli un nome, imposta la lingua del team e copia il codice.' },
-      step2: { title: 'Incolla lo snippet', description: 'Aggiungilo al sito, CMS o negozio online.' },
-      step3: { title: 'I messaggi arrivano in Chataptor', description: 'Ogni domanda dal widget entra nella stessa inbox degli altri canali.' },
-      step4: { title: 'Rispondi da pannello o app', description: 'Scrivi in italiano e Chataptor traduce la risposta al cliente.' },
+      step1: { title: 'Copia snippet', description: 'Disponibile nel tuo pannello admin.' },
+      step2: { title: 'Incolla in <head>', description: 'Funziona con qualsiasi CMS o sito custom.' },
+      step3: { title: 'Scegli lingue', description: 'Attiva tedesco, inglese o francese con un clic.' },
+      step4: { title: 'Integrazione (Opzionale)', description: 'Collega email, Instagram, Facebook e WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'I tuoi meta tag',
-      previewTitle: 'Widget live chat',
-      previewStatus: 'Online',
-      previewGreeting: 'Ciao! Come possiamo aiutarti?',
     },
     features: {
-      title: 'Conversazioni con i clienti senza barriere linguistiche.',
-      subtitle: 'Una inbox, tanti canali e traduzione IA automatica. Chataptor organizza le conversazioni prima che il team risponda.',
+      title: 'Assistenza clienti moderna.',
+      subtitle: 'Sostituisci Intercom, Mailchimp e traduttori esterni con uno strumento per aziende moderne.',
       translation: {
         title: 'Traduzione Real-time',
         description: 'Motore basato su OpenAI e DeepL. Il cliente scrive in tedesco, tu leggi in italiano. Zero ritardi.',
@@ -1805,7 +1658,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Sblocco Mercati',
         description: 'Apri un nuovo mercato con un clic. Scala le vendite senza confini.',
-        totalPotential: 'Scala il tuo business senza confini.',
+        totalPotential: 'Potenziale di mercato',
         availableCustomers: 'Clienti disponibili',
       },
       omnichannel: {
@@ -1820,10 +1673,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'Un\'unica inbox',
         allMessages: 'Tutti i messaggi arrivano qui',
         andMore: '...e molto altro',
-        inboxPreview: 'Inbox Chataptor',
-        translatedLabel: 'Tradotto nella tua lingua',
-        sourceLabel: 'Canale',
-        languageLabel: 'Lingua cliente',
       },
       marketing: {
         title: 'Marketing',
@@ -1834,7 +1683,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'App mobile',
       title: 'Rispondi più velocemente, ovunque tu sia.',
-      description: 'Un messaggio da live chat, WhatsApp o email arriva sul telefono nella tua lingua. Rispondi naturalmente e Chataptor traduce per il cliente.',
+      description: 'Chataptor funziona anche su iOS e Android. Ricevi notifiche per ogni nuovo messaggio e rispondi subito dal telefono.',
       notificationTitle: 'Nuovo messaggio',
       notificationBody: 'Un cliente ha scritto da WhatsApp',
       replyTitle: 'Risposta rapida',
@@ -1842,11 +1691,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Notifiche push in tempo reale',
       appStoreAlt: 'Scarica su App Store',
       googlePlayAlt: 'Disponibile su Google Play',
-    },
-    productDemo: {
-      eyebrow: 'Pannello agente',
-      title: 'Ecco come si lavora in una sola inbox.',
-      subtitle: 'Canale, lingua del cliente e traduzione restano nello stesso posto, senza cambiare strumento.',
     },
     pricing: {
       title: 'Scegli il tuo piano',
@@ -2003,14 +1847,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'Němčina', sub: '+130M mluvčích' },
-      france: { name: 'Francouzština', sub: '+320M mluvčích' },
-      italy: { name: 'Italština', sub: '+67M mluvčích' },
-      spain: { name: 'Španělština', sub: '+590M mluvčích' },
-      uk: { name: 'Angličtina', sub: '+1.5B mluvčích' },
-      poland: { name: 'Polština', sub: '' },
-      allLanguages: { name: 'Všechny jazyky', sub: 'Celý svět' },
-      homeMarket: 'Základní jazyk',
+      germany: { name: 'Německo', sub: '+83M zákazníků' },
+      france: { name: 'Francie', sub: '+67M zákazníků' },
+      italy: { name: 'Itálie', sub: '+59M zákazníků' },
+      spain: { name: 'Španělsko', sub: '+47M zákazníků' },
+      uk: { name: 'Velká Británie', sub: '+67M zákazníků' },
+      poland: { name: 'Polsko', sub: '' },
+      homeMarket: 'Domácí trh',
     },
     howItWorks: {
       title: 'Z lokální firmy<br/>globálním hráčem.',
@@ -2044,32 +1887,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Rostoucí trend',
       },
     },
-    productStory: {
-      eyebrow: 'Produkt ve zkratce',
-      title: 'Jedno místo pro komunikaci se zákazníky ze všech kanálů.',
-      subtitle: 'Zákazník píše z live chatu, e-mailu nebo sociálních sítí ve svém jazyce. Vy čtete česky a odpovídáte přirozeně.',
-      inbox: { title: 'Jedna schránka pro zprávy', description: 'Všechny konverzace přicházejí do jednoho přehledného pracovního prostoru.' },
-      translation: { title: 'Automatický AI překlad', description: 'Chataptor překládá zprávy zákazníků i vaše odpovědi v reálném čase.' },
-      liveChat: { title: 'Live chat na vašem webu', description: 'Přidáte widget a vytvoříte nový kontaktní kanál bez přestavby webu.' },
-      mobile: { title: 'Mobilní aplikace', description: 'Dostáváte upozornění a odpovídáte z telefonu ve svém jazyce.' },
-    },
     implementation: {
-      title: 'Přidejte live chat<br/>na svůj web.',
-      subtitle: 'Vložíte jeden snippet a nový komunikační kanál se na webu objeví za',
+      title: 'Implementace rychlejší než<br/>příprava kávy.',
+      subtitle: 'Nepotřebujete armádu programátorů. Náš widget se integruje do vašeho webu za',
       timeHighlight: '3 minuty',
-      step1: { title: 'Vytvořte kanál Live Chat', description: 'Pojmenujte ho, nastavte jazyk týmu a zkopírujte hotový kód.' },
-      step2: { title: 'Vložte snippet', description: 'Přidejte ho na web, do CMS nebo e-shopu.' },
-      step3: { title: 'Zprávy přicházejí do Chataptoru', description: 'Každý dotaz z widgetu přijde do stejné schránky jako ostatní kanály.' },
-      step4: { title: 'Odpovídáte z panelu nebo aplikace', description: 'Píšete česky a Chataptor přeloží odpověď zákazníkovi.' },
+      step1: { title: 'Zkopírujte kód', description: 'Dostupný ve vašem administrátorském panelu.' },
+      step2: { title: 'Vložte do <head>', description: 'Funguje s každým CMS i vlastním řešením.' },
+      step3: { title: 'Vyberte jazyky', description: 'Zapněte němčinu, angličtinu nebo francouzštinu jedním kliknutím.' },
+      step4: { title: 'Integrace (Volitelné)', description: 'Propojte e-mail, Instagram, Facebook a WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'Vaše meta tagy',
-      previewTitle: 'Widget live chat',
-      previewStatus: 'Online',
-      previewGreeting: 'Dobrý den! Jak můžeme pomoci?',
     },
     features: {
-      title: 'Konverzace se zákazníky bez jazykových bariér.',
-      subtitle: 'Jedna schránka, mnoho kanálů a automatický AI překlad. Chataptor uspořádá konverzace dřív, než tým odpoví.',
+      title: 'Moderní zákaznická podpora.',
+      subtitle: 'Nahraďte Intercom, Mailchimp a externí překladatele jedním nástrojem pro moderní firmy.',
       translation: {
         title: 'Překlad v reálném čase',
         description: 'Engine založený na OpenAI a DeepL. Zákazník píše německy, vy vidíte česky. Žádné zpoždění.',
@@ -2078,7 +1909,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Odemknutí trhu',
         description: 'Otevřete nový trh jedním kliknutím. Škálujte prodeje bez hranic.',
-        totalPotential: 'Škálujte své podnikání bez hranic.',
+        totalPotential: 'Potenciál trhu',
         availableCustomers: 'Dostupní zákazníci',
       },
       omnichannel: {
@@ -2093,10 +1924,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'Jedna schránka',
         allMessages: 'Všechny zprávy přicházejí sem',
         andMore: '...a mnohem více',
-        inboxPreview: 'Schránka Chataptor',
-        translatedLabel: 'Přeloženo do vašeho jazyka',
-        sourceLabel: 'Kanál',
-        languageLabel: 'Jazyk zákazníka',
       },
       marketing: {
         title: 'Marketing',
@@ -2107,7 +1934,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'Mobilní aplikace',
       title: 'Odpovídejte rychleji, ať jste kdekoli.',
-      description: 'Zpráva z live chatu, WhatsAppu nebo e-mailu dorazí do telefonu ve vašem jazyce. Odpovíte přirozeně a Chataptor ji přeloží zákazníkovi.',
+      description: 'Chataptor funguje také na iOS a Androidu. Dostanete upozornění na každou novou zprávu a můžete okamžitě odpovědět z telefonu.',
       notificationTitle: 'Nová zpráva',
       notificationBody: 'Zákazník napsal z WhatsAppu',
       replyTitle: 'Rychlá odpověď',
@@ -2115,11 +1942,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Push notifikace v reálném čase',
       appStoreAlt: 'Stáhnout v App Store',
       googlePlayAlt: 'Získat na Google Play',
-    },
-    productDemo: {
-      eyebrow: 'Panel agenta',
-      title: 'Tak vypadá práce v jedné schránce.',
-      subtitle: 'Kanál, jazyk zákazníka i překlad vidíte na jednom místě, bez přepínání nástrojů.',
     },
     pricing: {
       title: 'Vyberte si plán',
@@ -2276,14 +2098,13 @@ export const landing: Record<Locale, LandingTranslations> = {
       },
     },
     countries: {
-      germany: { name: 'Nemčina', sub: '+130M hovoriacich' },
-      france: { name: 'Francúzština', sub: '+320M hovoriacich' },
-      italy: { name: 'Taliančina', sub: '+67M hovoriacich' },
-      spain: { name: 'Španielčina', sub: '+590M hovoriacich' },
-      uk: { name: 'Angličtina', sub: '+1.5B hovoriacich' },
-      poland: { name: 'Poľština', sub: '' },
-      allLanguages: { name: 'Všetky jazyky', sub: 'Celý svet' },
-      homeMarket: 'Základný jazyk',
+      germany: { name: 'Nemecko', sub: '+83M zákazníkov' },
+      france: { name: 'Francúzsko', sub: '+67M zákazníkov' },
+      italy: { name: 'Taliansko', sub: '+59M zákazníkov' },
+      spain: { name: 'Španielsko', sub: '+47M zákazníkov' },
+      uk: { name: 'Veľká Británia', sub: '+67M zákazníkov' },
+      poland: { name: 'Poľsko', sub: '' },
+      homeMarket: 'Domáci trh',
     },
     howItWorks: {
       title: 'Z lokálnej firmy<br/>na globálneho hráča.',
@@ -2317,32 +2138,20 @@ export const landing: Record<Locale, LandingTranslations> = {
         trendUp: 'Rastúci trend',
       },
     },
-    productStory: {
-      eyebrow: 'Produkt v skratke',
-      title: 'Jedno miesto na komunikáciu so zákazníkmi zo všetkých kanálov.',
-      subtitle: 'Zákazník píše z live chatu, e-mailu alebo sociálnych sietí vo svojom jazyku. Vy čítate po slovensky a odpovedáte prirodzene.',
-      inbox: { title: 'Jedna schránka pre správy', description: 'Všetky konverzácie prichádzajú do jedného prehľadného pracovného priestoru.' },
-      translation: { title: 'Automatický AI preklad', description: 'Chataptor prekladá správy zákazníkov aj vaše odpovede v reálnom čase.' },
-      liveChat: { title: 'Live chat na vašej stránke', description: 'Pridáte widget a vytvoríte nový kontaktný kanál bez prestavby webu.' },
-      mobile: { title: 'Mobilná aplikácia', description: 'Dostávate upozornenia a odpovedáte z telefónu vo svojom jazyku.' },
-    },
     implementation: {
-      title: 'Pridajte live chat<br/>na svoju stránku.',
-      subtitle: 'Vložíte jeden snippet a nový komunikačný kanál sa na stránke objaví za',
+      title: 'Implementácia rýchlejšia ako<br/>príprava kávy.',
+      subtitle: 'Nepotrebujete armádu programátorov. Náš widget sa integruje do vášho webu za',
       timeHighlight: '3 minúty',
-      step1: { title: 'Vytvorte kanál Live Chat', description: 'Pomenujte ho, nastavte jazyk tímu a skopírujte hotový kód.' },
-      step2: { title: 'Vložte snippet', description: 'Pridajte ho na web, do CMS alebo e-shopu.' },
-      step3: { title: 'Správy prichádzajú do Chataptora', description: 'Každá otázka z widgetu príde do rovnakej schránky ako ostatné kanály.' },
-      step4: { title: 'Odpovedáte z panelu alebo aplikácie', description: 'Píšete po slovensky a Chataptor preloží odpoveď zákazníkovi.' },
+      step1: { title: 'Skopírujte kód', description: 'Dostupný vo vašom administrátorskom paneli.' },
+      step2: { title: 'Vložte do <head>', description: 'Funguje s každým CMS aj vlastným riešením.' },
+      step3: { title: 'Vyberte jazyky', description: 'Zapnite nemčinu, angličtinu alebo francúzštinu jedným kliknutím.' },
+      step4: { title: 'Integrácia (Voliteľné)', description: 'Prepojte e-mail, Instagram, Facebook a WhatsApp.' },
       codeComment: 'Chataptor Integration',
       codeMetaComment: 'Vaše meta tagy',
-      previewTitle: 'Widget live chat',
-      previewStatus: 'Online',
-      previewGreeting: 'Dobrý deň! Ako môžeme pomôcť?',
     },
     features: {
-      title: 'Konverzácie so zákazníkmi bez jazykových bariér.',
-      subtitle: 'Jedna schránka, mnoho kanálov a automatický AI preklad. Chataptor usporiada konverzácie skôr, než tím odpovie.',
+      title: 'Moderná zákaznícka podpora.',
+      subtitle: 'Nahraďte Intercom, Mailchimp a externých prekladateľov jedným nástrojom pre moderné firmy.',
       translation: {
         title: 'Preklad v reálnom čase',
         description: 'Engine založený na OpenAI a DeepL. Zákazník píše po nemecky, vy vidíte po slovensky. Žiadne oneskorenie.',
@@ -2351,7 +2160,7 @@ export const landing: Record<Locale, LandingTranslations> = {
       marketUnlock: {
         title: 'Odomknutie trhu',
         description: 'Otvorte nový trh jedným kliknutím. Škáľujte predaje bez hraníc.',
-        totalPotential: 'Škálujte svoje podnikanie bez hraníc.',
+        totalPotential: 'Potenciál trhu',
         availableCustomers: 'Dostupní zákazníci',
       },
       omnichannel: {
@@ -2366,10 +2175,6 @@ export const landing: Record<Locale, LandingTranslations> = {
         oneInbox: 'Jedna schránka',
         allMessages: 'Všetky správy prichádzajú sem',
         andMore: '...a oveľa viac',
-        inboxPreview: 'Schránka Chataptor',
-        translatedLabel: 'Preložené do vášho jazyka',
-        sourceLabel: 'Kanál',
-        languageLabel: 'Jazyk zákazníka',
       },
       marketing: {
         title: 'Marketing',
@@ -2380,7 +2185,7 @@ export const landing: Record<Locale, LandingTranslations> = {
     mobileApp: {
       eyebrow: 'Mobilná aplikácia',
       title: 'Odpovedajte rýchlejšie, nech ste kdekoľvek.',
-      description: 'Správa z live chatu, WhatsAppu alebo e-mailu príde do telefónu vo vašom jazyku. Odpoviete prirodzene a Chataptor ju preloží zákazníkovi.',
+      description: 'Chataptor funguje aj na iOS a Androide. Dostanete upozornenie na každú novú správu a môžete okamžite odpovedať z telefónu.',
       notificationTitle: 'Nová správa',
       notificationBody: 'Zákazník napísal z WhatsAppu',
       replyTitle: 'Rýchla odpoveď',
@@ -2388,11 +2193,6 @@ export const landing: Record<Locale, LandingTranslations> = {
       instant: 'Push notifikácie v reálnom čase',
       appStoreAlt: 'Stiahnuť v App Store',
       googlePlayAlt: 'Získať na Google Play',
-    },
-    productDemo: {
-      eyebrow: 'Panel agenta',
-      title: 'Takto vyzerá práca v jednej schránke.',
-      subtitle: 'Kanál, jazyk zákazníka aj preklad vidíte na jednom mieste, bez prepínania nástrojov.',
     },
     pricing: {
       title: 'Vyberte si plán',

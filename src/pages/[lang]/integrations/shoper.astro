@@ -1,5 +1,5 @@
 ---
-import { locales, type Locale } from '../../../i18n/config';
+import { localeHrefLang, locales, type Locale } from '../../../i18n/config';
 import { getShoperIntegration } from '../../../i18n/integrations-shoper';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import IntegrationHero from '../../../components/integrations/IntegrationHero.astro';
@@ -10,6 +10,7 @@ import WidgetPreview from '../../../components/integrations/WidgetPreview.astro'
 import TechRequirements from '../../../components/integrations/TechRequirements.astro';
 import IntegrationFAQ from '../../../components/integrations/IntegrationFAQ.astro';
 import IntegrationCTA from '../../../components/integrations/IntegrationCTA.astro';
+import { getCanonicalUrl } from '../../../utils/i18n';
 
 export function getStaticPaths() {
   return locales.map((lang) => ({
@@ -23,6 +24,7 @@ const t = getShoperIntegration(lang);
 // TODO: finalny URL listingu w Shoper App Store — placeholder do potwierdzenia po publikacji aplikacji.
 const shoperAppStoreUrl = 'https://www.shoper.pl/aplikacje-shoper-appstore/chataptor';
 const registerUrl = '/register';
+const canonicalUrl = getCanonicalUrl(lang, 'integrations/shoper');
 ---
 
 <BaseLayout
@@ -161,7 +163,14 @@ const registerUrl = '/register';
     "name": "Chataptor for Shoper",
     "applicationCategory": "CommunicationApplication",
     "operatingSystem": "Shoper 5+",
+    "url": canonicalUrl,
+    "inLanguage": localeHrefLang[lang],
     "description": t.meta.description,
+    "provider": {
+      "@type": "Organization",
+      "name": "Chataptor",
+      "url": "https://chataptor.com/"
+    },
     "offers": {
       "@type": "Offer",
       "price": "0",

@@ -115,12 +115,13 @@ Copy `.env.example` to `.env` and fill in your API keys.
 
 ### Blog Posts
 
-1. Create `src/content/blog/[slug].[lang].md`:
+1. Create `src/content/blog/[lang]/[slug].md`:
    ```yaml
    ---
    title: "Post Title"
    description: "Post description"
    lang: pl
+   translationKey: "shared-topic-key"
    publishedAt: 2026-02-05
    author: "Author Name"
    tags: ["tag1", "tag2"]

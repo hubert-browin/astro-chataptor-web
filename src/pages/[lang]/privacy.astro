@@ -1,7 +1,7 @@
 ---
 import { locales, type Locale } from '../../i18n/config';
 import { getPrivacyTranslations } from '../../i18n/privacy';
-import '../../styles/global.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
   return locales.map((lang) => ({
@@ -14,22 +14,14 @@ const t = getPrivacyTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
-<!doctype html>
-<html lang={lang}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <title>{t.pageTitle}</title>
-    <meta name="description" content={t.metaDescription} />
-  </head>
-  <body class="min-h-screen bg-white text-zinc-900 antialiased">
+<BaseLayout
+  title={t.pageTitle}
+  description={t.metaDescription}
+  lang={lang}
+  slug="privacy"
+  hideHeader={true}
+  hideFooter={true}
+>
     <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-zinc-100">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -673,8 +665,8 @@ const year = new Date().getFullYear();
           <div class="space-y-8">
             <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">{t.footer.legalTitle}</h4>
             <ul class="space-y-4 text-zinc-500 font-medium">
-              <li><a href={`/${lang}/privacy`} class="text-zinc-900 font-semibold">{t.footer.privacyPolicy}</a></li>
-              <li><a href={`/${lang}/terms`} class="hover:text-zinc-900 transition-colors">{t.footer.terms}</a></li>
+              <li><a href={`/${lang}/privacy/`} class="text-zinc-900 font-semibold">{t.footer.privacyPolicy}</a></li>
+              <li><a href={`/${lang}/terms/`} class="hover:text-zinc-900 transition-colors">{t.footer.terms}</a></li>
             </ul>
           </div>
         </div>
@@ -707,5 +699,4 @@ const year = new Date().getFullYear();
         });
       });
     </script>
-  </body>
-</html>
+</BaseLayout>

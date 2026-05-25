@@ -74,67 +74,20 @@ const conversations = [
 ];
 
 const countries = [
-  { code: "de", flagSrc: "/images/flags/de.svg", name: t.countries.germany.name, sub: t.countries.germany.sub, population: 130000000 },
-  { code: "fr", flagSrc: "/images/flags/fr.svg", name: t.countries.france.name, sub: t.countries.france.sub, population: 320000000 },
-  { code: "it", flagSrc: "/images/flags/it.svg", name: t.countries.italy.name, sub: t.countries.italy.sub, population: 67000000 },
-  { code: "es", flagSrc: "/images/flags/es.svg", name: t.countries.spain.name, sub: t.countries.spain.sub, population: 590000000 },
-  { code: "en", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 1500000000 }
+  { code: "de", flagSrc: "/images/flags/de.svg", name: t.countries.germany.name, sub: t.countries.germany.sub, population: 83000000 },
+  { code: "fr", flagSrc: "/images/flags/fr.svg", name: t.countries.france.name, sub: t.countries.france.sub, population: 67000000 },
+  { code: "it", flagSrc: "/images/flags/it.svg", name: t.countries.italy.name, sub: t.countries.italy.sub, population: 59000000 },
+  { code: "es", flagSrc: "/images/flags/es.svg", name: t.countries.spain.name, sub: t.countries.spain.sub, population: 47000000 },
+  { code: "gb", flagSrc: "/images/flags/gb.svg", name: t.countries.uk.name, sub: t.countries.uk.sub, population: 67000000 }
 ];
 
-type MapRegion = { d: string };
-
-const marketMapCountries = [
-  { code: 'pl', active: true, regions: [{ d: 'M99.6 18.5 101.7 18 103.9 18.6 104.3 20.3 103 21.9 100.5 21.6 99.1 20.1Z' }] },
-  {
-    code: 'de',
-    active: false,
-    regions: [
-      { d: 'M94.1 19.3 97.5 18.6 100.8 19.7 101.5 22 99.7 24.3 101.3 26.6 98.1 27.9 94.9 25.7 93.7 22.5Z' },
-    ],
-  },
-  {
-    code: 'fr',
-    active: false,
-    regions: [
-      { d: 'M91.8 23 96.7 22.2 100 24.3 98.8 28 94.8 29.2 91.2 26.4Z' },
-      { d: 'M49 20.6 56.4 19.8 61.6 23.2 59 28.7 52.2 29.1 47.8 25.5Z' },
-      { d: 'M80.9 37.2 87.3 34.8 94.1 36.2 97.6 40.1 94.7 44.9 97.2 49.6 91.5 52.4 84.5 50.1 80.7 45.8 82.8 41.2Z' },
-      { d: 'M94.5 43.7 101.8 42.5 108.9 46.4 112.7 51.6 110.2 57.4 114.1 62.3 108.2 67.2 101.3 64.9 98.1 59.2 92.7 57.6 95.4 52.2Z' },
-      { d: 'M87.2 53.4 94.4 55.2 97.9 61.4 94.8 67.1 88.6 64.2 85.4 58.8Z' },
-      { d: 'M108.4 45.1 115.8 48.4 119.7 55.8 116.3 61.7 112.1 56.6 107.4 53.2Z' },
-      { d: 'M126.6 72.2 131.6 73.8 132.8 81.6 129.1 86 125.7 80.2Z' },
-    ],
-  },
-  {
-    code: 'it',
-    active: false,
-    regions: [
-      { d: 'M97.8 24.9 100.1 25.6 101 27.8 102.4 30.1 102.9 32.7 101.2 34.6 99.7 32.4 98.9 29.5 97.5 27.2Z' },
-      { d: 'M98.3 23.4 100.6 23.1 101.4 25 99.2 25.6Z' },
-    ],
-  },
-  {
-    code: 'es',
-    active: false,
-    regions: [
-      { d: 'M87.2 26.4 92.6 25.4 97.8 26.5 98.1 29.6 95.2 31.8 89.8 31.5 86.5 29.2Z' },
-      { d: 'M31 36.2 42.2 35.2 50.8 39.1 57.2 44.6 54 51.6 45.4 49.8 37.8 46.4 29.3 42.6Z' },
-      { d: 'M48.2 50.8 59.8 50.1 67.2 56.7 65.2 64.8 70.2 70.7 66.5 79.1 60.5 86.2 54.4 77.8 51.6 66.2 47.4 59.1Z' },
-    ],
-  },
-  {
-    code: 'en',
-    active: false,
-    regions: [
-      { d: 'M91.2 18.8 95.6 18.2 99 21 98 24.8 94.2 26.1 90.4 23.3Z' },
-      { d: 'M8 17.8 22 12.8 44 12.6 60 19.4 63 31.2 55.4 41.6 36.3 42.4 19.8 37.6 7.4 29.6Z' },
-      { d: 'M135.8 31.4 146.1 33.3 153 39.6 151.2 45.8 142.5 45 134.2 40.4Z' },
-      { d: 'M100.8 70.5 108.6 68.8 114 72.6 111.1 79.6 103.6 80.4 98.8 75.1Z' },
-      { d: 'M161.8 71.5 176.4 68.8 190.8 74.2 191.4 82.4 179.6 87.2 163 83.7Z' },
-      { d: 'M187.8 83.2 194 81.4 199.2 85.3 196.2 90.7 189.5 90.3Z' },
-    ],
-  },
-] satisfies { code: string; active: boolean; regions: MapRegion[] }[];
+const logos = [
+  "/images/landing/messenger-logo.png",
+  "/images/landing/whatsapp-logo.png",
+  "/images/landing/gmail-logo.png",
+  "/images/landing/openai-logo.png",
+  "/images/landing/deepl-logo.png"
+];
 
 const googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.chataptor.chataptor_mobile';
 const appStoreUrl = 'https://apps.apple.com/pl/app/chataptor-mobile/id6757306454';
@@ -150,17 +103,6 @@ const mobileInboxTitles: Record<Locale, string> = {
   sk: '3 nové správy',
 };
 
-const mobileNotificationTitles: Record<Locale, string> = {
-  pl: 'Nowa wiadomość',
-  en: 'New message',
-  de: 'Neue Nachricht',
-  fr: 'Nouveau message',
-  es: 'Nuevo mensaje',
-  it: 'Nuovo messaggio',
-  cs: 'Nová zpráva',
-  sk: 'Nová správa',
-};
-
 const mobileInboxMessages: Record<Locale, string[]> = {
   pl: ['Kiedy przyjdzie moja paczka?', 'Czy to jest dostępne dzisiaj?', 'Dzień dobry, mam pytanie...'],
   en: ['When will my package arrive?', 'Is this available today?', 'Hello, I have a question...'],
@@ -173,7 +115,6 @@ const mobileInboxMessages: Record<Locale, string[]> = {
 };
 
 const mobileInboxTitle = mobileInboxTitles[lang];
-const mobileNotificationTitle = mobileNotificationTitles[lang];
 const mobileInboxMessageList = mobileInboxMessages[lang];
 ---
 
@@ -210,7 +151,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
   <main>
     
     <!-- HERO SECTION -->
-    <section class="relative min-h-[100svh] md:min-h-[100dvh] flex flex-col pt-24 pb-4 md:pt-0 md:pb-0 overflow-hidden">
+    <section class="relative min-h-[100dvh] flex flex-col pt-24 pb-4 md:pt-0 md:pb-0 overflow-hidden">
       <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
       <!-- World Map Background -->
@@ -223,7 +164,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       />
 
       <!-- Main Hero Wrapper - Two Columns Layout -->
-      <div class="w-full h-full px-4 md:px-6 max-w-7xl mx-auto relative z-30 flex-1 flex flex-col pt-16 md:pt-8 lg:pt-32">
+      <div class="w-full h-full px-4 md:px-6 max-w-7xl mx-auto relative z-30 flex-1 flex flex-col pt-8 lg:pt-32">
         
         <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 flex-1 w-full">
           
@@ -233,7 +174,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white ring-1 ring-zinc-900/5 rounded-full text-[11px] font-medium text-zinc-500 mb-6 mx-auto lg:mx-0 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:ring-zinc-900/10 transition-all cursor-default">
               <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-emerald-100 shadow-[0_0_0_1px_rgba(16,185,129,0.25)]"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-50"></span>
               </span>
               <span class="hidden sm:inline">{t.hero.badge}</span>
               <span class="sm:hidden">{t.hero.badgeMobile}</span>
@@ -392,224 +333,217 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       </div>
     </section>
 
-      <!-- OMNICHANNEL INBOX -->
-      <section id="product" class="pt-16 pb-24 md:pt-24 md:pb-28 lg:pt-28 lg:pb-32 px-4 md:px-6 max-w-7xl mx-auto w-full">
-        <div class="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
-          <div class="max-w-xl">
-            <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">{t.productStory.eyebrow}</p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-950 tracking-tight">{t.productStory.inbox.title}</h2>
-            <p class="mt-5 text-base md:text-lg text-zinc-500 leading-relaxed">{t.features.omnichannel.description}</p>
+      <!-- FEATURE BENTO GRID (Features) -->
+      <section id="product" class="py-16 md:py-24 lg:py-28 px-4 md:px-6 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-12 lg:mb-16 xl:mb-24">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight">{t.features.title}</h2>
+          <p class="text-lg text-zinc-500 max-w-2xl mx-auto">{t.features.subtitle}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-6 xl:gap-8 auto-rows-min">
+          <!-- Card 1 - Translation -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-2 md:gap-10 items-center relative overflow-hidden">
+            <div class="flex-1 relative z-10 text-left">
+              <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 text-zinc-900 flex items-center justify-center mb-6 shadow-sm">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-3 tracking-tight">{t.features.translation.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed mb-2 md:mb-6">
+                {t.features.translation.description}
+              </p>
+            </div>
+            <div class="relative w-full md:w-1/2 flex flex-col gap-6 justify-center items-center py-4">
+              <div class="relative w-full max-w-sm">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-start gap-3">
+                    <div class="h-6 w-9 rounded-[4px] bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm mt-1 shrink-0">
+                      <img src="/images/flags/de.svg" alt="DE" class="h-full w-full object-cover" width="36" height="24" loading="lazy" />
+                    </div>
+                    <div class="flex-1">
+                      <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm ring-1 ring-black/5 text-sm text-zinc-800">
+                        {t.howItWorks.step3.exampleMessage}
+                        <div class="h-px bg-zinc-100 my-2"></div>
+                        <div class="text-zinc-500 font-medium flex items-center gap-2 text-xs">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                          {t.howItWorks.step3.exampleTranslation}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3 flex-row-reverse mt-2">
+                    <div class="h-6 w-9 rounded-[4px] bg-white ring-1 ring-zinc-200 overflow-hidden shadow-sm mt-1 shrink-0">
+                      <img src="/images/flags/pl.svg" alt="PL" class="h-full w-full object-cover" width="36" height="24" loading="lazy" />
+                    </div>
+                    <div class="flex-1 text-right">
+                      <div class="bg-zinc-900 text-white p-3 rounded-2xl rounded-tr-none shadow-md text-sm text-left">
+                        {t.features.translation.checking}
+                        <div class="h-px bg-white/20 my-2"></div>
+                        <div class="text-zinc-400 font-medium flex items-center gap-2 text-xs">
+                          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                          Ich überprüfe das...
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="relative overflow-hidden rounded-[1.5rem] py-2 md:p-4">
-            <svg class="pointer-events-none absolute inset-x-0 top-[4.6rem] z-0 h-28 w-full sm:hidden" viewBox="0 0 320 112" fill="none" aria-hidden="true">
-              <defs>
-                <marker id="omni-mobile-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                  <path d="M0 0L10 5L0 10Z" fill="#a1a1aa"></path>
-                </marker>
-              </defs>
-              <path d="M32 0V34M96 0V34M160 0V34M224 0V34M288 0V34" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
-              <path d="M32 34H288" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
-              <path d="M160 34V98" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-mobile-arrow)"></path>
-            </svg>
-            <svg class="pointer-events-none absolute inset-0 hidden h-full w-full sm:block" viewBox="0 0 720 300" fill="none" aria-hidden="true">
-              <defs>
-                <marker id="omni-section-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-                  <path d="M0 0L10 5L0 10Z" fill="#71717a"></path>
-                </marker>
-              </defs>
-              <path d="M210 38H332M210 94H332M210 150H332M210 206H332M210 262H332" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
-              <path d="M332 38V262" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round"></path>
-              <path d="M332 150H505" stroke="#d4d4d8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#omni-section-arrow)"></path>
-            </svg>
+          <!-- Card 2 - Market Unlock -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:row-span-2 flex flex-col relative overflow-hidden">
+            <div class="relative z-10 mb-4 flex-none">
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-2 tracking-tight">{t.features.marketUnlock.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed">
+                {t.features.marketUnlock.description}
+              </p>
+            </div>
+            <!-- Market Counter -->
+            <div class="w-full space-y-4 md:space-y-6 flex flex-col h-full" id="market-counter">
+              <div class="text-center pt-2 pb-4 border-b border-zinc-100 shrink-0">
+                <p class="text-zinc-400 text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-1">{t.features.marketUnlock.totalPotential}</p>
+                <div class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-600 tabular-nums transition-all duration-300 tracking-tight" id="market-count">
+                  38 000 000
+                </div>
+                <div class="text-xs font-medium text-emerald-600 mt-1 flex items-center justify-center gap-1">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                  {t.features.marketUnlock.availableCustomers}
+                </div>
+              </div>
 
-            <div class="relative z-10 grid gap-6 sm:gap-6 sm:grid-cols-[12rem_1fr_13rem] sm:items-center">
-              <div class="grid grid-cols-5 gap-1.5 sm:grid-cols-1 sm:gap-2.5">
-                {[
-                  { label: t.features.omnichannel.email, icon: 'email', color: 'text-[#EA4335]', bg: 'bg-red-50' },
-                  { label: t.features.omnichannel.whatsapp, icon: 'whatsapp', color: 'text-[#25D366]', bg: 'bg-emerald-50' },
-                  { label: t.features.omnichannel.facebook, icon: 'facebook', color: 'text-[#1877F2]', bg: 'bg-blue-50' },
-                  { label: t.features.omnichannel.instagram, icon: 'instagram', color: 'text-[#E4405F]', bg: 'bg-pink-50' },
-                  { label: t.features.omnichannel.messenger, icon: 'messenger', color: 'text-[#0084FF]', bg: 'bg-sky-50' },
-                ].map((channel) => (
-                  <div class="flex flex-col items-center justify-center gap-1.5 rounded-xl bg-white px-1.5 py-2 text-center shadow-sm ring-1 ring-zinc-900/[0.05] sm:flex-row sm:justify-start sm:gap-3 sm:bg-zinc-50 sm:px-3 sm:py-2.5 sm:text-left sm:shadow-none sm:ring-1 sm:ring-zinc-200/60">
-                    <div class={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 ${channel.bg} ${channel.color}`}>
-                      {channel.icon === 'email' && (
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
-                        </svg>
-                      )}
-                      {channel.icon === 'whatsapp' && (
-                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M12.04 2a9.9 9.9 0 0 0-8.58 14.86L2 22l5.25-1.38a9.9 9.9 0 1 0 4.79-18.62Zm5.83 14.18c-.25.7-1.45 1.34-2.03 1.43-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.72-.63-3.03-1.31-5-4.35-5.15-4.55-.15-.2-1.23-1.64-1.23-3.12 0-1.49.78-2.22 1.06-2.52.28-.3.6-.38.8-.38h.58c.18.01.43-.07.67.51.25.6.85 2.08.92 2.23.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.17-.32.39-.46.52-.15.15-.31.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.37 1.46.3.15.47.13.64-.07.18-.2.77-.9.97-1.19.2-.3.4-.25.68-.15.28.1 1.78.84 2.08.99.3.15.5.22.58.35.07.13.07.73-.18 1.43z"></path>
-                        </svg>
-                      )}
-                      {channel.icon === 'facebook' && (
-                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"></path>
-                        </svg>
-                      )}
-                      {channel.icon === 'instagram' && (
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <rect x="4" y="4" width="16" height="16" rx="5" stroke-width="2"></rect>
-                          <circle cx="12" cy="12" r="3.5" stroke-width="2"></circle>
-                          <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"></circle>
-                        </svg>
-                      )}
-                      {channel.icon === 'messenger' && (
-                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M12 2C6.48 2 2.1 6.05 2.1 11.2c0 2.94 1.43 5.56 3.68 7.25V22l3.36-1.85c.91.25 1.87.38 2.86.38 5.52 0 9.9-4.05 9.9-9.2S17.52 2 12 2Zm1.02 12.33-2.52-2.7-4.92 2.7 5.4-5.74 2.58 2.7 4.86-2.7-5.4 5.74Z"></path>
-                        </svg>
-                      )}
+              <div class="space-y-2 md:space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1">
+                <!-- Poland (locked) -->
+                <div class="flex items-center justify-between py-2 px-1 transition-all cursor-default group select-none opacity-70">
+                  <div class="flex items-center gap-4">
+                    <img
+                      src="/images/flags/pl.svg"
+                      alt=""
+                      class="h-5 w-8 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm"
+                      width="32"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <div class="text-sm font-bold text-zinc-900">{t.countries.poland.name}</div>
+                      <div class="text-[10px] font-medium text-emerald-600 font-bold">{t.countries.homeMarket}</div>
                     </div>
-                    <span class="max-w-full truncate text-[9px] font-bold leading-tight text-zinc-700 sm:text-sm">{channel.label}</span>
+                  </div>
+                  <!-- Fixed Switch Structure -->
+                  <div class="w-11 h-6 rounded-full relative bg-zinc-900 shrink-0 transition-colors duration-200">
+                    <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md translate-x-[1.25rem]"></div>
+                  </div>
+                </div>
+                <!-- Other countries -->
+                {countries.map((country) => (
+                  <div
+                    class="country-toggle flex items-center justify-between py-2 px-1 transition-all cursor-pointer group select-none active:scale-[0.98] md:active:scale-100"
+                    data-code={country.code}
+                    data-population={country.population}
+                  >
+                    <div class="flex items-center gap-4">
+                      <img
+                        src={country.flagSrc}
+                        alt=""
+                        class="country-flag h-5 w-8 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm grayscale opacity-60 transition-all"
+                        width="32"
+                        height="20"
+                        loading="lazy"
+                        aria-hidden="true"
+                      />
+                      <div>
+                        <div class="country-name text-sm font-bold text-zinc-400">{country.name}</div>
+                        <div class="country-sub text-[10px] font-medium text-zinc-300">{country.sub}</div>
+                      </div>
+                    </div>
+                    <!-- Fixed Switch Structure -->
+                    <div class="toggle-switch w-11 h-6 rounded-full relative bg-zinc-200 shrink-0 transition-colors duration-300 ease-in-out">
+                      <div class="toggle-knob absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-transform duration-300 ease-in-out"></div>
+                    </div>
                   </div>
                 ))}
               </div>
-
-              <div class="hidden sm:block sm:min-h-[16rem]" aria-hidden="true"></div>
-
-              <div class="pointer-events-none -my-1 flex justify-center text-zinc-400 sm:hidden" aria-hidden="true">
-                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-6-6 6 6 6-6"></path>
-                </svg>
-              </div>
-
-              <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-zinc-950 sm:mx-0 sm:h-20 sm:w-20">
-                <img src="/images/landing/logo-black.png" alt="" class="h-8 w-8 object-contain brightness-0 invert sm:h-10 sm:w-10" loading="lazy" width="40" height="40" aria-hidden="true" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- REAL-TIME TRANSLATION -->
-      <section class="pt-0 pb-24 md:pb-28 lg:pb-32 px-4 md:px-6 max-w-7xl mx-auto w-full">
-        <div class="grid gap-6 lg:gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-center">
-          <div class="order-2 lg:order-1 relative overflow-hidden rounded-[1.5rem] py-2 md:p-4">
-            <div class="space-y-3 md:space-y-4">
-              <div class="mr-auto w-[62%] min-w-[12rem] max-w-full rounded-2xl rounded-tl-sm bg-white p-3 text-xs text-zinc-800 shadow-sm ring-1 ring-zinc-900/[0.04] md:min-w-[14rem] md:text-sm">
-                <div class="mb-2.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
-                  <img src="/images/flags/de.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" loading="lazy" aria-hidden="true" />
-                  DE
-                </div>
-                <div class="font-medium text-zinc-900">{t.howItWorks.step3.exampleMessage}</div>
-                <div class="mt-2.5 border-t border-zinc-100 pt-2.5 text-xs font-medium text-emerald-700 md:text-sm">{t.howItWorks.step3.exampleTranslation}</div>
-              </div>
-
-              <div class="mx-auto flex flex-col items-center gap-1 text-zinc-300">
-                <svg class="h-4 w-4 md:h-5 md:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v6m-4-4 4 4 4-4"></path>
-                </svg>
-                <div class="grid h-12 w-12 place-items-center rounded-2xl bg-white text-emerald-600 shadow-sm md:h-14 md:w-14">
-                  <svg class="h-6 w-6 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.05 9.5A18 18 0 0 1 6.4 9m6.1 9h7M11 21l5-10 5 10"></path>
-                  </svg>
-                </div>
-                <svg class="h-4 w-4 md:h-5 md:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.4" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v6m-4-4 4 4 4-4"></path>
-                </svg>
-              </div>
-
-              <div class="ml-auto w-[62%] min-w-[12rem] max-w-full rounded-2xl rounded-tr-sm bg-zinc-950 p-3 text-xs text-white shadow-sm md:min-w-[14rem] md:text-sm">
-                <div class="mb-2.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-400">
-                  <img src="/images/flags/pl.svg" alt="" class="h-3 w-5 rounded-[2px] object-cover ring-1 ring-black/10" width="20" height="12" loading="lazy" aria-hidden="true" />
-                  PL
-                </div>
-                <div class="font-medium">{t.features.translation.checking}</div>
-                <div class="mt-2.5 border-t border-white/15 pt-2.5 text-xs font-medium text-emerald-300 md:text-sm">Ich überprüfe das...</div>
-              </div>
             </div>
           </div>
 
-          <div class="order-1 lg:order-2 max-w-xl lg:ml-auto">
-            <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">{t.productStory.translation.title}</p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-950 tracking-tight">{t.features.translation.title}</h2>
-            <p class="mt-5 text-base md:text-lg text-zinc-500 leading-relaxed">{t.features.translation.description}</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- MARKET UNLOCK -->
-      <section class="pt-0 pb-24 md:pb-28 lg:pb-32 px-4 md:px-6 max-w-7xl mx-auto w-full">
-        <div id="market-counter" class="grid gap-4 lg:gap-10 lg:grid-cols-[0.62fr_0.38fr] lg:items-center">
-          <p class="text-center text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400 lg:hidden">{t.features.marketUnlock.totalPotential}</p>
-
-          <div class="relative min-h-[9.5rem] overflow-visible sm:min-h-[14rem] md:min-h-[20rem] lg:min-h-[24rem]">
-            <svg class="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 201 97" fill="none" aria-hidden="true">
-              <defs>
-                <filter id="market-map-emerald" color-interpolation-filters="sRGB">
-                  <feFlood flood-color="#10b981" result="flood"></feFlood>
-                  <feComposite in="flood" in2="SourceAlpha" operator="in"></feComposite>
-                </filter>
-                {marketMapCountries.map((country) => (
-                  <clipPath id={`market-lang-${country.code}`} clipPathUnits="userSpaceOnUse">
-                    {country.regions.map((region) => (
-                      <path d={region.d}></path>
-                    ))}
-                  </clipPath>
-                ))}
-              </defs>
-              <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" class="opacity-[0.16] grayscale"></image>
-              <g class="market-map-country opacity-0 transition-opacity duration-300" data-code="all">
-                <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
-              </g>
-              {marketMapCountries.map((country) => (
-                <g class={`market-map-country transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`} data-code={country.code} clip-path={`url(#market-lang-${country.code})`}>
-                  <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
-                </g>
-              ))}
-            </svg>
-          </div>
-
-          <div>
-            <div class="mb-4 text-center lg:mb-6 lg:text-left">
-              <p class="mb-2 hidden text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400 lg:block">{t.features.marketUnlock.totalPotential}</p>
-              <div class="text-3xl font-extrabold tracking-tight text-zinc-950 tabular-nums sm:text-4xl lg:text-4xl xl:text-5xl" id="market-count">45 000 000</div>
-              <div class="mt-1.5 text-xs font-semibold text-emerald-700 lg:mt-2 lg:text-sm">{t.features.marketUnlock.availableCustomers}</div>
+          <!-- Card 3 - Omnichannel -->
+          <div class="group bg-white ring-1 ring-black/5 rounded-[2.5rem] p-5 lg:p-6 xl:p-8 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 md:col-span-2 flex flex-col md:flex-row gap-8 md:gap-10 items-center relative overflow-hidden">
+            <div class="relative z-10 w-full md:w-[38%] text-left">
+              <div class="w-14 h-14 rounded-2xl bg-zinc-50 ring-1 ring-black/5 text-zinc-900 flex items-center justify-center mb-6 shadow-sm">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8M8 12h5m-9 8V6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H9l-5 4z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 mb-3 tracking-tight">{t.features.omnichannel.title}</h3>
+              <p class="text-zinc-500 text-sm sm:text-base leading-relaxed mb-4">
+                {t.features.omnichannel.description}
+              </p>
+              <p class="text-xs font-bold text-zinc-400 uppercase tracking-wide">{t.features.omnichannel.andMore}</p>
             </div>
 
-            <div class="grid grid-cols-2 gap-1.5 lg:grid-cols-1 lg:gap-2">
-              <div class="flex items-center justify-between rounded-xl bg-white px-2.5 py-2 lg:px-3 lg:py-2.5">
-                <div class="flex min-w-0 items-center gap-2">
-                  <img src="/images/flags/pl.svg" alt="" class="h-4 w-6 rounded-[2px] object-cover ring-1 ring-black/10" width="24" height="16" aria-hidden="true" />
-                  <div class="min-w-0">
-                    <div class="truncate text-[11px] font-bold text-zinc-900 lg:text-xs">{t.countries.poland.name}</div>
-                    <div class="truncate text-[9px] font-semibold text-emerald-700 lg:text-[10px]">{t.countries.homeMarket}</div>
-                  </div>
-                </div>
-                <div class="h-5 w-10 shrink-0 rounded-full bg-zinc-950 p-0.5 lg:h-6 lg:w-11">
-                  <div class="ml-auto h-4 w-4 rounded-full bg-white lg:h-5 lg:w-5"></div>
-                </div>
-              </div>
-              {countries.map((country) => (
-                <div class="country-toggle flex items-center justify-between rounded-xl bg-white px-2.5 py-2 transition-all cursor-pointer select-none active:scale-[0.98] lg:px-3 lg:py-2.5" data-code={country.code} data-population={country.population}>
-                  <div class="flex min-w-0 items-center gap-2">
-                    <img src={country.flagSrc} alt="" class="country-flag h-4 w-6 rounded-[2px] object-cover ring-1 ring-black/10 grayscale opacity-60 transition-all" width="24" height="16" loading="lazy" aria-hidden="true" />
-                    <div class="min-w-0">
-                      <div class="country-name truncate text-[11px] font-bold text-zinc-400 lg:text-xs">{country.name}</div>
-                      <div class="country-sub truncate text-[9px] font-medium text-zinc-300 lg:text-[10px]">{country.sub}</div>
-                    </div>
-                  </div>
-                  <div class="toggle-switch h-5 w-10 shrink-0 rounded-full bg-zinc-200 p-0.5 transition-colors lg:h-6 lg:w-11">
-                    <div class="toggle-knob h-4 w-4 rounded-full bg-white transition-transform lg:h-5 lg:w-5"></div>
-                  </div>
-                </div>
-              ))}
-              <div class="all-languages-toggle flex items-center justify-between rounded-xl bg-white px-2.5 py-2 transition-all cursor-pointer select-none active:scale-[0.98] lg:px-3 lg:py-2.5">
-                <div class="flex min-w-0 items-center gap-2">
-                  <div class="country-flag grid h-5 w-6 place-items-center rounded-[2px] bg-zinc-100 text-zinc-400 ring-1 ring-black/10 grayscale opacity-60 transition-all" aria-hidden="true">
-                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+            <div class="relative z-10 w-full md:w-[58%] min-h-[18rem] sm:min-h-[19rem] p-4 overflow-hidden">
+              <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M31 15 C47 15 57 45 73 50" fill="none" stroke="#1877F2" stroke-width="0.75" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.55"></path>
+                <path d="M31 32 C48 32 58 47 73 50" fill="none" stroke="#E4405F" stroke-width="0.75" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.55"></path>
+                <path d="M31 50 C49 50 58 50 73 50" fill="none" stroke="#25D366" stroke-width="0.75" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.55"></path>
+                <path d="M31 68 C48 68 58 53 73 50" fill="none" stroke="#EA4335" stroke-width="0.75" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.55"></path>
+                <path d="M31 85 C47 85 57 55 73 50" fill="none" stroke="#18181B" stroke-width="0.75" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.42"></path>
+              </svg>
+
+              <div class="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 w-[9.75rem] space-y-2">
+                <div class="flex items-center gap-2 rounded-2xl bg-white ring-1 ring-zinc-200/80 px-2.5 py-2 shadow-sm">
+                  <div class="w-8 h-8 shrink-0 rounded-xl bg-blue-50 ring-1 ring-blue-100 flex items-center justify-center text-[#1877F2]">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"></path>
                     </svg>
                   </div>
-                  <div class="min-w-0">
-                    <div class="country-name truncate text-[11px] font-bold text-zinc-400 lg:text-xs">{t.countries.allLanguages.name}</div>
-                    <div class="country-sub truncate text-[9px] font-medium text-zinc-300 lg:text-[10px]">{t.countries.allLanguages.sub}</div>
-                  </div>
+                  <span class="truncate text-[10px] font-medium text-zinc-600">{t.features.omnichannel.facebook}</span>
                 </div>
-                <div class="toggle-switch h-5 w-10 shrink-0 rounded-full bg-zinc-200 p-0.5 transition-colors lg:h-6 lg:w-11">
-                  <div class="toggle-knob h-4 w-4 rounded-full bg-white transition-transform lg:h-5 lg:w-5"></div>
+
+                <div class="flex items-center gap-2 rounded-2xl bg-white ring-1 ring-zinc-200/80 px-2.5 py-2 shadow-sm">
+                  <div class="w-8 h-8 shrink-0 rounded-xl bg-pink-50 ring-1 ring-pink-100 flex items-center justify-center text-[#E4405F]">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="4" y="4" width="16" height="16" rx="5" stroke-width="2"></rect>
+                      <circle cx="12" cy="12" r="3.5" stroke-width="2"></circle>
+                      <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                  </div>
+                  <span class="truncate text-[10px] font-medium text-zinc-600">{t.features.omnichannel.instagram}</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl bg-white ring-1 ring-zinc-200/80 px-2.5 py-2 shadow-sm">
+                  <div class="w-8 h-8 shrink-0 rounded-xl bg-emerald-50 ring-1 ring-emerald-100 flex items-center justify-center text-[#25D366]">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91A9.84 9.84 0 0019.04 4.9 9.83 9.83 0 0012.04 2zm5.83 14.18c-.25.7-1.45 1.34-2.03 1.43-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.72-.63-3.03-1.31-5-4.35-5.15-4.55-.15-.2-1.23-1.64-1.23-3.12 0-1.49.78-2.22 1.06-2.52.28-.3.6-.38.8-.38h.58c.18.01.43-.07.67.51.25.6.85 2.08.92 2.23.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.17-.32.39-.46.52-.15.15-.31.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.37 1.46.3.15.47.13.64-.07.18-.2.77-.9.97-1.19.2-.3.4-.25.68-.15.28.1 1.78.84 2.08.99.3.15.5.22.58.35.07.13.07.73-.18 1.43z"></path>
+                    </svg>
+                  </div>
+                  <span class="truncate text-[10px] font-medium text-zinc-600">{t.features.omnichannel.whatsapp}</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl bg-white ring-1 ring-zinc-200/80 px-2.5 py-2 shadow-sm">
+                  <div class="w-8 h-8 shrink-0 rounded-xl bg-red-50 ring-1 ring-red-100 flex items-center justify-center text-[#EA4335]">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"></path>
+                    </svg>
+                  </div>
+                  <span class="truncate text-[10px] font-medium text-zinc-600">{t.features.omnichannel.email}</span>
+                </div>
+
+                <div class="flex items-center gap-2 rounded-2xl bg-white ring-1 ring-zinc-200/80 px-2.5 py-2 shadow-sm">
+                  <div class="w-8 h-8 shrink-0 rounded-xl bg-zinc-50 ring-1 ring-zinc-200 flex items-center justify-center text-zinc-950">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 18.5V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H9.5L5 18.5Z"></path>
+                      <path d="M9 8h6"></path>
+                      <path d="M9 11h4"></path>
+                    </svg>
+                  </div>
+                  <span class="truncate text-[10px] font-medium text-zinc-600">{t.contactPopup.liveChat}</span>
+                </div>
+              </div>
+
+              <div class="absolute right-4 sm:right-7 top-1/2 -translate-y-1/2">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-[1.5rem] sm:rounded-[1.75rem] bg-zinc-950 ring-4 ring-white flex flex-col items-center justify-center text-white">
+                  <img src="/images/landing/logo-black.png" alt="Chataptor" class="w-8 h-8 object-contain brightness-0 invert mb-1" loading="lazy" width="32" height="32" />
+                  <span class="hidden sm:block text-[10px] font-bold tracking-wide">Chataptor</span>
                 </div>
               </div>
             </div>
@@ -617,13 +551,8 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
         </div>
       </section>
       <!-- UI MOCKUP -->
-      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-8 md:mt-10 lg:mt-12 mb-24 lg:mb-32 relative z-20">
-        <div class="mx-4 mb-5 max-w-3xl md:mx-0 md:mb-6">
-          <p class="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">{t.productDemo.eyebrow}</p>
-          <h2 class="text-2xl font-extrabold tracking-tight text-zinc-950 sm:text-3xl md:text-4xl">{t.productDemo.title}</h2>
-          <p class="mt-3 text-sm leading-relaxed text-zinc-500 sm:text-base">{t.productDemo.subtitle}</p>
-        </div>
-        <div class="bg-white rounded-[24px] md:rounded-[28px] mx-2 md:mx-0 ring-1 ring-zinc-200 overflow-hidden flex flex-col h-[34rem] sm:h-[38rem] lg:h-[42rem] border border-zinc-100">
+      <div class="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-0 md:px-6 mt-8 md:mt-10 lg:mt-12 mb-12 lg:mb-16 relative z-20">
+        <div class="bg-white rounded-[24px] md:rounded-[32px] mx-2 md:mx-0 ring-1 ring-black/5 md:shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col h-[34rem] sm:h-[38rem] lg:h-[42rem] border md:border-none border-zinc-100">
           <!-- Mockup Header -->
           <div class="bg-white h-12 border-b border-zinc-100 flex items-center px-4 md:px-5 gap-2 shrink-0 justify-between sticky top-0 z-30">
             <div class="flex gap-2 opacity-50"><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div><div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div></div>
@@ -637,7 +566,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
           <!-- Body Mockupu -->
           <div class="flex flex-1 overflow-hidden relative bg-zinc-50/50" id="chat-mockup">
             <!-- Sidebar - LIST VIEW -->
-            <div class="w-full md:w-[280px] lg:w-[320px] border-r border-zinc-100 bg-white md:bg-white/80 md:backdrop-blur-xl flex flex-col overflow-y-auto custom-scrollbar absolute md:relative z-20 md:z-10 h-full" id="chat-list">
+            <div class="w-full md:w-[280px] lg:w-[320px] border-r border-zinc-100 bg-white/80 backdrop-blur-xl flex flex-col overflow-y-auto custom-scrollbar absolute md:relative z-10 h-full" id="chat-list">
               <div class="p-4 md:p-5 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur z-10 border-b border-zinc-50">
                 <div class="text-sm font-bold text-zinc-900 tracking-tight">{t.chat.messages}</div>
                 <div class="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded-md font-medium">{t.chat.newCount}</div>
@@ -671,7 +600,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
             </div>
 
             <!-- Main Chat Area - CONVERSATION VIEW -->
-            <div class="hidden md:flex flex-1 flex-col bg-zinc-50/30 relative w-full h-full" id="chat-view">
+            <div class="flex-1 flex-col bg-zinc-50/30 relative w-full h-full flex" id="chat-view">
               <!-- Chat Header -->
               <div class="h-16 border-b border-zinc-100 bg-white/80 backdrop-blur-md flex items-center justify-between px-4 md:px-6 shrink-0 sticky top-0 z-10">
                 <div class="flex items-center gap-3 md:gap-4">
@@ -714,9 +643,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       </div>
 
       <!-- MOBILE APP SECTION -->
-      <section id="mobile-app" class="w-full max-w-7xl mx-auto px-4 md:px-6 mt-6 md:mt-8 mb-24 lg:mb-32 relative z-20">
-        <div class="relative overflow-visible rounded-[2rem] md:rounded-[2.5rem] bg-white text-zinc-900">
-          <div class="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-10 lg:gap-16 items-center p-0 md:p-8 lg:p-12">
+      <section id="mobile-app" class="w-full max-w-7xl mx-auto px-4 md:px-6 mt-6 md:mt-8 mb-12 lg:mb-16 relative z-20">
+        <div class="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white text-zinc-900">
+          <div class="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center p-6 sm:p-8 lg:p-12">
             <div class="max-w-2xl">
               <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 ring-1 ring-emerald-100 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700 mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -729,31 +658,26 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                 {t.mobileApp.description}
               </p>
 
-              <div class="mb-6 inline-flex max-w-full items-center gap-2 rounded-2xl bg-zinc-50 px-3 py-2 ring-1 ring-zinc-200 md:mb-8 md:gap-3 md:px-4 md:py-3">
-                <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 animate-pulse md:h-2 md:w-2"></span>
-                <span class="truncate text-[9px] font-bold uppercase tracking-[0.08em] text-zinc-500 sm:text-[10px] md:text-[11px] md:tracking-[0.18em]">{t.mobileApp.instant}</span>
+              <div class="inline-flex items-center gap-3 rounded-2xl bg-zinc-50 ring-1 ring-zinc-200 px-4 py-3 mb-8">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-500">{t.mobileApp.instant}</span>
               </div>
 
-              <div class="mx-auto grid w-full grid-cols-2 gap-2 sm:mx-0 sm:gap-3 md:max-w-[24rem] md:gap-4">
-                <a href={appStoreUrl} target="_blank" rel="noopener noreferrer nofollow" class="flex aspect-[163/48] w-full rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.appStoreAlt}>
-                  <img src="/images/landing/app_store.svg" alt={t.mobileApp.appStoreAlt} class="h-full w-full" loading="lazy" />
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
+                <a href={appStoreUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.appStoreAlt}>
+                  <img src="/images/landing/app_store.svg" alt={t.mobileApp.appStoreAlt} class="h-12 sm:h-14 w-auto" loading="lazy" />
                 </a>
-                <a href={googlePlayUrl} target="_blank" rel="noopener noreferrer nofollow" class="flex aspect-[163/48] w-full rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.googlePlayAlt}>
-                  <img src="/images/landing/google_play.svg" alt={t.mobileApp.googlePlayAlt} class="h-full w-full" loading="lazy" />
+                <a href={googlePlayUrl} target="_blank" rel="noopener noreferrer nofollow" class="inline-flex rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]" aria-label={t.mobileApp.googlePlayAlt}>
+                  <img src="/images/landing/google_play.svg" alt={t.mobileApp.googlePlayAlt} class="h-12 sm:h-14 w-auto" loading="lazy" />
                 </a>
               </div>
             </div>
 
-            <div class="relative -mx-4 flex justify-center overflow-visible md:mx-0 lg:justify-end">
-              <div class="relative flex w-screen max-w-[100vw] items-center justify-between px-2 sm:w-auto sm:max-w-none sm:gap-8 sm:px-0 xl:gap-10">
-                <div>
-                  <div class="mb-2 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase text-red-500">
-                    <span>Chaos</span>
-                    <svg class="h-3.5 w-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6 6 18"></path>
-                    </svg>
-                  </div>
-                  <div class="relative w-[45vw] max-w-[11.5rem] sm:w-[13rem] sm:max-w-none xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
+            <div class="relative flex justify-center lg:justify-end">
+              <div class="relative grid grid-cols-2 gap-3 sm:gap-8 xl:gap-10 items-center">
+                <div class="-rotate-2">
+                  <div class="mb-2 text-center text-[10px] font-bold uppercase text-zinc-400">Chaos</div>
+                  <div class="relative w-[8.6rem] sm:w-[13rem] xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
                     <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -left-[3px] top-[28%] h-11 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -right-[3px] top-[24%] h-12 w-[3px] rounded-r-full bg-zinc-700"></span>
@@ -788,51 +712,38 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                           <div class="phone-lock-time text-[2.1rem] font-semibold leading-none sm:text-[3.1rem]">09:41</div>
                         </div>
 
-                        <div class="mt-auto mb-3 space-y-1.5 sm:mb-4 sm:space-y-2.5">
-                          <div class="w-full rounded-[1.1rem] bg-white/95 p-2 text-zinc-950 shadow-lg ring-1 ring-white/70 sm:rounded-[1.4rem] sm:p-3">
-                            <div class="mb-1.5 flex min-w-0 items-center gap-1.5 sm:gap-2">
-                              <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-[7px] bg-[#1877F2] text-white shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]">
+                        <div class="mt-auto space-y-2 sm:space-y-2.5">
+                          <div class="w-[96%] -rotate-2 rounded-[1.1rem] bg-white/90 p-2.5 text-zinc-950 shadow-lg ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.4rem] sm:p-3">
+                            <div class="mb-1.5 flex items-center gap-2">
+                              <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] bg-[#1877F2] text-white shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]">
                                 <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                   <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"></path>
                                 </svg>
                               </div>
-                              <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">FACEBOOK</span>
+                              <span class="text-[8px] font-bold text-zinc-600 sm:text-[10px]">FACEBOOK</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">1m</span>
                             </div>
-                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">{mobileNotificationTitle}</div>
+                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Neue Nachricht</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">Wann kommt mein Paket an?</p>
                           </div>
 
-                          <div class="w-full rounded-[1.1rem] bg-white/95 p-2 text-zinc-950 shadow-lg ring-1 ring-white/70 sm:rounded-[1.4rem] sm:p-3">
-                            <div class="mb-1.5 flex min-w-0 items-center gap-1.5 sm:gap-2">
-                              <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-[7px] bg-[#25D366] text-white shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]">
-                                <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                  <path d="M12.04 2.25a9.61 9.61 0 0 0-8.31 14.45L2.5 21.75l5.18-1.2a9.6 9.6 0 1 0 4.36-18.3Zm0 1.92a7.68 7.68 0 0 1 6.48 11.8 7.68 7.68 0 0 1-9.4 2.67l-.58-.29-2.91.67.69-2.82-.33-.6a7.68 7.68 0 0 1 6.05-11.43Zm-3.12 3.7c-.16 0-.42.04-.64.29-.22.24-.84.82-.84 2 0 1.17.86 2.31.98 2.47.12.16 1.68 2.68 4.13 3.65 2.03.8 2.45.64 2.89.6.44-.04 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41h-.48Z"></path>
-                                </svg>
-                              </div>
-                              <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">WHATSAPP</span>
+                          <div class="ml-auto w-[96%] rotate-2 rounded-[1.1rem] bg-white/90 p-2.5 text-zinc-950 shadow-lg ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.4rem] sm:p-3">
+                            <div class="mb-1.5 flex items-center gap-2">
+                              <img src="/images/landing/whatsapp-logo.png" alt="" class="h-6 w-6 rounded-[7px] object-contain shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]" loading="lazy" width="28" height="28" aria-hidden="true" />
+                              <span class="text-[8px] font-bold text-zinc-600 sm:text-[10px]">WHATSAPP</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">2m</span>
                             </div>
-                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">{mobileNotificationTitle}</div>
+                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Nuevo mensaje</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">¿Está disponible hoy?</p>
                           </div>
 
-                          <div class="w-full rounded-[1.1rem] bg-white/95 p-2 text-zinc-950 shadow-lg ring-1 ring-white/70 sm:rounded-[1.4rem] sm:p-3">
-                            <div class="mb-1.5 flex min-w-0 items-center gap-1.5 sm:gap-2">
-                              <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-[7px] bg-white shadow-sm ring-1 ring-zinc-200 sm:h-7 sm:w-7 sm:rounded-[9px]">
-                                <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                  <path d="M4.5 7.4 12 13l7.5-5.6v9.35A1.75 1.75 0 0 1 17.75 18.5H6.25a1.75 1.75 0 0 1-1.75-1.75V7.4Z" fill="#fff"></path>
-                                  <path d="M4.5 7.4 12 13v2.4L4.5 9.8V7.4Z" fill="#EA4335"></path>
-                                  <path d="M19.5 7.4 12 13v2.4l7.5-5.6V7.4Z" fill="#34A853"></path>
-                                  <path d="M6.25 5.5h11.5c.44 0 .84.16 1.15.43L12 11.08 5.1 5.93c.31-.27.71-.43 1.15-.43Z" fill="#FBBC04"></path>
-                                  <path d="M4.5 9.8v6.95c0 .97.78 1.75 1.75 1.75h1.6v-6.48L4.5 9.8Z" fill="#4285F4"></path>
-                                  <path d="M19.5 9.8v6.95c0 .97-.78 1.75-1.75 1.75h-1.6v-6.48L19.5 9.8Z" fill="#C5221F"></path>
-                                </svg>
-                              </div>
-                              <span class="min-w-0 truncate text-[8px] font-bold text-zinc-600 sm:text-[10px]">GMAIL</span>
+                          <div class="w-[96%] -rotate-1 rounded-[1.1rem] bg-white/90 p-2.5 text-zinc-950 shadow-lg ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.4rem] sm:p-3">
+                            <div class="mb-1.5 flex items-center gap-2">
+                              <img src="/images/landing/gmail-logo.png" alt="" class="h-6 w-6 rounded-[7px] object-contain shadow-sm sm:h-7 sm:w-7 sm:rounded-[9px]" loading="lazy" width="28" height="28" aria-hidden="true" />
+                              <span class="text-[8px] font-bold text-zinc-600 sm:text-[10px]">GMAIL</span>
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">3m</span>
                             </div>
-                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">{mobileNotificationTitle}</div>
+                            <div class="text-[10px] font-semibold leading-tight sm:text-[12px]">Nouveau message</div>
                             <p class="text-[9px] leading-snug text-zinc-700 sm:text-[11px]">Bonjour, j'ai une question...</p>
                           </div>
                         </div>
@@ -842,14 +753,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   </div>
                 </div>
 
-                <div>
-                  <div class="mb-2 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase text-emerald-600">
-                    <span>Chataptor</span>
-                    <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div class="relative w-[45vw] max-w-[11.5rem] sm:w-[13rem] sm:max-w-none xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
+                <div class="rotate-2">
+                  <div class="mb-2 text-center text-[10px] font-bold uppercase text-emerald-600">Chataptor</div>
+                  <div class="relative w-[8.6rem] sm:w-[13rem] xl:w-[14.75rem] aspect-[430/932] rounded-[2rem] sm:rounded-[2.85rem] bg-zinc-950 p-[5px] sm:p-[7px] ring-1 ring-zinc-950 shadow-2xl">
                     <span class="absolute -left-[3px] top-[18%] h-8 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -left-[3px] top-[28%] h-11 w-[3px] rounded-l-full bg-zinc-700"></span>
                     <span class="absolute -right-[3px] top-[24%] h-12 w-[3px] rounded-r-full bg-zinc-700"></span>
@@ -884,9 +790,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                           <div class="phone-lock-time text-[2.1rem] font-semibold leading-none sm:text-[3.1rem]">09:41</div>
                         </div>
 
-                        <div class="mt-auto mb-3 sm:mb-4">
-                          <div class="rounded-[1.15rem] bg-white/95 p-2.5 text-zinc-950 shadow-xl ring-1 ring-white/70 sm:rounded-[1.55rem] sm:p-3">
-                            <div class="mb-1.5 flex min-w-0 items-center gap-2">
+                        <div class="mt-auto">
+                          <div class="rounded-[1.15rem] bg-white/90 p-2.5 text-zinc-950 shadow-xl ring-1 ring-white/60 backdrop-blur-2xl sm:rounded-[1.55rem] sm:p-3.5">
+                            <div class="mb-2.5 flex items-center gap-2">
                               <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[8px] bg-zinc-950 sm:h-8 sm:w-8 sm:rounded-[10px]">
                                 <img src="/images/landing/logo-black.png" alt="" class="h-3.5 w-3.5 object-contain brightness-0 invert sm:h-4 sm:w-4" loading="lazy" width="16" height="16" aria-hidden="true" />
                               </div>
@@ -894,23 +800,28 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                               <span class="ml-auto text-[8px] font-medium text-zinc-500 sm:text-[10px]">1m</span>
                             </div>
                             <div class="text-[11px] font-semibold leading-tight sm:text-[13px]">{mobileInboxTitle}</div>
-                            <div class="mt-1 sm:mt-1.5">
-                              {mobileInboxMessageList.map((message) => (
-                                <div class="text-[9px] font-medium leading-tight text-zinc-700 sm:text-[9px]">
-                                  - {message}
+                            <div class="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2">
+                              {mobileInboxMessageList.map((message, index) => (
+                                <div class="flex items-start gap-2 rounded-xl bg-zinc-100/80 px-2 py-1.5 sm:gap-2.5 sm:px-2.5 sm:py-2">
+                                  <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-zinc-950 text-[8px] font-bold leading-none text-white sm:h-5 sm:w-5 sm:text-[9px]">
+                                    {index + 1}
+                                  </span>
+                                  <span class="text-[9px] font-medium leading-snug text-zinc-700 sm:text-[11px]">
+                                    {message}
+                                  </span>
                                 </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div class="absolute bottom-1.5 left-1/2 z-20 h-1 w-16 -translate-x-1/2 rounded-full bg-white/80 sm:bottom-2"></div>
                     </div>
                   </div>
                 </div>
 
-                <div class="pointer-events-none absolute left-1/2 top-1/2 z-20 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-zinc-900 ring-1 ring-zinc-200 sm:h-10 sm:w-10" aria-hidden="true">
-                  <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-zinc-900 ring-1 ring-zinc-200 sm:flex" aria-hidden="true">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M5 12h14m-6-6 6 6-6 6"></path>
                   </svg>
                 </div>
@@ -921,41 +832,56 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       </section>
 
       <!-- SEKCJA: WDROŻENIE (Implementation) -->
-      <section id="implementation" class="py-16 md:py-24 lg:py-28 bg-zinc-50/70 border-y border-zinc-100 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-12 xl:gap-16 items-stretch relative z-10">
-          <div class="min-w-0">
-            <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight lg:whitespace-nowrap">{t.implementation.title.replace('<br/>', ' ')}</h2>
-            <p class="text-zinc-500 text-base xl:text-lg mb-8 leading-relaxed lg:whitespace-nowrap">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded-md ring-1 ring-zinc-200">{t.implementation.timeHighlight}</span>.</p>
-
-            <div class="rounded-2xl border border-zinc-200 bg-white font-mono text-[11px] sm:text-xs md:text-sm overflow-hidden">
-              <div class="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 px-4 py-3">
-                <div class="flex items-center gap-2">
-                  <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
-                  <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
-                  <span class="h-2.5 w-2.5 rounded-full bg-zinc-300"></span>
+      <section id="implementation" class="py-16 md:py-24 lg:py-32 xl:py-32 bg-zinc-50/50 border-y border-zinc-100 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 mb-12 md:mb-16">
+          <div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 mb-6 tracking-tight" set:html={t.implementation.title}></h2>
+            <p class="text-zinc-500 text-base md:text-lg mb-10 leading-relaxed">{t.implementation.subtitle} <span class="text-zinc-900 font-bold bg-white px-2 py-0.5 rounded ring-1 ring-zinc-200 shadow-sm">{t.implementation.timeHighlight}</span>.</p>
+            <div class="space-y-6 md:space-y-8">
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">1</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step1.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step1.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">2</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step2.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step2.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">3</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step3.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step3.description}</p></div></div>
+              <div class="flex gap-4 md:gap-5 group"><div class="w-10 h-10 rounded-xl bg-white ring-1 ring-zinc-200 flex items-center justify-center text-zinc-900 font-bold shadow-sm group-hover:ring-zinc-900 transition-all">4</div><div><h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{t.implementation.step4.title}</h3><p class="text-zinc-500 text-sm">{t.implementation.step4.description}</p></div></div>
+            </div>
+          </div>
+          <div class="relative mt-4 lg:mt-0">
+            <div class="absolute -inset-2 bg-gradient-to-r from-zinc-200 to-zinc-100 rounded-3xl blur-lg opacity-60"></div>
+            <div class="relative bg-[#F5F5F7] rounded-2xl ring-1 ring-black/5 shadow-2xl font-mono text-xs md:text-sm flex flex-col overflow-hidden max-w-[calc(100vw-2rem)] md:max-w-full mx-auto">
+              <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 border-b border-zinc-200/50 bg-[#F5F5F7] relative z-10">
+                <div class="flex items-center gap-2 min-w-[50px]">
+                  <div class="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#D89E24]"></div>
+                  <div class="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]"></div>
                 </div>
-                <div class="text-[11px] font-semibold text-zinc-400">index.html</div>
+                <div class="text-zinc-400 text-xs font-semibold truncate px-2">index.html</div>
+                <div class="flex items-center justify-end min-w-[50px]">
+                  <div class="flex items-center gap-1.5 px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full ring-1 ring-emerald-100/50">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span>Connected</span>
+                  </div>
+                </div>
               </div>
-              <div class="bg-white p-4 sm:p-5">
-                <div class="space-y-1.5 break-words leading-relaxed text-zinc-600">
-                  <div><span class="text-zinc-400">&lt;body&gt;</span></div>
-                  <div class="pl-4 text-zinc-400">&lt;!-- {t.implementation.codeComment} --&gt;</div>
-                  <div class="pl-4"><span class="text-zinc-950">&lt;script</span> src=<span class="text-emerald-700">"https://cdn.chataptor.com/widget.js"</span></div>
-                  <div class="pl-8">data-id=<span class="text-emerald-700">"YOUR_SITE_ID"</span> <span class="text-zinc-950">&gt;&lt;/script&gt;</span></div>
-                  <div><span class="text-zinc-400">&lt;/body&gt;</span></div>
+              <div class="p-3 sm:p-5 md:p-8 overflow-x-auto bg-white">
+                <div class="text-zinc-600 space-y-0.5 md:space-y-1.5 leading-tight whitespace-pre-wrap break-all md:whitespace-nowrap text-[10px] sm:text-xs md:text-sm">
+                  <div><span class="text-purple-600">&lt;body&gt;</span></div>
+                  <div class="pl-4 text-zinc-400 opacity-70">&lt;!-- {t.implementation.codeMetaComment} --&gt;</div>
+                  <div class="pl-4"><span class="text-purple-600">&lt;meta</span> <span class="text-zinc-600">charset</span>=<span class="text-emerald-600">"UTF-8"</span> /&gt;</div>
+                  <div class="pl-4 text-zinc-400 italic">&lt;!-- {t.implementation.codeComment} --&gt;</div>
+                  <div class="pl-4 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r w-full"><span class="text-purple-600">&lt;script</span> <span class="text-zinc-600">src</span>=<span class="text-emerald-600">"https://cdn.chataptor.com/widget.js"</span></div>
+                  <div class="pl-8 bg-zinc-50 border-l-2 border-zinc-300 py-2 pr-2 rounded-r -mt-1 w-full"><span class="text-zinc-600">data-id</span>=<span class="text-emerald-600">"YOUR_SITE_ID"</span> <span class="text-purple-600">&gt;&lt;/script&gt;</span></div>
+                  <div><span class="text-purple-600">&lt;/body&gt;</span></div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="flex h-full flex-col justify-between gap-5 md:gap-6 lg:py-2">
-            {[t.implementation.step1, t.implementation.step2, t.implementation.step3, t.implementation.step4].map((step, index) => (
-              <div class="flex gap-4 md:gap-5">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-bold text-zinc-900 ring-1 ring-zinc-200">{index + 1}</div>
-                <div>
-                  <h3 class="font-bold text-base md:text-lg text-zinc-900 mb-1">{step.title}</h3>
-                  <p class="text-zinc-500 text-sm leading-relaxed">{step.description}</p>
-                </div>
+        <!-- LOGOTYPY INTEGRACJI -->
+        <div class="w-full relative mask-gradient mt-8 md:mt-12 overflow-hidden">
+          <div class="flex animate-marquee-mobile md:animate-marquee whitespace-nowrap items-center">
+            {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo) => (
+              <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 flex items-center justify-center mx-3 md:mx-10 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                <img src={logo} alt="Integration" class="w-24 h-24 md:w-32 md:h-32 object-contain" loading="lazy" width="128" height="128" />
               </div>
             ))}
           </div>
@@ -1005,7 +931,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
       }
 
-      function selectChat(chatId, showOnMobile = true) {
+      function selectChat(chatId) {
         const chat = conversations.find(c => c.id === chatId);
         if (!chat) return;
 
@@ -1035,10 +961,9 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
         renderMessages(chat);
 
         // Mobile: show chat view
-        if (showOnMobile && window.innerWidth < 768) {
+        if (window.innerWidth < 768) {
           chatList.classList.add('hidden');
           chatView.classList.remove('hidden');
-          chatView.classList.add('flex');
         }
       }
 
@@ -1051,11 +976,10 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       backToList?.addEventListener('click', () => {
         chatList.classList.remove('hidden');
         chatView.classList.add('hidden');
-        chatView.classList.remove('flex');
       });
 
       // Initialize with first chat
-      selectChat(1, false);
+      selectChat(1);
 
       // Phone lock screen clock
       const phoneLocaleMap = {
@@ -1100,117 +1024,61 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
 
       // Market counter handling
       const countryToggles = document.querySelectorAll('.country-toggle');
-      const allLanguagesToggle = document.querySelector('.all-languages-toggle');
       const marketCount = document.getElementById('market-count');
-      const baseMarketCount = 45000000;
-      const allLanguagesMarketCount = 8200000000;
+      let baseCount = 38000000;
       const activeCountries = new Set();
-      let isAllLanguagesActive = false;
-      const marketOptions = Array.from(countryToggles).map(toggle => ({
-        toggle,
-        code: toggle.dataset.code,
-        population: parseInt(toggle.dataset.population || '0', 10),
-      }));
-
-      function updateMarketMapPoint(code, isActive) {
-        const mapCountry = document.querySelector(`.market-map-country[data-code="${code}"]`);
-
-        if (!mapCountry) return;
-
-        mapCountry.classList.toggle('opacity-100', isActive);
-        mapCountry.classList.toggle('opacity-0', !isActive);
-      }
 
       function formatCount(count) {
         return count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
       }
 
-      function setMarketToggleState(toggle, isActive) {
-        if (!toggle) return;
-
-        const toggleSwitch = toggle.querySelector('.toggle-switch');
-        const toggleKnob = toggle.querySelector('.toggle-knob');
-        const countryName = toggle.querySelector('.country-name');
-        const countrySub = toggle.querySelector('.country-sub');
-        const countryFlag = toggle.querySelector('.country-flag');
-
-        if (isActive) {
-          toggleSwitch.classList.remove('bg-zinc-200');
-          toggleSwitch.classList.add('bg-zinc-900');
-          toggleKnob.classList.add('translate-x-[1.25rem]');
-          countryName.classList.remove('text-zinc-400');
-          countryName.classList.add('text-zinc-900');
-          countrySub.classList.remove('text-zinc-300');
-          countrySub.classList.add('text-emerald-600', 'font-bold');
-          countryFlag?.classList.remove('grayscale', 'opacity-60');
-          countryFlag?.classList.add('opacity-100');
-        } else {
-          toggleSwitch.classList.add('bg-zinc-200');
-          toggleSwitch.classList.remove('bg-zinc-900');
-          toggleKnob.classList.remove('translate-x-[1.25rem]');
-          toggleKnob.style.transform = '';
-          countryName.classList.add('text-zinc-400');
-          countryName.classList.remove('text-zinc-900');
-          countrySub.classList.add('text-zinc-300');
-          countrySub.classList.remove('text-emerald-600', 'font-bold');
-          countryFlag?.classList.add('grayscale', 'opacity-60');
-          countryFlag?.classList.remove('opacity-100');
-        }
-      }
-
-      function updateMarketCount() {
-        if (isAllLanguagesActive) {
-          marketCount.textContent = formatCount(allLanguagesMarketCount);
-          return;
-        }
-
-        const selectedCount = marketOptions.reduce((total, option) => {
-          if (!activeCountries.has(option.code)) return total;
-          return total + option.population;
-        }, baseMarketCount);
-
-        marketCount.textContent = formatCount(selectedCount);
-      }
-
-      function syncAllLanguagesToggle() {
-        setMarketToggleState(allLanguagesToggle, isAllLanguagesActive);
-        updateMarketMapPoint('all', isAllLanguagesActive);
-      }
-
-      marketOptions.forEach(({ toggle, code }) => {
+      countryToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
-          const shouldActivate = !activeCountries.has(code);
-          isAllLanguagesActive = false;
+          const code = toggle.dataset.code;
+          const population = parseInt(toggle.dataset.population);
+          const isActive = activeCountries.has(code);
 
-          if (shouldActivate) {
-            activeCountries.add(code);
-          } else {
+          if (isActive) {
             activeCountries.delete(code);
+            baseCount -= population;
+          } else {
+            activeCountries.add(code);
+            baseCount += population;
           }
 
-          setMarketToggleState(toggle, shouldActivate);
-          updateMarketMapPoint(code, shouldActivate);
-          syncAllLanguagesToggle();
-          updateMarketCount();
-        });
-      });
+          // Update toggle UI
+          const toggleSwitch = toggle.querySelector('.toggle-switch');
+          const toggleKnob = toggle.querySelector('.toggle-knob');
+          const countryName = toggle.querySelector('.country-name');
+          const countrySub = toggle.querySelector('.country-sub');
+          const countryFlag = toggle.querySelector('.country-flag');
 
-      allLanguagesToggle?.addEventListener('click', () => {
-        isAllLanguagesActive = !isAllLanguagesActive;
-
-        marketOptions.forEach(({ toggle, code }) => {
-          if (isAllLanguagesActive) {
-            activeCountries.add(code);
+          if (activeCountries.has(code)) {
+            toggleSwitch.classList.remove('bg-zinc-200');
+            toggleSwitch.classList.add('bg-zinc-900');
+            toggleKnob.classList.add('translate-x-[1.25rem]');
+            countryName.classList.remove('text-zinc-400');
+            countryName.classList.add('text-zinc-900');
+            countrySub.classList.remove('text-zinc-300');
+            countrySub.classList.add('text-emerald-600', 'font-bold');
+            countryFlag?.classList.remove('grayscale', 'opacity-60');
+            countryFlag?.classList.add('opacity-100');
           } else {
-            activeCountries.delete(code);
+            toggleSwitch.classList.add('bg-zinc-200');
+            toggleSwitch.classList.remove('bg-zinc-900');
+            toggleKnob.classList.remove('translate-x-[1.25rem]');
+            toggleKnob.style.transform = '';
+            countryName.classList.add('text-zinc-400');
+            countryName.classList.remove('text-zinc-900');
+            countrySub.classList.add('text-zinc-300');
+            countrySub.classList.remove('text-emerald-600', 'font-bold');
+            countryFlag?.classList.add('grayscale', 'opacity-60');
+            countryFlag?.classList.remove('opacity-100');
           }
 
-          setMarketToggleState(toggle, isAllLanguagesActive);
-          updateMarketMapPoint(code, isAllLanguagesActive);
+          // Update count
+          marketCount.textContent = formatCount(baseCount);
         });
-
-        syncAllLanguagesToggle();
-        updateMarketCount();
       });
     </script>
 </BaseLayout>

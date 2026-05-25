@@ -33,6 +33,7 @@ const blogCollection = defineCollection({
     lang: localeEnum,
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
+    translationKey: z.string(),
     author: z.string(),
     tags: z.array(z.string()).default([]),
     image: z.string().optional(),

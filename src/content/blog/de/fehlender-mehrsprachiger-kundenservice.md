@@ -2,6 +2,7 @@
 title: "Wie viel verlierst du durch fehlenden mehrsprachigen Kundenservice?"
 description: "Internationale Kunden brechen den Kauf ab, wenn der Support nicht in ihrer Sprache erfolgt. Sieh dir an, was die Sprachbarriere kostet und wie du sie ohne Native Speaker umgehst."
 lang: "de"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"
@@ -49,7 +50,7 @@ Wir fanden keine fertige Lösung auf dem Markt, also haben wir unsere eigene geb
 
 Dank unserer Algorithmen kann dein bestehendes Team internationale Kunden von heute auf morgen fließend betreuen.
 
-* **Echtzeit-Übersetzung:** Der Kunde aus Frankreich schreibt auf Französisch. Dein Agent sieht die Nachricht auf Deutsch. Er antwortet auf Deutsch und das System übersetzt sie sofort in perfektes Französisch – unter Beibehaltung des geschäftlichen Kontexts. Welche Kennzahlen das genau beeinflusst, erfährst du in unserem Beitrag: **[Automatische Übersetzung im Kundenservice – wie das funktioniert](https://astro-chataptor-test.vercel.app/de/blog/automatische-uebersetzung-im-kundensupport/)**.
+* **Echtzeit-Übersetzung:** Der Kunde aus Frankreich schreibt auf Französisch. Dein Agent sieht die Nachricht auf Deutsch. Er antwortet auf Deutsch und das System übersetzt sie sofort in perfektes Französisch – unter Beibehaltung des geschäftlichen Kontexts. Welche Kennzahlen das genau beeinflusst, erfährst du in unserem Beitrag: **[Automatische Übersetzung im Kundenservice – wie das funktioniert](https://chataptor.com/de/blog/automatische-uebersetzung-im-kundensupport/)**.
 * **Eine Inbox für alles:** Internationale Kunden schreiben E-Mails, nutzen aber auch oft WhatsApp oder Instagram. Du verknüpfst den Live-Chat auf der Website, E-Mail, WhatsApp und Social Media in einem einzigen, übersichtlichen Dashboard.
 * **Datensicherheit:** Das System maskiert sensible Daten (PII), bevor sie in die Übersetzungs-Cloud gesendet werden. Du bleibst DSGVO-konform und schützt die Privatsphäre deiner Kunden.
 

@@ -1,12 +1,24 @@
 ---
-import { locales, localeFlagSrc, localeNames, type Locale } from '../i18n/config';
+import {
+  localeFlagSrc,
+  localeHrefLang,
+  localeNames,
+  locales,
+  type Locale,
+} from '../i18n/config';
+import { getLocalizedPath, type AlternateUrl } from '../utils/i18n';
 
 interface Props {
   currentLang: Locale;
   slug: string;
+  alternateUrls?: AlternateUrl[];
 }
 
-const { currentLang, slug } = Astro.props;
+const { currentLang, slug, alternateUrls = [] } = Astro.props;
+const alternateByLang = new Map(alternateUrls.map((alt) => [alt.lang, alt.url]));
+
+const getHref = (locale: Locale) =>
+  alternateByLang.get(locale) || getLocalizedPath(locale, slug);
 ---
 
 <div class="relative language-switcher z-50">
@@ -47,8 +59,8 @@ const { currentLang, slug } = Astro.props;
     {locales.map((locale) => (
       <li>
         <a
-          href={`/${locale}/${slug}`}
-          hreflang={locale}
+          href={getHref(locale)}
+          hreflang={localeHrefLang[locale]}
           class:list={[
             'flex items-center gap-2 px-3 py-2 text-sm hover:bg-zinc-50 transition-colors',
             locale === currentLang

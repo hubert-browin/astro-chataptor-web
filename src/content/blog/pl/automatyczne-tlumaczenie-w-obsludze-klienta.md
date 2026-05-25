@@ -2,6 +2,7 @@
 title: "Automatyczne tłumaczenie w obsłudze klienta – jak to działa"
 description: "Jak automatyczne tłumaczenie skraca czas odpowiedzi i podnosi CSAT? Wskaźniki do sprawdzenia i konkretne kroki wdrożenia dla e-commerce i usług."
 lang: "pl"
+translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
 updatedAt: 2025-03-03
 author: "Chataptor Team"

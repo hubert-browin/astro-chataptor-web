@@ -2,6 +2,7 @@
 title: "Ile tracisz przez brak obsługi klienta po niemiecku?"
 description: "Niemiecki klient porzuca koszyk, gdy nie ma wsparcia w swoim języku. Zobacz, ile kosztuje bariera językowa i jak ją obejść bez zatrudniania native speakerów."
 lang: "pl"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"

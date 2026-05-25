@@ -1,15 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { locales } from '../../../i18n/config';
+import { locales, type Locale } from '../../../i18n/config';
 import { getBlogUI } from '../../../i18n/blog';
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
 
-const { lang } = Astro.params;
-const ui = getBlogUI(lang as any);
+const { lang } = Astro.params as { lang: Locale };
+const ui = getBlogUI(lang);
 
 // "en/live-chat-translation-real-time" -> "live-chat-translation-real-time"
 // "de/poradnik/seo" -> "poradnik/seo"
@@ -17,7 +17,7 @@ const stripLangFromSlug = (fullSlug: string, lang: string) =>
   fullSlug.startsWith(`${lang}/`) ? fullSlug.slice(lang.length + 1) : fullSlug;
 
 // finalny URL wpisu: "/en/blog/poradnik/seo"
-const postHref = (post: any) => `/${lang}/blog/${stripLangFromSlug(post.slug, lang)}`;
+const postHref = (post: any) => `/${lang}/blog/${stripLangFromSlug(post.slug, lang)}/`;
 
 const posts = await getCollection('blog', ({ slug, data }) => {
   // Wariant "folder jest źródłem prawdy" + spójność z frontmatter:

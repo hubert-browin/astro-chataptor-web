@@ -15,6 +15,17 @@ export const localeNames: Record<Locale, string> = {
   sk: 'Slovenčina',
 };
 
+export const localeHrefLang: Record<Locale, string> = {
+  pl: 'pl-PL',
+  en: 'en-US',
+  de: 'de-DE',
+  fr: 'fr-FR',
+  es: 'es-ES',
+  it: 'it-IT',
+  cs: 'cs-CZ',
+  sk: 'sk-SK',
+};
+
 export const localeFlagSrc: Record<Locale, string> = {
   pl: '/images/flags/pl.svg',
   en: '/images/flags/gb.svg',
