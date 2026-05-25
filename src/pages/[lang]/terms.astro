@@ -137,7 +137,7 @@ const tocSections = [
 
             <!-- Related Link -->
             <div class="mt-4 p-4 bg-zinc-50 rounded-xl ring-1 ring-zinc-200">
-              <a href={`/${lang}/privacy`} class="text-sm text-zinc-700 hover:text-zinc-900 font-medium flex items-center gap-2">
+              <a href={`/${lang}/privacy/`} class="text-sm text-zinc-700 hover:text-zinc-900 font-medium flex items-center gap-2">
                 <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
@@ -246,7 +246,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">2</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span set:html={t.section2.item2.replace('{privacyLink}', `<a href="/${lang}/privacy" class="text-emerald-600 font-medium hover:underline">${t.privacyLink}</a>`)} />
+                      <span set:html={t.section2.item2.replace('{privacyLink}', `<a href="/${lang}/privacy/" class="text-emerald-600 font-medium hover:underline">${t.privacyLink}</a>`)} />
                     </div>
                   </div>
                 </div>
@@ -746,7 +746,7 @@ const tocSections = [
                       <span class="text-xs font-bold text-emerald-700">1</span>
                     </div>
                     <div class="flex-1 text-zinc-700 leading-relaxed">
-                      <span set:html={t.section9.item1.replace('{privacyLink}', `<a href="/${lang}/privacy" class="text-emerald-600 font-medium hover:underline">${t.privacyLink}</a>`)} />
+                      <span set:html={t.section9.item1.replace('{privacyLink}', `<a href="/${lang}/privacy/" class="text-emerald-600 font-medium hover:underline">${t.privacyLink}</a>`)} />
                     </div>
                   </div>
                 </div>
@@ -1106,8 +1106,8 @@ const tocSections = [
             <div class="space-y-8">
               <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">{t.legal}</h4>
               <ul class="space-y-4 text-zinc-500 font-medium">
-                <li><a href={`/${lang}/privacy`} class="hover:text-zinc-900 transition-colors">{t.privacy}</a></li>
-                <li><a href={`/${lang}/terms`} class="text-zinc-900 font-semibold">{t.terms}</a></li>
+                <li><a href={`/${lang}/privacy/`} class="hover:text-zinc-900 transition-colors">{t.privacy}</a></li>
+                <li><a href={`/${lang}/terms/`} class="text-zinc-900 font-semibold">{t.terms}</a></li>
               </ul>
             </div>
           </div>

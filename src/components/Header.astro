@@ -39,9 +39,9 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
         <a href={`${anchorBase}#product`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.features}</a>
         <a href={`${anchorBase}#implementation`} class="px-4 py-2 rounded-full hover:bg-zinc-100 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
         
-        <a href={`/${lang}/about`} class={`px-4 py-2 rounded-full transition-all ${isAbout ? 'bg-zinc-100 text-zinc-900 font-bold' : 'hover:bg-zinc-100 hover:text-zinc-900'}`}>{t.nav.about}</a>
+        <a href={`/${lang}/about/`} class={`px-4 py-2 rounded-full transition-all ${isAbout ? 'bg-zinc-100 text-zinc-900 font-bold' : 'hover:bg-zinc-100 hover:text-zinc-900'}`}>{t.nav.about}</a>
         
-        <a href={`/${lang}/blog`} class={`px-4 py-2 rounded-full transition-all ${isBlog ? 'bg-zinc-100 text-zinc-900 font-bold' : 'hover:bg-zinc-100 hover:text-zinc-900'}`}>{t.nav.blog}</a>
+        <a href={`/${lang}/blog/`} class={`px-4 py-2 rounded-full transition-all ${isBlog ? 'bg-zinc-100 text-zinc-900 font-bold' : 'hover:bg-zinc-100 hover:text-zinc-900'}`}>{t.nav.blog}</a>
       </div>
 
       <div class="hidden md:flex items-center gap-2 pr-1 text-[0.8125rem]">
@@ -69,8 +69,8 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
       <div class="hidden lg:flex items-center gap-1 text-[0.8125rem] font-medium text-zinc-500">
         <a href="#product" class="px-4 py-2 rounded-full hover:bg-white/70 hover:text-zinc-900 transition-all">{t.nav.features}</a>
         <a href="#implementation" class="px-4 py-2 rounded-full hover:bg-white/70 hover:text-zinc-900 transition-all">{t.nav.implementation}</a>
-        <a href={`/${lang}/about`} class="px-4 py-2 rounded-full hover:bg-white/70 hover:text-zinc-900 transition-all">{t.nav.about}</a>
-        <a href={`/${lang}/blog`} class="px-4 py-2 rounded-full hover:bg-white/70 hover:text-zinc-900 transition-all">{t.nav.blog}</a>
+        <a href={`/${lang}/about/`} class="px-4 py-2 rounded-full hover:bg-white/70 hover:text-zinc-900 transition-all">{t.nav.about}</a>
+        <a href={`/${lang}/blog/`} class="px-4 py-2 rounded-full hover:bg-white/70 hover:text-zinc-900 transition-all">{t.nav.blog}</a>
       </div>
       <div class="hidden md:flex items-center gap-6 text-sm">
         <LanguageSwitcher currentLang={lang as any} slug="" />
@@ -101,11 +101,11 @@ const anchorBase = isLandingPage ? "" : `/${lang}/`;
             <span>{t.nav.implementation}</span>
         </a>
 
-        <a href={`/${lang}/about`} class={`mobile-menu-link flex min-h-14 items-center justify-between rounded-2xl px-4 text-xl font-bold transition-colors active:bg-zinc-50 ${isAbout ? 'text-zinc-900 bg-zinc-100' : 'text-zinc-800'}`}>
+        <a href={`/${lang}/about/`} class={`mobile-menu-link flex min-h-14 items-center justify-between rounded-2xl px-4 text-xl font-bold transition-colors active:bg-zinc-50 ${isAbout ? 'text-zinc-900 bg-zinc-100' : 'text-zinc-800'}`}>
             <span>{t.nav.about}</span>
         </a>
 
-        <a href={`/${lang}/blog`} class={`mobile-menu-link flex min-h-14 items-center justify-between rounded-2xl px-4 text-xl font-bold transition-colors active:bg-zinc-50 ${isBlog ? 'text-zinc-900 bg-zinc-100' : 'text-zinc-800'}`}>
+        <a href={`/${lang}/blog/`} class={`mobile-menu-link flex min-h-14 items-center justify-between rounded-2xl px-4 text-xl font-bold transition-colors active:bg-zinc-50 ${isBlog ? 'text-zinc-900 bg-zinc-100' : 'text-zinc-800'}`}>
             <span>{t.nav.blog}</span>
         </a>
 

@@ -2,6 +2,7 @@
 title: "Wie viel verlierst du durch fehlenden mehrsprachigen Kundenservice?"
 description: "Internationale Kunden brechen den Kauf ab, wenn der Support nicht in ihrer Sprache erfolgt. Sieh dir an, was die Sprachbarriere kostet und wie du sie ohne Native Speaker umgehst."
 lang: "de"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"

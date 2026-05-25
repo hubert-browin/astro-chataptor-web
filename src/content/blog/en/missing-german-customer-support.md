@@ -2,6 +2,7 @@
 title: "How much do you lose without German customer support?"
 description: "German customers abandon their carts when they lack support in their native language. See the real cost of the language barrier and how to bypass it without hiring native speakers."
 lang: "en"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"

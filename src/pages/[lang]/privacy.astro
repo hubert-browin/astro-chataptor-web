@@ -1,6 +1,7 @@
 ---
 import { locales, type Locale } from '../../i18n/config';
 import { getPrivacyTranslations } from '../../i18n/privacy';
+import SEOHead from '../../components/SEOHead.astro';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
@@ -26,8 +27,12 @@ const year = new Date().getFullYear();
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>{t.pageTitle}</title>
-    <meta name="description" content={t.metaDescription} />
+    <SEOHead
+      title={t.pageTitle}
+      description={t.metaDescription}
+      lang={lang}
+      slug="privacy"
+    />
   </head>
   <body class="min-h-screen bg-white text-zinc-900 antialiased">
     <!-- HEADER -->
@@ -673,8 +678,8 @@ const year = new Date().getFullYear();
           <div class="space-y-8">
             <h4 class="text-sm font-bold text-zinc-900 uppercase tracking-widest">{t.footer.legalTitle}</h4>
             <ul class="space-y-4 text-zinc-500 font-medium">
-              <li><a href={`/${lang}/privacy`} class="text-zinc-900 font-semibold">{t.footer.privacyPolicy}</a></li>
-              <li><a href={`/${lang}/terms`} class="hover:text-zinc-900 transition-colors">{t.footer.terms}</a></li>
+              <li><a href={`/${lang}/privacy/`} class="text-zinc-900 font-semibold">{t.footer.privacyPolicy}</a></li>
+              <li><a href={`/${lang}/terms/`} class="hover:text-zinc-900 transition-colors">{t.footer.terms}</a></li>
             </ul>
           </div>
         </div>

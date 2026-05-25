@@ -17,7 +17,7 @@ const stripLangFromSlug = (fullSlug: string, lang: string) =>
   fullSlug.startsWith(`${lang}/`) ? fullSlug.slice(lang.length + 1) : fullSlug;
 
 // finalny URL wpisu: "/en/blog/poradnik/seo"
-const postHref = (post: any) => `/${lang}/blog/${stripLangFromSlug(post.slug, lang)}`;
+const postHref = (post: any) => `/${lang}/blog/${stripLangFromSlug(post.slug, lang)}/`;
 
 const posts = await getCollection('blog', ({ slug, data }) => {
   // Wariant "folder jest źródłem prawdy" + spójność z frontmatter:

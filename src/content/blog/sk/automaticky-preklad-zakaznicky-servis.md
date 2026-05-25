@@ -2,6 +2,7 @@
 title: "Automatický preklad v zákazníckom servise – ako to funguje"
 description: "Ako automatický preklad skracuje čas odozvy a zlepšuje CSAT? Ukazovatele na overenie a konkrétne kroky implementácie pre e-commerce a služby."
 lang: "sk"
+translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
 updatedAt: 2025-03-03
 author: "Chataptor Team"

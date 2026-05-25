@@ -2,6 +2,7 @@
 title: "Traduzione automatica nell'assistenza clienti – come funziona"
 description: "Come la traduzione automatica riduce i tempi di risposta e migliora il CSAT? Indicatori da verificare e passi concreti di implementazione per e-commerce e servizi."
 lang: "it"
+translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
 updatedAt: 2025-03-03
 author: "Chataptor Team"

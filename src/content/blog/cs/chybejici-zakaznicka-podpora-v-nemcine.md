@@ -2,6 +2,7 @@
 title: "Kolik ztrácíte kvůli chybějící zákaznické podpoře v němčině?"
 description: "Německý zákazník opouští košík, když nemá podporu ve svém jazyce. Podívejte se, kolik stojí jazyková bariéra a jak ji obejít bez najímání rodilých mluvčích."
 lang: "cs"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"

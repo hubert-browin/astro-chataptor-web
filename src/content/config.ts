@@ -3,6 +3,7 @@ import { defineCollection, z } from 'astro:content';
 const localeEnum = z.enum(['pl', 'en', 'de', 'fr', 'es', 'it', 'cs', 'sk']);
 
 const translationFields = {
+  translationKey: z.string().optional(),
   sourceFile: z.string().optional(),
   sourceHash: z.string().optional(),
   reviewed: z.boolean().default(false),

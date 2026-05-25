@@ -2,6 +2,7 @@
 title: "Automatic Translation in Customer Support – How It Works"
 description: "How does automatic translation reduce response times and improve CSAT? Key metrics to track and concrete implementation steps for e-commerce and service businesses."
 lang: "en"
+translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
 updatedAt: 2025-03-03
 author: "Chataptor Team"

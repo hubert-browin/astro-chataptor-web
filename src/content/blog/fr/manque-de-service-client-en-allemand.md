@@ -2,6 +2,7 @@
 title: "Combien perdez-vous en l'absence de service client en allemand ?"
 description: "Le client allemand abandonne son panier lorsqu'il n'y a pas d'assistance dans sa langue. Découvrez ce que coûte la barrière linguistique et comment la contourner sans embaucher de locuteurs natifs."
 lang: "fr"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"

@@ -2,6 +2,7 @@
 title: "¿Cuánto pierdes por falta de atención al cliente en alemán?"
 description: "El cliente alemán abandona el carrito cuando no hay soporte en su idioma. Descubre cuánto cuesta la barrera del idioma y cómo evitarla sin contratar a hablantes nativos."
 lang: "es"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"

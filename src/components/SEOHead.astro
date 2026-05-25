@@ -1,6 +1,11 @@
 ---
 import type { Locale } from '../i18n/config';
-import { getAlternateUrls, getCanonicalUrl } from '../utils/i18n';
+import {
+  type AlternateUrl,
+  getAlternateUrls,
+  getCanonicalUrl,
+  localeHreflang,
+} from '../utils/i18n';
 
 interface Props {
   title: string;
@@ -10,8 +15,10 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   publishedAt?: Date;
-  author?: string; // Dodany opcjonalny autor dla bloga
+  modifiedAt?: Date;
+  author?: string;
   noindex?: boolean;
+  alternates?: AlternateUrl[];
 }
 
 const {
@@ -22,22 +29,25 @@ const {
   image,
   type = 'website',
   publishedAt,
-  author = 'Chataptor', // Domyślny autor
+  modifiedAt,
+  author = 'Chataptor',
   noindex = false,
+  alternates: alternateUrls,
 } = Astro.props;
 
 const cleanDescription = description.replace(/<[^>]*>?/gm, '').trim();
 
 const finalImage = image || `/images/og-default-${lang}.jpg`;
 
-const alternates = getAlternateUrls(slug);
+const alternates = alternateUrls?.length ? alternateUrls : getAlternateUrls(slug);
 const canonical = getCanonicalUrl(lang, slug);
 const fullTitle = `${title}`;
-
-const ogImage = new URL(finalImage, Astro.site).toString();
+const xDefaultUrl = alternates.find((a) => a.lang === 'en')?.url;
 
 const siteUrl = Astro.site ? new URL('/', Astro.site).toString() : 'https://chataptor.com/';
 const logoUrl = Astro.site ? new URL('/images/landing/logo-black.png', Astro.site).toString() : 'https://chataptor.com/images/landing/logo-black.png';
+const ogImage = new URL(finalImage, siteUrl).toString();
+const sitemapUrl = new URL('/sitemap-index.xml', siteUrl).toString();
 
 const localeMap: Record<Locale, string> = {
   en: 'en_US',
@@ -52,33 +62,34 @@ const localeMap: Record<Locale, string> = {
 
 const formattedLocale = localeMap[lang] || 'en_US';
 
-// --- LOGIKA SCHEMA.ORG ---
-
-// 1. Ustalanie dokładnego typu strony
 let schemaPageType = 'WebPage';
 if (type === 'article') {
-  schemaPageType = 'Article';
+  schemaPageType = 'BlogPosting';
 } else if (slug.includes('about')) {
-  schemaPageType = 'AboutPage'; // Wzmocnienie sygnałów E-E-A-T dla zakładki "O nas"
+  schemaPageType = 'AboutPage';
 } else if (slug.includes('privacy') || slug.includes('terms')) {
-  schemaPageType = 'WebPage'; 
+  schemaPageType = 'WebPage';
 }
 
-// 2. Budowa głównej encji strony
 const mainEntity: any = {
   "@type": schemaPageType,
   "@id": `${canonical}#webpage`,
   "name": title,
   "description": cleanDescription,
   "url": canonical,
-  "inLanguage": lang,
+  "inLanguage": localeHreflang[lang],
+  "isPartOf": {
+    "@id": `${siteUrl}#website`
+  },
   "publisher": {
     "@id": `${siteUrl}#organization`
   }
 };
 
-// 3. Dodatkowe pola dla artykułów (Blog)
 if (type === 'article') {
+  mainEntity["headline"] = title;
+  mainEntity["image"] = [ogImage];
+  mainEntity["mainEntityOfPage"] = canonical;
   mainEntity["author"] = {
     "@type": author === 'Chataptor' ? "Organization" : "Person",
     "name": author
@@ -86,9 +97,19 @@ if (type === 'article') {
   if (publishedAt) {
     mainEntity["datePublished"] = publishedAt.toISOString();
   }
+  mainEntity["dateModified"] = (modifiedAt || publishedAt || new Date()).toISOString();
 }
 
 const schemaGraph: any[] = [
+  {
+    "@type": "WebSite",
+    "@id": `${siteUrl}#website`,
+    "name": "Chataptor",
+    "url": siteUrl,
+    "publisher": {
+      "@id": `${siteUrl}#organization`
+    }
+  },
   mainEntity,
   {
     "@type": "Organization",
@@ -103,7 +124,6 @@ const schemaGraph: any[] = [
   }
 ];
 
-// 4. Wstrzykiwanie SoftwareApplication TYLKO dla strony głównej (Landing Page)
 if (slug === '') {
   schemaGraph.push({
     "@type": "SoftwareApplication",
@@ -114,7 +134,7 @@ if (slug === '') {
     "url": siteUrl,
     "offers": {
       "@type": "Offer",
-      "price": "0", // Lub inna domyślna cena/informacja
+      "price": "0",
       "priceCurrency": "USD"
     }
   });
@@ -125,15 +145,13 @@ if (slug === '') {
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 <meta name="description" content={cleanDescription} />
 <link rel="canonical" href={canonical} />
+<link rel="sitemap" type="application/xml" href={sitemapUrl} />
 
-{alternates.map((alt) => (
-  <link rel="alternate" hreflang={alt.lang} href={alt.url} />
-))}
-<link
-  rel="alternate"
-  hreflang="x-default"
-  href={alternates.find((a) => a.lang === 'en')?.url}
-/>
+{!noindex &&
+  alternates.map((alt) => (
+    <link rel="alternate" hreflang={alt.hreflang} href={alt.url} />
+  ))}
+{!noindex && xDefaultUrl && <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />}
 
 <meta property="og:site_name" content="Chataptor" />
 <meta property="og:title" content={title} />
@@ -143,11 +161,12 @@ if (slug === '') {
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:alt" content={title} />
 <meta property="og:locale" content={formattedLocale} />
-{alternates
-  .filter((a) => a.lang !== lang)
-  .map((alt) => (
-    <meta property="og:locale:alternate" content={localeMap[alt.lang] || alt.lang} />
-  ))}
+{!noindex &&
+  alternates
+    .filter((a) => a.lang !== lang)
+    .map((alt) => (
+      <meta property="og:locale:alternate" content={localeMap[alt.lang] || alt.lang} />
+    ))}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@chataptor" />
@@ -157,6 +176,9 @@ if (slug === '') {
 
 {type === 'article' && publishedAt && (
   <meta property="article:published_time" content={publishedAt.toISOString()} />
+)}
+{type === 'article' && (modifiedAt || publishedAt) && (
+  <meta property="article:modified_time" content={(modifiedAt || publishedAt)?.toISOString()} />
 )}
 
 <script type="application/ld+json" set:html={JSON.stringify({

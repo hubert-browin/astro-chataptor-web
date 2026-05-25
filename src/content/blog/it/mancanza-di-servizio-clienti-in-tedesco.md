@@ -2,6 +2,7 @@
 title: "Quanto perdi per la mancanza di servizio clienti in tedesco?"
 description: "Il cliente tedesco abbandona il carrello quando non c'è supporto nella sua lingua. Scopri quanto costa la barriera linguistica e come evitarla senza assumere madrelingua."
 lang: "it"
+translationKey: "missing-german-customer-support"
 publishedAt: 2026-03-18
 updatedAt: 2026-03-18
 author: "Chataptor Team"
