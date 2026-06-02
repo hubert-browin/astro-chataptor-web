@@ -13,6 +13,7 @@ interface Props {
   lang: Locale;
   slug: string;
   image?: string;
+  imageAlt?: string;
   type?: 'website' | 'article';
   publishedAt?: Date;
   modifiedAt?: Date;
@@ -27,6 +28,7 @@ const {
   lang,
   slug,
   image,
+  imageAlt,
   type = 'website',
   publishedAt,
   modifiedAt,
@@ -36,6 +38,7 @@ const {
 } = Astro.props;
 
 const cleanDescription = description.replace(/<[^>]*>?/gm, '').trim();
+const cleanImageAlt = (imageAlt || title).replace(/<[^>]*>?/gm, '').trim();
 
 const finalImage = image || `/images/og-default-${lang}.jpg`;
 
@@ -159,7 +162,7 @@ if (slug === '') {
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImage} />
-<meta property="og:image:alt" content={title} />
+<meta property="og:image:alt" content={cleanImageAlt} />
 <meta property="og:locale" content={formattedLocale} />
 {!noindex &&
   alternates

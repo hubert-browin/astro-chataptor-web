@@ -83,7 +83,7 @@ const getIsoDate = (date: Date) => {
                              {heroPost.data.image ? (
                                 <img
                                     src={heroPost.data.image}
-                                    alt={heroPost.data.title}
+                                    alt={heroPost.data.imageAlt || heroPost.data.title}
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     fetchpriority="high"
                                     loading="eager"
@@ -143,7 +143,7 @@ const getIsoDate = (date: Date) => {
                             {post.data.image ? (
                                 <img
                                     src={post.data.image}
-                                    alt={post.data.title}
+                                    alt={post.data.imageAlt || post.data.title}
                                     loading="lazy"
                                     decoding="async"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
