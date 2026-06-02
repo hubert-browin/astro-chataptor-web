@@ -36,6 +36,7 @@ const alternates = getBlogPostAlternateUrls(post, allPosts);
 
 const { Content, headings } = await post.render();
 const ui = getBlogUI(lang as any);
+const backLabel = ui.backToBlog.replace(/^[\s←]+/, '').trim();
 
 // Formatowanie daty
 const formattedDate = new Intl.DateTimeFormat(lang, {
@@ -77,51 +78,80 @@ const encodedTitle = encodeURIComponent(post.data.title);
 
   <article class="bg-white min-h-screen pb-20">
 
-    {/* --- HEADER (Semantyka HTML5) --- */}
-    <header class="relative pt-32 pb-12 md:pt-40 md:pb-24 px-6 overflow-hidden">
-      {/* Tło ambientowe */}
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-gradient-to-b from-zinc-50/80 to-white -z-10 pointer-events-none"></div>
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-100/30 blur-[120px] rounded-full -z-10 mix-blend-multiply pointer-events-none"></div>
-
-      <div class="max-w-5xl mx-auto text-center relative z-10">
-        {/* Powrót */}
-        <a href={`/${lang}/blog/`} class="inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-zinc-900 transition-colors mb-8 group">
-          <span class="w-8 h-8 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center group-hover:ring-zinc-900 transition-all">←</span>
-          {ui.backToBlog}
+    <header class="relative pt-28 md:pt-36 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden bg-gradient-to-b from-zinc-50/80 via-white to-white">
+      <div class="max-w-7xl mx-auto">
+        <a href={`/${lang}/blog/`} class="inline-flex items-center gap-2 text-sm font-bold text-zinc-500 hover:text-zinc-900 transition-colors mb-8 group">
+          <span class="w-9 h-9 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center group-hover:ring-zinc-900 transition-all" aria-hidden="true">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5"></path>
+              <path d="m12 19-7-7 7-7"></path>
+            </svg>
+          </span>
+          {backLabel}
         </a>
 
-        {/* Tagi */}
-        <div class="flex flex-wrap justify-center gap-2 mb-6">
-          {post.data.tags.map((tag: unknown) => (
-            <span class="px-3 py-1 bg-white ring-1 ring-zinc-200 rounded-full text-[11px] font-bold text-emerald-700 uppercase tracking-wider shadow-sm">
-              {tag}
-            </span>
-          ))}
+        <div class="grid grid-cols-1 xl:grid-cols-[minmax(0,920px)_220px] gap-8 xl:gap-14 items-end">
+          <div class="min-w-0">
+            <div class="flex flex-wrap gap-2 mb-6">
+              {post.data.tags.map((tag: unknown) => (
+                <span class="px-3 py-1 bg-white ring-1 ring-zinc-200 rounded-full text-[11px] font-bold text-emerald-700 uppercase tracking-wider shadow-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-zinc-900 tracking-tight leading-[1.05] mb-6 text-balance">
+              {post.data.title}
+            </h1>
+
+            <p class="text-lg md:text-xl text-zinc-500 leading-relaxed max-w-3xl text-balance">
+              {post.data.description}
+            </p>
+          </div>
+
+          <div class="hidden xl:block border-l border-zinc-100 pl-6 pb-2 text-sm text-zinc-500">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500 font-bold ring-1 ring-zinc-200">
+                {post.data.author.charAt(0)}
+              </div>
+              <div>
+                <div class="font-bold text-zinc-900">{post.data.author}</div>
+                <div class="text-xs">{ui.post.authorLabel}</div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex flex-col">
+                <span class="font-bold text-zinc-900">{formattedDate}</span>
+                <span class="text-xs">{ui.card.published}</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-bold text-zinc-900">
+                  {readTime} {ui.post.minutesShort}
+                </span>
+                <span class="text-xs">{ui.post.readTimeLabel}</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Tytuł */}
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-zinc-900 tracking-tight leading-[1.1] mb-8 text-balance">
-          {post.data.title}
-        </h1>
-
-        {/* Metadane Autora */}
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-zinc-500 border-t border-zinc-100 pt-8 w-fit mx-auto px-8">
+        <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-5 sm:gap-8 text-sm text-zinc-500 border-t border-zinc-100 pt-6 xl:hidden">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500 font-bold ring-2 ring-white shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500 font-bold ring-1 ring-zinc-200">
               {post.data.author.charAt(0)}
             </div>
-            <div class="text-left">
+            <div>
               <div class="font-bold text-zinc-900">{post.data.author}</div>
               <div class="text-xs">{ui.post.authorLabel}</div>
             </div>
           </div>
-          <div class="hidden sm:block w-px h-8 bg-zinc-200"></div>
-          <div class="flex items-center gap-6">
-            <div class="flex flex-col text-left">
+
+          <div class="flex items-center gap-8">
+            <div class="flex flex-col">
               <span class="font-bold text-zinc-900">{formattedDate}</span>
               <span class="text-xs">{ui.card.published}</span>
             </div>
-            <div class="flex flex-col text-left">
+            <div class="flex flex-col">
               <span class="font-bold text-zinc-900">
                 {readTime} {ui.post.minutesShort}
               </span>
@@ -129,62 +159,64 @@ const encodedTitle = encodeURIComponent(post.data.title);
             </div>
           </div>
         </div>
+
+        {post.data.image && (
+          <div class="mt-10 max-w-4xl">
+            <div class="aspect-[21/9] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-white shadow-xl shadow-zinc-200/60 ring-1 ring-black/5 relative">
+              <img
+                src={post.data.image}
+                alt={post.data.imageAlt || post.data.title}
+                class="absolute inset-0 w-full h-full object-contain"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+              />
+              <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[1.5rem] md:rounded-[2rem] pointer-events-none"></div>
+              </div>
+          </div>
+        )}
       </div>
     </header>
 
-    {/* --- ZDJĘCIE GŁÓWNE (Zoptymalizowane LCP) --- */}
-    {post.data.image && (
-      <div class="max-w-7xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
-        <div class="aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white shadow-2xl shadow-zinc-200/50 ring-1 ring-black/5 relative">
-          <img
-            src={post.data.image}
-            alt={post.data.imageAlt || post.data.title}
-            class="absolute inset-0 w-full h-full object-contain"
-            fetchpriority="high"
-            loading="eager"
-            decoding="async"
-          />
-          {/* Delikatny overlay */}
-          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[2rem] md:rounded-[3rem] pointer-events-none"></div>
-        </div>
-      </div>
-    )}
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 xl:grid-cols-[220px_minmax(0,800px)] gap-10 xl:gap-14 justify-center items-start border-t border-zinc-100 pt-10 md:pt-14">
 
-    {/* --- TREŚĆ ARTYKUŁU --- */}
-    <div class="max-w-4xl mx-auto px-6 relative">
+        {headings && headings.length > 0 && (
+          <aside class="hidden xl:block">
+            <nav aria-label={ui.post.tocTitle} class="sticky top-28 max-h-[calc(100vh-8rem)] overflow-auto pr-2">
+              <h2 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4">
+                {ui.post.tocTitle}
+              </h2>
+              <ul class="space-y-1 border-l border-zinc-100">
+                {headings.filter((h: any) => h.depth > 1 && h.depth <= 3).map((heading: any) => (
+                  <li>
+                    <a
+                      href={`#${heading.slug}`}
+                      class={`block py-1.5 text-xs leading-snug text-zinc-500 hover:text-emerald-600 hover:border-l hover:border-emerald-500 -ml-px transition-all ${heading.depth === 3 ? 'pl-6' : 'pl-3 font-semibold'}`}
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )}
 
-      {/* Opcjonalny Spis treści (Desktop) z poprawioną semantyką <nav> */}
-      {headings && headings.length > 0 && (
-        <div class="hidden 2xl:block absolute left-[-260px] top-0 w-56 h-full">
-          <nav aria-label={ui.post.tocTitle} class="sticky top-32">
-            <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 pl-3">
-              {ui.post.tocTitle}
-            </h4>
-            <ul class="space-y-1 border-l border-zinc-100">
-              {headings.filter((h: any) => h.depth <= 2).map((heading: any) => (
-                <li>
-                  <a href={`#${heading.slug}`} class="block pl-3 py-1 text-xs text-zinc-500 hover:text-emerald-600 hover:border-l hover:border-emerald-500 -ml-px transition-all truncate">
-                    {heading.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      )}
-
-      {/* Markdown Content */}
-      <div class="prose prose-zinc prose-lg md:prose-xl max-w-none
-        prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:text-zinc-900
-        prose-h1:text-3xl md:prose-h1:text-4xl
-        prose-p:text-zinc-600 prose-p:leading-relaxed
-        prose-a:text-emerald-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:text-emerald-500 hover:prose-a:underline
-        prose-img:rounded-3xl prose-img:shadow-xl prose-img:my-12 prose-img:ring-1 prose-img:ring-black/5
-        prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:bg-zinc-50 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-zinc-800
-        prose-code:bg-zinc-100 prose-code:text-emerald-700 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
-        prose-li:marker:text-emerald-500">
-        <Content />
-      </div>
+        <div class="min-w-0 xl:col-start-2">
+          <div class="prose prose-zinc prose-lg max-w-none
+            prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:text-zinc-900
+            prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-5 prose-h2:leading-tight
+            prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4 prose-h3:leading-tight
+            prose-p:text-zinc-600 prose-p:leading-8
+            prose-strong:text-zinc-900
+            prose-a:text-emerald-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:text-emerald-500 hover:prose-a:underline
+            prose-img:rounded-3xl prose-img:shadow-xl prose-img:my-12 prose-img:ring-1 prose-img:ring-black/5
+            prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:bg-zinc-50 prose-blockquote:py-4 prose-blockquote:px-6 md:prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-zinc-800
+            prose-code:bg-zinc-100 prose-code:text-emerald-700 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+            prose-li:marker:text-emerald-500">
+            <Content />
+          </div>
 
       {/* --- SEKCJA SHARE & AUTHOR (Prawdziwe Linki HTML) --- */}
       <div class="mt-20 pt-10 border-t border-zinc-100">
@@ -233,6 +265,8 @@ const encodedTitle = encodeURIComponent(post.data.title);
         </div>
       </div>
 
+        </div>
+      </div>
     </div>
 
   </article>
