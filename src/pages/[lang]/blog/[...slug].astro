@@ -90,28 +90,40 @@ const encodedTitle = encodeURIComponent(post.data.title);
           {backLabel}
         </a>
 
-        <div class="grid grid-cols-1 xl:grid-cols-[minmax(0,920px)_220px] gap-8 xl:gap-14 items-end">
-          <div class="min-w-0">
-            <div class="flex flex-wrap gap-2 mb-6">
-              {post.data.tags.map((tag: unknown) => (
-                <span class="px-3 py-1 bg-white ring-1 ring-zinc-200 rounded-full text-[11px] font-bold text-emerald-700 uppercase tracking-wider shadow-sm">
-                  {tag}
-                </span>
-              ))}
+        <div class="flex flex-wrap gap-2 mb-6">
+          {post.data.tags.map((tag: unknown) => (
+            <span class="px-3 py-1 bg-white ring-1 ring-zinc-200 rounded-full text-[11px] font-bold text-emerald-700 uppercase tracking-wider shadow-sm">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <h1 class="max-w-6xl text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-zinc-900 tracking-tight leading-[1.05] mb-6 text-balance">
+          {post.data.title}
+        </h1>
+
+        <p class="max-w-5xl text-lg md:text-xl text-zinc-500 leading-relaxed text-balance">
+          {post.data.description}
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_280px] gap-6 xl:gap-8 items-stretch max-w-6xl">
+          {post.data.image && (
+            <div class="aspect-[21/9] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-white shadow-xl shadow-zinc-200/60 ring-1 ring-black/5 relative">
+              <img
+                src={post.data.image}
+                alt={post.data.imageAlt || post.data.title}
+                class="absolute inset-0 w-full h-full object-contain"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+              />
+              <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[1.5rem] md:rounded-[2rem] pointer-events-none"></div>
             </div>
+          )}
 
-            <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-zinc-900 tracking-tight leading-[1.05] mb-6 text-balance">
-              {post.data.title}
-            </h1>
-
-            <p class="text-lg md:text-xl text-zinc-500 leading-relaxed max-w-3xl text-balance">
-              {post.data.description}
-            </p>
-          </div>
-
-          <div class="hidden xl:block border-l border-zinc-100 pl-6 pb-2 text-sm text-zinc-500">
-            <div class="flex items-center gap-3 mb-5">
-              <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500 font-bold ring-1 ring-zinc-200">
+          <div class="rounded-[1.5rem] md:rounded-[2rem] border border-zinc-100 bg-zinc-50/70 p-5 md:p-6 text-sm text-zinc-500 shadow-sm ring-1 ring-white/80 flex flex-col justify-between gap-8">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-zinc-500 font-bold ring-1 ring-zinc-200 shadow-sm">
                 {post.data.author.charAt(0)}
               </div>
               <div>
@@ -120,7 +132,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
               </div>
             </div>
 
-            <div class="space-y-4">
+            <div class="grid grid-cols-2 xl:grid-cols-1 gap-5">
               <div class="flex flex-col">
                 <span class="font-bold text-zinc-900">{formattedDate}</span>
                 <span class="text-xs">{ui.card.published}</span>
@@ -134,47 +146,6 @@ const encodedTitle = encodeURIComponent(post.data.title);
             </div>
           </div>
         </div>
-
-        <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-5 sm:gap-8 text-sm text-zinc-500 border-t border-zinc-100 pt-6 xl:hidden">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-500 font-bold ring-1 ring-zinc-200">
-              {post.data.author.charAt(0)}
-            </div>
-            <div>
-              <div class="font-bold text-zinc-900">{post.data.author}</div>
-              <div class="text-xs">{ui.post.authorLabel}</div>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-8">
-            <div class="flex flex-col">
-              <span class="font-bold text-zinc-900">{formattedDate}</span>
-              <span class="text-xs">{ui.card.published}</span>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-bold text-zinc-900">
-                {readTime} {ui.post.minutesShort}
-              </span>
-              <span class="text-xs">{ui.post.readTimeLabel}</span>
-            </div>
-          </div>
-        </div>
-
-        {post.data.image && (
-          <div class="mt-10 max-w-4xl">
-            <div class="aspect-[21/9] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-white shadow-xl shadow-zinc-200/60 ring-1 ring-black/5 relative">
-              <img
-                src={post.data.image}
-                alt={post.data.imageAlt || post.data.title}
-                class="absolute inset-0 w-full h-full object-contain"
-                fetchpriority="high"
-                loading="eager"
-                decoding="async"
-              />
-              <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[1.5rem] md:rounded-[2rem] pointer-events-none"></div>
-              </div>
-          </div>
-        )}
       </div>
     </header>
 
