@@ -4,10 +4,11 @@ description: "Wie verkürzt automatische Übersetzung die Antwortzeit und verbes
 lang: "de"
 translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
-updatedAt: 2025-03-03
+updatedAt: 2026-06-02
 author: "Chataptor Team"
 tags: ["Automatische Übersetzung", "Kundensupport", "E-Commerce", "AI", "Customer Support"]
-image: "/images/blog/live_chat_translation.webp"
+image: "/images/blog/automatic-translation-customer-support.webp"
+imageAlt: "Kundensupport-Inbox mit automatischer Übersetzung über mehrere Kommunikationskanäle"
 translateTo: ["pl", "de", "fr", "es", "it", "cs", "sk"]
 translatedBy: "manual"
 reviewed: true
@@ -81,7 +82,7 @@ Automatische Übersetzung ist nicht unfehlbar. Agenten sollten wissen, wann es s
 **Schritt 5: FRT und CSAT nach 4 Wochen messen und mit dem Baseline-Wert vergleichen.**
 Wenn Sie keine Verbesserung sehen, kehren Sie zu Schritt 1 zurück und prüfen Sie, ob das Problem im Eskalationsprozess liegt – und nicht in der Übersetzung selbst.
 
-Chataptor verbindet einen Omnichannel-Posteingang (E-Mail, Live-Chat, WhatsApp, Facebook, Instagram, SMS) mit Echtzeit-Übersetzung auf Basis von OpenAI und DeepL – in einer übersichtlichen Oberfläche, ohne eigene Übersetzungs-Pipeline aufzubauen.
+Chataptor verbindet einen Omnichannel-Posteingang (E-Mail, Live-Chat, WhatsApp, Facebook, Instagram, SMS) mit Echtzeit-Übersetzung auf Basis von OpenAI und DeepL – in einer übersichtlichen Oberfläche, ohne eigene Übersetzungs-Pipeline aufzubauen. Chataptor ist derzeit kostenlos und setzt kein Nachrichtenlimit, sodass Sie diesen Workflow ohne separates Startbudget testen können. [Chataptor kostenlos starten](/de/).
 
 ## Häufig gestellte Fragen
 
@@ -91,7 +92,7 @@ Die besten Plattformen kombinieren zwei Übersetzungsmaschinen: OpenAI (hohe Qua
 
 ### Was kostet automatische Übersetzung von Kundennachrichten?
 
-Die Kosten hängen vom Abrechnungsmodell ab: Einige Tools berechnen pro übersetztem Zeichen oder Wort, andere bieten ein monatliches Abonnement mit einem Ticket-Limit. Bei der Auswahl lohnt es sich, die Kosten mit der aktuellen Anzahl ausländischer Tickets und den Arbeitskosten für manuelle Übersetzungen zu vergleichen.
+In Chataptor ist automatische Übersetzung derzeit kostenlos und ohne Nachrichtenlimit verfügbar. Bei anderen Tools hängen die Kosten vom Abrechnungsmodell ab: Manche Plattformen berechnen pro übersetztem Zeichen oder Wort, andere arbeiten mit Abonnements und Limits. Vergleichen Sie deshalb den Tool-Preis mit Ihrem Volumen internationaler Anfragen und der Arbeitszeit, die Ihr Team für manuelle Übersetzungen aufwendet.
 
 ### Woran erkenne ich, ob mein Unternehmen automatische Übersetzung braucht?
 

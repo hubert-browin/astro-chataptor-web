@@ -4,10 +4,11 @@ description: "Ako automatický preklad skracuje čas odozvy a zlepšuje CSAT? Uk
 lang: "sk"
 translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
-updatedAt: 2025-03-03
+updatedAt: 2026-06-02
 author: "Chataptor Team"
 tags: ["Automatický Preklad", "Zákaznícky Servis", "E-commerce", "AI", "Podpora Zákazníkov"]
-image: "/images/blog/live_chat_translation.webp"
+image: "/images/blog/automatic-translation-customer-support.webp"
+imageAlt: "Inbox zákazníckej podpory s automatickým prekladom naprieč viacerými komunikačnými kanálmi"
 translateTo: ["pl", "de", "fr", "es", "it", "cs", "sk"]
 translatedBy: "manual"
 reviewed: true
@@ -81,7 +82,7 @@ Automatický preklad nie je neomylný. Agenti by mali vedieť, kedy sa oplatí p
 **Krok 5: Zmerajte FRT a CSAT po 4 týždňoch a porovnajte s východiskovou hodnotou.**
 Ak nevidíte zlepšenie, vráťte sa ku kroku 1 a zistite, či problém nespočíva v procese eskalácie – nie v samotnom preklade.
 
-Chataptor prepája omnichannel doručenú poštu (e-mail, live chat, WhatsApp, Facebook, Instagram, SMS) s prekladom v reálnom čase na báze OpenAI a DeepL – v jednom prehľadnom rozhraní, bez budovania vlastného prekladateľského pipeline.
+Chataptor prepája omnichannel doručenú poštu (e-mail, live chat, WhatsApp, Facebook, Instagram, SMS) s prekladom v reálnom čase na báze OpenAI a DeepL – v jednom prehľadnom rozhraní, bez budovania vlastného prekladateľského pipeline. Chataptor je aktuálne zadarmo a bez limitu správ, takže si tento workflow môžete vyskúšať bez samostatného rozpočtu na štart. [Začnite s Chataptorom zadarmo](/sk/).
 
 ## Najčastejšie otázky
 
@@ -91,7 +92,7 @@ Najlepšie platformy kombinujú dva prekladové motory: OpenAI (vysoká kvalita 
 
 ### Koľko stojí automatický preklad zákazníckych správ?
 
-Cena závisí od modelu fakturácie: niektoré nástroje účtujú za preložený znak alebo slovo, iné ponúkajú mesačné predplatné s limitom tiketov. Pri výbere sa oplatí porovnať náklady na nástroj s aktuálnym počtom zahraničných tiketov za mesiac a nákladmi na pracovný čas strávený ručným prekladom.
+V Chataptore je automatický preklad aktuálne dostupný zadarmo a bez limitu správ. Pri iných nástrojoch sa cena môže líšiť podľa modelu fakturácie: niektoré platformy účtujú za preložený znak alebo slovo, iné používajú predplatné s limitmi. Pri porovnaní zvážte objem zahraničných dopytov aj čas, ktorý tím trávi ručným prekladom.
 
 ### Ako zistím, či moja firma potrebuje automatický preklad?
 

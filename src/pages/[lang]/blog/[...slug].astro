@@ -135,11 +135,11 @@ const encodedTitle = encodeURIComponent(post.data.title);
     {/* --- ZDJĘCIE GŁÓWNE (Zoptymalizowane LCP) --- */}
     {post.data.image && (
       <div class="max-w-7xl mx-auto px-4 md:px-6 mb-16 md:mb-24">
-        <div class="aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl shadow-zinc-200/50 ring-1 ring-black/5 relative group">
+        <div class="aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white shadow-2xl shadow-zinc-200/50 ring-1 ring-black/5 relative">
           <img
             src={post.data.image}
             alt={post.data.imageAlt || post.data.title}
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            class="absolute inset-0 w-full h-full object-contain"
             fetchpriority="high"
             loading="eager"
             decoding="async"

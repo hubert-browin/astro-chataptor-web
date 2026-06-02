@@ -4,10 +4,11 @@ description: "Comment la traduction automatique réduit le temps de réponse et 
 lang: "fr"
 translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
-updatedAt: 2025-03-03
+updatedAt: 2026-06-02
 author: "Chataptor Team"
 tags: ["Traduction Automatique", "Service Client", "E-commerce", "AI", "Support Client"]
-image: "/images/blog/live_chat_translation.webp"
+image: "/images/blog/automatic-translation-customer-support.webp"
+imageAlt: "Boîte de réception du service client avec traduction automatique sur plusieurs canaux"
 translateTo: ["pl", "de", "fr", "es", "it", "cs", "sk"]
 translatedBy: "manual"
 reviewed: true
@@ -81,7 +82,7 @@ La traduction automatique n'est pas infaillible. Les agents doivent savoir quand
 **Étape 5 : Mesurez FRT et CSAT après 4 semaines et comparez avec la valeur de référence.**
 Si vous ne voyez pas d'amélioration, revenez à l'étape 1 et vérifiez si le problème est dans le processus d'escalade – et non dans la traduction elle-même.
 
-Chataptor connecte une boîte de réception omnicanale (e-mail, chat en direct, WhatsApp, Facebook, Instagram, SMS) à une traduction en temps réel basée sur OpenAI et DeepL – dans une interface claire, sans construire son propre pipeline de traduction.
+Chataptor connecte une boîte de réception omnicanale (e-mail, chat en direct, WhatsApp, Facebook, Instagram, SMS) à une traduction en temps réel basée sur OpenAI et DeepL – dans une interface claire, sans construire son propre pipeline de traduction. Chataptor est actuellement gratuit et ne limite pas le nombre de messages, ce qui permet de tester ce flux sans prévoir de budget séparé au départ. [Commencer avec Chataptor gratuitement](/fr/).
 
 ## Questions fréquemment posées
 
@@ -91,7 +92,7 @@ Les meilleures plateformes combinent deux moteurs de traduction : OpenAI (haute 
 
 ### Combien coûte la traduction automatique des messages clients ?
 
-Le coût dépend du modèle de facturation : certains outils facturent par caractère ou mot traduit, d'autres proposent un abonnement mensuel avec un plafond de tickets. Pour choisir, comparez le coût de l'outil avec le nombre actuel de tickets étrangers par mois et les coûts de main-d'œuvre pour la traduction manuelle.
+Avec Chataptor, la traduction automatique est actuellement disponible gratuitement et sans limite de messages. Avec d'autres outils, le coût peut dépendre du modèle de facturation : certaines plateformes facturent au caractère ou au mot traduit, tandis que d'autres proposent des abonnements avec limites. Comparez donc le prix de l'outil au volume de demandes internationales et au temps passé par votre équipe à traduire manuellement.
 
 ### Comment savoir si mon entreprise a besoin de traduction automatique ?
 

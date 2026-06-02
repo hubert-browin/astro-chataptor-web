@@ -4,10 +4,11 @@ description: "Jak automatyczne tłumaczenie skraca czas odpowiedzi i podnosi CSA
 lang: "pl"
 translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
-updatedAt: 2025-03-03
+updatedAt: 2026-06-02
 author: "Chataptor Team"
 tags: ["Automatyczne Tłumaczenie", "Obsługa Klienta", "E-commerce", "AI", "Customer Support"]
-image: "/images/blog/live_chat_translation.webp"
+image: "/images/blog/automatic-translation-customer-support.webp"
+imageAlt: "Panel obsługi klienta z automatycznym tłumaczeniem wiadomości między kilkoma kanałami"
 translateTo: ["pl", "de", "fr", "es", "it", "cs", "sk"]
 translatedBy: "manual"
 reviewed: true
@@ -85,7 +86,7 @@ Automatyczne tłumaczenie nie jest nieomylne. Agenci powinni wiedzieć, kiedy wa
 **Krok 5: Zmierz FRT i CSAT po 4 tygodniach i porównaj z baseline'em.**
 Jeśli nie widzisz poprawy – wróć do kroku 1 i sprawdź, czy problem nie leży w procesie eskalacji lub czasie odpisywania, a nie w samym tłumaczeniu.
 
-Chataptor łączy omnichannel inbox (e-mail, live chat, WhatsApp, Facebook, Instagram, SMS) z tłumaczeniem w czasie rzeczywistym opartym na OpenAI i DeepL – w jednym przejrzystym interfejsie, bez budowania własnego pipeline'u tłumaczeniowego.
+Chataptor łączy omnichannel inbox (e-mail, live chat, WhatsApp, Facebook, Instagram, SMS) z tłumaczeniem w czasie rzeczywistym opartym na OpenAI i DeepL – w jednym przejrzystym interfejsie, bez budowania własnego pipeline'u tłumaczeniowego. Obecnie Chataptor jest darmowy i nie nakłada limitu wiadomości, więc możesz sprawdzić ten workflow bez planowania osobnego budżetu na start. [Uruchom Chataptora za darmo](/pl/).
 
 ## Najczęściej zadawane pytania
 
@@ -95,7 +96,7 @@ Zależy od narzędzia i kontekstu. Najlepsze platformy łączą dwa silniki: Ope
 
 ### Ile kosztuje automatyczne tłumaczenie wiadomości od klientów?
 
-Koszt zależy od modelu rozliczenia: część narzędzi pobiera opłatę za przetłumaczony znak lub słowo, inne oferują abonament miesięczny z limitem obsługiwanych ticketów. Przy wyborze warto zestawić koszt narzędzia z aktualną liczbą zagranicznych ticketów miesięcznie i porównać z kosztem czasu pracy agentów wydawanego na ręczne tłumaczenie.
+W Chataptorze automatyczne tłumaczenie jest obecnie dostępne bezpłatnie i bez limitu wiadomości. W innych narzędziach koszt może zależeć od modelu rozliczenia: część platform pobiera opłatę za przetłumaczony znak lub słowo, inne oferują abonament z limitami. Przy porównaniu warto zestawić cenę narzędzia z liczbą zagranicznych zgłoszeń i czasem, który zespół traci na ręczne tłumaczenie.
 
 ### Jak sprawdzić, czy moja firma potrzebuje automatycznego tłumaczenia?
 

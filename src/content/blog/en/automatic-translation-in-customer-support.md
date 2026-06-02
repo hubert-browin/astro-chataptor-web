@@ -4,10 +4,11 @@ description: "How does automatic translation reduce response times and improve C
 lang: "en"
 translationKey: "automatic-translation-customer-support"
 publishedAt: 2025-03-03
-updatedAt: 2025-03-03
+updatedAt: 2026-06-02
 author: "Chataptor Team"
 tags: ["Automatic Translation", "Customer Support", "E-commerce", "AI", "Customer Service"]
-image: "/images/blog/live_chat_translation.webp"
+image: "/images/blog/automatic-translation-customer-support.webp"
+imageAlt: "Customer support inbox with automatic translation across several messaging channels"
 translateTo: ["pl", "de", "fr", "es", "it", "cs", "sk"]
 translatedBy: "manual"
 reviewed: true
@@ -83,7 +84,7 @@ Automatic translation is not infallible. Agents should know when to double-check
 **Step 5: Measure FRT and CSAT after 4 weeks and compare against your baseline.**
 If you see no improvement, go back to step 1 and check whether the issue lies in your escalation process or response workflow – not the translation itself.
 
-Chataptor connects an omnichannel inbox (email, live chat, WhatsApp, Facebook, Instagram, SMS) with real-time translation powered by OpenAI and DeepL – in a single clean interface, without building your own translation pipeline.
+Chataptor connects an omnichannel inbox (email, live chat, WhatsApp, Facebook, Instagram, SMS) with real-time translation powered by OpenAI and DeepL – in a single clean interface, without building your own translation pipeline. Chataptor is currently free and does not limit messages, so you can test this workflow without planning a separate budget upfront. [Start using Chataptor for free](/en/).
 
 ## Frequently Asked Questions
 
@@ -93,7 +94,7 @@ The best platforms combine two translation engines: OpenAI (high quality with co
 
 ### How much does automatic translation of customer messages cost?
 
-Cost depends on the billing model: some tools charge per translated character or word, others offer a monthly subscription with a ticket limit. When choosing, compare the cost of the tool against your current volume of foreign tickets per month and the labour cost of manual translation.
+In Chataptor, automatic translation is currently available for free and without a message limit. In other tools, cost may depend on the billing model: some platforms charge per translated character or word, while others use subscriptions with limits. When comparing options, weigh the tool cost against your foreign-ticket volume and the labour time your team spends on manual translation.
 
 ### How do I know whether my business needs automatic translation?
 

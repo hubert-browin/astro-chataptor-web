@@ -79,12 +79,12 @@ const getIsoDate = (date: Date) => {
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                     {/* Lewa strona: Duże zdjęcie */}
                     <div class="lg:col-span-7 relative">
-                        <div class="aspect-[16/9] lg:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-zinc-200/50 ring-1 ring-black/5 relative">
+                        <div class="aspect-[21/9] rounded-[2.5rem] overflow-hidden bg-white shadow-2xl shadow-zinc-200/50 ring-1 ring-black/5 relative">
                              {heroPost.data.image ? (
                                 <img
                                     src={heroPost.data.image}
                                     alt={heroPost.data.imageAlt || heroPost.data.title}
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    class="absolute inset-0 w-full h-full object-contain"
                                     fetchpriority="high"
                                     loading="eager"
                                     decoding="async"
@@ -139,14 +139,14 @@ const getIsoDate = (date: Date) => {
                 {otherPosts.map((post) => (
                     <a href={postHref(post)} class="group flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
                         {/* Zdjęcie */}
-                        <div class="aspect-[3/2] rounded-[2rem] overflow-hidden bg-zinc-100 mb-6 relative shadow-md ring-1 ring-black/5">
+                        <div class="aspect-[21/9] rounded-[2rem] overflow-hidden bg-white mb-6 relative shadow-md ring-1 ring-black/5">
                             {post.data.image ? (
                                 <img
                                     src={post.data.image}
                                     alt={post.data.imageAlt || post.data.title}
                                     loading="lazy"
                                     decoding="async"
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    class="absolute inset-0 w-full h-full object-contain"
                                 />
                             ) : (
                                 <div class="absolute inset-0 flex items-center justify-center text-zinc-300">Blog</div>
