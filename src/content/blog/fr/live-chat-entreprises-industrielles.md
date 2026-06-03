@@ -3,8 +3,8 @@ title: "Live chat pour les entreprises industrielles : comment ne plus perdre le
 description: "Découvrez comment un live chat aide les entreprises industrielles à traiter les demandes B2B internationales sur les catalogues, devis, pièces, transport, service et distribution."
 lang: "fr"
 translationKey: "live-chat-manufacturing-companies"
-publishedAt: 2026-06-03T09:00:00.000Z
-updatedAt: 2026-06-03T09:00:00.000Z
+publishedAt: 2026-06-05T09:00:00.000Z
+updatedAt: 2026-06-05T09:00:00.000Z
 author: "Chataptor Team"
 tags: ["Live Chat", "Industrie", "B2B", "Export", "Support Client"]
 image: "/images/blog/live-chat-manufacturing-companies.webp"

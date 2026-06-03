@@ -3,8 +3,8 @@ title: "Live chat dla firm produkcyjnych - jak nie tracić zapytań z zagranicy?
 description: "Zobacz, jak live chat dla firm produkcyjnych pomaga obsługiwać zapytania B2B z zagranicy: katalogi, oferty, części, transport, serwis i dystrybucję."
 lang: "pl"
 translationKey: "live-chat-manufacturing-companies"
-publishedAt: 2026-06-03T09:00:00.000Z
-updatedAt: 2026-06-03T09:00:00.000Z
+publishedAt: 2026-06-05T09:00:00.000Z
+updatedAt: 2026-06-05T09:00:00.000Z
 author: "Chataptor Team"
 tags: ["Live Chat", "Firmy Produkcyjne", "B2B", "Eksport", "Obsługa Klienta"]
 image: "/images/blog/live-chat-manufacturing-companies.webp"

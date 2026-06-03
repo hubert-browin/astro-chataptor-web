@@ -3,8 +3,8 @@ title: "Live chat per aziende manifatturiere: come non perdere richieste dall'es
 description: "Scopri come il live chat aiuta le aziende manifatturiere a gestire richieste B2B internazionali su cataloghi, preventivi, ricambi, trasporto, assistenza e distribuzione."
 lang: "it"
 translationKey: "live-chat-manufacturing-companies"
-publishedAt: 2026-06-03T09:00:00.000Z
-updatedAt: 2026-06-03T09:00:00.000Z
+publishedAt: 2026-06-05T09:00:00.000Z
+updatedAt: 2026-06-05T09:00:00.000Z
 author: "Chataptor Team"
 tags: ["Live Chat", "Manifattura", "B2B", "Export", "Assistenza Clienti"]
 image: "/images/blog/live-chat-manufacturing-companies.webp"

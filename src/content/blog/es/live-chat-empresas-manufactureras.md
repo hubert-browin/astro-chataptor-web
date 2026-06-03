@@ -3,8 +3,8 @@ title: "Live chat para empresas manufactureras: cómo no perder consultas intern
 description: "Descubre cómo el live chat ayuda a las empresas manufactureras a gestionar consultas B2B internacionales sobre catálogos, presupuestos, repuestos, transporte, servicio y distribución."
 lang: "es"
 translationKey: "live-chat-manufacturing-companies"
-publishedAt: 2026-06-03T09:00:00.000Z
-updatedAt: 2026-06-03T09:00:00.000Z
+publishedAt: 2026-06-05T09:00:00.000Z
+updatedAt: 2026-06-05T09:00:00.000Z
 author: "Chataptor Team"
 tags: ["Live Chat", "Manufactura", "B2B", "Exportación", "Atención al Cliente"]
 image: "/images/blog/live-chat-manufacturing-companies.webp"

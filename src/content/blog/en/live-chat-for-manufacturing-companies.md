@@ -3,8 +3,8 @@ title: "Live chat for manufacturing companies: how to stop losing export enquiri
 description: "See how live chat helps manufacturing companies handle international B2B enquiries about catalogues, quotes, spare parts, transport, service and distribution."
 lang: "en"
 translationKey: "live-chat-manufacturing-companies"
-publishedAt: 2026-06-03T09:00:00.000Z
-updatedAt: 2026-06-03T09:00:00.000Z
+publishedAt: 2026-06-05T09:00:00.000Z
+updatedAt: 2026-06-05T09:00:00.000Z
 author: "Chataptor Team"
 tags: ["Live Chat", "Manufacturing", "B2B", "Export", "Customer Support"]
 image: "/images/blog/live-chat-manufacturing-companies.webp"

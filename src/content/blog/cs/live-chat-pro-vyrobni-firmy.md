@@ -3,8 +3,8 @@ title: "Live chat pro výrobní firmy: jak neztrácet zahraniční poptávky"
 description: "Podívejte se, jak live chat pomáhá výrobním firmám obsluhovat zahraniční B2B poptávky na katalogy, nabídky, náhradní díly, dopravu, servis a distribuci."
 lang: "cs"
 translationKey: "live-chat-manufacturing-companies"
-publishedAt: 2026-06-03T09:00:00.000Z
-updatedAt: 2026-06-03T09:00:00.000Z
+publishedAt: 2026-06-05T09:00:00.000Z
+updatedAt: 2026-06-05T09:00:00.000Z
 author: "Chataptor Team"
 tags: ["Live Chat", "Výroba", "B2B", "Export", "Zákaznická Podpora"]
 image: "/images/blog/live-chat-manufacturing-companies.webp"

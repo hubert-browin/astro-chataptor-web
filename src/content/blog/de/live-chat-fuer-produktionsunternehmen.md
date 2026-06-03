@@ -3,8 +3,8 @@ title: "Live-Chat für Produktionsunternehmen: So verlieren Sie keine Anfragen a
 description: "Erfahren Sie, wie ein Live-Chat Produktionsunternehmen bei internationalen B2B-Anfragen zu Katalogen, Angeboten, Ersatzteilen, Transport, Service und Vertrieb unterstützt."
 lang: "de"
 translationKey: "live-chat-manufacturing-companies"
-publishedAt: 2026-06-03T09:00:00.000Z
-updatedAt: 2026-06-03T09:00:00.000Z
+publishedAt: 2026-06-05T09:00:00.000Z
+updatedAt: 2026-06-05T09:00:00.000Z
 author: "Chataptor Team"
 tags: ["Live-Chat", "Produktion", "B2B", "Export", "Kundenservice"]
 image: "/images/blog/live-chat-manufacturing-companies.webp"
