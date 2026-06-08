@@ -74,6 +74,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
   image={post.data.image}
   imageAlt={post.data.imageAlt}
   alternates={alternates}
+  callbackRevealSelector="#article-content"
 >
   <div
     id="progress-bar"
@@ -127,7 +128,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
             </div>
 
             <h1
-              class="mt-5 max-w-4xl text-[2.55rem] sm:text-5xl lg:text-[5.1rem] font-extrabold text-zinc-900 tracking-tight leading-[1.03] text-balance"
+              class="mt-5 max-w-4xl text-[2.05rem] sm:text-[2.8rem] lg:text-[4.55rem] font-extrabold text-zinc-900 tracking-tight leading-[1.05] text-balance"
             >
               {post.data.title}
             </h1>
@@ -201,7 +202,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
                   <img
                     src={post.data.image}
                     alt={post.data.imageAlt || post.data.title}
-                    class="absolute inset-0 w-full h-full object-contain"
+                    class="absolute inset-0 w-full h-full scale-[1.04] object-cover object-center"
                     fetchpriority="high"
                     loading="eager"
                     decoding="async"
@@ -274,6 +275,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
         }
 
         <div
+          id="article-content"
           class={`article-copy min-w-0 ${tocHeadings.length > 0 ? "xl:col-start-2" : ""}`}
         >
           <div

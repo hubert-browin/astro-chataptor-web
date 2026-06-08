@@ -1,12 +1,12 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import SEOHead from '../components/SEOHead.astro';
-import CallbackWidget from '../components/CallbackWidget.astro';
-import CookieConsent from '../components/CookieConsent.astro';
-import type { Locale } from '../i18n/config';
-import type { AlternateUrl } from '../utils/i18n';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SEOHead from "../components/SEOHead.astro";
+import CallbackWidget from "../components/CallbackWidget.astro";
+import CookieConsent from "../components/CookieConsent.astro";
+import type { Locale } from "../i18n/config";
+import type { AlternateUrl } from "../utils/i18n";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -15,7 +15,7 @@ interface Props {
   slug?: string;
   image?: string;
   imageAlt?: string;
-  type?: 'website' | 'article';
+  type?: "website" | "article";
   publishedAt?: Date;
   modifiedAt?: Date;
   author?: string;
@@ -24,13 +24,14 @@ interface Props {
   isLandingPage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
+  callbackRevealSelector?: string;
 }
 
-const { 
-  title, 
-  description, 
-  lang, 
-  slug = '', 
+const {
+  title,
+  description,
+  lang,
+  slug = "",
   image,
   imageAlt,
   type,
@@ -41,11 +42,12 @@ const {
   alternates,
   isLandingPage = false,
   hideHeader = false,
-  hideFooter = false
+  hideFooter = false,
+  callbackRevealSelector,
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -57,8 +59,8 @@ const {
     <meta name="apple-mobile-web-app-title" content="Chataptor" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    
-    <SEOHead 
+
+    <SEOHead
       title={title}
       description={description}
       lang={lang}
@@ -83,19 +85,21 @@ const {
       /* Desktop Fluid Scaling */
       @media (min-width: 1024px) {
         html {
-          font-size: 11.5px; 
+          font-size: 11.5px;
         }
       }
 
       /* Large Screens */
       @media (min-width: 1536px) {
         html {
-          font-size: 13px; 
+          font-size: 13px;
         }
       }
-        
-      html { transition: font-size 0.2s ease-out; }
-       
+
+      html {
+        transition: font-size 0.2s ease-out;
+      }
+
       /* Custom Scrollbar */
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
@@ -117,79 +121,99 @@ const {
       }
     </style>
 
-  <script is:inline>
-    // Inicjalizacja Google Consent Mode v2 (Domyślnie blokuje cookies, pozwala na anonimowe pingi)
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-
-    // Ustawienia początkowe - odrzucone
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied'
-    });
-  </script>
-
-  <!-- GA4 script must load immediately for Consent Mode to work -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT" is:inline></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-1BV9YBEBDT');
-  </script>
-
-  <script is:inline>
-    // Minimalistyczna funkcja ładowania skryptów na podstawie zgody
-    (function() {
-      function getC() {
-        try { return JSON.parse(localStorage.getItem('cookie_consent')); } catch (e) { return null; }
+    <script is:inline>
+      // Inicjalizacja Google Consent Mode v2 (Domyślnie blokuje cookies, pozwala na anonimowe pingi)
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-      function loadAnalytics() {
-        if (window.analyticsLoaded) return;
-        window.analyticsLoaded = true;
-        
-        // Clarity w pełni zablokowane bez zgody
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vypq0o7uwg");
+
+      // Ustawienia początkowe - odrzucone
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
+    </script>
+
+    <!-- GA4 script must load immediately for Consent Mode to work -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"
+      is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-      function applyC(c) {
-        if (!c) return;
-        
-        // Aktualizacja Consent Mode GA4
-        if (window.gtag) {
-          window.gtag('consent', 'update', {
-            'analytics_storage': c.analytics ? 'granted' : 'denied',
-            'ad_storage': c.marketing ? 'granted' : 'denied',
-            'ad_user_data': c.marketing ? 'granted' : 'denied',
-            'ad_personalization': c.marketing ? 'granted' : 'denied'
-          });
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", "G-1BV9YBEBDT");
+    </script>
+
+    <script is:inline>
+      // Minimalistyczna funkcja ładowania skryptów na podstawie zgody
+      (function () {
+        function getC() {
+          try {
+            return JSON.parse(localStorage.getItem("cookie_consent"));
+          } catch (e) {
+            return null;
+          }
         }
+        function loadAnalytics() {
+          if (window.analyticsLoaded) return;
+          window.analyticsLoaded = true;
 
-        if (c.analytics) loadAnalytics(); // To załaduje tylko Clarity po udzieleniu zgody
-      }
-      applyC(getC());
-      window.addEventListener('cookie_consent_updated', function(e) { applyC(e.detail); });
-    })();
-  </script>
+          // Clarity w pełni zablokowane bez zgody
+          (function (c, l, a, r, i, t, y) {
+            c[a] =
+              c[a] ||
+              function () {
+                (c[a].q = c[a].q || []).push(arguments);
+              };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+          })(window, document, "clarity", "script", "vypq0o7uwg");
+        }
+        function applyC(c) {
+          if (!c) return;
 
+          // Aktualizacja Consent Mode GA4
+          if (window.gtag) {
+            window.gtag("consent", "update", {
+              analytics_storage: c.analytics ? "granted" : "denied",
+              ad_storage: c.marketing ? "granted" : "denied",
+              ad_user_data: c.marketing ? "granted" : "denied",
+              ad_personalization: c.marketing ? "granted" : "denied",
+            });
+          }
+
+          if (c.analytics) loadAnalytics(); // To załaduje tylko Clarity po udzieleniu zgody
+        }
+        applyC(getC());
+        window.addEventListener("cookie_consent_updated", function (e) {
+          applyC(e.detail);
+        });
+      })();
+    </script>
   </head>
-  <body class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
-    
+  <body
+    class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen"
+  >
     {!hideHeader && <Header lang={lang} isLandingPage={isLandingPage} />}
 
     <div class="flex-1 w-full">
       <slot />
-      <CallbackWidget />
+      <CallbackWidget revealOnSelector={callbackRevealSelector} />
     </div>
 
     {!hideFooter && <Footer lang={lang} />}
-    
+
     <CookieConsent lang={lang} />
 
     <script
@@ -206,7 +230,6 @@ const {
       data-primary-color="#18181B"
       data-translation-enabled="true"
       data-debug="false"
-      defer
-    ></script>
+      defer></script>
   </body>
 </html>

@@ -4,6 +4,12 @@
 
 import { callbackTranslations } from '../i18n/callback';
 
+interface Props {
+  revealOnSelector?: string;
+}
+
+const { revealOnSelector = '' } = Astro.props;
+
 // 1. Pobieramy aktualny język (Astro.currentLocale działa w Astro 4+, ew. fallback na URL lub 'pl')
 const currentLang = Astro.currentLocale || Astro.params.lang || Astro.url.pathname.split('/')[1] || 'pl';
 
@@ -46,7 +52,8 @@ const defaultPrefix = currentLang === 'en' ? '1' : '48';
     <!-- Przycisk wywołujący (Desktop: doczepiony do lewej krawędzi, wydłużony pasek) -->
     <button 
       id="callback-trigger" 
-      class="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 items-center justify-center bg-white/95 backdrop-blur-xl shadow-[8px_0_32px_rgba(0,0,0,0.12)] border border-[#E4E4E7] border-l-0 rounded-r-[32px] pl-8 pr-3.5 py-3.5 transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] hover:pl-10 hover:shadow-[12px_0_40px_rgba(0,0,0,0.16)] group"
+      data-callback-reveal-selector={revealOnSelector || undefined}
+      class={`hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 items-center justify-center bg-white/95 backdrop-blur-xl shadow-[8px_0_32px_rgba(0,0,0,0.12)] border border-[#E4E4E7] border-l-0 rounded-r-[32px] pl-8 pr-3.5 py-3.5 transition-all duration-400 ease-[cubic-bezier(0.32,0.72,0,1)] hover:pl-10 hover:shadow-[12px_0_40px_rgba(0,0,0,0.16)] group ${revealOnSelector ? 'opacity-0 pointer-events-none -translate-x-4' : ''}`}
       aria-label={t.openForm}
     >
       <div class="relative flex items-center justify-center w-[44px] h-[44px]">
@@ -199,6 +206,10 @@ const defaultPrefix = currentLang === 'en' ? '1' : '48';
       backdrop?.remove();
       return; 
     }
+
+    const revealSelector = trigger?.dataset.callbackRevealSelector || '';
+    let isCallbackRevealed = !revealSelector;
+    let mobileAutoOpenTimer: number | undefined;
 
     let isSubmitting = false;
     let currentFlagIso = defaultIso;
@@ -418,6 +429,7 @@ const defaultPrefix = currentLang === 'en' ? '1' : '48';
 
     const openModal = () => {
       if (!backdrop || !panel) return;
+      if (!isCallbackRevealed) return;
       
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
       backdrop.classList.add('opacity-100', 'pointer-events-auto');
@@ -449,19 +461,60 @@ const defaultPrefix = currentLang === 'en' ? '1' : '48';
     };
 
     // Otwieranie najechanie lub kliknięcie
+    const isMobile = window.innerWidth < 768;
+    const hasBeenShown = sessionStorage.getItem('callback_shown');
+
+    const scheduleMobileAutoOpen = () => {
+      if (mobileAutoOpenTimer || !isCallbackRevealed) return;
+
+      if (isMobile && !hasBeenShown && !hasBeenSubmitted) {
+        mobileAutoOpenTimer = window.setTimeout(() => {
+          openModal();
+        }, 10000);
+      }
+    };
+
+    const revealCallback = () => {
+      if (isCallbackRevealed) return;
+
+      isCallbackRevealed = true;
+      trigger?.classList.remove('opacity-0', 'pointer-events-none', '-translate-x-4');
+      trigger?.classList.add('opacity-100', 'translate-x-0');
+      scheduleMobileAutoOpen();
+    };
+
+    const setupDelayedReveal = () => {
+      if (!revealSelector) {
+        scheduleMobileAutoOpen();
+        return;
+      }
+
+      const revealTarget = document.querySelector(revealSelector);
+      if (!revealTarget) {
+        revealCallback();
+        return;
+      }
+
+      const checkReveal = () => {
+        const revealAt = Math.min(window.innerHeight * 0.55, 420);
+        if (revealTarget.getBoundingClientRect().top <= revealAt) {
+          revealCallback();
+          window.removeEventListener('scroll', checkReveal);
+          window.removeEventListener('resize', checkReveal);
+        }
+      };
+
+      window.addEventListener('scroll', checkReveal, { passive: true });
+      window.addEventListener('resize', checkReveal);
+      checkReveal();
+    };
+
     trigger?.addEventListener('mouseenter', openModal);
     trigger?.addEventListener('click', openModal); 
     
     closeBtn?.addEventListener('click', closeModal);
     backdrop?.addEventListener('click', closeModal);
 
-    const isMobile = window.innerWidth < 768;
-    const hasBeenShown = sessionStorage.getItem('callback_shown');
-
-    if (isMobile && !hasBeenShown && !hasBeenSubmitted) {
-      setTimeout(() => {
-        openModal();
-      }, 10000); 
-    }
+    setupDelayedReveal();
   });
 </script>
