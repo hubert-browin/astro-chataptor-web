@@ -25,6 +25,8 @@ interface Props {
   hideHeader?: boolean;
   hideFooter?: boolean;
   callbackRevealSelector?: string;
+  lazyChatWidget?: boolean;
+  lazyAnalytics?: boolean;
 }
 
 const {
@@ -44,6 +46,8 @@ const {
   hideHeader = false,
   hideFooter = false,
   callbackRevealSelector,
+  lazyChatWidget = false,
+  lazyAnalytics = false,
 } = Astro.props;
 ---
 
@@ -124,12 +128,14 @@ const {
     <script is:inline>
       // Inicjalizacja Google Consent Mode v2 (Domyślnie blokuje cookies, pozwala na anonimowe pingi)
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      window.gtag =
+        window.gtag ||
+        function gtag() {
+          dataLayer.push(arguments);
+        };
 
       // Ustawienia początkowe - odrzucone
-      gtag("consent", "default", {
+      window.gtag("consent", "default", {
         ad_storage: "denied",
         ad_user_data: "denied",
         ad_personalization: "denied",
@@ -137,19 +143,57 @@ const {
       });
     </script>
 
-    <!-- GA4 script must load immediately for Consent Mode to work -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"
-      is:inline></script>
-    <script is:inline>
+    {
+      !lazyAnalytics && (
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT"
+          is:inline
+        />
+      )
+    }
+    <script is:inline define:vars={{ lazyAnalytics }}>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      window.gtag =
+        window.gtag ||
+        function gtag() {
+          dataLayer.push(arguments);
+        };
+
+      if (lazyAnalytics) {
+        (function () {
+          var loaded = false;
+
+          function loadGoogleTag() {
+            if (loaded) return;
+            loaded = true;
+
+            var script = document.createElement("script");
+            script.async = true;
+            script.src =
+              "https://www.googletagmanager.com/gtag/js?id=G-1BV9YBEBDT";
+            document.head.appendChild(script);
+
+            window.gtag("js", new Date());
+            window.gtag("config", "G-1BV9YBEBDT");
+          }
+
+          function scheduleGoogleTag() {
+            window.setTimeout(loadGoogleTag, 1400);
+          }
+
+          if (document.readyState === "complete") {
+            scheduleGoogleTag();
+          } else {
+            window.addEventListener("load", scheduleGoogleTag, {
+              once: true,
+            });
+          }
+        })();
+      } else {
+        window.gtag("js", new Date());
+        window.gtag("config", "G-1BV9YBEBDT");
       }
-      window.gtag = gtag;
-      gtag("js", new Date());
-      gtag("config", "G-1BV9YBEBDT");
     </script>
 
     <script is:inline>
@@ -216,20 +260,66 @@ const {
 
     <CookieConsent lang={lang} />
 
-    <script
-      is:inline
-      src="https://chataptor.com/widget/quantumchat-widget.umd.js"
-      data-api-url="https://chataptor.com"
-      data-site-id="chataptor-1769604218"
-      data-widget-key="cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y"
-      data-welcome-message="Hello! How can I help you today?"
-      data-header-title="Customer Support"
-      data-input-placeholder="Type your message..."
-      data-theme="light"
-      data-position="bottom-right"
-      data-primary-color="#18181B"
-      data-translation-enabled="true"
-      data-debug="false"
-      defer></script>
+    {
+      !lazyChatWidget && (
+        <script
+          is:inline
+          src="https://chataptor.com/widget/quantumchat-widget.umd.js"
+          data-api-url="https://chataptor.com"
+          data-site-id="chataptor-1769604218"
+          data-widget-key="cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y"
+          data-welcome-message="Hello! How can I help you today?"
+          data-header-title="Customer Support"
+          data-input-placeholder="Type your message..."
+          data-theme="light"
+          data-position="bottom-right"
+          data-primary-color="#18181B"
+          data-translation-enabled="true"
+          data-debug="false"
+          defer
+        />
+      )
+    }
+    <script is:inline define:vars={{ lazyChatWidget }}>
+      if (lazyChatWidget) {
+        (function () {
+          var loaded = false;
+
+          function loadChatWidget() {
+            if (loaded) return;
+            loaded = true;
+
+            var script = document.createElement("script");
+            script.src =
+              "https://chataptor.com/widget/quantumchat-widget.umd.js";
+            script.defer = true;
+            script.dataset.apiUrl = "https://chataptor.com";
+            script.dataset.siteId = "chataptor-1769604218";
+            script.dataset.widgetKey = "cGtflAUCFCQ8y72h6ecYf9nKRLxejR-Y";
+            script.dataset.welcomeMessage = "Hello! How can I help you today?";
+            script.dataset.headerTitle = "Customer Support";
+            script.dataset.inputPlaceholder = "Type your message...";
+            script.dataset.theme = "light";
+            script.dataset.position = "bottom-right";
+            script.dataset.primaryColor = "#18181B";
+            script.dataset.translationEnabled = "true";
+            script.dataset.debug = "false";
+            document.body.appendChild(script);
+          }
+
+          function scheduleChatWidget() {
+            window.setTimeout(loadChatWidget, 6500);
+          }
+
+          if (document.readyState === "complete") {
+            scheduleChatWidget();
+          } else {
+            window.addEventListener("load", scheduleChatWidget, {
+              once: true,
+            });
+          }
+        })();
+      }
+    </script>
   </body>
 </html>

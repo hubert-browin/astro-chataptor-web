@@ -75,6 +75,8 @@ const encodedTitle = encodeURIComponent(post.data.title);
   imageAlt={post.data.imageAlt}
   alternates={alternates}
   callbackRevealSelector="#article-content"
+  lazyChatWidget
+  lazyAnalytics
 >
   <div
     id="progress-bar"
@@ -128,7 +130,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
             </div>
 
             <h1
-              class="mt-5 max-w-4xl text-[2.05rem] sm:text-[2.8rem] lg:text-[4.55rem] font-extrabold text-zinc-900 tracking-tight leading-[1.05] text-balance"
+              class="mt-5 max-w-4xl text-[1.85rem] sm:text-[2.45rem] lg:text-[4.05rem] font-extrabold text-zinc-900 tracking-tight leading-[1.08] text-balance"
             >
               {post.data.title}
             </h1>
