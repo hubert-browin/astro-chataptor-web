@@ -84,7 +84,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
   >
   </div>
 
-  <article class="bg-white min-h-screen pb-20">
+  <article class="bg-white min-h-screen pb-32 md:pb-20">
     <header
       class="relative px-4 md:px-6 pt-24 md:pt-32 pb-8 md:pb-10 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-white"
     >
@@ -110,19 +110,17 @@ const encodedTitle = encodeURIComponent(post.data.title);
               <path d="m12 19-7-7 7-7"></path>
             </svg>
           </span>
-          {backLabel}
+          {ui.backToBlog.replace(/^[^\p{L}\p{N}]+/u, "").trim()}
         </a>
 
         <div
           class={`grid grid-cols-1 gap-8 lg:gap-12 ${post.data.image ? "lg:grid-cols-[minmax(0,1fr)_minmax(320px,500px)] lg:items-center" : ""}`}
         >
           <div class="min-w-0">
-            <div
-              class="flex gap-2 overflow-x-auto pb-1 md:flex-wrap md:overflow-visible md:pb-0"
-            >
+            <div class="flex flex-wrap gap-1.5 sm:gap-2">
               {
                 visibleTags.map((tag: unknown) => (
-                  <span class="shrink-0 px-3 py-1 bg-white ring-1 ring-zinc-200 rounded-full text-[11px] font-bold text-emerald-700 uppercase tracking-wider shadow-sm">
+                  <span class="max-w-full shrink-0 rounded-full bg-white px-2 py-0.5 text-[9.5px] font-bold uppercase leading-4 tracking-wide text-emerald-700 ring-1 ring-zinc-200 shadow-sm sm:px-3 sm:py-1 sm:text-[11px] sm:tracking-wider">
                     {tag}
                   </span>
                 ))
@@ -142,13 +140,13 @@ const encodedTitle = encodeURIComponent(post.data.title);
             </p>
 
             <div
-              class="mt-6 flex flex-wrap items-center gap-2.5 text-sm text-zinc-600"
+              class="mt-5 flex flex-nowrap items-center gap-1.5 text-[10.5px] text-zinc-600 sm:flex-wrap sm:gap-2.5 sm:text-sm"
             >
               <div
-                class="inline-flex max-w-full items-center gap-3 rounded-full bg-white px-2.5 py-2 pr-4 ring-1 ring-zinc-200 shadow-sm"
+                class="inline-flex min-w-0 max-w-[36vw] items-center gap-1.5 rounded-full bg-white px-1.5 py-1 pr-2 ring-1 ring-zinc-200 shadow-sm sm:max-w-full sm:gap-3 sm:px-2.5 sm:py-2 sm:pr-4"
               >
                 <span
-                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-xs font-bold text-white"
+                  class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-[10px] font-bold text-white sm:h-8 sm:w-8 sm:text-xs"
                 >
                   {authorInitial}
                 </span>
@@ -159,10 +157,10 @@ const encodedTitle = encodeURIComponent(post.data.title);
 
               <time
                 datetime={publishedIso}
-                class="inline-flex items-center gap-2 rounded-full bg-zinc-50 px-3 py-2 font-semibold text-zinc-700 ring-1 ring-zinc-200/70"
+                class="inline-flex shrink-0 items-center gap-1 rounded-full bg-zinc-50 px-2 py-1.5 font-semibold text-zinc-700 ring-1 ring-zinc-200/70 sm:gap-2 sm:px-3 sm:py-2"
               >
                 <svg
-                  class="h-4 w-4 text-zinc-400"
+                  class="h-3.5 w-3.5 text-zinc-400 sm:h-4 sm:w-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -178,10 +176,10 @@ const encodedTitle = encodeURIComponent(post.data.title);
               </time>
 
               <span
-                class="inline-flex items-center gap-2 rounded-full bg-zinc-50 px-3 py-2 font-semibold text-zinc-700 ring-1 ring-zinc-200/70"
+                class="inline-flex shrink-0 items-center gap-1 rounded-full bg-zinc-50 px-2 py-1.5 font-semibold text-zinc-700 ring-1 ring-zinc-200/70 sm:gap-2 sm:px-3 sm:py-2"
               >
                 <svg
-                  class="h-4 w-4 text-zinc-400"
+                  class="h-3.5 w-3.5 text-zinc-400 sm:h-4 sm:w-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -217,32 +215,6 @@ const encodedTitle = encodeURIComponent(post.data.title);
         </div>
       </div>
     </header>
-
-    {
-      tocHeadings.length > 0 && (
-        <div class="xl:hidden sticky top-[4.75rem] md:top-[5.5rem] z-40 border-y border-zinc-100 bg-white/95 backdrop-blur-xl">
-          <nav
-            aria-label={ui.post.tocTitle}
-            class="max-w-[1180px] mx-auto px-4 md:px-6"
-          >
-            <div class="article-mobile-toc flex items-center gap-2 overflow-x-auto py-3">
-              <span class="shrink-0 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-                {ui.post.tocTitle}
-              </span>
-              {tocHeadings.map((heading: any) => (
-                <a
-                  href={`#${heading.slug}`}
-                  data-toc-link
-                  class="toc-link shrink-0 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-bold leading-none text-zinc-500 transition-colors hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-700"
-                >
-                  {heading.text}
-                </a>
-              ))}
-            </div>
-          </nav>
-        </div>
-      )
-    }
 
     <div class="max-w-[1180px] mx-auto px-4 md:px-6">
       <div
@@ -363,19 +335,105 @@ const encodedTitle = encodeURIComponent(post.data.title);
         </div>
       </div>
     </div>
+
+    {
+      tocHeadings.length > 0 && (
+        <>
+          <div
+            id="mobile-toc-backdrop"
+            class="fixed inset-0 z-[70] hidden bg-zinc-900/15 backdrop-blur-[2px] xl:hidden"
+            data-mobile-toc-backdrop
+          />
+          <section
+            id="mobile-toc-sheet"
+            class="mobile-toc-sheet fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] z-[80] overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/95 shadow-[0_18px_50px_rgba(24,24,27,0.18)] backdrop-blur-xl transition-[max-height,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] xl:hidden"
+            data-mobile-toc-sheet
+          >
+            <div class="absolute inset-x-0 top-0 h-0.5 bg-zinc-100">
+              <div
+                id="mobile-progress-bar"
+                class="h-full w-0 bg-emerald-500 transition-all duration-100 ease-out"
+              />
+            </div>
+
+            <button
+              type="button"
+              class="flex min-h-[4.25rem] w-full items-center gap-3 px-3.5 py-3 text-left"
+              data-mobile-toc-toggle
+              aria-expanded="false"
+              aria-controls="mobile-toc-list"
+            >
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100">
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M8 6h13" />
+                  <path d="M8 12h13" />
+                  <path d="M8 18h13" />
+                  <path d="M3 6h.01" />
+                  <path d="M3 12h.01" />
+                  <path d="M3 18h.01" />
+                </svg>
+              </span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+                  {ui.post.tocTitle}
+                </span>
+                <span
+                  class="mt-0.5 block truncate text-sm font-extrabold leading-tight text-zinc-900"
+                  data-mobile-toc-current
+                >
+                  {tocHeadings[0]?.text}
+                </span>
+              </span>
+              <span class="mobile-toc-chevron flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-50 text-zinc-500 transition-transform duration-300">
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m18 15-6-6-6 6" />
+                </svg>
+              </span>
+            </button>
+
+            <nav
+              id="mobile-toc-list"
+              aria-label={ui.post.tocTitle}
+              class="mobile-toc-list max-h-[52vh] overflow-y-auto px-3.5 pb-3 transition-[opacity,transform] duration-300"
+            >
+              <div class="space-y-1.5 border-t border-zinc-100 pt-2">
+                {tocHeadings.map((heading: any) => (
+                  <a
+                    href={`#${heading.slug}`}
+                    data-toc-link
+                    class={`toc-link block rounded-xl border border-transparent px-3 py-2 text-sm font-bold leading-snug text-zinc-500 transition-colors hover:border-emerald-100 hover:bg-emerald-50 hover:text-emerald-700 ${heading.depth === 3 ? "ml-3 text-xs font-semibold" : ""}`}
+                  >
+                    {heading.text}
+                  </a>
+                ))}
+              </div>
+            </nav>
+          </section>
+        </>
+      )
+    }
   </article>
 </BaseLayout>
 
 <style>
-  .article-mobile-toc {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .article-mobile-toc::-webkit-scrollbar {
-    display: none;
-  }
-
   .toc-link.is-active {
     border-color: #10b981;
     background: #ecfdf5;
@@ -384,6 +442,30 @@ const encodedTitle = encodeURIComponent(post.data.title);
 
   .desktop-toc .toc-link.is-active {
     background: transparent;
+  }
+
+  .mobile-toc-sheet {
+    max-height: 4.25rem;
+  }
+
+  .mobile-toc-sheet.is-open {
+    max-height: min(70vh, 34rem);
+  }
+
+  .mobile-toc-list {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.45rem);
+  }
+
+  .mobile-toc-sheet.is-open .mobile-toc-list {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-toc-sheet.is-open .mobile-toc-chevron {
+    transform: rotate(180deg);
   }
 
   .article-copy :global(.prose > p:first-child) {
@@ -414,6 +496,16 @@ const encodedTitle = encodeURIComponent(post.data.title);
     articleChromePageKey = pageKey;
 
     const progressBar = document.getElementById("progress-bar");
+    const mobileProgressBar = document.getElementById("mobile-progress-bar");
+    const mobileTocSheet = document.querySelector("[data-mobile-toc-sheet]");
+    const mobileTocToggle = document.querySelector("[data-mobile-toc-toggle]");
+    const mobileTocBackdrop = document.querySelector(
+      "[data-mobile-toc-backdrop]",
+    );
+    const mobileTocCurrent = document.querySelector(
+      "[data-mobile-toc-current]",
+    );
+
     const updateProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = Math.max(
@@ -422,10 +514,33 @@ const encodedTitle = encodeURIComponent(post.data.title);
       );
       const scrollPercent = (scrollTop / docHeight) * 100;
       if (progressBar) progressBar.style.width = scrollPercent + "%";
+      if (mobileProgressBar) {
+        mobileProgressBar.style.width = scrollPercent + "%";
+      }
     };
 
     window.addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
+
+    const setMobileTocOpen = (isOpen) => {
+      if (!mobileTocSheet || !mobileTocToggle) return;
+
+      mobileTocSheet.classList.toggle("is-open", isOpen);
+      mobileTocToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileTocBackdrop?.classList.toggle("hidden", !isOpen);
+    };
+
+    mobileTocToggle?.addEventListener("click", () => {
+      setMobileTocOpen(!mobileTocSheet?.classList.contains("is-open"));
+    });
+
+    mobileTocBackdrop?.addEventListener("click", () => {
+      setMobileTocOpen(false);
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMobileTocOpen(false);
+    });
 
     const tocLinks = Array.from(document.querySelectorAll("[data-toc-link]"));
     const tocTargets = [];
@@ -435,23 +550,53 @@ const encodedTitle = encodeURIComponent(post.data.title);
       const target = href
         ? document.getElementById(href.replace("#", ""))
         : null;
-      if (target) tocTargets.push(target);
+      if (target && !tocTargets.includes(target)) tocTargets.push(target);
     });
 
     const setActiveTocLink = (id) => {
+      let activeText = "";
+
       tocLinks.forEach((link) => {
         const isActive = link.getAttribute("href") === `#${id}`;
         link.classList.toggle("is-active", isActive);
         if (isActive) {
           link.setAttribute("aria-current", "true");
+          activeText = activeText || link.textContent?.trim() || "";
         } else {
           link.removeAttribute("aria-current");
         }
       });
+
+      if (mobileTocCurrent && activeText) {
+        mobileTocCurrent.textContent = activeText;
+      }
     };
+
+    tocLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        setMobileTocOpen(false);
+      });
+    });
 
     if (tocTargets.length > 0) {
       setActiveTocLink(tocTargets[0].id);
+
+      const updateActiveHeadingFromScroll = () => {
+        let activeTarget = tocTargets[0];
+
+        tocTargets.forEach((target) => {
+          if (target.getBoundingClientRect().top <= 180) {
+            activeTarget = target;
+          }
+        });
+
+        if (activeTarget?.id) setActiveTocLink(activeTarget.id);
+      };
+
+      window.addEventListener("scroll", updateActiveHeadingFromScroll, {
+        passive: true,
+      });
+      updateActiveHeadingFromScroll();
 
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(
