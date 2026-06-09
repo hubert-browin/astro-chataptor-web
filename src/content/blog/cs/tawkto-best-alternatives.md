@@ -1,5 +1,5 @@
 ---
-title: "tawk.to: recenze, funkce, ceny a alternativy"
+title: "Tawk.to - nejlepší alternativy a porovnání funkcí"
 description: "Zjistěte, co je tawk.to, zda je opravdu zdarma, jaké funkce nabízí a kdy dává smysl zvolit alternativu k tawk.to."
 lang: "cs"
 translationKey: "tawk-to-review-pricing-alternatives"
@@ -11,7 +11,7 @@ image: "/images/blog/tawk-to-review-alternatives.webp"
 imageAlt: "Porovnání tawk.to s alternativami live chatu a omnichannel inboxem"
 translatedBy: "manual"
 reviewed: true
-sourceFile: "cs/tawk-to-recenze-ceny-alternativy"
+sourceFile: "cs/tawkto-best-alternatives"
 ---
 
 tawk.to patří mezi nejznámější nástroje pro live chat. Mnoho firem na něj narazí z jednoduchého důvodu: chtějí na web přidat bezplatný chat bez složitého nasazení.
