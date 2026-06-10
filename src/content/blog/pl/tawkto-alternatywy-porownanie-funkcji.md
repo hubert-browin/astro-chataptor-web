@@ -11,7 +11,7 @@ image: "/images/blog/tawk-to-review-alternatives.webp"
 imageAlt: "Porównanie tawk.to z alternatywami live chat i omnichannel inboxem"
 translatedBy: "manual"
 reviewed: true
-sourceFile: "pl/tawkto-best-alternatives"
+sourceFile: "pl/tawkto-alternatywy-porownanie-funkcji"
 ---
 
 tawk.to to jedno z najbardziej rozpoznawalnych narzędzi live chat. Wiele firm trafia na nie z prostego powodu: szuka darmowego czatu na stronę, który można uruchomić szybko i bez dużego wdrożenia.

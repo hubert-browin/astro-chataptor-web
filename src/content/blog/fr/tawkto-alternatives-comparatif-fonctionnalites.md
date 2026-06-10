@@ -11,7 +11,7 @@ image: "/images/blog/tawk-to-review-alternatives.webp"
 imageAlt: "Comparaison de tawk.to avec des alternatives de live chat et une boîte de réception omnicanale"
 translatedBy: "manual"
 reviewed: true
-sourceFile: "fr/tawkto-best-alternatives"
+sourceFile: "fr/tawkto-alternatives-comparatif-fonctionnalites"
 ---
 
 tawk.to fait partie des outils de live chat les plus connus. Beaucoup d'entreprises le découvrent pour une raison simple : elles veulent ajouter gratuitement un chat à leur site, sans déploiement compliqué.
