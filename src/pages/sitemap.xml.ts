@@ -1,12 +1,12 @@
-import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
-import { locales, type Locale } from '../i18n/config';
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
+import { locales, type Locale } from "../i18n/config";
 import {
   getAlternateUrls,
   getBlogPostAlternateUrls,
   getBlogPostCanonicalUrl,
   getCanonicalUrl,
-} from '../utils/i18n';
+} from "../utils/i18n";
 
 export const prerender = true;
 
@@ -22,30 +22,30 @@ type SitemapEntry = {
 };
 
 const localizedStaticSlugs = [
-  '',
-  'about',
-  'blog',
-  'privacy',
-  'terms',
-  'integrations/wordpress',
-  'integrations/shoper',
-  'legal/shoper-terms',
-  'legal/shoper-privacy',
+  "",
+  "about",
+  "blog",
+  "privacy",
+  "terms",
+  "integrations/wordpress",
+  "integrations/shoper",
+  "legal/shoper-terms",
+  "legal/shoper-privacy",
 ];
 
 function escapeXml(value: string): string {
   return value.replace(/[<>&'"]/g, (char) => {
     switch (char) {
-      case '<':
-        return '&lt;';
-      case '>':
-        return '&gt;';
-      case '&':
-        return '&amp;';
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case "&":
+        return "&amp;";
       case "'":
-        return '&apos;';
+        return "&apos;";
       case '"':
-        return '&quot;';
+        return "&quot;";
       default:
         return char;
     }
@@ -58,10 +58,15 @@ function formatLastmod(date?: Date): string | undefined {
 }
 
 function withXDefault(alternates: SitemapAlternate[]): SitemapAlternate[] {
-  const englishAlternate = alternates.find((alternate) => alternate.hreflang === 'en');
+  const englishAlternate = alternates.find(
+    (alternate) => alternate.hreflang === "en",
+  );
   if (!englishAlternate) return alternates;
 
-  return [...alternates, { hreflang: 'x-default', href: englishAlternate.href }];
+  return [
+    ...alternates,
+    { hreflang: "x-default", href: englishAlternate.href },
+  ];
 }
 
 function renderEntry(entry: SitemapEntry): string {
@@ -71,17 +76,17 @@ function renderEntry(entry: SitemapEntry): string {
       (alternate) =>
         `    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}" />`,
     )
-    .join('\n');
+    .join("\n");
 
   return [
-    '  <url>',
+    "  <url>",
     `    <loc>${escapeXml(entry.loc)}</loc>`,
     lastmod ? `    <lastmod>${lastmod}</lastmod>` : undefined,
     alternateLines,
-    '  </url>',
+    "  </url>",
   ]
     .filter(Boolean)
-    .join('\n');
+    .join("\n");
 }
 
 function uniqueEntries(entries: SitemapEntry[]): SitemapEntry[] {
@@ -95,9 +100,8 @@ function uniqueEntries(entries: SitemapEntry[]): SitemapEntry[] {
 }
 
 export const GET: APIRoute = async ({ site }) => {
-  const siteUrl = site ?? new URL('https://chataptor.com/');
-  const baseUrl = siteUrl.toString().replace(/\/+$/, '');
-  const posts = await getCollection('blog');
+  const siteUrl = site ?? new URL("https://chataptor.com/");
+  const posts = await getCollection("blog");
 
   const staticEntries = localizedStaticSlugs.flatMap((slug) => {
     const alternates = withXDefault(
@@ -128,20 +132,15 @@ export const GET: APIRoute = async ({ site }) => {
     };
   });
 
-  const authEntries: SitemapEntry[] = [
-    { loc: `${baseUrl}/login` },
-    { loc: `${baseUrl}/register` },
-  ];
-
-  const entries = uniqueEntries([...staticEntries, ...blogEntries, ...authEntries]);
+  const entries = uniqueEntries([...staticEntries, ...blogEntries]);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${entries.map(renderEntry).join('\n')}
+${entries.map(renderEntry).join("\n")}
 </urlset>`;
 
   return new Response(xml, {
     headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
+      "Content-Type": "application/xml; charset=utf-8",
     },
   });
 };

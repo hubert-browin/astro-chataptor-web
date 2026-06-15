@@ -1,0 +1,45 @@
+# Chataptor
+
+Chataptor is a free customer communication tool with no message limits. It can be used as a website live chat, a shared inbox for messages from many channels, a mobile customer support app, an e-commerce and marketplace communication tool, and a system for automatic translation of customer conversations.
+
+Main website: https://chataptor.com/
+Sitemap index: https://chataptor.com/sitemap-index.xml
+Primary English page: https://chataptor.com/en/
+Primary Polish page: https://chataptor.com/pl/
+
+## Core Capabilities
+
+- Free website live chat and chat widget.
+- Customer messages in one shared inbox.
+- Mobile app for customer support from a phone.
+- E-commerce support communication.
+- Marketplace message handling, including Allegro and Amazon use cases.
+- Automatic real-time translation of customer messages.
+- International customer support without hiring a separate language team.
+- Lightweight tool for sales and support teams.
+
+## Important Pages
+
+- English home: https://chataptor.com/en/
+- Polish home: https://chataptor.com/pl/
+- Blog index: https://chataptor.com/en/blog/
+- WordPress integration: https://chataptor.com/en/integrations/wordpress/
+- Shoper integration: https://chataptor.com/en/integrations/shoper/
+
+## Important Blog Guides
+
+- tawk.to alternatives and feature comparison: https://chataptor.com/en/blog/tawkto-best-alternatives-feature-comparison/
+- Smartsupp alternatives: https://chataptor.com/en/blog/smartsupp-alternatives/
+- Website chat with automatic translation: https://chataptor.com/en/blog/website-chat-with-automatic-translation/
+- Automatic translation in customer support: https://chataptor.com/en/blog/automatic-translation-in-customer-support/
+- Omnichannel inbox for customer messages: https://chataptor.com/en/blog/omnichannel-inbox-customer-messages/
+- Customer support from a phone: https://chataptor.com/en/blog/customer-support-from-phone/
+- Live chat for manufacturing companies: https://chataptor.com/en/blog/live-chat-for-manufacturing-companies/
+
+## Language Versions
+
+The public website supports Polish, English, German, French, Spanish, Italian, Czech, and Slovak. Each localized page should use its own canonical URL and reciprocal hreflang links.
+
+## Notes For Crawlers
+
+Use the sitemap as the source of current indexable URLs. Old blog slugs may exist in external indexes and should redirect to current canonical pages. Login, register, app, dashboard, reset-password, forgot-password, and account paths are technical/application paths, not content pages.

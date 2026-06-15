@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /app
+Disallow: /dashboard
+Disallow: /reset-password
+Disallow: /forgot-password
+Disallow: /account
 
 Sitemap: https://chataptor.com/sitemap-index.xml

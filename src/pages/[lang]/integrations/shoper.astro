@@ -1,15 +1,16 @@
 ---
-import { locales, type Locale } from '../../../i18n/config';
-import { getShoperIntegration } from '../../../i18n/integrations-shoper';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import IntegrationHero from '../../../components/integrations/IntegrationHero.astro';
-import FeaturesGrid from '../../../components/integrations/FeaturesGrid.astro';
-import HowItWorks from '../../../components/integrations/HowItWorks.astro';
-import PlatformSection from '../../../components/integrations/PlatformSection.astro';
-import WidgetPreview from '../../../components/integrations/WidgetPreview.astro';
-import TechRequirements from '../../../components/integrations/TechRequirements.astro';
-import IntegrationFAQ from '../../../components/integrations/IntegrationFAQ.astro';
-import IntegrationCTA from '../../../components/integrations/IntegrationCTA.astro';
+import { locales, type Locale } from "../../../i18n/config";
+import { getShoperIntegration } from "../../../i18n/integrations-shoper";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import IntegrationHero from "../../../components/integrations/IntegrationHero.astro";
+import FeaturesGrid from "../../../components/integrations/FeaturesGrid.astro";
+import HowItWorks from "../../../components/integrations/HowItWorks.astro";
+import PlatformSection from "../../../components/integrations/PlatformSection.astro";
+import WidgetPreview from "../../../components/integrations/WidgetPreview.astro";
+import TechRequirements from "../../../components/integrations/TechRequirements.astro";
+import IntegrationFAQ from "../../../components/integrations/IntegrationFAQ.astro";
+import IntegrationCTA from "../../../components/integrations/IntegrationCTA.astro";
+import { getCanonicalUrl } from "../../../utils/i18n";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({
@@ -21,8 +22,10 @@ const { lang } = Astro.params as { lang: Locale };
 const t = getShoperIntegration(lang);
 
 // TODO: finalny URL listingu w Shoper App Store — placeholder do potwierdzenia po publikacji aplikacji.
-const shoperAppStoreUrl = 'https://www.shoper.pl/aplikacje-shoper-appstore/chataptor';
-const registerUrl = '/register';
+const shoperAppStoreUrl =
+  "https://www.shoper.pl/aplikacje-shoper-appstore/chataptor";
+const registerUrl = "/register";
+const pageUrl = getCanonicalUrl(lang, "integrations/shoper");
 ---
 
 <BaseLayout
@@ -40,18 +43,38 @@ const registerUrl = '/register';
     primaryCTA={{ text: t.hero.primaryCTA, href: shoperAppStoreUrl }}
     secondaryCTA={{ text: t.hero.secondaryCTA, href: registerUrl }}
   >
-    {/* Ikona Shoper — prosty symbol storefront (fallback). TODO: zastąpić oficjalnym logotypem po zgodzie na użycie. */}
-    <svg slot="platform-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9l1.5-5h15L21 9"/>
-      <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/>
-      <path d="M3 9h18"/>
-      <path d="M9 21V13h6v8"/>
+    {
+      /* Ikona Shoper — prosty symbol storefront (fallback). TODO: zastąpić oficjalnym logotypem po zgodzie na użycie. */
+    }
+    <svg
+      slot="platform-icon"
+      class="w-4 h-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3 9l1.5-5h15L21 9"></path>
+      <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"></path>
+      <path d="M3 9h18"></path>
+      <path d="M9 21V13h6v8"></path>
     </svg>
-    <svg slot="primary-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9l1.5-5h15L21 9"/>
-      <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/>
-      <path d="M3 9h18"/>
-      <path d="M9 21V13h6v8"/>
+    <svg
+      slot="primary-icon"
+      class="w-5 h-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3 9l1.5-5h15L21 9"></path>
+      <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"></path>
+      <path d="M3 9h18"></path>
+      <path d="M9 21V13h6v8"></path>
     </svg>
   </IntegrationHero>
 
@@ -90,7 +113,9 @@ const registerUrl = '/register';
   <section class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <span class="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 rounded-full text-sm font-medium mb-4">
+        <span
+          class="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 rounded-full text-sm font-medium mb-4"
+        >
           {t.screenshots.label}
         </span>
         <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -102,27 +127,29 @@ const registerUrl = '/register';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-        {t.screenshots.items.map((item) => (
-          <figure class="group">
-            <div class="relative overflow-hidden rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 transition-shadow group-hover:shadow-2xl">
-              <img
-                src={item.src}
-                alt={item.alt}
-                loading="lazy"
-                decoding="async"
-                class="w-full h-auto"
-              />
-            </div>
-            <figcaption class="mt-5">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1.5">
-                {item.title}
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                {item.description}
-              </p>
-            </figcaption>
-          </figure>
-        ))}
+        {
+          t.screenshots.items.map((item) => (
+            <figure class="group">
+              <div class="relative overflow-hidden rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 transition-shadow group-hover:shadow-2xl">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-auto"
+                />
+              </div>
+              <figcaption class="mt-5">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1.5">
+                  {item.title}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {item.description}
+                </p>
+              </figcaption>
+            </figure>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -134,11 +161,7 @@ const registerUrl = '/register';
     items={t.techRequirements.items}
   />
 
-  <IntegrationFAQ
-    label={t.faq.label}
-    title={t.faq.title}
-    items={t.faq.items}
-  />
+  <IntegrationFAQ label={t.faq.label} title={t.faq.title} items={t.faq.items} />
 
   <IntegrationCTA
     title={t.cta.title}
@@ -146,26 +169,57 @@ const registerUrl = '/register';
     primaryCTA={{ text: t.cta.primaryCTA, href: shoperAppStoreUrl }}
     secondaryCTA={{ text: t.cta.secondaryCTA, href: registerUrl }}
   >
-    <svg slot="primary-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9l1.5-5h15L21 9"/>
-      <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/>
-      <path d="M3 9h18"/>
-      <path d="M9 21V13h6v8"/>
+    <svg
+      slot="primary-icon"
+      class="w-5 h-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3 9l1.5-5h15L21 9"></path>
+      <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"></path>
+      <path d="M3 9h18"></path>
+      <path d="M9 21V13h6v8"></path>
     </svg>
   </IntegrationCTA>
 
   {/* JSON-LD: SoftwareApplication */}
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Chataptor for Shoper",
-    "applicationCategory": "CommunicationApplication",
-    "operatingSystem": "Shoper 5+",
-    "description": t.meta.description,
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "PLN"
-    }
-  })} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Chataptor for Shoper",
+      applicationCategory: "CommunicationApplication",
+      operatingSystem: "Shoper 5+",
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      description: t.meta.description,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "PLN",
+      },
+    })}
+  />
+
+  {/* JSON-LD: FAQPage. Questions are visible in the FAQ section above. */}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: t.faq.items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    })}
+  />
 </BaseLayout>

@@ -1,10 +1,11 @@
-import type { Locale } from './config';
+import type { Locale } from "./config";
 
 const translations = {
   pl: {
     hero: {
       title: "Centrum wiedzy",
-      subtitle: "Najnowsze trendy w AI, poradniki e-commerce i aktualizacje Chataptor.",
+      subtitle:
+        "Poradniki o darmowym live chacie, obsłudze klienta online, automatycznych tłumaczeniach, e-commerce i wiadomościach w jednym miejscu.",
       readMore: "Czytaj artykuł",
       new: "NOWOŚĆ",
     },
@@ -37,7 +38,8 @@ const translations = {
   en: {
     hero: {
       title: "Knowledge hub",
-      subtitle: "Latest AI trends, e-commerce guides, and Chataptor updates.",
+      subtitle:
+        "Guides on free live chat, online customer support, automatic translations, e-commerce, and keeping customer messages in one place.",
       readMore: "Read article",
       new: "NEW",
     },
@@ -70,7 +72,8 @@ const translations = {
   de: {
     hero: {
       title: "Wissenszentrum",
-      subtitle: "Neueste KI-Trends, E-Commerce-Guides und Chataptor-Updates.",
+      subtitle:
+        "Ratgeber zu kostenlosem Live-Chat, Online-Kundenservice, automatischen Übersetzungen, E-Commerce und Kundennachrichten an einem Ort.",
       readMore: "Artikel lesen",
       new: "NEU",
     },
@@ -103,7 +106,8 @@ const translations = {
   fr: {
     hero: {
       title: "Centre de connaissances",
-      subtitle: "Dernières tendances IA, guides e-commerce et mises à jour de Chataptor.",
+      subtitle:
+        "Guides sur le live chat gratuit, le service client en ligne, la traduction automatique, l'e-commerce et les messages clients centralisés.",
       readMore: "Lire l’article",
       new: "NOUVEAU",
     },
@@ -136,7 +140,8 @@ const translations = {
   it: {
     hero: {
       title: "Centro di conoscenza",
-      subtitle: "Ultime tendenze AI, guide e-commerce e aggiornamenti di Chataptor.",
+      subtitle:
+        "Guide su live chat gratuita, assistenza clienti online, traduzione automatica, e-commerce e messaggi dei clienti in un unico posto.",
       readMore: "Leggi l’articolo",
       new: "NUOVO",
     },
@@ -169,7 +174,8 @@ const translations = {
   es: {
     hero: {
       title: "Centro de conocimiento",
-      subtitle: "Últimas tendencias en IA, guías de e-commerce y novedades de Chataptor.",
+      subtitle:
+        "Guías sobre chat en vivo gratis, atención al cliente online, traducción automática, e-commerce y mensajes en un solo lugar.",
       readMore: "Leer artículo",
       new: "NUEVO",
     },
@@ -202,7 +208,8 @@ const translations = {
   cs: {
     hero: {
       title: "Centrum znalostí",
-      subtitle: "Nejnovější trendy v AI, e-commerce návody a novinky z Chataptoru.",
+      subtitle:
+        "Průvodci bezplatným live chatem, online zákaznickou podporou, automatickým překladem, e-commerce a zprávami na jednom místě.",
       readMore: "Číst článek",
       new: "NOVÉ",
     },
@@ -235,7 +242,8 @@ const translations = {
   sk: {
     hero: {
       title: "Centrum znalostí",
-      subtitle: "Najnovšie trendy v AI, e-commerce návody a novinky z Chataptoru.",
+      subtitle:
+        "Návody o bezplatnom live chate, online zákazníckej podpore, automatickom preklade, e-commerce a správach na jednom mieste.",
       readMore: "Čítať článok",
       new: "NOVÉ",
     },
@@ -268,5 +276,5 @@ const translations = {
 
 // Helper function do pobierania tłumaczeń
 export function getBlogUI(lang: string) {
-  return translations[lang as keyof typeof translations] || translations['en'];
+  return translations[lang as keyof typeof translations] || translations["en"];
 }

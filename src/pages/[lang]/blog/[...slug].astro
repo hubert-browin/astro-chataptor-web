@@ -3,7 +3,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getBlogUI } from "../../../i18n/blog";
 import { locales, type Locale } from "../../../i18n/config";
-import { getBlogPostAlternateUrls } from "../../../utils/i18n";
+import {
+  getBlogPostAlternateUrls,
+  getBlogPostCanonicalUrl,
+} from "../../../utils/i18n";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -53,10 +56,52 @@ const tocHeadings = headings.filter(
 const visibleTags = post.data.tags.slice(0, 4);
 const authorInitial = post.data.author.trim().charAt(0).toUpperCase() || "C";
 const publishedIso = post.data.publishedAt.toISOString().split("T")[0];
+const stripLangFromSlug = (fullSlug: string, lang: string) =>
+  fullSlug.startsWith(`${lang}/`) ? fullSlug.slice(lang.length + 1) : fullSlug;
 
-const currentUrl = Astro.site
-  ? new URL(Astro.url.pathname, Astro.site).toString()
-  : `https://chataptor.com${Astro.url.pathname}`;
+const postHref = (relatedPost: any) =>
+  `/${lang}/blog/${stripLangFromSlug(relatedPost.slug, lang)}/`;
+
+const currentTags = new Set(
+  post.data.tags.map((tag: string) => tag.toLocaleLowerCase(lang)),
+);
+
+const relatedPosts = allPosts
+  .filter(
+    (candidate) =>
+      candidate.slug !== post.slug &&
+      candidate.data.lang === lang &&
+      candidate.slug.startsWith(`${lang}/`),
+  )
+  .map((candidate) => {
+    const sharedTags = candidate.data.tags.filter((tag: string) =>
+      currentTags.has(tag.toLocaleLowerCase(lang)),
+    ).length;
+
+    return {
+      post: candidate,
+      score:
+        sharedTags * 10 + candidate.data.publishedAt.valueOf() / 1000000000000,
+    };
+  })
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map((item) => item.post);
+
+const relatedCopy: Record<Locale, { eyebrow: string; title: string }> = {
+  pl: { eyebrow: "Zobacz też", title: "Powiązane poradniki" },
+  en: { eyebrow: "Keep reading", title: "Related guides" },
+  de: { eyebrow: "Weiterlesen", title: "Verwandte Ratgeber" },
+  fr: { eyebrow: "À lire aussi", title: "Guides associés" },
+  es: { eyebrow: "Sigue leyendo", title: "Guías relacionadas" },
+  it: { eyebrow: "Leggi anche", title: "Guide correlate" },
+  cs: { eyebrow: "Čtěte také", title: "Související průvodci" },
+  sk: { eyebrow: "Čítajte tiež", title: "Súvisiace návody" },
+};
+
+const relatedUi = relatedCopy[lang] ?? relatedCopy.en;
+
+const currentUrl = getBlogPostCanonicalUrl(post);
 const encodedUrl = encodeURIComponent(currentUrl);
 const encodedTitle = encodeURIComponent(post.data.title);
 ---
@@ -265,6 +310,49 @@ const encodedTitle = encodeURIComponent(post.data.title);
           >
             <Content />
           </div>
+
+          {
+            relatedPosts.length > 0 && (
+              <section
+                class="mt-14 md:mt-16 rounded-3xl bg-zinc-50/80 p-5 ring-1 ring-zinc-200/70 md:p-7"
+                aria-labelledby="related-posts-title"
+              >
+                <p class="text-[11px] font-bold uppercase tracking-widest text-emerald-700">
+                  {relatedUi.eyebrow}
+                </p>
+                <h2
+                  id="related-posts-title"
+                  class="mt-2 text-2xl font-extrabold tracking-tight text-zinc-900"
+                >
+                  {relatedUi.title}
+                </h2>
+                <div class="mt-5 grid gap-3">
+                  {relatedPosts.map((relatedPost) => (
+                    <a
+                      href={postHref(relatedPost)}
+                      class="group block rounded-2xl bg-white p-4 ring-1 ring-zinc-200 transition-all hover:-translate-y-0.5 hover:ring-emerald-200 hover:shadow-lg hover:shadow-zinc-200/70"
+                    >
+                      <div class="flex flex-wrap gap-1.5">
+                        {relatedPost.data.tags
+                          .slice(0, 2)
+                          .map((tag: string) => (
+                            <span class="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                              {tag}
+                            </span>
+                          ))}
+                      </div>
+                      <h3 class="mt-3 text-base font-extrabold leading-snug text-zinc-900 group-hover:text-emerald-700">
+                        {relatedPost.data.title}
+                      </h3>
+                      <p class="mt-2 line-clamp-2 text-sm leading-6 text-zinc-500">
+                        {relatedPost.data.description}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )
+          }
 
           <div class="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-zinc-100">
             <div
