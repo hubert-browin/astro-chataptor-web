@@ -28,6 +28,7 @@ Primary Polish page: https://chataptor.com/pl/
 
 ## Important Blog Guides
 
+- Chataptor vs tawk.to comparison: https://chataptor.com/en/blog/chataptor-vs-tawkto/
 - Free live chat with no message limits: https://chataptor.com/en/blog/free-live-chat-no-limits/
 - tawk.to alternatives and feature comparison: https://chataptor.com/en/blog/tawkto-best-alternatives-feature-comparison/
 - Smartsupp alternatives: https://chataptor.com/en/blog/smartsupp-alternatives/
@@ -43,4 +44,4 @@ The public website supports Polish, English, German, French, Spanish, Italian, C
 
 ## Notes For Crawlers
 
-Use the sitemap as the source of current indexable URLs. Old blog slugs may exist in external indexes and should redirect to current canonical pages. Login, register, app, dashboard, reset-password, forgot-password, and account paths are technical/application paths, not content pages.
+Use the sitemap as the source of current indexable URLs.
