@@ -182,7 +182,10 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
   description={t.hero.description}
   lang={lang}
   slug=""
-  isLandingPage={true} 
+  isLandingPage={true}
+  lazyAnalytics
+  lazyChatWidget
+  callbackRevealSelector="#product"
 >
   {/* Style lokalne dla tej strony (animacje, popovery) */}
   <style>
@@ -214,13 +217,20 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
       <div class="absolute inset-0 hero-gradient -z-10 pointer-events-none"></div>
 
       <!-- World Map Background -->
-      <img
-        src="/images/dotted_worldmap.svg"
-        alt=""
-        aria-hidden="true"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] sm:w-[140%] md:w-[95%] 2xl:w-[115%] max-w-[120rem] h-auto z-0 opacity-[0.05] md:opacity-[0.06] pointer-events-none"
-        style="filter: grayscale(100%) brightness(0);"
-      />
+      <picture class="absolute top-1/2 left-1/2 z-0 hidden w-[95%] max-w-[120rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.06] md:block 2xl:w-[115%]">
+        <source srcset="/images/dotted_worldmap.svg" media="(min-width: 768px)" />
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+          alt=""
+          aria-hidden="true"
+          class="h-auto w-full"
+          width="201"
+          height="97"
+          decoding="async"
+          fetchpriority="low"
+          style="filter: grayscale(100%) brightness(0);"
+        />
+      </picture>
 
       <!-- Main Hero Wrapper - Two Columns Layout -->
       <div class="w-full h-full px-4 md:px-6 max-w-7xl mx-auto relative z-30 flex-1 flex flex-col pt-16 md:pt-8 lg:pt-32">
@@ -319,7 +329,7 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   <div class="relative group/btn shrink-0">
                     <button data-quantumchat-open class="w-14 h-14 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-zinc-900 hover:bg-black ring-1 ring-zinc-900 text-white transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 relative cursor-pointer" aria-label={t.contactPopup.tooltipChat}>
                       <span class="absolute top-0 right-0 sm:top-0 sm:right-0 w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
-                      <img src="https://i.ibb.co/8nmvGHZH/logo-black.png" alt="Chataptor" class="w-6 h-6 sm:w-5 sm:h-5 object-contain brightness-0 invert" loading="lazy" width="24" height="24" />
+                      <img src="/images/landing/logo-black.png" alt="Chataptor" class="w-6 h-6 sm:w-5 sm:h-5 object-contain brightness-0 invert" loading="lazy" width="24" height="24" />
                     </button>
                     <!-- Desktop Tooltip -->
                     <div class="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 opacity-0 translate-y-1 group-hover/btn:opacity-100 group-hover/btn:translate-y-0 pointer-events-none transition-all duration-200 bg-zinc-800 text-zinc-50 text-[11px] font-medium px-2.5 py-1.5 rounded-md shadow-sm whitespace-nowrap hidden sm:block z-50">
@@ -550,13 +560,13 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
                   </clipPath>
                 ))}
               </defs>
-              <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" class="opacity-[0.16] grayscale"></image>
+              <image data-market-map-src="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" class="opacity-[0.16] grayscale"></image>
               <g class="market-map-country opacity-0 transition-opacity duration-300" data-code="all">
-                <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
+                <image data-market-map-src="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
               </g>
               {marketMapCountries.map((country) => (
                 <g class={`market-map-country transition-opacity duration-300 ${country.active ? 'opacity-100' : 'opacity-0'}`} data-code={country.code} clip-path={`url(#market-lang-${country.code})`}>
-                  <image href="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
+                  <image data-market-map-src="/images/dotted_worldmap.svg" x="0" y="0" width="201" height="97" filter="url(#market-map-emerald)"></image>
                 </g>
               ))}
             </svg>
@@ -964,253 +974,293 @@ const mobileInboxMessageList = mobileInboxMessages[lang];
     </main>
 
     <script define:vars={{ conversations }}>
-      // Chat mockup handling
-      const chatList = document.getElementById('chat-list');
-      const chatView = document.getElementById('chat-view');
-      const backToList = document.getElementById('back-to-list');
-      const chatItems = document.querySelectorAll('.chat-item');
-      const chatMessages = document.getElementById('chat-messages');
-      const chatAvatar = document.getElementById('chat-avatar');
-      const chatName = document.getElementById('chat-name');
-      const chatLang = document.getElementById('chat-lang');
-      const chatLangFlag = document.getElementById('chat-lang-flag');
-      const chatSource = document.getElementById('chat-source');
-
-      let activeChat = conversations[0];
-
-      function renderMessages(chat) {
-        chatMessages.innerHTML = '';
-        chat.messages.forEach(msg => {
-          const isAgent = msg.sender === 'agent';
-          const msgHtml = `
-            <div class="flex gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-2 duration-300 ${isAgent ? 'justify-end' : ''}">
-              ${!isAgent ? `<div class="w-8 h-8 rounded-full shrink-0 flex items-center justify-center text-xs font-bold shadow-sm mt-2 ${chat.avatarColor} hidden sm:flex">${chat.name.charAt(0)}</div>` : ''}
-              <div class="flex flex-col max-w-[90%] md:max-w-[65%] ${isAgent ? 'items-end' : 'items-start'}">
-                <div class="p-4 md:p-5 rounded-2xl text-sm leading-relaxed shadow-sm relative group transition-all ${isAgent ? 'bg-zinc-900 text-white rounded-tr-sm' : 'bg-white text-zinc-800 ring-1 ring-zinc-200 rounded-tl-sm shadow-sm'}">
-                  <div>${msg.text}</div>
-                  ${msg.translation ? `
-                    <div class="mt-3 pt-2 text-xs border-t flex items-start gap-2 ${isAgent ? 'border-white/20 text-zinc-300' : 'border-zinc-100 text-zinc-400'}">
-                      <svg class="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-70 ${isAgent ? 'text-emerald-400' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                      <span class="italic">${msg.translation}</span>
-                    </div>
-                  ` : ''}
-                </div>
-                <span class="text-xs text-zinc-400 mt-2 px-1 font-medium">${msg.timestamp}</span>
-              </div>
-              ${isAgent ? '<div class="w-8 h-8 rounded-full bg-zinc-900 shrink-0 hidden sm:flex items-center justify-center text-white text-xs font-bold mt-2 shadow-sm">A</div>' : ''}
-            </div>
-          `;
-          chatMessages.innerHTML += msgHtml;
-        });
-
-      }
-
-      function selectChat(chatId, showOnMobile = true) {
-        const chat = conversations.find(c => c.id === chatId);
-        if (!chat) return;
-
-        activeChat = chat;
-
-        // Update UI
-        chatItems.forEach(item => {
-          const isActive = parseInt(item.dataset.chatId) === chatId;
-          item.classList.toggle('bg-zinc-100', isActive);
-          item.classList.toggle('border-zinc-200', isActive);
-          item.classList.toggle('shadow-sm', isActive);
-          item.classList.toggle('active', isActive);
-          item.classList.toggle('bg-transparent', !isActive);
-          item.classList.toggle('border-transparent', !isActive);
-          item.querySelector('.active-indicator')?.classList.toggle('opacity-0', !isActive);
-        });
-
-        // Update header
-        chatAvatar.textContent = chat.name.charAt(0);
-        chatAvatar.className = `w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${chat.avatarColor} ring-1 ring-black/5`;
-        chatName.textContent = chat.name;
-        chatLang.textContent = chat.lang;
-        chatLangFlag.setAttribute('src', chat.flagSrc);
-        chatSource.textContent = chat.source;
-
-        // Render messages
-        renderMessages(chat);
-
-        // Mobile: show chat view
-        if (showOnMobile && window.innerWidth < 768) {
-          chatList.classList.add('hidden');
-          chatView.classList.remove('hidden');
-          chatView.classList.add('flex');
-        }
-      }
-
-      chatItems.forEach(item => {
-        item.addEventListener('click', () => {
-          selectChat(parseInt(item.dataset.chatId));
-        });
-      });
-
-      backToList?.addEventListener('click', () => {
-        chatList.classList.remove('hidden');
-        chatView.classList.add('hidden');
-        chatView.classList.remove('flex');
-      });
-
-      // Initialize with first chat
-      selectChat(1, false);
-
-      // Phone lock screen clock
-      const phoneLocaleMap = {
-        pl: 'pl-PL',
-        en: 'en-US',
-        de: 'de-DE',
-        fr: 'fr-FR',
-        es: 'es-ES',
-        it: 'it-IT',
-        cs: 'cs-CZ',
-        sk: 'sk-SK',
-      };
-
-      function updatePhoneLockScreens() {
-        const now = new Date();
-        document.querySelectorAll('[data-phone-locale]').forEach(phone => {
-          const localeCode = phone.getAttribute('data-phone-locale') || navigator.language;
-          const locale = phoneLocaleMap[localeCode] || localeCode;
-          const time = new Intl.DateTimeFormat(locale, {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false,
-          }).format(now);
-          const date = new Intl.DateTimeFormat(locale, {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long',
-          }).format(now);
-          const dateLabel = date.charAt(0).toLocaleUpperCase(locale) + date.slice(1);
-
-          phone.querySelectorAll('.phone-lock-time').forEach(element => {
-            element.textContent = time;
-          });
-          phone.querySelectorAll('.phone-lock-date').forEach(element => {
-            element.textContent = dateLabel;
-          });
-        });
-      }
-
-      updatePhoneLockScreens();
-      window.setInterval(updatePhoneLockScreens, 15000);
-
-      // Market counter handling
-      const countryToggles = document.querySelectorAll('.country-toggle');
-      const allLanguagesToggle = document.querySelector('.all-languages-toggle');
-      const marketCount = document.getElementById('market-count');
-      const baseMarketCount = 45000000;
-      const allLanguagesMarketCount = 8200000000;
-      const activeCountries = new Set();
-      let isAllLanguagesActive = false;
-      const marketOptions = Array.from(countryToggles).map(toggle => ({
-        toggle,
-        code: toggle.dataset.code,
-        population: parseInt(toggle.dataset.population || '0', 10),
-      }));
-
-      function updateMarketMapPoint(code, isActive) {
-        const mapCountry = document.querySelector(`.market-map-country[data-code="${code}"]`);
-
-        if (!mapCountry) return;
-
-        mapCountry.classList.toggle('opacity-100', isActive);
-        mapCountry.classList.toggle('opacity-0', !isActive);
-      }
-
-      function formatCount(count) {
-        return count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-      }
-
-      function setMarketToggleState(toggle, isActive) {
-        if (!toggle) return;
-
-        const toggleSwitch = toggle.querySelector('.toggle-switch');
-        const toggleKnob = toggle.querySelector('.toggle-knob');
-        const countryName = toggle.querySelector('.country-name');
-        const countrySub = toggle.querySelector('.country-sub');
-        const countryFlag = toggle.querySelector('.country-flag');
-
-        if (isActive) {
-          toggleSwitch.classList.remove('bg-zinc-200');
-          toggleSwitch.classList.add('bg-zinc-900');
-          toggleKnob.classList.add('translate-x-[1.25rem]');
-          countryName.classList.remove('text-zinc-400');
-          countryName.classList.add('text-zinc-900');
-          countrySub.classList.remove('text-zinc-300');
-          countrySub.classList.add('text-emerald-600', 'font-bold');
-          countryFlag?.classList.remove('grayscale', 'opacity-60');
-          countryFlag?.classList.add('opacity-100');
-        } else {
-          toggleSwitch.classList.add('bg-zinc-200');
-          toggleSwitch.classList.remove('bg-zinc-900');
-          toggleKnob.classList.remove('translate-x-[1.25rem]');
-          toggleKnob.style.transform = '';
-          countryName.classList.add('text-zinc-400');
-          countryName.classList.remove('text-zinc-900');
-          countrySub.classList.add('text-zinc-300');
-          countrySub.classList.remove('text-emerald-600', 'font-bold');
-          countryFlag?.classList.add('grayscale', 'opacity-60');
-          countryFlag?.classList.remove('opacity-100');
-        }
-      }
-
-      function updateMarketCount() {
-        if (isAllLanguagesActive) {
-          marketCount.textContent = formatCount(allLanguagesMarketCount);
+      const runWhenIdle = (callback) => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(callback, { timeout: 1500 });
           return;
         }
 
-        const selectedCount = marketOptions.reduce((total, option) => {
-          if (!activeCountries.has(option.code)) return total;
-          return total + option.population;
-        }, baseMarketCount);
+        window.setTimeout(callback, 250);
+      };
 
-        marketCount.textContent = formatCount(selectedCount);
+      const runWhenVisible = (selector, callback, rootMargin = '900px 0px') => {
+        let hasRun = false;
+        const run = () => {
+          if (hasRun) return;
+          hasRun = true;
+          callback();
+        };
+        const target = document.querySelector(selector);
+
+        if (!target || !('IntersectionObserver' in window)) {
+          runWhenIdle(run);
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          observer.disconnect();
+          run();
+        }, { rootMargin });
+
+        observer.observe(target);
+      };
+
+      function initChatMockup() {
+        const chatList = document.getElementById('chat-list');
+        const chatView = document.getElementById('chat-view');
+        const backToList = document.getElementById('back-to-list');
+        const chatItems = document.querySelectorAll('.chat-item');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatAvatar = document.getElementById('chat-avatar');
+        const chatName = document.getElementById('chat-name');
+        const chatLang = document.getElementById('chat-lang');
+        const chatLangFlag = document.getElementById('chat-lang-flag');
+        const chatSource = document.getElementById('chat-source');
+
+        if (!chatList || !chatView || !chatMessages || !chatAvatar || !chatName || !chatLang || !chatLangFlag || !chatSource) return;
+
+        function renderMessages(chat) {
+          chatMessages.innerHTML = chat.messages.map((msg) => {
+            const isAgent = msg.sender === 'agent';
+
+            return `
+              <div class="flex gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-2 duration-300 ${isAgent ? 'justify-end' : ''}">
+                ${!isAgent ? `<div class="w-8 h-8 rounded-full shrink-0 flex items-center justify-center text-xs font-bold shadow-sm mt-2 ${chat.avatarColor} hidden sm:flex">${chat.name.charAt(0)}</div>` : ''}
+                <div class="flex flex-col max-w-[90%] md:max-w-[65%] ${isAgent ? 'items-end' : 'items-start'}">
+                  <div class="p-4 md:p-5 rounded-2xl text-sm leading-relaxed shadow-sm relative group transition-all ${isAgent ? 'bg-zinc-900 text-white rounded-tr-sm' : 'bg-white text-zinc-800 ring-1 ring-zinc-200 rounded-tl-sm shadow-sm'}">
+                    <div>${msg.text}</div>
+                    ${msg.translation ? `
+                      <div class="mt-3 pt-2 text-xs border-t flex items-start gap-2 ${isAgent ? 'border-white/20 text-zinc-300' : 'border-zinc-100 text-zinc-400'}">
+                        <svg class="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-70 ${isAgent ? 'text-emerald-400' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        <span class="italic">${msg.translation}</span>
+                      </div>
+                    ` : ''}
+                  </div>
+                  <span class="text-xs text-zinc-400 mt-2 px-1 font-medium">${msg.timestamp}</span>
+                </div>
+                ${isAgent ? '<div class="w-8 h-8 rounded-full bg-zinc-900 shrink-0 hidden sm:flex items-center justify-center text-white text-xs font-bold mt-2 shadow-sm">A</div>' : ''}
+              </div>
+            `;
+          }).join('');
+        }
+
+        function selectChat(chatId, showOnMobile = true) {
+          const chat = conversations.find((conversation) => conversation.id === chatId);
+          if (!chat) return;
+
+          chatItems.forEach((item) => {
+            const isActive = Number.parseInt(item.dataset.chatId || '0', 10) === chatId;
+            item.classList.toggle('bg-zinc-100', isActive);
+            item.classList.toggle('border-zinc-200', isActive);
+            item.classList.toggle('shadow-sm', isActive);
+            item.classList.toggle('active', isActive);
+            item.classList.toggle('bg-transparent', !isActive);
+            item.classList.toggle('border-transparent', !isActive);
+            item.querySelector('.active-indicator')?.classList.toggle('opacity-0', !isActive);
+          });
+
+          chatAvatar.textContent = chat.name.charAt(0);
+          chatAvatar.className = `w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${chat.avatarColor} ring-1 ring-black/5`;
+          chatName.textContent = chat.name;
+          chatLang.textContent = chat.lang;
+          chatLangFlag.setAttribute('src', chat.flagSrc);
+          chatSource.textContent = chat.source;
+
+          renderMessages(chat);
+
+          if (showOnMobile && window.innerWidth < 768) {
+            chatList.classList.add('hidden');
+            chatView.classList.remove('hidden');
+            chatView.classList.add('flex');
+          }
+        }
+
+        chatItems.forEach((item) => {
+          item.addEventListener('click', () => {
+            selectChat(Number.parseInt(item.dataset.chatId || '0', 10));
+          });
+        });
+
+        backToList?.addEventListener('click', () => {
+          chatList.classList.remove('hidden');
+          chatView.classList.add('hidden');
+          chatView.classList.remove('flex');
+        });
+
+        selectChat(1, false);
       }
 
-      function syncAllLanguagesToggle() {
-        setMarketToggleState(allLanguagesToggle, isAllLanguagesActive);
-        updateMarketMapPoint('all', isAllLanguagesActive);
+      function initPhoneLockScreens() {
+        const phones = document.querySelectorAll('[data-phone-locale]');
+        if (!phones.length) return;
+
+        const phoneLocaleMap = {
+          pl: 'pl-PL',
+          en: 'en-US',
+          de: 'de-DE',
+          fr: 'fr-FR',
+          es: 'es-ES',
+          it: 'it-IT',
+          cs: 'cs-CZ',
+          sk: 'sk-SK',
+        };
+
+        function updatePhoneLockScreens() {
+          const now = new Date();
+
+          phones.forEach((phone) => {
+            const localeCode = phone.getAttribute('data-phone-locale') || navigator.language;
+            const locale = phoneLocaleMap[localeCode] || localeCode;
+            const time = new Intl.DateTimeFormat(locale, {
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false,
+            }).format(now);
+            const date = new Intl.DateTimeFormat(locale, {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+            }).format(now);
+            const dateLabel = date.charAt(0).toLocaleUpperCase(locale) + date.slice(1);
+
+            phone.querySelectorAll('.phone-lock-time').forEach((element) => {
+              element.textContent = time;
+            });
+            phone.querySelectorAll('.phone-lock-date').forEach((element) => {
+              element.textContent = dateLabel;
+            });
+          });
+        }
+
+        updatePhoneLockScreens();
+        window.setInterval(updatePhoneLockScreens, 15000);
       }
 
-      marketOptions.forEach(({ toggle, code }) => {
-        toggle.addEventListener('click', () => {
-          const shouldActivate = !activeCountries.has(code);
-          isAllLanguagesActive = false;
+      function initMarketCounter() {
+        const countryToggles = document.querySelectorAll('.country-toggle');
+        const allLanguagesToggle = document.querySelector('.all-languages-toggle');
+        const marketCount = document.getElementById('market-count');
 
-          if (shouldActivate) {
-            activeCountries.add(code);
+        if (!marketCount || !countryToggles.length) return;
+
+        const baseMarketCount = 45000000;
+        const allLanguagesMarketCount = 8200000000;
+        const activeCountries = new Set();
+        const mapCountries = new Map(Array.from(document.querySelectorAll('.market-map-country')).map((country) => [country.dataset.code, country]));
+        document.querySelectorAll('[data-market-map-src]').forEach((image) => {
+          image.setAttribute('href', image.getAttribute('data-market-map-src') || '');
+        });
+        let isAllLanguagesActive = false;
+        const marketOptions = Array.from(countryToggles).map((toggle) => ({
+          toggle,
+          code: toggle.dataset.code,
+          population: Number.parseInt(toggle.dataset.population || '0', 10),
+        }));
+
+        function updateMarketMapPoint(code, isActive) {
+          const mapCountry = mapCountries.get(code);
+          if (!mapCountry) return;
+
+          mapCountry.classList.toggle('opacity-100', isActive);
+          mapCountry.classList.toggle('opacity-0', !isActive);
+        }
+
+        function formatCount(count) {
+          return count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        }
+
+        function setMarketToggleState(toggle, isActive) {
+          if (!toggle) return;
+
+          const toggleSwitch = toggle.querySelector('.toggle-switch');
+          const toggleKnob = toggle.querySelector('.toggle-knob');
+          const countryName = toggle.querySelector('.country-name');
+          const countrySub = toggle.querySelector('.country-sub');
+          const countryFlag = toggle.querySelector('.country-flag');
+
+          if (isActive) {
+            toggleSwitch?.classList.remove('bg-zinc-200');
+            toggleSwitch?.classList.add('bg-zinc-900');
+            toggleKnob?.classList.add('translate-x-[1.25rem]');
+            countryName?.classList.remove('text-zinc-400');
+            countryName?.classList.add('text-zinc-900');
+            countrySub?.classList.remove('text-zinc-300');
+            countrySub?.classList.add('text-emerald-600', 'font-bold');
+            countryFlag?.classList.remove('grayscale', 'opacity-60');
+            countryFlag?.classList.add('opacity-100');
           } else {
-            activeCountries.delete(code);
+            toggleSwitch?.classList.add('bg-zinc-200');
+            toggleSwitch?.classList.remove('bg-zinc-900');
+            toggleKnob?.classList.remove('translate-x-[1.25rem]');
+            if (toggleKnob) toggleKnob.style.transform = '';
+            countryName?.classList.add('text-zinc-400');
+            countryName?.classList.remove('text-zinc-900');
+            countrySub?.classList.add('text-zinc-300');
+            countrySub?.classList.remove('text-emerald-600', 'font-bold');
+            countryFlag?.classList.add('grayscale', 'opacity-60');
+            countryFlag?.classList.remove('opacity-100');
+          }
+        }
+
+        function updateMarketCount() {
+          if (isAllLanguagesActive) {
+            marketCount.textContent = formatCount(allLanguagesMarketCount);
+            return;
           }
 
-          setMarketToggleState(toggle, shouldActivate);
-          updateMarketMapPoint(code, shouldActivate);
+          const selectedCount = marketOptions.reduce((total, option) => {
+            if (!activeCountries.has(option.code)) return total;
+            return total + option.population;
+          }, baseMarketCount);
+
+          marketCount.textContent = formatCount(selectedCount);
+        }
+
+        function syncAllLanguagesToggle() {
+          setMarketToggleState(allLanguagesToggle, isAllLanguagesActive);
+          updateMarketMapPoint('all', isAllLanguagesActive);
+        }
+
+        marketOptions.forEach(({ toggle, code }) => {
+          toggle.addEventListener('click', () => {
+            const shouldActivate = !activeCountries.has(code);
+            isAllLanguagesActive = false;
+
+            if (shouldActivate) {
+              activeCountries.add(code);
+            } else {
+              activeCountries.delete(code);
+            }
+
+            setMarketToggleState(toggle, shouldActivate);
+            updateMarketMapPoint(code, shouldActivate);
+            syncAllLanguagesToggle();
+            updateMarketCount();
+          });
+        });
+
+        allLanguagesToggle?.addEventListener('click', () => {
+          isAllLanguagesActive = !isAllLanguagesActive;
+
+          marketOptions.forEach(({ toggle, code }) => {
+            if (isAllLanguagesActive) {
+              activeCountries.add(code);
+            } else {
+              activeCountries.delete(code);
+            }
+
+            setMarketToggleState(toggle, isAllLanguagesActive);
+            updateMarketMapPoint(code, isAllLanguagesActive);
+          });
+
           syncAllLanguagesToggle();
           updateMarketCount();
         });
-      });
+      }
 
-      allLanguagesToggle?.addEventListener('click', () => {
-        isAllLanguagesActive = !isAllLanguagesActive;
-
-        marketOptions.forEach(({ toggle, code }) => {
-          if (isAllLanguagesActive) {
-            activeCountries.add(code);
-          } else {
-            activeCountries.delete(code);
-          }
-
-          setMarketToggleState(toggle, isAllLanguagesActive);
-          updateMarketMapPoint(code, isAllLanguagesActive);
-        });
-
-        syncAllLanguagesToggle();
-        updateMarketCount();
-      });
+      runWhenVisible('#market-counter', initMarketCounter);
+      runWhenVisible('#chat-mockup', initChatMockup);
+      runWhenVisible('#mobile-app', initPhoneLockScreens);
     </script>
 </BaseLayout>

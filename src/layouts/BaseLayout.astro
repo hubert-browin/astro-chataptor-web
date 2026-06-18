@@ -165,9 +165,11 @@ const {
       if (lazyAnalytics) {
         (function () {
           var loaded = false;
+          var loading = false;
 
           function loadGoogleTag() {
-            if (loaded) return;
+            if (loaded || loading) return;
+            loading = true;
             loaded = true;
 
             var script = document.createElement("script");
@@ -180,8 +182,29 @@ const {
             window.gtag("config", "G-1BV9YBEBDT");
           }
 
+          function wakeAnalytics() {
+            loadGoogleTag();
+            window.removeEventListener("pointerdown", wakeAnalytics);
+            window.removeEventListener("keydown", wakeAnalytics);
+            window.removeEventListener("scroll", wakeAnalytics);
+            window.removeEventListener("touchstart", wakeAnalytics);
+          }
+
           function scheduleGoogleTag() {
-            window.setTimeout(loadGoogleTag, 1400);
+            window.setTimeout(loadGoogleTag, 12000);
+            window.addEventListener("pointerdown", wakeAnalytics, {
+              once: true,
+              passive: true,
+            });
+            window.addEventListener("keydown", wakeAnalytics, { once: true });
+            window.addEventListener("scroll", wakeAnalytics, {
+              once: true,
+              passive: true,
+            });
+            window.addEventListener("touchstart", wakeAnalytics, {
+              once: true,
+              passive: true,
+            });
           }
 
           if (document.readyState === "complete") {
@@ -294,10 +317,17 @@ const {
       if (lazyChatWidget) {
         (function () {
           var loaded = false;
+          var loading = false;
+          var pendingCallbacks = [];
 
-          function loadChatWidget() {
-            if (loaded) return;
-            loaded = true;
+          function loadChatWidget(onReady) {
+            if (onReady) pendingCallbacks.push(onReady);
+            if (loaded) {
+              flushReadyCallbacks();
+              return;
+            }
+            if (loading) return;
+            loading = true;
 
             var script = document.createElement("script");
             script.src =
@@ -314,12 +344,69 @@ const {
             script.dataset.primaryColor = "#18181B";
             script.dataset.translationEnabled = "true";
             script.dataset.debug = "false";
+            script.onload = function () {
+              loaded = true;
+              loading = false;
+              window.setTimeout(flushReadyCallbacks, 80);
+            };
+            script.onerror = function () {
+              loading = false;
+              pendingCallbacks = [];
+            };
             document.body.appendChild(script);
           }
 
-          function scheduleChatWidget() {
-            window.setTimeout(loadChatWidget, 6500);
+          function flushReadyCallbacks() {
+            while (pendingCallbacks.length) {
+              var callback = pendingCallbacks.shift();
+              if (typeof callback === "function") callback();
+            }
           }
+
+          function wakeChatWidget() {
+            loadChatWidget();
+            window.removeEventListener("pointerdown", wakeChatWidget);
+            window.removeEventListener("keydown", wakeChatWidget);
+            window.removeEventListener("scroll", wakeChatWidget);
+            window.removeEventListener("touchstart", wakeChatWidget);
+          }
+
+          function scheduleChatWidget() {
+            window.setTimeout(loadChatWidget, 12000);
+            window.addEventListener("pointerdown", wakeChatWidget, {
+              once: true,
+              passive: true,
+            });
+            window.addEventListener("keydown", wakeChatWidget, { once: true });
+            window.addEventListener("scroll", wakeChatWidget, {
+              once: true,
+              passive: true,
+            });
+            window.addEventListener("touchstart", wakeChatWidget, {
+              once: true,
+              passive: true,
+            });
+          }
+
+          document.addEventListener(
+            "click",
+            function (event) {
+              var target = event.target;
+              var opener =
+                target && target.closest
+                  ? target.closest("[data-quantumchat-open]")
+                  : null;
+
+              if (!opener || loaded) return;
+
+              event.preventDefault();
+              event.stopPropagation();
+              loadChatWidget(function () {
+                opener.click();
+              });
+            },
+            true,
+          );
 
           if (document.readyState === "complete") {
             scheduleChatWidget();
