@@ -4,6 +4,7 @@ import {
   type AlternateUrl,
   getAlternateUrls,
   getCanonicalUrl,
+  getMarkdownUrl,
   localeHreflang,
 } from "../utils/i18n";
 
@@ -18,6 +19,7 @@ interface Props {
   publishedAt?: Date;
   modifiedAt?: Date;
   author?: string;
+  keywords?: string[];
   noindex?: boolean;
   alternates?: AlternateUrl[];
 }
@@ -33,12 +35,16 @@ const {
   publishedAt,
   modifiedAt,
   author = "Chataptor",
+  keywords = [],
   noindex = false,
   alternates: alternateUrls,
 } = Astro.props;
 
 const cleanDescription = description.replace(/<[^>]*>?/gm, "").trim();
 const cleanImageAlt = (imageAlt || title).replace(/<[^>]*>?/gm, "").trim();
+const cleanKeywords = keywords
+  .map((keyword) => keyword.replace(/<[^>]*>?/gm, "").trim())
+  .filter(Boolean);
 
 const finalImage = image || `/images/og-default-${lang}.jpg`;
 
@@ -46,6 +52,7 @@ const alternates = alternateUrls?.length
   ? alternateUrls
   : getAlternateUrls(slug);
 const canonical = getCanonicalUrl(lang, slug);
+const markdownUrl = getMarkdownUrl(lang, slug);
 const fullTitle = `${title}`;
 const xDefaultUrl = alternates.find((a) => a.lang === "en")?.url;
 
@@ -159,6 +166,9 @@ if (type === "article") {
   mainEntity["headline"] = title;
   mainEntity["image"] = [ogImage];
   mainEntity["mainEntityOfPage"] = canonical;
+  if (cleanKeywords.length > 0) {
+    mainEntity["keywords"] = cleanKeywords;
+  }
   mainEntity["author"] = {
     "@type": author === "Chataptor" ? "Organization" : "Person",
     name: author,
@@ -237,6 +247,16 @@ if (breadcrumbItems.length > 1) {
 <meta name="description" content={cleanDescription} />
 <link rel="canonical" href={canonical} />
 <link rel="sitemap" type="application/xml" href={sitemapUrl} />
+{
+  !noindex && (
+    <link
+      rel="alternate"
+      type="text/markdown"
+      title="Markdown version"
+      href={markdownUrl}
+    />
+  )
+}
 
 {
   !noindex &&

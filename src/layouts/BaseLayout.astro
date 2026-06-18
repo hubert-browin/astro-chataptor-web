@@ -19,6 +19,7 @@ interface Props {
   publishedAt?: Date;
   modifiedAt?: Date;
   author?: string;
+  keywords?: string[];
   noindex?: boolean;
   alternates?: AlternateUrl[];
   isLandingPage?: boolean;
@@ -41,6 +42,7 @@ const {
   publishedAt,
   modifiedAt,
   author,
+  keywords,
   noindex = false,
   alternates,
   isLandingPage = false,
@@ -77,6 +79,7 @@ const {
       publishedAt={publishedAt}
       modifiedAt={modifiedAt}
       author={author}
+      keywords={keywords}
       noindex={noindex}
       alternates={alternates}
     />

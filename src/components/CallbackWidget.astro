@@ -509,6 +509,20 @@ const defaultFlagSrc = currentLang === 'en' ? '/images/flags/gb.svg' : '/images/
         return;
       }
 
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+
+          observer.disconnect();
+          revealCallback();
+        }, {
+          rootMargin: '0px 0px -45% 0px',
+        });
+
+        observer.observe(revealTarget);
+        return;
+      }
+
       const checkReveal = () => {
         const revealAt = Math.min(window.innerHeight * 0.55, 420);
         if (revealTarget.getBoundingClientRect().top <= revealAt) {

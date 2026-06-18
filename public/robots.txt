@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /markdown/
 Disallow: /login
 Disallow: /register
 Disallow: /app

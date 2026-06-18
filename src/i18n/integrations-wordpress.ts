@@ -229,7 +229,7 @@ const en: WordPressIntegrationTranslations = {
   cta: {
     title: "Ready to chat with the world?",
     subtitle:
-      "Install Chataptor on your WordPress site in under 3 minutes. Free forever.",
+      "Install Chataptor on your WordPress site in under 3 minutes. Chataptor is currently free with no message limits.",
     primaryCTA: "Install from WordPress.org",
     secondaryCTA: "Create Free Account",
   },
@@ -385,7 +385,7 @@ const pl: WordPressIntegrationTranslations = {
   cta: {
     title: "Gotowy rozmawiać z całym światem?",
     subtitle:
-      "Zainstaluj Chataptor na swojej stronie WordPress w mniej niż 3 minuty. Bezpłatnie na zawsze.",
+      "Zainstaluj Chataptor na swojej stronie WordPress w mniej niż 3 minuty. Chataptor jest obecnie darmowy i bez limitu wiadomości.",
     primaryCTA: "Zainstaluj z WordPress.org",
     secondaryCTA: "Utwórz darmowe konto",
   },
@@ -542,7 +542,7 @@ const de: WordPressIntegrationTranslations = {
   cta: {
     title: "Bereit, mit der Welt zu chatten?",
     subtitle:
-      "Installieren Sie Chataptor auf Ihrer WordPress-Website in unter 3 Minuten. Dauerhaft kostenlos.",
+      "Installieren Sie Chataptor auf Ihrer WordPress-Website in unter 3 Minuten. Chataptor ist derzeit kostenlos und ohne Nachrichtenlimit.",
     primaryCTA: "Von WordPress.org installieren",
     secondaryCTA: "Kostenloses Konto erstellen",
   },

@@ -103,7 +103,7 @@ const pl: ShoperIntegrationTranslations = {
   meta: {
     title: "Chataptor dla Shoper — Profesjonalny live chat dla Twojego sklepu",
     description:
-      "Dodaj nowoczesny widget live chat do swojego sklepu Shoper. Automatyczna identyfikacja klientów, panel agenta, tłumaczenia AI. Pierwsze 3 miesiące gratis.",
+      "Dodaj nowoczesny widget live chat do swojego sklepu Shoper. Automatyczna identyfikacja klientów, panel agenta i tłumaczenia AI. Chataptor jest obecnie darmowy i bez limitu wiadomości.",
   },
   hero: {
     badge: "Shoper App Store",

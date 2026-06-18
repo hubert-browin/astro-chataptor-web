@@ -55,6 +55,15 @@ export function getCanonicalUrl(lang: Locale, slug: string): string {
   return `${baseUrl}${getLocalizedPath(lang, slug)}`;
 }
 
+export function getMarkdownPath(lang: Locale, slug: string): string {
+  const normalizedSlug = cleanSlug(slug);
+  return `/markdown/${lang}/${normalizedSlug ? `${normalizedSlug}.md` : 'index.md'}`;
+}
+
+export function getMarkdownUrl(lang: Locale, slug: string): string {
+  return `${baseUrl}${getMarkdownPath(lang, slug)}`;
+}
+
 export function getBlogEntrySlug(fullSlug: string, lang: Locale): string {
   const prefix = `${lang}/`;
   return fullSlug.startsWith(prefix) ? fullSlug.slice(prefix.length) : fullSlug;
@@ -70,6 +79,10 @@ export function getBlogTranslationKey(post: BlogLike): string {
 
 export function getBlogPostCanonicalUrl(post: BlogLike): string {
   return getCanonicalUrl(post.data.lang, `blog/${getBlogEntrySlug(post.slug, post.data.lang)}`);
+}
+
+export function getBlogPostMarkdownUrl(post: BlogLike): string {
+  return getMarkdownUrl(post.data.lang, `blog/${getBlogEntrySlug(post.slug, post.data.lang)}`);
 }
 
 export function getBlogPostAlternateUrls(post: BlogLike, allPosts: BlogLike[]): AlternateUrl[] {
