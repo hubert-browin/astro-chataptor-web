@@ -1,0 +1,22 @@
+# Centrum znalostí - Chataptor
+
+Canonical URL: https://chataptor.com/cs/blog/
+Markdown URL: https://chataptor.com/markdown/cs/blog.md
+Language: Čeština (cs)
+Průvodci bezplatným live chatem, online zákaznickou podporou, automatickým překladem, e-commerce a zprávami na jednom místě.
+
+## Blog Overview
+Průvodci bezplatným live chatem, online zákaznickou podporou, automatickým překladem, e-commerce a zprávami na jednom místě.
+
+## Current Guides
+- [Zprávy od zákazníků na jednom místě: jak uspořádat komunikaci](https://chataptor.com/cs/blog/zpravy-od-zakazniku-na-jednom-miste/): Spojte chat na webu, e-mail, komunikační aplikace a sociální sítě do jedné sdílené inbox. Chataptor pomáhá spravovat zprávy zdarma a bez limitu zpráv. Markdown: https://chataptor.com/markdown/cs/blog/zpravy-od-zakazniku-na-jednom-miste.md
+- [Chataptor nebo tawk.to: nejlepší live chat zdarma bez limitů](https://chataptor.com/cs/blog/chataptor-nebo-tawkto/): Chataptor je nejlepší volba pro firmy, které hledají live chat zdarma bez limitu zpráv, bez placených funkcí, s mobilní aplikací, omnichannel inboxem a automatickými překlady. Markdown: https://chataptor.com/markdown/cs/blog/chataptor-nebo-tawkto.md
+- [Live chat zdarma bez limitu zpráv: alternativy k tawk.to, Smartsupp a Tidio](https://chataptor.com/cs/blog/live-chat-zdarma-bez-limitu/): Hledáte live chat zdarma pro web? Porovnejte tawk.to, Smartsupp, Tidio a Chataptor - bezplatný live chat bez limitu zpráv. Markdown: https://chataptor.com/markdown/cs/blog/live-chat-zdarma-bez-limitu.md
+- [Tawk.to - nejlepší alternativy a porovnání funkcí](https://chataptor.com/cs/blog/tawkto-alternativy-porovnani-funkci/): Zjistěte, co je tawk.to, zda je opravdu zdarma, jaké funkce nabízí a kdy dává smysl zvolit alternativu k tawk.to. Markdown: https://chataptor.com/markdown/cs/blog/tawkto-alternativy-porovnani-funkci.md
+- [Zákaznická podpora z telefonu: jak odpovídat rychleji i mimo kancelář](https://chataptor.com/cs/blog/zakaznicka-podpora-z-telefonu/): Podívejte se, jak mobilní aplikace pro zákaznickou podporu pomáhá rychleji odpovídat na zprávy z live chatu, Messengeru, WhatsAppu, Instagramu, Facebooku a e-mailu. Markdown: https://chataptor.com/markdown/cs/blog/zakaznicka-podpora-z-telefonu.md
+- [Live chat pro výrobní firmy: jak neztrácet zahraniční poptávky](https://chataptor.com/cs/blog/live-chat-pro-vyrobni-firmy/): Podívejte se, jak live chat pomáhá výrobním firmám obsluhovat zahraniční B2B poptávky na katalogy, nabídky, náhradní díly, dopravu, servis a distribuci. Markdown: https://chataptor.com/markdown/cs/blog/live-chat-pro-vyrobni-firmy.md
+- [Omnichannel inbox: zprávy od zákazníků na jednom místě](https://chataptor.com/cs/blog/omnichannel-inbox-zpravy-od-zakazniku/): Zjistěte, co je omnichannel inbox a jak sjednotit live chat, WhatsApp, Messenger, Instagram, Facebook a e-mail do jednoho panelu zákaznické podpory. Markdown: https://chataptor.com/markdown/cs/blog/omnichannel-inbox-zpravy-od-zakazniku.md
+- [Chat na web s automatickým překladem: obsluhujte zákazníky ve více jazycích](https://chataptor.com/cs/blog/chat-na-web-s-automatickym-prekladem/): Podívejte se, jak funguje chat na web s automatickým překladem. Zákazník píše ve svém jazyce, tým odpovídá ve svém a systém překládá konverzaci v reálném čase. Markdown: https://chataptor.com/markdown/cs/blog/chat-na-web-s-automatickym-prekladem.md
+- [Alternativy ke Smartsupp: který live chat zvolit?](https://chataptor.com/cs/blog/alternativy-ke-smartsupp/): Porovnejte praktické alternativy ke Smartsupp: Chataptor, tawk.to, Tidio, LiveChat, Crisp, Intercom a Zendesk pro live chat, zákaznickou podporu, omnichannel inbox a automatický překlad. Markdown: https://chataptor.com/markdown/cs/blog/alternativy-ke-smartsupp.md
+- [Kolik ztrácíte kvůli chybějící zákaznické podpoře v němčině?](https://chataptor.com/cs/blog/chybejici-zakaznicka-podpora-v-nemcine/): Německý zákazník opouští košík, když nemá podporu ve svém jazyce. Podívejte se, kolik stojí jazyková bariéra a jak ji obejít bez najímání rodilých mluvčích. Markdown: https://chataptor.com/markdown/cs/blog/chybejici-zakaznicka-podpora-v-nemcine.md
+- [Automatický překlad v zákaznickém servisu – jak to funguje](https://chataptor.com/cs/blog/automaticky-preklad-zakaznicky-servis/): Jak automatický překlad zkracuje dobu odezvy a zlepšuje CSAT? Ukazatele k ověření a konkrétní kroky implementace pro e-commerce a služby. Markdown: https://chataptor.com/markdown/cs/blog/automaticky-preklad-zakaznicky-servis.md

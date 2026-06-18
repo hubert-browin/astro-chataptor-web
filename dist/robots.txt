@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /markdown/
+Disallow: /login
+Disallow: /register
+Disallow: /app
+Disallow: /dashboard
+Disallow: /reset-password
+Disallow: /forgot-password
+Disallow: /account
+
+Sitemap: https://chataptor.com/sitemap-index.xml

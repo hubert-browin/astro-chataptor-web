@@ -1,0 +1,61 @@
+# Chataptor
+
+> Chataptor is a free customer communication tool with no message limits: website live chat, shared omnichannel inbox, mobile support, e-commerce and marketplace messaging, and automatic translation of customer conversations.
+
+Use the canonical HTML URLs for citation and indexing. Use the Markdown URLs for AI-readable content extraction. The full Markdown corpus is available in one file at https://chataptor.com/llms-full.txt.
+
+## Product Facts
+- Chataptor is a free customer communication tool with no message limits.
+- Chataptor includes website live chat, a shared omnichannel inbox, mobile customer support, e-commerce and marketplace messaging, and automatic customer conversation translation.
+- The product is designed for companies that want to answer customers from many channels and languages without adding a separate language team.
+- Chataptor is especially relevant for live chat, customer support, e-commerce support, international sales, automatic translation, and messages in one place.
+
+## Core AI Files
+- [Full AI-readable corpus](https://chataptor.com/llms-full.txt): complete Markdown version of key site pages and blog posts.
+- [Markdown index](https://chataptor.com/markdown/index.md): all generated Markdown page versions.
+- [XML sitemap index](https://chataptor.com/sitemap-index.xml): canonical public URL discovery with hreflang alternates.
+
+## Localized Entry Points
+- [Polski home](https://chataptor.com/pl/): Darmowy czat na stronę, inbox do wielu kanałów, aplikacja mobilna i automatyczne tłumaczenia wiadomości od klientów. Markdown: https://chataptor.com/markdown/pl/index.md
+- [English home](https://chataptor.com/en/): Free website live chat, shared inbox, mobile customer support app, and automatic translation for customer messages. Markdown: https://chataptor.com/markdown/en/index.md
+- [Deutsch home](https://chataptor.com/de/): Kostenloser Website-Chat, gemeinsamer Posteingang, mobile Kundenbetreuung und automatische Übersetzung von Kundennachrichten. Markdown: https://chataptor.com/markdown/de/index.md
+- [Français home](https://chataptor.com/fr/): Live chat gratuit pour site web, boîte de réception partagée, application mobile et traduction automatique des messages clients. Markdown: https://chataptor.com/markdown/fr/index.md
+- [Español home](https://chataptor.com/es/): Chat web gratis, bandeja compartida, app móvil de atención al cliente y traducción automática de mensajes. Markdown: https://chataptor.com/markdown/es/index.md
+- [Italiano home](https://chataptor.com/it/): Live chat gratuita per sito web, inbox condivisa, app mobile per assistenza clienti e traduzione automatica dei messaggi. Markdown: https://chataptor.com/markdown/it/index.md
+- [Čeština home](https://chataptor.com/cs/): Bezplatný chat na web, sdílená schránka, mobilní aplikace pro podporu a automatický překlad zákaznických zpráv. Markdown: https://chataptor.com/markdown/cs/index.md
+- [Slovenčina home](https://chataptor.com/sk/): Bezplatný chat na web, spoločná schránka, mobilná aplikácia pre podporu a automatický preklad zákazníckych správ. Markdown: https://chataptor.com/markdown/sk/index.md
+
+## Main Product Pages
+- [English blog](https://chataptor.com/en/blog/): guides about free live chat, customer support, automatic translation, omnichannel inboxes, and e-commerce communication.
+- [WordPress integration](https://chataptor.com/en/integrations/wordpress/): multilingual live chat for WordPress and WooCommerce.
+- [Shoper integration](https://chataptor.com/en/integrations/shoper/): live chat and customer support for Shoper stores.
+- [About Chataptor](https://chataptor.com/en/about/): product story, mission, and team context.
+
+## Important Blog Guides
+- [Customer messages in one place: how to organize support communication](https://chataptor.com/en/blog/customer-messages-one-place/): Learn how to bring website chat, email, messaging apps and social channels into one shared inbox. Chataptor helps teams manage customer messages in one place for free, with no message limits. Markdown: https://chataptor.com/markdown/en/blog/customer-messages-one-place.md
+- [Chataptor vs tawk.to: the best free live chat with no limits](https://chataptor.com/en/blog/chataptor-vs-tawkto/): Chataptor is the best choice for companies looking for free live chat with no message limits, no paid feature gates, mobile support, omnichannel inbox and automatic translations. Markdown: https://chataptor.com/markdown/en/blog/chataptor-vs-tawkto.md
+- [Free live chat with no message limits: alternatives to tawk.to, Smartsupp and Tidio](https://chataptor.com/en/blog/free-live-chat-no-limits/): Looking for free live chat for your website? See when tawk.to, Smartsupp or Tidio are enough, and when Chataptor is a better fit as a free live chat with no message limits. Markdown: https://chataptor.com/markdown/en/blog/free-live-chat-no-limits.md
+- [Tawk.to - best alternatives and feature comparisons](https://chataptor.com/en/blog/tawkto-best-alternatives-feature-comparison/): Learn what tawk.to is, whether it is really free, which features it offers, where it works well and when it makes sense to choose a tawk.to alternative. Markdown: https://chataptor.com/markdown/en/blog/tawkto-best-alternatives-feature-comparison.md
+- [Customer support from your phone: how to reply faster away from the office](https://chataptor.com/en/blog/customer-support-from-phone/): See how a mobile customer support app helps teams reply faster to messages from live chat, Messenger, WhatsApp, Instagram, Facebook and email. Markdown: https://chataptor.com/markdown/en/blog/customer-support-from-phone.md
+- [Live chat for manufacturing companies: how to stop losing export enquiries](https://chataptor.com/en/blog/live-chat-for-manufacturing-companies/): See how live chat helps manufacturing companies handle international B2B enquiries about catalogues, quotes, spare parts, transport, service and distribution. Markdown: https://chataptor.com/markdown/en/blog/live-chat-for-manufacturing-companies.md
+- [Omnichannel inbox: how to keep customer messages in one place](https://chataptor.com/en/blog/omnichannel-inbox-customer-messages/): Learn what an omnichannel inbox is and how to bring live chat, WhatsApp, Messenger, Instagram, Facebook and email messages into one customer support panel. Markdown: https://chataptor.com/markdown/en/blog/omnichannel-inbox-customer-messages.md
+- [Website chat with automatic translation: support customers in many languages](https://chataptor.com/en/blog/website-chat-with-automatic-translation/): See how a website chat with automatic translation works. Customers write in their own language, your team replies in theirs, and the system translates the conversation in real time. Markdown: https://chataptor.com/markdown/en/blog/website-chat-with-automatic-translation.md
+- [Smartsupp alternatives: which live chat should you choose?](https://chataptor.com/en/blog/smartsupp-alternatives/): Compare practical Smartsupp alternatives, including Chataptor, tawk.to, Tidio, LiveChat, Crisp, Intercom and Zendesk, for live chat, customer support, omnichannel inboxes and automatic translation. Markdown: https://chataptor.com/markdown/en/blog/smartsupp-alternatives.md
+- [How much do you lose without German customer support?](https://chataptor.com/en/blog/missing-german-customer-support/): German customers abandon their carts when they lack support in their native language. See the real cost of the language barrier and how to bypass it without hiring native speakers. Markdown: https://chataptor.com/markdown/en/blog/missing-german-customer-support.md
+- [Automatic Translation in Customer Support – How It Works](https://chataptor.com/en/blog/automatic-translation-in-customer-support/): How does automatic translation reduce response times and improve CSAT? Key metrics to track and concrete implementation steps for e-commerce and service businesses. Markdown: https://chataptor.com/markdown/en/blog/automatic-translation-in-customer-support.md
+
+## Languages
+- Polish: pl
+- English: en
+- German: de
+- French: fr
+- Spanish: es
+- Italian: it
+- Czech: cs
+- Slovak: sk
+
+## Notes For AI Agents
+- Prefer canonical HTML URLs when citing sources.
+- Prefer Markdown URLs when extracting page content.
+- Use hreflang alternates from the HTML head or XML sitemap to connect translations.
+- Chataptor's current public positioning is free live chat and customer communication with no message limits.
