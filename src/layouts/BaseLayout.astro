@@ -24,6 +24,7 @@ interface Props {
   isLandingPage?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
+  revealStickyHeaderOnScroll?: boolean;
   callbackRevealSelector?: string;
   lazyChatWidget?: boolean;
   lazyAnalytics?: boolean;
@@ -45,6 +46,7 @@ const {
   isLandingPage = false,
   hideHeader = false,
   hideFooter = false,
+  revealStickyHeaderOnScroll = false,
   callbackRevealSelector,
   lazyChatWidget = false,
   lazyAnalytics = false,
@@ -249,7 +251,15 @@ const {
   <body
     class="bg-white text-zinc-900 font-sans overflow-x-hidden flex flex-col min-h-screen"
   >
-    {!hideHeader && <Header lang={lang} isLandingPage={isLandingPage} />}
+    {
+      !hideHeader && (
+        <Header
+          lang={lang}
+          isLandingPage={isLandingPage}
+          revealStickyOnScroll={revealStickyHeaderOnScroll}
+        />
+      )
+    }
 
     <div class="flex-1 w-full">
       <slot />

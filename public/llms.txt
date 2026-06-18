@@ -29,6 +29,7 @@ Primary Polish page: https://chataptor.com/pl/
 ## Important Blog Guides
 
 - Chataptor vs tawk.to comparison: https://chataptor.com/en/blog/chataptor-vs-tawkto/
+- Customer messages in one place: https://chataptor.com/en/blog/customer-messages-one-place/
 - Free live chat with no message limits: https://chataptor.com/en/blog/free-live-chat-no-limits/
 - tawk.to alternatives and feature comparison: https://chataptor.com/en/blog/tawkto-best-alternatives-feature-comparison/
 - Smartsupp alternatives: https://chataptor.com/en/blog/smartsupp-alternatives/

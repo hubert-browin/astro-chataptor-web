@@ -54,6 +54,10 @@ const tocHeadings = headings.filter(
   (heading: any) => heading.depth > 1 && heading.depth <= 3,
 );
 const visibleTags = post.data.tags.slice(0, 4);
+const tagPillSizeClass =
+  visibleTags.length >= 4
+    ? "px-1.5 py-0.5 text-[8px] leading-4 sm:px-2 sm:text-[9.5px] lg:px-3 lg:text-[11px]"
+    : "px-2 py-0.5 text-[9.5px] leading-4 sm:px-3 sm:py-1 sm:text-[11px]";
 const authorInitial = post.data.author.trim().charAt(0).toUpperCase() || "C";
 const publishedIso = post.data.publishedAt.toISOString().split("T")[0];
 const stripLangFromSlug = (fullSlug: string, lang: string) =>
@@ -118,12 +122,13 @@ const encodedTitle = encodeURIComponent(post.data.title);
   image={post.data.image}
   imageAlt={post.data.imageAlt}
   alternates={alternates}
+  revealStickyHeaderOnScroll
   callbackRevealSelector="#article-content"
   lazyAnalytics
 >
   <div
     id="progress-bar"
-    class="fixed top-0 left-0 h-1 bg-emerald-500 z-[100] w-0 transition-all duration-100 ease-out"
+    class="fixed top-0 left-0 z-[100] hidden h-1 w-0 bg-emerald-500 transition-all duration-100 ease-out md:block"
   >
   </div>
 
@@ -134,14 +139,14 @@ const encodedTitle = encodeURIComponent(post.data.title);
       <div class="max-w-[1180px] mx-auto">
         <a
           href={`/${lang}/blog/`}
-          class="inline-flex items-center gap-2 text-sm font-bold text-zinc-500 hover:text-zinc-900 transition-colors mb-6 md:mb-8 group"
+          class="group mb-6 inline-flex items-center gap-2 text-sm font-bold text-zinc-400 transition-colors hover:text-zinc-900 md:mb-8"
         >
           <span
-            class="w-9 h-9 rounded-full bg-white ring-1 ring-zinc-200 flex items-center justify-center group-hover:ring-zinc-900 transition-all"
+            class="inline-flex h-5 w-5 items-center justify-center transition-transform group-hover:-translate-x-0.5"
             aria-hidden="true"
           >
             <svg
-              class="w-4 h-4"
+              class="h-4 w-4"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -160,10 +165,14 @@ const encodedTitle = encodeURIComponent(post.data.title);
           class={`grid grid-cols-1 gap-8 lg:gap-12 ${post.data.image ? "lg:grid-cols-[minmax(0,1fr)_minmax(320px,500px)] lg:items-center" : ""}`}
         >
           <div class="min-w-0">
-            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <div
+              class="flex w-full max-w-full flex-nowrap items-center gap-1 overflow-hidden sm:max-w-3xl sm:gap-1.5"
+            >
               {
                 visibleTags.map((tag: unknown) => (
-                  <span class="max-w-full shrink-0 rounded-full bg-white px-2 py-0.5 text-[9.5px] font-bold uppercase leading-4 tracking-wide text-emerald-700 ring-1 ring-zinc-200 shadow-sm sm:px-3 sm:py-1 sm:text-[11px] sm:tracking-wider">
+                  <span
+                    class={`inline-flex min-w-0 shrink items-center justify-center truncate rounded-full bg-white font-bold uppercase tracking-wide text-emerald-700 ring-1 ring-zinc-200 shadow-sm ${tagPillSizeClass}`}
+                  >
                     {tag}
                   </span>
                 ))
@@ -432,7 +441,7 @@ const encodedTitle = encodeURIComponent(post.data.title);
           />
           <section
             id="mobile-toc-sheet"
-            class="mobile-toc-sheet fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] z-[80] overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/95 shadow-[0_18px_50px_rgba(24,24,27,0.18)] backdrop-blur-xl transition-[max-height,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] xl:hidden"
+            class="mobile-toc-sheet fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] z-[80] overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/95 backdrop-blur-xl transition-[max-height,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] xl:hidden"
             data-mobile-toc-sheet
           >
             <div class="absolute inset-x-0 top-0 h-0.5 bg-zinc-100">
@@ -541,6 +550,17 @@ const encodedTitle = encodeURIComponent(post.data.title);
   .article-copy :global(.prose h2),
   .article-copy :global(.prose h3) {
     scroll-margin-top: 9rem;
+  }
+
+  @media (max-width: 1279px) {
+    :global(#quantumchat-widget-v2) {
+      bottom: calc(env(safe-area-inset-bottom) + 5.5rem) !important;
+    }
+
+    :global(#quantumchat-window) {
+      bottom: calc(env(safe-area-inset-bottom) + 5.5rem) !important;
+      max-height: calc(100dvh - 6.5rem) !important;
+    }
   }
 
   @media (min-width: 1280px) {
