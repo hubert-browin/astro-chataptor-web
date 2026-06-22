@@ -96,6 +96,7 @@ Poradniki o darmowym live chacie, obsłudze klienta online, automatycznych tłum
 Poradniki o darmowym live chacie, obsłudze klienta online, automatycznych tłumaczeniach, e-commerce i wiadomościach w jednym miejscu.
 
 ## Current Guides
+- [Gotowe odpowiedzi do live chatu - 30 przykładów dla obsługi klienta](https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/): Zobacz 30 gotowych odpowiedzi do live chatu dla obsługi klienta. Przykłady wiadomości o dostępności, dostawie, zwrotach, reklamacjach, ofertach i klientach zagranicznych. Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
 - [Wiadomości od klientów w jednym miejscu - jak uporządkować komunikację firmy?](https://chataptor.com/pl/blog/wiadomosci-od-klientow-w-jednym-miejscu/): Zobacz, jak zebrać live chat, e-mail, WhatsApp, Messenger, Instagram i Facebook w jednym panelu. Chataptor pomaga obsługiwać wiadomości od klientów w jednym miejscu, za darmo i bez limitu wiadomości. Markdown: https://chataptor.com/markdown/pl/blog/wiadomosci-od-klientow-w-jednym-miejscu.md
 - [Chataptor vs tawk.to - najlepszy darmowy live chat bez limitów](https://chataptor.com/pl/blog/chataptor-vs-tawk-to/): Chataptor to najlepszy wybór dla firm szukających darmowego live chatu bez limitu wiadomości, bez płatnych funkcji, z aplikacją mobilną, omnichannel inboxem i automatycznymi tłumaczeniami. Markdown: https://chataptor.com/markdown/pl/blog/chataptor-vs-tawk-to.md
 - [Darmowy live chat bez limitów - alternatywa dla tawk.to, Smartsupp i Tidio](https://chataptor.com/pl/blog/darmowy-live-chat-bez-limitow/): Szukasz darmowego live chatu na stronę? Sprawdź, kiedy tawk.to, Smartsupp albo Tidio wystarczą, a kiedy lepiej wybrać Chataptor - bezpłatny live chat bez limitu wiadomości. Markdown: https://chataptor.com/markdown/pl/blog/darmowy-live-chat-bez-limitow.md
@@ -359,6 +360,7 @@ Guides on free live chat, online customer support, automatic translations, e-com
 Guides on free live chat, online customer support, automatic translations, e-commerce, and keeping customer messages in one place.
 
 ## Current Guides
+- [Live chat canned responses: 30 templates for customer support](https://chataptor.com/en/blog/live-chat-canned-responses/): Use these 30 live chat canned responses for customer support, sales, delivery questions, returns, complaints, quotes and international customers. Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
 - [Customer messages in one place: how to organize support communication](https://chataptor.com/en/blog/customer-messages-one-place/): Learn how to bring website chat, email, messaging apps and social channels into one shared inbox. Chataptor helps teams manage customer messages in one place for free, with no message limits. Markdown: https://chataptor.com/markdown/en/blog/customer-messages-one-place.md
 - [Chataptor vs tawk.to: the best free live chat with no limits](https://chataptor.com/en/blog/chataptor-vs-tawkto/): Chataptor is the best choice for companies looking for free live chat with no message limits, no paid feature gates, mobile support, omnichannel inbox and automatic translations. Markdown: https://chataptor.com/markdown/en/blog/chataptor-vs-tawkto.md
 - [Free live chat with no message limits: alternatives to tawk.to, Smartsupp and Tidio](https://chataptor.com/en/blog/free-live-chat-no-limits/): Looking for free live chat for your website? See when tawk.to, Smartsupp or Tidio are enough, and when Chataptor is a better fit as a free live chat with no message limits. Markdown: https://chataptor.com/markdown/en/blog/free-live-chat-no-limits.md
@@ -622,6 +624,7 @@ Ratgeber zu kostenlosem Live-Chat, Online-Kundenservice, automatischen Übersetz
 Ratgeber zu kostenlosem Live-Chat, Online-Kundenservice, automatischen Übersetzungen, E-Commerce und Kundennachrichten an einem Ort.
 
 ## Current Guides
+- [Vorgefertigte Antworten im Live-Chat: 30 Vorlagen für den Kundenservice](https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/): Nutzen Sie 30 vorgefertigte Antworten für den Live-Chat: für Verfügbarkeit, Lieferung, Retouren, Reklamationen, Angebote und internationale Kunden. Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
 - [Kundennachrichten an einem Ort: So ordnen Sie Ihre Kommunikation](https://chataptor.com/de/blog/kundennachrichten-an-einem-ort/): Erfahren Sie, wie Website-Chat, E-Mail, Messenger und Social-Media-Nachrichten in einer gemeinsamen Inbox zusammenlaufen. Chataptor hilft kostenlos und ohne Nachrichtenlimit. Markdown: https://chataptor.com/markdown/de/blog/kundennachrichten-an-einem-ort.md
 - [Chataptor oder tawk.to: der beste kostenlose Live-Chat ohne Limits](https://chataptor.com/de/blog/chataptor-oder-tawkto/): Chataptor ist die beste Wahl für Unternehmen, die kostenlosen Live-Chat ohne Nachrichtenlimit, ohne bezahlte Funktionsgrenzen, mit mobiler App, Omnichannel-Inbox und automatischen Übersetzungen suchen. Markdown: https://chataptor.com/markdown/de/blog/chataptor-oder-tawkto.md
 - [Kostenloser Live-Chat ohne Nachrichtenlimit: Alternativen zu tawk.to, Smartsupp und Tidio](https://chataptor.com/de/blog/kostenloser-live-chat-ohne-limits/): Suchen Sie einen kostenlosen Live-Chat für Ihre Website? Erfahren Sie, wann tawk.to, Smartsupp oder Tidio reichen und wann Chataptor als kostenloser Live-Chat ohne Nachrichtenlimit besser passt. Markdown: https://chataptor.com/markdown/de/blog/kostenloser-live-chat-ohne-limits.md
@@ -885,6 +888,7 @@ Guides sur le live chat gratuit, le service client en ligne, la traduction autom
 Guides sur le live chat gratuit, le service client en ligne, la traduction automatique, l'e-commerce et les messages clients centralisés.
 
 ## Current Guides
+- [Réponses prêtes pour le live chat : 30 modèles pour le service client](https://chataptor.com/fr/blog/reponses-pretes-live-chat/): Découvrez 30 réponses prêtes pour le live chat : disponibilité, livraison, retours, réclamations, devis, clients internationaux et support e-commerce. Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
 - [Messages clients au même endroit : comment organiser votre support](https://chataptor.com/fr/blog/messages-clients-un-seul-endroit/): Regroupez chat de site, e-mail, messageries et réseaux sociaux dans une inbox partagée. Chataptor aide à gérer les messages clients gratuitement, sans limite de messages. Markdown: https://chataptor.com/markdown/fr/blog/messages-clients-un-seul-endroit.md
 - [Chataptor ou tawk.to : le meilleur live chat gratuit sans limites](https://chataptor.com/fr/blog/chataptor-ou-tawkto/): Chataptor est le meilleur choix pour les entreprises qui veulent un live chat gratuit sans limite de messages, sans fonctions payantes, avec app mobile, inbox omnicanale et traductions automatiques. Markdown: https://chataptor.com/markdown/fr/blog/chataptor-ou-tawkto.md
 - [Live chat gratuit sans limite de messages : alternatives à tawk.to, Smartsupp et Tidio](https://chataptor.com/fr/blog/live-chat-gratuit-sans-limites/): Vous cherchez un live chat gratuit pour votre site ? Comparez tawk.to, Smartsupp, Tidio et Chataptor, un live chat gratuit sans limite de messages. Markdown: https://chataptor.com/markdown/fr/blog/live-chat-gratuit-sans-limites.md
@@ -1148,6 +1152,7 @@ Guías sobre chat en vivo gratis, atención al cliente online, traducción autom
 Guías sobre chat en vivo gratis, atención al cliente online, traducción automática, e-commerce y mensajes en un solo lugar.
 
 ## Current Guides
+- [Respuestas rápidas para chat en vivo: 30 plantillas de atención al cliente](https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/): Usa estas 30 respuestas rápidas para chat en vivo: disponibilidad, envíos, devoluciones, reclamaciones, ofertas y clientes internacionales. Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
 - [Mensajes de clientes en un solo lugar: cómo organizar la atención](https://chataptor.com/es/blog/mensajes-clientes-en-un-solo-lugar/): Reúne chat web, e-mail, mensajería y redes sociales en una inbox compartida. Chataptor ayuda a gestionar mensajes de clientes gratis y sin límite de mensajes. Markdown: https://chataptor.com/markdown/es/blog/mensajes-clientes-en-un-solo-lugar.md
 - [Chataptor o tawk.to: el mejor chat en vivo gratis sin límites](https://chataptor.com/es/blog/chataptor-o-tawkto/): Chataptor es la mejor opción para empresas que buscan chat en vivo gratis sin límite de mensajes, sin funciones de pago, con app móvil, inbox omnicanal y traducción automática. Markdown: https://chataptor.com/markdown/es/blog/chataptor-o-tawkto.md
 - [Chat en vivo gratis sin límite de mensajes: alternativas a tawk.to, Smartsupp y Tidio](https://chataptor.com/es/blog/chat-en-vivo-gratis-sin-limites/): ¿Buscas un chat en vivo gratis para tu web? Compara tawk.to, Smartsupp, Tidio y Chataptor, un live chat gratuito sin límite de mensajes. Markdown: https://chataptor.com/markdown/es/blog/chat-en-vivo-gratis-sin-limites.md
@@ -1411,6 +1416,7 @@ Guide su live chat gratuita, assistenza clienti online, traduzione automatica, e
 Guide su live chat gratuita, assistenza clienti online, traduzione automatica, e-commerce e messaggi dei clienti in un unico posto.
 
 ## Current Guides
+- [Risposte predefinite per live chat: 30 modelli per l'assistenza clienti](https://chataptor.com/it/blog/risposte-predefinite-live-chat/): Usa 30 risposte predefinite per live chat: disponibilità, spedizioni, resi, reclami, preventivi, clienti internazionali e supporto e-commerce. Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
 - [Messaggi dei clienti in un unico posto: come organizzare l'assistenza](https://chataptor.com/it/blog/messaggi-clienti-in-un-unico-posto/): Raccogli chat del sito, e-mail, messaggistica e social in una inbox condivisa. Chataptor aiuta a gestire i messaggi dei clienti gratis e senza limiti di messaggi. Markdown: https://chataptor.com/markdown/it/blog/messaggi-clienti-in-un-unico-posto.md
 - [Chataptor o tawk.to: la migliore live chat gratis senza limiti](https://chataptor.com/it/blog/chataptor-o-tawkto/): Chataptor è la scelta migliore per aziende che cercano una live chat gratis senza limiti di messaggi, senza funzioni a pagamento, con app mobile, inbox omnicanale e traduzione automatica. Markdown: https://chataptor.com/markdown/it/blog/chataptor-o-tawkto.md
 - [Live chat gratis senza limiti di messaggi: alternative a tawk.to, Smartsupp e Tidio](https://chataptor.com/it/blog/live-chat-gratis-senza-limiti/): Cerchi una live chat gratuita per il sito? Confronta tawk.to, Smartsupp, Tidio e Chataptor, una live chat gratuita senza limiti di messaggi. Markdown: https://chataptor.com/markdown/it/blog/live-chat-gratis-senza-limiti.md
@@ -1674,6 +1680,7 @@ Průvodci bezplatným live chatem, online zákaznickou podporou, automatickým p
 Průvodci bezplatným live chatem, online zákaznickou podporou, automatickým překladem, e-commerce a zprávami na jednom místě.
 
 ## Current Guides
+- [Připravené odpovědi pro live chat: 30 šablon pro zákaznickou podporu](https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/): Použijte 30 připravených odpovědí pro live chat: dostupnost, doprava, vrácení, reklamace, nabídky, zahraniční zákazníci a e-commerce. Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
 - [Zprávy od zákazníků na jednom místě: jak uspořádat komunikaci](https://chataptor.com/cs/blog/zpravy-od-zakazniku-na-jednom-miste/): Spojte chat na webu, e-mail, komunikační aplikace a sociální sítě do jedné sdílené inbox. Chataptor pomáhá spravovat zprávy zdarma a bez limitu zpráv. Markdown: https://chataptor.com/markdown/cs/blog/zpravy-od-zakazniku-na-jednom-miste.md
 - [Chataptor nebo tawk.to: nejlepší live chat zdarma bez limitů](https://chataptor.com/cs/blog/chataptor-nebo-tawkto/): Chataptor je nejlepší volba pro firmy, které hledají live chat zdarma bez limitu zpráv, bez placených funkcí, s mobilní aplikací, omnichannel inboxem a automatickými překlady. Markdown: https://chataptor.com/markdown/cs/blog/chataptor-nebo-tawkto.md
 - [Live chat zdarma bez limitu zpráv: alternativy k tawk.to, Smartsupp a Tidio](https://chataptor.com/cs/blog/live-chat-zdarma-bez-limitu/): Hledáte live chat zdarma pro web? Porovnejte tawk.to, Smartsupp, Tidio a Chataptor - bezplatný live chat bez limitu zpráv. Markdown: https://chataptor.com/markdown/cs/blog/live-chat-zdarma-bez-limitu.md
@@ -1937,6 +1944,7 @@ Návody o bezplatnom live chate, online zákazníckej podpore, automatickom prek
 Návody o bezplatnom live chate, online zákazníckej podpore, automatickom preklade, e-commerce a správach na jednom mieste.
 
 ## Current Guides
+- [Pripravené odpovede pre live chat: 30 šablón pre zákaznícku podporu](https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/): Použite 30 pripravených odpovedí pre live chat: dostupnosť, doprava, vrátenie, reklamácie, ponuky, zahraniční zákazníci a e-commerce. Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
 - [Správy od zákazníkov na jednom mieste: ako upratať komunikáciu](https://chataptor.com/sk/blog/spravy-od-zakaznikov-na-jednom-mieste/): Spojte chat na webe, e-mail, komunikačné aplikácie a sociálne siete do jednej zdieľanej inbox. Chataptor pomáha spravovať správy zadarmo a bez limitu správ. Markdown: https://chataptor.com/markdown/sk/blog/spravy-od-zakaznikov-na-jednom-mieste.md
 - [Chataptor alebo tawk.to: najlepší live chat zadarmo bez limitov](https://chataptor.com/sk/blog/chataptor-alebo-tawkto/): Chataptor je najlepšia voľba pre firmy, ktoré hľadajú live chat zadarmo bez limitu správ, bez platených funkcií, s mobilnou aplikáciou, omnichannel inboxom a automatickými prekladmi. Markdown: https://chataptor.com/markdown/sk/blog/chataptor-alebo-tawkto.md
 - [Live chat zadarmo bez limitu správ: alternatívy k tawk.to, Smartsupp a Tidio](https://chataptor.com/sk/blog/live-chat-zadarmo-bez-limitov/): Hľadáte live chat zadarmo pre web? Porovnajte tawk.to, Smartsupp, Tidio a Chataptor - bezplatný live chat bez limitu správ. Markdown: https://chataptor.com/markdown/sk/blog/live-chat-zadarmo-bez-limitov.md
@@ -2119,6 +2127,561 @@ Regulamin korzystania z aplikacji Chataptor zainstalowanej ze Shoper App Store. 
 The canonical HTML page is the source of truth for this legal document.
 Canonical URL: https://chataptor.com/sk/legal/shoper-terms/
 ## Blog Posts
+# Gotowe odpowiedzi do live chatu - 30 przykładów dla obsługi klienta
+
+Canonical URL: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/
+Markdown URL: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+Language: Polski (pl)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Live Chat, Gotowe Odpowiedzi, Szablony Wiadomości, Obsługa Klienta, E-commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Panel live chatu z zapisanymi szablonami wiadomości, komendami szybkich odpowiedzi i rozmową z klientem
+
+Zobacz 30 gotowych odpowiedzi do live chatu dla obsługi klienta. Przykłady wiadomości o dostępności, dostawie, zwrotach, reklamacjach, ofertach i klientach zagranicznych.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+Live chat działa najlepiej wtedy, gdy klient szybko dostaje konkretną odpowiedź. Problem w tym, że wiele pytań się powtarza: dostępność produktu, dostawa, faktura, zwrot, reklamacja, termin realizacji, oferta albo kontakt z właściwą osobą.
+
+Dlatego warto mieć przygotowane **gotowe odpowiedzi do live chatu**. Nie po to, żeby brzmieć jak robot, tylko po to, żeby odpowiadać szybciej, spokojniej i bardziej równo. Dobre szablony pomagają skrócić czas pierwszej odpowiedzi, ułatwiają pracę nowym osobom w zespole i zmniejszają ryzyko pomyłek.
+
+Jeśli dopiero wybierasz narzędzie, zobacz też poradnik o [darmowym live chacie bez limitu wiadomości](https://chataptor.com/pl/blog/darmowy-live-chat-bez-limitow/). A jeśli obsługujesz kilka kanałów naraz, przydatny będzie wpis o tym, jak zebrać [wiadomości od klientów w jednym miejscu](https://chataptor.com/pl/blog/wiadomosci-od-klientow-w-jednym-miejscu/).
+
+## Jak powinna wyglądać dobra odpowiedź na live chacie?
+
+Dobra odpowiedź powinna być krótka, ludzka i konkretna. Klient nie wchodzi na czat po długi regulamin. Chce wiedzieć, co dalej.
+
+Najprostsza zasada:
+
+> Najpierw odpowiedz na pytanie klienta, potem dodaj następny krok.
+
+Zamiast pisać formalnie:
+
+```text
+Dziękujemy za kontakt z naszą firmą. Państwa zapytanie zostanie przekazane do odpowiedniego działu.
+```
+
+Lepiej napisać:
+
+```text
+Dzień dobry, sprawdzę to dla Pana/Pani i wrócę z informacją za chwilę.
+```
+
+To nadal jest profesjonalne, ale brzmi normalnie.
+
+## 30 gotowych odpowiedzi do live chatu
+
+Poniższe przykłady możesz wkleić do systemu live chat jako szybkie odpowiedzi albo potraktować jako bazę do własnych szablonów. W miejscach takich jak `[nazwa produktu]`, `[czas]`, `[adres e-mail]` albo `[numer zamówienia]` wystarczy podmienić dane.
+
+### 1. Pierwsza odpowiedź na czacie
+
+**Kiedy użyć:** gdy klient rozpoczyna rozmowę.
+
+```text
+Dzień dobry! W czym mogę pomóc?
+```
+
+Trochę cieplejsza wersja:
+
+```text
+Dzień dobry! Jestem na czacie i chętnie pomogę. Proszę napisać, czego dotyczy sprawa.
+```
+
+### 2. Gdy potrzebujesz chwili na sprawdzenie informacji
+
+**Kiedy użyć:** gdy klient pyta o dostępność, cenę, termin lub szczegóły, których nie znasz od razu.
+
+```text
+Już to sprawdzam. Proszę o chwilę cierpliwości.
+```
+
+Jeśli sprawa może potrwać dłużej:
+
+```text
+Sprawdzę to dokładnie, żeby nie podać błędnej informacji. Wrócę z odpowiedzią za chwilę.
+```
+
+### 3. Gdy produkt jest dostępny
+
+```text
+Tak, produkt jest dostępny. Możemy przygotować zamówienie od razu.
+```
+
+Wersja e-commerce:
+
+```text
+Tak, ten produkt jest aktualnie dostępny. Można go zamówić bezpośrednio na stronie.
+```
+
+### 4. Gdy produkt jest niedostępny
+
+```text
+Ten produkt jest obecnie niedostępny. Mogę sprawdzić, kiedy wróci do sprzedaży, albo zaproponować podobną opcję.
+```
+
+Wersja z kontaktem:
+
+```text
+Produkt jest chwilowo niedostępny. Proszę zostawić adres e-mail, a damy znać, gdy wróci do oferty.
+```
+
+### 5. Gdy klient pyta o cenę
+
+```text
+Cena zależy od wybranego wariantu. Proszę napisać, który model lub zakres usługi Pana/Panią interesuje, a podam konkretną kwotę.
+```
+
+Wersja B2B:
+
+```text
+Przygotujemy wycenę indywidualnie. Proszę krótko opisać zapytanie, a przekażę temat do osoby odpowiedzialnej za ofertę.
+```
+
+### 6. Gdy klient pyta o ofertę
+
+```text
+Chętnie przygotujemy ofertę. Proszę podać adres e-mail oraz krótką informację, czego dokładnie ma dotyczyć wycena.
+```
+
+Wersja bardziej bezpośrednia:
+
+```text
+Jasne, możemy przygotować ofertę. Proszę zostawić e-mail lub numer telefonu, a odpowiednia osoba odezwie się z konkretną propozycją.
+```
+
+### 7. Gdy trzeba przekazać rozmowę do handlowca
+
+```text
+Przekażę tę rozmowę do osoby odpowiedzialnej za sprzedaż. Proszę zostawić numer telefonu lub e-mail, żebyśmy mogli wrócić z konkretną odpowiedzią.
+```
+
+Krótsza wersja:
+
+```text
+To temat dla naszego działu sprzedaży. Przekażę wiadomość i poproszę odpowiednią osobę o kontakt.
+```
+
+### 8. Gdy klient pyta o czas dostawy
+
+```text
+Standardowy czas dostawy wynosi [czas]. Dokładny termin zależy od wybranego produktu i adresu dostawy.
+```
+
+Wersja e-commerce:
+
+```text
+Zamówienia wysyłamy zwykle w ciągu [czas]. Po nadaniu przesyłki klient otrzymuje link do śledzenia.
+```
+
+### 9. Gdy klient pyta o koszt dostawy
+
+```text
+Koszt dostawy zależy od wybranej metody wysyłki. Po dodaniu produktu do koszyka system pokaże dostępne opcje i dokładną cenę.
+```
+
+Wersja ręczna:
+
+```text
+Mogę to sprawdzić. Proszę podać miejscowość dostawy i produkt, którego dotyczy zamówienie.
+```
+
+### 10. Gdy klient pyta o status zamówienia
+
+```text
+Sprawdzę status zamówienia. Proszę podać numer zamówienia albo adres e-mail użyty przy zakupie.
+```
+
+Po sprawdzeniu:
+
+```text
+Zamówienie jest aktualnie na etapie [status]. Kolejnym krokiem będzie [następny krok].
+```
+
+### 11. Gdy klient pyta o fakturę
+
+```text
+Oczywiście. Proszę podać numer zamówienia oraz dane do faktury, a sprawdzimy dokument.
+```
+
+Gdy faktura została wysłana:
+
+```text
+Faktura została wysłana na adres e-mail podany w zamówieniu. Proszę sprawdzić również folder spam lub oferty.
+```
+
+### 12. Gdy klient chce zwrócić produkt
+
+```text
+Oczywiście, pomożemy w zwrocie. Proszę podać numer zamówienia, a wyślę instrukcję dalszych kroków.
+```
+
+Wersja z linkiem:
+
+```text
+Zwrot można zgłosić tutaj: [link]. Po wypełnieniu formularza otrzyma Pan/Pani dalsze instrukcje.
+```
+
+### 13. Gdy klient chce złożyć reklamację
+
+```text
+Przykro mi, że pojawił się problem. Proszę podać numer zamówienia i krótko opisać sytuację. Przekażemy sprawę do reklamacji.
+```
+
+Z prośbą o zdjęcia:
+
+```text
+Proszę przesłać zdjęcia problemu oraz numer zamówienia. To pomoże nam szybciej rozpatrzyć reklamację.
+```
+
+### 14. Gdy klient jest zdenerwowany
+
+```text
+Rozumiem, że ta sytuacja jest frustrująca. Sprawdzę, co możemy zrobić, żeby jak najszybciej ją wyjaśnić.
+```
+
+Wersja spokojna i konkretna:
+
+```text
+Rozumiem problem. Proszę dać mi chwilę, sprawdzę szczegóły i wrócę z konkretną informacją.
+```
+
+### 15. Gdy firma popełniła błąd
+
+```text
+Przepraszamy za tę sytuację. To nie powinno się wydarzyć. Sprawdzam sprawę i zaraz wrócę z informacją, jak ją naprawimy.
+```
+
+Krótsza wersja:
+
+```text
+Ma Pan/Pani rację, powinniśmy byli dopilnować tego wcześniej. Już sprawdzam, jak możemy to szybko rozwiązać.
+```
+
+### 16. Gdy klient pyta o rabat
+
+```text
+Przy większych zamówieniach możemy sprawdzić możliwość indywidualnej wyceny. Proszę napisać, jakiego zamówienia dotyczy pytanie.
+```
+
+Wersja e-commerce:
+
+```text
+Aktualne promocje są widoczne na stronie. Przy większym zamówieniu proszę zostawić kontakt, sprawdzimy, co możemy zaproponować.
+```
+
+### 17. Gdy klient pyta o współpracę B2B
+
+```text
+Dziękujemy za zainteresowanie współpracą. Proszę zostawić adres e-mail, nazwę firmy i krótki opis tematu. Przekażemy wiadomość do odpowiedniej osoby.
+```
+
+Krótsza wersja:
+
+```text
+Jasne, współpracą B2B zajmuje się u nas odpowiednia osoba. Proszę zostawić kontakt, a wrócimy z informacją.
+```
+
+### 18. Gdy klient pyta o katalog lub cennik
+
+```text
+Możemy przesłać katalog i aktualne informacje. Proszę podać adres e-mail oraz informację, które produkty lub usługi Pana/Panią interesują.
+```
+
+Z doprecyzowaniem:
+
+```text
+Chętnie wyślemy materiały. Proszę napisać, czy chodzi o katalog ogólny, cennik czy konkretną grupę produktów.
+```
+
+### 19. Gdy klient pyta o termin realizacji usługi
+
+```text
+Najbliższy możliwy termin zależy od zakresu zlecenia. Proszę krótko opisać, czego dotyczy sprawa, a sprawdzę dostępność.
+```
+
+Wersja prosta:
+
+```text
+Aktualny czas realizacji to około [czas]. Przy pilnych sprawach możemy sprawdzić najbliższy możliwy termin.
+```
+
+### 20. Gdy klient pisze poza godzinami pracy
+
+```text
+Dziękujemy za wiadomość. Obecnie jesteśmy poza godzinami pracy, ale wrócimy z odpowiedzią najszybciej jak to możliwe.
+```
+
+Jeśli chcesz zebrać dane:
+
+```text
+Dziękujemy za wiadomość. Proszę zostawić adres e-mail lub numer telefonu oraz krótki opis sprawy. Odezwiemy się po powrocie do pracy.
+```
+
+### 21. Gdy klient nie odpisuje
+
+```text
+Czy mogę jeszcze w czymś pomóc?
+```
+
+Po dłuższej przerwie:
+
+```text
+Wygląda na to, że rozmowa się urwała. W razie potrzeby proszę napisać ponownie - chętnie pomożemy.
+```
+
+### 22. Gdy trzeba poprosić o dane kontaktowe
+
+```text
+Żebyśmy mogli wrócić z konkretną odpowiedzią, proszę zostawić adres e-mail lub numer telefonu.
+```
+
+Z kontekstem:
+
+```text
+Ta sprawa wymaga sprawdzenia po naszej stronie. Proszę zostawić kontakt, a wrócimy z odpowiedzią.
+```
+
+### 23. Gdy trzeba przekazać sprawę do innego działu
+
+```text
+Przekażę tę sprawę do odpowiedniego działu. Proszę zostawić kontakt, żebyśmy mogli wrócić z odpowiedzią.
+```
+
+Bardziej konkretnie:
+
+```text
+To temat dla działu [nazwa działu]. Przekażę wiadomość i poproszę odpowiednią osobę o kontakt.
+```
+
+### 24. Gdy klient pyta o kontakt telefoniczny
+
+```text
+Oczywiście. Proszę zostawić numer telefonu i krótką informację, czego dotyczy sprawa. Odpowiednia osoba oddzwoni.
+```
+
+Z godzinami:
+
+```text
+Możemy oddzwonić w godzinach [godziny]. Proszę podać numer telefonu i dogodną porę kontaktu.
+```
+
+### 25. Gdy klient pyta o lokalizację lub dojazd
+
+```text
+Znajdujemy się pod adresem: [adres]. Mogę też przesłać link do mapy.
+```
+
+Z godzinami:
+
+```text
+Zapraszamy pod adres: [adres]. Jesteśmy otwarci w godzinach [godziny].
+```
+
+### 26. Gdy klient pyta o dostępność terminu
+
+```text
+Sprawdzę dostępne terminy. Proszę napisać, jaki dzień lub godzina byłyby dla Pana/Pani najwygodniejsze.
+```
+
+Szybka odpowiedź:
+
+```text
+Mamy dostępny termin [data/godzina]. Czy mam go wstępnie zarezerwować?
+```
+
+### 27. Gdy klient pisze w innym języku
+
+```text
+Dzień dobry! Może Pan/Pani pisać w swoim języku. Odpowiemy tak, żeby rozmowa była zrozumiała dla obu stron.
+```
+
+Jeśli korzystasz z tłumaczeń:
+
+```text
+Może Pan/Pani pisać w swoim języku - wiadomość zostanie automatycznie przetłumaczona, a my odpowiemy najszybciej jak to możliwe.
+```
+
+Więcej o takim scenariuszu opisujemy w poradniku o [automatycznym tłumaczeniu w obsłudze klienta](https://chataptor.com/pl/blog/automatyczne-tlumaczenie-w-obsludze-klienta/).
+
+### 28. Gdy klient pyta, czy rozmawia z człowiekiem
+
+```text
+Tak, rozmawia Pan/Pani z osobą z naszego zespołu. Chętnie pomogę.
+```
+
+Luźniejsza wersja:
+
+```text
+Tak, po drugiej stronie jest osoba z zespołu. Proszę pisać śmiało.
+```
+
+### 29. Gdy nie możesz pomóc od razu
+
+```text
+Nie chcę podać błędnej informacji, więc muszę to sprawdzić. Proszę zostawić kontakt, a wrócimy z odpowiedzią.
+```
+
+Z czasem odpowiedzi:
+
+```text
+Muszę to potwierdzić z odpowiednią osobą. Wrócimy z informacją w ciągu [czas].
+```
+
+### 30. Zakończenie rozmowy
+
+```text
+Cieszę się, że mogłem/mogłam pomóc. W razie dodatkowych pytań proszę śmiało pisać.
+```
+
+Bardziej sprzedażowo:
+
+```text
+Dziękuję za rozmowę. Gdyby pojawiły się dodatkowe pytania, jesteśmy dostępni na czacie.
+```
+
+## Jak korzystać z gotowych odpowiedzi, żeby nie brzmieć jak robot?
+
+Gotowe odpowiedzi są pomocne, ale nie powinny być wklejane bezmyślnie. Najlepiej traktować je jako bazę. Przed wysłaniem warto dopasować wiadomość do kontekstu rozmowy.
+
+Zamiast pisać każdemu klientowi identycznie:
+
+```text
+Dziękujemy za wiadomość. Państwa sprawa została przekazana do odpowiedniego działu.
+```
+
+Lepiej napisać:
+
+```text
+Dziękuję za informację. Przekażę temat do działu serwisu i poproszę ich o kontakt.
+```
+
+Różnica jest niewielka, ale klient widzi, że ktoś realnie przeczytał jego wiadomość.
+
+## Które gotowe odpowiedzi dodać jako pierwsze?
+
+Na start warto przygotować odpowiedzi na sytuacje, które pojawiają się najczęściej:
+
+| Sytuacja | Dlaczego warto mieć szablon? |
+| --- | --- |
+| Powitanie klienta | Skraca czas pierwszej odpowiedzi |
+| Prośba o chwilę cierpliwości | Daje czas na sprawdzenie informacji |
+| Pytanie o dostępność | Bardzo częste w e-commerce i B2B |
+| Pytanie o dostawę | Powtarza się w sklepach internetowych |
+| Zwrot lub reklamacja | Wymaga spokojnego i jasnego tonu |
+| Prośba o ofertę | Pomaga szybciej zebrać dane |
+| Przekazanie do działu | Porządkuje obsługę w zespole |
+| Kontakt po godzinach | Zbiera leady, gdy nikt nie pracuje |
+| Klient zagraniczny | Ułatwia obsługę w wielu językach |
+| Zakończenie rozmowy | Domyka kontakt profesjonalnie |
+
+Nie trzeba mieć od razu 100 szablonów. Lepiej zacząć od 10 naprawdę użytecznych odpowiedzi i poprawiać je na podstawie prawdziwych rozmów.
+
+## Szablony wiadomości w Chataptorze
+
+W Chataptorze gotowe odpowiedzi można tworzyć jako szablony wiadomości i uruchamiać krótkimi komendami. Firma przygotowuje wcześniej treść odpowiedzi, przypisuje ją do komendy, a później agent może wysłać całą wiadomość bez pisania jej od zera.
+
+Na przykład komenda:
+
+```text
+/chwila
+```
+
+może wstawić wiadomość:
+
+```text
+Już to sprawdzam. Proszę o chwilę cierpliwości.
+```
+
+A komenda:
+
+```text
+/dostawa
+```
+
+może wstawić gotową odpowiedź o warunkach i kosztach dostawy.
+
+To jest szczególnie przydatne przy pytaniach, które powtarzają się wiele razy dziennie: dostawa, dostępność produktu, zwroty, reklamacje, faktury, kontakt z handlowcem albo przekazanie sprawy do innego działu.
+
+## Szablony dla konkretnych stron i języków
+
+Szablony mogą być dopasowane do konkretnych stron lub wersji językowych. To ważne, jeżeli firma ma kilka domen dla różnych krajów albo kilka wersji językowych sklepu.
+
+Przykład: klient pisze z niemieckiej wersji sklepu i pyta o dostawę do Niemiec. Agent wpisuje tylko:
+
+```text
+/dostawa
+```
+
+System może wstawić właściwy szablon dla tej strony, zamiast ogólnej odpowiedzi. Dla niemieckiej wersji będzie to informacja o dostawie do Niemiec, dla francuskiej o dostawie do Francji, a dla czeskiej o dostawie do Czech.
+
+Jeśli firma korzysta z automatycznych tłumaczeń, agent może mieć bazowy szablon po polsku, a klient otrzyma odpowiedź w swoim języku. To oszczędza czas szczególnie w firmach, które obsługują klientów z wielu krajów.
+
+## Kiedy szablony wiadomości dają największą oszczędność czasu?
+
+Szablony wiadomości szczególnie dobrze sprawdzają się wtedy, gdy firma:
+
+- ma dużo powtarzalnych pytań,
+- obsługuje kilka wersji językowych strony,
+- ma klientów z różnych krajów,
+- często odpowiada o dostawie, zwrotach, fakturach i dostępności,
+- chce skrócić czas pierwszej odpowiedzi,
+- ma kilka osób w zespole obsługi klienta,
+- chce szybciej wdrażać nowe osoby.
+
+Nie chodzi o to, żeby każda rozmowa była automatyczna. Chodzi o to, żeby najczęstsze odpowiedzi były pod ręką i mogły zostać wysłane w kilka sekund.
+
+## Gotowe odpowiedzi w Chataptorze
+
+Chataptor pomaga odpowiadać klientom szybciej bez pisania tych samych wiadomości od zera. Jest to szczególnie przydatne, gdy firma obsługuje wiadomości z wielu kanałów: live chat, e-mail, WhatsApp, Messenger, Instagram, Facebook albo marketplace.
+
+Zamiast przełączać się między aplikacjami, zespół może pracować w jednym panelu i korzystać z gotowych odpowiedzi dopasowanych do najczęstszych pytań. Chataptor pomaga też w obsłudze klientów zagranicznych dzięki automatycznym tłumaczeniom AI.
+
+Najważniejsze: Chataptor jest obecnie darmowy i bez limitu wiadomości, więc możesz porządkować obsługę klienta bez obawy, że rosnąca liczba rozmów od razu zamieni się w dodatkowy koszt.
+
+## FAQ
+
+### Co to są gotowe odpowiedzi do live chatu?
+
+Gotowe odpowiedzi do live chatu to zapisane wcześniej wiadomości, które pracownik może szybko wysłać klientowi. Pomagają odpowiadać szybciej na powtarzalne pytania, takie jak dostępność produktu, dostawa, zwrot, reklamacja czy prośba o ofertę.
+
+### Czy gotowe odpowiedzi nie brzmią sztucznie?
+
+Mogą brzmieć sztucznie, jeśli są zbyt formalne albo wysyłane bez dopasowania do rozmowy. Dobre gotowe odpowiedzi powinny być krótkie, naturalne i łatwe do edycji przed wysłaniem.
+
+### Jakie gotowe odpowiedzi warto przygotować jako pierwsze?
+
+Najlepiej zacząć od odpowiedzi na najczęstsze pytania: powitanie, dostępność produktu, koszt dostawy, status zamówienia, zwrot, reklamacja, prośba o ofertę, kontakt po godzinach i przekazanie sprawy do innego działu.
+
+### Czy gotowe odpowiedzi nadają się do e-commerce?
+
+Tak. W e-commerce gotowe odpowiedzi są bardzo przydatne, bo klienci często pytają o te same rzeczy: dostępność, dostawę, fakturę, zwrot, reklamację, termin wysyłki i status zamówienia.
+
+### Czy w Chataptorze można tworzyć własne szablony wiadomości?
+
+Tak. Chataptor pozwala tworzyć szablony wiadomości i przypisywać je do krótkich komend, np. `/chwila`, `/dostawa` albo `/oferta`. Dzięki temu agent może szybko wstawić gotową odpowiedź bez pisania jej od zera.
+
+### Czy szablony mogą działać inaczej dla różnych stron?
+
+Tak. Szablony mogą być dopasowane do konkretnych stron lub wersji językowych. To przydatne przy firmach, które obsługują wiele domen, języków lub rynków.
+
+## Podsumowanie
+
+Gotowe odpowiedzi do live chatu nie są po to, żeby zastąpić człowieka. Są po to, żeby człowiek mógł odpowiadać szybciej, spokojniej i bardziej konkretnie.
+
+Warto przygotować je szczególnie dla powtarzalnych tematów: dostępność produktu, dostawa, zwroty, reklamacje, faktury, status zamówienia, prośby o ofertę, kontakt po godzinach i obsługa klientów zagranicznych.
+
+W Chataptorze możesz tworzyć szablony wiadomości, uruchamiać je prostymi komendami i obsługiwać rozmowy z wielu kanałów w jednym miejscu. Jeśli chcesz uporządkować komunikację z klientami, możesz [zacząć od Chataptora za darmo](https://chataptor.com/pl/).
+
 # Wiadomości od klientów w jednym miejscu - jak uporządkować komunikację firmy?
 
 Canonical URL: https://chataptor.com/pl/blog/wiadomosci-od-klientow-w-jednym-miejscu/
@@ -3696,6 +4259,559 @@ Zacznij od dwóch liczb: ile procent zgłoszeń pochodzi od klientów zagraniczn
 
 W zdecydowanej większości wdrożeń – nie. Jakość tłumaczeń dla popularnych języków europejskich jest na tyle wysoka, że klienci odpisują bez pytania o to, czy agent jest native speakerem. Jeśli zależy Ci na transparentności, możesz dodać krótką notatkę w stopce wiadomości – ale to decyzja komunikacyjna, nie techniczna.
 
+# Live chat canned responses: 30 templates for customer support
+
+Canonical URL: https://chataptor.com/en/blog/live-chat-canned-responses/
+Markdown URL: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+Language: English (en)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Live Chat, Canned Responses, Message Templates, Customer Support, E-commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Live chat inbox with saved reply templates, quick response commands and a customer conversation
+
+Use these 30 live chat canned responses for customer support, sales, delivery questions, returns, complaints, quotes and international customers.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+Live chat works best when customers get a clear answer quickly. The challenge is that many questions repeat every day: product availability, delivery, invoices, returns, complaints, lead qualification, service dates or the right person to contact.
+
+That is why **live chat canned responses** are worth preparing. They are not meant to make your team sound robotic. They help agents answer faster, keep the tone consistent and avoid writing the same message again and again.
+
+If you are still choosing a chat tool, start with our guide to [free live chat with no message limits](https://chataptor.com/en/blog/free-live-chat-no-limits/). If your team handles more than one channel, also see how to keep [customer messages in one place](https://chataptor.com/en/blog/customer-messages-one-place/).
+
+## What makes a good live chat response?
+
+A good live chat response is short, human and specific. Customers do not open chat to read a long policy. They want to know what happens next.
+
+A simple rule helps:
+
+> Answer the customer first, then add the next step.
+
+Instead of:
+
+```text
+Thank you for contacting our company. Your request will be forwarded to the appropriate department.
+```
+
+Write:
+
+```text
+Hi, I will check that for you and come back with an answer in a moment.
+```
+
+It is still professional, but it feels like a real conversation.
+
+## 30 live chat canned responses
+
+Use these examples as saved replies, quick commands or a starting point for your own templates. Replace placeholders like `[product name]`, `[time]`, `[email address]` or `[order number]` with your own details.
+
+### 1. First message on chat
+
+**Use when:** a customer starts a conversation.
+
+```text
+Hi! How can I help?
+```
+
+A warmer version:
+
+```text
+Hi! I am here on chat and happy to help. Please tell me what you need.
+```
+
+### 2. When you need a moment to check
+
+```text
+I am checking that now. Please give me a moment.
+```
+
+If it may take longer:
+
+```text
+I will check this carefully so I do not give you the wrong information. I will be back with an answer shortly.
+```
+
+### 3. When the product is available
+
+```text
+Yes, this product is available. We can prepare the order right away.
+```
+
+E-commerce version:
+
+```text
+Yes, this product is currently in stock. You can order it directly on the website.
+```
+
+### 4. When the product is unavailable
+
+```text
+This product is currently unavailable. I can check when it may be back in stock or suggest a similar option.
+```
+
+With follow-up:
+
+```text
+This product is temporarily unavailable. Please leave your email address and we will let you know when it returns.
+```
+
+### 5. When the customer asks about price
+
+```text
+The price depends on the selected option. Please tell me which model or service scope you are interested in and I will give you a specific amount.
+```
+
+B2B version:
+
+```text
+We can prepare an individual quote. Please briefly describe what you need and I will forward it to the right person.
+```
+
+### 6. When the customer asks for an offer
+
+```text
+We will be happy to prepare an offer. Please send your email address and a short note about what the quote should include.
+```
+
+More direct:
+
+```text
+Sure, we can prepare an offer. Please leave your email or phone number and the right person will get back to you with details.
+```
+
+### 7. When the conversation should go to sales
+
+```text
+I will forward this conversation to our sales team. Please leave your phone number or email so we can come back with a specific answer.
+```
+
+Short version:
+
+```text
+This is a topic for our sales team. I will forward the message and ask the right person to contact you.
+```
+
+### 8. When the customer asks about delivery time
+
+```text
+Standard delivery time is [time]. The exact date depends on the selected product and delivery address.
+```
+
+E-commerce version:
+
+```text
+We usually ship orders within [time]. After dispatch, the customer receives a tracking link.
+```
+
+### 9. When the customer asks about delivery cost
+
+```text
+Delivery cost depends on the selected shipping method. After adding the product to the cart, the website will show available options and the exact price.
+```
+
+Manual check:
+
+```text
+I can check that. Please send the delivery city and the product you want to order.
+```
+
+### 10. When the customer asks about order status
+
+```text
+I will check the order status. Please send the order number or the email address used during purchase.
+```
+
+After checking:
+
+```text
+Your order is currently at the [status] stage. The next step is [next step].
+```
+
+### 11. When the customer asks about an invoice
+
+```text
+Of course. Please send the order number and invoice details, and we will check the document.
+```
+
+When the invoice was sent:
+
+```text
+The invoice was sent to the email address used in the order. Please also check spam or promotions folders.
+```
+
+### 12. When the customer wants to return a product
+
+```text
+Of course, we will help with the return. Please send the order number and I will share the next steps.
+```
+
+With a link:
+
+```text
+You can submit the return here: [link]. After completing the form, you will receive further instructions.
+```
+
+### 13. When the customer wants to make a complaint
+
+```text
+I am sorry there is a problem. Please send the order number and briefly describe the situation. We will forward the case to complaints.
+```
+
+With photos:
+
+```text
+Please send photos of the issue and the order number. This will help us review the complaint faster.
+```
+
+### 14. When the customer is upset
+
+```text
+I understand this situation is frustrating. I will check what we can do to clarify it as quickly as possible.
+```
+
+Calm and specific:
+
+```text
+I understand the problem. Please give me a moment to check the details and I will come back with a specific answer.
+```
+
+### 15. When your company made a mistake
+
+```text
+We are sorry about this situation. It should not have happened. I am checking the case now and will come back with information on how we can fix it.
+```
+
+Shorter version:
+
+```text
+You are right, we should have handled this earlier. I am checking how we can resolve it quickly.
+```
+
+### 16. When the customer asks for a discount
+
+```text
+For larger orders, we can check whether an individual quote is possible. Please tell me which order you have in mind.
+```
+
+E-commerce version:
+
+```text
+Current promotions are visible on the website. For a larger order, please leave your contact details and we will check what we can offer.
+```
+
+### 17. When the customer asks about B2B cooperation
+
+```text
+Thank you for your interest in cooperation. Please leave your email address, company name and a short description of the topic. We will forward it to the right person.
+```
+
+Shorter version:
+
+```text
+Sure, the right person handles B2B cooperation in our team. Please leave your contact details and we will get back to you.
+```
+
+### 18. When the customer asks for a catalogue or price list
+
+```text
+We can send the catalogue and current information. Please provide your email address and tell us which products or services you are interested in.
+```
+
+With clarification:
+
+```text
+We will be happy to send materials. Please tell us whether you need a general catalogue, a price list or a specific product group.
+```
+
+### 19. When the customer asks about service availability
+
+```text
+The nearest available date depends on the scope of the work. Please briefly describe the case and I will check availability.
+```
+
+Simple version:
+
+```text
+The current lead time is around [time]. For urgent cases, we can check the nearest possible date.
+```
+
+### 20. When the customer writes outside working hours
+
+```text
+Thank you for your message. We are currently outside working hours, but we will reply as soon as possible.
+```
+
+To collect details:
+
+```text
+Thank you for your message. Please leave your email or phone number and a short description of the case. We will contact you when we are back.
+```
+
+### 21. When the customer stops replying
+
+```text
+Can I help with anything else?
+```
+
+After a longer break:
+
+```text
+It looks like the conversation paused. If you need anything else, please write again - we will be happy to help.
+```
+
+### 22. When you need contact details
+
+```text
+So we can come back with a specific answer, please leave your email address or phone number.
+```
+
+With context:
+
+```text
+This case requires checking on our side. Please leave your contact details and we will get back to you.
+```
+
+### 23. When the case must go to another department
+
+```text
+I will forward this case to the appropriate department. Please leave your contact details so we can reply.
+```
+
+More specific:
+
+```text
+This is a topic for the [department name] department. I will forward the message and ask the right person to contact you.
+```
+
+### 24. When the customer asks for a phone call
+
+```text
+Of course. Please leave your phone number and a short note about the case. The right person will call you back.
+```
+
+With hours:
+
+```text
+We can call back between [hours]. Please send your phone number and a convenient time.
+```
+
+### 25. When the customer asks about location
+
+```text
+We are located at: [address]. I can also send you a map link.
+```
+
+With opening hours:
+
+```text
+You are welcome at: [address]. We are open from [hours].
+```
+
+### 26. When the customer asks about an available appointment
+
+```text
+I will check available dates. Please tell me which day or time would be most convenient for you.
+```
+
+Quick answer:
+
+```text
+We have an available slot on [date/time]. Should I reserve it for you?
+```
+
+### 27. When the customer writes in another language
+
+```text
+Hi! You can write in your own language. We will reply in a way that makes the conversation clear for both sides.
+```
+
+With translation:
+
+```text
+You can write in your own language - the message will be automatically translated, and we will reply as quickly as possible.
+```
+
+We explain this workflow in more detail in the guide to [automatic translation in customer support](https://chataptor.com/en/blog/automatic-translation-in-customer-support/).
+
+### 28. When the customer asks if they are speaking to a human
+
+```text
+Yes, you are speaking with a person from our team. I will be happy to help.
+```
+
+More relaxed:
+
+```text
+Yes, there is a real person on the other side. Please go ahead.
+```
+
+### 29. When you cannot help immediately
+
+```text
+I do not want to give you incorrect information, so I need to check this. Please leave your contact details and we will get back to you.
+```
+
+With timing:
+
+```text
+I need to confirm this with the right person. We will return with information within [time].
+```
+
+### 30. Ending the conversation
+
+```text
+I am glad I could help. If you have any other questions, please feel free to write.
+```
+
+More sales-oriented:
+
+```text
+Thank you for the conversation. If any other questions come up, we are available on chat.
+```
+
+## How to use canned responses without sounding robotic
+
+Canned responses are useful, but they should not be pasted without context. Treat them as a base and adjust the wording before sending.
+
+Instead of sending the same sentence to everyone:
+
+```text
+Thank you for your message. Your case has been forwarded to the appropriate department.
+```
+
+Write:
+
+```text
+Thank you for the details. I will forward this to our service team and ask them to contact you.
+```
+
+The difference is small, but the customer feels that someone actually read the message.
+
+## Which canned responses should you add first?
+
+Start with the situations that happen most often:
+
+| Situation | Why a template helps |
+| --- | --- |
+| Greeting | Shortens first response time |
+| Asking for a moment | Gives time to check information |
+| Product availability | Very common in e-commerce and B2B |
+| Delivery questions | Repeats often in online stores |
+| Returns and complaints | Requires a calm, clear tone |
+| Request for an offer | Helps collect details faster |
+| Forwarding to a department | Keeps support organized |
+| After-hours contact | Captures leads when nobody is online |
+| International customer | Helps with multilingual support |
+| Closing the conversation | Ends the contact professionally |
+
+You do not need 100 templates on day one. Start with 10 truly useful replies and improve them based on real conversations.
+
+## Message templates in Chataptor
+
+In Chataptor, canned responses can be saved as message templates and triggered with short commands. A company prepares the reply, assigns it to a command and the agent can insert the full message without typing it from scratch.
+
+For example:
+
+```text
+/wait
+```
+
+can insert:
+
+```text
+I am checking that now. Please give me a moment.
+```
+
+And:
+
+```text
+/delivery
+```
+
+can insert a prepared answer about delivery terms and costs.
+
+This is especially useful for questions that repeat many times a day: delivery, product availability, returns, complaints, invoices, sales handoff or escalation to another department.
+
+## Templates for specific websites and languages
+
+Templates can also be adapted to specific websites or language versions. That matters when a company has multiple country domains or several language versions of an online store.
+
+For example, a customer writes from the German version of a store and asks about delivery to Germany. The agent types:
+
+```text
+/delivery
+```
+
+The system can insert the right template for that website instead of a generic answer. The German version can include delivery details for Germany, the French version for France, and the Czech version for Czechia.
+
+If the company uses automatic translation, the team can keep a base template in one language while the customer receives a reply in their own language. This saves a lot of time for teams serving several markets.
+
+## When do message templates save the most time?
+
+Message templates work best when your company:
+
+- receives many repeat questions,
+- runs several language versions of a website,
+- serves customers from multiple countries,
+- often answers about delivery, returns, invoices and availability,
+- wants to shorten first response time,
+- has more than one support agent,
+- wants to onboard new team members faster.
+
+The goal is not to automate every conversation. The goal is to keep the most common answers close at hand.
+
+## Canned responses in Chataptor
+
+Chataptor helps teams answer customers faster without writing the same messages from scratch. It is especially useful when the company handles messages from multiple channels: live chat, email, WhatsApp, Messenger, Instagram, Facebook or marketplaces.
+
+Instead of switching between apps, the team can work in one inbox and use saved responses for common questions. Chataptor also helps with international customers through automatic AI translations.
+
+Most importantly, Chataptor is currently free and has no message limits, so growing conversations do not immediately turn into extra software costs.
+
+## FAQ
+
+### What are live chat canned responses?
+
+Live chat canned responses are saved messages that an agent can quickly send to a customer. They help answer repeat questions about availability, delivery, returns, complaints or quotes.
+
+### Do canned responses sound artificial?
+
+They can sound artificial if they are too formal or sent without context. Good canned responses should be short, natural and easy to edit before sending.
+
+### Which canned responses should I prepare first?
+
+Start with greetings, product availability, delivery cost, order status, returns, complaints, quote requests, after-hours messages and forwarding cases to another department.
+
+### Are canned responses useful for e-commerce?
+
+Yes. In e-commerce, customers often ask about the same topics: stock, delivery, invoices, returns, complaints, shipping time and order status.
+
+### Can I create my own message templates in Chataptor?
+
+Yes. Chataptor lets you create message templates and assign them to short commands such as `/wait`, `/delivery` or `/offer`.
+
+### Can templates work differently for different websites?
+
+Yes. Templates can be adapted to specific websites or language versions, which is useful for teams working across multiple domains, languages or markets.
+
+## Summary
+
+Live chat canned responses are not meant to replace people. They help people reply faster, more calmly and more clearly.
+
+Prepare them first for repeat topics: product availability, delivery, returns, complaints, invoices, order status, quote requests, after-hours contact and international customers.
+
+With Chataptor, you can create message templates, trigger them with short commands and manage conversations from many channels in one place. You can [start using Chataptor for free](https://chataptor.com/en/).
+
 # Customer messages in one place: how to organize support communication
 
 Canonical URL: https://chataptor.com/en/blog/customer-messages-one-place/
@@ -5269,6 +6385,539 @@ Start with two numbers: what percentage of your tickets come from foreign custom
 
 In the vast majority of cases, no. Translation quality for common European languages is high enough that customers respond without asking whether the agent is a native speaker. If transparency matters to you, a short note in the message footer is sufficient – that is a communication decision, not a technical one.
 
+# Vorgefertigte Antworten im Live-Chat: 30 Vorlagen für den Kundenservice
+
+Canonical URL: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/
+Markdown URL: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+Language: Deutsch (de)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Live-Chat, Vorgefertigte Antworten, Nachrichtenvorlagen, Kundenservice, E-Commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Live-Chat-Inbox mit gespeicherten Antwortvorlagen, Kurzbefehlen und einer Kundenkonversation
+
+Nutzen Sie 30 vorgefertigte Antworten für den Live-Chat: für Verfügbarkeit, Lieferung, Retouren, Reklamationen, Angebote und internationale Kunden.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+Live-Chat funktioniert dann am besten, wenn Kunden schnell eine klare Antwort bekommen. Viele Fragen wiederholen sich jedoch jeden Tag: Verfügbarkeit, Lieferung, Rechnung, Retoure, Reklamation, Termin, Angebot oder der richtige Ansprechpartner.
+
+Darum lohnen sich **vorgefertigte Antworten im Live-Chat**. Sie sollen Ihr Team nicht wie einen Bot klingen lassen. Sie helfen, schneller zu antworten, den Ton einheitlich zu halten und wiederkehrende Nachrichten nicht jedes Mal neu zu schreiben.
+
+Wenn Sie noch ein Tool auswählen, lesen Sie auch den Leitfaden zu [kostenlosem Live-Chat ohne Nachrichtenlimit](https://chataptor.com/de/blog/kostenloser-live-chat-ohne-limits/). Für Teams mit mehreren Kanälen ist außerdem der Artikel über [Kundennachrichten an einem Ort](https://chataptor.com/de/blog/kundennachrichten-an-einem-ort/) hilfreich.
+
+## Was macht eine gute Live-Chat-Antwort aus?
+
+Eine gute Antwort ist kurz, menschlich und konkret. Kunden öffnen den Chat nicht, um lange Standardtexte zu lesen. Sie wollen wissen, was als Nächstes passiert.
+
+Eine einfache Regel:
+
+> Erst die Frage beantworten, dann den nächsten Schritt nennen.
+
+Statt:
+
+```text
+Vielen Dank für Ihre Kontaktaufnahme. Ihre Anfrage wird an die zuständige Abteilung weitergeleitet.
+```
+
+besser:
+
+```text
+Guten Tag, ich prüfe das für Sie und melde mich gleich mit einer Antwort zurück.
+```
+
+Das klingt professionell und trotzdem natürlich.
+
+## 30 vorgefertigte Antworten für den Live-Chat
+
+Die folgenden Beispiele können Sie als gespeicherte Antworten, Kurzbefehle oder Grundlage für eigene Vorlagen nutzen. Ersetzen Sie Platzhalter wie `[Produktname]`, `[Zeit]`, `[E-Mail-Adresse]` oder `[Bestellnummer]` durch Ihre Daten.
+
+### 1. Erste Antwort im Chat
+
+```text
+Guten Tag! Wie kann ich Ihnen helfen?
+```
+
+Etwas wärmer:
+
+```text
+Guten Tag! Ich bin im Chat und helfe Ihnen gerne. Bitte schreiben Sie kurz, worum es geht.
+```
+
+### 2. Wenn Sie kurz etwas prüfen müssen
+
+```text
+Ich prüfe das gerade. Bitte geben Sie mir einen Moment.
+```
+
+Wenn es länger dauern kann:
+
+```text
+Ich prüfe das sorgfältig, damit ich Ihnen keine falsche Information gebe. Ich melde mich gleich zurück.
+```
+
+### 3. Wenn das Produkt verfügbar ist
+
+```text
+Ja, das Produkt ist verfügbar. Wir können die Bestellung direkt vorbereiten.
+```
+
+Für E-Commerce:
+
+```text
+Ja, dieses Produkt ist aktuell auf Lager. Sie können es direkt auf der Website bestellen.
+```
+
+### 4. Wenn das Produkt nicht verfügbar ist
+
+```text
+Dieses Produkt ist derzeit nicht verfügbar. Ich kann prüfen, wann es wieder verfügbar ist, oder eine ähnliche Option vorschlagen.
+```
+
+Mit Kontakt:
+
+```text
+Das Produkt ist vorübergehend nicht verfügbar. Hinterlassen Sie bitte Ihre E-Mail-Adresse, dann informieren wir Sie, sobald es zurück ist.
+```
+
+### 5. Wenn der Kunde nach dem Preis fragt
+
+```text
+Der Preis hängt von der gewählten Variante ab. Bitte schreiben Sie, welches Modell oder welchen Leistungsumfang Sie meinen, dann nenne ich Ihnen einen konkreten Betrag.
+```
+
+B2B-Version:
+
+```text
+Wir erstellen gerne ein individuelles Angebot. Bitte beschreiben Sie kurz, worum es geht, dann leite ich es an die passende Person weiter.
+```
+
+### 6. Wenn der Kunde ein Angebot möchte
+
+```text
+Wir erstellen gerne ein Angebot. Bitte senden Sie Ihre E-Mail-Adresse und eine kurze Beschreibung, was das Angebot enthalten soll.
+```
+
+Direkter:
+
+```text
+Gerne. Bitte hinterlassen Sie Ihre E-Mail-Adresse oder Telefonnummer, dann meldet sich die zuständige Person mit einem konkreten Vorschlag.
+```
+
+### 7. Wenn das Gespräch an den Vertrieb gehen soll
+
+```text
+Ich leite dieses Gespräch an unser Vertriebsteam weiter. Bitte hinterlassen Sie Telefonnummer oder E-Mail-Adresse, damit wir konkret antworten können.
+```
+
+Kurz:
+
+```text
+Das ist ein Thema für unser Vertriebsteam. Ich leite die Nachricht weiter und bitte die passende Person um Kontaktaufnahme.
+```
+
+### 8. Wenn der Kunde nach Lieferzeit fragt
+
+```text
+Die Standardlieferzeit beträgt [Zeit]. Der genaue Termin hängt vom Produkt und der Lieferadresse ab.
+```
+
+Für Shops:
+
+```text
+Wir versenden Bestellungen normalerweise innerhalb von [Zeit]. Nach dem Versand erhält der Kunde einen Tracking-Link.
+```
+
+### 9. Wenn der Kunde nach Lieferkosten fragt
+
+```text
+Die Lieferkosten hängen von der gewählten Versandart ab. Im Warenkorb werden die verfügbaren Optionen und der genaue Preis angezeigt.
+```
+
+Manuelle Prüfung:
+
+```text
+Ich kann das prüfen. Bitte senden Sie den Lieferort und das Produkt, um das es geht.
+```
+
+### 10. Wenn der Kunde den Bestellstatus wissen möchte
+
+```text
+Ich prüfe den Status der Bestellung. Bitte senden Sie die Bestellnummer oder die E-Mail-Adresse, die beim Kauf verwendet wurde.
+```
+
+Nach der Prüfung:
+
+```text
+Ihre Bestellung befindet sich aktuell im Status [Status]. Der nächste Schritt ist [nächster Schritt].
+```
+
+### 11. Wenn der Kunde nach einer Rechnung fragt
+
+```text
+Natürlich. Bitte senden Sie die Bestellnummer und die Rechnungsdaten, dann prüfen wir das Dokument.
+```
+
+Wenn die Rechnung gesendet wurde:
+
+```text
+Die Rechnung wurde an die E-Mail-Adresse aus der Bestellung gesendet. Bitte prüfen Sie auch Spam- oder Werbeordner.
+```
+
+### 12. Wenn der Kunde ein Produkt zurückgeben möchte
+
+```text
+Natürlich, wir helfen bei der Retoure. Bitte senden Sie die Bestellnummer, dann schicke ich die nächsten Schritte.
+```
+
+Mit Link:
+
+```text
+Die Retoure können Sie hier anmelden: [Link]. Nach dem Ausfüllen des Formulars erhalten Sie weitere Anweisungen.
+```
+
+### 13. Wenn der Kunde eine Reklamation melden möchte
+
+```text
+Es tut mir leid, dass es ein Problem gibt. Bitte senden Sie die Bestellnummer und beschreiben Sie kurz die Situation. Wir leiten den Fall an die Reklamationsbearbeitung weiter.
+```
+
+Mit Fotos:
+
+```text
+Bitte senden Sie Fotos des Problems und die Bestellnummer. Das hilft uns, die Reklamation schneller zu prüfen.
+```
+
+### 14. Wenn der Kunde verärgert ist
+
+```text
+Ich verstehe, dass diese Situation frustrierend ist. Ich prüfe, was wir tun können, um sie schnell zu klären.
+```
+
+Ruhig und konkret:
+
+```text
+Ich verstehe das Problem. Geben Sie mir bitte einen Moment, ich prüfe die Details und melde mich mit einer konkreten Information.
+```
+
+### 15. Wenn Ihr Unternehmen einen Fehler gemacht hat
+
+```text
+Es tut uns leid. Das hätte nicht passieren dürfen. Ich prüfe den Fall und melde mich gleich mit Informationen, wie wir das beheben.
+```
+
+Kürzer:
+
+```text
+Sie haben recht, darum hätten wir uns früher kümmern sollen. Ich prüfe gerade, wie wir das schnell lösen können.
+```
+
+### 16. Wenn der Kunde nach Rabatt fragt
+
+```text
+Bei größeren Bestellungen können wir ein individuelles Angebot prüfen. Bitte schreiben Sie, um welche Bestellung es geht.
+```
+
+Für Shops:
+
+```text
+Aktuelle Aktionen sind auf der Website sichtbar. Bei einer größeren Bestellung hinterlassen Sie bitte Kontaktangaben, dann prüfen wir, was möglich ist.
+```
+
+### 17. Wenn der Kunde nach B2B-Zusammenarbeit fragt
+
+```text
+Vielen Dank für Ihr Interesse an einer Zusammenarbeit. Bitte hinterlassen Sie E-Mail-Adresse, Firmennamen und eine kurze Beschreibung. Wir leiten die Nachricht weiter.
+```
+
+Kürzer:
+
+```text
+Gerne. Für B2B-Zusammenarbeit ist bei uns die passende Person zuständig. Bitte hinterlassen Sie Kontaktangaben, dann melden wir uns.
+```
+
+### 18. Wenn der Kunde Katalog oder Preisliste möchte
+
+```text
+Wir können Ihnen Katalog und aktuelle Informationen senden. Bitte geben Sie Ihre E-Mail-Adresse an und schreiben Sie, welche Produkte oder Leistungen Sie interessieren.
+```
+
+Mit Präzisierung:
+
+```text
+Gerne senden wir Materialien. Bitte schreiben Sie, ob Sie einen allgemeinen Katalog, eine Preisliste oder eine bestimmte Produktgruppe meinen.
+```
+
+### 19. Wenn der Kunde nach einem Umsetzungstermin fragt
+
+```text
+Der nächste mögliche Termin hängt vom Umfang ab. Bitte beschreiben Sie kurz den Fall, dann prüfe ich die Verfügbarkeit.
+```
+
+Einfach:
+
+```text
+Die aktuelle Bearbeitungszeit beträgt etwa [Zeit]. Bei dringenden Fällen können wir den nächstmöglichen Termin prüfen.
+```
+
+### 20. Wenn der Kunde außerhalb der Arbeitszeit schreibt
+
+```text
+Vielen Dank für Ihre Nachricht. Wir sind derzeit außerhalb der Arbeitszeiten, melden uns aber so schnell wie möglich.
+```
+
+Mit Datenerfassung:
+
+```text
+Vielen Dank für Ihre Nachricht. Bitte hinterlassen Sie E-Mail-Adresse oder Telefonnummer und eine kurze Beschreibung. Wir melden uns nach unserer Rückkehr.
+```
+
+### 21. Wenn der Kunde nicht mehr antwortet
+
+```text
+Kann ich Ihnen noch bei etwas helfen?
+```
+
+Nach längerer Pause:
+
+```text
+Es sieht so aus, als wäre das Gespräch pausiert. Wenn Sie noch etwas brauchen, schreiben Sie gerne erneut.
+```
+
+### 22. Wenn Sie Kontaktdaten brauchen
+
+```text
+Damit wir mit einer konkreten Antwort zurückkommen können, hinterlassen Sie bitte Ihre E-Mail-Adresse oder Telefonnummer.
+```
+
+Mit Kontext:
+
+```text
+Dieser Fall erfordert eine Prüfung auf unserer Seite. Bitte hinterlassen Sie Kontaktangaben, dann melden wir uns.
+```
+
+### 23. Wenn der Fall an eine andere Abteilung geht
+
+```text
+Ich leite diesen Fall an die zuständige Abteilung weiter. Bitte hinterlassen Sie Kontaktangaben, damit wir antworten können.
+```
+
+Konkreter:
+
+```text
+Das ist ein Thema für die Abteilung [Abteilungsname]. Ich leite die Nachricht weiter und bitte die passende Person um Kontakt.
+```
+
+### 24. Wenn der Kunde um einen Anruf bittet
+
+```text
+Natürlich. Bitte hinterlassen Sie Ihre Telefonnummer und eine kurze Beschreibung. Die zuständige Person ruft zurück.
+```
+
+Mit Uhrzeit:
+
+```text
+Wir können zwischen [Uhrzeiten] zurückrufen. Bitte senden Sie Telefonnummer und eine passende Zeit.
+```
+
+### 25. Wenn der Kunde nach Standort oder Anfahrt fragt
+
+```text
+Sie finden uns unter folgender Adresse: [Adresse]. Ich kann Ihnen auch einen Kartenlink senden.
+```
+
+Mit Öffnungszeiten:
+
+```text
+Wir begrüßen Sie gerne unter: [Adresse]. Geöffnet ist von [Uhrzeiten].
+```
+
+### 26. Wenn der Kunde nach einem freien Termin fragt
+
+```text
+Ich prüfe verfügbare Termine. Bitte schreiben Sie, welcher Tag oder welche Uhrzeit für Sie am besten passt.
+```
+
+Schnelle Antwort:
+
+```text
+Wir haben einen freien Termin am [Datum/Uhrzeit]. Soll ich ihn vorläufig reservieren?
+```
+
+### 27. Wenn der Kunde in einer anderen Sprache schreibt
+
+```text
+Guten Tag! Sie können in Ihrer Sprache schreiben. Wir antworten so, dass das Gespräch für beide Seiten verständlich bleibt.
+```
+
+Mit Übersetzung:
+
+```text
+Sie können in Ihrer Sprache schreiben - die Nachricht wird automatisch übersetzt, und wir antworten so schnell wie möglich.
+```
+
+Mehr dazu im Artikel über [automatische Übersetzung im Kundensupport](https://chataptor.com/de/blog/automatische-uebersetzung-im-kundensupport/).
+
+### 28. Wenn der Kunde fragt, ob er mit einem Menschen spricht
+
+```text
+Ja, Sie sprechen mit einer Person aus unserem Team. Ich helfe Ihnen gerne.
+```
+
+Locker:
+
+```text
+Ja, am anderen Ende ist eine echte Person aus dem Team. Schreiben Sie gerne weiter.
+```
+
+### 29. Wenn Sie nicht sofort helfen können
+
+```text
+Ich möchte Ihnen keine falsche Information geben und muss das prüfen. Bitte hinterlassen Sie Kontaktangaben, dann melden wir uns.
+```
+
+Mit Zeitangabe:
+
+```text
+Ich muss das mit der zuständigen Person bestätigen. Wir melden uns innerhalb von [Zeit].
+```
+
+### 30. Gespräch beenden
+
+```text
+Ich freue mich, dass ich helfen konnte. Wenn Sie weitere Fragen haben, schreiben Sie gerne.
+```
+
+Etwas verkaufsorientierter:
+
+```text
+Vielen Dank für das Gespräch. Wenn weitere Fragen auftauchen, sind wir im Chat erreichbar.
+```
+
+## Wie nutzt man Vorlagen, ohne wie ein Roboter zu klingen?
+
+Vorgefertigte Antworten sollten nie blind eingefügt werden. Nutzen Sie sie als Basis und passen Sie den Satz an den Kontext an.
+
+Statt:
+
+```text
+Vielen Dank für Ihre Nachricht. Ihr Anliegen wurde an die zuständige Abteilung weitergeleitet.
+```
+
+besser:
+
+```text
+Vielen Dank für die Informationen. Ich leite das an unser Serviceteam weiter und bitte um Kontaktaufnahme.
+```
+
+Der Unterschied ist klein, aber der Kunde merkt, dass die Nachricht gelesen wurde.
+
+## Welche Vorlagen sollte man zuerst anlegen?
+
+| Situation | Warum die Vorlage hilft |
+| --- | --- |
+| Begrüßung | Verkürzt die erste Antwortzeit |
+| Bitte um einen Moment | Gibt Zeit zur Prüfung |
+| Verfügbarkeit | Sehr häufig in E-Commerce und B2B |
+| Lieferung | Wiederholt sich in Online-Shops |
+| Retoure oder Reklamation | Braucht ruhigen und klaren Ton |
+| Angebotsanfrage | Hilft, Daten schneller zu sammeln |
+| Weiterleitung | Bringt Ordnung ins Team |
+| Außerhalb der Arbeitszeit | Sammelt Leads auch offline |
+| Internationale Kunden | Erleichtert mehrsprachigen Support |
+| Abschluss | Beendet das Gespräch professionell |
+
+Starten Sie lieber mit 10 wirklich nützlichen Antworten als mit 100 ungenutzten Vorlagen.
+
+## Nachrichtenvorlagen in Chataptor
+
+In Chataptor können vorgefertigte Antworten als Nachrichtenvorlagen gespeichert und über kurze Befehle eingefügt werden.
+
+Zum Beispiel:
+
+```text
+/moment
+```
+
+kann einfügen:
+
+```text
+Ich prüfe das gerade. Bitte geben Sie mir einen Moment.
+```
+
+Und:
+
+```text
+/lieferung
+```
+
+kann eine vorbereitete Antwort zu Lieferbedingungen und Kosten einfügen.
+
+## Vorlagen für bestimmte Websites und Sprachen
+
+Vorlagen können zu bestimmten Websites oder Sprachversionen passen. Wenn ein Kunde aus der deutschen Shop-Version nach Lieferung nach Deutschland fragt, kann der Agent nur schreiben:
+
+```text
+/lieferung
+```
+
+und das System fügt die passende Antwort für diese Website ein. Bei automatischen Übersetzungen kann das Team eine Basisvorlage behalten, während der Kunde die Antwort in seiner Sprache erhält.
+
+## Wann sparen Nachrichtenvorlagen am meisten Zeit?
+
+Nachrichtenvorlagen sind besonders hilfreich, wenn Ihr Unternehmen:
+
+- viele wiederkehrende Fragen erhält,
+- mehrere Sprachversionen betreibt,
+- Kunden aus verschiedenen Ländern betreut,
+- oft zu Lieferung, Retouren, Rechnungen und Verfügbarkeit antwortet,
+- die erste Antwortzeit senken möchte,
+- mehrere Support-Mitarbeiter hat,
+- neue Personen schneller einarbeiten will.
+
+## Vorgefertigte Antworten in Chataptor
+
+Chataptor hilft Teams, schneller zu antworten, ohne dieselben Nachrichten immer wieder neu zu schreiben. Das ist besonders nützlich, wenn Nachrichten aus Live-Chat, E-Mail, WhatsApp, Messenger, Instagram, Facebook oder Marktplätzen ankommen.
+
+Das Team arbeitet in einer Inbox, nutzt gespeicherte Antworten und kann internationale Kunden mit automatischen KI-Übersetzungen einfacher betreuen. Chataptor ist derzeit kostenlos und hat kein Nachrichtenlimit.
+
+## FAQ
+
+### Was sind vorgefertigte Antworten im Live-Chat?
+
+Das sind gespeicherte Nachrichten, die ein Mitarbeiter schnell an Kunden senden kann. Sie helfen bei wiederkehrenden Fragen zu Verfügbarkeit, Lieferung, Retoure, Reklamation oder Angebot.
+
+### Klingen vorgefertigte Antworten künstlich?
+
+Nur dann, wenn sie zu formell sind oder ohne Kontext gesendet werden. Gute Vorlagen sind kurz, natürlich und leicht anpassbar.
+
+### Welche Antworten sollte man zuerst vorbereiten?
+
+Begrüßung, Verfügbarkeit, Lieferkosten, Bestellstatus, Retoure, Reklamation, Angebotsanfrage, Nachricht außerhalb der Arbeitszeit und Weiterleitung an eine Abteilung.
+
+### Sind Vorlagen im E-Commerce sinnvoll?
+
+Ja. In Online-Shops wiederholen sich viele Fragen zu Lagerbestand, Lieferung, Rechnung, Retoure, Reklamation und Bestellstatus.
+
+### Kann man in Chataptor eigene Vorlagen erstellen?
+
+Ja. In Chataptor können Sie Nachrichtenvorlagen erstellen und sie kurzen Befehlen wie `/moment`, `/lieferung` oder `/angebot` zuordnen.
+
+## Zusammenfassung
+
+Vorgefertigte Antworten ersetzen keine Menschen. Sie helfen Menschen, schneller, ruhiger und klarer zu antworten.
+
+Mit Chataptor können Sie Nachrichtenvorlagen erstellen, Gespräche aus mehreren Kanälen in einer Inbox bearbeiten und Kunden in verschiedenen Sprachen einfacher unterstützen. Sie können [Chataptor kostenlos nutzen](https://chataptor.com/de/).
+
 # Kundennachrichten an einem Ort: So ordnen Sie Ihre Kommunikation
 
 Canonical URL: https://chataptor.com/de/blog/kundennachrichten-an-einem-ort/
@@ -6822,6 +8471,539 @@ Beginnen Sie mit zwei Zahlen: Wie viel Prozent der Anfragen kommen von ausländi
 ### Wird der Kunde merken, dass ich über automatische Übersetzung antworte?
 
 In den meisten Fällen nicht. Die Übersetzungsqualität für gängige europäische Sprachen ist so hoch, dass Kunden antworten, ohne zu fragen, ob der Agent ein Muttersprachler ist. Wenn Ihnen Transparenz wichtig ist, können Sie eine kurze Notiz in der Fußzeile der Nachricht hinzufügen – das ist eine kommunikative, keine technische Entscheidung.
+
+# Réponses prêtes pour le live chat : 30 modèles pour le service client
+
+Canonical URL: https://chataptor.com/fr/blog/reponses-pretes-live-chat/
+Markdown URL: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+Language: Français (fr)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Live Chat, Réponses Prêtes, Modèles de Messages, Service Client, E-commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Boîte de réception live chat avec modèles de réponses enregistrés, commandes rapides et conversation client
+
+Découvrez 30 réponses prêtes pour le live chat : disponibilité, livraison, retours, réclamations, devis, clients internationaux et support e-commerce.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+Le live chat fonctionne mieux quand le client reçoit rapidement une réponse claire. Mais beaucoup de questions reviennent tous les jours : disponibilité, livraison, facture, retour, réclamation, délai, devis ou contact avec la bonne personne.
+
+C'est exactement le rôle des **réponses prêtes pour le live chat**. Elles ne servent pas à remplacer la conversation humaine. Elles aident l'équipe à répondre plus vite, à garder un ton cohérent et à éviter de réécrire les mêmes phrases.
+
+Si vous choisissez encore votre outil, consultez aussi notre guide sur le [live chat gratuit sans limite de messages](https://chataptor.com/fr/blog/live-chat-gratuit-sans-limites/). Si vos demandes arrivent par plusieurs canaux, l'article sur les [messages clients au même endroit](https://chataptor.com/fr/blog/messages-clients-un-seul-endroit/) peut aussi vous aider.
+
+## À quoi ressemble une bonne réponse de live chat ?
+
+Une bonne réponse est courte, humaine et concrète. Le client n'ouvre pas le chat pour lire un long texte administratif. Il veut savoir quoi faire ensuite.
+
+La règle la plus simple :
+
+> Répondez d'abord à la question, puis indiquez l'étape suivante.
+
+Au lieu de :
+
+```text
+Merci de nous avoir contactés. Votre demande sera transmise au service compétent.
+```
+
+Écrivez plutôt :
+
+```text
+Bonjour, je vérifie cela pour vous et je reviens avec une réponse dans un instant.
+```
+
+C'est professionnel, mais beaucoup plus naturel.
+
+## 30 réponses prêtes pour le live chat
+
+Vous pouvez utiliser ces exemples comme réponses enregistrées, commandes rapides ou base pour vos propres modèles. Remplacez `[nom du produit]`, `[délai]`, `[adresse e-mail]` ou `[numéro de commande]` par vos informations.
+
+### 1. Premier message sur le chat
+
+```text
+Bonjour ! Comment puis-je vous aider ?
+```
+
+Version plus chaleureuse :
+
+```text
+Bonjour ! Je suis disponible sur le chat et je vous aide avec plaisir. Pouvez-vous me dire de quoi il s'agit ?
+```
+
+### 2. Quand vous devez vérifier une information
+
+```text
+Je vérifie cela tout de suite. Merci de patienter un instant.
+```
+
+Si cela peut prendre plus de temps :
+
+```text
+Je vais vérifier précisément pour ne pas vous donner une mauvaise information. Je reviens vers vous dans un instant.
+```
+
+### 3. Quand le produit est disponible
+
+```text
+Oui, ce produit est disponible. Nous pouvons préparer la commande immédiatement.
+```
+
+Version e-commerce :
+
+```text
+Oui, ce produit est actuellement en stock. Vous pouvez le commander directement sur le site.
+```
+
+### 4. Quand le produit n'est pas disponible
+
+```text
+Ce produit est actuellement indisponible. Je peux vérifier quand il sera de retour ou vous proposer une option similaire.
+```
+
+Avec suivi :
+
+```text
+Le produit est temporairement indisponible. Laissez-nous votre adresse e-mail et nous vous informerons dès son retour.
+```
+
+### 5. Quand le client demande le prix
+
+```text
+Le prix dépend de l'option choisie. Pouvez-vous préciser le modèle ou le périmètre du service qui vous intéresse ?
+```
+
+Version B2B :
+
+```text
+Nous pouvons préparer un devis personnalisé. Décrivez brièvement votre besoin et je le transmettrai à la bonne personne.
+```
+
+### 6. Quand le client demande une offre
+
+```text
+Nous préparerons volontiers une offre. Merci d'indiquer votre adresse e-mail et quelques détails sur ce que le devis doit inclure.
+```
+
+Plus direct :
+
+```text
+Bien sûr. Laissez-nous votre e-mail ou votre numéro de téléphone, et la personne concernée reviendra vers vous avec une proposition.
+```
+
+### 7. Quand la conversation doit aller au service commercial
+
+```text
+Je vais transmettre cette conversation à notre équipe commerciale. Merci de laisser votre téléphone ou votre e-mail pour que nous puissions répondre précisément.
+```
+
+Version courte :
+
+```text
+C'est un sujet pour notre équipe commerciale. Je transmets votre message et je demande à la bonne personne de vous contacter.
+```
+
+### 8. Quand le client demande le délai de livraison
+
+```text
+Le délai de livraison standard est de [délai]. La date exacte dépend du produit et de l'adresse de livraison.
+```
+
+Version boutique en ligne :
+
+```text
+Nous expédions généralement les commandes sous [délai]. Après l'expédition, le client reçoit un lien de suivi.
+```
+
+### 9. Quand le client demande le coût de livraison
+
+```text
+Le coût de livraison dépend du mode d'expédition choisi. Après ajout au panier, le site affichera les options disponibles et le prix exact.
+```
+
+Vérification manuelle :
+
+```text
+Je peux vérifier cela. Merci d'indiquer la ville de livraison et le produit concerné.
+```
+
+### 10. Quand le client demande le statut de commande
+
+```text
+Je vais vérifier le statut de la commande. Merci d'envoyer le numéro de commande ou l'adresse e-mail utilisée lors de l'achat.
+```
+
+Après vérification :
+
+```text
+Votre commande est actuellement à l'étape [statut]. La prochaine étape sera [étape suivante].
+```
+
+### 11. Quand le client demande une facture
+
+```text
+Bien sûr. Merci d'envoyer le numéro de commande et les informations de facturation, nous vérifierons le document.
+```
+
+Si la facture a été envoyée :
+
+```text
+La facture a été envoyée à l'adresse e-mail utilisée pour la commande. Pensez aussi à vérifier les dossiers spam ou promotions.
+```
+
+### 12. Quand le client veut retourner un produit
+
+```text
+Bien sûr, nous allons vous aider pour le retour. Envoyez-nous le numéro de commande et je vous indiquerai les prochaines étapes.
+```
+
+Avec lien :
+
+```text
+Vous pouvez déclarer le retour ici : [lien]. Après le formulaire, vous recevrez les instructions suivantes.
+```
+
+### 13. Quand le client veut déposer une réclamation
+
+```text
+Je suis désolé que ce problème soit arrivé. Merci d'envoyer le numéro de commande et une courte description de la situation. Nous transmettrons le dossier.
+```
+
+Avec photos :
+
+```text
+Merci d'envoyer des photos du problème et le numéro de commande. Cela nous aidera à traiter la réclamation plus rapidement.
+```
+
+### 14. Quand le client est mécontent
+
+```text
+Je comprends que cette situation soit frustrante. Je vais vérifier ce que nous pouvons faire pour la clarifier au plus vite.
+```
+
+Calme et concret :
+
+```text
+Je comprends le problème. Donnez-moi un instant pour vérifier les détails et je reviens avec une réponse précise.
+```
+
+### 15. Quand l'entreprise a fait une erreur
+
+```text
+Nous sommes désolés pour cette situation. Cela n'aurait pas dû arriver. Je vérifie le dossier et je reviens avec la solution.
+```
+
+Version courte :
+
+```text
+Vous avez raison, nous aurions dû le traiter plus tôt. Je vérifie comment résoudre cela rapidement.
+```
+
+### 16. Quand le client demande une remise
+
+```text
+Pour les commandes plus importantes, nous pouvons vérifier la possibilité d'un devis individuel. Pouvez-vous préciser la commande concernée ?
+```
+
+Version e-commerce :
+
+```text
+Les promotions actuelles sont visibles sur le site. Pour une commande plus importante, laissez-nous vos coordonnées et nous vérifierons ce qui est possible.
+```
+
+### 17. Quand le client demande une coopération B2B
+
+```text
+Merci pour votre intérêt. Laissez votre e-mail, le nom de votre entreprise et une courte description du sujet. Nous transmettrons le message à la bonne personne.
+```
+
+Plus court :
+
+```text
+Bien sûr. La coopération B2B est suivie par la personne concernée dans notre équipe. Laissez vos coordonnées et nous reviendrons vers vous.
+```
+
+### 18. Quand le client demande un catalogue ou une liste de prix
+
+```text
+Nous pouvons envoyer le catalogue et les informations actuelles. Merci d'indiquer votre e-mail et les produits ou services qui vous intéressent.
+```
+
+Avec précision :
+
+```text
+Nous vous enverrons les documents avec plaisir. Dites-nous s'il s'agit d'un catalogue général, d'une liste de prix ou d'une gamme précise.
+```
+
+### 19. Quand le client demande un délai de réalisation
+
+```text
+Le premier délai disponible dépend du périmètre. Décrivez brièvement votre besoin et je vérifierai les disponibilités.
+```
+
+Simple :
+
+```text
+Le délai actuel est d'environ [délai]. Pour les demandes urgentes, nous pouvons vérifier la première disponibilité.
+```
+
+### 20. Quand le client écrit hors horaires
+
+```text
+Merci pour votre message. Nous sommes actuellement hors horaires d'ouverture, mais nous répondrons dès que possible.
+```
+
+Pour collecter les données :
+
+```text
+Merci pour votre message. Laissez votre e-mail ou téléphone avec une courte description. Nous vous contacterons à notre retour.
+```
+
+### 21. Quand le client ne répond plus
+
+```text
+Puis-je encore vous aider ?
+```
+
+Après une pause :
+
+```text
+La conversation semble s'être interrompue. Si vous avez encore besoin d'aide, écrivez-nous à nouveau.
+```
+
+### 22. Quand vous devez demander des coordonnées
+
+```text
+Pour pouvoir revenir avec une réponse précise, merci de laisser votre e-mail ou votre numéro de téléphone.
+```
+
+Avec contexte :
+
+```text
+Ce sujet nécessite une vérification de notre côté. Laissez vos coordonnées et nous reviendrons vers vous.
+```
+
+### 23. Quand le sujet doit être transmis à un autre service
+
+```text
+Je vais transmettre ce dossier au service compétent. Merci de laisser vos coordonnées pour que nous puissions répondre.
+```
+
+Plus précis :
+
+```text
+C'est un sujet pour le service [nom du service]. Je transmets le message et je demande à la bonne personne de vous contacter.
+```
+
+### 24. Quand le client demande un appel
+
+```text
+Bien sûr. Merci de laisser votre numéro de téléphone et une courte description. La personne concernée vous rappellera.
+```
+
+Avec horaires :
+
+```text
+Nous pouvons rappeler entre [horaires]. Merci d'envoyer votre numéro et le moment qui vous convient.
+```
+
+### 25. Quand le client demande l'adresse ou l'accès
+
+```text
+Nous sommes situés à l'adresse suivante : [adresse]. Je peux aussi vous envoyer un lien vers la carte.
+```
+
+Avec horaires :
+
+```text
+Nous vous accueillons à l'adresse : [adresse]. Nous sommes ouverts de [horaires].
+```
+
+### 26. Quand le client demande un créneau disponible
+
+```text
+Je vais vérifier les créneaux disponibles. Quel jour ou quelle heure vous conviendrait le mieux ?
+```
+
+Réponse rapide :
+
+```text
+Nous avons un créneau disponible le [date/heure]. Souhaitez-vous que je le réserve provisoirement ?
+```
+
+### 27. Quand le client écrit dans une autre langue
+
+```text
+Bonjour ! Vous pouvez écrire dans votre langue. Nous répondrons de manière à ce que la conversation reste claire pour les deux côtés.
+```
+
+Avec traduction :
+
+```text
+Vous pouvez écrire dans votre langue - le message sera traduit automatiquement et nous répondrons dès que possible.
+```
+
+Nous décrivons ce cas dans le guide sur la [traduction automatique dans le service client](https://chataptor.com/fr/blog/traduction-automatique-service-client/).
+
+### 28. Quand le client demande s'il parle à un humain
+
+```text
+Oui, vous parlez avec une personne de notre équipe. Je vous aide avec plaisir.
+```
+
+Plus naturel :
+
+```text
+Oui, il y a bien une personne de l'équipe de l'autre côté. Vous pouvez continuer.
+```
+
+### 29. Quand vous ne pouvez pas aider immédiatement
+
+```text
+Je ne veux pas vous donner une mauvaise information, je dois donc vérifier. Laissez vos coordonnées et nous reviendrons vers vous.
+```
+
+Avec délai :
+
+```text
+Je dois confirmer cela avec la personne concernée. Nous reviendrons avec une information sous [délai].
+```
+
+### 30. Fin de conversation
+
+```text
+Je suis heureux d'avoir pu aider. Si vous avez d'autres questions, n'hésitez pas à nous écrire.
+```
+
+Plus commercial :
+
+```text
+Merci pour cet échange. Si d'autres questions apparaissent, nous sommes disponibles sur le chat.
+```
+
+## Comment utiliser les réponses prêtes sans sonner comme un robot ?
+
+Les réponses prêtes doivent rester une base. Avant l'envoi, adaptez-les au contexte réel de la conversation.
+
+Au lieu de :
+
+```text
+Merci pour votre message. Votre demande a été transmise au service compétent.
+```
+
+préférez :
+
+```text
+Merci pour les informations. Je transmets le sujet à notre équipe technique et je leur demande de vous contacter.
+```
+
+Le client sent que sa demande a été réellement lue.
+
+## Quelles réponses ajouter en premier ?
+
+| Situation | Pourquoi avoir un modèle ? |
+| --- | --- |
+| Message d'accueil | Réduit le temps de première réponse |
+| Demande de patience | Donne le temps de vérifier |
+| Disponibilité | Très fréquent en e-commerce et B2B |
+| Livraison | Revient souvent en boutique en ligne |
+| Retour ou réclamation | Demande un ton calme et clair |
+| Demande de devis | Aide à collecter les données |
+| Transfert à un service | Organise le travail de l'équipe |
+| Hors horaires | Capture les demandes même hors ligne |
+| Client international | Facilite le support multilingue |
+| Clôture | Termine l'échange proprement |
+
+Commencez par 10 réponses vraiment utiles, puis améliorez-les avec les conversations réelles.
+
+## Modèles de messages dans Chataptor
+
+Dans Chataptor, les réponses prêtes peuvent être enregistrées comme modèles et déclenchées avec de courtes commandes.
+
+Par exemple :
+
+```text
+/instant
+```
+
+peut insérer :
+
+```text
+Je vérifie cela tout de suite. Merci de patienter un instant.
+```
+
+Et :
+
+```text
+/livraison
+```
+
+peut insérer une réponse préparée sur les délais et coûts de livraison.
+
+## Modèles par site et par langue
+
+Les modèles peuvent être adaptés à un site ou à une version linguistique précise. Si un client écrit depuis la version allemande d'une boutique et demande la livraison en Allemagne, l'agent peut saisir :
+
+```text
+/livraison
+```
+
+et le système insère le bon modèle pour cette page. Avec la traduction automatique, l'équipe peut conserver une base dans une langue et répondre au client dans la sienne.
+
+## Quand les modèles font-ils gagner le plus de temps ?
+
+Ils sont particulièrement utiles quand l'entreprise :
+
+- reçoit beaucoup de questions répétitives,
+- gère plusieurs versions linguistiques,
+- sert des clients dans plusieurs pays,
+- répond souvent sur la livraison, les retours, les factures et la disponibilité,
+- veut réduire le temps de première réponse,
+- travaille avec plusieurs agents,
+- souhaite former plus vite de nouvelles personnes.
+
+## Réponses prêtes dans Chataptor
+
+Chataptor aide les équipes à répondre plus vite sans réécrire les mêmes messages. C'est utile quand les conversations arrivent depuis le live chat, l'e-mail, WhatsApp, Messenger, Instagram, Facebook ou des marketplaces.
+
+L'équipe travaille dans une boîte de réception commune, utilise des réponses enregistrées et peut aider les clients internationaux avec des traductions automatiques par IA. Chataptor est actuellement gratuit et sans limite de messages.
+
+## FAQ
+
+### Que sont les réponses prêtes pour le live chat ?
+
+Ce sont des messages enregistrés que l'agent peut envoyer rapidement. Ils aident à répondre aux questions répétitives sur la disponibilité, la livraison, les retours, les réclamations ou les devis.
+
+### Les réponses prêtes sonnent-elles artificielles ?
+
+Elles peuvent sonner artificielles si elles sont trop formelles ou envoyées sans contexte. Les bons modèles sont courts, naturels et faciles à modifier.
+
+### Quelles réponses préparer d'abord ?
+
+Accueil, disponibilité, coût de livraison, statut de commande, retour, réclamation, demande de devis, message hors horaires et transfert à un autre service.
+
+### Les modèles sont-ils utiles en e-commerce ?
+
+Oui. En e-commerce, les questions sur stock, livraison, facture, retour, réclamation et statut de commande reviennent souvent.
+
+### Peut-on créer des modèles dans Chataptor ?
+
+Oui. Chataptor permet de créer des modèles et de les déclencher avec des commandes comme `/instant`, `/livraison` ou `/devis`.
+
+## Résumé
+
+Les réponses prêtes ne remplacent pas les personnes. Elles les aident à répondre plus vite, plus calmement et plus clairement.
+
+Avec Chataptor, vous pouvez créer des modèles, gérer plusieurs canaux dans une même boîte de réception et répondre plus facilement aux clients dans différentes langues. Vous pouvez [commencer gratuitement avec Chataptor](https://chataptor.com/fr/).
 
 # Messages clients au même endroit : comment organiser votre support
 
@@ -8377,6 +10559,539 @@ Commencez par deux chiffres : quel pourcentage des demandes provient de clients 
 
 Dans la grande majorité des cas, non. La qualité de traduction pour les langues européennes courantes est suffisamment haute pour que les clients répondent sans demander si l'agent est locuteur natif. Si la transparence vous importe, une courte note en pied de message suffit – c'est une décision de communication, pas technique.
 
+# Respuestas rápidas para chat en vivo: 30 plantillas de atención al cliente
+
+Canonical URL: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/
+Markdown URL: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+Language: Español (es)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Chat en Vivo, Respuestas Rápidas, Plantillas de Mensajes, Atención al Cliente, E-commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Bandeja de chat en vivo con plantillas de respuestas guardadas, comandos rápidos y conversación con un cliente
+
+Usa estas 30 respuestas rápidas para chat en vivo: disponibilidad, envíos, devoluciones, reclamaciones, ofertas y clientes internacionales.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+El chat en vivo funciona mejor cuando el cliente recibe una respuesta clara y rápida. El problema es que muchas preguntas se repiten todos los días: disponibilidad, entrega, factura, devolución, reclamación, plazo, presupuesto o contacto con la persona adecuada.
+
+Por eso conviene preparar **respuestas rápidas para chat en vivo**. No se trata de sonar como un robot, sino de responder más rápido, mantener un tono coherente y no escribir la misma frase una y otra vez.
+
+Si todavía estás eligiendo herramienta, lee también la guía sobre [chat en vivo gratis sin límites de mensajes](https://chataptor.com/es/blog/chat-en-vivo-gratis-sin-limites/). Si tu equipo atiende varios canales, te ayudará el artículo sobre [mensajes de clientes en un solo lugar](https://chataptor.com/es/blog/mensajes-clientes-en-un-solo-lugar/).
+
+## Cómo debe ser una buena respuesta de chat
+
+Una buena respuesta es breve, humana y concreta. El cliente no abre el chat para leer un texto largo. Quiere saber qué pasa después.
+
+Regla sencilla:
+
+> Primero responde la pregunta, después indica el siguiente paso.
+
+En lugar de:
+
+```text
+Gracias por contactar con nuestra empresa. Su solicitud será enviada al departamento correspondiente.
+```
+
+mejor:
+
+```text
+Hola, lo reviso para usted y vuelvo con una respuesta en un momento.
+```
+
+Suena profesional, pero natural.
+
+## 30 respuestas rápidas para chat en vivo
+
+Puedes usar estos ejemplos como respuestas guardadas, comandos rápidos o base para tus propias plantillas. Sustituye `[nombre del producto]`, `[tiempo]`, `[correo electrónico]` o `[número de pedido]` por tus datos.
+
+### 1. Primer mensaje en el chat
+
+```text
+¡Hola! ¿En qué puedo ayudarle?
+```
+
+Versión más cálida:
+
+```text
+¡Hola! Estoy en el chat y con gusto le ayudo. Cuénteme brevemente de qué se trata.
+```
+
+### 2. Cuando necesitas un momento para revisar
+
+```text
+Lo estoy revisando. Por favor, deme un momento.
+```
+
+Si puede tardar más:
+
+```text
+Voy a revisarlo con cuidado para no darle información incorrecta. Vuelvo con una respuesta en breve.
+```
+
+### 3. Cuando el producto está disponible
+
+```text
+Sí, el producto está disponible. Podemos preparar el pedido de inmediato.
+```
+
+Versión e-commerce:
+
+```text
+Sí, este producto está actualmente en stock. Puede pedirlo directamente en la web.
+```
+
+### 4. Cuando el producto no está disponible
+
+```text
+Este producto no está disponible actualmente. Puedo revisar cuándo volverá o proponerle una opción similar.
+```
+
+Con seguimiento:
+
+```text
+El producto está temporalmente agotado. Déjenos su correo y le avisaremos cuando vuelva.
+```
+
+### 5. Cuando el cliente pregunta por el precio
+
+```text
+El precio depende de la opción elegida. Indíqueme qué modelo o alcance del servicio le interesa y le daré un importe concreto.
+```
+
+Versión B2B:
+
+```text
+Podemos preparar un presupuesto individual. Describa brevemente lo que necesita y lo enviaré a la persona adecuada.
+```
+
+### 6. Cuando el cliente pide una oferta
+
+```text
+Con gusto prepararemos una oferta. Envíenos su correo y una breve descripción de lo que debe incluir el presupuesto.
+```
+
+Más directo:
+
+```text
+Claro, podemos preparar una oferta. Déjenos su correo o teléfono y la persona adecuada contactará con usted.
+```
+
+### 7. Cuando la conversación debe pasar a ventas
+
+```text
+Voy a pasar esta conversación al equipo de ventas. Déjenos su teléfono o correo para que podamos responder con detalle.
+```
+
+Versión corta:
+
+```text
+Este tema corresponde a nuestro equipo de ventas. Enviaré el mensaje y pediré a la persona adecuada que le contacte.
+```
+
+### 8. Cuando el cliente pregunta por el tiempo de entrega
+
+```text
+El tiempo estándar de entrega es [tiempo]. La fecha exacta depende del producto y de la dirección de entrega.
+```
+
+Para tienda online:
+
+```text
+Normalmente enviamos los pedidos en [tiempo]. Tras el envío, el cliente recibe un enlace de seguimiento.
+```
+
+### 9. Cuando el cliente pregunta por el coste de envío
+
+```text
+El coste de envío depende del método seleccionado. Al añadir el producto al carrito, la web mostrará las opciones y el precio exacto.
+```
+
+Revisión manual:
+
+```text
+Puedo comprobarlo. Envíeme la ciudad de entrega y el producto que desea pedir.
+```
+
+### 10. Cuando el cliente pregunta por el estado del pedido
+
+```text
+Voy a comprobar el estado del pedido. Envíeme el número de pedido o el correo usado en la compra.
+```
+
+Después de comprobar:
+
+```text
+Su pedido está actualmente en la etapa [estado]. El siguiente paso será [siguiente paso].
+```
+
+### 11. Cuando el cliente pregunta por una factura
+
+```text
+Por supuesto. Envíenos el número de pedido y los datos de facturación, y revisaremos el documento.
+```
+
+Si la factura ya se envió:
+
+```text
+La factura se envió al correo usado en el pedido. Revise también las carpetas de spam o promociones.
+```
+
+### 12. Cuando el cliente quiere devolver un producto
+
+```text
+Por supuesto, le ayudamos con la devolución. Envíenos el número de pedido y le indicaré los siguientes pasos.
+```
+
+Con enlace:
+
+```text
+Puede solicitar la devolución aquí: [enlace]. Después de completar el formulario, recibirá las instrucciones.
+```
+
+### 13. Cuando el cliente quiere presentar una reclamación
+
+```text
+Lamento que haya surgido un problema. Envíenos el número de pedido y describa brevemente la situación. Pasaremos el caso al área correspondiente.
+```
+
+Con fotos:
+
+```text
+Envíenos fotos del problema y el número de pedido. Esto nos ayudará a revisar la reclamación más rápido.
+```
+
+### 14. Cuando el cliente está molesto
+
+```text
+Entiendo que esta situación sea frustrante. Revisaré qué podemos hacer para aclararla lo antes posible.
+```
+
+Calmo y concreto:
+
+```text
+Entiendo el problema. Deme un momento para revisar los detalles y vuelvo con una respuesta concreta.
+```
+
+### 15. Cuando la empresa cometió un error
+
+```text
+Sentimos esta situación. No debería haber ocurrido. Estoy revisando el caso y volveré con información sobre cómo solucionarlo.
+```
+
+Más corto:
+
+```text
+Tiene razón, deberíamos haberlo atendido antes. Estoy revisando cómo resolverlo rápidamente.
+```
+
+### 16. Cuando el cliente pide descuento
+
+```text
+Para pedidos más grandes, podemos revisar la posibilidad de una oferta individual. Dígame de qué pedido se trata.
+```
+
+Versión e-commerce:
+
+```text
+Las promociones actuales están visibles en la web. Para un pedido mayor, déjenos sus datos y revisaremos qué podemos ofrecer.
+```
+
+### 17. Cuando el cliente pregunta por colaboración B2B
+
+```text
+Gracias por su interés en colaborar. Déjenos su correo, nombre de empresa y una breve descripción. Enviaremos el mensaje a la persona adecuada.
+```
+
+Más corto:
+
+```text
+Claro. La colaboración B2B la gestiona la persona adecuada de nuestro equipo. Déjenos sus datos y volveremos con información.
+```
+
+### 18. Cuando el cliente pide catálogo o lista de precios
+
+```text
+Podemos enviarle el catálogo y la información actual. Indíquenos su correo y qué productos o servicios le interesan.
+```
+
+Con precisión:
+
+```text
+Con gusto enviaremos los materiales. Díganos si necesita catálogo general, lista de precios o una categoría concreta.
+```
+
+### 19. Cuando el cliente pregunta por plazo de realización
+
+```text
+El primer plazo disponible depende del alcance. Describa brevemente el caso y revisaré la disponibilidad.
+```
+
+Simple:
+
+```text
+El plazo actual es de aproximadamente [tiempo]. Para casos urgentes, podemos revisar la fecha más cercana.
+```
+
+### 20. Cuando el cliente escribe fuera de horario
+
+```text
+Gracias por su mensaje. Actualmente estamos fuera del horario de atención, pero responderemos lo antes posible.
+```
+
+Para recoger datos:
+
+```text
+Gracias por su mensaje. Déjenos su correo o teléfono y una breve descripción. Le contactaremos al volver.
+```
+
+### 21. Cuando el cliente deja de responder
+
+```text
+¿Puedo ayudarle con algo más?
+```
+
+Después de una pausa:
+
+```text
+Parece que la conversación se pausó. Si necesita algo más, escríbanos de nuevo.
+```
+
+### 22. Cuando necesitas datos de contacto
+
+```text
+Para poder volver con una respuesta concreta, déjenos su correo electrónico o número de teléfono.
+```
+
+Con contexto:
+
+```text
+Este caso requiere revisión por nuestra parte. Déjenos sus datos y volveremos con una respuesta.
+```
+
+### 23. Cuando el caso debe ir a otro departamento
+
+```text
+Voy a enviar este caso al departamento correspondiente. Déjenos sus datos para que podamos responder.
+```
+
+Más concreto:
+
+```text
+Este tema corresponde al departamento de [nombre del departamento]. Enviaré el mensaje y pediré contacto.
+```
+
+### 24. Cuando el cliente pide una llamada
+
+```text
+Por supuesto. Déjenos su número de teléfono y una breve descripción. La persona adecuada le llamará.
+```
+
+Con horario:
+
+```text
+Podemos llamar entre [horario]. Envíenos su teléfono y una hora conveniente.
+```
+
+### 25. Cuando el cliente pregunta por ubicación
+
+```text
+Estamos en: [dirección]. También puedo enviarle un enlace al mapa.
+```
+
+Con horario:
+
+```text
+Le esperamos en: [dirección]. Estamos abiertos de [horario].
+```
+
+### 26. Cuando el cliente pregunta por una cita disponible
+
+```text
+Voy a revisar las fechas disponibles. Dígame qué día u hora le conviene más.
+```
+
+Respuesta rápida:
+
+```text
+Tenemos una cita disponible el [fecha/hora]. ¿Desea que la reserve provisionalmente?
+```
+
+### 27. Cuando el cliente escribe en otro idioma
+
+```text
+¡Hola! Puede escribir en su idioma. Responderemos de forma que la conversación sea clara para ambas partes.
+```
+
+Con traducción:
+
+```text
+Puede escribir en su idioma - el mensaje se traducirá automáticamente y responderemos lo antes posible.
+```
+
+Explicamos este caso en la guía sobre [traducción automática en atención al cliente](https://chataptor.com/es/blog/traduccion-automatica-atencion-cliente/).
+
+### 28. Cuando el cliente pregunta si habla con una persona
+
+```text
+Sí, está hablando con una persona de nuestro equipo. Con gusto le ayudo.
+```
+
+Más natural:
+
+```text
+Sí, hay una persona real al otro lado. Puede escribir con confianza.
+```
+
+### 29. Cuando no puedes ayudar de inmediato
+
+```text
+No quiero darle información incorrecta, así que debo comprobarlo. Déjenos sus datos y volveremos con una respuesta.
+```
+
+Con plazo:
+
+```text
+Debo confirmarlo con la persona adecuada. Volveremos con información en [tiempo].
+```
+
+### 30. Cierre de conversación
+
+```text
+Me alegra haber podido ayudar. Si tiene más preguntas, escríbanos cuando quiera.
+```
+
+Más comercial:
+
+```text
+Gracias por la conversación. Si aparecen más preguntas, estamos disponibles en el chat.
+```
+
+## Cómo usar respuestas rápidas sin sonar como un robot
+
+Las respuestas rápidas son una base, no un texto que se pega sin pensar. Antes de enviarlas, adapta el mensaje al contexto.
+
+En lugar de:
+
+```text
+Gracias por su mensaje. Su caso fue enviado al departamento correspondiente.
+```
+
+mejor:
+
+```text
+Gracias por la información. Enviaré el tema al equipo técnico y les pediré que contacten con usted.
+```
+
+El cliente nota que alguien leyó realmente su mensaje.
+
+## Qué respuestas añadir primero
+
+| Situación | Por qué ayuda la plantilla |
+| --- | --- |
+| Saludo | Reduce el tiempo de primera respuesta |
+| Pedir un momento | Da tiempo para revisar información |
+| Disponibilidad | Muy frecuente en e-commerce y B2B |
+| Envío | Se repite en tiendas online |
+| Devolución o reclamación | Necesita tono claro y tranquilo |
+| Solicitud de oferta | Ayuda a recoger datos |
+| Transferencia a departamento | Ordena el trabajo del equipo |
+| Fuera de horario | Recoge leads cuando nadie atiende |
+| Cliente internacional | Facilita soporte multilingüe |
+| Cierre | Termina la conversación profesionalmente |
+
+Empieza con 10 respuestas útiles y mejóralas con conversaciones reales.
+
+## Plantillas de mensajes en Chataptor
+
+En Chataptor, las respuestas rápidas pueden guardarse como plantillas y activarse con comandos cortos.
+
+Por ejemplo:
+
+```text
+/momento
+```
+
+puede insertar:
+
+```text
+Lo estoy revisando. Por favor, deme un momento.
+```
+
+Y:
+
+```text
+/envio
+```
+
+puede insertar una respuesta preparada sobre tiempos y costes de envío.
+
+## Plantillas para sitios e idiomas concretos
+
+Las plantillas pueden adaptarse a sitios o versiones de idioma concretas. Si un cliente escribe desde la versión alemana de una tienda y pregunta por entrega en Alemania, el agente escribe:
+
+```text
+/envio
+```
+
+y el sistema puede insertar la plantilla correcta para esa página. Con traducción automática, el equipo puede mantener una plantilla base y el cliente recibe la respuesta en su idioma.
+
+## Cuándo ahorran más tiempo las plantillas
+
+Funcionan especialmente bien cuando la empresa:
+
+- recibe muchas preguntas repetidas,
+- gestiona varias versiones de idioma,
+- atiende clientes de varios países,
+- responde a menudo sobre entregas, devoluciones, facturas y disponibilidad,
+- quiere reducir el tiempo de primera respuesta,
+- trabaja con más de una persona en soporte,
+- quiere formar antes a nuevos miembros del equipo.
+
+## Respuestas rápidas en Chataptor
+
+Chataptor ayuda a responder más rápido sin escribir los mismos mensajes desde cero. Es útil cuando llegan conversaciones desde live chat, email, WhatsApp, Messenger, Instagram, Facebook o marketplaces.
+
+El equipo trabaja en una bandeja común, usa respuestas guardadas y puede atender clientes internacionales con traducciones automáticas de IA. Chataptor es actualmente gratuito y sin límite de mensajes.
+
+## FAQ
+
+### Qué son las respuestas rápidas para chat en vivo?
+
+Son mensajes guardados que un agente puede enviar rápidamente. Ayudan con preguntas repetitivas sobre disponibilidad, envío, devolución, reclamación u oferta.
+
+### Suenan artificiales?
+
+Pueden sonar artificiales si son demasiado formales o se envían sin contexto. Una buena plantilla debe ser corta, natural y fácil de editar.
+
+### Qué respuestas preparar primero?
+
+Saludo, disponibilidad, coste de envío, estado de pedido, devolución, reclamación, solicitud de oferta, mensaje fuera de horario y transferencia a otro departamento.
+
+### Son útiles en e-commerce?
+
+Sí. En e-commerce se repiten muchas preguntas sobre stock, envío, factura, devolución, reclamación y estado del pedido.
+
+### Puedo crear plantillas en Chataptor?
+
+Sí. Chataptor permite crear plantillas y asignarlas a comandos cortos como `/momento`, `/envio` o `/oferta`.
+
+## Resumen
+
+Las respuestas rápidas no sustituyen a las personas. Ayudan a responder más rápido, con más calma y claridad.
+
+Con Chataptor puedes crear plantillas, trabajar con varios canales en una sola bandeja y atender clientes en diferentes idiomas. Puedes [empezar gratis con Chataptor](https://chataptor.com/es/).
+
 # Mensajes de clientes en un solo lugar: cómo organizar la atención
 
 Canonical URL: https://chataptor.com/es/blog/mensajes-clientes-en-un-solo-lugar/
@@ -9930,6 +12645,539 @@ Empieza con dos cifras: qué porcentaje de las solicitudes proviene de clientes 
 ### ¿Sabrá el cliente que le estoy respondiendo mediante traducción automática?
 
 En la gran mayoría de los casos, no. La calidad de traducción para los idiomas europeos más comunes es lo suficientemente alta como para que los clientes respondan sin preguntar si el agente es hablante nativo. Si la transparencia es importante para ti, una breve nota en el pie del mensaje es suficiente – esa es una decisión de comunicación, no técnica.
+
+# Risposte predefinite per live chat: 30 modelli per l'assistenza clienti
+
+Canonical URL: https://chataptor.com/it/blog/risposte-predefinite-live-chat/
+Markdown URL: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+Language: Italiano (it)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Live Chat, Risposte Predefinite, Modelli di Messaggi, Assistenza Clienti, E-commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Inbox di live chat con modelli di risposta salvati, comandi rapidi e conversazione con un cliente
+
+Usa 30 risposte predefinite per live chat: disponibilità, spedizioni, resi, reclami, preventivi, clienti internazionali e supporto e-commerce.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+La live chat funziona meglio quando il cliente riceve rapidamente una risposta chiara. Molte domande però si ripetono ogni giorno: disponibilità del prodotto, spedizione, fattura, reso, reclamo, tempi, preventivo o contatto con la persona giusta.
+
+Per questo vale la pena preparare **risposte predefinite per la live chat**. Non servono a far sembrare il team un robot. Aiutano a rispondere più velocemente, mantenere un tono coerente e non riscrivere sempre gli stessi messaggi.
+
+Se stai ancora scegliendo lo strumento, leggi anche la guida alla [live chat gratis senza limiti di messaggi](https://chataptor.com/it/blog/live-chat-gratis-senza-limiti/). Se gestisci più canali, può esserti utile l'articolo sui [messaggi dei clienti in un unico posto](https://chataptor.com/it/blog/messaggi-clienti-in-un-unico-posto/).
+
+## Come deve essere una buona risposta in live chat?
+
+Una buona risposta è breve, umana e concreta. Il cliente non apre la chat per leggere un testo lungo. Vuole sapere cosa succede dopo.
+
+La regola più semplice:
+
+> Rispondi prima alla domanda, poi indica il prossimo passo.
+
+Invece di:
+
+```text
+Grazie per averci contattato. La sua richiesta sarà inoltrata al reparto competente.
+```
+
+meglio:
+
+```text
+Buongiorno, lo verifico per lei e torno con una risposta tra poco.
+```
+
+È professionale, ma suona naturale.
+
+## 30 risposte predefinite per live chat
+
+Puoi usare questi esempi come risposte salvate, comandi rapidi o base per i tuoi modelli. Sostituisci `[nome prodotto]`, `[tempo]`, `[indirizzo e-mail]` o `[numero ordine]` con i tuoi dati.
+
+### 1. Primo messaggio in chat
+
+```text
+Buongiorno! Come posso aiutarla?
+```
+
+Versione più calda:
+
+```text
+Buongiorno! Sono disponibile in chat e la aiuto volentieri. Mi dica pure di cosa ha bisogno.
+```
+
+### 2. Quando ti serve un momento per verificare
+
+```text
+Lo sto verificando. Mi dia un momento, per favore.
+```
+
+Se può richiedere più tempo:
+
+```text
+Lo controllo con attenzione per non darle informazioni sbagliate. Torno con una risposta tra poco.
+```
+
+### 3. Quando il prodotto è disponibile
+
+```text
+Sì, il prodotto è disponibile. Possiamo preparare l'ordine subito.
+```
+
+Versione e-commerce:
+
+```text
+Sì, questo prodotto è attualmente disponibile. Può ordinarlo direttamente dal sito.
+```
+
+### 4. Quando il prodotto non è disponibile
+
+```text
+Questo prodotto non è attualmente disponibile. Posso verificare quando tornerà o proporle un'alternativa simile.
+```
+
+Con follow-up:
+
+```text
+Il prodotto è temporaneamente esaurito. Lasci il suo indirizzo e-mail e la informeremo quando tornerà disponibile.
+```
+
+### 5. Quando il cliente chiede il prezzo
+
+```text
+Il prezzo dipende dall'opzione scelta. Mi indichi il modello o il tipo di servizio che le interessa e le darò un importo preciso.
+```
+
+Versione B2B:
+
+```text
+Possiamo preparare un preventivo personalizzato. Descriva brevemente la richiesta e la inoltrerò alla persona giusta.
+```
+
+### 6. Quando il cliente chiede un'offerta
+
+```text
+Prepariamo volentieri un'offerta. Ci invii l'indirizzo e-mail e una breve descrizione di cosa deve includere il preventivo.
+```
+
+Più diretto:
+
+```text
+Certo, possiamo preparare un'offerta. Lasci e-mail o telefono e la persona giusta la ricontatterà con una proposta concreta.
+```
+
+### 7. Quando la conversazione va al reparto vendite
+
+```text
+Inoltro questa conversazione al nostro team vendite. Lasci telefono o e-mail, così possiamo rispondere in modo preciso.
+```
+
+Versione breve:
+
+```text
+Questo è un tema per il nostro reparto vendite. Inoltro il messaggio e chiedo alla persona giusta di contattarla.
+```
+
+### 8. Quando il cliente chiede i tempi di consegna
+
+```text
+Il tempo standard di consegna è [tempo]. La data esatta dipende dal prodotto e dall'indirizzo di consegna.
+```
+
+Per negozi online:
+
+```text
+Di solito spediamo gli ordini entro [tempo]. Dopo la spedizione il cliente riceve il link di tracciamento.
+```
+
+### 9. Quando il cliente chiede il costo di spedizione
+
+```text
+Il costo di spedizione dipende dal metodo scelto. Nel carrello il sito mostrerà le opzioni disponibili e il prezzo esatto.
+```
+
+Verifica manuale:
+
+```text
+Posso verificarlo. Mi indichi la città di consegna e il prodotto che vuole ordinare.
+```
+
+### 10. Quando il cliente chiede lo stato dell'ordine
+
+```text
+Verifico lo stato dell'ordine. Mi invii il numero ordine o l'e-mail usata per l'acquisto.
+```
+
+Dopo il controllo:
+
+```text
+Il suo ordine è attualmente nella fase [stato]. Il prossimo passo sarà [prossimo passo].
+```
+
+### 11. Quando il cliente chiede la fattura
+
+```text
+Certo. Ci invii il numero ordine e i dati di fatturazione, così verifichiamo il documento.
+```
+
+Se è già stata inviata:
+
+```text
+La fattura è stata inviata all'e-mail indicata nell'ordine. Controlli anche la cartella spam o promozioni.
+```
+
+### 12. Quando il cliente vuole fare un reso
+
+```text
+Certo, la aiutiamo con il reso. Ci invii il numero ordine e le indicherò i prossimi passaggi.
+```
+
+Con link:
+
+```text
+Può richiedere il reso qui: [link]. Dopo il modulo riceverà le istruzioni successive.
+```
+
+### 13. Quando il cliente vuole fare un reclamo
+
+```text
+Mi dispiace che ci sia un problema. Ci invii il numero ordine e una breve descrizione della situazione. Inoltreremo il caso.
+```
+
+Con foto:
+
+```text
+Ci invii foto del problema e il numero ordine. Questo ci aiuterà a gestire il reclamo più velocemente.
+```
+
+### 14. Quando il cliente è arrabbiato
+
+```text
+Capisco che la situazione sia frustrante. Verifico cosa possiamo fare per chiarirla il prima possibile.
+```
+
+Calmo e concreto:
+
+```text
+Capisco il problema. Mi dia un momento per controllare i dettagli e torno con una risposta precisa.
+```
+
+### 15. Quando l'azienda ha commesso un errore
+
+```text
+Ci dispiace per questa situazione. Non sarebbe dovuta succedere. Sto verificando il caso e torno con una soluzione.
+```
+
+Più breve:
+
+```text
+Ha ragione, avremmo dovuto gestirlo prima. Sto verificando come risolvere rapidamente.
+```
+
+### 16. Quando il cliente chiede uno sconto
+
+```text
+Per ordini più grandi possiamo verificare la possibilità di un preventivo personalizzato. Mi dica di quale ordine si tratta.
+```
+
+Versione e-commerce:
+
+```text
+Le promozioni attuali sono visibili sul sito. Per un ordine più grande lasci i suoi dati e verificheremo cosa possiamo proporre.
+```
+
+### 17. Quando il cliente chiede collaborazione B2B
+
+```text
+Grazie per l'interesse. Lasci e-mail, nome dell'azienda e una breve descrizione. Inoltreremo il messaggio alla persona giusta.
+```
+
+Più breve:
+
+```text
+Certo. La collaborazione B2B è seguita dalla persona giusta nel nostro team. Lasci i contatti e la ricontatteremo.
+```
+
+### 18. Quando il cliente chiede catalogo o listino
+
+```text
+Possiamo inviare catalogo e informazioni aggiornate. Indichi l'e-mail e i prodotti o servizi che le interessano.
+```
+
+Con dettaglio:
+
+```text
+Invieremo volentieri i materiali. Ci dica se serve un catalogo generale, un listino o una categoria specifica.
+```
+
+### 19. Quando il cliente chiede i tempi di realizzazione
+
+```text
+La prima data disponibile dipende dall'ambito del lavoro. Descriva brevemente il caso e verificherò la disponibilità.
+```
+
+Semplice:
+
+```text
+Il tempo attuale di realizzazione è circa [tempo]. Per urgenze possiamo verificare la prima data possibile.
+```
+
+### 20. Quando il cliente scrive fuori orario
+
+```text
+Grazie per il messaggio. Al momento siamo fuori orario, ma risponderemo il prima possibile.
+```
+
+Per raccogliere dati:
+
+```text
+Grazie per il messaggio. Lasci e-mail o telefono e una breve descrizione. La ricontatteremo al rientro.
+```
+
+### 21. Quando il cliente non risponde
+
+```text
+Posso aiutarla con altro?
+```
+
+Dopo una pausa:
+
+```text
+Sembra che la conversazione si sia interrotta. Se ha bisogno di altro, ci scriva di nuovo.
+```
+
+### 22. Quando servono i dati di contatto
+
+```text
+Per tornare con una risposta precisa, lasci il suo indirizzo e-mail o numero di telefono.
+```
+
+Con contesto:
+
+```text
+Questo caso richiede una verifica interna. Lasci i contatti e torneremo con una risposta.
+```
+
+### 23. Quando il caso va a un altro reparto
+
+```text
+Inoltro questo caso al reparto competente. Lasci i contatti così possiamo rispondere.
+```
+
+Più specifico:
+
+```text
+Questo tema riguarda il reparto [nome reparto]. Inoltro il messaggio e chiedo alla persona giusta di contattarla.
+```
+
+### 24. Quando il cliente chiede una telefonata
+
+```text
+Certo. Lasci il numero di telefono e una breve descrizione. La persona giusta la richiamerà.
+```
+
+Con orari:
+
+```text
+Possiamo richiamare tra [orari]. Ci invii il numero e un orario comodo.
+```
+
+### 25. Quando il cliente chiede indirizzo o indicazioni
+
+```text
+Siamo all'indirizzo: [indirizzo]. Posso anche inviarle un link alla mappa.
+```
+
+Con orari:
+
+```text
+La aspettiamo all'indirizzo: [indirizzo]. Siamo aperti dalle [orari].
+```
+
+### 26. Quando il cliente chiede un appuntamento disponibile
+
+```text
+Verifico le disponibilità. Mi dica quale giorno o orario le sarebbe più comodo.
+```
+
+Risposta rapida:
+
+```text
+Abbiamo disponibilità il [data/ora]. Vuole che lo prenoti provvisoriamente?
+```
+
+### 27. Quando il cliente scrive in un'altra lingua
+
+```text
+Buongiorno! Può scrivere nella sua lingua. Risponderemo in modo che la conversazione sia chiara per entrambe le parti.
+```
+
+Con traduzione:
+
+```text
+Può scrivere nella sua lingua - il messaggio sarà tradotto automaticamente e risponderemo il prima possibile.
+```
+
+Ne parliamo nella guida sulla [traduzione automatica nell'assistenza clienti](https://chataptor.com/it/blog/traduzione-automatica-assistenza-clienti/).
+
+### 28. Quando il cliente chiede se parla con una persona
+
+```text
+Sì, sta parlando con una persona del nostro team. La aiuto volentieri.
+```
+
+Più naturale:
+
+```text
+Sì, dall'altra parte c'è una persona reale del team. Scriva pure.
+```
+
+### 29. Quando non puoi aiutare subito
+
+```text
+Non voglio darle informazioni sbagliate, quindi devo verificare. Lasci i contatti e torneremo con una risposta.
+```
+
+Con tempo:
+
+```text
+Devo confermarlo con la persona giusta. Torneremo con un'informazione entro [tempo].
+```
+
+### 30. Chiusura della conversazione
+
+```text
+Sono felice di aver potuto aiutare. Se ha altre domande, ci scriva pure.
+```
+
+Più commerciale:
+
+```text
+Grazie per la conversazione. Se dovessero emergere altre domande, siamo disponibili in chat.
+```
+
+## Come usare le risposte predefinite senza sembrare robotici
+
+Le risposte predefinite devono essere una base, non testo incollato senza contesto. Prima dell'invio, adattale alla conversazione.
+
+Invece di:
+
+```text
+Grazie per il messaggio. Il suo caso è stato inoltrato al reparto competente.
+```
+
+meglio:
+
+```text
+Grazie per le informazioni. Inoltro il tema al team tecnico e chiedo di ricontattarla.
+```
+
+Il cliente sente che qualcuno ha letto davvero il messaggio.
+
+## Quali risposte aggiungere per prime?
+
+| Situazione | Perché aiuta il modello |
+| --- | --- |
+| Saluto | Riduce il tempo della prima risposta |
+| Richiesta di attesa | Dà tempo per verificare |
+| Disponibilità | Molto frequente in e-commerce e B2B |
+| Spedizione | Si ripete spesso nei negozi online |
+| Reso o reclamo | Richiede tono calmo e chiaro |
+| Preventivo | Aiuta a raccogliere dati |
+| Passaggio a reparto | Organizza il lavoro del team |
+| Fuori orario | Raccoglie richieste anche offline |
+| Cliente internazionale | Aiuta il supporto multilingue |
+| Chiusura | Conclude la conversazione con cura |
+
+Meglio iniziare con 10 risposte davvero utili e migliorarle con le conversazioni reali.
+
+## Modelli di messaggi in Chataptor
+
+In Chataptor le risposte predefinite possono essere salvate come modelli e richiamate con comandi brevi.
+
+Per esempio:
+
+```text
+/attesa
+```
+
+può inserire:
+
+```text
+Lo sto verificando. Mi dia un momento, per favore.
+```
+
+E:
+
+```text
+/spedizione
+```
+
+può inserire una risposta preparata su tempi e costi di spedizione.
+
+## Modelli per siti e lingue specifiche
+
+I modelli possono essere adattati a siti o versioni linguistiche specifiche. Se un cliente scrive dalla versione tedesca di un negozio e chiede la spedizione in Germania, l'agente può digitare:
+
+```text
+/spedizione
+```
+
+e il sistema può inserire il modello giusto per quella pagina. Con la traduzione automatica, il team può mantenere un modello base e il cliente riceve la risposta nella propria lingua.
+
+## Quando i modelli fanno risparmiare più tempo?
+
+Sono particolarmente utili quando l'azienda:
+
+- riceve molte domande ripetitive,
+- gestisce più versioni linguistiche,
+- serve clienti in diversi Paesi,
+- risponde spesso su spedizioni, resi, fatture e disponibilità,
+- vuole ridurre il tempo della prima risposta,
+- lavora con più operatori,
+- vuole formare più rapidamente nuove persone.
+
+## Risposte predefinite in Chataptor
+
+Chataptor aiuta i team a rispondere più velocemente senza riscrivere sempre gli stessi messaggi. È utile quando le conversazioni arrivano da live chat, e-mail, WhatsApp, Messenger, Instagram, Facebook o marketplace.
+
+Il team lavora in un'unica inbox, usa risposte salvate e può supportare clienti internazionali con traduzioni automatiche AI. Chataptor è attualmente gratuito e senza limite di messaggi.
+
+## FAQ
+
+### Cosa sono le risposte predefinite per live chat?
+
+Sono messaggi salvati che l'operatore può inviare rapidamente. Aiutano con domande ripetitive su disponibilità, spedizione, reso, reclamo o preventivo.
+
+### Le risposte predefinite sembrano artificiali?
+
+Possono sembrarlo se sono troppo formali o inviate senza contesto. Un buon modello deve essere breve, naturale e facile da modificare.
+
+### Quali risposte preparare per prime?
+
+Saluto, disponibilità, costo di spedizione, stato ordine, reso, reclamo, richiesta di preventivo, messaggio fuori orario e passaggio a un reparto.
+
+### Sono utili nell'e-commerce?
+
+Sì. Nei negozi online molte domande su stock, spedizione, fattura, reso, reclamo e stato dell'ordine si ripetono.
+
+### Posso creare modelli in Chataptor?
+
+Sì. Chataptor permette di creare modelli e assegnarli a comandi come `/attesa`, `/spedizione` o `/preventivo`.
+
+## Riepilogo
+
+Le risposte predefinite non sostituiscono le persone. Aiutano le persone a rispondere più velocemente, con più calma e chiarezza.
+
+Con Chataptor puoi creare modelli, gestire molti canali in un'unica inbox e rispondere più facilmente ai clienti in lingue diverse. Puoi [iniziare gratis con Chataptor](https://chataptor.com/it/).
 
 # Messaggi dei clienti in un unico posto: come organizzare l'assistenza
 
@@ -11485,6 +14733,537 @@ Inizia da due numeri: quale percentuale delle richieste proviene da clienti stra
 
 Nella grande maggioranza dei casi, no. La qualità della traduzione per le lingue europee più comuni è abbastanza alta da far sì che i clienti rispondano senza chiedere se l'agente è madrelingua. Se la trasparenza è importante per te, una breve nota nel piè di pagina è sufficiente – è una decisione di comunicazione, non tecnica.
 
+# Připravené odpovědi pro live chat: 30 šablon pro zákaznickou podporu
+
+Canonical URL: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/
+Markdown URL: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+Language: Čeština (cs)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Live Chat, Připravené Odpovědi, Šablony Zpráv, Zákaznická Podpora, E-commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Inbox live chatu s uloženými šablonami odpovědí, rychlými příkazy a konverzací se zákazníkem
+
+Použijte 30 připravených odpovědí pro live chat: dostupnost, doprava, vrácení, reklamace, nabídky, zahraniční zákazníci a e-commerce.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+Live chat funguje nejlépe, když zákazník rychle dostane jasnou odpověď. Mnoho otázek se ale opakuje každý den: dostupnost, doprava, faktura, vrácení, reklamace, termín, nabídka nebo kontakt na správnou osobu.
+
+Proto se vyplatí mít **připravené odpovědi pro live chat**. Nejde o to, aby tým zněl jako robot. Šablony pomáhají odpovídat rychleji, udržet stejný tón a nepsat pořád stejné zprávy.
+
+Pokud nástroj teprve vybíráte, podívejte se také na průvodce [live chatem zdarma bez limitu zpráv](https://chataptor.com/cs/blog/live-chat-zdarma-bez-limitu/). Pokud řešíte více kanálů, pomůže článek o tom, jak mít [zprávy od zákazníků na jednom místě](https://chataptor.com/cs/blog/zpravy-od-zakazniku-na-jednom-miste/).
+
+## Jak má vypadat dobrá odpověď v live chatu?
+
+Dobrý chat je krátký, lidský a konkrétní. Zákazník nechce číst dlouhý text. Chce vědět, co bude dál.
+
+Jednoduché pravidlo:
+
+> Nejdřív odpovězte na otázku, potom přidejte další krok.
+
+Místo:
+
+```text
+Děkujeme za kontaktování naší společnosti. Váš dotaz bude předán příslušnému oddělení.
+```
+
+lépe:
+
+```text
+Dobrý den, ověřím to pro vás a za chvíli se vrátím s odpovědí.
+```
+
+## 30 připravených odpovědí pro live chat
+
+Tyto příklady můžete použít jako uložené odpovědi, rychlé příkazy nebo základ vlastních šablon. Nahraďte `[název produktu]`, `[čas]`, `[e-mail]` nebo `[číslo objednávky]` vlastními údaji.
+
+### 1. První zpráva v chatu
+
+```text
+Dobrý den! Jak vám mohu pomoci?
+```
+
+Příjemnější verze:
+
+```text
+Dobrý den! Jsem na chatu a rád/ráda pomohu. Napište prosím, čeho se věc týká.
+```
+
+### 2. Když potřebujete chvíli na ověření
+
+```text
+Hned to ověřím. Prosím o chvíli strpení.
+```
+
+Když to může trvat déle:
+
+```text
+Raději to ověřím pečlivě, abych neposlal/a špatnou informaci. Za chvíli se vrátím s odpovědí.
+```
+
+### 3. Když je produkt dostupný
+
+```text
+Ano, produkt je dostupný. Objednávku můžeme připravit hned.
+```
+
+E-commerce verze:
+
+```text
+Ano, tento produkt je aktuálně skladem. Můžete ho objednat přímo na webu.
+```
+
+### 4. Když produkt není dostupný
+
+```text
+Tento produkt je momentálně nedostupný. Mohu ověřit, kdy se vrátí do nabídky, nebo doporučit podobnou možnost.
+```
+
+S kontaktem:
+
+```text
+Produkt je dočasně nedostupný. Zanechte prosím e-mail a dáme vám vědět, až bude znovu dostupný.
+```
+
+### 5. Když se zákazník ptá na cenu
+
+```text
+Cena závisí na vybrané variantě. Napište prosím, který model nebo rozsah služby vás zajímá, a pošlu konkrétní částku.
+```
+
+B2B verze:
+
+```text
+Připravíme individuální nabídku. Stručně popište, čeho se dotaz týká, a předám ho odpovědné osobě.
+```
+
+### 6. Když zákazník žádá nabídku
+
+```text
+Rádi připravíme nabídku. Pošlete prosím e-mail a krátkou informaci, co má kalkulace obsahovat.
+```
+
+Přímější:
+
+```text
+Jistě, můžeme připravit nabídku. Zanechte e-mail nebo telefon a odpovědná osoba se ozve s konkrétním návrhem.
+```
+
+### 7. Když má konverzace jít na obchod
+
+```text
+Předám tuto konverzaci obchodnímu týmu. Zanechte prosím telefon nebo e-mail, abychom se mohli vrátit s konkrétní odpovědí.
+```
+
+Krátce:
+
+```text
+To je téma pro náš obchodní tým. Předám zprávu a požádám správnou osobu o kontakt.
+```
+
+### 8. Když se zákazník ptá na dobu doručení
+
+```text
+Standardní doba doručení je [čas]. Přesný termín závisí na produktu a adrese doručení.
+```
+
+Pro e-shop:
+
+```text
+Objednávky obvykle odesíláme do [čas]. Po odeslání zákazník dostane odkaz pro sledování.
+```
+
+### 9. Když se zákazník ptá na cenu dopravy
+
+```text
+Cena dopravy závisí na zvoleném způsobu. Po vložení produktu do košíku web zobrazí dostupné možnosti a přesnou cenu.
+```
+
+Ruční kontrola:
+
+```text
+Mohu to ověřit. Pošlete prosím město doručení a produkt, kterého se objednávka týká.
+```
+
+### 10. Když se zákazník ptá na stav objednávky
+
+```text
+Ověřím stav objednávky. Pošlete prosím číslo objednávky nebo e-mail použitý při nákupu.
+```
+
+Po kontrole:
+
+```text
+Objednávka je aktuálně ve fázi [stav]. Dalším krokem bude [další krok].
+```
+
+### 11. Když se zákazník ptá na fakturu
+
+```text
+Samozřejmě. Pošlete číslo objednávky a fakturační údaje, dokument ověříme.
+```
+
+Když byla odeslána:
+
+```text
+Faktura byla odeslána na e-mail uvedený v objednávce. Zkontrolujte prosím také spam nebo promo složku.
+```
+
+### 12. Když chce zákazník vrátit produkt
+
+```text
+Samozřejmě, s vrácením pomůžeme. Pošlete číslo objednávky a pošlu další kroky.
+```
+
+S odkazem:
+
+```text
+Vrácení můžete zadat zde: [odkaz]. Po vyplnění formuláře dostanete další instrukce.
+```
+
+### 13. Když chce zákazník podat reklamaci
+
+```text
+Mrzí mě, že nastal problém. Pošlete číslo objednávky a stručně popište situaci. Předáme případ k reklamaci.
+```
+
+S fotografiemi:
+
+```text
+Pošlete prosím fotografie problému a číslo objednávky. Pomůže nám to reklamaci vyřídit rychleji.
+```
+
+### 14. Když je zákazník naštvaný
+
+```text
+Rozumím, že je tato situace nepříjemná. Ověřím, co můžeme udělat, abychom ji co nejrychleji vyřešili.
+```
+
+Klidně a konkrétně:
+
+```text
+Rozumím problému. Dejte mi prosím chvíli, ověřím detaily a vrátím se s konkrétní informací.
+```
+
+### 15. Když firma udělala chybu
+
+```text
+Omlouváme se za tuto situaci. Nemělo se to stát. Ověřuji případ a vrátím se s informací, jak ho napravíme.
+```
+
+Kratší:
+
+```text
+Máte pravdu, měli jsme to vyřešit dříve. Právě ověřuji, jak to můžeme rychle napravit.
+```
+
+### 16. Když zákazník žádá slevu
+
+```text
+U větších objednávek můžeme ověřit možnost individuální nabídky. Napište prosím, jaké objednávky se dotaz týká.
+```
+
+E-commerce verze:
+
+```text
+Aktuální akce jsou viditelné na webu. U větší objednávky zanechte kontakt a ověříme, co můžeme nabídnout.
+```
+
+### 17. Když zákazník žádá B2B spolupráci
+
+```text
+Děkujeme za zájem o spolupráci. Zanechte e-mail, název firmy a krátký popis tématu. Zprávu předáme správné osobě.
+```
+
+Kratší:
+
+```text
+Jistě. B2B spolupráci u nás řeší odpovědná osoba. Zanechte kontakt a ozveme se.
+```
+
+### 18. Když zákazník žádá katalog nebo ceník
+
+```text
+Můžeme poslat katalog a aktuální informace. Uveďte prosím e-mail a produkty nebo služby, které vás zajímají.
+```
+
+S upřesněním:
+
+```text
+Rádi pošleme materiály. Napište prosím, zda jde o obecný katalog, ceník nebo konkrétní skupinu produktů.
+```
+
+### 19. Když se zákazník ptá na termín realizace
+
+```text
+Nejbližší možný termín závisí na rozsahu. Stručně popište, čeho se věc týká, a ověřím dostupnost.
+```
+
+Jednoduše:
+
+```text
+Aktuální doba realizace je přibližně [čas]. U urgentních věcí můžeme ověřit nejbližší možný termín.
+```
+
+### 20. Když zákazník píše mimo pracovní dobu
+
+```text
+Děkujeme za zprávu. Aktuálně jsme mimo pracovní dobu, ale odpovíme co nejdříve.
+```
+
+Se sběrem údajů:
+
+```text
+Děkujeme za zprávu. Zanechte e-mail nebo telefon a krátký popis věci. Ozveme se po návratu.
+```
+
+### 21. Když zákazník přestane odpovídat
+
+```text
+Mohu ještě s něčím pomoci?
+```
+
+Po delší pauze:
+
+```text
+Vypadá to, že se konverzace přerušila. Pokud budete něco potřebovat, napište nám znovu.
+```
+
+### 22. Když potřebujete kontaktní údaje
+
+```text
+Abychom se mohli vrátit s konkrétní odpovědí, zanechte prosím e-mail nebo telefon.
+```
+
+S kontextem:
+
+```text
+Tento případ vyžaduje ověření na naší straně. Zanechte kontakt a vrátíme se s odpovědí.
+```
+
+### 23. Když případ musí do jiného oddělení
+
+```text
+Předám tento případ příslušnému oddělení. Zanechte prosím kontakt, abychom mohli odpovědět.
+```
+
+Konkrétněji:
+
+```text
+To je téma pro oddělení [název oddělení]. Předám zprávu a požádám správnou osobu o kontakt.
+```
+
+### 24. Když zákazník žádá telefonický kontakt
+
+```text
+Samozřejmě. Zanechte telefonní číslo a krátký popis věci. Odpovědná osoba zavolá zpět.
+```
+
+S časy:
+
+```text
+Můžeme zavolat v čase [časy]. Pošlete prosím telefon a vhodný čas.
+```
+
+### 25. Když se zákazník ptá na adresu
+
+```text
+Najdete nás na adrese: [adresa]. Mohu poslat také odkaz na mapu.
+```
+
+S otevírací dobou:
+
+```text
+Zveme vás na adresu: [adresa]. Otevřeno máme od [časy].
+```
+
+### 26. Když se zákazník ptá na volný termín
+
+```text
+Ověřím dostupné termíny. Napište prosím, který den nebo čas by vám vyhovoval.
+```
+
+Rychlá odpověď:
+
+```text
+Máme volný termín [datum/čas]. Mám ho předběžně rezervovat?
+```
+
+### 27. Když zákazník píše jiným jazykem
+
+```text
+Dobrý den! Můžete psát ve svém jazyce. Odpovíme tak, aby byla konverzace srozumitelná pro obě strany.
+```
+
+S překladem:
+
+```text
+Můžete psát ve svém jazyce - zpráva bude automaticky přeložena a odpovíme co nejrychleji.
+```
+
+Více v článku o [automatickém překladu v zákaznickém servisu](https://chataptor.com/cs/blog/automaticky-preklad-zakaznicky-servis/).
+
+### 28. Když se zákazník ptá, zda mluví s člověkem
+
+```text
+Ano, mluvíte s člověkem z našeho týmu. Rád/ráda pomohu.
+```
+
+Přirozeněji:
+
+```text
+Ano, na druhé straně je skutečný člověk z týmu. Klidně pište dál.
+```
+
+### 29. Když nemůžete pomoci hned
+
+```text
+Nechci poslat nesprávnou informaci, proto to musím ověřit. Zanechte kontakt a vrátíme se s odpovědí.
+```
+
+S časem:
+
+```text
+Musím to potvrdit s odpovědnou osobou. Vrátíme se s informací do [čas].
+```
+
+### 30. Ukončení konverzace
+
+```text
+Jsem rád/ráda, že jsem mohl/a pomoci. Pokud budete mít další otázky, napište nám.
+```
+
+Obchodnější:
+
+```text
+Děkujeme za konverzaci. Pokud se objeví další otázky, jsme dostupní na chatu.
+```
+
+## Jak používat šablony, aby nezněly roboticky?
+
+Připravené odpovědi berte jako základ. Před odesláním je upravte podle kontextu.
+
+Místo:
+
+```text
+Děkujeme za zprávu. Váš případ byl předán příslušnému oddělení.
+```
+
+lépe:
+
+```text
+Děkuji za informace. Předám téma servisnímu týmu a požádám je o kontakt.
+```
+
+Zákazník pozná, že zprávu někdo opravdu četl.
+
+## Které odpovědi přidat jako první?
+
+| Situace | Proč se šablona hodí |
+| --- | --- |
+| Pozdrav | Zkracuje první reakci |
+| Prosba o chvíli | Dává čas na ověření |
+| Dostupnost | Časté v e-commerce a B2B |
+| Doprava | Opakuje se v e-shopech |
+| Vrácení nebo reklamace | Vyžaduje klidný tón |
+| Žádost o nabídku | Pomáhá sbírat údaje |
+| Předání oddělení | Udržuje pořádek v týmu |
+| Mimo pracovní dobu | Zachytí poptávky i offline |
+| Zahraniční zákazník | Pomáhá vícejazyčné podpoře |
+| Ukončení | Profesionálně uzavírá kontakt |
+
+Začněte klidně s 10 opravdu užitečnými odpověďmi a postupně je vylepšujte.
+
+## Šablony zpráv v Chataptoru
+
+V Chataptoru lze připravené odpovědi uložit jako šablony a vkládat je krátkými příkazy.
+
+Například:
+
+```text
+/chvile
+```
+
+může vložit:
+
+```text
+Hned to ověřím. Prosím o chvíli strpení.
+```
+
+A:
+
+```text
+/doprava
+```
+
+může vložit připravenou odpověď o dopravě a ceně.
+
+## Šablony pro konkrétní weby a jazyky
+
+Šablony mohou být přizpůsobené konkrétním webům nebo jazykovým verzím. Pokud zákazník píše z německé verze obchodu a ptá se na dopravu do Německa, agent napíše:
+
+```text
+/doprava
+```
+
+a systém může vložit správnou odpověď pro tuto stránku. Díky automatickým překladům může tým pracovat se základní šablonou a zákazník dostane odpověď ve svém jazyce.
+
+## Kdy šablony šetří nejvíce času?
+
+Šablony jsou nejpřínosnější, když firma:
+
+- dostává hodně opakovaných dotazů,
+- provozuje několik jazykových verzí,
+- obsluhuje zákazníky z více zemí,
+- často odpovídá na dopravu, vrácení, faktury a dostupnost,
+- chce zkrátit první reakci,
+- má více lidí v podpoře,
+- chce rychleji zaškolit nové kolegy.
+
+## Připravené odpovědi v Chataptoru
+
+Chataptor pomáhá týmům odpovídat rychleji bez neustálého psaní stejných zpráv. Hodí se, když konverzace přicházejí z live chatu, e-mailu, WhatsAppu, Messengeru, Instagramu, Facebooku nebo marketplace.
+
+Tým pracuje v jedné inboxu, používá uložené odpovědi a může obsluhovat zahraniční zákazníky díky automatickým AI překladům. Chataptor je aktuálně zdarma a bez limitu zpráv.
+
+## FAQ
+
+### Co jsou připravené odpovědi pro live chat?
+
+Jsou to uložené zprávy, které může pracovník rychle poslat zákazníkovi. Pomáhají u opakovaných dotazů na dostupnost, dopravu, vrácení, reklamaci nebo nabídku.
+
+### Nezní připravené odpovědi uměle?
+
+Mohou znít uměle, pokud jsou příliš formální nebo odeslané bez kontextu. Dobrá šablona je krátká, přirozená a snadno upravitelná.
+
+### Které odpovědi připravit nejdříve?
+
+Pozdrav, dostupnost, cena dopravy, stav objednávky, vrácení, reklamace, žádost o nabídku, zpráva mimo pracovní dobu a předání do oddělení.
+
+### Jsou šablony vhodné pro e-commerce?
+
+Ano. V e-commerce se často opakují otázky na sklad, dopravu, fakturu, vrácení, reklamaci a stav objednávky.
+
+### Lze v Chataptoru vytvářet vlastní šablony?
+
+Ano. Chataptor umožňuje vytvářet šablony a přiřazovat je příkazům jako `/chvile`, `/doprava` nebo `/nabidka`.
+
+## Shrnutí
+
+Připravené odpovědi nenahrazují lidi. Pomáhají lidem odpovídat rychleji, klidněji a jasněji.
+
+V Chataptoru můžete vytvářet šablony, řešit více kanálů v jednom inboxu a podporovat zákazníky v různých jazycích. Můžete [začít používat Chataptor zdarma](https://chataptor.com/cs/).
+
 # Zprávy od zákazníků na jednom místě: jak uspořádat komunikaci
 
 Canonical URL: https://chataptor.com/cs/blog/zpravy-od-zakazniku-na-jednom-miste/
@@ -13038,6 +16817,537 @@ Začněte dvěma čísly: jaké procento požadavků pochází od zahraničních
 ### Pozná zákazník, že mu odpovídám přes automatický překlad?
 
 V naprosté většině případů ne. Kvalita překladu pro běžné evropské jazyky je natolik vysoká, že zákazníci odpovídají bez otázky, zda je agent rodilý mluvčí. Pokud vám záleží na transparentnosti, krátká poznámka v patičce zprávy je dostačující – je to komunikační, nikoli technické rozhodnutí.
+
+# Pripravené odpovede pre live chat: 30 šablón pre zákaznícku podporu
+
+Canonical URL: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/
+Markdown URL: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+Language: Slovenčina (sk)
+Author: Chataptor Team
+Published: 2026-06-22
+Updated: 2026-06-22
+Tags: Live Chat, Pripravené Odpovede, Šablóny Správ, Zákaznícka Podpora, E-commerce
+Image: https://chataptor.com/images/blog/canned-responses-live-chat.webp
+Image alt: Inbox live chatu s uloženými šablónami odpovedí, rýchlymi príkazmi a konverzáciou so zákazníkom
+
+Použite 30 pripravených odpovedí pre live chat: dostupnosť, doprava, vrátenie, reklamácie, ponuky, zahraniční zákazníci a e-commerce.
+
+## Language Versions
+- pl: https://chataptor.com/pl/blog/gotowe-odpowiedzi-do-live-chatu/ | Markdown: https://chataptor.com/markdown/pl/blog/gotowe-odpowiedzi-do-live-chatu.md
+- en: https://chataptor.com/en/blog/live-chat-canned-responses/ | Markdown: https://chataptor.com/markdown/en/blog/live-chat-canned-responses.md
+- de: https://chataptor.com/de/blog/vorgefertigte-antworten-live-chat/ | Markdown: https://chataptor.com/markdown/de/blog/vorgefertigte-antworten-live-chat.md
+- fr: https://chataptor.com/fr/blog/reponses-pretes-live-chat/ | Markdown: https://chataptor.com/markdown/fr/blog/reponses-pretes-live-chat.md
+- es: https://chataptor.com/es/blog/respuestas-rapidas-chat-en-vivo/ | Markdown: https://chataptor.com/markdown/es/blog/respuestas-rapidas-chat-en-vivo.md
+- it: https://chataptor.com/it/blog/risposte-predefinite-live-chat/ | Markdown: https://chataptor.com/markdown/it/blog/risposte-predefinite-live-chat.md
+- cs: https://chataptor.com/cs/blog/pripravene-odpovedi-live-chat/ | Markdown: https://chataptor.com/markdown/cs/blog/pripravene-odpovedi-live-chat.md
+- sk: https://chataptor.com/sk/blog/pripravene-odpovede-live-chat/ | Markdown: https://chataptor.com/markdown/sk/blog/pripravene-odpovede-live-chat.md
+
+Live chat funguje najlepšie vtedy, keď zákazník rýchlo dostane jasnú odpoveď. Mnohé otázky sa však opakujú každý deň: dostupnosť, doprava, faktúra, vrátenie, reklamácia, termín, ponuka alebo kontakt na správnu osobu.
+
+Preto sa oplatí mať **pripravené odpovede pre live chat**. Nie sú na to, aby tím znel ako robot. Pomáhajú odpovedať rýchlejšie, držať jednotný tón a nepísať stále tie isté správy.
+
+Ak si ešte vyberáte nástroj, pozrite si aj sprievodcu [live chatom zadarmo bez limitu správ](https://chataptor.com/sk/blog/live-chat-zadarmo-bez-limitov/). Ak riešite viac kanálov, pomôže článok o tom, ako mať [správy od zákazníkov na jednom mieste](https://chataptor.com/sk/blog/spravy-od-zakaznikov-na-jednom-mieste/).
+
+## Ako má vyzerať dobrá odpoveď v live chate?
+
+Dobrá odpoveď je krátka, ľudská a konkrétna. Zákazník neotvára chat preto, aby čítal dlhý text. Chce vedieť, čo bude ďalej.
+
+Jednoduché pravidlo:
+
+> Najprv odpovedzte na otázku, potom pridajte ďalší krok.
+
+Namiesto:
+
+```text
+Ďakujeme za kontaktovanie našej spoločnosti. Vaša požiadavka bude odovzdaná príslušnému oddeleniu.
+```
+
+lepšie:
+
+```text
+Dobrý deň, overím to pre vás a o chvíľu sa vrátim s odpoveďou.
+```
+
+## 30 pripravených odpovedí pre live chat
+
+Tieto príklady môžete použiť ako uložené odpovede, rýchle príkazy alebo základ vlastných šablón. Nahraďte `[názov produktu]`, `[čas]`, `[e-mail]` alebo `[číslo objednávky]` vlastnými údajmi.
+
+### 1. Prvá správa v chate
+
+```text
+Dobrý deň! Ako vám môžem pomôcť?
+```
+
+Príjemnejšia verzia:
+
+```text
+Dobrý deň! Som na chate a rád/rada pomôžem. Napíšte prosím, čo potrebujete.
+```
+
+### 2. Keď potrebujete chvíľu na overenie
+
+```text
+Hneď to overím. Prosím o chvíľu strpenia.
+```
+
+Keď to môže trvať dlhšie:
+
+```text
+Radšej to overím presne, aby som neposlal/a nesprávnu informáciu. O chvíľu sa vrátim s odpoveďou.
+```
+
+### 3. Keď je produkt dostupný
+
+```text
+Áno, produkt je dostupný. Objednávku môžeme pripraviť hneď.
+```
+
+E-commerce verzia:
+
+```text
+Áno, tento produkt je aktuálne skladom. Môžete si ho objednať priamo na stránke.
+```
+
+### 4. Keď produkt nie je dostupný
+
+```text
+Tento produkt je momentálne nedostupný. Môžem overiť, kedy sa vráti do ponuky, alebo navrhnúť podobnú možnosť.
+```
+
+S kontaktom:
+
+```text
+Produkt je dočasne nedostupný. Zanechajte prosím e-mail a dáme vám vedieť, keď bude opäť dostupný.
+```
+
+### 5. Keď sa zákazník pýta na cenu
+
+```text
+Cena závisí od zvolenej možnosti. Napíšte prosím, ktorý model alebo rozsah služby vás zaujíma, a pošlem konkrétnu sumu.
+```
+
+B2B verzia:
+
+```text
+Pripravíme individuálnu ponuku. Stručne opíšte, čo potrebujete, a odovzdám to zodpovednej osobe.
+```
+
+### 6. Keď zákazník žiada ponuku
+
+```text
+Radi pripravíme ponuku. Pošlite prosím e-mail a krátku informáciu, čo má cenová ponuka obsahovať.
+```
+
+Priamejšie:
+
+```text
+Jasné, môžeme pripraviť ponuku. Zanechajte e-mail alebo telefón a zodpovedná osoba sa ozve s konkrétnym návrhom.
+```
+
+### 7. Keď má konverzácia ísť na obchod
+
+```text
+Odovzdám túto konverzáciu obchodnému tímu. Zanechajte prosím telefón alebo e-mail, aby sme sa mohli vrátiť s konkrétnou odpoveďou.
+```
+
+Krátko:
+
+```text
+To je téma pre náš obchodný tím. Odovzdám správu a požiadam správnu osobu o kontakt.
+```
+
+### 8. Keď sa zákazník pýta na čas doručenia
+
+```text
+Štandardný čas doručenia je [čas]. Presný termín závisí od produktu a adresy doručenia.
+```
+
+Pre e-shop:
+
+```text
+Objednávky zvyčajne odosielame do [čas]. Po odoslaní zákazník dostane odkaz na sledovanie.
+```
+
+### 9. Keď sa zákazník pýta na cenu dopravy
+
+```text
+Cena dopravy závisí od zvoleného spôsobu. Po vložení produktu do košíka stránka zobrazí dostupné možnosti a presnú cenu.
+```
+
+Ručné overenie:
+
+```text
+Môžem to overiť. Pošlite prosím mesto doručenia a produkt, ktorého sa objednávka týka.
+```
+
+### 10. Keď sa zákazník pýta na stav objednávky
+
+```text
+Overím stav objednávky. Pošlite prosím číslo objednávky alebo e-mail použitý pri nákupe.
+```
+
+Po kontrole:
+
+```text
+Objednávka je aktuálne vo fáze [stav]. Ďalším krokom bude [ďalší krok].
+```
+
+### 11. Keď sa zákazník pýta na faktúru
+
+```text
+Samozrejme. Pošlite číslo objednávky a fakturačné údaje, dokument overíme.
+```
+
+Ak bola odoslaná:
+
+```text
+Faktúra bola odoslaná na e-mail uvedený v objednávke. Skontrolujte prosím aj spam alebo promo priečinok.
+```
+
+### 12. Keď chce zákazník vrátiť produkt
+
+```text
+Samozrejme, s vrátením pomôžeme. Pošlite číslo objednávky a pošlem ďalšie kroky.
+```
+
+S odkazom:
+
+```text
+Vrátenie môžete zadať tu: [odkaz]. Po vyplnení formulára dostanete ďalšie inštrukcie.
+```
+
+### 13. Keď chce zákazník podať reklamáciu
+
+```text
+Mrzí ma, že nastal problém. Pošlite číslo objednávky a stručne opíšte situáciu. Prípad odovzdáme na reklamáciu.
+```
+
+S fotografiami:
+
+```text
+Pošlite prosím fotografie problému a číslo objednávky. Pomôže nám to reklamáciu vybaviť rýchlejšie.
+```
+
+### 14. Keď je zákazník nahnevaný
+
+```text
+Rozumiem, že táto situácia je nepríjemná. Overím, čo môžeme urobiť, aby sme ju čo najrýchlejšie vyriešili.
+```
+
+Pokojne a konkrétne:
+
+```text
+Rozumiem problému. Dajte mi prosím chvíľu, overím detaily a vrátim sa s konkrétnou informáciou.
+```
+
+### 15. Keď firma urobila chybu
+
+```text
+Ospravedlňujeme sa za túto situáciu. Nemalo sa to stať. Overujem prípad a vrátim sa s informáciou, ako ho napravíme.
+```
+
+Kratšie:
+
+```text
+Máte pravdu, mali sme to vyriešiť skôr. Práve overujem, ako to môžeme rýchlo napraviť.
+```
+
+### 16. Keď zákazník žiada zľavu
+
+```text
+Pri väčších objednávkach môžeme overiť možnosť individuálnej ponuky. Napíšte prosím, akej objednávky sa otázka týka.
+```
+
+E-commerce verzia:
+
+```text
+Aktuálne akcie sú viditeľné na stránke. Pri väčšej objednávke zanechajte kontakt a overíme, čo môžeme ponúknuť.
+```
+
+### 17. Keď zákazník žiada B2B spoluprácu
+
+```text
+Ďakujeme za záujem o spoluprácu. Zanechajte e-mail, názov firmy a krátky opis témy. Správu odovzdáme správnej osobe.
+```
+
+Kratšie:
+
+```text
+Jasné. B2B spoluprácu u nás rieši zodpovedná osoba. Zanechajte kontakt a ozveme sa.
+```
+
+### 18. Keď zákazník žiada katalóg alebo cenník
+
+```text
+Môžeme poslať katalóg a aktuálne informácie. Uveďte prosím e-mail a produkty alebo služby, ktoré vás zaujímajú.
+```
+
+S upresnením:
+
+```text
+Radi pošleme materiály. Napíšte prosím, či ide o všeobecný katalóg, cenník alebo konkrétnu skupinu produktov.
+```
+
+### 19. Keď sa zákazník pýta na termín realizácie
+
+```text
+Najbližší možný termín závisí od rozsahu. Stručne opíšte, čo potrebujete, a overím dostupnosť.
+```
+
+Jednoducho:
+
+```text
+Aktuálny čas realizácie je približne [čas]. Pri urgentných veciach môžeme overiť najbližší možný termín.
+```
+
+### 20. Keď zákazník píše mimo pracovného času
+
+```text
+Ďakujeme za správu. Aktuálne sme mimo pracovného času, ale odpovieme čo najskôr.
+```
+
+So zberom údajov:
+
+```text
+Ďakujeme za správu. Zanechajte e-mail alebo telefón a krátky opis veci. Ozveme sa po návrate.
+```
+
+### 21. Keď zákazník prestane odpovedať
+
+```text
+Môžem ešte s niečím pomôcť?
+```
+
+Po dlhšej pauze:
+
+```text
+Vyzerá to, že sa konverzácia prerušila. Ak budete niečo potrebovať, napíšte nám znova.
+```
+
+### 22. Keď potrebujete kontaktné údaje
+
+```text
+Aby sme sa mohli vrátiť s konkrétnou odpoveďou, zanechajte prosím e-mail alebo telefón.
+```
+
+S kontextom:
+
+```text
+Tento prípad vyžaduje overenie na našej strane. Zanechajte kontakt a vrátime sa s odpoveďou.
+```
+
+### 23. Keď prípad musí ísť do iného oddelenia
+
+```text
+Odovzdám tento prípad príslušnému oddeleniu. Zanechajte prosím kontakt, aby sme mohli odpovedať.
+```
+
+Konkrétnejšie:
+
+```text
+To je téma pre oddelenie [názov oddelenia]. Odovzdám správu a požiadam správnu osobu o kontakt.
+```
+
+### 24. Keď zákazník žiada telefonický kontakt
+
+```text
+Samozrejme. Zanechajte telefónne číslo a krátky opis veci. Zodpovedná osoba zavolá späť.
+```
+
+S časmi:
+
+```text
+Môžeme zavolať v čase [časy]. Pošlite prosím telefón a vhodný čas.
+```
+
+### 25. Keď sa zákazník pýta na adresu
+
+```text
+Nájdete nás na adrese: [adresa]. Môžem poslať aj odkaz na mapu.
+```
+
+S otváracím časom:
+
+```text
+Radi vás privítame na adrese: [adresa]. Otvorené máme od [časy].
+```
+
+### 26. Keď sa zákazník pýta na voľný termín
+
+```text
+Overím dostupné termíny. Napíšte prosím, ktorý deň alebo čas by vám vyhovoval.
+```
+
+Rýchla odpoveď:
+
+```text
+Máme voľný termín [dátum/čas]. Mám ho predbežne rezervovať?
+```
+
+### 27. Keď zákazník píše iným jazykom
+
+```text
+Dobrý deň! Môžete písať vo svojom jazyku. Odpovieme tak, aby bola konverzácia zrozumiteľná pre obe strany.
+```
+
+S prekladom:
+
+```text
+Môžete písať vo svojom jazyku - správa bude automaticky preložená a odpovieme čo najrýchlejšie.
+```
+
+Viac v článku o [automatickom preklade v zákazníckom servise](https://chataptor.com/sk/blog/automaticky-preklad-zakaznicky-servis/).
+
+### 28. Keď sa zákazník pýta, či hovorí s človekom
+
+```text
+Áno, hovoríte s človekom z nášho tímu. Rád/rada pomôžem.
+```
+
+Prirodzenejšie:
+
+```text
+Áno, na druhej strane je skutočný človek z tímu. Pokojne píšte ďalej.
+```
+
+### 29. Keď nemôžete pomôcť hneď
+
+```text
+Nechcem poslať nesprávnu informáciu, preto to musím overiť. Zanechajte kontakt a vrátime sa s odpoveďou.
+```
+
+S časom:
+
+```text
+Musím to potvrdiť so zodpovednou osobou. Vrátime sa s informáciou do [čas].
+```
+
+### 30. Ukončenie konverzácie
+
+```text
+Som rád/rada, že som mohol/mohla pomôcť. Ak budete mať ďalšie otázky, napíšte nám.
+```
+
+Obchodnejšie:
+
+```text
+Ďakujeme za konverzáciu. Ak sa objavia ďalšie otázky, sme dostupní na chate.
+```
+
+## Ako používať šablóny, aby nezneli roboticky?
+
+Pripravené odpovede berte ako základ. Pred odoslaním ich upravte podľa kontextu.
+
+Namiesto:
+
+```text
+Ďakujeme za správu. Váš prípad bol odovzdaný príslušnému oddeleniu.
+```
+
+lepšie:
+
+```text
+Ďakujem za informácie. Odovzdám tému servisnému tímu a požiadam ich o kontakt.
+```
+
+Zákazník cíti, že správu niekto naozaj čítal.
+
+## Ktoré odpovede pridať ako prvé?
+
+| Situácia | Prečo sa šablóna hodí |
+| --- | --- |
+| Pozdrav | Skracuje prvú reakciu |
+| Prosba o chvíľu | Dáva čas na overenie |
+| Dostupnosť | Časté v e-commerce a B2B |
+| Doprava | Opakuje sa v e-shopoch |
+| Vrátenie alebo reklamácia | Vyžaduje pokojný tón |
+| Žiadosť o ponuku | Pomáha zbierať údaje |
+| Odovzdanie oddeleniu | Udržiava poriadok v tíme |
+| Mimo pracovného času | Zachytí dopyty aj offline |
+| Zahraničný zákazník | Pomáha viacjazyčnej podpore |
+| Ukončenie | Profesionálne uzatvára kontakt |
+
+Začnite pokojne s 10 naozaj užitočnými odpoveďami a postupne ich vylepšujte.
+
+## Šablóny správ v Chataptore
+
+V Chataptore možno pripravené odpovede uložiť ako šablóny a vkladať ich krátkymi príkazmi.
+
+Napríklad:
+
+```text
+/chvila
+```
+
+môže vložiť:
+
+```text
+Hneď to overím. Prosím o chvíľu strpenia.
+```
+
+A:
+
+```text
+/doprava
+```
+
+môže vložiť pripravenú odpoveď o doprave a cene.
+
+## Šablóny pre konkrétne weby a jazyky
+
+Šablóny môžu byť prispôsobené konkrétnym webom alebo jazykovým verziám. Ak zákazník píše z nemeckej verzie obchodu a pýta sa na dopravu do Nemecka, agent napíše:
+
+```text
+/doprava
+```
+
+a systém môže vložiť správnu odpoveď pre túto stránku. Vďaka automatickým prekladom môže tím pracovať so základnou šablónou a zákazník dostane odpoveď vo svojom jazyku.
+
+## Kedy šablóny šetria najviac času?
+
+Šablóny sú najprínosnejšie, keď firma:
+
+- dostáva veľa opakovaných otázok,
+- prevádzkuje viac jazykových verzií,
+- obsluhuje zákazníkov z viacerých krajín,
+- často odpovedá na dopravu, vrátenie, faktúry a dostupnosť,
+- chce skrátiť prvú reakciu,
+- má viac ľudí v podpore,
+- chce rýchlejšie zaškoliť nových kolegov.
+
+## Pripravené odpovede v Chataptore
+
+Chataptor pomáha tímom odpovedať rýchlejšie bez neustáleho písania tých istých správ. Hodí sa, keď konverzácie prichádzajú z live chatu, e-mailu, WhatsAppu, Messengera, Instagramu, Facebooku alebo marketplace.
+
+Tím pracuje v jednom inboxe, používa uložené odpovede a môže obsluhovať zahraničných zákazníkov vďaka automatickým AI prekladom. Chataptor je aktuálne zadarmo a bez limitu správ.
+
+## FAQ
+
+### Čo sú pripravené odpovede pre live chat?
+
+Sú to uložené správy, ktoré môže pracovník rýchlo poslať zákazníkovi. Pomáhajú pri opakovaných otázkach na dostupnosť, dopravu, vrátenie, reklamáciu alebo ponuku.
+
+### Neznejú pripravené odpovede umelo?
+
+Môžu znieť umelo, ak sú príliš formálne alebo odoslané bez kontextu. Dobrá šablóna je krátka, prirodzená a ľahko upraviteľná.
+
+### Ktoré odpovede pripraviť najskôr?
+
+Pozdrav, dostupnosť, cena dopravy, stav objednávky, vrátenie, reklamácia, žiadosť o ponuku, správa mimo pracovného času a odovzdanie do oddelenia.
+
+### Sú šablóny vhodné pre e-commerce?
+
+Áno. V e-commerce sa často opakujú otázky na sklad, dopravu, faktúru, vrátenie, reklamáciu a stav objednávky.
+
+### Dá sa v Chataptore vytvárať vlastné šablóny?
+
+Áno. Chataptor umožňuje vytvárať šablóny a priraďovať ich príkazom ako `/chvila`, `/doprava` alebo `/ponuka`.
+
+## Zhrnutie
+
+Pripravené odpovede nenahrádzajú ľudí. Pomáhajú ľuďom odpovedať rýchlejšie, pokojnejšie a jasnejšie.
+
+V Chataptore môžete vytvárať šablóny, riešiť viac kanálov v jednom inboxe a podporovať zákazníkov v rôznych jazykoch. Môžete [začať používať Chataptor zadarmo](https://chataptor.com/sk/).
 
 # Správy od zákazníkov na jednom mieste: ako upratať komunikáciu
 
